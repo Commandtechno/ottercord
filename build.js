@@ -4,11 +4,9 @@ const marked = require("marked");
 const lodash = require("lodash");
 const https = require("https");
 const fs = require("fs-extra");
-const { RatelimitProvider, RateLimiter } = require("./ratelimits.js") 
 
-const prefix = 'export const token="";import{request as raw}from"https";' + request.toString() + RatelimitProvider.toString() + RateLimiter.toString() + 'const RateLimiterInstance = new RateLimiter();';
-const types = ["string", "number", "boolean"];
 const top = [];
+const types = ["string", "number", "boolean"];
 
 async function download() {
   log("Downloading docs", true);
@@ -31,9 +29,24 @@ async function download() {
 }
 
 async function parse() {
-  const api = {};
+  const endpoints = {};
+  const api = { endpoints };
 
   log("Parsing docs", true);
+  const reference = marked.lexer(await fs.readFile("docs/Reference.md", "utf-8"));
+
+  reference.filter(({ type, text }, i) => {
+    if (api.base && api.version) return;
+    if (type !== "heading") return;
+    if (text === "Base URL") {
+      const code = reference.slice(i + 1).find(({ type }) => type === "code");
+      api.base = code.text;
+    } else if (text === "API Versioning") {
+      const table = reference.slice(i + 1).find(({ type }) => type === "table");
+      api.version = +table.rows[0][0].text;
+    }
+  });
+
   const files = await fs.readdir("docs/resources");
   for await (const file of files) {
     log("Reading " + file);
@@ -121,7 +134,7 @@ async function parse() {
         });
       });
 
-      api[name] = { method, path, params, query, body };
+      endpoints[name] = { method, path, params, query, body };
     });
   }
 
@@ -130,12 +143,18 @@ async function parse() {
 
 async function compile(api) {
   log("Compiling to TypeScript", true);
-  const lib = Object.entries(api)
-    .map(([key, { method, path, params, query, body }]) => {
+  const prefix =
+    [
+      "export const token = ''",
+      "const request = require('../request')('" + new URL(api.base).hostname + "', '/api/v" + api.version + "')",
+      "import { Stream } from 'stream'",
+      "interface File { name:string, value: string | Buffer | Stream }"
+    ].join("\n") + "\n";
+
+  const lib = sort(
+    Object.entries(api.endpoints).map(([key, { method, path, params, query, body }]) => {
       const requestArgs = ["'" + method + "'", "'" + path + "'"];
       const args = [];
-      const fn = [];
-      method = method.toLowerCase();
 
       log("Creating params for " + path);
       if (params.length)
@@ -148,65 +167,37 @@ async function compile(api) {
 
       log("Creating body for " + path);
       if (body) {
-        requestArgs.push("b");
         args.push("body:" + key + "Body");
-        fn.push(...parseBody(key, body));
+        requestArgs.push(...parseBody(key, body));
       } else requestArgs.push("null");
 
       log("Creating query for " + path);
       if (query) {
-        requestArgs.push("q");
         args.push("query:" + key + "Query={}");
-        fn.push(...parseQuery(key, query));
+        requestArgs.push(...parseQuery(key, query));
       } else requestArgs.push("null");
 
-      fn.push("return request(" + requestArgs + ")");
-      return "export function " + key + "(" + args + "){" + fn.join(";") + "}";
-    })
-    .sort(({ length: a }, { length: b }) => a - b)
-    .join("\n");
+      let res = "export function " + key + "(" + args + "){return request(" + requestArgs + ")}";
+      if (method !== "GET") {
+        let last = args.pop();
+        if (last) {
+          if (last.startsWith("query:")) {
+            args.push("files:File[]");
+            args.push(last);
+          } else {
+            args.push(last);
+            args.push("files:File[]");
+          }
 
-  return prefix + top.sort(({ length: a }, { length: b }) => a - b).join("\n") + "\n" + lib;
-}
-
-var RateLimiterInstance = new RateLimiter();
-
-function request(method, path, body, query) {
-  if (!token) Promise.reject("No token provided");
-
-  // definitely not scuffed
-  if (query) {
-    query = JSON.stringify(query);
-    if (query !== "{}") path += "?" + new URLSearchParams(JSON.parse(query)).toString();
-  }
-  console.log("here");
-
-  RateLimiterInstance.invoke(path);
-  console.log("not here");
-
-  return new Promise((resolve, reject) => {
-    const req = raw(
-      {
-        method,
-        path: "/api/v9" + path,
-        hostname: "discord.com",
-        headers: { "content-type": "application/json", authorization: "Bot " + token }
-      },
-      res => {
-        console.log(res.headers);
-        RateLimiterInstance.setAllowance(path, res.headers["x-ratelimit-remaining"], res.headers["x-ratelimit-reset"]);
-        if (res.statusCode < 200 || res.statusCode >= 400) reject(res.statusCode + ": " + res.statusMessage);
-        else {
-          let text = "";
-          res.on("data", chunk => (text += chunk));
-          res.on("end", () => resolve(res.headers["content-type"] === "application/json" ? JSON.parse(text) : text));
+          requestArgs.push("files");
+          res += "\n" + key + ".files=function " + key + "Files(" + args + "){return request(" + requestArgs + ")}";
         }
       }
-    );
+      return res;
+    })
+  ).join("\n");
 
-    if (body) req.write(JSON.stringify(body));
-    req.end();
-  });
+  return prefix + sort(top).join("\n") + "\n" + lib;
 }
 
 function validate(block) {
@@ -222,20 +213,26 @@ function boolean(string) {
   return string;
 }
 
+function sort(array) {
+  return array.sort(({ length: a }, { length: b }) => b - a);
+}
+
 function parseQuery(name, query) {
   let transform = [];
   top.push(
     "interface " +
       name +
       "Query{" +
-      Object.entries(query).map(([key, { required, type, name }]) => {
-        transform.push(name + ":query." + key);
-        return key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "string");
-      }) +
+      sort(
+        Object.entries(query).map(([key, { required, type, name }]) => {
+          transform.push("['" + name + "',query." + key + "]");
+          return key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "string");
+        })
+      ) +
       "}"
   );
 
-  return ["const q={" + transform + "}"];
+  return ["[" + sort(transform) + "]"];
 }
 
 function parseBody(name, body) {
@@ -244,14 +241,16 @@ function parseBody(name, body) {
     "interface " +
       name +
       "Body{" +
-      Object.entries(body).map(([key, { required, type, name }]) => {
-        transform.push(name + ":body." + key);
-        return key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "any");
-      }) +
+      sort(
+        Object.entries(body).map(([key, { required, type, name }]) => {
+          transform.push(name + ":body." + key);
+          return key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "any");
+        })
+      ) +
       "}"
   );
 
-  return ["const b={" + transform + "}"];
+  return ["{" + sort(transform) + "}"];
 }
 
 let loggingLevel = "none";
@@ -266,16 +265,16 @@ function log(string, important) {
 
   const exists = await fs.pathExists("docs");
   if (!exists) await download();
-  const api = await parse();
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "k" || a.toLowerCase() === "--keep"))
+  const parsed = await parse();
+  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
     await fs.rm("docs", { recursive: true });
 
-  const compiled = await compile(api);
+  const compiled = await compile(parsed);
   await fs.writeFile("index.ts", compiled);
 
   log("Compiling to JavaScript", true);
   execSync("tsc index.ts -d --outdir dist");
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "k" || a.toLowerCase() === "--keep"))
+  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
     await fs.unlink("index.ts");
 
   log("Completed", true);
