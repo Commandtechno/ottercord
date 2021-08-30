@@ -1,5 +1,3 @@
-const { modifyGuildSticker } = require(".");
-
 function RatelimitProvider() {
     this.routes = [],
     this.getLastRequestTime = function(route) {
@@ -32,7 +30,7 @@ function RatelimitProvider() {
     }
     this.setRequestAllowance = function(route, remaining, reset) {
         console.log("!!!!", remaining, reset);
-        if (remaining === undefined || reset === undefined) {
+        if (remaining === undefined || reset === undefined || remaining > 0) {
             return;
         }
 
@@ -43,13 +41,16 @@ function RatelimitProvider() {
 function RateLimiter() {
     this.provider = new RatelimitProvider();
     this.invoke = function(route) {
-        console.log(route, this.getDelay(route));
-        console.log("EVEN MORE IMPORTANT", this.getDelay(route));
-        while (this.getDelay(route) > 0) {
-            this.delay(this.getDelay(route));
-        }
+        return new Promise((resolve, reject) => {
+            console.log(route, this.getDelay(route));
+            console.log("EVEN MORE IMPORTANT", this.getDelay(route));
+            while (this.getDelay(route) > 0) {
+                this.delay(this.getDelay(route));
+            }
 
-        this.provider.setLastRequestTime(route, Date.now());
+            this.provider.setLastRequestTime(route, Date.now());
+            resolve();
+        });
     }
     this.getDelay = function(route) {
         console.log(this.provider.getRequestAllowance(route))

@@ -195,7 +195,6 @@ function request(method, path, body, query) {
       res => {
         console.log(res.headers);
         RateLimiterInstance.setAllowance(path, res.headers["x-ratelimit-remaining"], res.headers["x-ratelimit-reset"]);
-        if (res.statusCode == 429) return;
         if (res.statusCode < 200 || res.statusCode >= 400) reject(res.statusCode + ": " + res.statusMessage);
         else {
           let text = "";
