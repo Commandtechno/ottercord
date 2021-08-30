@@ -5,7 +5,7 @@ const lodash = require("lodash");
 const https = require("https");
 const fs = require("fs-extra");
 
-const prefix = 'export const token = "";\nimport { request as raw } from "https";\n' + request.toString();
+const prefix = 'export const token = "";\nimport { request as raw } from "https";\n' + request.toString() + "\n";
 const types = ["string", "number", "boolean"];
 const top = [];
 
@@ -81,7 +81,7 @@ async function parse() {
 
       if (queryIndex) {
         query = {};
-        const table = extra[queryIndex + 1];
+        const table = extra.slice(queryIndex + 1).find(({ type }) => type === "table");
         table.rows.forEach(([field, type, description, required]) => {
           field.text = field.text.replace(/[^\w]+$/, "");
           query[lodash.camelCase(field.text)] = {
@@ -100,13 +100,13 @@ async function parse() {
       extra.forEach(({ type, text }, i) => {
         if (bodyIndex) return;
         if (type !== "heading") return;
-        if (text !== "JSON/Form Params" && text !== "JSON Params") return;
+        if (text !== "JSON/Form Params" && !text.startsWith("JSON Params")) return;
         bodyIndex = i;
       });
 
       if (bodyIndex) {
         body = {};
-        const table = extra[bodyIndex + 1];
+        const table = extra.slice(bodyIndex + 1).find(({ type }) => type === "table");
         table.rows.forEach(([field, type, description, required]) => {
           type.text = type.text.replace(/\[[^\]]+\]\([^\)]+\)/g, hyperlink => hyperlink.slice(1, -1).split("](")[0]);
           field.text = field.text
@@ -268,7 +268,7 @@ function log(string, important) {
   const exists = await fs.pathExists("docs");
   if (!exists) await download();
   const api = await parse();
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "k" || a.toLowerCase() === "--keep"))
+  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
     await fs.rm("docs", { recursive: true });
 
   const data = await compile(api);
@@ -276,7 +276,7 @@ function log(string, important) {
 
   log("Compiling to JavaScript", true);
   execSync(process.cwd() + "/node_modules/.bin/tsc index.ts -d --outdir dist");
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "k" || a.toLowerCase() === "--keep"))
+  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
     await fs.unlink("index.ts");
 
   log("Completed", true);

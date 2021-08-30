@@ -7,7 +7,10 @@ This Discord rest library was automatically generated from the [discord develope
 This is not intended for a production bot and does not support ratelimits or sending files for now
 
 If you would like to see how this was created please see https://github.com/Commandtechno/ottercord/blob/master/build.js
+
 I plan on improving on this as currently it is a very base level library with nothing useful
+
+NOTE: typings arent accurate, its a bit scuffed at parsing like at https://discord.com/developers/docs/resources/channel#modify-channel so don't use this with typescript for now and don't always listen to intellisense (the typsecript was an extra and is lower priority for now it still works for a lot of things)
 
 # Usage
 
