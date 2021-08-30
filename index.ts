@@ -6,8 +6,10 @@ export const token="";import{request as raw}from"https";function request(method,
     query = JSON.stringify(query);
     if (query !== "{}") path += "?" + new URLSearchParams(JSON.parse(query)).toString();
   }
+  console.log("here");
 
   RateLimiterInstance.invoke(path);
+  console.log("not here");
 
   return new Promise((resolve, reject) => {
     const req = raw(
@@ -18,8 +20,9 @@ export const token="";import{request as raw}from"https";function request(method,
         headers: { "content-type": "application/json", authorization: "Bot " + token }
       },
       res => {
-        console.log(body);
+        console.log(res.headers);
         RateLimiterInstance.setAllowance(path, res.headers["x-ratelimit-remaining"], res.headers["x-ratelimit-reset"]);
+        if (res.statusCode == 429) return;
         if (res.statusCode < 200 || res.statusCode >= 400) reject(res.statusCode + ": " + res.statusMessage);
         else {
           let text = "";
@@ -47,16 +50,23 @@ export const token="";import{request as raw}from"https";function request(method,
     }
     this.getRequestAllowance = function(route) {
         if (this.routes[route] == undefined) {
+            console.log("case1");
             return 0;
         }
 
         if (this.routes[route]['reset'] == undefined) {
+            console.log("case2");
             return 0;
         }
 
-        return this.routes[route]['allowance'] - Date.now();
+        console.log("case3");
+
+        console.log("case4", this.routes[route]['reset'] - Date.now());
+
+        return this.routes[route]['reset'] - Date.now();
     }
     this.setRequestAllowance = function(route, remaining, reset) {
+        console.log("!!!!", remaining, reset);
         if (remaining === undefined || reset === undefined) {
             return;
         }
@@ -66,6 +76,8 @@ export const token="";import{request as raw}from"https";function request(method,
 }function RateLimiter() {
     this.provider = new RatelimitProvider();
     this.invoke = function(route) {
+        console.log(route, this.getDelay(route));
+        console.log("EVEN MORE IMPORTANT", this.getDelay(route));
         while (this.getDelay(route) > 0) {
             this.delay(this.getDelay(route));
         }
@@ -73,9 +85,13 @@ export const token="";import{request as raw}from"https";function request(method,
         this.provider.setLastRequestTime(route, Date.now());
     }
     this.getDelay = function(route) {
+        console.log(this.provider.getRequestAllowance(route))
+        console.log(Date.now())
+        console.log(this.provider.getLastRequestTime(route))
         return Math.max(0, this.provider.getRequestAllowance(route) - (Date.now() - this.provider.getLastRequestTime(route)));
     }
     this.delay = function(mstime) {
+        console.log("delay for", mstime);
         return new Promise(resolve => setTimeout(resolve, mstime));
     }
     this.setAllowance = function(route, remaining, reset) {
@@ -135,6 +151,7 @@ interface executeWebhookBody{content?:string,username?:string,avatarUrl?:string,
 interface createMessageBody{content?:string,tts?:boolean,file?:any,embeds?:any,embed?:any,payloadJson?:string,allowedMentions?:any,messageReference?:any,components?:any,stickerIds?:any}
 interface createGuildChannelBody{name?:string,type?:any,topic?:string,bitrate?:any,userLimit?:any,rateLimitPerUser?:any,position?:any,permissionOverwrites?:any,parentId?:any,nsfw?:boolean}
 interface createGuildBody{name?:string,region?:any,icon?:any,verificationLevel?:any,defaultMessageNotifications?:any,explicitContentFilter?:any,roles?:any,channels?:any,afkChannelId?:any,afkTimeout?:any,systemChannelId?:any,systemChannelFlags?:any}
+interface modifyChannelBody{name?:string,icon?:any,type?:any,position?:any,topic?:any,nsfw?:any,rateLimitPerUser?:any,bitrate?:any,userLimit?:any,permissionOverwrites?:any,parentId?:any,rtcRegion?:any,videoQualityMode?:any,defaultAutoArchiveDuration?:any,archived?:boolean,autoArchiveDuration?:any,locked?:boolean,invitable?:boolean}
 interface modifyGuildBody{name?:string,region?:any,verificationLevel?:any,defaultMessageNotifications?:any,explicitContentFilter?:any,afkChannelId?:any,afkTimeout?:any,icon?:any,ownerId?:any,splash?:any,discoverySplash?:any,banner?:any,systemChannelId?:any,systemChannelFlags?:any,rulesChannelId?:any,publicUpdatesChannelId?:any,preferredLocale?:any,features?:any,description?:any}
 export function getCurrentUser(){return request('GET','/users/@me',null,null)}
 export function listVoiceRegions(){return request('GET','/voice/regions',null,null)}
@@ -152,7 +169,6 @@ export function getGuildPreview(guildId:string){return request('GET','/guilds/:g
 export function getGuildInvites(guildId:string){return request('GET','/guilds/:guildId/invites'.replace(':guildId', guildId),null,null)}
 export function leaveGuild(guildId:string){return request('DELETE','/users/@me/guilds/:guildId'.replace(':guildId', guildId),null,null)}
 export function createDm(body:createDmBody){const b={recipient_id:body.recipientId};return request('POST','/users/@me/channels',b,null)}
-export function modifyChannel(channelId:string){return request('PATCH','/channels/:channelId'.replace(':channelId', channelId),null,null)}
 export function getGuildChannels(guildId:string){return request('GET','/guilds/:guildId/channels'.replace(':guildId', guildId),null,null)}
 export function getGuildWebhooks(guildId:string){return request('GET','/guilds/:guildId/webhooks'.replace(':guildId', guildId),null,null)}
 export function modifyGuildWidget(guildId:string){return request('PATCH','/guilds/:guildId/widget'.replace(':guildId', guildId),null,null)}
@@ -264,4 +280,5 @@ export function editMessage(channelId:string,messageId:string,body:editMessageBo
 export function createGuild(body:createGuildBody){const b={name:body.name,region:body.region,icon:body.icon,verification_level:body.verificationLevel,default_message_notifications:body.defaultMessageNotifications,explicit_content_filter:body.explicitContentFilter,roles:body.roles,channels:body.channels,afk_channel_id:body.afkChannelId,afk_timeout:body.afkTimeout,system_channel_id:body.systemChannelId,system_channel_flags:body.systemChannelFlags};return request('POST','/guilds',b,null)}
 export function editWebhookMessage(webhookId:string,webhookToken:string,messageId:string,body:editWebhookMessageBody){const b={content:body.content,embeds:body.embeds,file:body.file,payload_json:body.payloadJson,allowed_mentions:body.allowedMentions,attachments:body.attachments,components:body.components};return request('PATCH','/webhooks/:webhookId/:webhookToken/messages/:messageId'.replace(':webhookId', webhookId).replace(':webhookToken', webhookToken).replace(':messageId', messageId),b,null)}
 export function executeWebhook(webhookId:string,webhookToken:string,body:executeWebhookBody,query:executeWebhookQuery={}){const b={content:body.content,username:body.username,avatar_url:body.avatarUrl,tts:body.tts,file:body.file,embeds:body.embeds,payload_json:body.payloadJson,allowed_mentions:body.allowedMentions,components:body.components};const q={wait:query.wait,thread_id:query.threadId};return request('POST','/webhooks/:webhookId/:webhookToken'.replace(':webhookId', webhookId).replace(':webhookToken', webhookToken),b,q)}
+export function modifyChannel(channelId:string,body:modifyChannelBody){const b={name:body.name,icon:body.icon,type:body.type,position:body.position,topic:body.topic,nsfw:body.nsfw,rate_limit_per_user:body.rateLimitPerUser,bitrate:body.bitrate,user_limit:body.userLimit,permission_overwrites:body.permissionOverwrites,parent_id:body.parentId,rtc_region:body.rtcRegion,video_quality_mode:body.videoQualityMode,default_auto_archive_duration:body.defaultAutoArchiveDuration,archived:body.archived,auto_archive_duration:body.autoArchiveDuration,locked:body.locked,invitable:body.invitable};return request('PATCH','/channels/:channelId'.replace(':channelId', channelId),b,null)}
 export function modifyGuild(guildId:string,body:modifyGuildBody){const b={name:body.name,region:body.region,verification_level:body.verificationLevel,default_message_notifications:body.defaultMessageNotifications,explicit_content_filter:body.explicitContentFilter,afk_channel_id:body.afkChannelId,afk_timeout:body.afkTimeout,icon:body.icon,owner_id:body.ownerId,splash:body.splash,discovery_splash:body.discoverySplash,banner:body.banner,system_channel_id:body.systemChannelId,system_channel_flags:body.systemChannelFlags,rules_channel_id:body.rulesChannelId,public_updates_channel_id:body.publicUpdatesChannelId,preferred_locale:body.preferredLocale,features:body.features,description:body.description};return request('PATCH','/guilds/:guildId'.replace(':guildId', guildId),b,null)}
