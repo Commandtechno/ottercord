@@ -165,7 +165,7 @@ async function compile(api) {
       log("Creating query for " + path);
       if (query) {
         requestArgs.push("q");
-        args.push("query:" + key + "Query");
+        args.push("query:" + key + "Query={}");
         fn.push(...parseQuery(key, query));
       } else requestArgs.push("null");
 
@@ -180,7 +180,13 @@ async function compile(api) {
 
 function request(method, path, body, query) {
   if (!token) Promise.reject("No token provided");
-  if (query) path += new URLSearchParams(query).toString();
+
+  // definitely not scuffed
+  if (query) {
+    query = JSON.stringify(query);
+    if (query !== "{}") path += "?" + new URLSearchParams(JSON.parse(query)).toString();
+  }
+
   return new Promise((resolve, reject) => {
     const req = raw(
       {
