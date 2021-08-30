@@ -5,7 +5,7 @@ const lodash = require("lodash");
 const https = require("https");
 const fs = require("fs-extra");
 
-const prefix = 'export const token="";import{request as raw}from"https";' + request.toString();
+const prefix = 'export const token = "";\nimport { request as raw } from "https";\n' + request.toString();
 const types = ["string", "number", "boolean"];
 const top = [];
 
@@ -275,7 +275,7 @@ function log(string, important) {
   await fs.writeFile("index.ts", data);
 
   log("Compiling to JavaScript", true);
-  execSync("tsc index.ts -d --outdir dist");
+  execSync(process.cwd() + "/node_modules/.bin/tsc index.ts -d --outdir dist");
   if (!process.argv.slice(2).some(a => a.toLowerCase() === "k" || a.toLowerCase() === "--keep"))
     await fs.unlink("index.ts");
 
