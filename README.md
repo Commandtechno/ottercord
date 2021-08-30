@@ -25,6 +25,7 @@ ottercord.createMessage("828868136387346445", { content: "among us" });
 ```bash
 git clone https://github.com/Commandtechno/ottercord
 cd ottercord
+npm i
 node build # Build with no logging
 node build * # Build with logging some info
 node build verbose # Build with logging all info
