@@ -15,7 +15,7 @@ Install it with `npm i ottercord`
 
 ```js
 const ottercord = require("ottercord");
-ottercord.setToken("MTk4NjIyNDgzNDcxOTI1MjQ4.Cl2FMQ.ZnCjm1XVW7vRze4b7Cq4se7kKWs");
+ottercord.token = "MTk4NjIyNDgzNDcxOTI1MjQ4.Cl2FMQ.ZnCjm1XVW7vRze4b7Cq4se7kKWs";
 ottercord.getCurrentUser().then(console.log);
 ottercord.createMessage("828868136387346445", { content: "among us" });
 ```
