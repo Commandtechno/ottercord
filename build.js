@@ -70,18 +70,13 @@ async function parse() {
 
       log("Getting query for " + name);
       let query;
-      let queryIndex;
 
       extra.forEach(({ type, text }, i) => {
-        if (queryIndex) return;
         if (type !== "heading") return;
         if (text !== "Query String Params") return;
-        queryIndex = i;
-      });
 
-      if (queryIndex) {
-        query = {};
-        const table = extra.slice(queryIndex + 1).find(({ type }) => type === "table");
+        query ??= {};
+        const table = extra.slice(i + 1).find(({ type }) => type === "table");
         table.rows.forEach(([field, type, description, required]) => {
           field.text = field.text.replace(/[^\w]+$/, "");
           query[lodash.camelCase(field.text)] = {
@@ -91,22 +86,17 @@ async function parse() {
             required: boolean(required?.text)
           };
         });
-      }
+      });
 
       log("Getting body for " + name);
       let body;
-      let bodyIndex;
 
       extra.forEach(({ type, text }, i) => {
-        if (bodyIndex) return;
         if (type !== "heading") return;
         if (text !== "JSON/Form Params" && !text.startsWith("JSON Params")) return;
-        bodyIndex = i;
-      });
 
-      if (bodyIndex) {
-        body = {};
-        const table = extra.slice(bodyIndex + 1).find(({ type }) => type === "table");
+        body ??= {};
+        const table = extra.slice(i + 1).find(({ type }) => type === "table");
         table.rows.forEach(([field, type, description, required]) => {
           type.text = type.text.replace(/\[[^\]]+\]\([^\)]+\)/g, hyperlink => hyperlink.slice(1, -1).split("](")[0]);
           field.text = field.text
@@ -128,7 +118,7 @@ async function parse() {
             required: boolean(required?.text)
           };
         });
-      }
+      });
 
       api[name] = { method, path, params, query, body };
     });
@@ -271,8 +261,8 @@ function log(string, important) {
   if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
     await fs.rm("docs", { recursive: true });
 
-  const data = await compile(api);
-  await fs.writeFile("index.ts", data);
+  const compiled = await compile(api);
+  await fs.writeFile("index.ts", compiled);
 
   log("Compiling to JavaScript", true);
   execSync(process.cwd() + "/node_modules/.bin/tsc index.ts -d --outdir dist");
