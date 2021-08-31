@@ -2,15 +2,13 @@
 
 # Info
 
-This Discord rest library was automatically generated from the [discord developer documentaition](https://github.com/discord/discord-api-docs) is a proof of concept, and is far from done
+This Discord rest library was automatically generated from the [discord developer documentaition](https://github.com/discord/discord-api-docs) and is a proof of concept
 
-This is not intended for a production bot and does not support ratelimits or sending files for now
+This is not intended for a production bot though I plan on improving this
 
 If you would like to see how this was created please see https://github.com/Commandtechno/ottercord/blob/master/build.js
 
-I plan on improving on this as currently it is a very base level library with nothing useful
-
-NOTE: typings arent accurate, its a bit scuffed at parsing like at https://discord.com/developers/docs/resources/channel#modify-channel so don't use this with typescript for now and don't always listen to intellisense (the typsecript was an extra and is lower priority for now it still works for a lot of things)
+Documentation: https://commandtechno.com/ottercord (Coming Soon)
 
 # Usage
 
@@ -18,21 +16,24 @@ Install it with `npm i ottercord`
 
 ```js
 const ottercord = require("ottercord");
-ottercord.token = "MTk4NjIyNDgzNDcxOTI1MjQ4.Cl2FMQ.ZnCjm1XVW7vRze4b7Cq4se7kKWs";
-ottercord.getCurrentUser().then(console.log);
-ottercord.createMessage("828868136387346445", { content: "among us" });
+const client = ottercord("MTk4NjIyNDgzNDcxOTI1MjQ4.Cl2FMQ.ZnCjm1XVW7vRze4b7Cq4se7kKWs");
+client.getCurrentUser().then(console.log);
+client.createMessage("828868136387346445", { content: "among us" });
 ```
 
 # Building
 
 ```bash
-git clone https://github.com/Commandtechno/ottercord
-cd ottercord
-npm i
+git clone https://github.com/Commandtechno/ottercord # Clone repository
+cd ottercord # Enter directory
+npm i # Install dependencies
 node build # Build with no logging
 node build * # Build with logging some info
 node build verbose # Build with logging all info
-node build verbose --keep # Build with logging all info and don't delete files
+node build -p # Build with creating parsed.json with the parsed docs
+node build -d # Build with keeping the docs folder
+node build -g # Also generates the website for documentation
+node build -t # Keep typescript file
 ```
 
 # Contribution

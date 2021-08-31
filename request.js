@@ -1,64 +1,13 @@
+const { request: raw } = require("https");
+const { readFileSync } = require("fs");
+const { basename } = require("path");
 const FormData = require("form-data");
 
-const { request: raw } = require("https");
-
-function RatelimitProvider() {
-  const routes = {};
-
-  function getLastRequestTime(route) {
-    return routes[route]?.lastRequestTime;
-  }
-
-  function setLastRequestTime(route, time) {
-    routes[route] ??= {};
-    routes[route].lastRequestTime = time;
-  }
-
-  function getRequestAllowance(route) {
-    if (!routes[route]?.reset) return 0;
-    return routes[route].reset - Date.now();
-  }
-
-  function setRequestAllowance(route, remaining, reset) {
-    if (remaining && reset && remaining >= 0) routes[route].reset = reset;
-  }
-
-  return {
-    getLastRequestTime,
-    setLastRequestTime,
-    getRequestAllowance,
-    setRequestAllowance
-  };
-}
-
-function RateLimiter() {
-  const provider = new RatelimitProvider();
-  async function invoke(route) {
-    const time = getDelay(route);
-    if (time) await delay(getDelay(route));
-    provider.setLastRequestTime(route, Date.now());
-  }
-
-  function getDelay(route) {
-    return Math.max(0, provider.getRequestAllowance(route) - (Date.now() - provider.getLastRequestTime(route)));
-  }
-
-  function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
-
-  function setAllowance(route, remaining, reset) {
-    provider.setRequestAllowance(route, remaining, reset);
-  }
-
-  return { invoke, getDelay, delay, setAllowance };
-}
-
-const RateLimiterInstance = new RateLimiter();
-
-module.exports = function (hostname, prefix, token) {
-  return async function (method, path, body, query, files) {
-    const headers = { Authorization: "Bot " + token };
+module.exports = function (hostname, prefix, authorization) {
+  const store = {};
+  let promise;
+  return async function (bucket, method, path, body, query, files) {
+    const headers = { authorization };
 
     if (body) {
       headers["Content-Type"] = "application/json";
@@ -69,7 +18,13 @@ module.exports = function (hostname, prefix, token) {
     if (files) {
       headers["Content-Type"] = "multipart/form-data";
       form = new FormData();
-      files.forEach(file => form.append(file.name, file.value, file.name));
+
+      if (typeof files.forEach !== "function") files = [files];
+      files.forEach(file => {
+        if (typeof file === "string") file = { name: basename(file), value: readFileSync(file) };
+        form.append(file.name, file.value, file.name);
+      });
+
       if (body) form.append("payload_json", body);
       Object.assign(headers, form.getHeaders());
     }
@@ -79,8 +34,14 @@ module.exports = function (hostname, prefix, token) {
       if (query.length) path += "?" + new URLSearchParams(query).toString();
     }
 
-    await RateLimiterInstance.invoke(path);
-    return new Promise((resolve, reject) => {
+    promise = new Promise(async (resolve, reject) => {
+      await promise;
+      const ratelimit = store[bucket];
+      if (ratelimit) {
+        await new Promise(resolve => setTimeout(resolve, -(Date.now() - ratelimit * 1000)));
+        store[bucket] = 0;
+      }
+
       const req = raw(
         {
           method,
@@ -89,11 +50,7 @@ module.exports = function (hostname, prefix, token) {
           path: prefix + path
         },
         res => {
-          RateLimiterInstance.setAllowance(
-            path,
-            res.headers["x-ratelimit-remaining"],
-            res.headers["x-ratelimit-reset"]
-          );
+          if (res.headers["x-ratelimit-remaining"] === "0") store[bucket] = res.headers["x-ratelimit-reset"];
           if (res.statusCode < 200 || res.statusCode >= 400) reject(Error(res.statusCode + ": " + res.statusMessage));
           else {
             let text = "";
@@ -108,5 +65,7 @@ module.exports = function (hostname, prefix, token) {
 
       req.end();
     });
+
+    return promise;
   };
 };
