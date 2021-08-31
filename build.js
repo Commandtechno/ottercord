@@ -154,14 +154,24 @@ async function compile(api) {
 
   const lib = sort(
     Object.entries(api.endpoints).map(([key, { method, path, params, query, body }]) => {
-      const requestArgs = ["'" + method + "'", "'" + path + "'"];
       const args = [];
+      const requestArgs = [
+        [
+          "'" + method + "'",
+          params.includes("channelId") ? "channelId" : "'none'",
+          params.includes("guildId") ? "guildId" : "'none'",
+          "'" + path + "'"
+        ].join("+':'+"),
+        "'" + method + "'",
+        "'" + path + "'"
+      ];
 
       log("Creating params for " + path);
       if (params.length)
         args.push(
           ...params.map(param => {
-            requestArgs[1] += ".replace(':" + param + "', " + param + ")";
+            const last = requestArgs.length - 1;
+            requestArgs[last] = requestArgs[last].replace(":" + param, "'+" + param + "+'").replace(/\+''$/, "");
             return param + ":string";
           })
         );
@@ -178,31 +188,31 @@ async function compile(api) {
         requestArgs.push(...parseQuery(key, query));
       } else requestArgs.push("null");
 
-      let res = key + "(" + args + "){return $(" + requestArgs + ")},";
+      let pre = key + "(" + args + "):Promise<any>{return $(" + requestArgs + ")},";
       if (method !== "GET") {
         let last = args.pop();
         if (last) {
+          requestArgs.push("files");
           if (last.startsWith("query:")) {
-            args.push("files:File[]");
+            args.push("files:Array<string|File>");
             args.push(last);
+            return pre + "\n" + key + "Files(" + args + "){return $(" + requestArgs + ")},";
           } else {
             args.push(last);
-            args.push("files:File[]");
+            args.push("files:Array<string|File>");
+            return key + "(" + args + "):Promise<any>{return $(" + requestArgs + ")},";
           }
-
-          requestArgs.push("files");
-          res += "\n" + key + "Files(" + args + "){return $(" + requestArgs + ")},";
         }
       }
 
-      return res;
+      return pre;
     })
   ).join("\n");
 
   return (
     prefix +
     sort(top).join("\n") +
-    "\nexport = function(token: string) {\nconst $ = request(hostname, prefix, token)\nreturn {\n" +
+    "\nexport = function(token: string, type: string = 'Bot') {\nconst $ = request(hostname, prefix, typeof type === 'string' ? type + ' ' + token : token)\nreturn {\n" +
     lib +
     "\n}\n}"
   );
@@ -269,21 +279,42 @@ function log(string, important) {
 }
 
 (async () => {
-  if (process.argv[2]) loggingLevel = process.argv[2];
+  const bin = process.cwd() + "/node_modules/.bin/";
+  const package = require("./package.json");
+  const options = process.argv
+    .slice(2)
+    .filter(a => a.startsWith("-"))
+    .map(a => a.replace(/-+/, "").toLowerCase());
 
-  const exists = await fs.pathExists("docs");
-  if (!exists) await download();
+  if (options.includes("a") || options.includes("all")) options.push(..."pdgt".split(""));
+  if (process.argv[2] && !process.argv[2].startsWith("-")) loggingLevel = process.argv[2];
+  if (!(await fs.pathExists("docs"))) await download();
   const parsed = await parse();
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
+
+  if (options.includes("p") || options.includes("parsed"))
+    await fs.writeFile("parsed.json", JSON.stringify(parsed, null, 2));
+  else if (await fs.pathExists("parsed.json")) await fs.unlink("parsed.json");
+  if (!options.includes("d") && !options.includes("docs") && !options.includes("documentation"))
     await fs.rm("docs", { recursive: true });
 
   const compiled = await compile(parsed);
   await fs.writeFile("index.ts", compiled);
 
+  if (options.includes("g") || options.includes("gen") || options.includes("generate")) {
+    log("Building Docs", true);
+    await fs.writeFile("tsconfig.json", JSON.stringify({}));
+    await execSync(
+      bin +
+        'typedoc index.ts --out web --theme default --readme README.MD --name "' +
+        package.name +
+        '" --includeVersion'
+    );
+    await fs.unlink("tsconfig.json");
+  } else if (await fs.pathExists("web")) await fs.rm("web", { recursive: true });
+
   log("Compiling to JavaScript", true);
-  execSync("tsc index.ts -d --outdir dist");
-  if (!process.argv.slice(2).some(a => a.toLowerCase() === "-k" || a.toLowerCase() === "--keep"))
-    await fs.unlink("index.ts");
+  execSync(bin + "tsc index.ts -d --outdir dist");
+  if (!options.includes("t") && !options.includes("ts") && !options.includes("typescript")) await fs.unlink("index.ts");
 
   log("Completed", true);
 })();
