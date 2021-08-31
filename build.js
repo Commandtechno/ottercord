@@ -145,10 +145,11 @@ async function compile(api) {
   log("Compiling to TypeScript", true);
   const prefix =
     [
-      "export const token = ''",
-      "const request = require('../request')('" + new URL(api.base).hostname + "', '/api/v" + api.version + "')",
+      "const hostname = '" + new URL(api.base).hostname + "'",
+      "const prefix = '/api/v" + api.version + "'",
+      "const request = require('../request')",
       "import { Stream } from 'stream'",
-      "interface File { name:string, value: string | Buffer | Stream }"
+      "interface File { name: string, value: string | Buffer | Stream }"
     ].join("\n") + "\n";
 
   const lib = sort(
@@ -177,7 +178,7 @@ async function compile(api) {
         requestArgs.push(...parseQuery(key, query));
       } else requestArgs.push("null");
 
-      let res = "export function " + key + "(" + args + "){return request(" + requestArgs + ")}";
+      let res = key + "(" + args + "){return $(" + requestArgs + ")},";
       if (method !== "GET") {
         let last = args.pop();
         if (last) {
@@ -190,14 +191,21 @@ async function compile(api) {
           }
 
           requestArgs.push("files");
-          res += "\n" + key + ".files=function " + key + "Files(" + args + "){return request(" + requestArgs + ")}";
+          res += "\n" + key + "Files(" + args + "){return $(" + requestArgs + ")},";
         }
       }
+
       return res;
     })
   ).join("\n");
 
-  return prefix + sort(top).join("\n") + "\n" + lib;
+  return (
+    prefix +
+    sort(top).join("\n") +
+    "\nexport = function(token: string) {\nconst $ = request(hostname, prefix, token)\nreturn {\n" +
+    lib +
+    "\n}\n}"
+  );
 }
 
 function validate(block) {
@@ -214,7 +222,7 @@ function boolean(string) {
 }
 
 function sort(array) {
-  return array.sort(({ length: a }, { length: b }) => b - a);
+  return array.sort(({ length: a }, { length: b }) => a - b);
 }
 
 function parseQuery(name, query) {

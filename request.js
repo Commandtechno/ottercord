@@ -1,10 +1,12 @@
 const FormData = require("form-data");
 
+const { request: raw } = require("https");
+
 function RatelimitProvider() {
   const routes = {};
 
   function getLastRequestTime(route) {
-    return routes[route].lastRequestTime;
+    return routes[route]?.lastRequestTime;
   }
 
   function setLastRequestTime(route, time) {
@@ -54,13 +56,22 @@ function RateLimiter() {
 
 const RateLimiterInstance = new RateLimiter();
 
-module.exports = function (hostname, prefix) {
-  return function (method, path, body, query, files) {
-    if (!token) Promise.reject(Error("No token provided"));
+module.exports = function (hostname, prefix, token) {
+  return async function (method, path, body, query, files) {
+    const headers = { Authorization: "Bot " + token };
 
+    if (body) {
+      headers["Content-Type"] = "application/json";
+      if (typeof body !== "string") body = JSON.stringify(body);
+    }
+
+    let form;
     if (files) {
-      const form = new FormData();
+      headers["Content-Type"] = "multipart/form-data";
+      form = new FormData();
       files.forEach(file => form.append(file.name, file.value, file.name));
+      if (body) form.append("payload_json", body);
+      Object.assign(headers, form.getHeaders());
     }
 
     if (query) {
@@ -73,9 +84,9 @@ module.exports = function (hostname, prefix) {
       const req = raw(
         {
           method,
+          headers,
           hostname,
-          path: prefix + path,
-          headers: { "content-type": "application/json", authorization: "Bot " + token }
+          path: prefix + path
         },
         res => {
           RateLimiterInstance.setAllowance(
@@ -92,7 +103,9 @@ module.exports = function (hostname, prefix) {
         }
       );
 
-      if (body) req.write(JSON.stringify(body));
+      if (form) form.pipe(req);
+      else if (body) req.write(body);
+
       req.end();
     });
   };
