@@ -194,12 +194,12 @@ async function compile(api) {
         if (last) {
           requestArgs.push("files");
           if (last.startsWith("query:")) {
-            args.push("files:Array<string|File>");
+            args.push("files:string|File|Array<string|File>");
             args.push(last);
             return pre + "\n" + key + "Files(" + args + "){return $(" + requestArgs + ")},";
           } else {
             args.push(last);
-            args.push("files:Array<string|File>");
+            args.push("files:string|File|Array<string|File>");
             return key + "(" + args + "):Promise<any>{return $(" + requestArgs + ")},";
           }
         }

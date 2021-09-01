@@ -8,7 +8,7 @@ This is not intended for a production bot though I plan on improving this
 
 If you would like to see how this was created please see https://github.com/Commandtechno/ottercord/blob/master/build.js
 
-Documentation: https://commandtechno.com/ottercord (Coming Soon)
+Documentation: https://ottercord.bruhmomentlol.repl.co/
 
 # Usage
 
