@@ -1,6 +1,4 @@
 const { request: raw } = require("https");
-const { readFileSync } = require("fs");
-const { basename } = require("path");
 const FormData = require("form-data");
 
 module.exports = function (hostname, prefix, authorization) {
@@ -19,13 +17,10 @@ module.exports = function (hostname, prefix, authorization) {
       headers["Content-Type"] = "multipart/form-data";
       form = new FormData();
 
-      if (typeof files.forEach !== "function") files = [files];
-      files.forEach(file => {
-        if (typeof file === "string") file = { name: basename(file), value: readFileSync(file) };
-        form.append(file.name, file.value, file.name);
-      });
-
       if (body) form.append("payload_json", body);
+      if (typeof files.forEach !== "function") files = [files];
+
+      files.forEach(file => form.append(file.name, file.value, file.name));
       Object.assign(headers, form.getHeaders());
     }
 

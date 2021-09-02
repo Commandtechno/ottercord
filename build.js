@@ -107,7 +107,7 @@ async function parse() {
 
       extra.forEach(({ type, text }, i) => {
         if (type !== "heading") return;
-        if (text !== "JSON/Form Params" && !text.startsWith("JSON Params")) return;
+        if (!text.includes("Form Params") && !text.includes("JSON Params")) return;
 
         body ??= {};
         const table = extra.slice(i + 1).find(({ type }) => type === "table");
@@ -194,12 +194,12 @@ async function compile(api) {
         if (last) {
           requestArgs.push("files");
           if (last.startsWith("query:")) {
-            args.push("files:string|File|Array<string|File>");
+            args.push("files?:File|Array<string|File>");
             args.push(last);
             return pre + "\n" + key + "Files(" + args + "){return $(" + requestArgs + ")},";
           } else {
             args.push(last);
-            args.push("files:string|File|Array<string|File>");
+            args.push("files?:File|Array<string|File>");
             return key + "(" + args + "):Promise<any>{return $(" + requestArgs + ")},";
           }
         }
