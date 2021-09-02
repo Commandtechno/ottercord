@@ -13,7 +13,7 @@ module.exports = function (hostname, prefix, authorization) {
     }
 
     let form;
-    if (files) {
+    if (files?.length) {
       headers["Content-Type"] = "multipart/form-data";
       form = new FormData();
 
