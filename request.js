@@ -1,9 +1,10 @@
 const { request: raw } = require("https");
+const { AsyncQueue } = require("@sapphire/async-queue");
 const FormData = require("form-data");
 
 module.exports = function (hostname, prefix, authorization) {
   const store = {};
-  let promise;
+  const queue = new AsyncQueue();
   return async function (bucket, method, path, body, query, files) {
     const headers = { authorization };
 
@@ -29,8 +30,8 @@ module.exports = function (hostname, prefix, authorization) {
       if (query.length) path += "?" + new URLSearchParams(query).toString();
     }
 
-    promise = new Promise(async (resolve, reject) => {
-      await promise;
+    return new Promise(async (resolve, reject) => {
+      await queue.wait();
       const ratelimit = store[bucket];
       if (ratelimit) {
         await new Promise(resolve => setTimeout(resolve, -(Date.now() - ratelimit * 1000)));
@@ -45,8 +46,10 @@ module.exports = function (hostname, prefix, authorization) {
           path: prefix + path
         },
         res => {
+          queue.shift();
           if (res.headers["x-ratelimit-remaining"] === "0") store[bucket] = res.headers["x-ratelimit-reset"];
-          if (res.statusCode < 200 || res.statusCode >= 400) reject(Error(res.statusCode + ": " + res.statusMessage));
+          if (res.statusCode < 200 || res.statusCode >= 400)
+            reject(Error(method + " " + path + " returned " + res.statusCode + ": " + res.statusMessage));
           else {
             let text = "";
             res.on("data", chunk => (text += chunk));
@@ -60,7 +63,5 @@ module.exports = function (hostname, prefix, authorization) {
 
       req.end();
     });
-
-    return promise;
   };
 };
