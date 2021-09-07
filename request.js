@@ -15,11 +15,11 @@ module.exports = function (hostname, prefix, authorization) {
 
     let form;
     if (files) {
-      if (body) form.append("payload_json", body);
-      if (typeof files.forEach !== "function") files = [files];
-
       headers["Content-Type"] = "multipart/form-data";
       form = new FormData();
+
+      if (body) form.append("payload_json", body);
+      if (typeof files.forEach !== "function") files = [files];
 
       files.forEach(file => form.append(file.name, file.value, file.name));
       Object.assign(headers, form.getHeaders());
