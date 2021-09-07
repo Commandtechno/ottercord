@@ -10,6 +10,8 @@ If you would like to see how this was created please see https://github.com/Comm
 
 Documentation: https://ottercord.bruhmomentlol.repl.co/
 
+NOTE: This library does not support interactions as of now
+
 # Usage
 
 Install it with `npm i ottercord`
