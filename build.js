@@ -112,7 +112,10 @@ async function parse() {
         body ??= {};
         const table = extra.slice(i + 1).find(({ type }) => type === "table");
         table.rows.forEach(([field, type, description, required]) => {
-          type.text = type.text.replace(/\[[^\]]+\]\([^\)]+\)/g, hyperlink => hyperlink.slice(1, -1).split("](")[0]);
+          type.text = type.text.replace(
+            /\[[^\]]+\]\([^\)]+\)/g,
+            hyperlink => hyperlink.slice(1, -1).split("](")[0]
+          );
           field.text = field.text
             .replace("(deprecated)", "")
             .replace(/^\?/, "")
@@ -171,7 +174,9 @@ async function compile(api) {
         args.push(
           ...params.map(param => {
             const last = requestArgs.length - 1;
-            requestArgs[last] = requestArgs[last].replace(":" + param, "'+" + param + "+'").replace(/\+''$/, "");
+            requestArgs[last] = requestArgs[last]
+              .replace(":" + param, "'+" + param + "+'")
+              .replace(/\+''$/, "");
             return param + ":string";
           })
         );
@@ -244,7 +249,9 @@ function parseQuery(name, query) {
       sort(
         Object.entries(query).map(([key, { required, type, name }]) => {
           transform.push("['" + name + "',query." + key + "]");
-          return key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "string");
+          return (
+            key + (required === true ? "" : "?") + ":" + (types.includes(type) ? type : "string")
+          );
         })
       ) +
       "}"
@@ -314,7 +321,8 @@ function log(string, important) {
 
   log("Compiling to JavaScript", true);
   execSync(bin + "tsc index.ts -d --outdir dist");
-  if (!options.includes("t") && !options.includes("ts") && !options.includes("typescript")) await fs.unlink("index.ts");
+  if (!options.includes("t") && !options.includes("ts") && !options.includes("typescript"))
+    await fs.unlink("index.ts");
 
   log("Completed", true);
 })();
