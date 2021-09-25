@@ -86,7 +86,7 @@ module.exports = function (hostname, prefix, authorization) {
       } else if (body) {
         req.write(body);
         req.end();
-      }
+      } else req.end();
     });
   };
 };
