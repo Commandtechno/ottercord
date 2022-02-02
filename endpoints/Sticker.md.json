@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Get Sticker",
+    "method": "GET",
+    "path": "/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a sticker object for the given sticker ID."
+  },
+  {
+    "name": "List Nitro Sticker Packs",
+    "method": "GET",
+    "path": "/sticker-packs",
+    "params": [],
+    "query": [],
+    "description": "Returns the list of sticker packs available to Nitro subscribers."
+  },
+  {
+    "name": "List Guild Stickers",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+  },
+  {
+    "name": "Get Guild Sticker",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+  },
+  {
+    "name": "Create Guild Sticker",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
+    "body": {
+      "json": false,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the sticker (2-30 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "description of the sticker (empty or 2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "file",
+          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Sticker",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the sticker (2-30 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description",
+          "description": "description of the sticker (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "required": false
+        }
+      ]
+    }
+  }
+]

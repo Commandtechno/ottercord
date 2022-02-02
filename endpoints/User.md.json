@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Get Current User",
+    "method": "GET",
+    "path": "/users/@me",
+    "params": [],
+    "query": [],
+    "description": "Returns the user object of the requester&#39;s account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
+  },
+  {
+    "name": "Get User",
+    "method": "GET",
+    "path": "/users/{user.id}",
+    "params": [
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a user object for a given user ID."
+  },
+  {
+    "name": "Modify Current User",
+    "method": "PATCH",
+    "path": "/users/@me",
+    "params": [],
+    "query": [],
+    "description": "Modify the requester&#39;s user account settings. Returns a user object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "username",
+          "description": "user's username, if changed may cause the user's discriminator to be randomized.",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "avatar",
+          "description": "if passed, modifies the user's avatar",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Current User Guilds",
+    "method": "GET",
+    "path": "/users/@me/guilds",
+    "params": [],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "before",
+        "description": "get guilds before this guild ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get guilds after this guild ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of guilds to return (1-200)",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope."
+  },
+  {
+    "name": "Get Current User Guild Member",
+    "method": "GET",
+    "path": "/users/@me/guilds/{guild.id}/member",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
+  },
+  {
+    "name": "Leave Guild",
+    "method": "DELETE",
+    "path": "/users/@me/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Leave a guild. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Create DM",
+    "method": "POST",
+    "path": "/users/@me/channels",
+    "params": [],
+    "query": [],
+    "description": "Create a new DM channel with a user. Returns a DM channel object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "recipient_id",
+          "description": "the recipient to open a DM channel with",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Create Group DM",
+    "method": "POST",
+    "path": "/users/@me/channels",
+    "params": [],
+    "query": [],
+    "description": "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "array of strings",
+          "name": "access_tokens",
+          "description": "access tokens of users that have granted your app the `gdm.join` scope",
+          "required": false
+        },
+        {
+          "type": "dict",
+          "name": "nicks",
+          "description": "a dictionary of user ids to their respective nicknames",
+          "required": false
+        }
+      ]
+    }
+  }
+]

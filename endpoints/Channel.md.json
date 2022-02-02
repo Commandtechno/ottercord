@@ -1,0 +1,976 @@
+[
+  {
+    "name": "Get Channel",
+    "method": "GET",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Get a channel by ID. Returns a channel object.  If the channel is a thread, a thread member object is included in the returned result."
+  },
+  {
+    "name": "Modify Channel",
+    "method": "PATCH",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "* The 3 day and 7 day archive durations require the server to be boosted. The guild features will indicate if a server is able to use those settings."
+  },
+  {
+    "name": "Delete/Close Channel",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id removed and a Channel Update Gateway event will fire for each of them. Returns a channel object on success. Fires a Channel Delete Gateway event (or Thread Delete if the channel was a thread)."
+  },
+  {
+    "name": "Get Channel Messages",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "around",
+        "description": "get messages around this message ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "before",
+        "description": "get messages before this message ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get messages after this message ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of messages to return (1-100)",
+        "required": false
+      }
+    ],
+    "description": "Returns the messages for a channel. If operating on a guild channel, this endpoint requires the VIEW_CHANNEL permission to be present on the current user. If the current user is missing the &#39;READ_MESSAGE_HISTORY&#39; permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of message objects on success."
+  },
+  {
+    "name": "Get Channel Message",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the &#39;READ_MESSAGE_HISTORY&#39; permission to be present on the current user. Returns a message object on success."
+  },
+  {
+    "name": "Create Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Examples for file uploads are available in Uploading Files.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "tts",
+          "description": "true if this is a TTS message",
+          "required": false
+        },
+        {
+          "type": "array of [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content (up to 6000 characters)",
+          "required": false
+        },
+        {
+          "type": "[embed](#DOCS_RESOURCES_CHANNEL/embed-object) object",
+          "name": "embed *(deprecated)*",
+          "description": "embedded `rich` content, deprecated in favor of `embeds`",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "[message reference](#DOCS_RESOURCES_CHANNEL/message-reference-object-message-reference-structure)",
+          "name": "message_reference",
+          "description": "include to make your message a reply",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object) objects",
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "sticker_ids",
+          "description": "IDs of up to 3 [stickers](#DOCS_RESOURCES_STICKER/sticker-object) in the server to send in the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*",
+          "description": "the contents of the file being sent",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*",
+          "description": "JSON encoded body of non-file params",
+          "required": false
+        },
+        {
+          "type": "array of partial [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*",
+          "description": "attachment objects with filename and description",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "flags",
+          "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field) (only `SUPPRESS_EMBEDS` can be set)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Crosspost Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/{message.id}/crosspost",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a message object."
+  },
+  {
+    "name": "Create Reaction",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a reaction for the message. This endpoint requires the &#39;READ_MESSAGE_HISTORY&#39; permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the &#39;ADD_REACTIONS&#39; permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete Own Reaction",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete User Reaction",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes another user&#39;s reaction. This endpoint requires the &#39;MANAGE_MESSAGES&#39; permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Get Reactions",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get users after this user ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of users to return (1-100)",
+        "required": false
+      }
+    ],
+    "description": "Get a list of users that reacted with this emoji. Returns an array of user objects on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete All Reactions",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes all reactions on a message. This endpoint requires the &#39;MANAGE_MESSAGES&#39; permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
+  },
+  {
+    "name": "Delete All Reactions for Emoji",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Edit Message",
+    "method": "PATCH",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "* See Uploading Files for details.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "array of [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content (up to 6000 characters)",
+          "required": false
+        },
+        {
+          "type": "[embed](#DOCS_RESOURCES_CHANNEL/embed-object) object",
+          "name": "embed *(deprecated)*",
+          "description": "embedded `rich` content, deprecated in favor of `embeds`",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "flags",
+          "description": "edit the [flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) of a message (only `SUPPRESS_EMBEDS` can currently be set/unset)",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object)",
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*",
+          "description": "the contents of the file being sent/edited",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*",
+          "description": "JSON encoded body of non-file params (multipart/form-data only)",
+          "required": false
+        },
+        {
+          "type": "array of [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*",
+          "description": "attached files to keep and possible descriptions for new files",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Message",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event."
+  },
+  {
+    "name": "Bulk Delete Messages",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/bulk-delete",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively).",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "array of snowflakes",
+          "name": "messages",
+          "description": "an array of message ids to delete (2-100)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Edit Channel Permissions",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "overwrite.id",
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
+      }
+    ],
+    "query": [],
+    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string?",
+          "name": "allow?",
+          "description": "the bitwise value of all allowed permissions (default `\"0\"`)",
+          "required": false
+        },
+        {
+          "type": "string?",
+          "name": "deny?",
+          "description": "the bitwise value of all disallowed permissions (default `\"0\"`)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type",
+          "description": "0 for a role or 1 for a member",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Channel Invites",
+    "method": "GET",
+    "path": "/channels/{channel.id}/invites",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of invite objects (with invite metadata) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission."
+  },
+  {
+    "name": "Create Channel Invite",
+    "method": "POST",
+    "path": "/channels/{channel.id}/invites",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ({}). Returns an invite object. Fires an Invite Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "max_age",
+          "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "max_uses",
+          "description": "max number of uses or 0 for unlimited. between 0 and 100",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "temporary",
+          "description": "whether this invite only grants temporary membership",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "unique",
+          "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "target_type",
+          "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "target_user_id",
+          "description": "the id of the user whose stream to display for this invite, required if `target_type` is 1, the user must be streaming in the channel",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "target_application_id",
+          "description": "the id of the embedded application to open for this invite, required if `target_type` is 2, the application must have the `EMBEDDED` flag",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Channel Permission",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "overwrite.id",
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
+  },
+  {
+    "name": "Follow News Channel",
+    "method": "POST",
+    "path": "/channels/{channel.id}/followers",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Follow a News Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "webhook_channel_id",
+          "description": "id of target channel",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Trigger Typing Indicator",
+    "method": "POST",
+    "path": "/channels/{channel.id}/typing",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
+  },
+  {
+    "name": "Get Pinned Messages",
+    "method": "GET",
+    "path": "/channels/{channel.id}/pins",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all pinned messages in the channel as an array of message objects."
+  },
+  {
+    "name": "Pin Message",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/pins/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Unpin Message",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/pins/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Group DM Add Recipient",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/recipients/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds a recipient to a Group DM using their access token.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "access_token",
+          "description": "access token of a user that has granted your app the `gdm.join` scope",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "nickname of the user being added",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Group DM Remove Recipient",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/recipients/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes a recipient from a Group DM."
+  },
+  {
+    "name": "Start Thread with Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/{message.id}/threads",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "* The 3 day and 7 day archive durations require the server to be boosted. The guild features will indicate if a server is able to use those settings.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "1-100 character channel name",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "auto_archive_duration?\\*",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "rate_limit_per_user?",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Start Thread without Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/threads",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "*** In API v9, type defaults to PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In API v10 this will be changed to be a required field, with no default.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "1-100 character channel name",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "auto_archive_duration?\\*\\*",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type?\\*\\*\\*",
+          "description": "the [type of thread](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) to create",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "invitable?",
+          "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "rate_limit_per_user?",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Join Thread",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/thread-members/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Add Thread Member",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Leave Thread",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/thread-members/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Remove Thread Member",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Get Thread Member",
+    "method": "GET",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a thread member object for the specified user if they are a member of the thread, returns a 404 response otherwise."
+  },
+  {
+    "name": "List Thread Members",
+    "method": "GET",
+    "path": "/channels/{channel.id}/thread-members",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns array of thread members objects that are members of the thread."
+  },
+  {
+    "name": "List Active Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/active",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id, in descending order."
+  },
+  {
+    "name": "List Public Archived Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/archived/public",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "ISO8601 timestamp",
+        "name": "before?",
+        "description": "returns threads before this timestamp",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit?",
+        "description": "optional maximum number of threads to return",
+        "required": false
+      }
+    ],
+    "description": "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission."
+  },
+  {
+    "name": "List Private Archived Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/archived/private",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "ISO8601 timestamp",
+        "name": "before?",
+        "description": "returns threads before this timestamp",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit?",
+        "description": "optional maximum number of threads to return",
+        "required": false
+      }
+    ],
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions."
+  }
+]

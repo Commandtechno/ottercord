@@ -1,0 +1,1264 @@
+[
+  {
+    "name": "Create Guild",
+    "method": "POST",
+    "path": "/guilds",
+    "params": [],
+    "query": [],
+    "description": "Create a new guild. Returns a guild object on success. Fires a Guild Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the guild (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "region?",
+          "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id (deprecated)",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon?",
+          "description": "base64 128x128 image for the guild icon",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "verification_level?",
+          "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "default_message_notifications?",
+          "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "explicit_content_filter?",
+          "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+          "required": false
+        },
+        {
+          "type": "array of [role](#DOCS_TOPICS_PERMISSIONS/role-object) objects",
+          "name": "roles?",
+          "description": "new guild roles",
+          "required": false
+        },
+        {
+          "type": "array of partial [channel](#DOCS_RESOURCES_CHANNEL/channel-object) objects",
+          "name": "channels?",
+          "description": "new guild's channels",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "afk_channel_id?",
+          "description": "id for afk channel",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "afk_timeout?",
+          "description": "afk timeout in seconds",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "system_channel_id?",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "system_channel_flags?",
+          "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild",
+    "method": "GET",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "with_counts?",
+        "description": "when `true`, will return approximate member and presence counts for the guild",
+        "required": false
+      }
+    ],
+    "description": "Returns the guild object for the given id. If with_counts is set to true, this endpoint will also return approximate_member_count and approximate_presence_count for the guild."
+  },
+  {
+    "name": "Get Guild Preview",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/preview",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be lurkable."
+  },
+  {
+    "name": "Modify Guild",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild&#39;s settings. Requires the MANAGE_GUILD permission. Returns the updated guild object on success. Fires a Guild Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "guild name",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "region",
+          "description": "guild [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id (deprecated)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "verification_level",
+          "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "default_message_notifications",
+          "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "explicit_content_filter",
+          "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "afk_channel_id",
+          "description": "id for afk channel",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "afk_timeout",
+          "description": "afk timeout in seconds",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the `ANIMATED_ICON` feature)",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "owner_id",
+          "description": "user id to transfer guild ownership to (must be owner)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "splash",
+          "description": "base64 16:9 png/jpeg image for the guild splash (when the server has the `INVITE_SPLASH` feature)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "discovery_splash",
+          "description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the `DISCOVERABLE` feature)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "banner",
+          "description": "base64 16:9 png/jpeg image for the guild banner (when the server has the `BANNER` feature)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "system_channel_id",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "system_channel_flags",
+          "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "rules_channel_id",
+          "description": "the id of the channel where Community guilds display rules and/or guidelines",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "public_updates_channel_id",
+          "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "preferred_locale",
+          "description": "the preferred [locale](#DOCS_REFERENCE/locales) of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\"",
+          "required": false
+        },
+        {
+          "type": "array of [guild feature](#DOCS_RESOURCES_GUILD/guild-object-guild-features) strings",
+          "name": "features",
+          "description": "enabled guild features",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description",
+          "description": "the description for the guild, if the guild is discoverable",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "premium_progress_bar_enabled",
+          "description": "whether the guild's boost progress bar should be enabled.",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
+  },
+  {
+    "name": "Get Guild Channels",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of guild channel objects. Does not include threads."
+  },
+  {
+    "name": "Create Guild Channel",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "* In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to &quot;0&quot;.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "channel name (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type",
+          "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "topic",
+          "description": "channel topic (0-1024 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "bitrate",
+          "description": "the bitrate (in bits) of the voice channel (voice only)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "user_limit",
+          "description": "the user limit of the voice channel (voice only)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "rate_limit_per_user",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "position",
+          "description": "sorting position of the channel",
+          "required": false
+        },
+        {
+          "type": "array of partial [overwrite](#DOCS_RESOURCES_CHANNEL/overwrite-object) objects",
+          "name": "permission_overwrites\\*",
+          "description": "the channel's permission overwrites",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "parent_id",
+          "description": "id of the parent category for a channel",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "nsfw",
+          "description": "whether the channel is nsfw",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Channel Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "id",
+          "description": "channel id",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "position",
+          "description": "sorting position of the channel",
+          "required": false
+        },
+        {
+          "type": "?boolean",
+          "name": "lock_permissions",
+          "description": "syncs the permission overwrites with the new parent, if moving to a new category",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "parent_id",
+          "description": "the new parent ID for the channel that is moved",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "List Active Threads",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/threads/active",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order."
+  },
+  {
+    "name": "Get Guild Member",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild member object for the specified user."
+  },
+  {
+    "name": "List Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "the highest user id in the previous page",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of guild member objects that are members of the guild."
+  },
+  {
+    "name": "Search Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/search",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "string",
+        "name": "query",
+        "description": "Query string to match username(s) and nickname(s) against.",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of guild member objects whose username or nickname starts with a provided string."
+  },
+  {
+    "name": "Add Guild Member",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "For guilds with Membership Screening enabled, this endpoint will default to adding new members as pending in the guild member object. Members that are pending will have to complete membership screening before they become full members that can talk.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "access_token",
+          "description": "an oauth2 access token granted with the `guilds.join` to the bot's application for the user you want to add to the guild",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "value to set user's nickname to",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "roles",
+          "description": "array of role ids the member is assigned",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mute",
+          "description": "whether the user is muted in voice channels",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify attributes of a guild member. Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "value to set user's nickname to",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "roles",
+          "description": "array of role ids the member is assigned",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mute",
+          "description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "id of channel to move user to (if they are connected to voice)",
+          "required": false
+        },
+        {
+          "type": "?ISO8601 timestamp",
+          "name": "communication_disabled_until",
+          "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a Guild Member Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "?string",
+          "name": "nick?",
+          "description": "value to set user's nickname to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Nick",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me/nick",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "?string",
+          "name": "nick?",
+          "description": "value to set user's nickname to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Add Guild Member Role",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+  },
+  {
+    "name": "Remove Guild Member Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+  },
+  {
+    "name": "Remove Guild Member",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event."
+  },
+  {
+    "name": "Get Guild Bans",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission."
+  },
+  {
+    "name": "Get Guild Ban",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission."
+  },
+  {
+    "name": "Create Guild Ban",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the BAN_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Ban Add Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "delete_message_days?",
+          "description": "number of days to delete messages for (0-7)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "reason?",
+          "description": "reason for the ban (deprecated)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Remove Guild Ban",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event."
+  },
+  {
+    "name": "Get Guild Roles",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of role objects for the guild."
+  },
+  {
+    "name": "Create Guild Role",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new role for the guild. Requires the MANAGE_ROLES permission. Returns the new role object on success. Fires a Guild Role Create Gateway event. All JSON params are optional.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the role",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "color",
+          "description": "RGB color value",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mentionable",
+          "description": "whether the role should be mentionable",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "id",
+          "description": "role",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "position?",
+          "description": "sorting position of the role",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild role. Requires the MANAGE_ROLES permission. Returns the updated role on success. Fires a Guild Role Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the role",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "color",
+          "description": "RGB color value",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mentionable",
+          "description": "whether the role should be mentionable",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event."
+  },
+  {
+    "name": "Get Guild Prune Count",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "integer",
+        "name": "days",
+        "description": "number of days to count prune for (1-30)",
+        "required": false
+      },
+      {
+        "type": "string; comma-delimited array of snowflakes",
+        "name": "include_roles",
+        "description": "role(s) to include",
+        "required": false
+      }
+    ],
+    "description": "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not."
+  },
+  {
+    "name": "Begin Guild Prune",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "days",
+          "description": "number of days to prune (1-30)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "compute_prune_count",
+          "description": "whether 'pruned' is returned, discouraged for large guilds",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "include_roles",
+          "description": "role(s) to include",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "reason?",
+          "description": "reason for the prune (deprecated)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Voice Regions",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/regions",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of voice region objects for the guild. Unlike the similar /voice route, this returns VIP servers when the guild is VIP-enabled."
+  },
+  {
+    "name": "Get Guild Invites",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/invites",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Get Guild Integrations",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/integrations",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Delete Guild Integration",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/integrations/{integration.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "integration.id",
+        "link": "DOCS_RESOURCES_GUILD/integration-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event."
+  },
+  {
+    "name": "Get Guild Widget Settings",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild widget settings object. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Modify Guild Widget",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified. Requires the MANAGE_GUILD permission. Returns the updated guild widget object."
+  },
+  {
+    "name": "Get Guild Widget",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.json",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the widget for the guild."
+  },
+  {
+    "name": "Get Guild Vanity URL",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/vanity-url",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission. code will be null if a vanity url for the guild is not set."
+  },
+  {
+    "name": "Get Guild Widget Image",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.png",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "string",
+        "name": "style",
+        "description": "style of the widget image returned (see below)",
+        "required": false
+      }
+    ],
+    "description": "Returns a PNG image widget for the guild. Requires no permissions or authentication."
+  },
+  {
+    "name": "Get Guild Welcome Screen",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the Welcome Screen object for the guild. If the welcome screen is not enabled, the MANAGE_GUILD permission is required."
+  },
+  {
+    "name": "Modify Guild Welcome Screen",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify the guild&#39;s Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "boolean",
+          "name": "enabled",
+          "description": "whether the welcome screen is enabled",
+          "required": false
+        },
+        {
+          "type": "array of [welcome screen channel](#DOCS_RESOURCES_GUILD/welcome-screen-object-welcome-screen-channel-structure) objects",
+          "name": "welcome_channels",
+          "description": "channels linked in the welcome screen and their display options",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "the server description to show in the welcome screen",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Voice State",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/voice-states/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "There are currently several caveats for this endpoint:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "the id of the channel the user is currently in",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "suppress?",
+          "description": "toggles the user's suppress state",
+          "required": false
+        },
+        {
+          "type": "?ISO8601 timestamp",
+          "name": "request_to_speak_timestamp?",
+          "description": "sets the user's request to speak",
+          "required": false
+        }
+      ]
+    }
+  }
+]

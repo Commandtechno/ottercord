@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Get Guild Template",
+    "method": "GET",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild template object for the given code."
+  },
+  {
+    "name": "Create Guild from Guild Template",
+    "method": "POST",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new guild based on a template. Returns a guild object on success. Fires a Guild Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the guild (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon?",
+          "description": "base64 128x128 image for the guild icon",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Templates",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns an array of guild template objects. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Create Guild Template",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Creates a template for the guild. Requires the MANAGE_GUILD permission. Returns the created guild template object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the template (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description?",
+          "description": "description for the template (0-120 characters)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sync Guild Template",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Syncs the template to the guild&#39;s current state. Requires the MANAGE_GUILD permission. Returns the guild template object on success."
+  },
+  {
+    "name": "Modify Guild Template",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the template&#39;s metadata. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name?",
+          "description": "name of the template (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description?",
+          "description": "description for the template (0-120 characters)",
+          "required": false
+        }
+      ]
+    }
+  }
+]

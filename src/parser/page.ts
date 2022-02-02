@@ -12,22 +12,31 @@ export default class Page {
   }
 
   async load(...pathSegments: string[]) {
-    const path = resolve(__dirname, "..", "discord-api-docs", "docs", ...pathSegments);
+    const path = resolve(
+      __dirname,
+      "..",
+      "..",
+      "discord-api-docs",
+      "docs",
+      "resources",
+      ...pathSegments
+    );
+
     const file = await readFile(path, "utf8");
     const parsed = marked.lexer(file);
     this.index = 0;
     this.parsed = parsed;
   }
 
-  next() {
-    const next = this.parsed[this.index];
-    this.index++;
-    return next;
+  ___current() {
+    return this.parsed[this.index - 1];
   }
 
-  hasNext() {
-    return this.index < this.parsed.length;
+  *next() {
+    while (this.index < this.parsed.length) {
+      const next = this.parsed[this.index];
+      this.index++;
+      yield next;
+    }
   }
-
-  after(index = this.index) {}
 }

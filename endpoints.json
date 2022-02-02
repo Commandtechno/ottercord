@@ -1,0 +1,3523 @@
+[
+  {
+    "name": "Get Channel",
+    "method": "GET",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Get a channel by ID. Returns a channel object.  If the channel is a thread, a thread member object is included in the returned result."
+  },
+  {
+    "name": "Modify Channel",
+    "method": "PATCH",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "* The 3 day and 7 day archive durations require the server to be boosted. The guild features will indicate if a server is able to use those settings."
+  },
+  {
+    "name": "Delete/Close Channel",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id removed and a Channel Update Gateway event will fire for each of them. Returns a channel object on success. Fires a Channel Delete Gateway event (or Thread Delete if the channel was a thread)."
+  },
+  {
+    "name": "Get Channel Messages",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "around",
+        "description": "get messages around this message ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "before",
+        "description": "get messages before this message ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get messages after this message ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of messages to return (1-100)",
+        "required": false
+      }
+    ],
+    "description": "Returns the messages for a channel. If operating on a guild channel, this endpoint requires the VIEW_CHANNEL permission to be present on the current user. If the current user is missing the &#39;READ_MESSAGE_HISTORY&#39; permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of message objects on success."
+  },
+  {
+    "name": "Get Channel Message",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the &#39;READ_MESSAGE_HISTORY&#39; permission to be present on the current user. Returns a message object on success."
+  },
+  {
+    "name": "Create Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Examples for file uploads are available in Uploading Files.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "tts",
+          "description": "true if this is a TTS message",
+          "required": false
+        },
+        {
+          "type": "array of [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content (up to 6000 characters)",
+          "required": false
+        },
+        {
+          "type": "[embed](#DOCS_RESOURCES_CHANNEL/embed-object) object",
+          "name": "embed *(deprecated)*",
+          "description": "embedded `rich` content, deprecated in favor of `embeds`",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "[message reference](#DOCS_RESOURCES_CHANNEL/message-reference-object-message-reference-structure)",
+          "name": "message_reference",
+          "description": "include to make your message a reply",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object) objects",
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "sticker_ids",
+          "description": "IDs of up to 3 [stickers](#DOCS_RESOURCES_STICKER/sticker-object) in the server to send in the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*",
+          "description": "the contents of the file being sent",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*",
+          "description": "JSON encoded body of non-file params",
+          "required": false
+        },
+        {
+          "type": "array of partial [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*",
+          "description": "attachment objects with filename and description",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "flags",
+          "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field) (only `SUPPRESS_EMBEDS` can be set)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Crosspost Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/{message.id}/crosspost",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a message object."
+  },
+  {
+    "name": "Create Reaction",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a reaction for the message. This endpoint requires the &#39;READ_MESSAGE_HISTORY&#39; permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the &#39;ADD_REACTIONS&#39; permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete Own Reaction",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete User Reaction",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes another user&#39;s reaction. This endpoint requires the &#39;MANAGE_MESSAGES&#39; permission to be present on the current user. Returns a 204 empty response on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Get Reactions",
+    "method": "GET",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get users after this user ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of users to return (1-100)",
+        "required": false
+      }
+    ],
+    "description": "Get a list of users that reacted with this emoji. Returns an array of user objects on success.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Delete All Reactions",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes all reactions on a message. This endpoint requires the &#39;MANAGE_MESSAGES&#39; permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
+  },
+  {
+    "name": "Delete All Reactions for Emoji",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      },
+      {
+        "name": "emoji",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event.\nThe emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+  },
+  {
+    "name": "Edit Message",
+    "method": "PATCH",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "* See Uploading Files for details.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "array of [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content (up to 6000 characters)",
+          "required": false
+        },
+        {
+          "type": "[embed](#DOCS_RESOURCES_CHANNEL/embed-object) object",
+          "name": "embed *(deprecated)*",
+          "description": "embedded `rich` content, deprecated in favor of `embeds`",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "flags",
+          "description": "edit the [flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) of a message (only `SUPPRESS_EMBEDS` can currently be set/unset)",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object)",
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*",
+          "description": "the contents of the file being sent/edited",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*",
+          "description": "JSON encoded body of non-file params (multipart/form-data only)",
+          "required": false
+        },
+        {
+          "type": "array of [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*",
+          "description": "attached files to keep and possible descriptions for new files",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Message",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/messages/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event."
+  },
+  {
+    "name": "Bulk Delete Messages",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/bulk-delete",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively).",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "array of snowflakes",
+          "name": "messages",
+          "description": "an array of message ids to delete (2-100)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Edit Channel Permissions",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "overwrite.id",
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
+      }
+    ],
+    "query": [],
+    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string?",
+          "name": "allow?",
+          "description": "the bitwise value of all allowed permissions (default `\"0\"`)",
+          "required": false
+        },
+        {
+          "type": "string?",
+          "name": "deny?",
+          "description": "the bitwise value of all disallowed permissions (default `\"0\"`)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type",
+          "description": "0 for a role or 1 for a member",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Channel Invites",
+    "method": "GET",
+    "path": "/channels/{channel.id}/invites",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of invite objects (with invite metadata) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission."
+  },
+  {
+    "name": "Create Channel Invite",
+    "method": "POST",
+    "path": "/channels/{channel.id}/invites",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ({}). Returns an invite object. Fires an Invite Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "max_age",
+          "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "max_uses",
+          "description": "max number of uses or 0 for unlimited. between 0 and 100",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "temporary",
+          "description": "whether this invite only grants temporary membership",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "unique",
+          "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "target_type",
+          "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "target_user_id",
+          "description": "the id of the user whose stream to display for this invite, required if `target_type` is 1, the user must be streaming in the channel",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "target_application_id",
+          "description": "the id of the embedded application to open for this invite, required if `target_type` is 2, the application must have the `EMBEDDED` flag",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Channel Permission",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/permissions/{overwrite.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "overwrite.id",
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
+  },
+  {
+    "name": "Follow News Channel",
+    "method": "POST",
+    "path": "/channels/{channel.id}/followers",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Follow a News Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "webhook_channel_id",
+          "description": "id of target channel",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Trigger Typing Indicator",
+    "method": "POST",
+    "path": "/channels/{channel.id}/typing",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
+  },
+  {
+    "name": "Get Pinned Messages",
+    "method": "GET",
+    "path": "/channels/{channel.id}/pins",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all pinned messages in the channel as an array of message objects."
+  },
+  {
+    "name": "Pin Message",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/pins/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Unpin Message",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/pins/{message.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Group DM Add Recipient",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/recipients/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds a recipient to a Group DM using their access token.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "access_token",
+          "description": "access token of a user that has granted your app the `gdm.join` scope",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "nickname of the user being added",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Group DM Remove Recipient",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/recipients/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes a recipient from a Group DM."
+  },
+  {
+    "name": "Start Thread with Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/messages/{message.id}/threads",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [],
+    "description": "* The 3 day and 7 day archive durations require the server to be boosted. The guild features will indicate if a server is able to use those settings.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "1-100 character channel name",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "auto_archive_duration?\\*",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "rate_limit_per_user?",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Start Thread without Message",
+    "method": "POST",
+    "path": "/channels/{channel.id}/threads",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "*** In API v9, type defaults to PRIVATE_THREAD in order to match the behavior when thread documentation was first published. In API v10 this will be changed to be a required field, with no default.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "1-100 character channel name",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "auto_archive_duration?\\*\\*",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type?\\*\\*\\*",
+          "description": "the [type of thread](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) to create",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "invitable?",
+          "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "rate_limit_per_user?",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Join Thread",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/thread-members/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Add Thread Member",
+    "method": "PUT",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Leave Thread",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/thread-members/@me",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Remove Thread Member",
+    "method": "DELETE",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+  },
+  {
+    "name": "Get Thread Member",
+    "method": "GET",
+    "path": "/channels/{channel.id}/thread-members/{user.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a thread member object for the specified user if they are a member of the thread, returns a 404 response otherwise."
+  },
+  {
+    "name": "List Thread Members",
+    "method": "GET",
+    "path": "/channels/{channel.id}/thread-members",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns array of thread members objects that are members of the thread."
+  },
+  {
+    "name": "List Active Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/active",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id, in descending order."
+  },
+  {
+    "name": "List Public Archived Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/archived/public",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "ISO8601 timestamp",
+        "name": "before?",
+        "description": "returns threads before this timestamp",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit?",
+        "description": "optional maximum number of threads to return",
+        "required": false
+      }
+    ],
+    "description": "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission."
+  },
+  {
+    "name": "List Private Archived Threads",
+    "method": "GET",
+    "path": "/channels/{channel.id}/threads/archived/private",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "ISO8601 timestamp",
+        "name": "before?",
+        "description": "returns threads before this timestamp",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit?",
+        "description": "optional maximum number of threads to return",
+        "required": false
+      }
+    ],
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions."
+  },
+  {
+    "name": "List Guild Emojis",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/emojis",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of emoji objects for the given guild."
+  },
+  {
+    "name": "Get Guild Emoji",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "emoji.id",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns an emoji object for the given guild and emoji IDs."
+  },
+  {
+    "name": "Create Guild Emoji",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/emojis",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new emoji for the guild. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new emoji object on success. Fires a Guild Emojis Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the emoji",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "image",
+          "description": "the 128x128 emoji image",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "roles",
+          "description": "roles allowed to use this emoji",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Emoji",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "emoji.id",
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify the given emoji. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated emoji object on success. Fires a Guild Emojis Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the emoji",
+          "required": false
+        },
+        {
+          "type": "?array of snowflakes",
+          "name": "roles",
+          "description": "roles allowed to use this emoji",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Create Guild",
+    "method": "POST",
+    "path": "/guilds",
+    "params": [],
+    "query": [],
+    "description": "Create a new guild. Returns a guild object on success. Fires a Guild Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the guild (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "region?",
+          "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id (deprecated)",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon?",
+          "description": "base64 128x128 image for the guild icon",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "verification_level?",
+          "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "default_message_notifications?",
+          "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "explicit_content_filter?",
+          "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+          "required": false
+        },
+        {
+          "type": "array of [role](#DOCS_TOPICS_PERMISSIONS/role-object) objects",
+          "name": "roles?",
+          "description": "new guild roles",
+          "required": false
+        },
+        {
+          "type": "array of partial [channel](#DOCS_RESOURCES_CHANNEL/channel-object) objects",
+          "name": "channels?",
+          "description": "new guild's channels",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "afk_channel_id?",
+          "description": "id for afk channel",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "afk_timeout?",
+          "description": "afk timeout in seconds",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "system_channel_id?",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "system_channel_flags?",
+          "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild",
+    "method": "GET",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "with_counts?",
+        "description": "when `true`, will return approximate member and presence counts for the guild",
+        "required": false
+      }
+    ],
+    "description": "Returns the guild object for the given id. If with_counts is set to true, this endpoint will also return approximate_member_count and approximate_presence_count for the guild."
+  },
+  {
+    "name": "Get Guild Preview",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/preview",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the guild preview object for the given id. If the user is not in the guild, then the guild must be lurkable."
+  },
+  {
+    "name": "Modify Guild",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild&#39;s settings. Requires the MANAGE_GUILD permission. Returns the updated guild object on success. Fires a Guild Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "guild name",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "region",
+          "description": "guild [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id (deprecated)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "verification_level",
+          "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "default_message_notifications",
+          "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "explicit_content_filter",
+          "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "afk_channel_id",
+          "description": "id for afk channel",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "afk_timeout",
+          "description": "afk timeout in seconds",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the `ANIMATED_ICON` feature)",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "owner_id",
+          "description": "user id to transfer guild ownership to (must be owner)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "splash",
+          "description": "base64 16:9 png/jpeg image for the guild splash (when the server has the `INVITE_SPLASH` feature)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "discovery_splash",
+          "description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the `DISCOVERABLE` feature)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "banner",
+          "description": "base64 16:9 png/jpeg image for the guild banner (when the server has the `BANNER` feature)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "system_channel_id",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "system_channel_flags",
+          "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "rules_channel_id",
+          "description": "the id of the channel where Community guilds display rules and/or guidelines",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "public_updates_channel_id",
+          "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "preferred_locale",
+          "description": "the preferred [locale](#DOCS_REFERENCE/locales) of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\"",
+          "required": false
+        },
+        {
+          "type": "array of [guild feature](#DOCS_RESOURCES_GUILD/guild-object-guild-features) strings",
+          "name": "features",
+          "description": "enabled guild features",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description",
+          "description": "the description for the guild, if the guild is discoverable",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "premium_progress_bar_enabled",
+          "description": "whether the guild's boost progress bar should be enabled.",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
+  },
+  {
+    "name": "Get Guild Channels",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of guild channel objects. Does not include threads."
+  },
+  {
+    "name": "Create Guild Channel",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "* In each overwrite object, the allow and deny keys can be omitted or set to null, which both default to &quot;0&quot;.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "channel name (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "type",
+          "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "topic",
+          "description": "channel topic (0-1024 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "bitrate",
+          "description": "the bitrate (in bits) of the voice channel (voice only)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "user_limit",
+          "description": "the user limit of the voice channel (voice only)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "rate_limit_per_user",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "position",
+          "description": "sorting position of the channel",
+          "required": false
+        },
+        {
+          "type": "array of partial [overwrite](#DOCS_RESOURCES_CHANNEL/overwrite-object) objects",
+          "name": "permission_overwrites\\*",
+          "description": "the channel's permission overwrites",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "parent_id",
+          "description": "id of the parent category for a channel",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "nsfw",
+          "description": "whether the channel is nsfw",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Channel Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "id",
+          "description": "channel id",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "position",
+          "description": "sorting position of the channel",
+          "required": false
+        },
+        {
+          "type": "?boolean",
+          "name": "lock_permissions",
+          "description": "syncs the permission overwrites with the new parent, if moving to a new category",
+          "required": false
+        },
+        {
+          "type": "?snowflake",
+          "name": "parent_id",
+          "description": "the new parent ID for the channel that is moved",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "List Active Threads",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/threads/active",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order."
+  },
+  {
+    "name": "Get Guild Member",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild member object for the specified user."
+  },
+  {
+    "name": "List Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "the highest user id in the previous page",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of guild member objects that are members of the guild."
+  },
+  {
+    "name": "Search Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/search",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "string",
+        "name": "query",
+        "description": "Query string to match username(s) and nickname(s) against.",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of guild member objects whose username or nickname starts with a provided string."
+  },
+  {
+    "name": "Add Guild Member",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "For guilds with Membership Screening enabled, this endpoint will default to adding new members as pending in the guild member object. Members that are pending will have to complete membership screening before they become full members that can talk.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "access_token",
+          "description": "an oauth2 access token granted with the `guilds.join` to the bot's application for the user you want to add to the guild",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "value to set user's nickname to",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "roles",
+          "description": "array of role ids the member is assigned",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mute",
+          "description": "whether the user is muted in voice channels",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify attributes of a guild member. Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "nick",
+          "description": "value to set user's nickname to",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "roles",
+          "description": "array of role ids the member is assigned",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mute",
+          "description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "id of channel to move user to (if they are connected to voice)",
+          "required": false
+        },
+        {
+          "type": "?ISO8601 timestamp",
+          "name": "communication_disabled_until",
+          "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the current member in a guild. Returns a 200 with the updated member object on success. Fires a Guild Member Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "?string",
+          "name": "nick?",
+          "description": "value to set user's nickname to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Nick",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me/nick",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "?string",
+          "name": "nick?",
+          "description": "value to set user's nickname to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Add Guild Member Role",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+  },
+  {
+    "name": "Remove Guild Member Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+  },
+  {
+    "name": "Remove Guild Member",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event."
+  },
+  {
+    "name": "Get Guild Bans",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of ban objects for the users banned from this guild. Requires the BAN_MEMBERS permission."
+  },
+  {
+    "name": "Get Guild Ban",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a ban object for the given user or a 404 not found if the ban cannot be found. Requires the BAN_MEMBERS permission."
+  },
+  {
+    "name": "Create Guild Ban",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a guild ban, and optionally delete previous messages sent by the banned user. Requires the BAN_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Ban Add Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "delete_message_days?",
+          "description": "number of days to delete messages for (0-7)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "reason?",
+          "description": "reason for the ban (deprecated)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Remove Guild Ban",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event."
+  },
+  {
+    "name": "Get Guild Roles",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of role objects for the guild."
+  },
+  {
+    "name": "Create Guild Role",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new role for the guild. Requires the MANAGE_ROLES permission. Returns the new role object on success. Fires a Guild Role Create Gateway event. All JSON params are optional.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the role",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "color",
+          "description": "RGB color value",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mentionable",
+          "description": "whether the role should be mentionable",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "id",
+          "description": "role",
+          "required": false
+        },
+        {
+          "type": "?integer",
+          "name": "position?",
+          "description": "sorting position of the role",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild role. Requires the MANAGE_ROLES permission. Returns the updated role on success. Fires a Guild Role Update Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the role",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "color",
+          "description": "RGB color value",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon",
+          "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "mentionable",
+          "description": "whether the role should be mentionable",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "role.id",
+        "link": "DOCS_TOPICS_PERMISSIONS/role-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event."
+  },
+  {
+    "name": "Get Guild Prune Count",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "integer",
+        "name": "days",
+        "description": "number of days to count prune for (1-30)",
+        "required": false
+      },
+      {
+        "type": "string; comma-delimited array of snowflakes",
+        "name": "include_roles",
+        "description": "role(s) to include",
+        "required": false
+      }
+    ],
+    "description": "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be counted in the prune and users with additional roles will not."
+  },
+  {
+    "name": "Begin Guild Prune",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the include_roles parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "integer",
+          "name": "days",
+          "description": "number of days to prune (1-30)",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "compute_prune_count",
+          "description": "whether 'pruned' is returned, discouraged for large guilds",
+          "required": false
+        },
+        {
+          "type": "array of snowflakes",
+          "name": "include_roles",
+          "description": "role(s) to include",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "reason?",
+          "description": "reason for the prune (deprecated)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Voice Regions",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/regions",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of voice region objects for the guild. Unlike the similar /voice route, this returns VIP servers when the guild is VIP-enabled."
+  },
+  {
+    "name": "Get Guild Invites",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/invites",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Get Guild Integrations",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/integrations",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of integration objects for the guild. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Delete Guild Integration",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/integrations/{integration.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "integration.id",
+        "link": "DOCS_RESOURCES_GUILD/integration-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event."
+  },
+  {
+    "name": "Get Guild Widget Settings",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild widget settings object. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Modify Guild Widget",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a guild widget settings object for the guild. All attributes may be passed in with JSON and modified. Requires the MANAGE_GUILD permission. Returns the updated guild widget object."
+  },
+  {
+    "name": "Get Guild Widget",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.json",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the widget for the guild."
+  },
+  {
+    "name": "Get Guild Vanity URL",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/vanity-url",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a partial invite object for guilds with that feature enabled. Requires the MANAGE_GUILD permission. code will be null if a vanity url for the guild is not set."
+  },
+  {
+    "name": "Get Guild Widget Image",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.png",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "string",
+        "name": "style",
+        "description": "style of the widget image returned (see below)",
+        "required": false
+      }
+    ],
+    "description": "Returns a PNG image widget for the guild. Requires no permissions or authentication."
+  },
+  {
+    "name": "Get Guild Welcome Screen",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the Welcome Screen object for the guild. If the welcome screen is not enabled, the MANAGE_GUILD permission is required."
+  },
+  {
+    "name": "Modify Guild Welcome Screen",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify the guild&#39;s Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "boolean",
+          "name": "enabled",
+          "description": "whether the welcome screen is enabled",
+          "required": false
+        },
+        {
+          "type": "array of [welcome screen channel](#DOCS_RESOURCES_GUILD/welcome-screen-object-welcome-screen-channel-structure) objects",
+          "name": "welcome_channels",
+          "description": "channels linked in the welcome screen and their display options",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "the server description to show in the welcome screen",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Voice State",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/voice-states/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "There are currently several caveats for this endpoint:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "the id of the channel the user is currently in",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "suppress?",
+          "description": "toggles the user's suppress state",
+          "required": false
+        },
+        {
+          "type": "?ISO8601 timestamp",
+          "name": "request_to_speak_timestamp?",
+          "description": "sets the user's request to speak",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "List Scheduled Events for Guild",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/scheduled-events",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "with_user_count?",
+        "description": "include number of users subscribed to each event",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of guild scheduled event objects for the given guild."
+  },
+  {
+    "name": "Create Guild Scheduled Event",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/scheduled-events",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "* Optional for events with &#39;entity_type&#39;: EXTERNAL",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake *",
+          "name": "channel_id? *",
+          "description": "the channel id of the scheduled event.",
+          "required": false
+        },
+        {
+          "type": "[entity metadata](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-metadata)",
+          "name": "entity_metadata?",
+          "description": "the entity metadata of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "name",
+          "description": "the name of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[privacy level](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-privacy-level)",
+          "name": "privacy_level",
+          "description": "the privacy level of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "ISO8601 timestamp",
+          "name": "scheduled_start_time",
+          "description": "the time to schedule the scheduled event",
+          "required": false
+        },
+        {
+          "type": "ISO8601 timestamp",
+          "name": "scheduled_end_time?",
+          "description": "the time when the scheduled event is scheduled to end",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description?",
+          "description": "the description of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[entity type](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-types)",
+          "name": "entity_type",
+          "description": "the entity type of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "image?",
+          "description": "the cover image of the scheduled event",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Scheduled Event",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "guild_scheduled_event.id",
+        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "with_user_count?",
+        "description": "include number of users subscribed to this event",
+        "required": false
+      }
+    ],
+    "description": "Get a guild scheduled event. Returns a guild scheduled event object on success."
+  },
+  {
+    "name": "Modify Guild Scheduled Event",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "guild_scheduled_event.id",
+        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+      }
+    ],
+    "query": [],
+    "description": "* If updating entity_type to EXTERNAL:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "?snowflake",
+          "name": "channel_id? *",
+          "description": "the channel id of the scheduled event, set to `null` if changing entity type to `EXTERNAL`",
+          "required": false
+        },
+        {
+          "type": "[entity metadata](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-metadata)",
+          "name": "entity_metadata?",
+          "description": "the entity metadata of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "name?",
+          "description": "the name of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[privacy level](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-privacy-level)",
+          "name": "privacy_level?",
+          "description": "the privacy level of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "ISO8601 timestamp",
+          "name": "scheduled_start_time?",
+          "description": "the time to schedule the scheduled event",
+          "required": false
+        },
+        {
+          "type": "ISO8601 timestamp",
+          "name": "scheduled_end_time? *",
+          "description": "the time when the scheduled event is scheduled to end",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description?",
+          "description": "the description of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[event entity type](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-types)",
+          "name": "entity_type? *",
+          "description": "the entity type of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[event status](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-status)",
+          "name": "status?",
+          "description": "the status of the scheduled event",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "image?",
+          "description": "the cover image of the scheduled event",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Scheduled Event",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "guild_scheduled_event.id",
+        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a guild scheduled event. Returns a 204 on success."
+  },
+  {
+    "name": "Get Guild Template",
+    "method": "GET",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild template object for the given code."
+  },
+  {
+    "name": "Create Guild from Guild Template",
+    "method": "POST",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new guild based on a template. Returns a guild object on success. Fires a Guild Create Gateway event.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the guild (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "[image data](#DOCS_REFERENCE/image-data)",
+          "name": "icon?",
+          "description": "base64 128x128 image for the guild icon",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Templates",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns an array of guild template objects. Requires the MANAGE_GUILD permission."
+  },
+  {
+    "name": "Create Guild Template",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Creates a template for the guild. Requires the MANAGE_GUILD permission. Returns the created guild template object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the template (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description?",
+          "description": "description for the template (0-120 characters)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sync Guild Template",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Syncs the template to the guild&#39;s current state. Requires the MANAGE_GUILD permission. Returns the guild template object on success."
+  },
+  {
+    "name": "Modify Guild Template",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "template.code",
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
+      }
+    ],
+    "query": [],
+    "description": "Modifies the template&#39;s metadata. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name?",
+          "description": "name of the template (1-100 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description?",
+          "description": "description for the template (0-120 characters)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Invite",
+    "method": "GET",
+    "path": "/invites/{invite.code}",
+    "params": [
+      {
+        "name": "invite.code",
+        "link": "DOCS_RESOURCES_INVITE/invite-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "with_counts?",
+        "description": "whether the invite should contain approximate member counts",
+        "required": false
+      },
+      {
+        "type": "boolean",
+        "name": "with_expiration?",
+        "description": "whether the invite should contain the expiration date",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "guild_scheduled_event_id?",
+        "description": "the guild scheduled event to include with the invite",
+        "required": false
+      }
+    ],
+    "description": "Returns an invite object for the given code."
+  },
+  {
+    "name": "Create Stage Instance",
+    "method": "POST",
+    "path": "/stage-instances",
+    "params": [],
+    "query": [],
+    "description": "Requires the user to be a moderator of the Stage channel.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "The id of the Stage channel",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "topic",
+          "description": "The topic of the Stage instance (1-120 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "privacy_level?",
+          "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance (default GUILD_ONLY)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Stage Instance",
+    "method": "GET",
+    "path": "/stage-instances/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Gets the stage instance associated with the Stage channel, if it exists."
+  },
+  {
+    "name": "Modify Stage Instance",
+    "method": "PATCH",
+    "path": "/stage-instances/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Requires the user to be a moderator of the Stage channel.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "topic?",
+          "description": "The topic of the Stage instance (1-120 characters)",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "privacy_level?",
+          "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Sticker",
+    "method": "GET",
+    "path": "/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a sticker object for the given sticker ID."
+  },
+  {
+    "name": "List Nitro Sticker Packs",
+    "method": "GET",
+    "path": "/sticker-packs",
+    "params": [],
+    "query": [],
+    "description": "Returns the list of sticker packs available to Nitro subscribers."
+  },
+  {
+    "name": "List Guild Stickers",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+  },
+  {
+    "name": "Get Guild Sticker",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+  },
+  {
+    "name": "Create Guild Sticker",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
+    "body": {
+      "json": false,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the sticker (2-30 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "description",
+          "description": "description of the sticker (empty or 2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "file",
+          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Sticker",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the sticker (2-30 characters)",
+          "required": false
+        },
+        {
+          "type": "?string",
+          "name": "description",
+          "description": "description of the sticker (2-100 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Current User",
+    "method": "GET",
+    "path": "/users/@me",
+    "params": [],
+    "query": [],
+    "description": "Returns the user object of the requester&#39;s account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
+  },
+  {
+    "name": "Get User",
+    "method": "GET",
+    "path": "/users/{user.id}",
+    "params": [
+      {
+        "name": "user.id",
+        "link": "DOCS_RESOURCES_USER/user-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a user object for a given user ID."
+  },
+  {
+    "name": "Modify Current User",
+    "method": "PATCH",
+    "path": "/users/@me",
+    "params": [],
+    "query": [],
+    "description": "Modify the requester&#39;s user account settings. Returns a user object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "username",
+          "description": "user's username, if changed may cause the user's discriminator to be randomized.",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "avatar",
+          "description": "if passed, modifies the user's avatar",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Current User Guilds",
+    "method": "GET",
+    "path": "/users/@me/guilds",
+    "params": [],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "before",
+        "description": "get guilds before this guild ID",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "after",
+        "description": "get guilds after this guild ID",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "max number of guilds to return (1-200)",
+        "required": false
+      }
+    ],
+    "description": "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope."
+  },
+  {
+    "name": "Get Current User Guild Member",
+    "method": "GET",
+    "path": "/users/@me/guilds/{guild.id}/member",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
+  },
+  {
+    "name": "Leave Guild",
+    "method": "DELETE",
+    "path": "/users/@me/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Leave a guild. Returns a 204 empty response on success."
+  },
+  {
+    "name": "Create DM",
+    "method": "POST",
+    "path": "/users/@me/channels",
+    "params": [],
+    "query": [],
+    "description": "Create a new DM channel with a user. Returns a DM channel object.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "snowflake",
+          "name": "recipient_id",
+          "description": "the recipient to open a DM channel with",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Create Group DM",
+    "method": "POST",
+    "path": "/users/@me/channels",
+    "params": [],
+    "query": [],
+    "description": "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "array of strings",
+          "name": "access_tokens",
+          "description": "access tokens of users that have granted your app the `gdm.join` scope",
+          "required": false
+        },
+        {
+          "type": "dict",
+          "name": "nicks",
+          "description": "a dictionary of user ids to their respective nicknames",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Create Webhook",
+    "method": "POST",
+    "path": "/channels/{channel.id}/webhooks",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Create a new webhook. Requires the MANAGE_WEBHOOKS permission. Returns a webhook object on success. Webhook names follow our naming restrictions that can be found in our Usernames and Nicknames documentation, with the following additional stipulations:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "name of the webhook (1-80 characters)",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "avatar?",
+          "description": "image for the default webhook avatar",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Channel Webhooks",
+    "method": "GET",
+    "path": "/channels/{channel.id}/webhooks",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of channel webhook objects. Requires the MANAGE_WEBHOOKS permission."
+  },
+  {
+    "name": "Get Guild Webhooks",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/webhooks",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns a list of guild webhook objects. Requires the MANAGE_WEBHOOKS permission."
+  },
+  {
+    "name": "Get Webhook",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Returns the new webhook object for the given id."
+  },
+  {
+    "name": "Get Webhook with Token",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object."
+  },
+  {
+    "name": "Modify Webhook",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "the default name of the webhook",
+          "required": false
+        },
+        {
+          "type": "?[image data](#DOCS_REFERENCE/image-data)",
+          "name": "avatar",
+          "description": "image for the default webhook avatar",
+          "required": false
+        },
+        {
+          "type": "snowflake",
+          "name": "channel_id",
+          "description": "the new channel id this webhook should be moved to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Webhook with Token",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
+  },
+  {
+    "name": "Delete Webhook",
+    "method": "DELETE",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success."
+  },
+  {
+    "name": "Delete Webhook with Token",
+    "method": "DELETE",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Same as above, except this call does not require authentication."
+  },
+  {
+    "name": "Execute Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`; when `false` a message that is not saved does not return an error)",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
+        "required": false
+      }
+    ],
+    "description": "** See Uploading Files for details.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "username",
+          "description": "override the default username of the webhook",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "avatar_url",
+          "description": "override the default avatar of the webhook",
+          "required": false
+        },
+        {
+          "type": "boolean",
+          "name": "tts",
+          "description": "true if this is a TTS message",
+          "required": false
+        },
+        {
+          "type": "array of up to 10 [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object)",
+          "name": "components \\*",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*\\*",
+          "description": "the contents of the file being sent",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*\\*",
+          "description": "JSON encoded body of non-file params",
+          "required": false
+        },
+        {
+          "type": "array of partial [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*\\*",
+          "description": "attachment objects with filename and description",
+          "required": false
+        },
+        {
+          "type": "integer",
+          "name": "flags",
+          "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field) (only `SUPPRESS_EMBEDS` can be set)",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Execute Slack-Compatible Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/slack",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread to send the message in",
+        "required": false
+      },
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
+        "required": false
+      }
+    ],
+    "description": "Refer to Slack&#39;s documentation for more information. We do not support Slack&#39;s channel, icon_emoji, mrkdwn, or mrkdwn_in properties."
+  },
+  {
+    "name": "Execute GitHub-Compatible Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/github",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread to send the message in",
+        "required": false
+      },
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
+        "required": false
+      }
+    ],
+    "description": "Add a new webhook to your GitHub repo (in the repo&#39;s settings), and use this endpoint as the &quot;Payload URL.&quot; You can choose what events your Discord channel receives by choosing the &quot;Let me select individual events&quot; option and selecting individual events for the new webhook you&#39;re configuring."
+  },
+  {
+    "name": "Get Webhook Message",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread the message is in",
+        "required": false
+      }
+    ],
+    "description": "Returns a previously-sent webhook message from the same token. Returns a message object on success."
+  },
+  {
+    "name": "Edit Webhook Message",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread the message is in",
+        "required": false
+      }
+    ],
+    "description": "** See Uploading Files for details.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": "string",
+          "name": "content",
+          "description": "the message contents (up to 2000 characters)",
+          "required": false
+        },
+        {
+          "type": "array of up to 10 [embed](#DOCS_RESOURCES_CHANNEL/embed-object) objects",
+          "name": "embeds",
+          "description": "embedded `rich` content",
+          "required": false
+        },
+        {
+          "type": "[allowed mention object](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object)",
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": "array of [message component](#DOCS_INTERACTIONS_MESSAGE_COMPONENTS/component-object)",
+          "name": "components \\*",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": "file contents",
+          "name": "files[n] \\*\\*",
+          "description": "the contents of the file being sent/edited",
+          "required": false
+        },
+        {
+          "type": "string",
+          "name": "payload_json \\*\\*",
+          "description": "JSON encoded body of non-file params (multipart/form-data only)",
+          "required": false
+        },
+        {
+          "type": "array of partial [attachment](#DOCS_RESOURCES_CHANNEL/attachment-object) objects",
+          "name": "attachments \\*\\*",
+          "description": "attached files to keep and possible descriptions for new files",
+          "required": false
+        }
+      ]
+    }
+  }
+]
