@@ -32,7 +32,7 @@ export interface EndpointBody {
 }
 
 export interface EndpointBodyParam {
-  type: string;
+  type: string | any;
   name: string;
   description: string;
   required: boolean;

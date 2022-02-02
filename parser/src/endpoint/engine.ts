@@ -1,5 +1,6 @@
 import { Context, Endpoint, parseEndpoint } from ".";
-import { flattenBlock, formatTable } from "../util";
+
+import { flattenBlock, formatTable, resolveType } from "../util";
 import { marked } from "marked";
 
 export class Engine {
@@ -9,6 +10,11 @@ export class Engine {
   currentEndpoint: Endpoint;
 
   constructor() {}
+
+  finish() {
+    if (this.currentEndpoint) this.endpoints.push(this.currentEndpoint);
+    return this.endpoints;
+  }
 
   process(block: marked.Token) {
     switch (this.context) {
@@ -25,6 +31,8 @@ export class Engine {
         break;
 
       case "json-body":
+      case "form-body":
+      case "json-form-body":
         this.processBody(block);
         break;
     }
@@ -40,7 +48,8 @@ export class Engine {
   processEndpoint(block: marked.Token) {
     switch (block.type) {
       case "paragraph":
-        this.currentEndpoint.description = flattenBlock(block);
+        if (!this.currentEndpoint.description)
+          this.currentEndpoint.description = flattenBlock(block);
         break;
 
       case "heading":
@@ -76,18 +85,16 @@ export class Engine {
   }
 
   processQuery(block: marked.Token) {
-    switch (block.type) {
-      case "table":
-        const table = formatTable(block);
-        this.currentEndpoint.query = table.map(row => ({
-          type: row.type,
-          name: row.field,
-          description: row.description,
-          required: row.required === "true"
-        }));
+    if (block.type === "table") {
+      const table = formatTable(block);
+      this.currentEndpoint.query = table.map(row => ({
+        type: row.type.text,
+        name: row.field.text,
+        description: row.description.text,
+        required: row.required.text === "true"
+      }));
 
-        this.context = "endpoint";
-        break;
+      this.context = "endpoint";
     }
   }
 
@@ -98,10 +105,10 @@ export class Engine {
         json: this.context === "json-body" || this.context === "json-form-body",
         form: this.context === "form-body" || this.context === "json-form-body",
         params: table.map(row => ({
-          type: row.type,
-          name: row.field,
-          description: row.description,
-          required: row.required === "true"
+          type: resolveType(row.type),
+          name: row.field.text,
+          description: row.description.text,
+          required: row.required?.text === "true"
         }))
       };
 

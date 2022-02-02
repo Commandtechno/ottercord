@@ -1,16 +1,26 @@
-import { Engine } from "./endpoints";
+import { readFile } from "fs/promises";
+import { resolve } from "path";
+import { marked } from "marked";
 
-import Page from "./page";
+import { DOCS_DIR } from "./constants";
+import { Engine as EndpointEngine } from "./endpoint";
+import { Engine as StructureEngine } from "./object";
 
 export async function parse(...pathSegments: string[]) {
-  const page = new Page();
-  await page.load(...pathSegments);
+  const path = resolve(DOCS_DIR, ...pathSegments);
+  const file = await readFile(path, "utf8");
+  const page = marked.lexer(file);
 
-  const engine = new Engine();
+  const endpointEngine = new EndpointEngine();
+  const structureEngine = new StructureEngine();
 
-  for (const block of page.next()) {
-    engine.process(block);
+  for (const block of page) {
+    endpointEngine.process(block);
+    structureEngine.process(block);
   }
 
-  return engine.endpoints;
+  const endpoints = endpointEngine.finish();
+  const structures = structureEngine.finish();
+
+  return { endpoints, structures };
 }

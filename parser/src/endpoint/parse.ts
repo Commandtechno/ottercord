@@ -17,11 +17,11 @@ export function parsePath(rawPath: string) {
 }
 
 export function parseEndpoint(rawText: string) {
-  const [rawName, rawMethodAndPath] = rawText.split("%");
-  if (!rawMethodAndPath) return;
+  const [rawName, rawMethodPath] = rawText.split("%");
+  if (!rawName || !rawMethodPath) return;
 
-  const [rawMethod, rawPath] = rawMethodAndPath.trim().split(" ");
-  if (!rawPath) return;
+  const [rawMethod, rawPath] = rawMethodPath.trim().split(" ");
+  if (!rawMethod || !rawPath) return;
 
   const name = rawName.trim();
   const method = rawMethod.trim();
