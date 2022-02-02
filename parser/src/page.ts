@@ -2,6 +2,8 @@ import { readFile } from "fs/promises";
 import { resolve } from "path";
 import { marked } from "marked";
 
+import { DOCS_DIR } from "./constants";
+
 export default class Page {
   index: number;
   parsed: marked.TokensList;
@@ -12,15 +14,7 @@ export default class Page {
   }
 
   async load(...pathSegments: string[]) {
-    const path = resolve(
-      __dirname,
-      "..",
-      "..",
-      "discord-api-docs",
-      "docs",
-      "resources",
-      ...pathSegments
-    );
+    const path = resolve(DOCS_DIR, ...pathSegments);
 
     const file = await readFile(path, "utf8");
     const parsed = marked.lexer(file);

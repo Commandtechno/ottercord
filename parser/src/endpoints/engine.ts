@@ -5,8 +5,8 @@ import { marked } from "marked";
 export class Engine {
   endpoints: Endpoint[] = [];
 
-  currentEndpoint: Endpoint;
   context: Context = "none";
+  currentEndpoint: Endpoint;
 
   constructor() {}
 
@@ -25,15 +25,7 @@ export class Engine {
         break;
 
       case "json-body":
-        this.processJsonBody(block);
-        break;
-
-      case "form-body":
-        this.processFormBody(block);
-        break;
-
-      case "json-form-body":
-        this.processJsonFormBody(block);
+        this.processBody(block);
         break;
     }
   }
@@ -99,63 +91,21 @@ export class Engine {
     }
   }
 
-  processJsonBody(block: marked.Token) {
-    switch (block.type) {
-      case "table":
-        const table = formatTable(block);
-        this.currentEndpoint.body = {
-          json: true,
-          form: false,
-          params: table.map(row => ({
-            type: row.type,
-            name: row.field,
-            description: row.description,
-            required: row.required === "true"
-          }))
-        };
+  processBody(block: marked.Token) {
+    if (block.type === "table") {
+      const table = formatTable(block);
+      this.currentEndpoint.body = {
+        json: this.context === "json-body" || this.context === "json-form-body",
+        form: this.context === "form-body" || this.context === "json-form-body",
+        params: table.map(row => ({
+          type: row.type,
+          name: row.field,
+          description: row.description,
+          required: row.required === "true"
+        }))
+      };
 
-        this.context = "endpoint";
-        break;
-    }
-  }
-
-  processFormBody(block: marked.Token) {
-    switch (block.type) {
-      case "table":
-        const table = formatTable(block);
-        this.currentEndpoint.body = {
-          json: false,
-          form: true,
-          params: table.map(row => ({
-            type: row.type,
-            name: row.field,
-            description: row.description,
-            required: row.required === "true"
-          }))
-        };
-
-        this.context = "endpoint";
-        break;
-    }
-  }
-
-  processJsonFormBody(block: marked.Token) {
-    switch (block.type) {
-      case "table":
-        const table = formatTable(block);
-        this.currentEndpoint.body = {
-          json: true,
-          form: true,
-          params: table.map(row => ({
-            type: row.type,
-            name: row.field,
-            description: row.description,
-            required: row.required === "true"
-          }))
-        };
-
-        this.context = "endpoint";
-        break;
+      this.context = "endpoint";
     }
   }
 }
