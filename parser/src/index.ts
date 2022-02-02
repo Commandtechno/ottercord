@@ -2,9 +2,9 @@ import { Engine } from "./endpoints";
 
 import Page from "./page";
 
-export async function parse(file: string) {
+export async function parse(...pathSegments: string[]) {
   const page = new Page();
-  await page.load(file);
+  await page.load(...pathSegments);
 
   const engine = new Engine();
 

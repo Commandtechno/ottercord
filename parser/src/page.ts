@@ -22,6 +22,7 @@ export default class Page {
     this.parsed = parsed;
   }
 
+  // for debugging, will remove later
   ___current() {
     return this.parsed[this.index - 1];
   }

@@ -1,3 +1,2 @@
-node_modules/
-build.js
-test.js
+node_modules
+build
