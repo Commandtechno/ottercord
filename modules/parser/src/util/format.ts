@@ -12,7 +12,7 @@ export function formatText(str: string) {
     .replace(/[\s"'\\\/\?\*]+$/, "");
 }
 
-export function flattenBlock(block: any) {
+export function flattenBlock(block: any): string {
   if (block.tokens) return block.tokens.map(flattenBlock).join(" ");
   if (block.text) return formatText(decode(block.text));
   return "";

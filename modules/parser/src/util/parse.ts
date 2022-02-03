@@ -1,10 +1,10 @@
-import { flattenBlock, lastSplit } from ".";
+import { flattenBlock, formatText, lastSplit } from ".";
 import { marked } from "marked";
 
 export interface Type {
   reference: boolean;
-  value: any;
   array: boolean;
+  value: string | string[];
 }
 
 export function parseType(block: marked.Tokens.TableCell): Type {
@@ -17,21 +17,23 @@ export function parseType(block: marked.Tokens.TableCell): Type {
   }
 
   let array = false;
-  if (block.text.toLowerCase().includes("array")) array = true;
+  if (block.text.toLowerCase().includes("array") || block.text.toLowerCase().includes("list"))
+    array = true;
+
   if (block.text.toLowerCase().includes("object"))
     for (const token of block.tokens)
       if (token.type === "link") {
         return {
           reference: true,
-          value: parseTypeLink(token.href),
-          array
+          array,
+          value: parseTypeLink(token.href)
         };
       }
 
   return {
     reference: false,
-    value: flattenBlock(block),
-    array
+    array,
+    value: flattenBlock(block).split("or").map(formatText)
   };
 }
 

@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Get Guild Audit Log",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/audit-logs",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "user_id",
+        "description": "filter the log for actions made by a user",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "action_type",
+        "description": "the type of",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "before",
+        "description": "filter the log before a certain entry id",
+        "required": false
+      },
+      {
+        "type": "integer",
+        "name": "limit",
+        "description": "how many entries are returned",
+        "required": false
+      }
+    ],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "audit-log-object"
+    },
+    "description": "Returns an audit log object for the guild. Requires the 'VIEW_AUDIT_LOG' permission."
+  }
+]

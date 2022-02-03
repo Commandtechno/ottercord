@@ -1,0 +1,1363 @@
+[
+  {
+    "name": "Guild Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "guild id",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "guild name (2-100 characters, excluding trailing and leading whitespace)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "icon",
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "icon_hash",
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting), returned when in the template object",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "splash",
+        "description": "[splash hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "discovery_splash",
+        "description": "[discovery splash hash](#DOCS_REFERENCE/image-formatting); only present for guilds with the \"DISCOVERABLE\" feature",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "owner",
+        "description": "true if [the user](#DOCS_RESOURCES_USER/get-current-user-guilds) is the owner of the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "owner_id",
+        "description": "id of owner",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "permissions",
+        "description": "total permissions for [the user](#DOCS_RESOURCES_USER/get-current-user-guilds) in the guild (excludes overwrites)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "region",
+        "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id for the guild (deprecated)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "afk_channel_id",
+        "description": "id of afk channel",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "afk_timeout",
+        "description": "afk timeout in seconds",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "widget_enabled",
+        "description": "true if the server widget is enabled",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "widget_channel_id",
+        "description": "the channel id that the widget will generate an invite to, or `null` if set to no invite",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "verification_level",
+        "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level) required for the guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "default_message_notifications",
+        "description": "default [message notifications level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "explicit_content_filter",
+        "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "role-object"
+        },
+        "name": "roles",
+        "description": "roles in the guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "emoji-object"
+        },
+        "name": "emojis",
+        "description": "custom guild emojis",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "guild-object-guild-features"
+        },
+        "name": "features",
+        "description": "enabled guild features",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "mfa_level",
+        "description": "required [MFA level](#DOCS_RESOURCES_GUILD/guild-object-mfa-level) for the guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "application_id",
+        "description": "application id of the guild creator if it is bot-created",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "system_channel_id",
+        "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "system_channel_flags",
+        "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "rules_channel_id",
+        "description": "the id of the channel where Community guilds can display rules and/or guidelines",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "joined_at",
+        "description": "when this guild was joined at",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "large",
+        "description": "true if this is considered a large guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "unavailable",
+        "description": "true if this guild is unavailable due to an outage",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "member_count",
+        "description": "total number of members in this guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "voice-state-object"
+        },
+        "name": "voice_states",
+        "description": "states of members currently in voice channels; lacks the `guild_id` key",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "guild-member-object"
+        },
+        "name": "members",
+        "description": "users in the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "channel-object"
+        },
+        "name": "channels",
+        "description": "channels in the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "channel-object"
+        },
+        "name": "threads",
+        "description": "all active threads in the guild that current user has permission to view",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "presence-update"
+        },
+        "name": "presences",
+        "description": "presences of the members in the guild, will only include non-offline members if the size is greater than `large threshold`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "max_presences",
+        "description": "the maximum number of presences for the guild (`null` is always returned, apart from the largest of guilds)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "max_members",
+        "description": "the maximum number of members for the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "vanity_url_code",
+        "description": "the vanity url code for the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description of a Community guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "banner",
+        "description": "[banner hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "premium_tier",
+        "description": "[premium tier](#DOCS_RESOURCES_GUILD/guild-object-premium-tier) (Server Boost level)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "premium_subscription_count",
+        "description": "the number of boosts this guild currently has",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "preferred_locale",
+        "description": "the preferred [locale](#DOCS_REFERENCE/locales) of a Community guild; used in server discovery and notices from Discord, and sent in interactions; defaults to \"en-US\"",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "public_updates_channel_id",
+        "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "max_video_channel_users",
+        "description": "the maximum amount of users in a video channel",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "approximate_member_count",
+        "description": "approximate number of members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "approximate_presence_count",
+        "description": "approximate number of non-offline members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "welcome-screen-object"
+        },
+        "name": "welcome_screen",
+        "description": "the welcome screen of a Community guild, shown to new members, returned in an [Invite](#DOCS_RESOURCES_INVITE/invite-object)'s guild object",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "nsfw_level",
+        "description": "[guild NSFW level](#DOCS_RESOURCES_GUILD/guild-object-guild-nsfw-level)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "stage-instance-object"
+        },
+        "name": "stage_instances",
+        "description": "Stage instances in the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "sticker-object"
+        },
+        "name": "stickers",
+        "description": "custom guild stickers",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "guild-scheduled-event-object"
+        },
+        "name": "guild_scheduled_events",
+        "description": "the scheduled events in the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "premium_progress_bar_enabled",
+        "description": "whether the guild has the boost progress bar enabled",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Guild Preview Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "guild id",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "guild name (2-100 characters)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "icon",
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "splash",
+        "description": "[splash hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "discovery_splash",
+        "description": "[discovery splash hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "emoji-object"
+        },
+        "name": "emojis",
+        "description": "custom guild emojis",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "guild-object-guild-features"
+        },
+        "name": "features",
+        "description": "enabled guild features",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "approximate_member_count",
+        "description": "approximate number of members in this guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "approximate_presence_count",
+        "description": "approximate number of online members in this guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description for the guild, if the guild is discoverable",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "sticker-object"
+        },
+        "name": "stickers",
+        "description": "custom guild stickers",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Guild Widget Settings Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "enabled",
+        "description": "whether the widget is enabled",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "channel_id",
+        "description": "the widget channel id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Get Guild Widget Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "guild id",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "guild name (2-100 characters)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "instant_invite",
+        "description": "instant invite for the guilds specified widget invite channel",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "channel-object"
+        },
+        "name": "channels",
+        "description": "voice and stage channels which are accessible by @everyone",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "user-object"
+        },
+        "name": "members",
+        "description": "special widget user objects that includes users presence (Limit 100)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "presence_count",
+        "description": "number of online members in this guild",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Guild Member Structure",
+    "params": [
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "the user this guild member represents",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "nick",
+        "description": "this user's guild nickname",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "avatar",
+        "description": "the member's [guild avatar hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": true,
+          "value": [
+            "array of snowflakes"
+          ]
+        },
+        "name": "roles",
+        "description": "array of [role](#DOCS_TOPICS_PERMISSIONS/role-object) object ids",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "joined_at",
+        "description": "when the user joined the guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "premium_since",
+        "description": "when the user started [boosting](https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-) the guild",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "deaf",
+        "description": "whether the user is deafened in voice channels",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "mute",
+        "description": "whether the user is muted in voice channels",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "pending",
+        "description": "whether the user has not yet passed the guild's [Membership Screening](#DOCS_RESOURCES_GUILD/membership-screening-object) requirements",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "permissions",
+        "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "communication_disabled_until",
+        "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Integration Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "integration id",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "integration name",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "type",
+        "description": "integration type (twitch, youtube, or discord)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "enabled",
+        "description": "is this integration enabled",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "syncing",
+        "description": "is this integration syncing",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "role_id",
+        "description": "id that this integration uses for \"subscribers\"",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "enable_emoticons",
+        "description": "whether emoticons should be synced for this integration (twitch only currently)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "integration-object-integration-expire-behaviors"
+        },
+        "name": "expire_behavior",
+        "description": "the behavior of expiring subscribers",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "expire_grace_period",
+        "description": "the grace period (in days) before expiring subscribers",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "user for this integration",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "integration-account-object"
+        },
+        "name": "account",
+        "description": "integration account information",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "synced_at",
+        "description": "when this integration was last synced",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "subscriber_count",
+        "description": "how many subscribers this integration has",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "revoked",
+        "description": "has this integration been revoked",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "integration-application-object"
+        },
+        "name": "application",
+        "description": "The bot/OAuth2 application for discord integrations",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Integration Account Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "id",
+        "description": "id of the account",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "name of the account",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Integration Application Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "the id of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "the name of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "icon",
+        "description": "the [icon hash](#DOCS_REFERENCE/image-formatting) of the app",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "summary",
+        "description": "the summary of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "bot",
+        "description": "the bot associated with this application",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Ban Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "reason",
+        "description": "the reason for the ban",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "the banned user",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Welcome Screen Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the server description shown in the welcome screen",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "welcome-screen-object-welcome-screen-channel-structure"
+        },
+        "name": "welcome_channels",
+        "description": "the channels shown in the welcome screen, up to 5",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Welcome Screen Channel Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "channel_id",
+        "description": "the channel's id",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description shown for the channel",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "emoji_id",
+        "description": "the [emoji id](#DOCS_REFERENCE/image-formatting), if the emoji is custom",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "emoji_name",
+        "description": "the emoji name if custom, the unicode character if standard, or `null` if no emoji is set",
+        "required": true
+      }
+    ]
+  }
+]

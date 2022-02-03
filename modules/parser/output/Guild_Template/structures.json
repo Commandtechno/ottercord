@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Guild Template Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "code",
+        "description": "the template code (unique ID)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "template name",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description for the template",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "usage_count",
+        "description": "number of times this template has been used",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "creator_id",
+        "description": "the ID of the user who created the template",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "creator",
+        "description": "the user who created the template",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "created_at",
+        "description": "when this template was created",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "ISO8601 timestamp"
+          ]
+        },
+        "name": "updated_at",
+        "description": "when this template was last synced to the source guild",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "source_guild_id",
+        "description": "the ID of the guild this template is based on",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "guild-object"
+        },
+        "name": "serialized_source_guild",
+        "description": "the guild snapshot this template contains",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "is_dirty",
+        "description": "whether the template has unsynced changes",
+        "required": true
+      }
+    ]
+  }
+]

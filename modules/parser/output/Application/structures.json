@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Application Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "the id of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "the name of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "icon",
+        "description": "the [icon hash](#DOCS_REFERENCE/image-formatting) of the app",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "the description of the app",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": true,
+          "value": [
+            "array of strings"
+          ]
+        },
+        "name": "rpc_origins",
+        "description": "an array of rpc origin urls, if rpc is enabled",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "bot_public",
+        "description": "when false only app owner can join the app's bot to guilds",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "bot_require_code_grant",
+        "description": "when true the app's bot will only join upon completion of the full oauth2 code grant flow",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "terms_of_service_url",
+        "description": "the url of the app's terms of service",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "privacy_policy_url",
+        "description": "the url of the app's privacy policy",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "owner",
+        "description": "partial user object containing info on the owner of the application",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "summary",
+        "description": "if this application is a game sold on Discord, this field will be the summary field for the store page of its primary sku",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "verify_key",
+        "description": "the hex encoded key for verification in interactions and the GameSDK's [GetTicket](#DOCS_GAME_SDK_APPLICATIONS/getticket)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "data-models-team-object"
+        },
+        "name": "team",
+        "description": "if the application belongs to a team, this will be a list of the members of that team",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "guild_id",
+        "description": "if this application is a game sold on Discord, this field will be the guild to which it has been linked",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "primary_sku_id",
+        "description": "if this application is a game sold on Discord, this field will be the id of the \"Game SKU\" that is created, if exists",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "slug",
+        "description": "if this application is a game sold on Discord, this field will be the URL slug that links to the store page",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "cover_image",
+        "description": "the application's default rich presence invite [cover image hash](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "flags",
+        "description": "the application's public [flags](#DOCS_RESOURCES_APPLICATION/application-object-application-flags)",
+        "required": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Webhook Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "the id of the webhook",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "type",
+        "description": "the [type](#DOCS_RESOURCES_WEBHOOK/webhook-object-webhook-types) of the webhook",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "guild_id",
+        "description": "the guild id this webhook is for, if any",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "channel_id",
+        "description": "the channel id this webhook is for, if any",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "the user this webhook was created by (not returned when getting a webhook with its token)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "the default name of the webhook",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "avatar",
+        "description": "the default user avatar [hash](#DOCS_REFERENCE/image-formatting) of the webhook",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "token",
+        "description": "the secure token of the webhook (returned for Incoming Webhooks)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "application_id",
+        "description": "the bot/OAuth2 application that created this webhook",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "guild-object"
+        },
+        "name": "source_guild",
+        "description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "channel-object"
+        },
+        "name": "source_channel",
+        "description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "url",
+        "description": "the url used for executing the webhook (returned by the [webhooks](#DOCS_TOPICS_OAUTH2/webhooks) OAuth2 flow)",
+        "required": true
+      }
+    ]
+  }
+]

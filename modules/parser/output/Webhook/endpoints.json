@@ -1,0 +1,652 @@
+[
+  {
+    "name": "Create Webhook",
+    "method": "POST",
+    "path": "/channels/{channel.id}/webhooks",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "webhook-object"
+    },
+    "description": "Create a new webhook. Requires the MANAGE_WEBHOOKS permission. Returns a webhook object on success. Webhook names follow our naming restrictions that can be found in our Usernames and Nicknames documentation, with the following additional stipulations:",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "name",
+          "description": "name of the webhook",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "image data"
+            ]
+          },
+          "name": "avatar",
+          "description": "image for the default webhook avatar",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Channel Webhooks",
+    "method": "GET",
+    "path": "/channels/{channel.id}/webhooks",
+    "params": [
+      {
+        "name": "channel.id",
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": true,
+      "value": "webhook-object"
+    },
+    "description": "Returns a list of channel webhook objects. Requires the MANAGE_WEBHOOKS permission."
+  },
+  {
+    "name": "Get Guild Webhooks",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/webhooks",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": true,
+      "value": "webhook-object"
+    },
+    "description": "Returns a list of guild webhook objects. Requires the MANAGE_WEBHOOKS permission."
+  },
+  {
+    "name": "Get Webhook",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "webhook-object"
+    },
+    "description": "Returns the new webhook object for the given id."
+  },
+  {
+    "name": "Get Webhook with Token",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": false,
+      "array": false,
+      "value": [
+        "Same as above, except this call does not require authentication and returns no user in the webhook object."
+      ]
+    },
+    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object."
+  },
+  {
+    "name": "Modify Webhook",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "webhook-object"
+    },
+    "description": "Modify a webhook. Requires the MANAGE_WEBHOOKS permission. Returns the updated webhook object on success.",
+    "body": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "name",
+          "description": "the default name of the webhook",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "image data"
+            ]
+          },
+          "name": "avatar",
+          "description": "image for the default webhook avatar",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "snowflake"
+            ]
+          },
+          "name": "channel_id",
+          "description": "the new channel id this webhook should be moved to",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Webhook with Token",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": false,
+      "array": false,
+      "value": [
+        "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
+      ]
+    },
+    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
+  },
+  {
+    "name": "Delete Webhook",
+    "method": "DELETE",
+    "path": "/webhooks/{webhook.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "response": {
+      "reference": false,
+      "array": false,
+      "value": [
+        "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success."
+      ]
+    },
+    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success."
+  },
+  {
+    "name": "Delete Webhook with Token",
+    "method": "DELETE",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [],
+    "description": "Same as above, except this call does not require authentication."
+  },
+  {
+    "name": "Execute Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response, and returns the created message body",
+        "required": false
+      },
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
+        "required": false
+      }
+    ],
+    "description": "Refer to Uploading Files for details on attachments and multipart/form-data requests.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "content",
+          "description": "the message contents",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "username",
+          "description": "override the default username of the webhook",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "avatar_url",
+          "description": "override the default avatar of the webhook",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "boolean"
+            ]
+          },
+          "name": "tts",
+          "description": "true if this is a TTS message",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "embed-object"
+          },
+          "name": "embeds",
+          "description": "embedded `rich` content",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": false,
+            "value": "allowed-mentions-object"
+          },
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "component-object"
+          },
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "file contents"
+            ]
+          },
+          "name": "files",
+          "description": "the contents of the file being sent",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "payload_json",
+          "description": "JSON encoded body of non-file params",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "attachment-object"
+          },
+          "name": "attachments",
+          "description": "attachment objects with filename and description",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "integer"
+            ]
+          },
+          "name": "flags",
+          "description": "combined as a",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Execute Slack-Compatible Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/slack",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread to send the message in",
+        "required": false
+      },
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response",
+        "required": false
+      }
+    ],
+    "description": "Refer to Slack's documentation for more information. We do not support Slack's channel , icon_emoji , mrkdwn , or mrkdwn_in properties."
+  },
+  {
+    "name": "Execute GitHub-Compatible Webhook",
+    "method": "POST",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/github",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread to send the message in",
+        "required": false
+      },
+      {
+        "type": "boolean",
+        "name": "wait",
+        "description": "waits for server confirmation of message send before response",
+        "required": false
+      }
+    ],
+    "description": "Add a new webhook to your GitHub repo , and use this endpoint as the \"Payload URL.\" You can choose what events your Discord channel receives by choosing the \"Let me select individual events\" option and selecting individual events for the new webhook you're configuring."
+  },
+  {
+    "name": "Get Webhook Message",
+    "method": "GET",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread the message is in",
+        "required": false
+      }
+    ],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "message-object"
+    },
+    "description": "Returns a previously-sent webhook message from the same token. Returns a message object on success."
+  },
+  {
+    "name": "Edit Webhook Message",
+    "method": "PATCH",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread the message is in",
+        "required": false
+      }
+    ],
+    "response": {
+      "reference": true,
+      "array": false,
+      "value": "message-object"
+    },
+    "description": "Edits a previously-sent webhook message from the same token. Returns a message object on success.",
+    "body": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "content",
+          "description": "the message contents",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "embed-object"
+          },
+          "name": "embeds",
+          "description": "embedded `rich` content",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": false,
+            "value": "allowed-mentions-object"
+          },
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "component-object"
+          },
+          "name": "components",
+          "description": "the components to include with the message",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "file contents"
+            ]
+          },
+          "name": "files",
+          "description": "the contents of the file being sent/edited",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": false,
+            "array": false,
+            "value": [
+              "string"
+            ]
+          },
+          "name": "payload_json",
+          "description": "JSON encoded body of non-file params",
+          "required": false
+        },
+        {
+          "type": {
+            "reference": true,
+            "array": true,
+            "value": "attachment-object"
+          },
+          "name": "attachments",
+          "description": "attached files to keep and possible descriptions for new files",
+          "required": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Webhook Message",
+    "method": "DELETE",
+    "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
+    "params": [
+      {
+        "name": "webhook.id",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "webhook.token",
+        "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
+      },
+      {
+        "name": "message.id",
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
+      }
+    ],
+    "query": [
+      {
+        "type": "snowflake",
+        "name": "thread_id",
+        "description": "id of the thread the message is in",
+        "required": false
+      }
+    ],
+    "response": {
+      "reference": false,
+      "array": false,
+      "value": [
+        "Deletes a message that was created by the webhook. Returns a 204 No Content response on success."
+      ]
+    },
+    "description": "Deletes a message that was created by the webhook. Returns a 204 No Content response on success."
+  }
+]

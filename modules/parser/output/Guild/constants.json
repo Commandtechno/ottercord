@@ -1,0 +1,27 @@
+[
+  {
+    "name": "System Channel Flags",
+    "values": [
+      {
+        "name": "SUPPRESS_JOIN_NOTIFICATIONS",
+        "value": 1,
+        "description": "Suppress member join notifications"
+      },
+      {
+        "name": "SUPPRESS_PREMIUM_SUBSCRIPTIONS",
+        "value": 2,
+        "description": "Suppress server boost notifications"
+      },
+      {
+        "name": "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS",
+        "value": 4,
+        "description": "Suppress server setup tips"
+      },
+      {
+        "name": "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
+        "value": 8,
+        "description": "Hide member join sticker reply buttons"
+      }
+    ]
+  }
+]

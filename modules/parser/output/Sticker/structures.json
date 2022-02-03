@@ -1,0 +1,277 @@
+[
+  {
+    "name": "Sticker Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "[id of the sticker](#DOCS_REFERENCE/image-formatting)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "pack_id",
+        "description": "for standard stickers, id of the pack the sticker is from",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "name of the sticker",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "description of the sticker",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "tags",
+        "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "asset",
+        "description": "**Deprecated** previously the sticker asset hash, now an empty string",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "type",
+        "description": "[type of sticker](#DOCS_RESOURCES_STICKER/sticker-object-sticker-types)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "format_type",
+        "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "available",
+        "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "guild_id",
+        "description": "id of the guild that owns this sticker",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "the user that uploaded the guild sticker",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "sort_value",
+        "description": "the standard sticker's sort order within its pack",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Sticker Item Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "id of the sticker",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "name of the sticker",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "integer"
+          ]
+        },
+        "name": "format_type",
+        "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Sticker Pack Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "id of the sticker pack",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "sticker-object"
+        },
+        "name": "stickers",
+        "description": "the stickers in the pack",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "name of the sticker pack",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "sku_id",
+        "description": "id of the pack's SKU",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "cover_sticker_id",
+        "description": "id of a sticker in the pack which is shown as the pack's icon",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "description",
+        "description": "description of the sticker pack",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "banner_asset_id",
+        "description": "id of the sticker pack's [banner image](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      }
+    ]
+  }
+]

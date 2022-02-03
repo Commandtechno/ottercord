@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Webhook Types",
+    "values": [
+      {
+        "name": "Incoming",
+        "value": 1,
+        "description": "Incoming Webhooks can post messages to channels with a generated token"
+      },
+      {
+        "name": "Channel Follower",
+        "value": 2,
+        "description": "Channel Follower Webhooks are internal webhooks used with Channel Following to post new messages into channels"
+      },
+      {
+        "name": "Application",
+        "value": 3,
+        "description": "Application webhooks are webhooks used with Interactions"
+      }
+    ]
+  }
+]

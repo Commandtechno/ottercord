@@ -1,0 +1,15 @@
+[
+  {
+    "name": "List Voice Regions",
+    "method": "GET",
+    "path": "/voice/regions",
+    "params": [],
+    "query": [],
+    "response": {
+      "reference": true,
+      "array": true,
+      "value": "voice-region-object"
+    },
+    "description": "Returns an array of voice region objects that can be used when setting a voice or stage channel's rtc_region ."
+  }
+]

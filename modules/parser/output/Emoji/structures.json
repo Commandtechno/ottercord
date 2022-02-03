@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Emoji Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "snowflake"
+          ]
+        },
+        "name": "id",
+        "description": "[emoji id](#DOCS_REFERENCE/image-formatting)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "string"
+          ]
+        },
+        "name": "name",
+        "description": "emoji name",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": true,
+          "value": "role-object"
+        },
+        "name": "roles",
+        "description": "roles allowed to use this emoji",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "array": false,
+          "value": "user-object"
+        },
+        "name": "user",
+        "description": "user that created this emoji",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "require_colons",
+        "description": "whether this emoji must be wrapped in colons",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "managed",
+        "description": "whether this emoji is managed",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "animated",
+        "description": "whether this emoji is animated",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "array": false,
+          "value": [
+            "boolean"
+          ]
+        },
+        "name": "available",
+        "description": "whether this emoji can be used, may be false due to loss of Server Boosts",
+        "required": true
+      }
+    ]
+  }
+]
