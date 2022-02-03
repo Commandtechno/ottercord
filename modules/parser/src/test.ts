@@ -1,8 +1,9 @@
-import { existsSync } from "fs";
-import { mkdir, readdir, rm, writeFile } from "fs/promises";
+import { DOCS_DIR } from "../../common";
+
+import { rm, mkdir, readdir, writeFile } from "fs/promises";
 import { basename, resolve } from "path";
+import { existsSync } from "fs";
 import { parse } from ".";
-import { DOCS_DIR } from "./util";
 
 (async () => {
   const OUTPUT_DIR = resolve(__dirname, "..", "output");

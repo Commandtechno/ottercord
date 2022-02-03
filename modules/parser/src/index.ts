@@ -1,12 +1,12 @@
+import { DOCS_DIR } from "../../common";
+
 import { readFile } from "fs/promises";
 import { resolve } from "path";
 import { marked } from "marked";
 
-import { Engine as ConstantsEngine } from "./constants";
-import { Engine as EndpointsEngine } from "./endpoint";
-import { Engine as StructuresEngine } from "./structures";
-
-import { DOCS_DIR } from "./util/constants";
+import { ConstantsEngine } from "./constants";
+import { EndpointsEngine } from "./endpoints";
+import { StructuresEngine } from "./structures";
 
 export async function parse(...pathSegments: string[]) {
   const path = resolve(DOCS_DIR, ...pathSegments);

@@ -2,7 +2,7 @@ import { formatText, formatTable, parseType } from "../util";
 import { Constant, Context } from ".";
 import { marked } from "marked";
 
-export class Engine {
+export class ConstantsEngine {
   constants: Constant[] = [];
 
   context: Context = "none";

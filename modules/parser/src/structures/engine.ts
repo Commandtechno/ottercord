@@ -2,7 +2,7 @@ import { formatText, formatTable, parseType } from "../util";
 import { Context, Structure } from ".";
 import { marked } from "marked";
 
-export class Engine {
+export class StructuresEngine {
   structures: Structure[] = [];
 
   context: Context = "none";

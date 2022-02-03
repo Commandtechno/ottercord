@@ -3,7 +3,7 @@ import { Context, Endpoint, parseEndpoint } from ".";
 import { flattenBlock, formatTable, formatText, parseType } from "../util";
 import { marked } from "marked";
 
-export class Engine {
+export class EndpointsEngine {
   endpoints: Endpoint[] = [];
 
   context: Context = "none";
