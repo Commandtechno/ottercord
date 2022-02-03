@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Invite Target Types",
+    "values": [
+      {
+        "name": "STREAM",
+        "value": 1
+      },
+      {
+        "name": "EMBEDDED_APPLICATION",
+        "value": 2
+      }
+    ]
+  }
+]

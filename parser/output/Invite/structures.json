@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Invite Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "code",
+        "description": "the invite code (unique ID)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-object",
+          "array": false
+        },
+        "name": "guild",
+        "description": "the guild this invite is for",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "channel-object",
+          "array": false
+        },
+        "name": "channel",
+        "description": "the channel this invite is for",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "user-object",
+          "array": false
+        },
+        "name": "inviter",
+        "description": "the user who created the invite",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "target_type",
+        "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "user-object",
+          "array": false
+        },
+        "name": "target_user",
+        "description": "the user whose stream to display for this voice channel stream invite",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "application-object",
+          "array": false
+        },
+        "name": "target_application",
+        "description": "the embedded application to open for this voice channel embedded application invite",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "approximate_presence_count",
+        "description": "approximate count of online members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "approximate_member_count",
+        "description": "approximate count of total members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "ISO8601 timestamp",
+          "array": false
+        },
+        "name": "expires_at",
+        "description": "the expiration date of this invite, returned from the `GET /invites/<code>` endpoint when `with_expiration` is `true`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "invite-stage-instance-object",
+          "array": false
+        },
+        "name": "stage_instance",
+        "description": "stage instance data if there is a [public Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE) in the Stage channel this invite is for",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object",
+          "array": false
+        },
+        "name": "guild_scheduled_event",
+        "description": "guild scheduled event data, only included if `guild_scheduled_event_id` contains a valid guild scheduled event id",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Invite Metadata Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "uses",
+        "description": "number of times this invite has been used",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "max_uses",
+        "description": "max number of times this invite can be used",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "max_age",
+        "description": "duration (in seconds) after which the invite expires",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "boolean",
+          "array": false
+        },
+        "name": "temporary",
+        "description": "whether this invite only grants temporary membership",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "ISO8601 timestamp",
+          "array": false
+        },
+        "name": "created_at",
+        "description": "when this invite was created",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Invite Stage Instance Structure",
+    "params": [
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-member-object",
+          "array": true
+        },
+        "name": "members",
+        "description": "the members speaking in the Stage",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "participant_count",
+        "description": "the number of users in the Stage",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "speaker_count",
+        "description": "the number of users speaking in the Stage",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "topic",
+        "description": "the topic of the Stage instance (1-120 characters)",
+        "required": false
+      }
+    ]
+  }
+]

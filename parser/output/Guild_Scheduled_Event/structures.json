@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Guild Scheduled Event Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "id",
+        "description": "the id of the scheduled event",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "guild_id",
+        "description": "the guild id which the scheduled event belongs to",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "channel_id",
+        "description": "the channel id in which the scheduled event will be hosted, or `null` if [scheduled entity type](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-types) is `EXTERNAL`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "creator_id",
+        "description": "the id of the user that created the scheduled event *",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "name",
+        "description": "the name of the scheduled event (1-100 characters)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "description",
+        "description": "the description of the scheduled event (1-1000 characters)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "ISO8601 timestamp",
+          "array": false
+        },
+        "name": "scheduled_start_time",
+        "description": "the time the scheduled event will start",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "ISO8601 timestamp",
+          "array": false
+        },
+        "name": "scheduled_end_time",
+        "description": "the time the scheduled event will end, required if entity_type is `EXTERNAL`",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+          "array": false
+        },
+        "name": "privacy_level",
+        "description": "the privacy level of the scheduled event",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-status",
+          "array": false
+        },
+        "name": "status",
+        "description": "the status of the scheduled event",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+          "array": false
+        },
+        "name": "entity_type",
+        "description": "the type of the scheduled event",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "entity_id",
+        "description": "the id of an entity associated with a guild scheduled event",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+          "array": false
+        },
+        "name": "entity_metadata",
+        "description": "additional metadata for the guild scheduled event",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "user-object",
+          "array": false
+        },
+        "name": "creator",
+        "description": "the user that created the scheduled event",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "user_count",
+        "description": "the number of users subscribed to the scheduled event",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "image",
+        "description": "the [cover image hash](#DOCS_REFERENCE/image-formatting) of the scheduled event",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Guild Scheduled Event User Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "guild_scheduled_event_id",
+        "description": "the scheduled event id which the user subscribed to",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "user-object",
+          "array": false
+        },
+        "name": "user",
+        "description": "user which subscribed to an event",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-member-object",
+          "array": false
+        },
+        "name": "member",
+        "description": "guild member data for this user for the guild which this event belongs to, if any",
+        "required": true
+      }
+    ]
+  }
+]

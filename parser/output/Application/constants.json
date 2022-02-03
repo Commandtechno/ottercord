@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Application Flags",
+    "values": [
+      {
+        "name": "GATEWAY_PRESENCE",
+        "value": 4096
+      },
+      {
+        "name": "GATEWAY_PRESENCE_LIMITED",
+        "value": 8192
+      },
+      {
+        "name": "GATEWAY_GUILD_MEMBERS",
+        "value": 16384
+      },
+      {
+        "name": "GATEWAY_GUILD_MEMBERS_LIMITED",
+        "value": 32768
+      },
+      {
+        "name": "VERIFICATION_PENDING_GUILD_LIMIT",
+        "value": 65536
+      },
+      {
+        "name": "EMBEDDED",
+        "value": 131072
+      },
+      {
+        "name": "GATEWAY_MESSAGE_CONTENT",
+        "value": 262144
+      },
+      {
+        "name": "GATEWAY_MESSAGE_CONTENT_LIMITED",
+        "value": 524288
+      }
+    ]
+  }
+]

@@ -11,10 +11,12 @@
     "url": "git+https://github.com/Commandtechno/ottercord.git"
   },
   "devDependencies": {
+    "@types/he": "^1.1.2",
+    "@types/marked": "^4.0.2",
     "@types/node": "^16.7.8"
   },
   "dependencies": {
-    "@types/marked": "^4.0.2",
+    "he": "^1.2.0",
     "marked": "^4.0.12"
   }
 }

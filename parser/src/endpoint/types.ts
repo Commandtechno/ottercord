@@ -1,4 +1,13 @@
-export type Context = "none" | "endpoint" | "query" | "json-body" | "form-body" | "json-form-body";
+import { Type } from "../util";
+
+export type Context =
+  | "none"
+  | "endpoint"
+  | "query"
+  | "response"
+  | "json-body"
+  | "form-body"
+  | "json-form-body";
 
 export interface Endpoint {
   name: string;
@@ -9,6 +18,7 @@ export interface Endpoint {
   params: EndpointParam[];
   query: EndpointQuery[];
 
+  response?: Type;
   body?: EndpointBody;
 }
 
@@ -32,7 +42,7 @@ export interface EndpointBody {
 }
 
 export interface EndpointBodyParam {
-  type: string | any;
+  type: Type;
   name: string;
   description: string;
   required: boolean;

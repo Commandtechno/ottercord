@@ -1,4 +1,5 @@
 import { Endpoint, EndpointParam } from ".";
+import { formatText } from "../util";
 
 export function parseParam(rawParam: string): EndpointParam {
   const [name, link] = rawParam.slice(1, -1).split("#");
@@ -23,8 +24,8 @@ export function parseEndpoint(rawText: string) {
   const [rawMethod, rawPath] = rawMethodPath.trim().split(" ");
   if (!rawMethod || !rawPath) return;
 
-  const name = rawName.trim();
-  const method = rawMethod.trim();
+  const name = formatText(rawName);
+  const method = formatText(rawMethod);
 
   const { path, params } = parsePath(rawPath.trim());
   const query = [];

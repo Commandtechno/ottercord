@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Audit Log Structure",
+    "params": [
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-entry-object",
+          "array": true
+        },
+        "name": "audit_log_entries",
+        "description": "list of audit log entries",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "guild-scheduled-event-object",
+          "array": true
+        },
+        "name": "guild_scheduled_events",
+        "description": "list of guild scheduled events found in the audit log",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "integration-object",
+          "array": true
+        },
+        "name": "integrations",
+        "description": "list of partial integration objects",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "channel-object",
+          "array": true
+        },
+        "name": "threads",
+        "description": "list of threads found in the audit log\\*",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "user-object",
+          "array": true
+        },
+        "name": "users",
+        "description": "list of users found in the audit log",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "webhook-object",
+          "array": true
+        },
+        "name": "webhooks",
+        "description": "list of webhooks found in the audit log",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Audit Log Entry Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "target_id",
+        "description": "id of the affected entity (webhook, user, role, etc.)",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-change-object",
+          "array": true
+        },
+        "name": "changes",
+        "description": "changes made to the target_id",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "user_id",
+        "description": "the user who made the changes",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "id",
+        "description": "id of the entry",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-entry-object-audit-log-events",
+          "array": false
+        },
+        "name": "action_type",
+        "description": "type of action that occurred",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-entry-object-optional-audit-entry-info",
+          "array": false
+        },
+        "name": "options",
+        "description": "additional info for certain action types",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "reason",
+        "description": "the reason for the change (0-512 characters)",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "Audit Log Change Structure",
+    "params": [
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-change-object-audit-log-change-key",
+          "array": false
+        },
+        "name": "new_value",
+        "description": "new value of the key",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": true,
+          "value": "audit-log-change-object-audit-log-change-key",
+          "array": false
+        },
+        "name": "old_value",
+        "description": "old value of the key",
+        "required": true
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "key",
+        "description": "name of audit log [change key](#DOCS_RESOURCES_AUDIT_LOG/audit-log-change-object-audit-log-change-key)",
+        "required": false
+      }
+    ]
+  }
+]

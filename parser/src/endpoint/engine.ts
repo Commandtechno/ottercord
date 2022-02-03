@@ -1,6 +1,6 @@
 import { Context, Endpoint, parseEndpoint } from ".";
 
-import { flattenBlock, formatTable, resolveType } from "../util";
+import { flattenBlock, formatTable, formatText, parseType } from "../util";
 import { marked } from "marked";
 
 export class Engine {
@@ -16,25 +16,24 @@ export class Engine {
     return this.endpoints;
   }
 
-  process(block: marked.Token) {
+  async process(block: marked.Token) {
     switch (this.context) {
       case "none":
-        this.processNone(block);
-        break;
+        return this.processNone(block);
 
       case "endpoint":
-        this.processEndpoint(block);
-        break;
+        return this.processEndpoint(block);
 
       case "query":
-        this.processQuery(block);
-        break;
+        return this.processQuery(block);
+
+      case "response":
+        return this.processResponse(block);
 
       case "json-body":
       case "form-body":
       case "json-form-body":
-        this.processBody(block);
-        break;
+        return this.processBody(block);
     }
   }
 
@@ -48,6 +47,17 @@ export class Engine {
   processEndpoint(block: marked.Token) {
     switch (block.type) {
       case "paragraph":
+        if (!this.currentEndpoint.response) {
+          if (
+            block.text.toLowerCase().includes("return") ||
+            block.text.toLowerCase().includes("respond") ||
+            block.text.toLowerCase().includes("response")
+          ) {
+            const response = parseType(block);
+            if (response) this.currentEndpoint.response = response;
+          }
+        }
+
         if (!this.currentEndpoint.description)
           this.currentEndpoint.description = flattenBlock(block);
         break;
@@ -56,6 +66,10 @@ export class Engine {
         switch (block.text) {
           case "Query String Params":
             this.context = "query";
+            break;
+
+          case "Response Structure":
+            this.context = "response";
             break;
 
           case "JSON Params":
@@ -88,28 +102,48 @@ export class Engine {
     if (block.type === "table") {
       const table = formatTable(block);
       this.currentEndpoint.query = table.map(row => ({
-        type: row.type.text,
-        name: row.field.text,
-        description: row.description.text,
-        required: row.required.text === "true"
+        type: formatText(row.type.text),
+        name: formatText(row.field.text),
+        description: formatText(row.description.text),
+        required: row.required?.text === "true"
       }));
 
       this.context = "endpoint";
     }
   }
 
-  processBody(block: marked.Token) {
+  processResponse(block: marked.Token) {
+    if (block.type === "table") {
+      const table = formatTable(block);
+      this.currentEndpoint.response = {
+        reference: false,
+        array: false,
+        value: table.map(row => ({
+          type: formatText(row.type.text),
+          name: formatText(row.field.text),
+          description: formatText(row.description?.text),
+          required: row.required?.text === "true"
+        }))
+      };
+
+      this.context = "endpoint";
+    }
+  }
+
+  async processBody(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
       this.currentEndpoint.body = {
         json: this.context === "json-body" || this.context === "json-form-body",
         form: this.context === "form-body" || this.context === "json-form-body",
-        params: table.map(row => ({
-          type: resolveType(row.type),
-          name: row.field.text,
-          description: row.description.text,
-          required: row.required?.text === "true"
-        }))
+        params: await Promise.all(
+          table.map(row => ({
+            type: parseType(row.type),
+            name: formatText(row.field.text),
+            description: formatText(row.description.text),
+            required: row.required?.text === "true"
+          }))
+        )
       };
 
       this.context = "endpoint";

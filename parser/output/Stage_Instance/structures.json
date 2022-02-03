@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Stage Instance Structure",
+    "params": [
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "id",
+        "description": "The id of this Stage instance",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "guild_id",
+        "description": "The guild id of the associated Stage channel",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "snowflake",
+          "array": false
+        },
+        "name": "channel_id",
+        "description": "The id of the associated Stage channel",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "string",
+          "array": false
+        },
+        "name": "topic",
+        "description": "The topic of the Stage instance (1-120 characters)",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "integer",
+          "array": false
+        },
+        "name": "privacy_level",
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
+        "required": false
+      },
+      {
+        "type": {
+          "reference": false,
+          "value": "boolean",
+          "array": false
+        },
+        "name": "discoverable_disabled",
+        "description": "Whether or not Stage Discovery is disabled (deprecated)",
+        "required": false
+      }
+    ]
+  }
+]
