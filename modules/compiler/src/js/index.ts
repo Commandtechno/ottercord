@@ -1,5 +1,4 @@
-import { Constant, Endpoint, Structure } from "../types";
-import { Type } from "../types/common";
+import { Constant, Endpoint, Structure, Type } from "../../../common/src/types";
 import { camel, pascal } from "../util";
 
 function convertType(type: string) {
@@ -43,8 +42,8 @@ function resolveType(type: Type) {
     : convertType(type.value as string);
 }
 
-let output = "";
 export function js(constants: Constant[], endpoints: Endpoint[], structures: Structure[]) {
+  let output = "";
   for (const constant of constants) {
     output += "export type " + pascal(constant.name) + " = {";
     for (const value of constant.values) {

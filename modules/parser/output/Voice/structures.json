@@ -10,9 +10,10 @@
             "snowflake"
           ]
         },
-        "name": "guild_id",
+        "name": "guild_id?",
         "description": "the guild id this voice state is for",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "channel_id",
         "description": "the channel id this user is connected to",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -36,7 +38,8 @@
         },
         "name": "user_id",
         "description": "the user id this voice state is for",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -44,9 +47,10 @@
           "array": false,
           "value": "guild-member-object"
         },
-        "name": "member",
+        "name": "member?",
         "description": "the guild member this voice state is for",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -58,7 +62,8 @@
         },
         "name": "session_id",
         "description": "the session id for this voice state",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -70,7 +75,8 @@
         },
         "name": "deaf",
         "description": "whether this user is deafened by the server",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -82,7 +88,8 @@
         },
         "name": "mute",
         "description": "whether this user is muted by the server",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -94,7 +101,8 @@
         },
         "name": "self_deaf",
         "description": "whether this user is locally deafened",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -106,7 +114,8 @@
         },
         "name": "self_mute",
         "description": "whether this user is locally muted",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -116,9 +125,10 @@
             "boolean"
           ]
         },
-        "name": "self_stream",
+        "name": "self_stream?",
         "description": "whether this user is streaming using \"Go Live\"",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -130,7 +140,8 @@
         },
         "name": "self_video",
         "description": "whether this user's camera is enabled",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -142,7 +153,8 @@
         },
         "name": "suppress",
         "description": "whether this user is muted by the current user",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -154,7 +166,8 @@
         },
         "name": "request_to_speak_timestamp",
         "description": "the time at which the user requested to speak",
-        "required": true
+        "required": true,
+        "nullable": false
       }
     ]
   },
@@ -171,7 +184,8 @@
         },
         "name": "id",
         "description": "unique ID for the region",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -183,7 +197,8 @@
         },
         "name": "name",
         "description": "name of the region",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -195,7 +210,8 @@
         },
         "name": "optimal",
         "description": "true for a single server that is closest to the current user's client",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -207,7 +223,8 @@
         },
         "name": "deprecated",
         "description": "whether this is a deprecated voice region (avoid switching to these)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -219,7 +236,8 @@
         },
         "name": "custom",
         "description": "whether this is a custom voice region (used for events/etc)",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   }

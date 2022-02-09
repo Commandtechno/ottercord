@@ -875,7 +875,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "roles",
@@ -951,7 +951,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "roles",
@@ -1060,7 +1060,7 @@
       "reference": false,
       "array": false,
       "value": [
-        "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event."
+        "Modifies the nickname  the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event."
       ]
     },
     "description": "Modifies the nickname of the current user in a guild. Returns a 200 with the nickname on success. Fires a Guild Member Update Gateway event.",
@@ -1616,7 +1616,7 @@
       "reference": false,
       "array": false,
       "value": [
-        "Returns an object with one 'pruned' key indicating the number of members that would be removed in a prune operation. Requires the KICK_MEMBERS permission."
+        "Returns an object with one 'pruned' key indicating the number  members that would be removed in a prune operation. Requires the KICK_MEMBERS permission."
       ]
     },
     "description": "Returns an object with one 'pruned' key indicating the number of members that would be removed in a prune operation. Requires the KICK_MEMBERS permission."
@@ -1671,7 +1671,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "include_roles",

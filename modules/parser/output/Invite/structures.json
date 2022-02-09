@@ -12,7 +12,8 @@
         },
         "name": "code",
         "description": "the invite code (unique ID)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -20,9 +21,10 @@
           "array": false,
           "value": "guild-object"
         },
-        "name": "guild",
+        "name": "guild?",
         "description": "the guild this invite is for",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -32,7 +34,8 @@
         },
         "name": "channel",
         "description": "the channel this invite is for",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -40,9 +43,10 @@
           "array": false,
           "value": "user-object"
         },
-        "name": "inviter",
+        "name": "inviter?",
         "description": "the user who created the invite",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -52,9 +56,10 @@
             "integer"
           ]
         },
-        "name": "target_type",
+        "name": "target_type?",
         "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -62,9 +67,10 @@
           "array": false,
           "value": "user-object"
         },
-        "name": "target_user",
+        "name": "target_user?",
         "description": "the user whose stream to display for this voice channel stream invite",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -72,9 +78,10 @@
           "array": false,
           "value": "application-object"
         },
-        "name": "target_application",
+        "name": "target_application?",
         "description": "the embedded application to open for this voice channel embedded application invite",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -84,9 +91,10 @@
             "integer"
           ]
         },
-        "name": "approximate_presence_count",
+        "name": "approximate_presence_count?",
         "description": "approximate count of online members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -96,9 +104,10 @@
             "integer"
           ]
         },
-        "name": "approximate_member_count",
+        "name": "approximate_member_count?",
         "description": "approximate count of total members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -108,9 +117,10 @@
             "ISO8601 timestamp"
           ]
         },
-        "name": "expires_at",
+        "name": "expires_at?",
         "description": "the expiration date of this invite, returned from the `GET /invites/<code>` endpoint when `with_expiration` is `true`",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -118,9 +128,10 @@
           "array": false,
           "value": "invite-stage-instance-object"
         },
-        "name": "stage_instance",
+        "name": "stage_instance?",
         "description": "stage instance data if there is a [public Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE) in the Stage channel this invite is for",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -128,9 +139,10 @@
           "array": false,
           "value": "guild-scheduled-event-object"
         },
-        "name": "guild_scheduled_event",
+        "name": "guild_scheduled_event?",
         "description": "guild scheduled event data, only included if `guild_scheduled_event_id` contains a valid guild scheduled event id",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -147,7 +159,8 @@
         },
         "name": "uses",
         "description": "number of times this invite has been used",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -159,7 +172,8 @@
         },
         "name": "max_uses",
         "description": "max number of times this invite can be used",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -171,7 +185,8 @@
         },
         "name": "max_age",
         "description": "duration (in seconds) after which the invite expires",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -183,7 +198,8 @@
         },
         "name": "temporary",
         "description": "whether this invite only grants temporary membership",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -195,7 +211,8 @@
         },
         "name": "created_at",
         "description": "when this invite was created",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -210,7 +227,8 @@
         },
         "name": "members",
         "description": "the members speaking in the Stage",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -222,7 +240,8 @@
         },
         "name": "participant_count",
         "description": "the number of users in the Stage",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -234,7 +253,8 @@
         },
         "name": "speaker_count",
         "description": "the number of users speaking in the Stage",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -246,7 +266,8 @@
         },
         "name": "topic",
         "description": "the topic of the Stage instance (1-120 characters)",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   }

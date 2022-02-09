@@ -1,6 +1,8 @@
 import { formatText, formatTable, parseType } from "../util";
-import { Context, Structure } from ".";
 import { marked } from "marked";
+
+import { Structure } from "../../../common/build";
+import { Context } from ".";
 
 export class StructuresEngine {
   structures: Structure[] = [];
@@ -44,19 +46,22 @@ export class StructuresEngine {
       const table = formatTable(block);
       this.currentStructure.params = await Promise.all(
         table.map(async row => {
-          const rawType = row.type.text;
-          const rawName = row.field.text;
-          const type = parseType(row.type);
-          const name = formatText(rawName);
-          const description = row.description.text;
-          const required: boolean =
-            row.required?.text === "Yes" || rawType?.includes("?") || rawName.includes("?");
+          let optional = false;
+          if (row.field.text.endsWith("?")) {
+            optional = true;
+          }
+
+          let nullable = false;
+          if (row.type.text.startsWith("?")) {
+            nullable = true;
+          }
 
           return {
-            type,
-            name,
-            description,
-            required
+            type: parseType(row),
+            name: row.field.text,
+            description: row.description.text,
+            optional,
+            nullable
           };
         })
       );

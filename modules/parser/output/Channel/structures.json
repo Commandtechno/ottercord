@@ -12,7 +12,8 @@
         },
         "name": "id",
         "description": "the id of this channel",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "type",
         "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -34,9 +36,10 @@
             "snowflake"
           ]
         },
-        "name": "guild_id",
+        "name": "guild_id?",
         "description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -46,9 +49,10 @@
             "integer"
           ]
         },
-        "name": "position",
+        "name": "position?",
         "description": "sorting position of the channel",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -56,9 +60,10 @@
           "array": true,
           "value": "overwrite-object"
         },
-        "name": "permission_overwrites",
+        "name": "permission_overwrites?",
         "description": "explicit permission overwrites for members and roles",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -68,9 +73,10 @@
             "string"
           ]
         },
-        "name": "name",
+        "name": "name?",
         "description": "the name of the channel (1-100 characters)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -80,9 +86,10 @@
             "string"
           ]
         },
-        "name": "topic",
+        "name": "topic?",
         "description": "the channel topic (0-1024 characters)",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -92,9 +99,10 @@
             "boolean"
           ]
         },
-        "name": "nsfw",
+        "name": "nsfw?",
         "description": "whether the channel is nsfw",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -104,9 +112,10 @@
             "snowflake"
           ]
         },
-        "name": "last_message_id",
+        "name": "last_message_id?",
         "description": "the id of the last message sent in this channel (may not point to an existing or valid message)",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -116,9 +125,10 @@
             "integer"
           ]
         },
-        "name": "bitrate",
+        "name": "bitrate?",
         "description": "the bitrate (in bits) of the voice channel",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -128,9 +138,10 @@
             "integer"
           ]
         },
-        "name": "user_limit",
+        "name": "user_limit?",
         "description": "the user limit of the voice channel",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -140,9 +151,10 @@
             "integer"
           ]
         },
-        "name": "rate_limit_per_user",
+        "name": "rate_limit_per_user?\\*",
         "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -150,9 +162,10 @@
           "array": true,
           "value": "user-object"
         },
-        "name": "recipients",
+        "name": "recipients?",
         "description": "the recipients of the DM",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -162,9 +175,10 @@
             "string"
           ]
         },
-        "name": "icon",
+        "name": "icon?",
         "description": "icon hash of the group DM",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -174,9 +188,10 @@
             "snowflake"
           ]
         },
-        "name": "owner_id",
+        "name": "owner_id?",
         "description": "id of the creator of the group DM or thread",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -186,9 +201,10 @@
             "snowflake"
           ]
         },
-        "name": "application_id",
+        "name": "application_id?",
         "description": "application id of the group DM creator if it is bot-created",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -198,9 +214,10 @@
             "snowflake"
           ]
         },
-        "name": "parent_id",
+        "name": "parent_id?",
         "description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -210,9 +227,10 @@
             "ISO8601 timestamp"
           ]
         },
-        "name": "last_pin_timestamp",
+        "name": "last_pin_timestamp?",
         "description": "when the last pinned message was pinned. This may be `null` in events such as `GUILD_CREATE` when a message is not pinned.",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -222,9 +240,10 @@
             "string"
           ]
         },
-        "name": "rtc_region",
+        "name": "rtc_region?",
         "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id for the voice channel, automatic when set to null",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -234,9 +253,10 @@
             "integer"
           ]
         },
-        "name": "video_quality_mode",
+        "name": "video_quality_mode?",
         "description": "the camera [video quality mode](#DOCS_RESOURCES_CHANNEL/channel-object-video-quality-modes) of the voice channel, 1 when not present",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -246,9 +266,10 @@
             "integer"
           ]
         },
-        "name": "message_count",
+        "name": "message_count?",
         "description": "an approximate count of messages in a thread, stops counting at 50",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -258,9 +279,10 @@
             "integer"
           ]
         },
-        "name": "member_count",
+        "name": "member_count?",
         "description": "an approximate count of users in a thread, stops counting at 50",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -268,9 +290,10 @@
           "array": false,
           "value": "thread-metadata-object"
         },
-        "name": "thread_metadata",
+        "name": "thread_metadata?",
         "description": "thread-specific fields not needed by other channels",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -278,9 +301,10 @@
           "array": false,
           "value": "thread-member-object"
         },
-        "name": "member",
+        "name": "member?",
         "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -290,9 +314,10 @@
             "integer"
           ]
         },
-        "name": "default_auto_archive_duration",
+        "name": "default_auto_archive_duration?",
         "description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -302,9 +327,10 @@
             "string"
           ]
         },
-        "name": "permissions",
+        "name": "permissions?",
         "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the `resolved` data received on a slash command interaction",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -321,7 +347,8 @@
         },
         "name": "id",
         "description": "id of the message",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -333,7 +360,8 @@
         },
         "name": "channel_id",
         "description": "id of the channel the message was sent in",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -343,9 +371,10 @@
             "snowflake"
           ]
         },
-        "name": "guild_id",
+        "name": "guild_id?",
         "description": "id of the guild the message was sent in",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -353,9 +382,10 @@
           "array": false,
           "value": "user-object"
         },
-        "name": "author",
+        "name": "author\\*",
         "description": "the author of this message (not guaranteed to be a valid user, see below)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -363,9 +393,10 @@
           "array": false,
           "value": "guild-member-object"
         },
-        "name": "member",
+        "name": "member?\\*\\*",
         "description": "member properties for this message's author",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -377,7 +408,8 @@
         },
         "name": "content",
         "description": "contents of the message",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -389,7 +421,8 @@
         },
         "name": "timestamp",
         "description": "when this message was sent",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -401,7 +434,8 @@
         },
         "name": "edited_timestamp",
         "description": "when this message was edited (or null if never)",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -413,7 +447,8 @@
         },
         "name": "tts",
         "description": "whether this was a TTS message",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -425,7 +460,8 @@
         },
         "name": "mention_everyone",
         "description": "whether this message mentions everyone",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -433,9 +469,10 @@
           "array": true,
           "value": "user-object"
         },
-        "name": "mentions",
+        "name": "mentions\\*\\*\\*",
         "description": "users specifically mentioned in the message",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -445,7 +482,8 @@
         },
         "name": "mention_roles",
         "description": "roles specifically mentioned in this message",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -453,9 +491,10 @@
           "array": true,
           "value": "channel-mention-object"
         },
-        "name": "mention_channels",
+        "name": "mention_channels?\\*\\*\\*\\*",
         "description": "channels specifically mentioned in this message",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -465,7 +504,8 @@
         },
         "name": "attachments",
         "description": "any attached files",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -475,7 +515,8 @@
         },
         "name": "embeds",
         "description": "any embedded content",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -483,9 +524,10 @@
           "array": true,
           "value": "reaction-object"
         },
-        "name": "reactions",
+        "name": "reactions?",
         "description": "reactions to the message",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -496,9 +538,10 @@
             "string"
           ]
         },
-        "name": "nonce",
+        "name": "nonce?",
         "description": "used for validating a message was sent",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -510,7 +553,8 @@
         },
         "name": "pinned",
         "description": "whether this message is pinned",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -520,9 +564,10 @@
             "snowflake"
           ]
         },
-        "name": "webhook_id",
+        "name": "webhook_id?",
         "description": "if the message is generated by a webhook, this is the webhook's id",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -534,7 +579,8 @@
         },
         "name": "type",
         "description": "[type of message](#DOCS_RESOURCES_CHANNEL/message-object-message-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -542,9 +588,10 @@
           "array": false,
           "value": "message-object-message-activity-structure"
         },
-        "name": "activity",
+        "name": "activity?",
         "description": "sent with Rich Presence-related chat embeds",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -552,9 +599,10 @@
           "array": false,
           "value": "application-object"
         },
-        "name": "application",
+        "name": "application?",
         "description": "sent with Rich Presence-related chat embeds",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -564,9 +612,10 @@
             "snowflake"
           ]
         },
-        "name": "application_id",
+        "name": "application_id?",
         "description": "if the message is an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/) or application-owned webhook, this is the id of the application",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -574,9 +623,10 @@
           "array": false,
           "value": "message-reference-object-message-reference-structure"
         },
-        "name": "message_reference",
+        "name": "message_reference?",
         "description": "data showing the source of a crosspost, channel follow add, pin, or reply message",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -586,9 +636,10 @@
             "integer"
           ]
         },
-        "name": "flags",
+        "name": "flags?",
         "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -596,9 +647,10 @@
           "array": false,
           "value": "message-object"
         },
-        "name": "referenced_message",
+        "name": "referenced_message?\\*\\*\\*\\*\\*",
         "description": "the message associated with the message_reference",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -606,9 +658,10 @@
           "array": false,
           "value": "message-interaction-object-message-interaction-structure"
         },
-        "name": "interaction",
+        "name": "interaction?",
         "description": "sent if the message is a response to an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -616,9 +669,10 @@
           "array": false,
           "value": "channel-object"
         },
-        "name": "thread",
+        "name": "thread?",
         "description": "the thread that was started from this message, includes [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -626,9 +680,10 @@
           "array": true,
           "value": "component-object"
         },
-        "name": "components",
+        "name": "components?",
         "description": "sent if the message contains components like buttons, action rows, or other interactive components",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -636,9 +691,10 @@
           "array": true,
           "value": "sticker-item-object"
         },
-        "name": "sticker_items",
+        "name": "sticker_items?",
         "description": "sent if the message contains stickers",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -646,9 +702,10 @@
           "array": true,
           "value": "sticker-object"
         },
-        "name": "stickers",
+        "name": "stickers?",
         "description": "**Deprecated** the stickers sent with the message",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -665,7 +722,8 @@
         },
         "name": "type",
         "description": "[type of message activity](#DOCS_RESOURCES_CHANNEL/message-object-message-activity-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -675,9 +733,10 @@
             "string"
           ]
         },
-        "name": "party_id",
+        "name": "party_id?",
         "description": "party_id from a [Rich Presence event](#DOCS_RICH_PRESENCE_HOW_TO/updating-presence-update-presence-payload-fields)",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -692,9 +751,10 @@
             "snowflake"
           ]
         },
-        "name": "message_id",
+        "name": "message_id?",
         "description": "id of the originating message",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -704,9 +764,10 @@
             "snowflake"
           ]
         },
-        "name": "channel_id",
+        "name": "channel_id? \\*",
         "description": "id of the originating message's channel",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -716,9 +777,10 @@
             "snowflake"
           ]
         },
-        "name": "guild_id",
+        "name": "guild_id?",
         "description": "id of the originating message's guild",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -728,9 +790,10 @@
             "boolean"
           ]
         },
-        "name": "fail_if_not_exists",
+        "name": "fail_if_not_exists?",
         "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -747,7 +810,8 @@
         },
         "name": "channel_id",
         "description": "source channel id",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -759,7 +823,8 @@
         },
         "name": "webhook_id",
         "description": "created target webhook id",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -776,7 +841,8 @@
         },
         "name": "count",
         "description": "times this emoji has been used to react",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -788,7 +854,8 @@
         },
         "name": "me",
         "description": "whether the current user reacted using this emoji",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -798,7 +865,8 @@
         },
         "name": "emoji",
         "description": "emoji information",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -815,7 +883,8 @@
         },
         "name": "id",
         "description": "role or user id",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -827,7 +896,8 @@
         },
         "name": "type",
         "description": "either 0 (role) or 1 (member)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -839,7 +909,8 @@
         },
         "name": "allow",
         "description": "permission bit set",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -851,7 +922,8 @@
         },
         "name": "deny",
         "description": "permission bit set",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -868,7 +940,8 @@
         },
         "name": "archived",
         "description": "whether the thread is archived",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -880,7 +953,8 @@
         },
         "name": "auto_archive_duration",
         "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -892,7 +966,8 @@
         },
         "name": "archive_timestamp",
         "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -904,7 +979,8 @@
         },
         "name": "locked",
         "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -914,9 +990,10 @@
             "boolean"
           ]
         },
-        "name": "invitable",
+        "name": "invitable?",
         "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -926,9 +1003,10 @@
             "ISO8601 timestamp"
           ]
         },
-        "name": "create_timestamp",
+        "name": "create_timestamp?",
         "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -943,9 +1021,10 @@
             "snowflake"
           ]
         },
-        "name": "id",
+        "name": "id? \\*",
         "description": "the id of the thread",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -955,9 +1034,10 @@
             "snowflake"
           ]
         },
-        "name": "user_id",
+        "name": "user_id? \\*",
         "description": "the id of the user",
-        "required": true
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -969,7 +1049,8 @@
         },
         "name": "join_timestamp",
         "description": "the time the current user last joined the thread",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -981,7 +1062,8 @@
         },
         "name": "flags",
         "description": "any user-thread settings, currently only used for notifications",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -996,9 +1078,10 @@
             "string"
           ]
         },
-        "name": "title",
+        "name": "title?",
         "description": "title of embed",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1008,9 +1091,10 @@
             "string"
           ]
         },
-        "name": "type",
+        "name": "type?",
         "description": "[type of embed](#DOCS_RESOURCES_CHANNEL/embed-object-embed-types) (always \"rich\" for webhook embeds)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1020,9 +1104,10 @@
             "string"
           ]
         },
-        "name": "description",
+        "name": "description?",
         "description": "description of embed",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1032,9 +1117,10 @@
             "string"
           ]
         },
-        "name": "url",
+        "name": "url?",
         "description": "url of embed",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1044,9 +1130,10 @@
             "ISO8601 timestamp"
           ]
         },
-        "name": "timestamp",
+        "name": "timestamp?",
         "description": "timestamp of embed content",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1056,9 +1143,10 @@
             "integer"
           ]
         },
-        "name": "color",
+        "name": "color?",
         "description": "color code of the embed",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1066,9 +1154,10 @@
           "array": false,
           "value": "embed-object-embed-footer-structure"
         },
-        "name": "footer",
+        "name": "footer?",
         "description": "footer information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1076,9 +1165,10 @@
           "array": false,
           "value": "embed-object-embed-image-structure"
         },
-        "name": "image",
+        "name": "image?",
         "description": "image information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1086,9 +1176,10 @@
           "array": false,
           "value": "embed-object-embed-thumbnail-structure"
         },
-        "name": "thumbnail",
+        "name": "thumbnail?",
         "description": "thumbnail information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1096,9 +1187,10 @@
           "array": false,
           "value": "embed-object-embed-video-structure"
         },
-        "name": "video",
+        "name": "video?",
         "description": "video information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1106,9 +1198,10 @@
           "array": false,
           "value": "embed-object-embed-provider-structure"
         },
-        "name": "provider",
+        "name": "provider?",
         "description": "provider information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1116,9 +1209,10 @@
           "array": false,
           "value": "embed-object-embed-author-structure"
         },
-        "name": "author",
+        "name": "author?",
         "description": "author information",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1126,9 +1220,10 @@
           "array": true,
           "value": "embed-object-embed-field-structure"
         },
-        "name": "fields",
+        "name": "fields?",
         "description": "fields information",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1145,7 +1240,8 @@
         },
         "name": "url",
         "description": "source url of thumbnail (only supports http(s) and attachments)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1155,9 +1251,10 @@
             "string"
           ]
         },
-        "name": "proxy_url",
+        "name": "proxy_url?",
         "description": "a proxied url of the thumbnail",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1167,9 +1264,10 @@
             "integer"
           ]
         },
-        "name": "height",
+        "name": "height?",
         "description": "height of thumbnail",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1179,9 +1277,10 @@
             "integer"
           ]
         },
-        "name": "width",
+        "name": "width?",
         "description": "width of thumbnail",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1196,9 +1295,10 @@
             "string"
           ]
         },
-        "name": "url",
+        "name": "url?",
         "description": "source url of video",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1208,9 +1308,10 @@
             "string"
           ]
         },
-        "name": "proxy_url",
+        "name": "proxy_url?",
         "description": "a proxied url of the video",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1220,9 +1321,10 @@
             "integer"
           ]
         },
-        "name": "height",
+        "name": "height?",
         "description": "height of video",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1232,9 +1334,10 @@
             "integer"
           ]
         },
-        "name": "width",
+        "name": "width?",
         "description": "width of video",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1251,7 +1354,8 @@
         },
         "name": "url",
         "description": "source url of image (only supports http(s) and attachments)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1261,9 +1365,10 @@
             "string"
           ]
         },
-        "name": "proxy_url",
+        "name": "proxy_url?",
         "description": "a proxied url of the image",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1273,9 +1378,10 @@
             "integer"
           ]
         },
-        "name": "height",
+        "name": "height?",
         "description": "height of image",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1285,9 +1391,10 @@
             "integer"
           ]
         },
-        "name": "width",
+        "name": "width?",
         "description": "width of image",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1302,9 +1409,10 @@
             "string"
           ]
         },
-        "name": "name",
+        "name": "name?",
         "description": "name of provider",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1314,9 +1422,10 @@
             "string"
           ]
         },
-        "name": "url",
+        "name": "url?",
         "description": "url of provider",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1333,7 +1442,8 @@
         },
         "name": "name",
         "description": "name of author",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1343,9 +1453,10 @@
             "string"
           ]
         },
-        "name": "url",
+        "name": "url?",
         "description": "url of author",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1355,9 +1466,10 @@
             "string"
           ]
         },
-        "name": "icon_url",
+        "name": "icon_url?",
         "description": "url of author icon (only supports http(s) and attachments)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1367,9 +1479,10 @@
             "string"
           ]
         },
-        "name": "proxy_icon_url",
+        "name": "proxy_icon_url?",
         "description": "a proxied url of author icon",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1386,7 +1499,8 @@
         },
         "name": "text",
         "description": "footer text",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1396,9 +1510,10 @@
             "string"
           ]
         },
-        "name": "icon_url",
+        "name": "icon_url?",
         "description": "url of footer icon (only supports http(s) and attachments)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1408,9 +1523,10 @@
             "string"
           ]
         },
-        "name": "proxy_icon_url",
+        "name": "proxy_icon_url?",
         "description": "a proxied url of footer icon",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1427,7 +1543,8 @@
         },
         "name": "name",
         "description": "name of the field",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1439,7 +1556,8 @@
         },
         "name": "value",
         "description": "value of the field",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1449,9 +1567,10 @@
             "boolean"
           ]
         },
-        "name": "inline",
+        "name": "inline?",
         "description": "whether or not this field should display inline",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -1468,7 +1587,8 @@
         },
         "name": "id",
         "description": "attachment id",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1480,7 +1600,8 @@
         },
         "name": "filename",
         "description": "name of file attached",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1490,9 +1611,10 @@
             "string"
           ]
         },
-        "name": "description",
+        "name": "description?",
         "description": "description for the file",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1502,9 +1624,10 @@
             "string"
           ]
         },
-        "name": "content_type",
+        "name": "content_type?",
         "description": "the attachment's [media type](https://en.wikipedia.org/wiki/Media_type)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -1516,7 +1639,8 @@
         },
         "name": "size",
         "description": "size of file in bytes",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1528,7 +1652,8 @@
         },
         "name": "url",
         "description": "source url of file",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1540,7 +1665,8 @@
         },
         "name": "proxy_url",
         "description": "a proxied url of file",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1550,9 +1676,10 @@
             "integer"
           ]
         },
-        "name": "height",
+        "name": "height?",
         "description": "height of file (if image)",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -1562,9 +1689,10 @@
             "integer"
           ]
         },
-        "name": "width",
+        "name": "width?",
         "description": "width of file (if image)",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -1574,9 +1702,10 @@
             "boolean"
           ]
         },
-        "name": "ephemeral",
+        "name": "ephemeral? \\*",
         "description": "whether this attachment is ephemeral",
-        "required": true
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -1593,7 +1722,8 @@
         },
         "name": "id",
         "description": "id of the channel",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1605,7 +1735,8 @@
         },
         "name": "guild_id",
         "description": "id of the guild containing the channel",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1617,7 +1748,8 @@
         },
         "name": "type",
         "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1629,7 +1761,8 @@
         },
         "name": "name",
         "description": "the name of the channel",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -1641,36 +1774,39 @@
           "reference": false,
           "array": true,
           "value": [
-            "array of allowed mention types"
+            "allowed mention type"
           ]
         },
         "name": "parse",
         "description": "An array of [allowed mention types](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object-allowed-mention-types) to parse from the content.",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
           "reference": false,
           "array": true,
           "value": [
-            "list of snowflakes"
+            "snowflake"
           ]
         },
         "name": "roles",
         "description": "Array of role_ids to mention (Max size of 100)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
           "reference": false,
           "array": true,
           "value": [
-            "list of snowflakes"
+            "snowflake"
           ]
         },
         "name": "users",
         "description": "Array of user_ids to mention (Max size of 100)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -1682,7 +1818,8 @@
         },
         "name": "replied_user",
         "description": "For replies, whether to mention the author of the message being replied to (default false)",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   }

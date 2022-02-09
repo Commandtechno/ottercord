@@ -1,14 +1,13 @@
 import { marked } from "marked";
 import { decode } from "he";
-
-export type Row = { [key: string]: marked.Tokens.TableCell };
+import { Row } from "../../../common";
 
 export function formatText(str: string) {
-  if (!str) return;
+  if (typeof str !== "string") return;
   return str
     .replace(/\(.*?\)/g, "")
     .replace(/\[.*?\]/g, "")
-    .replace(/^[\s"'\\\/\?\*]/, "")
+    .replace(/^[\s"'\\\/\?\*]+/, "")
     .replace(/[\s"'\\\/\?\*]+$/, "");
 }
 

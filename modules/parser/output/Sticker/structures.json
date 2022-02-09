@@ -12,7 +12,8 @@
         },
         "name": "id",
         "description": "[id of the sticker](#DOCS_REFERENCE/image-formatting)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -22,9 +23,10 @@
             "snowflake"
           ]
         },
-        "name": "pack_id",
+        "name": "pack_id?",
         "description": "for standard stickers, id of the pack the sticker is from",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -36,7 +38,8 @@
         },
         "name": "name",
         "description": "name of the sticker",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -48,7 +51,8 @@
         },
         "name": "description",
         "description": "description of the sticker",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -58,9 +62,10 @@
             "string"
           ]
         },
-        "name": "tags",
+        "name": "tags\\*",
         "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -72,7 +77,8 @@
         },
         "name": "asset",
         "description": "**Deprecated** previously the sticker asset hash, now an empty string",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -84,7 +90,8 @@
         },
         "name": "type",
         "description": "[type of sticker](#DOCS_RESOURCES_STICKER/sticker-object-sticker-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -96,7 +103,8 @@
         },
         "name": "format_type",
         "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -106,9 +114,10 @@
             "boolean"
           ]
         },
-        "name": "available",
+        "name": "available?",
         "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -118,9 +127,10 @@
             "snowflake"
           ]
         },
-        "name": "guild_id",
+        "name": "guild_id?",
         "description": "id of the guild that owns this sticker",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -128,9 +138,10 @@
           "array": false,
           "value": "user-object"
         },
-        "name": "user",
+        "name": "user?",
         "description": "the user that uploaded the guild sticker",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -140,9 +151,10 @@
             "integer"
           ]
         },
-        "name": "sort_value",
+        "name": "sort_value?",
         "description": "the standard sticker's sort order within its pack",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -159,7 +171,8 @@
         },
         "name": "id",
         "description": "id of the sticker",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -171,7 +184,8 @@
         },
         "name": "name",
         "description": "name of the sticker",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -183,7 +197,8 @@
         },
         "name": "format_type",
         "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   },
@@ -200,7 +215,8 @@
         },
         "name": "id",
         "description": "id of the sticker pack",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -210,7 +226,8 @@
         },
         "name": "stickers",
         "description": "the stickers in the pack",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -222,7 +239,8 @@
         },
         "name": "name",
         "description": "name of the sticker pack",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -234,7 +252,8 @@
         },
         "name": "sku_id",
         "description": "id of the pack's SKU",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -244,9 +263,10 @@
             "snowflake"
           ]
         },
-        "name": "cover_sticker_id",
+        "name": "cover_sticker_id?",
         "description": "id of a sticker in the pack which is shown as the pack's icon",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -258,7 +278,8 @@
         },
         "name": "description",
         "description": "description of the sticker pack",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -268,9 +289,10 @@
             "snowflake"
           ]
         },
-        "name": "banner_asset_id",
+        "name": "banner_asset_id?",
         "description": "id of the sticker pack's [banner image](#DOCS_REFERENCE/image-formatting)",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   }

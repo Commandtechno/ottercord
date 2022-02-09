@@ -12,7 +12,8 @@
         },
         "name": "code",
         "description": "the template code (unique ID)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "name",
         "description": "template name",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -36,7 +38,8 @@
         },
         "name": "description",
         "description": "the description for the template",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -48,7 +51,8 @@
         },
         "name": "usage_count",
         "description": "number of times this template has been used",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -60,7 +64,8 @@
         },
         "name": "creator_id",
         "description": "the ID of the user who created the template",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -70,7 +75,8 @@
         },
         "name": "creator",
         "description": "the user who created the template",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -82,7 +88,8 @@
         },
         "name": "created_at",
         "description": "when this template was created",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -94,7 +101,8 @@
         },
         "name": "updated_at",
         "description": "when this template was last synced to the source guild",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -106,7 +114,8 @@
         },
         "name": "source_guild_id",
         "description": "the ID of the guild this template is based on",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -116,7 +125,8 @@
         },
         "name": "serialized_source_guild",
         "description": "the guild snapshot this template contains",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -128,7 +138,8 @@
         },
         "name": "is_dirty",
         "description": "whether the template has unsynced changes",
-        "required": true
+        "required": true,
+        "nullable": false
       }
     ]
   }

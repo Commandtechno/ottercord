@@ -1,5 +1,3 @@
-export type Context = "none" | "constant";
-
 export interface Constant {
   name: string;
   description?: string;

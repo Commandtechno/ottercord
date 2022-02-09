@@ -12,7 +12,8 @@
         },
         "name": "id",
         "description": "the id of the scheduled event",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "guild_id",
         "description": "the guild id which the scheduled event belongs to",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -34,9 +36,10 @@
             "snowflake"
           ]
         },
-        "name": "channel_id",
+        "name": "channel_id **",
         "description": "the channel id in which the scheduled event will be hosted, or `null` if [scheduled entity type](#DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object-guild-scheduled-event-entity-types) is `EXTERNAL`",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -46,9 +49,10 @@
             "snowflake"
           ]
         },
-        "name": "creator_id",
+        "name": "creator_id *",
         "description": "the id of the user that created the scheduled event *",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -60,7 +64,8 @@
         },
         "name": "name",
         "description": "the name of the scheduled event (1-100 characters)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -70,9 +75,10 @@
             "string"
           ]
         },
-        "name": "description",
+        "name": "description?",
         "description": "the description of the scheduled event (1-1000 characters)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -84,7 +90,8 @@
         },
         "name": "scheduled_start_time",
         "description": "the time the scheduled event will start",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -94,9 +101,10 @@
             "ISO8601 timestamp"
           ]
         },
-        "name": "scheduled_end_time",
+        "name": "scheduled_end_time **",
         "description": "the time the scheduled event will end, required if entity_type is `EXTERNAL`",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -106,7 +114,8 @@
         },
         "name": "privacy_level",
         "description": "the privacy level of the scheduled event",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -116,7 +125,8 @@
         },
         "name": "status",
         "description": "the status of the scheduled event",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -126,7 +136,8 @@
         },
         "name": "entity_type",
         "description": "the type of the scheduled event",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -138,7 +149,8 @@
         },
         "name": "entity_id",
         "description": "the id of an entity associated with a guild scheduled event",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -146,9 +158,10 @@
           "array": false,
           "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
         },
-        "name": "entity_metadata",
+        "name": "entity_metadata **",
         "description": "additional metadata for the guild scheduled event",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -156,9 +169,10 @@
           "array": false,
           "value": "user-object"
         },
-        "name": "creator",
+        "name": "creator?",
         "description": "the user that created the scheduled event",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -168,9 +182,10 @@
             "integer"
           ]
         },
-        "name": "user_count",
+        "name": "user_count?",
         "description": "the number of users subscribed to the scheduled event",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -182,7 +197,8 @@
         },
         "name": "image",
         "description": "the [cover image hash](#DOCS_REFERENCE/image-formatting) of the scheduled event",
-        "required": true
+        "required": true,
+        "nullable": false
       }
     ]
   },
@@ -199,7 +215,8 @@
         },
         "name": "guild_scheduled_event_id",
         "description": "the scheduled event id which the user subscribed to",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -209,7 +226,8 @@
         },
         "name": "user",
         "description": "user which subscribed to an event",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -217,9 +235,10 @@
           "array": false,
           "value": "guild-member-object"
         },
-        "name": "member",
+        "name": "member?",
         "description": "guild member data for this user for the guild which this event belongs to, if any",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   }

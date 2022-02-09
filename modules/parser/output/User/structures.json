@@ -12,7 +12,8 @@
         },
         "name": "id",
         "description": "the user's id",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "username",
         "description": "the user's username, not unique across the platform",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -36,7 +38,8 @@
         },
         "name": "discriminator",
         "description": "the user's 4-digit discord-tag",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -48,7 +51,8 @@
         },
         "name": "avatar",
         "description": "the user's [avatar hash](#DOCS_REFERENCE/image-formatting)",
-        "required": true
+        "required": true,
+        "nullable": false
       },
       {
         "type": {
@@ -58,9 +62,10 @@
             "boolean"
           ]
         },
-        "name": "bot",
+        "name": "bot?",
         "description": "whether the user belongs to an OAuth2 application",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -70,9 +75,10 @@
             "boolean"
           ]
         },
-        "name": "system",
+        "name": "system?",
         "description": "whether the user is an Official Discord System user (part of the urgent message system)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -82,9 +88,10 @@
             "boolean"
           ]
         },
-        "name": "mfa_enabled",
+        "name": "mfa_enabled?",
         "description": "whether the user has two factor enabled on their account",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -94,9 +101,10 @@
             "string"
           ]
         },
-        "name": "banner",
+        "name": "banner?",
         "description": "the user's [banner hash](#DOCS_REFERENCE/image-formatting)",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -106,9 +114,10 @@
             "integer"
           ]
         },
-        "name": "accent_color",
+        "name": "accent_color?",
         "description": "the user's banner color encoded as an integer representation of hexadecimal color code",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -118,9 +127,10 @@
             "string"
           ]
         },
-        "name": "locale",
+        "name": "locale?",
         "description": "the user's chosen [language option](#DOCS_REFERENCE/locales)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -130,9 +140,10 @@
             "boolean"
           ]
         },
-        "name": "verified",
+        "name": "verified?",
         "description": "whether the email on this account has been verified",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -142,9 +153,10 @@
             "string"
           ]
         },
-        "name": "email",
+        "name": "email?",
         "description": "the user's email",
-        "required": true
+        "required": true,
+        "nullable": true
       },
       {
         "type": {
@@ -154,9 +166,10 @@
             "integer"
           ]
         },
-        "name": "flags",
+        "name": "flags?",
         "description": "the [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -166,9 +179,10 @@
             "integer"
           ]
         },
-        "name": "premium_type",
+        "name": "premium_type?",
         "description": "the [type of Nitro subscription](#DOCS_RESOURCES_USER/user-object-premium-types) on a user's account",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -178,9 +192,10 @@
             "integer"
           ]
         },
-        "name": "public_flags",
+        "name": "public_flags?",
         "description": "the public [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
-        "required": true
+        "required": false,
+        "nullable": true
       }
     ]
   },
@@ -197,7 +212,8 @@
         },
         "name": "id",
         "description": "id of the connection account",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -209,7 +225,8 @@
         },
         "name": "name",
         "description": "the username of the connection account",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -221,7 +238,8 @@
         },
         "name": "type",
         "description": "the service of the connection (twitch, youtube)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -231,21 +249,23 @@
             "boolean"
           ]
         },
-        "name": "revoked",
+        "name": "revoked?",
         "description": "whether the connection is revoked",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
           "reference": false,
           "array": true,
           "value": [
-            "array"
+            ""
           ]
         },
-        "name": "integrations",
+        "name": "integrations?",
         "description": "an array of partial [server integrations](#DOCS_RESOURCES_GUILD/integration-object)",
-        "required": true
+        "required": false,
+        "nullable": true
       },
       {
         "type": {
@@ -257,7 +277,8 @@
         },
         "name": "verified",
         "description": "whether the connection is verified",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -269,7 +290,8 @@
         },
         "name": "friend_sync",
         "description": "whether friend sync is enabled for this connection",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -281,7 +303,8 @@
         },
         "name": "show_activity",
         "description": "whether activities related to this connection will be shown in presence updates",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -293,7 +316,8 @@
         },
         "name": "visibility",
         "description": "[visibility](#DOCS_RESOURCES_USER/connection-object-visibility-types) of this connection",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   }

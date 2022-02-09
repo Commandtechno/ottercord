@@ -1,6 +1,8 @@
-import { formatText, formatTable, parseType } from "../util";
-import { Constant, Context } from ".";
+import { formatText, formatTable } from "../util";
 import { marked } from "marked";
+
+import { Constant } from "../../../common/build";
+import { Context } from ".";
 
 export class ConstantsEngine {
   constants: Constant[] = [];

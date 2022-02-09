@@ -195,7 +195,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of strings"
+              "string"
             ]
           },
           "name": "access_tokens",

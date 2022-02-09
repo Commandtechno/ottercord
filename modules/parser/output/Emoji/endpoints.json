@@ -89,7 +89,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "roles",
@@ -141,7 +141,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "roles",

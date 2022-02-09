@@ -218,7 +218,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "sticker_ids",
@@ -230,7 +230,7 @@
             "reference": false,
             "array": false,
             "value": [
-              "file contents"
+              "file content"
             ]
           },
           "name": "files",
@@ -568,7 +568,7 @@
             "reference": false,
             "array": false,
             "value": [
-              "file contents"
+              "file content"
             ]
           },
           "name": "files",
@@ -652,7 +652,7 @@
             "reference": false,
             "array": true,
             "value": [
-              "array of snowflakes"
+              "snowflake"
             ]
           },
           "name": "messages",
@@ -886,7 +886,7 @@
         "guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. F",
         "m",
         "e inf",
-        "mation about permissions, see permissions"
+        "mation about permissions, see permission"
       ]
     },
     "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
@@ -1267,7 +1267,7 @@
       "array": false,
       "value": [
         "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added",
-        "was already a member of the thread. Fires a Thread Members Update Gateway event."
+        "was already a member  the thread. Fires a Thread Members Update Gateway event."
       ]
     },
     "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
@@ -1313,7 +1313,7 @@
       "value": [
         "Removes another member from a thread. Requires the MANAGE_THREADS permission,",
         "the creat",
-        "of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+        "the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
       ]
     },
     "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."

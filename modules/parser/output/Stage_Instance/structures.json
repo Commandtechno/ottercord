@@ -12,7 +12,8 @@
         },
         "name": "id",
         "description": "The id of this Stage instance",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -24,7 +25,8 @@
         },
         "name": "guild_id",
         "description": "The guild id of the associated Stage channel",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -36,7 +38,8 @@
         },
         "name": "channel_id",
         "description": "The id of the associated Stage channel",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -48,7 +51,8 @@
         },
         "name": "topic",
         "description": "The topic of the Stage instance (1-120 characters)",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -60,7 +64,8 @@
         },
         "name": "privacy_level",
         "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
-        "required": false
+        "required": false,
+        "nullable": false
       },
       {
         "type": {
@@ -72,7 +77,8 @@
         },
         "name": "discoverable_disabled",
         "description": "Whether or not Stage Discovery is disabled (deprecated)",
-        "required": false
+        "required": false,
+        "nullable": false
       }
     ]
   }

@@ -1,4 +1,4 @@
-import { Endpoint, EndpointParam } from ".";
+import { Endpoint, EndpointParam } from "../../../common/build";
 import { formatText } from "../util";
 
 export function parseParam(rawParam: string): EndpointParam {

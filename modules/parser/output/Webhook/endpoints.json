@@ -362,7 +362,7 @@
             "reference": false,
             "array": false,
             "value": [
-              "file contents"
+              "file content"
             ]
           },
           "name": "files",
@@ -582,7 +582,7 @@
             "reference": false,
             "array": false,
             "value": [
-              "file contents"
+              "file content"
             ]
           },
           "name": "files",

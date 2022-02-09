@@ -1,4 +1,4 @@
-import { Type } from "./common";
+import { BaseType, Type } from ".";
 
 export interface Endpoint {
   name: string;
@@ -9,7 +9,7 @@ export interface Endpoint {
   params: EndpointParam[];
   query: EndpointQuery[];
 
-  response?: Type;
+  response?: Type[];
   body?: EndpointBody;
 }
 
@@ -29,12 +29,5 @@ export interface EndpointQuery {
 export interface EndpointBody {
   json: boolean;
   form: boolean;
-  params: EndpointBodyParam[];
-}
-
-export interface EndpointBodyParam {
-  type: Type;
-  name: string;
-  description: string;
-  required: boolean;
+  params: Type[];
 }

@@ -1,4 +1,5 @@
-import { Context, Endpoint, parseEndpoint } from ".";
+import { Endpoint } from "../../../common/build";
+import { Context, parseEndpoint } from ".";
 
 import { flattenBlock, formatTable, formatText, parseType } from "../util";
 import { marked } from "marked";
@@ -16,7 +17,7 @@ export class EndpointsEngine {
     return this.endpoints;
   }
 
-  async process(block: marked.Token) {
+  process(block: marked.Token) {
     switch (this.context) {
       case "none":
         return this.processNone(block);
@@ -48,13 +49,26 @@ export class EndpointsEngine {
     switch (block.type) {
       case "paragraph":
         if (!this.currentEndpoint.response) {
-          if (
-            block.text.toLowerCase().includes("return") ||
-            block.text.toLowerCase().includes("respond") ||
-            block.text.toLowerCase().includes("response")
-          ) {
-            const response = parseType(block);
-            if (response) this.currentEndpoint.response = response;
+          if (block.text.toLowerCase().includes("return")) {
+            let isAfter = false;
+            for (const token of block.tokens) {
+              if (isAfter && token.type === "link")
+                this.currentEndpoint.response = {
+                  reference: true,
+                  array:
+                    block.text.toLowerCase().includes("array of") ||
+                    block.text.toLowerCase().includes("list of"),
+
+                  value: token.href
+                };
+
+              // @ts-ignore
+              if (token.text?.toLowerCase().includes("return")) isAfter = true;
+            }
+
+            if (!this.currentEndpoint.response) {
+              this.context = "response";
+            }
           }
         }
 
@@ -115,16 +129,11 @@ export class EndpointsEngine {
   processResponse(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentEndpoint.response = {
-        reference: false,
-        array: false,
-        value: table.map(row => ({
-          type: formatText(row.type.text),
-          name: formatText(row.field.text),
-          description: formatText(row.description?.text),
-          required: row.required?.text === "true"
-        }))
-      };
+      this.currentEndpoint.response = table.map(row => ({
+        type: parseType(row),
+        name: formatText(row.field.text),
+        description: formatText(row.description?.text)
+      }));
 
       this.context = "endpoint";
     }
@@ -138,7 +147,7 @@ export class EndpointsEngine {
         form: this.context === "form-body" || this.context === "json-form-body",
         params: await Promise.all(
           table.map(row => ({
-            type: parseType(row.type),
+            type: parseType(row),
             name: formatText(row.field.text),
             description: formatText(row.description.text),
             required: row.required?.text === "true"

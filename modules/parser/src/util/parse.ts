@@ -1,43 +1,54 @@
-import { flattenBlock, formatText, lastSplit } from ".";
-import { marked } from "marked";
+import { lastSplit } from ".";
+import { Row, Type } from "../../../common";
 
-export interface Type {
-  reference: boolean;
-  array: boolean;
-  value: string | string[];
-}
+export function parseType(row: Row): Type {
+  let array = false;
+  let optional = false;
+  let nullable = false;
 
-export function parseType(block: marked.Tokens.TableCell): Type {
-  if (!block) {
-    return {
-      reference: false,
-      array: false,
-      value: "any"
-    };
+  if (row.field.text.endsWith("?")) {
+    optional = true;
   }
 
-  let array = false;
-  if (block.text.toLowerCase().includes("array") || block.text.toLowerCase().includes("list"))
-    array = true;
+  if (row.type.text.startsWith("?")) {
+    nullable = true;
+  }
 
-  if (block.text.toLowerCase().includes("object"))
-    for (const token of block.tokens)
-      if (token.type === "link") {
+  ["array of", "list of"].forEach(match => {
+    if (row.field.text.toLowerCase().includes(match)) {
+      array = true;
+      row.field.text = row.field.text.replace(match, "");
+    }
+
+    if (row.description.text.toLowerCase().includes(match)) {
+      array = true;
+      row.description.text = row.description.text.replace(match, "");
+    }
+  });
+
+  if (row.type.text.toLowerCase().includes("object"))
+    for (const token of row.type.tokens)
+      if (token.type === "link")
         return {
-          reference: true,
+          optional,
+          nullable,
           array,
-          value: parseTypeLink(token.href)
+
+          reference: true,
+          value: parseAnchor(token.href)
         };
-      }
 
   return {
-    reference: false,
+    optional,
+    nullable,
     array,
-    value: flattenBlock(block).split("or").map(formatText)
+
+    reference: false,
+    value: row.type.text
   };
 }
 
-export function parseTypeLink(rawLink: string) {
-  const [, anchor] = lastSplit(rawLink.slice(1), "/");
+export function parseAnchor(link: string) {
+  const [, anchor] = lastSplit(link.slice(1), "/");
   return anchor;
 }
