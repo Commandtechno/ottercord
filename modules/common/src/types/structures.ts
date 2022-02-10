@@ -1,6 +1,6 @@
-import { Type } from "./common";
+import { Param } from ".";
 
 export interface Structure {
   name: string;
-  params: Type[];
+  params: Param[];
 }

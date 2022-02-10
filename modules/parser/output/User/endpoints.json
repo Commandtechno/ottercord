@@ -7,10 +7,12 @@
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "user-object"
-    },
-    "description": "Returns the user object of the requester's account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email."
+      "value": "user-structure"
+    }
   },
   {
     "name": "Get User",
@@ -19,16 +21,18 @@
     "params": [
       {
         "name": "user.id",
-        "link": "DOCS_RESOURCES_USER/user-object"
+        "anchor": "user-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "user-object"
-    },
-    "description": "Returns a user object for a given user ID."
+      "value": "user-structure"
+    }
   },
   {
     "name": "Modify Current User",
@@ -38,39 +42,11 @@
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "user-object"
-    },
-    "description": "Modify the requester's user account settings. Returns a user object on success.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "username",
-          "description": "user's username, if changed may cause the user's discriminator to be randomized.",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "image data"
-            ]
-          },
-          "name": "avatar",
-          "description": "if passed, modifies the user's avatar",
-          "required": false
-        }
-      ]
+      "value": "user-structure"
     }
   },
   {
@@ -94,16 +70,18 @@
       {
         "type": "integer",
         "name": "limit",
-        "description": "max number of guilds to return",
+        "description": "max number of guilds to return (1-200)",
         "required": false
       }
     ],
     "response": {
       "reference": true,
+      "partial": true,
+      "optional": false,
+      "nullable": false,
       "array": true,
-      "value": "guild-object"
-    },
-    "description": "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope."
+      "value": "guild-structure"
+    }
   },
   {
     "name": "Get Current User Guild Member",
@@ -112,16 +90,18 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "guild-member-object"
-    },
-    "description": "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope."
+      "value": "guild-member-structure"
+    }
   },
   {
     "name": "Leave Guild",
@@ -130,49 +110,25 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
-    "response": {
-      "reference": false,
-      "array": false,
-      "value": [
-        "Leave a guild. Returns a 204 empty response on success."
-      ]
-    },
-    "description": "Leave a guild. Returns a 204 empty response on success."
-  },
-  {
-    "name": "Create DM",
-    "method": "POST",
-    "path": "/users/@me/channels",
-    "params": [],
-    "query": [],
-    "response": {
-      "reference": true,
-      "array": false,
-      "value": "channel-object"
-    },
-    "description": "Create a new DM channel with a user. Returns a DM channel object.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "recipient_id",
-          "description": "the recipient to open a DM channel with",
-          "required": false
-        }
-      ]
-    }
+    "description": "Leave a guild. Returns a 204 empty response on success.",
+    "response": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "recipient_id",
+        "description": "the recipient to open a DM channel with"
+      }
+    ]
   },
   {
     "name": "Create Group DM",
@@ -182,39 +138,11 @@
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "channel-object"
-    },
-    "description": "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": true,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "access_tokens",
-          "description": "access tokens of users that have granted your app the `gdm.join` scope",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "dict"
-            ]
-          },
-          "name": "nicks",
-          "description": "a dictionary of user ids to their respective nicknames",
-          "required": false
-        }
-      ]
+      "value": "channel-structure"
     }
   },
   {
@@ -225,9 +153,11 @@
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": true,
-      "value": "connection-object"
-    },
-    "description": "Returns a list of connection objects. Requires the connections OAuth2 scope."
+      "value": "connection-structure"
+    }
   }
 ]

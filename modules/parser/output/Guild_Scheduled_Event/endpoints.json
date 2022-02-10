@@ -6,23 +6,25 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [
       {
         "type": "boolean",
-        "name": "with_user_count",
+        "name": "with_user_count?",
         "description": "include number of users subscribed to each event",
         "required": false
       }
     ],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": true,
-      "value": "guild-scheduled-event-object"
-    },
-    "description": "Returns a list of guild scheduled event objects for the given guild."
+      "value": "guild-scheduled-event-structure"
+    }
   },
   {
     "name": "Create Guild Scheduled Event",
@@ -31,124 +33,19 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-object"
+      "value": "guild-scheduled-event-structure"
     },
-    "description": "Create a guild scheduled event in the guild. Returns a guild scheduled event object on success.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "channel_id",
-          "description": "the channel id of the scheduled event.",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
-          },
-          "name": "entity_metadata",
-          "description": "the entity metadata of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "the name of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level"
-          },
-          "name": "privacy_level",
-          "description": "the privacy level of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "ISO8601 timestamp"
-            ]
-          },
-          "name": "scheduled_start_time",
-          "description": "the time to schedule the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "ISO8601 timestamp"
-            ]
-          },
-          "name": "scheduled_end_time",
-          "description": "the time when the scheduled event is scheduled to end",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "description",
-          "description": "the description of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types"
-          },
-          "name": "entity_type",
-          "description": "the entity type of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "image data"
-            ]
-          },
-          "name": "image",
-          "description": "the cover image of the scheduled event",
-          "required": false
-        }
-      ]
-    }
+    "description": "\\* Optional for events with `'entity_type': EXTERNAL`"
   },
   {
     "name": "Get Guild Scheduled Event",
@@ -157,27 +54,29 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "guild_scheduled_event.id",
-        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+        "anchor": "guild-scheduled-event-structure"
       }
     ],
     "query": [
       {
         "type": "boolean",
-        "name": "with_user_count",
+        "name": "with_user_count?",
         "description": "include number of users subscribed to this event",
         "required": false
       }
     ],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-object"
-    },
-    "description": "Get a guild scheduled event. Returns a guild scheduled event object on success."
+      "value": "guild-scheduled-event-structure"
+    }
   },
   {
     "name": "Modify Guild Scheduled Event",
@@ -186,138 +85,23 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "guild_scheduled_event.id",
-        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+        "anchor": "guild-scheduled-event-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-object"
+      "value": "guild-scheduled-event-structure"
     },
-    "description": "Modify a guild scheduled event. Returns the modified guild scheduled event object on success.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "channel_id",
-          "description": "the channel id of the scheduled event, set to `null` if changing entity type to `EXTERNAL`",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
-          },
-          "name": "entity_metadata",
-          "description": "the entity metadata of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "the name of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level"
-          },
-          "name": "privacy_level",
-          "description": "the privacy level of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "ISO8601 timestamp"
-            ]
-          },
-          "name": "scheduled_start_time",
-          "description": "the time to schedule the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "ISO8601 timestamp"
-            ]
-          },
-          "name": "scheduled_end_time",
-          "description": "the time when the scheduled event is scheduled to end",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "description",
-          "description": "the description of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types"
-          },
-          "name": "entity_type",
-          "description": "the entity type of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": true,
-            "array": false,
-            "value": "guild-scheduled-event-object-guild-scheduled-event-status"
-          },
-          "name": "status",
-          "description": "the status of the scheduled event",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "image data"
-            ]
-          },
-          "name": "image",
-          "description": "the cover image of the scheduled event",
-          "required": false
-        }
-      ]
-    }
+    "description": "\\* If updating `entity_type` to `EXTERNAL`:"
   },
   {
     "name": "Delete Guild Scheduled Event",
@@ -326,68 +110,64 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "guild_scheduled_event.id",
-        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
+        "anchor": "guild-scheduled-event-structure"
       }
     ],
     "query": [],
-    "response": {
-      "reference": false,
-      "array": false,
-      "value": [
-        "Delete a guild scheduled event. Returns a 204 on success."
-      ]
-    },
-    "description": "Delete a guild scheduled event. Returns a 204 on success."
-  },
-  {
-    "name": "Get Guild Scheduled Event Users",
-    "method": "GET",
-    "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
-    "params": [
+    "description": "Delete a guild scheduled event. Returns a `204` on success.",
+    "response": [
       {
-        "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
-      },
-      {
-        "name": "guild_scheduled_event.id",
-        "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
-      }
-    ],
-    "query": [
-      {
-        "type": "number",
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "number"
+        ],
         "name": "limit",
-        "description": "number of users to return",
-        "required": false
+        "description": "number of users to return (up to maximum 100)"
       },
       {
-        "type": "boolean",
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
         "name": "with_member",
-        "description": "include guild member data if it exists",
-        "required": false
+        "description": "include guild member data if it exists"
       },
       {
-        "type": "snowflake",
-        "name": "before",
-        "description": "consider only users before given user id",
-        "required": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "before? *",
+        "description": "consider only users before given user id"
       },
       {
-        "type": "snowflake",
-        "name": "after",
-        "description": "consider only users after given user id",
-        "required": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "after? *",
+        "description": "consider only users after given user id"
       }
-    ],
-    "response": {
-      "reference": true,
-      "array": true,
-      "value": "guild-scheduled-event-user-object"
-    },
-    "description": "Get a list of guild scheduled event users subscribed to a guild scheduled event. Returns a list of guild scheduled event user objects on success. Guild member data, if it exists, is included if the with_member query parameter is set."
+    ]
   }
 ]

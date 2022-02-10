@@ -3,199 +3,199 @@
     "name": "User Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "the user's id",
-        "required": false,
-        "nullable": false
+        "description": "the user's id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "username",
-        "description": "the user's username, not unique across the platform",
-        "required": false,
-        "nullable": false
+        "description": "the user's username, not unique across the platform"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "discriminator",
-        "description": "the user's 4-digit discord-tag",
-        "required": false,
-        "nullable": false
+        "description": "the user's 4-digit discord-tag"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "avatar",
-        "description": "the user's [avatar hash](#DOCS_REFERENCE/image-formatting)",
-        "required": true,
-        "nullable": false
+        "description": "the user's [avatar hash]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "bot?",
-        "description": "whether the user belongs to an OAuth2 application",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "bot",
+        "description": "whether the user belongs to an OAuth2 application"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "system?",
-        "description": "whether the user is an Official Discord System user (part of the urgent message system)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "system",
+        "description": "whether the user is an Official Discord System user"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "mfa_enabled?",
-        "description": "whether the user has two factor enabled on their account",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "mfa_enabled",
+        "description": "whether the user has two factor enabled on their account"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "banner?",
-        "description": "the user's [banner hash](#DOCS_REFERENCE/image-formatting)",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "banner",
+        "description": "the user's [banner hash]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "accent_color?",
-        "description": "the user's banner color encoded as an integer representation of hexadecimal color code",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "accent_color",
+        "description": "the user's banner color encoded as an integer representation of hexadecimal color code"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "locale?",
-        "description": "the user's chosen [language option](#DOCS_REFERENCE/locales)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "locale",
+        "description": "the user's chosen [language option]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "verified?",
-        "description": "whether the email on this account has been verified",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "verified",
+        "description": "whether the email on this account has been verified"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "email?",
-        "description": "the user's email",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "email",
+        "description": "the user's email"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "flags?",
-        "description": "the [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "flags",
+        "description": "the [flags] on a user's account"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "premium_type?",
-        "description": "the [type of Nitro subscription](#DOCS_RESOURCES_USER/user-object-premium-types) on a user's account",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "premium_type",
+        "description": "the [type of Nitro subscription] on a user's account"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "public_flags?",
-        "description": "the public [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "public_flags",
+        "description": "the public [flags] on a user's account"
       }
     ]
   },
@@ -203,121 +203,119 @@
     "name": "Connection Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the connection account",
-        "required": false,
-        "nullable": false
+        "description": "id of the connection account"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "the username of the connection account",
-        "required": false,
-        "nullable": false
+        "description": "the username of the connection account"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "the service of the connection (twitch, youtube)",
-        "required": false,
-        "nullable": false
+        "description": "the service of the connection"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "revoked?",
-        "description": "whether the connection is revoked",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "revoked",
+        "description": "whether the connection is revoked"
       },
       {
-        "type": {
-          "reference": false,
-          "array": true,
-          "value": [
-            ""
-          ]
-        },
-        "name": "integrations?",
-        "description": "an array of partial [server integrations](#DOCS_RESOURCES_GUILD/integration-object)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "integration-structure",
+        "deprecated": false,
+        "name": "integrations",
+        "description": "an array of partial [server integrations]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "verified",
-        "description": "whether the connection is verified",
-        "required": false,
-        "nullable": false
+        "description": "whether the connection is verified"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "friend_sync",
-        "description": "whether friend sync is enabled for this connection",
-        "required": false,
-        "nullable": false
+        "description": "whether friend sync is enabled for this connection"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "show_activity",
-        "description": "whether activities related to this connection will be shown in presence updates",
-        "required": false,
-        "nullable": false
+        "description": "whether activities related to this connection will be shown in presence updates"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "visibility",
-        "description": "[visibility](#DOCS_RESOURCES_USER/connection-object-visibility-types) of this connection",
-        "required": false,
-        "nullable": false
+        "description": "[visibility] of this connection"
       }
     ]
   }

@@ -1,22 +1,23 @@
-import { BaseType, Type } from ".";
+import { Type, Param } from ".";
 
 export interface Endpoint {
   name: string;
-  method: string;
   description?: string;
 
+  method: string;
   path: string;
+
   params: EndpointParam[];
   query: EndpointQuery[];
 
-  response?: Type[];
-  body?: EndpointBody;
+  request?: EndpointRequest;
+  response?: Type | Type[];
 }
 
 export interface EndpointParam {
   // type: string;
   name: string;
-  link: string;
+  anchor: string;
 }
 
 export interface EndpointQuery {
@@ -26,8 +27,8 @@ export interface EndpointQuery {
   required: boolean;
 }
 
-export interface EndpointBody {
+export interface EndpointRequest {
   json: boolean;
   form: boolean;
-  params: Type[];
+  params: Param[];
 }

@@ -3,158 +3,158 @@
     "name": "Sticker Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "[id of the sticker](#DOCS_REFERENCE/image-formatting)",
-        "required": false,
-        "nullable": false
+        "description": "[id of the sticker]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "pack_id?",
-        "description": "for standard stickers, id of the pack the sticker is from",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "pack_id",
+        "description": "for standard stickers, id of the pack the sticker is from"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "name of the sticker",
-        "required": false,
-        "nullable": false
+        "description": "name of the sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "description",
-        "description": "description of the sticker",
-        "required": true,
-        "nullable": false
+        "description": "description of the sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "tags\\*",
-        "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "tags",
+        "description": "autocomplete/suggestion tags for the sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": true,
         "name": "asset",
-        "description": "**Deprecated** previously the sticker asset hash, now an empty string",
-        "required": false,
-        "nullable": false
+        "description": "previously the sticker asset hash, now an empty string"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "[type of sticker](#DOCS_RESOURCES_STICKER/sticker-object-sticker-types)",
-        "required": false,
-        "nullable": false
+        "description": "[type of sticker]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "format_type",
-        "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
-        "required": false,
-        "nullable": false
+        "description": "[type of sticker format]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "available?",
-        "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "available",
+        "description": "whether this guild sticker can be used, may be false due to loss of Server Boosts"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "guild_id?",
-        "description": "id of the guild that owns this sticker",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild that owns this sticker"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "user-object"
-        },
-        "name": "user?",
-        "description": "the user that uploaded the guild sticker",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "user",
+        "description": "the user that uploaded the guild sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "sort_value?",
-        "description": "the standard sticker's sort order within its pack",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "sort_value",
+        "description": "the standard sticker's sort order within its pack"
       }
     ]
   },
@@ -162,43 +162,43 @@
     "name": "Sticker Item Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the sticker",
-        "required": false,
-        "nullable": false
+        "description": "id of the sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "name of the sticker",
-        "required": false,
-        "nullable": false
+        "description": "name of the sticker"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "format_type",
-        "description": "[type of sticker format](#DOCS_RESOURCES_STICKER/sticker-object-sticker-format-types)",
-        "required": false,
-        "nullable": false
+        "description": "[type of sticker format]"
       }
     ]
   },
@@ -206,93 +206,93 @@
     "name": "Sticker Pack Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the sticker pack",
-        "required": false,
-        "nullable": false
+        "description": "id of the sticker pack"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "sticker-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "sticker-structure",
+        "deprecated": false,
         "name": "stickers",
-        "description": "the stickers in the pack",
-        "required": false,
-        "nullable": false
+        "description": "the stickers in the pack"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "name of the sticker pack",
-        "required": false,
-        "nullable": false
+        "description": "name of the sticker pack"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "sku_id",
-        "description": "id of the pack's SKU",
-        "required": false,
-        "nullable": false
+        "description": "id of the pack's SKU"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "cover_sticker_id?",
-        "description": "id of a sticker in the pack which is shown as the pack's icon",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "cover_sticker_id",
+        "description": "id of a sticker in the pack which is shown as the pack's icon"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "description",
-        "description": "description of the sticker pack",
-        "required": false,
-        "nullable": false
+        "description": "description of the sticker pack"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "banner_asset_id?",
-        "description": "id of the sticker pack's [banner image](#DOCS_REFERENCE/image-formatting)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "banner_asset_id",
+        "description": "id of the sticker pack's [banner image]"
       }
     ]
   }

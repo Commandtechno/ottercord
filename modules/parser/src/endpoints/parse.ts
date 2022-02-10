@@ -1,9 +1,10 @@
 import { Endpoint, EndpointParam } from "../../../common/build";
-import { formatText } from "../util";
+import { parseAnchor } from "../util";
 
 export function parseParam(rawParam: string): EndpointParam {
   const [name, link] = rawParam.slice(1, -1).split("#");
-  return { name, link };
+  const anchor = parseAnchor(link);
+  return { name, anchor };
 }
 
 export function parsePath(rawPath: string) {
@@ -24,8 +25,8 @@ export function parseEndpoint(rawText: string) {
   const [rawMethod, rawPath] = rawMethodPath.trim().split(" ");
   if (!rawMethod || !rawPath) return;
 
-  const name = formatText(rawName);
-  const method = formatText(rawMethod);
+  const name = rawName.trim();
+  const method = rawMethod.trim();
 
   const { path, params } = parsePath(rawPath.trim());
   const query = [];

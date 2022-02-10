@@ -1,4 +1,4 @@
-import { formatText, formatTable } from "../util";
+import { cleanText, formatTable } from "../util";
 import { marked } from "marked";
 
 import { Constant } from "../../../common/build";
@@ -36,7 +36,7 @@ export class ConstantsEngine {
       ) {
         if (this.currentConstant) this.constants.push(this.currentConstant);
         this.currentConstant = {
-          name: formatText(block.text),
+          name: block.text,
           values: []
         };
 
@@ -57,7 +57,7 @@ export class ConstantsEngine {
         const rawValue = (row.value ?? row.id)?.text ?? rawName;
         const description = row.description?.text;
 
-        const name = formatText(rawName);
+        const name = rawName;
         let value: string | number;
         if (rawValue.includes("<<")) {
           const [rawA, rawB] = rawValue.split("<<");
@@ -66,7 +66,7 @@ export class ConstantsEngine {
           value = a << b;
         } else {
           value = parseInt(rawValue);
-          if (isNaN(value)) value = formatText(rawValue);
+          if (isNaN(value)) value = cleanText(rawValue);
         }
 
         return {

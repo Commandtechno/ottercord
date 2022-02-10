@@ -3,143 +3,143 @@
     "name": "Guild Template Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "code",
-        "description": "the template code (unique ID)",
-        "required": false,
-        "nullable": false
+        "description": "the template code"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "template name",
-        "required": false,
-        "nullable": false
+        "description": "template name"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "description",
-        "description": "the description for the template",
-        "required": true,
-        "nullable": false
+        "description": "the description for the template"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "usage_count",
-        "description": "number of times this template has been used",
-        "required": false,
-        "nullable": false
+        "description": "number of times this template has been used"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "creator_id",
-        "description": "the ID of the user who created the template",
-        "required": false,
-        "nullable": false
+        "description": "the ID of the user who created the template"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "user-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
         "name": "creator",
-        "description": "the user who created the template",
-        "required": false,
-        "nullable": false
+        "description": "the user who created the template"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "created_at",
-        "description": "when this template was created",
-        "required": false,
-        "nullable": false
+        "description": "when this template was created"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "updated_at",
-        "description": "when this template was last synced to the source guild",
-        "required": false,
-        "nullable": false
+        "description": "when this template was last synced to the source guild"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "source_guild_id",
-        "description": "the ID of the guild this template is based on",
-        "required": false,
-        "nullable": false
+        "description": "the ID of the guild this template is based on"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "guild-object"
-        },
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-structure",
+        "deprecated": false,
         "name": "serialized_source_guild",
-        "description": "the guild snapshot this template contains",
-        "required": false,
-        "nullable": false
+        "description": "the guild snapshot this template contains"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "is_dirty",
-        "description": "whether the template has unsynced changes",
-        "required": true,
-        "nullable": false
+        "description": "whether the template has unsynced changes"
       }
     ]
   }

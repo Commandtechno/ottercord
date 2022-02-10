@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [
@@ -19,7 +19,7 @@
       {
         "type": "integer",
         "name": "action_type",
-        "description": "the type of",
+        "description": "the type of [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)",
         "required": false
       },
       {
@@ -31,15 +31,17 @@
       {
         "type": "integer",
         "name": "limit",
-        "description": "how many entries are returned",
+        "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
         "required": false
       }
     ],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "audit-log-object"
-    },
-    "description": "Returns an audit log object for the guild. Requires the 'VIEW_AUDIT_LOG' permission."
+      "value": "audit-log-structure"
+    }
   }
 ]

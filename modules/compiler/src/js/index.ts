@@ -1,4 +1,4 @@
-import { Constant, Endpoint, Structure, Type } from "../../../common/src/types";
+import { Constant, Endpoint, Structure, Type } from "../../../common";
 import { camel, pascal } from "../util";
 
 function convertType(type: string) {
@@ -31,15 +31,17 @@ function convertType(type: string) {
 function resolveType(type: Type) {
   if (type.reference) {
     if (type.array) {
-      return "Array<" + camel(type.value as string) + ">";
+      return "Array<" + pascal(type.value as string) + ">";
     }
 
-    return camel(type.value as string);
+    return pascal(type.value as string);
   }
 
   const tsType = Array.isArray(type.value)
     ? type.value.map(convertType).join(" | ")
     : convertType(type.value as string);
+
+  return tsType;
 }
 
 export function js(constants: Constant[], endpoints: Endpoint[], structures: Structure[]) {
@@ -55,8 +57,8 @@ export function js(constants: Constant[], endpoints: Endpoint[], structures: Str
 
   for (const structure of structures) {
     output += "export type " + pascal(structure.name) + " = {";
-    for (const field of structure.params) {
-      output += "\n\t" + camel(field.name) + ": " + resolveType(field.type) + ";";
+    for (const param of structure.params) {
+      output += "\n\t" + camel(param.name) + ": " + resolveType(param) + ";";
     }
     output += "\n}\n\n";
   }

@@ -3,334 +3,334 @@
     "name": "Channel Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "the id of this channel",
-        "required": false,
-        "nullable": false
+        "description": "the id of this channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
-        "required": false,
-        "nullable": false
+        "description": "the [type of channel]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "guild_id?",
-        "description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "the id of the guild"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "position?",
-        "description": "sorting position of the channel",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "position",
+        "description": "sorting position of the channel"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "overwrite-object"
-        },
-        "name": "permission_overwrites?",
-        "description": "explicit permission overwrites for members and roles",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "overwrite-structure",
+        "deprecated": false,
+        "name": "permission_overwrites",
+        "description": "explicit permission overwrites for members and roles"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "name?",
-        "description": "the name of the channel (1-100 characters)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "the name of the channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "topic?",
-        "description": "the channel topic (0-1024 characters)",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "topic",
+        "description": "the channel topic"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "nsfw?",
-        "description": "whether the channel is nsfw",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "nsfw",
+        "description": "whether the channel is nsfw"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "last_message_id?",
-        "description": "the id of the last message sent in this channel (may not point to an existing or valid message)",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "last_message_id",
+        "description": "the id of the last message sent in this channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "bitrate?",
-        "description": "the bitrate (in bits) of the voice channel",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "bitrate",
+        "description": "the bitrate of the voice channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "user_limit?",
-        "description": "the user limit of the voice channel",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "user_limit",
+        "description": "the user limit of the voice channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "rate_limit_per_user?\\*",
-        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "rate_limit_per_user?",
+        "description": "amount of seconds a user has to wait before sending another message"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "user-object"
-        },
-        "name": "recipients?",
-        "description": "the recipients of the DM",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "recipients",
+        "description": "the recipients of the DM"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "icon?",
-        "description": "icon hash of the group DM",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon",
+        "description": "icon hash of the group DM"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "owner_id?",
-        "description": "id of the creator of the group DM or thread",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "owner_id",
+        "description": "id of the creator of the group DM or thread"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "application_id?",
-        "description": "application id of the group DM creator if it is bot-created",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "application_id",
+        "description": "application id of the group DM creator if it is bot-created"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "parent_id?",
-        "description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "parent_id",
+        "description": "for guild channels: id of the parent category for a channel , for threads: id of the text channel this thread was created"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
-        "name": "last_pin_timestamp?",
-        "description": "when the last pinned message was pinned. This may be `null` in events such as `GUILD_CREATE` when a message is not pinned.",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "last_pin_timestamp",
+        "description": "when the last pinned message was pinned. This may be `null` in events such as `GUILD_CREATE` when a message is not pinned."
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "rtc_region?",
-        "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id for the voice channel, automatic when set to null",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "rtc_region",
+        "description": "[voice region] id for the voice channel, automatic when set to null"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "video_quality_mode?",
-        "description": "the camera [video quality mode](#DOCS_RESOURCES_CHANNEL/channel-object-video-quality-modes) of the voice channel, 1 when not present",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "video_quality_mode",
+        "description": "the camera [video quality mode] of the voice channel, 1 when not present"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "message_count?",
-        "description": "an approximate count of messages in a thread, stops counting at 50",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "message_count",
+        "description": "an approximate count of messages in a thread, stops counting at 50"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "member_count?",
-        "description": "an approximate count of users in a thread, stops counting at 50",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "member_count",
+        "description": "an approximate count of users in a thread, stops counting at 50"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "thread-metadata-object"
-        },
-        "name": "thread_metadata?",
-        "description": "thread-specific fields not needed by other channels",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "thread-metadata-structure",
+        "deprecated": false,
+        "name": "thread_metadata",
+        "description": "thread-specific fields not needed by other channels"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "thread-member-object"
-        },
-        "name": "member?",
-        "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "thread-member-structure",
+        "deprecated": false,
+        "name": "member",
+        "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "default_auto_archive_duration?",
-        "description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "default_auto_archive_duration",
+        "description": "default duration that the clients will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "permissions?",
-        "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the `resolved` data received on a slash command interaction",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "permissions",
+        "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the `resolved` data received on a slash command interaction"
       }
     ]
   },
@@ -338,374 +338,374 @@
     "name": "Message Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the message",
-        "required": false,
-        "nullable": false
+        "description": "id of the message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "channel_id",
-        "description": "id of the channel the message was sent in",
-        "required": false,
-        "nullable": false
+        "description": "id of the channel the message was sent in"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "guild_id?",
-        "description": "id of the guild the message was sent in",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild the message was sent in"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "user-object"
-        },
-        "name": "author\\*",
-        "description": "the author of this message (not guaranteed to be a valid user, see below)",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "author",
+        "description": "the author of this message"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "guild-member-object"
-        },
-        "name": "member?\\*\\*",
-        "description": "member properties for this message's author",
-        "required": false,
-        "nullable": false
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-member-structure",
+        "deprecated": false,
+        "name": "member?",
+        "description": "member properties for this message's author"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "content",
-        "description": "contents of the message",
-        "required": false,
-        "nullable": false
+        "description": "contents of the message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "timestamp",
-        "description": "when this message was sent",
-        "required": false,
-        "nullable": false
+        "description": "when this message was sent"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "edited_timestamp",
-        "description": "when this message was edited (or null if never)",
-        "required": true,
-        "nullable": false
+        "description": "when this message was edited"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "tts",
-        "description": "whether this was a TTS message",
-        "required": false,
-        "nullable": false
+        "description": "whether this was a TTS message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "mention_everyone",
-        "description": "whether this message mentions everyone",
-        "required": false,
-        "nullable": false
+        "description": "whether this message mentions everyone"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "user-object"
-        },
-        "name": "mentions\\*\\*\\*",
-        "description": "users specifically mentioned in the message",
-        "required": false,
-        "nullable": false
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "mentions",
+        "description": "users specifically mentioned in the message"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "role-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "role-structure",
+        "deprecated": false,
         "name": "mention_roles",
-        "description": "roles specifically mentioned in this message",
-        "required": false,
-        "nullable": false
+        "description": "roles specifically mentioned in this message"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "channel-mention-object"
-        },
-        "name": "mention_channels?\\*\\*\\*\\*",
-        "description": "channels specifically mentioned in this message",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "channel-mention-structure",
+        "deprecated": false,
+        "name": "mention_channels?",
+        "description": "channels specifically mentioned in this message"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "attachment-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "attachment-structure",
+        "deprecated": false,
         "name": "attachments",
-        "description": "any attached files",
-        "required": false,
-        "nullable": false
+        "description": "any attached files"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "embed-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "embed-structure",
+        "deprecated": false,
         "name": "embeds",
-        "description": "any embedded content",
-        "required": false,
-        "nullable": false
+        "description": "any embedded content"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "reaction-object"
-        },
-        "name": "reactions?",
-        "description": "reactions to the message",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "reaction-structure",
+        "deprecated": false,
+        "name": "reactions",
+        "description": "reactions to the message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer",
-            "string"
-          ]
-        },
-        "name": "nonce?",
-        "description": "used for validating a message was sent",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer",
+          "string"
+        ],
+        "deprecated": false,
+        "name": "nonce",
+        "description": "used for validating a message was sent"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "pinned",
-        "description": "whether this message is pinned",
-        "required": false,
-        "nullable": false
+        "description": "whether this message is pinned"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "webhook_id?",
-        "description": "if the message is generated by a webhook, this is the webhook's id",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "webhook_id",
+        "description": "if the message is generated by a webhook, this is the webhook's id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "[type of message](#DOCS_RESOURCES_CHANNEL/message-object-message-types)",
-        "required": false,
-        "nullable": false
+        "description": "[type of message]"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "message-object-message-activity-structure"
-        },
-        "name": "activity?",
-        "description": "sent with Rich Presence-related chat embeds",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "message-structure-message-activity-structure",
+        "deprecated": false,
+        "name": "activity",
+        "description": "sent with Rich Presence-related chat embeds"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "application-object"
-        },
-        "name": "application?",
-        "description": "sent with Rich Presence-related chat embeds",
-        "required": false,
-        "nullable": true
+        "partial": true,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "application-structure",
+        "deprecated": false,
+        "name": "application",
+        "description": "sent with Rich Presence-related chat embeds"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "application_id?",
-        "description": "if the message is an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/) or application-owned webhook, this is the id of the application",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "application_id",
+        "description": "if the message is an [Interaction] or application-owned webhook, this is the id of the application"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "message-reference-object-message-reference-structure"
-        },
-        "name": "message_reference?",
-        "description": "data showing the source of a crosspost, channel follow add, pin, or reply message",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "message-reference-structure-message-reference-structure",
+        "deprecated": false,
+        "name": "message_reference",
+        "description": "data showing the source of a crosspost, channel follow add, pin, or reply message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "flags?",
-        "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "flags",
+        "description": "[message flags] combined as a [bitfield]"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "message-object"
-        },
-        "name": "referenced_message?\\*\\*\\*\\*\\*",
-        "description": "the message associated with the message_reference",
-        "required": true,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": true,
+        "value": "message-structure",
+        "deprecated": false,
+        "name": "referenced_message?",
+        "description": "the message associated with the message_reference"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "message-interaction-object-message-interaction-structure"
-        },
-        "name": "interaction?",
-        "description": "sent if the message is a response to an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "message-interaction-structure-message-interaction-structure",
+        "deprecated": false,
+        "name": "interaction",
+        "description": "sent if the message is a response to an [Interaction]"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "channel-object"
-        },
-        "name": "thread?",
-        "description": "the thread that was started from this message, includes [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "channel-structure",
+        "deprecated": false,
+        "name": "thread",
+        "description": "the thread that was started from this message, includes [thread member] object"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "component-object"
-        },
-        "name": "components?",
-        "description": "sent if the message contains components like buttons, action rows, or other interactive components",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "component-structure",
+        "deprecated": false,
+        "name": "components",
+        "description": "sent if the message contains components like buttons, action rows, or other interactive components"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "sticker-item-object"
-        },
-        "name": "sticker_items?",
-        "description": "sent if the message contains stickers",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "sticker-item-structure",
+        "deprecated": false,
+        "name": "sticker_items",
+        "description": "sent if the message contains stickers"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "sticker-object"
-        },
-        "name": "stickers?",
-        "description": "**Deprecated** the stickers sent with the message",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "sticker-structure",
+        "deprecated": true,
+        "name": "stickers",
+        "description": "the stickers sent with the message"
       }
     ]
   },
@@ -713,30 +713,30 @@
     "name": "Message Activity Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "[type of message activity](#DOCS_RESOURCES_CHANNEL/message-object-message-activity-types)",
-        "required": false,
-        "nullable": false
+        "description": "[type of message activity]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "party_id?",
-        "description": "party_id from a [Rich Presence event](#DOCS_RICH_PRESENCE_HOW_TO/updating-presence-update-presence-payload-fields)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "party_id",
+        "description": "party_id from a [Rich Presence event]"
       }
     ]
   },
@@ -744,56 +744,56 @@
     "name": "Message Reference Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "message_id?",
-        "description": "id of the originating message",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "message_id",
+        "description": "id of the originating message"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "channel_id? \\*",
-        "description": "id of the originating message's channel",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id?",
+        "description": "id of the originating message's channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "guild_id?",
-        "description": "id of the originating message's guild",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the originating message's guild"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "fail_if_not_exists?",
-        "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "fail_if_not_exists",
+        "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal message, default true"
       }
     ]
   },
@@ -801,30 +801,30 @@
     "name": "Followed Channel Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "channel_id",
-        "description": "source channel id",
-        "required": false,
-        "nullable": false
+        "description": "source channel id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "webhook_id",
-        "description": "created target webhook id",
-        "required": false,
-        "nullable": false
+        "description": "created target webhook id"
       }
     ]
   },
@@ -832,41 +832,41 @@
     "name": "Reaction Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "count",
-        "description": "times this emoji has been used to react",
-        "required": false,
-        "nullable": false
+        "description": "times this emoji has been used to react"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "me",
-        "description": "whether the current user reacted using this emoji",
-        "required": false,
-        "nullable": false
+        "description": "whether the current user reacted using this emoji"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "emoji-object"
-        },
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "emoji-structure",
+        "deprecated": false,
         "name": "emoji",
-        "description": "emoji information",
-        "required": false,
-        "nullable": false
+        "description": "emoji information"
       }
     ]
   },
@@ -874,56 +874,56 @@
     "name": "Overwrite Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "role or user id",
-        "required": false,
-        "nullable": false
+        "description": "role or user id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "int"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "int"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "either 0 (role) or 1 (member)",
-        "required": false,
-        "nullable": false
+        "description": "either 0 or 1"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "allow",
-        "description": "permission bit set",
-        "required": false,
-        "nullable": false
+        "description": "permission bit set"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "deny",
-        "description": "permission bit set",
-        "required": false,
-        "nullable": false
+        "description": "permission bit set"
       }
     ]
   },
@@ -931,82 +931,82 @@
     "name": "Thread Metadata Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "archived",
-        "description": "whether the thread is archived",
-        "required": false,
-        "nullable": false
+        "description": "whether the thread is archived"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "auto_archive_duration",
-        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-        "required": false,
-        "nullable": false
+        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "archive_timestamp",
-        "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity",
-        "required": false,
-        "nullable": false
+        "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "locked",
-        "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
-        "required": false,
-        "nullable": false
+        "description": "whether the thread is locked"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "invitable?",
-        "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "invitable",
+        "description": "whether non-moderators can add other non-moderators to a thread"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
-        "name": "create_timestamp?",
-        "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "create_timestamp",
+        "description": "timestamp when the thread was created"
       }
     ]
   },
@@ -1014,56 +1014,56 @@
     "name": "Thread Member Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "id? \\*",
-        "description": "the id of the thread",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id?",
+        "description": "the id of the thread"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "user_id? \\*",
-        "description": "the id of the user",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "user_id?",
+        "description": "the id of the user"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
         "name": "join_timestamp",
-        "description": "the time the current user last joined the thread",
-        "required": false,
-        "nullable": false
+        "description": "the time the current user last joined the thread"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "flags",
-        "description": "any user-thread settings, currently only used for notifications",
-        "required": false,
-        "nullable": false
+        "description": "any user-thread settings, currently only used for notifications"
       }
     ]
   },
@@ -1071,159 +1071,159 @@
     "name": "Embed Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "title?",
-        "description": "title of embed",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "title",
+        "description": "title of embed"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "type?",
-        "description": "[type of embed](#DOCS_RESOURCES_CHANNEL/embed-object-embed-types) (always \"rich\" for webhook embeds)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "type",
+        "description": "[type of embed]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "description?",
-        "description": "description of embed",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "description",
+        "description": "description of embed"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "url?",
-        "description": "url of embed",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "url of embed"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "ISO8601 timestamp"
-          ]
-        },
-        "name": "timestamp?",
-        "description": "timestamp of embed content",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "timestamp",
+        "description": "timestamp of embed content"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "color?",
-        "description": "color code of the embed",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "color",
+        "description": "color code of the embed"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-footer-structure"
-        },
-        "name": "footer?",
-        "description": "footer information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-footer-structure",
+        "deprecated": false,
+        "name": "footer",
+        "description": "footer information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-image-structure"
-        },
-        "name": "image?",
-        "description": "image information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-image-structure",
+        "deprecated": false,
+        "name": "image",
+        "description": "image information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-thumbnail-structure"
-        },
-        "name": "thumbnail?",
-        "description": "thumbnail information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-thumbnail-structure",
+        "deprecated": false,
+        "name": "thumbnail",
+        "description": "thumbnail information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-video-structure"
-        },
-        "name": "video?",
-        "description": "video information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-video-structure",
+        "deprecated": false,
+        "name": "video",
+        "description": "video information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-provider-structure"
-        },
-        "name": "provider?",
-        "description": "provider information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-provider-structure",
+        "deprecated": false,
+        "name": "provider",
+        "description": "provider information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "embed-object-embed-author-structure"
-        },
-        "name": "author?",
-        "description": "author information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-structure-embed-author-structure",
+        "deprecated": false,
+        "name": "author",
+        "description": "author information"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "embed-object-embed-field-structure"
-        },
-        "name": "fields?",
-        "description": "fields information",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "embed-structure-embed-field-structure",
+        "deprecated": false,
+        "name": "fields",
+        "description": "fields information"
       }
     ]
   },
@@ -1231,56 +1231,56 @@
     "name": "Embed Thumbnail Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "url",
-        "description": "source url of thumbnail (only supports http(s) and attachments)",
-        "required": false,
-        "nullable": false
+        "description": "source url of thumbnail and attachments)"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "proxy_url?",
-        "description": "a proxied url of the thumbnail",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "proxy_url",
+        "description": "a proxied url of the thumbnail"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "height?",
-        "description": "height of thumbnail",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "height",
+        "description": "height of thumbnail"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "width?",
-        "description": "width of thumbnail",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "width",
+        "description": "width of thumbnail"
       }
     ]
   },
@@ -1288,56 +1288,56 @@
     "name": "Embed Video Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "url?",
-        "description": "source url of video",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "source url of video"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "proxy_url?",
-        "description": "a proxied url of the video",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "proxy_url",
+        "description": "a proxied url of the video"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "height?",
-        "description": "height of video",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "height",
+        "description": "height of video"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "width?",
-        "description": "width of video",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "width",
+        "description": "width of video"
       }
     ]
   },
@@ -1345,56 +1345,56 @@
     "name": "Embed Image Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "url",
-        "description": "source url of image (only supports http(s) and attachments)",
-        "required": false,
-        "nullable": false
+        "description": "source url of image and attachments)"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "proxy_url?",
-        "description": "a proxied url of the image",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "proxy_url",
+        "description": "a proxied url of the image"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "height?",
-        "description": "height of image",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "height",
+        "description": "height of image"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "width?",
-        "description": "width of image",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "width",
+        "description": "width of image"
       }
     ]
   },
@@ -1402,30 +1402,30 @@
     "name": "Embed Provider Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "name?",
-        "description": "name of provider",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of provider"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "url?",
-        "description": "url of provider",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "url of provider"
       }
     ]
   },
@@ -1433,56 +1433,56 @@
     "name": "Embed Author Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "name of author",
-        "required": false,
-        "nullable": false
+        "description": "name of author"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "url?",
-        "description": "url of author",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "url of author"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "icon_url?",
-        "description": "url of author icon (only supports http(s) and attachments)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon_url",
+        "description": "url of author icon and attachments)"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "proxy_icon_url?",
-        "description": "a proxied url of author icon",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "proxy_icon_url",
+        "description": "a proxied url of author icon"
       }
     ]
   },
@@ -1490,43 +1490,43 @@
     "name": "Embed Footer Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "text",
-        "description": "footer text",
-        "required": false,
-        "nullable": false
+        "description": "footer text"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "icon_url?",
-        "description": "url of footer icon (only supports http(s) and attachments)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon_url",
+        "description": "url of footer icon and attachments)"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "proxy_icon_url?",
-        "description": "a proxied url of footer icon",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "proxy_icon_url",
+        "description": "a proxied url of footer icon"
       }
     ]
   },
@@ -1534,43 +1534,43 @@
     "name": "Embed Field Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "name of the field",
-        "required": false,
-        "nullable": false
+        "description": "name of the field"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "value",
-        "description": "value of the field",
-        "required": false,
-        "nullable": false
+        "description": "value of the field"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "inline?",
-        "description": "whether or not this field should display inline",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "inline",
+        "description": "whether or not this field should display inline"
       }
     ]
   },
@@ -1578,134 +1578,134 @@
     "name": "Attachment Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "attachment id",
-        "required": false,
-        "nullable": false
+        "description": "attachment id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "filename",
-        "description": "name of file attached",
-        "required": false,
-        "nullable": false
+        "description": "name of file attached"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "description?",
-        "description": "description for the file",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "description",
+        "description": "description for the file"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "content_type?",
-        "description": "the attachment's [media type](https://en.wikipedia.org/wiki/Media_type)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "content_type",
+        "description": "the attachment's [media type]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "size",
-        "description": "size of file in bytes",
-        "required": false,
-        "nullable": false
+        "description": "size of file in bytes"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "url",
-        "description": "source url of file",
-        "required": false,
-        "nullable": false
+        "description": "source url of file"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "proxy_url",
-        "description": "a proxied url of file",
-        "required": false,
-        "nullable": false
+        "description": "a proxied url of file"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "height?",
-        "description": "height of file (if image)",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "height",
+        "description": "height of file"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
-        "name": "width?",
-        "description": "width of file (if image)",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "width",
+        "description": "width of file"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "ephemeral? \\*",
-        "description": "whether this attachment is ephemeral",
-        "required": false,
-        "nullable": false
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "ephemeral?",
+        "description": "whether this attachment is ephemeral"
       }
     ]
   },
@@ -1713,56 +1713,56 @@
     "name": "Channel Mention Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the channel",
-        "required": false,
-        "nullable": false
+        "description": "id of the channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "guild_id",
-        "description": "id of the guild containing the channel",
-        "required": false,
-        "nullable": false
+        "description": "id of the guild containing the channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
-        "required": false,
-        "nullable": false
+        "description": "the [type of channel]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "the name of the channel",
-        "required": false,
-        "nullable": false
+        "description": "the name of the channel"
       }
     ]
   },
@@ -1770,56 +1770,54 @@
     "name": "Allowed Mentions Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": true,
-          "value": [
-            "allowed mention type"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "allowed-mentions-structure-allowed-mention-types",
+        "deprecated": false,
         "name": "parse",
-        "description": "An array of [allowed mention types](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object-allowed-mention-types) to parse from the content.",
-        "required": false,
-        "nullable": false
+        "description": "An array of [allowed mention types] to parse from the content."
       },
       {
-        "type": {
-          "reference": false,
-          "array": true,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "roles",
-        "description": "Array of role_ids to mention (Max size of 100)",
-        "required": false,
-        "nullable": false
+        "description": "Array of role_ids to mention"
       },
       {
-        "type": {
-          "reference": false,
-          "array": true,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "users",
-        "description": "Array of user_ids to mention (Max size of 100)",
-        "required": false,
-        "nullable": false
+        "description": "Array of user_ids to mention"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
         "name": "replied_user",
-        "description": "For replies, whether to mention the author of the message being replied to (default false)",
-        "required": false,
-        "nullable": false
+        "description": "For replies, whether to mention the author of the message being replied to"
       }
     ]
   }

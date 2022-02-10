@@ -3,6 +3,6 @@ export type Context =
   | "endpoint"
   | "query"
   | "response"
-  | "json-body"
-  | "form-body"
-  | "json-form-body";
+  | "json-request"
+  | "form-request"
+  | "json-form-request";

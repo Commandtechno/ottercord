@@ -6,48 +6,44 @@
     "params": [],
     "query": [],
     "description": "Creates a new Stage instance associated to a Stage channel.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "channel_id",
-          "description": "The id of the Stage channel",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "topic",
-          "description": "The topic of the Stage instance",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "integer"
-            ]
-          },
-          "name": "privacy_level",
-          "description": "The  of the Stage instance",
-          "required": false
-        }
-      ]
-    }
+    "response": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "The id of the Stage channel"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "The topic of the Stage instance (1-120 characters)"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "privacy_level",
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance (default GUILD_ONLY)"
+      }
+    ]
   },
   {
     "name": "Get Stage Instance",
@@ -56,54 +52,37 @@
     "params": [
       {
         "name": "channel.id",
-        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+        "anchor": "channel-structure"
       }
     ],
     "query": [],
-    "description": "Gets the stage instance associated with the Stage channel, if it exists."
-  },
-  {
-    "name": "Modify Stage Instance",
-    "method": "PATCH",
-    "path": "/stage-instances/{channel.id}",
-    "params": [
+    "description": "Gets the stage instance associated with the Stage channel, if it exists.",
+    "response": [
       {
-        "name": "channel.id",
-        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "The topic of the Stage instance (1-120 characters)"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "privacy_level",
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance"
       }
-    ],
-    "query": [],
-    "description": "Updates fields of an existing Stage instance.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "topic",
-          "description": "The topic of the Stage instance",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "integer"
-            ]
-          },
-          "name": "privacy_level",
-          "description": "The  of the Stage instance",
-          "required": false
-        }
-      ]
-    }
+    ]
   },
   {
     "name": "Delete Stage Instance",
@@ -112,7 +91,7 @@
     "params": [
       {
         "name": "channel.id",
-        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
+        "anchor": "channel-structure"
       }
     ],
     "query": [],

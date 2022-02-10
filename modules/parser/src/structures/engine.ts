@@ -1,4 +1,4 @@
-import { formatText, formatTable, parseType } from "../util";
+import { formatTable, parseParam, parseType } from "../util";
 import { marked } from "marked";
 
 import { Structure } from "../../../common/build";
@@ -32,7 +32,7 @@ export class StructuresEngine {
       if (block.text !== "Response Structure" && block.text.toLowerCase().endsWith("structure")) {
         if (this.currentStructure) this.structures.push(this.currentStructure);
         this.currentStructure = {
-          name: formatText(block.text),
+          name: block.text.trim(),
           params: []
         };
 
@@ -41,30 +41,10 @@ export class StructuresEngine {
     }
   }
 
-  async processStructure(block: marked.Token) {
+  processStructure(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentStructure.params = await Promise.all(
-        table.map(async row => {
-          let optional = false;
-          if (row.field.text.endsWith("?")) {
-            optional = true;
-          }
-
-          let nullable = false;
-          if (row.type.text.startsWith("?")) {
-            nullable = true;
-          }
-
-          return {
-            type: parseType(row),
-            name: row.field.text,
-            description: row.description.text,
-            optional,
-            nullable
-          };
-        })
-      );
+      this.currentStructure.params = table.map(parseParam);
 
       this.context = "none";
     }

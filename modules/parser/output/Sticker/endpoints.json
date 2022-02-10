@@ -6,16 +6,18 @@
     "params": [
       {
         "name": "sticker.id",
-        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+        "anchor": "sticker-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Returns a sticker object for the given sticker ID."
+      "value": "sticker-structure"
+    }
   },
   {
     "name": "List Nitro Sticker Packs",
@@ -23,18 +25,18 @@
     "path": "/sticker-packs",
     "params": [],
     "query": [],
-    "response": {
-      "reference": false,
-      "array": false,
-      "value": [
-        {
-          "type": "array of  objects",
-          "name": "sticker_packs",
-          "required": false
-        }
-      ]
-    },
-    "description": "Returns the list of sticker packs available to Nitro subscribers."
+    "description": "Returns the list of sticker packs available to Nitro subscribers.",
+    "response": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "sticker-pack-structure",
+        "name": "sticker_packs"
+      }
+    ]
   },
   {
     "name": "List Guild Stickers",
@@ -43,16 +45,18 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": true,
-      "value": "sticker-object"
-    },
-    "description": "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+      "value": "sticker-structure"
+    }
   },
   {
     "name": "Get Guild Sticker",
@@ -61,20 +65,22 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "sticker.id",
-        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+        "anchor": "sticker-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission."
+      "value": "sticker-structure"
+    }
   },
   {
     "name": "Create Guild Sticker",
@@ -83,69 +89,17 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
-    "body": {
-      "json": false,
-      "form": true,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "name of the sticker",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "description",
-          "description": "description of the sticker",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "tags",
-          "description": "autocomplete/suggestion tags for the sticker",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "file content"
-            ]
-          },
-          "name": "file",
-          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
-          "required": false
-        }
-      ]
+      "value": "sticker-structure"
     }
   },
   {
@@ -155,61 +109,21 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "sticker.id",
-        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+        "anchor": "sticker-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "name of the sticker",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "description",
-          "description": "description of the sticker",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "tags",
-          "description": "autocomplete/suggestion tags for the sticker",
-          "required": false
-        }
-      ]
+      "value": "sticker-structure"
     }
   },
   {
@@ -219,21 +133,14 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "sticker.id",
-        "link": "DOCS_RESOURCES_STICKER/sticker-object"
+        "anchor": "sticker-structure"
       }
     ],
     "query": [],
-    "response": {
-      "reference": false,
-      "array": false,
-      "value": [
-        "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success."
-      ]
-    },
-    "description": "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success."
+    "description": "Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success."
   }
 ]

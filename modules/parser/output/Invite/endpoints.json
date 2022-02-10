@@ -6,35 +6,37 @@
     "params": [
       {
         "name": "invite.code",
-        "link": "DOCS_RESOURCES_INVITE/invite-object"
+        "anchor": "invite-structure"
       }
     ],
     "query": [
       {
         "type": "boolean",
-        "name": "with_counts",
+        "name": "with_counts?",
         "description": "whether the invite should contain approximate member counts",
         "required": false
       },
       {
         "type": "boolean",
-        "name": "with_expiration",
+        "name": "with_expiration?",
         "description": "whether the invite should contain the expiration date",
         "required": false
       },
       {
         "type": "snowflake",
-        "name": "guild_scheduled_event_id",
+        "name": "guild_scheduled_event_id?",
         "description": "the guild scheduled event to include with the invite",
         "required": false
       }
     ],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "invite-object"
-    },
-    "description": "Returns an invite object for the given code."
+      "value": "invite-structure"
+    }
   },
   {
     "name": "Delete Invite",
@@ -43,15 +45,17 @@
     "params": [
       {
         "name": "invite.code",
-        "link": "DOCS_RESOURCES_INVITE/invite-object"
+        "anchor": "invite-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "invite-object"
-    },
-    "description": "Delete an invite. Requires the MANAGE_CHANNELS permission on the channel this invite belongs to, or MANAGE_GUILD to remove any invite across the guild. Returns an invite object on success. Fires a Invite Delete Gateway event."
+      "value": "invite-structure"
+    }
   }
 ]

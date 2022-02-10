@@ -6,16 +6,18 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": true,
-      "value": "emoji-object"
-    },
-    "description": "Returns a list of emoji objects for the given guild."
+      "value": "emoji-structure"
+    }
   },
   {
     "name": "Get Guild Emoji",
@@ -24,20 +26,22 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "emoji.id",
-        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+        "anchor": "emoji-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "emoji-object"
-    },
-    "description": "Returns an emoji object for the given guild and emoji IDs."
+      "value": "emoji-structure"
+    }
   },
   {
     "name": "Create Guild Emoji",
@@ -46,57 +50,17 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "emoji-object"
-    },
-    "description": "Create a new emoji for the guild. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new emoji object on success. Fires a Guild Emojis Update Gateway event.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "name of the emoji",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "image data"
-            ]
-          },
-          "name": "image",
-          "description": "the 128x128 emoji image",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": true,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "roles",
-          "description": "roles allowed to use this emoji",
-          "required": false
-        }
-      ]
+      "value": "emoji-structure"
     }
   },
   {
@@ -106,49 +70,21 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "emoji.id",
-        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+        "anchor": "emoji-structure"
       }
     ],
     "query": [],
     "response": {
       "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": "emoji-object"
-    },
-    "description": "Modify the given emoji. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated emoji object on success. Fires a Guild Emojis Update Gateway event.",
-    "body": {
-      "json": true,
-      "form": false,
-      "params": [
-        {
-          "type": {
-            "reference": false,
-            "array": false,
-            "value": [
-              "string"
-            ]
-          },
-          "name": "name",
-          "description": "name of the emoji",
-          "required": false
-        },
-        {
-          "type": {
-            "reference": false,
-            "array": true,
-            "value": [
-              "snowflake"
-            ]
-          },
-          "name": "roles",
-          "description": "roles allowed to use this emoji",
-          "required": false
-        }
-      ]
+      "value": "emoji-structure"
     }
   },
   {
@@ -158,21 +94,21 @@
     "params": [
       {
         "name": "guild.id",
-        "link": "DOCS_RESOURCES_GUILD/guild-object"
+        "anchor": "guild-structure"
       },
       {
         "name": "emoji.id",
-        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
+        "anchor": "emoji-structure"
       }
     ],
     "query": [],
     "response": {
-      "reference": false,
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
       "array": false,
-      "value": [
-        "Delete the given emoji. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success. Fires a Guild Emojis Update Gateway event."
-      ]
-    },
-    "description": "Delete the given emoji. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success. Fires a Guild Emojis Update Gateway event."
+      "value": "guild-emojis-update"
+    }
   }
 ]

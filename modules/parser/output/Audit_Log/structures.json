@@ -3,70 +3,70 @@
     "name": "Audit Log Structure",
     "params": [
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "audit-log-entry-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "audit-log-entry-structure",
+        "deprecated": false,
         "name": "audit_log_entries",
-        "description": "list of audit log entries",
-        "required": false,
-        "nullable": false
+        "description": "list of audit log entries"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "guild-scheduled-event-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "guild-scheduled-event-structure",
+        "deprecated": false,
         "name": "guild_scheduled_events",
-        "description": "list of guild scheduled events found in the audit log",
-        "required": false,
-        "nullable": false
+        "description": "list of guild scheduled events found in the audit log"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "integration-object"
-        },
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "integration-structure",
+        "deprecated": false,
         "name": "integrations",
-        "description": "list of partial integration objects",
-        "required": false,
-        "nullable": false
+        "description": "list of partial integration objects"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "channel-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "channel-structure",
+        "deprecated": false,
         "name": "threads",
-        "description": "list of threads found in the audit log\\*",
-        "required": false,
-        "nullable": false
+        "description": "list of threads found in the audit log"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "user-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
         "name": "users",
-        "description": "list of users found in the audit log",
-        "required": false,
-        "nullable": false
+        "description": "list of users found in the audit log"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "webhook-object"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "webhook-structure",
+        "deprecated": false,
         "name": "webhooks",
-        "description": "list of webhooks found in the audit log",
-        "required": false,
-        "nullable": false
+        "description": "list of webhooks found in the audit log"
       }
     ]
   },
@@ -74,89 +74,89 @@
     "name": "Audit Log Entry Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "target_id",
-        "description": "id of the affected entity (webhook, user, role, etc.)",
-        "required": true,
-        "nullable": false
+        "description": "id of the affected entity"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "audit-log-change-object"
-        },
-        "name": "changes?",
-        "description": "changes made to the target_id",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "audit-log-change-structure",
+        "deprecated": false,
+        "name": "changes",
+        "description": "changes made to the target_id"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "user_id",
-        "description": "the user who made the changes",
-        "required": true,
-        "nullable": false
+        "description": "the user who made the changes"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "id of the entry",
-        "required": false,
-        "nullable": false
+        "description": "id of the entry"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "audit-log-entry-object-audit-log-events"
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "audit-log-entry-structure-audit-log-events",
+        "deprecated": false,
         "name": "action_type",
-        "description": "type of action that occurred",
-        "required": false,
-        "nullable": false
+        "description": "type of action that occurred"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "audit-log-entry-object-optional-audit-entry-info"
-        },
-        "name": "options?",
-        "description": "additional info for certain action types",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "audit-log-entry-structure-optional-audit-entry-info",
+        "deprecated": false,
+        "name": "options",
+        "description": "additional info for certain action types"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "reason?",
-        "description": "the reason for the change (0-512 characters)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "reason",
+        "description": "the reason for the change"
       }
     ]
   },
@@ -164,39 +164,39 @@
     "name": "Audit Log Change Structure",
     "params": [
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "audit-log-change-object-audit-log-change-key"
-        },
-        "name": "new_value?",
-        "description": "new value of the key",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "audit-log-change-structure-audit-log-change-key",
+        "deprecated": false,
+        "name": "new_value",
+        "description": "new value of the key"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "audit-log-change-object-audit-log-change-key"
-        },
-        "name": "old_value?",
-        "description": "old value of the key",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "audit-log-change-structure-audit-log-change-key",
+        "deprecated": false,
+        "name": "old_value",
+        "description": "old value of the key"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "key",
-        "description": "name of audit log [change key](#DOCS_RESOURCES_AUDIT_LOG/audit-log-change-object-audit-log-change-key)",
-        "required": false,
-        "nullable": false
+        "description": "name of audit log [change key]"
       }
     ]
   }

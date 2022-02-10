@@ -3,154 +3,154 @@
     "name": "Webhook Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "the id of the webhook",
-        "required": false,
-        "nullable": false
+        "description": "the id of the webhook"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "type",
-        "description": "the [type](#DOCS_RESOURCES_WEBHOOK/webhook-object-webhook-types) of the webhook",
-        "required": false,
-        "nullable": false
+        "description": "the [type] of the webhook"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
-        "name": "guild_id?",
-        "description": "the guild id this webhook is for, if any",
-        "required": true,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "the guild id this webhook is for, if any"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "channel_id",
-        "description": "the channel id this webhook is for, if any",
-        "required": true,
-        "nullable": false
+        "description": "the channel id this webhook is for, if any"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "user-object"
-        },
-        "name": "user?",
-        "description": "the user this webhook was created by (not returned when getting a webhook with its token)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "user",
+        "description": "the user this webhook was created by"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "the default name of the webhook",
-        "required": true,
-        "nullable": false
+        "description": "the default name of the webhook"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "avatar",
-        "description": "the default user avatar [hash](#DOCS_REFERENCE/image-formatting) of the webhook",
-        "required": true,
-        "nullable": false
+        "description": "the default user avatar [hash] of the webhook"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "token?",
-        "description": "the secure token of the webhook (returned for Incoming Webhooks)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "token",
+        "description": "the secure token of the webhook"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "application_id",
-        "description": "the bot/OAuth2 application that created this webhook",
-        "required": true,
-        "nullable": false
+        "description": "the bot/OAuth2 application that created this webhook"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "guild-object"
-        },
-        "name": "source_guild?",
-        "description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
-        "required": false,
-        "nullable": true
+        "partial": true,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-structure",
+        "deprecated": false,
+        "name": "source_guild",
+        "description": "the guild of the channel that this webhook is following"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "channel-object"
-        },
-        "name": "source_channel?",
-        "description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
-        "required": false,
-        "nullable": true
+        "partial": true,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "channel-structure",
+        "deprecated": false,
+        "name": "source_channel",
+        "description": "the channel that this webhook is following"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
-        "name": "url?",
-        "description": "the url used for executing the webhook (returned by the [webhooks](#DOCS_TOPICS_OAUTH2/webhooks) OAuth2 flow)",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "the url used for executing the webhook OAuth2 flow)"
       }
     ]
   }

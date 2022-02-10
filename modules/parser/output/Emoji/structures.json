@@ -3,104 +3,104 @@
     "name": "Emoji Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "[emoji id](#DOCS_REFERENCE/image-formatting)",
-        "required": true,
-        "nullable": false
+        "description": "[emoji id]"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "name",
-        "description": "emoji name",
-        "required": true,
-        "nullable": false
+        "description": "emoji name"
       },
       {
-        "type": {
-          "reference": true,
-          "array": true,
-          "value": "role-object"
-        },
-        "name": "roles?",
-        "description": "roles allowed to use this emoji",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "role-structure",
+        "deprecated": false,
+        "name": "roles",
+        "description": "roles allowed to use this emoji"
       },
       {
-        "type": {
-          "reference": true,
-          "array": false,
-          "value": "user-object"
-        },
-        "name": "user?",
-        "description": "user that created this emoji",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-structure",
+        "deprecated": false,
+        "name": "user",
+        "description": "user that created this emoji"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "require_colons?",
-        "description": "whether this emoji must be wrapped in colons",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "require_colons",
+        "description": "whether this emoji must be wrapped in colons"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "managed?",
-        "description": "whether this emoji is managed",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "managed",
+        "description": "whether this emoji is managed"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "animated?",
-        "description": "whether this emoji is animated",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "animated",
+        "description": "whether this emoji is animated"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
-        "name": "available?",
-        "description": "whether this emoji can be used, may be false due to loss of Server Boosts",
-        "required": false,
-        "nullable": true
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "available",
+        "description": "whether this emoji can be used, may be false due to loss of Server Boosts"
       }
     ]
   }

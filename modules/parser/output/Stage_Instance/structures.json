@@ -3,82 +3,82 @@
     "name": "Stage Instance Structure",
     "params": [
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "id",
-        "description": "The id of this Stage instance",
-        "required": false,
-        "nullable": false
+        "description": "The id of this Stage instance"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "guild_id",
-        "description": "The guild id of the associated Stage channel",
-        "required": false,
-        "nullable": false
+        "description": "The guild id of the associated Stage channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "snowflake"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
         "name": "channel_id",
-        "description": "The id of the associated Stage channel",
-        "required": false,
-        "nullable": false
+        "description": "The id of the associated Stage channel"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "string"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
         "name": "topic",
-        "description": "The topic of the Stage instance (1-120 characters)",
-        "required": false,
-        "nullable": false
+        "description": "The topic of the Stage instance"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "integer"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
         "name": "privacy_level",
-        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
-        "required": false,
-        "nullable": false
+        "description": "The [privacy level] of the Stage instance"
       },
       {
-        "type": {
-          "reference": false,
-          "array": false,
-          "value": [
-            "boolean"
-          ]
-        },
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": true,
         "name": "discoverable_disabled",
-        "description": "Whether or not Stage Discovery is disabled (deprecated)",
-        "required": false,
-        "nullable": false
+        "description": "Whether or not Stage Discovery is disabled"
       }
     ]
   }

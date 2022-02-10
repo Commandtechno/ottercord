@@ -2,17 +2,21 @@ import { marked } from "marked";
 
 export type Row = { [key: string]: marked.Tokens.TableCell };
 
-export interface BaseType {
-  array: boolean;
+export interface Type {
+  // reference properties for linking
   reference: boolean;
+  partial: boolean;
 
-  value: string;
+  // value properties
+  optional: boolean;
+  nullable: boolean;
+  array: boolean;
+  value: string | string[];
 }
 
-export interface Type extends BaseType {
+export interface Param extends Type {
   name: string;
   description?: string;
 
-  optional: boolean;
-  nullable: boolean;
+  deprecated: boolean;
 }
