@@ -39,7 +39,7 @@
         ],
         "deprecated": false,
         "name": "icon",
-        "description": "the [icon hash] of the app"
+        "description": "the of the app"
       },
       {
         "partial": false,
@@ -125,7 +125,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "owner",
         "description": "partial user object containing info on the owner of the application"
@@ -154,7 +154,7 @@
         ],
         "deprecated": false,
         "name": "verify_key",
-        "description": "the hex encoded key for verification in interactions and the GameSDK's [GetTicket]"
+        "description": "the hex encoded key for verification in interactions and the GameSDK's"
       },
       {
         "partial": false,
@@ -162,7 +162,7 @@
         "nullable": true,
         "array": false,
         "reference": true,
-        "value": "data-models-team-structure",
+        "value": "data-models-team-object",
         "deprecated": false,
         "name": "team",
         "description": "if the application belongs to a team, this will be a list of the members of that team"
@@ -217,7 +217,7 @@
         ],
         "deprecated": false,
         "name": "cover_image",
-        "description": "the application's default rich presence invite [cover image hash]"
+        "description": "the application's default rich presence invite"
       },
       {
         "partial": false,
@@ -230,7 +230,7 @@
         ],
         "deprecated": false,
         "name": "flags",
-        "description": "the application's public [flags]"
+        "description": "the application's public"
       }
     ]
   }

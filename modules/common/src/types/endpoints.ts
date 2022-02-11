@@ -11,7 +11,7 @@ export interface Endpoint {
   query: EndpointQuery[];
 
   request?: EndpointRequest;
-  response?: Type | Type[];
+  response?: Type | Param[];
 }
 
 export interface EndpointParam {

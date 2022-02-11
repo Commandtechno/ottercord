@@ -39,7 +39,7 @@
         ],
         "deprecated": false,
         "name": "icon",
-        "description": "[icon hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -52,7 +52,7 @@
         ],
         "deprecated": false,
         "name": "icon_hash",
-        "description": "[icon hash], returned when in the template object"
+        "description": ", returned when in the template object"
       },
       {
         "partial": false,
@@ -65,7 +65,7 @@
         ],
         "deprecated": false,
         "name": "splash",
-        "description": "[splash hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -78,7 +78,7 @@
         ],
         "deprecated": false,
         "name": "discovery_splash",
-        "description": "[discovery splash hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -91,7 +91,7 @@
         ],
         "deprecated": false,
         "name": "owner?",
-        "description": "true if [the user] is the owner of the guild"
+        "description": "true if is the owner of the guild"
       },
       {
         "partial": false,
@@ -117,7 +117,7 @@
         ],
         "deprecated": false,
         "name": "permissions?",
-        "description": "total permissions for [the user] in the guild"
+        "description": "total permissions for in the guild"
       },
       {
         "partial": false,
@@ -130,7 +130,7 @@
         ],
         "deprecated": true,
         "name": "region?",
-        "description": "[voice region] id for the guild"
+        "description": "id for the guild"
       },
       {
         "partial": false,
@@ -195,7 +195,7 @@
         ],
         "deprecated": false,
         "name": "verification_level",
-        "description": "[verification level] required for the guild"
+        "description": "required for the guild"
       },
       {
         "partial": false,
@@ -208,7 +208,7 @@
         ],
         "deprecated": false,
         "name": "default_message_notifications",
-        "description": "default [message notifications level]"
+        "description": "default"
       },
       {
         "partial": false,
@@ -221,7 +221,7 @@
         ],
         "deprecated": false,
         "name": "explicit_content_filter",
-        "description": "[explicit content filter level]"
+        "description": ""
       },
       {
         "partial": false,
@@ -229,7 +229,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "role-structure",
+        "value": "role-object",
         "deprecated": false,
         "name": "roles",
         "description": "roles in the guild"
@@ -240,7 +240,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "emoji-structure",
+        "value": "emoji-object",
         "deprecated": false,
         "name": "emojis",
         "description": "custom guild emojis"
@@ -251,7 +251,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-structure-guild-features",
+        "value": "guild-object-guild-features",
         "deprecated": false,
         "name": "features",
         "description": "enabled guild features"
@@ -267,7 +267,7 @@
         ],
         "deprecated": false,
         "name": "mfa_level",
-        "description": "required [MFA level] for the guild"
+        "description": "required for the guild"
       },
       {
         "partial": false,
@@ -306,7 +306,7 @@
         ],
         "deprecated": false,
         "name": "system_channel_flags",
-        "description": "[system channel flags]"
+        "description": ""
       },
       {
         "partial": false,
@@ -379,7 +379,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "voice-state-structure",
+        "value": "voice-state-object",
         "deprecated": false,
         "name": "voice_states?",
         "description": "states of members currently in voice channels"
@@ -390,7 +390,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-member-structure",
+        "value": "guild-member-object",
         "deprecated": false,
         "name": "members?",
         "description": "users in the guild"
@@ -401,7 +401,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "channels?",
         "description": "channels in the guild"
@@ -412,7 +412,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "threads?",
         "description": "all active threads in the guild that current user has permission to view"
@@ -491,7 +491,7 @@
         ],
         "deprecated": false,
         "name": "banner",
-        "description": "[banner hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -504,7 +504,7 @@
         ],
         "deprecated": false,
         "name": "premium_tier",
-        "description": "[premium tier]"
+        "description": ""
       },
       {
         "partial": false,
@@ -530,7 +530,7 @@
         ],
         "deprecated": false,
         "name": "preferred_locale",
-        "description": "the preferred [locale] of a Community guild"
+        "description": "the preferred of a Community guild"
       },
       {
         "partial": false,
@@ -590,10 +590,10 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "welcome-screen-structure",
+        "value": "welcome-screen-object",
         "deprecated": false,
         "name": "welcome_screen",
-        "description": "the welcome screen of a Community guild, shown to new members, returned in an [Invite]'s guild object"
+        "description": "the welcome screen of a Community guild, shown to new members, returned in an 's guild object"
       },
       {
         "partial": false,
@@ -606,7 +606,7 @@
         ],
         "deprecated": false,
         "name": "nsfw_level",
-        "description": "[guild NSFW level]"
+        "description": ""
       },
       {
         "partial": false,
@@ -614,7 +614,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "stage-instance-structure",
+        "value": "stage-instance-object",
         "deprecated": false,
         "name": "stage_instances?",
         "description": "Stage instances in the guild"
@@ -625,7 +625,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "sticker-structure",
+        "value": "sticker-object",
         "deprecated": false,
         "name": "stickers",
         "description": "custom guild stickers"
@@ -636,7 +636,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-scheduled-event-structure",
+        "value": "guild-scheduled-event-object",
         "deprecated": false,
         "name": "guild_scheduled_events?",
         "description": "the scheduled events in the guild"
@@ -696,7 +696,7 @@
         ],
         "deprecated": false,
         "name": "icon",
-        "description": "[icon hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -709,7 +709,7 @@
         ],
         "deprecated": false,
         "name": "splash",
-        "description": "[splash hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -722,7 +722,7 @@
         ],
         "deprecated": false,
         "name": "discovery_splash",
-        "description": "[discovery splash hash]"
+        "description": ""
       },
       {
         "partial": false,
@@ -730,7 +730,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "emoji-structure",
+        "value": "emoji-object",
         "deprecated": false,
         "name": "emojis",
         "description": "custom guild emojis"
@@ -741,7 +741,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-structure-guild-features",
+        "value": "guild-object-guild-features",
         "deprecated": false,
         "name": "features",
         "description": "enabled guild features"
@@ -791,7 +791,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "sticker-structure",
+        "value": "sticker-object",
         "deprecated": false,
         "name": "stickers",
         "description": "custom guild stickers"
@@ -877,7 +877,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "channels",
         "description": "voice and stage channels which are accessible by @everyone"
@@ -888,7 +888,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "members",
         "description": "special widget user objects that includes users presence"
@@ -917,7 +917,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user",
         "description": "the user this guild member represents"
@@ -946,7 +946,7 @@
         ],
         "deprecated": false,
         "name": "avatar",
-        "description": "the member's [guild avatar hash]"
+        "description": "the member's"
       },
       {
         "partial": false,
@@ -959,7 +959,7 @@
         ],
         "deprecated": false,
         "name": "roles",
-        "description": "array of [role] object ids"
+        "description": "array of object ids"
       },
       {
         "partial": false,
@@ -985,7 +985,7 @@
         ],
         "deprecated": false,
         "name": "premium_since",
-        "description": "when the user started [boosting] the guild"
+        "description": "when the user started the guild"
       },
       {
         "partial": false,
@@ -1024,7 +1024,7 @@
         ],
         "deprecated": false,
         "name": "pending",
-        "description": "whether the user has not yet passed the guild's [Membership Screening] requirements"
+        "description": "whether the user has not yet passed the guild's requirements"
       },
       {
         "partial": false,
@@ -1050,7 +1050,7 @@
         ],
         "deprecated": false,
         "name": "communication_disabled_until",
-        "description": "when the user's [timeout] will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+        "description": "when the user's will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
       }
     ]
   },
@@ -1154,7 +1154,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "integration-structure-integration-expire-behaviors",
+        "value": "integration-object-integration-expire-behaviors",
         "deprecated": false,
         "name": "expire_behavior?",
         "description": "the behavior of expiring subscribers"
@@ -1178,7 +1178,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user?",
         "description": "user for this integration"
@@ -1189,7 +1189,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "integration-account-structure",
+        "value": "integration-account-object",
         "deprecated": false,
         "name": "account",
         "description": "integration account information"
@@ -1239,7 +1239,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "integration-application-structure",
+        "value": "integration-application-object",
         "deprecated": false,
         "name": "application",
         "description": "The bot/OAuth2 application for discord integrations"
@@ -1317,7 +1317,7 @@
         ],
         "deprecated": false,
         "name": "icon",
-        "description": "the [icon hash] of the app"
+        "description": "the of the app"
       },
       {
         "partial": false,
@@ -1351,7 +1351,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "bot",
         "description": "the bot associated with this application"
@@ -1380,7 +1380,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user",
         "description": "the banned user"
@@ -1409,7 +1409,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "welcome-screen-structure-welcome-screen-channel-structure",
+        "value": "welcome-screen-object-welcome-screen-channel-structure",
         "deprecated": false,
         "name": "welcome_channels",
         "description": "the channels shown in the welcome screen, up to 5"
@@ -1456,7 +1456,7 @@
         ],
         "deprecated": false,
         "name": "emoji_id",
-        "description": "the [emoji id], if the emoji is custom"
+        "description": "the , if the emoji is custom"
       },
       {
         "partial": false,

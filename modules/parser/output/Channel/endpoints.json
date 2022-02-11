@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -16,7 +16,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure"
+      "value": "channel-object"
     }
   },
   {
@@ -26,7 +26,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -36,7 +36,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure"
+      "value": "channel-object"
     },
     "description": "Fires a [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway event."
   },
@@ -47,7 +47,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -57,7 +57,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure"
+      "value": "channel-object"
     }
   },
   {
@@ -67,7 +67,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [
@@ -102,7 +102,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "message-structure"
+      "value": "message-object"
     }
   },
   {
@@ -112,11 +112,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -126,7 +126,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "message-structure"
+      "value": "message-object"
     }
   },
   {
@@ -136,7 +136,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -146,9 +146,159 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "message-structure"
+      "value": "message-object"
     },
-    "description": "You may create a message as a reply to another message. To do so, include a [`message_reference`](#DOCS_RESOURCES_CHANNEL/message-reference-object-message-reference-structure) with a `message_id`. The `channel_id` and `guild_id` in the `message_reference` are optional, but will be validated if provided."
+    "description": "You may create a message as a reply to another message. To do so, include a [`message_reference`](#DOCS_RESOURCES_CHANNEL/message-reference-object-message-reference-structure) with a `message_id`. The `channel_id` and `guild_id` in the `message_reference` are optional, but will be validated if provided.",
+    "request": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "content",
+          "description": "the message contents"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "tts",
+          "description": "true if this is a TTS message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "embed-object",
+          "deprecated": false,
+          "name": "embeds",
+          "description": "embedded `rich` content"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "embed-object",
+          "deprecated": true,
+          "name": "embed",
+          "description": "embedded `rich` content, deprecated in favor of `embeds`"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "allowed-mentions-object",
+          "deprecated": false,
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "message-reference-object-message-reference-structure",
+          "deprecated": false,
+          "name": "message_reference",
+          "description": "include to make your message a reply"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "component-object",
+          "deprecated": false,
+          "name": "components",
+          "description": "the components to include with the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "sticker_ids",
+          "description": "IDs of up to 3 in the server to send in the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "file contents"
+          ],
+          "deprecated": false,
+          "name": "files",
+          "description": "the contents of the file being sent"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "payload_json",
+          "description": "JSON encoded body of non-file params"
+        },
+        {
+          "partial": true,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "attachment-object",
+          "deprecated": false,
+          "name": "attachments",
+          "description": "attachment objects with filename and description"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "flags",
+          "description": "combined as a"
+        }
+      ]
+    }
   },
   {
     "name": "Crosspost Message",
@@ -157,11 +307,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -176,6 +326,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "after",
         "description": "get users after this user ID"
       },
@@ -188,8 +339,9 @@
         "value": [
           "integer"
         ],
+        "deprecated": false,
         "name": "limit",
-        "description": "max number of users to return (1-100)"
+        "description": "max number of users to return"
       }
     ]
   },
@@ -200,11 +352,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -219,8 +371,9 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "content",
-        "description": "the message contents (up to 2000 characters)"
+        "description": "the message contents"
       },
       {
         "partial": false,
@@ -228,9 +381,10 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "embed-structure",
+        "value": "embed-object",
+        "deprecated": false,
         "name": "embeds",
-        "description": "embedded `rich` content (up to 6000 characters)"
+        "description": "embedded `rich` content"
       },
       {
         "partial": false,
@@ -238,8 +392,9 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure",
-        "name": "embed *(deprecated)*",
+        "value": "embed-object",
+        "deprecated": true,
+        "name": "embed",
         "description": "embedded `rich` content, deprecated in favor of `embeds`"
       },
       {
@@ -251,8 +406,9 @@
         "value": [
           "integer"
         ],
+        "deprecated": false,
         "name": "flags",
-        "description": "edit the [flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) of a message (only `SUPPRESS_EMBEDS` can currently be set/unset)"
+        "description": "edit the of a message"
       },
       {
         "partial": false,
@@ -260,7 +416,8 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "allowed-mentions-structure",
+        "value": "allowed-mentions-object",
+        "deprecated": false,
         "name": "allowed_mentions",
         "description": "allowed mentions for the message"
       },
@@ -270,7 +427,8 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "component-structure",
+        "value": "component-object",
+        "deprecated": false,
         "name": "components",
         "description": "the components to include with the message"
       },
@@ -283,7 +441,8 @@
         "value": [
           "file contents"
         ],
-        "name": "files[n] \\*",
+        "deprecated": false,
+        "name": "files",
         "description": "the contents of the file being sent/edited"
       },
       {
@@ -295,8 +454,9 @@
         "value": [
           "string"
         ],
-        "name": "payload_json \\*",
-        "description": "JSON encoded body of non-file params (multipart/form-data only)"
+        "deprecated": false,
+        "name": "payload_json",
+        "description": "JSON encoded body of non-file params"
       },
       {
         "partial": false,
@@ -304,8 +464,9 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "attachment-structure",
-        "name": "attachments \\*",
+        "value": "attachment-object",
+        "deprecated": false,
+        "name": "attachments",
         "description": "attached files to keep and possible descriptions for new files"
       }
     ]
@@ -317,11 +478,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -341,7 +502,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -353,7 +514,26 @@
       "array": false,
       "value": "message-delete-bulk"
     },
-    "description": "Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively)."
+    "description": "Any message IDs given that do not exist or are invalid will count towards the minimum and maximum message count (currently 2 and 100 respectively).",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "messages",
+          "description": "an array of message ids to delete"
+        }
+      ]
+    }
   },
   {
     "name": "Edit Channel Permissions",
@@ -362,11 +542,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "overwrite.id",
-        "anchor": "overwrite-structure"
+        "anchor": "overwrite-object"
       }
     ],
     "query": [],
@@ -377,6 +557,51 @@
       "nullable": false,
       "array": false,
       "value": "permissions"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "allow",
+          "description": "the bitwise value of all allowed permissions"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "deny",
+          "description": "the bitwise value of all disallowed permissions"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "type",
+          "description": "0 for a role or 1 for a member"
+        }
+      ]
     }
   },
   {
@@ -386,7 +611,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -396,7 +621,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "invite-structure"
+      "value": "invite-object"
     }
   },
   {
@@ -406,7 +631,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -416,7 +641,104 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "invite-structure"
+      "value": "invite-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "max_age",
+          "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "max_uses",
+          "description": "max number of uses or 0 for unlimited. between 0 and 100"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "temporary",
+          "description": "whether this invite only grants temporary membership"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "unique",
+          "description": "if true, don't try to reuse a similar invite"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "target_type",
+          "description": "the for this voice channel invite"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "target_user_id",
+          "description": "the id of the user whose stream to display for this invite, required if `target_type` is 1, the user must be streaming in the channel"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "target_application_id",
+          "description": "the id of the embedded application to open for this invite, required if `target_type` is 2, the application must have the `EMBEDDED` flag"
+        }
+      ]
     }
   },
   {
@@ -426,11 +748,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "overwrite.id",
-        "anchor": "overwrite-structure"
+        "anchor": "overwrite-object"
       }
     ],
     "query": [],
@@ -450,7 +772,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -460,7 +782,26 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "followed-channel-structure"
+      "value": "followed-channel-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "webhook_channel_id",
+          "description": "id of target channel"
+        }
+      ]
     }
   },
   {
@@ -470,7 +811,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -490,7 +831,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -500,7 +841,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "message-structure"
+      "value": "message-object"
     }
   },
   {
@@ -510,11 +851,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -529,6 +870,7 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "access_token",
         "description": "access token of a user that has granted your app the `gdm.join` scope"
       },
@@ -541,6 +883,7 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "nick",
         "description": "nickname of the user being added"
       }
@@ -553,11 +896,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-structure"
+        "anchor": "user-object"
       }
     ],
     "query": [],
@@ -572,6 +915,7 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "name",
         "description": "1-100 character channel name"
       },
@@ -584,7 +928,8 @@
         "value": [
           "integer"
         ],
-        "name": "auto_archive_duration?\\*",
+        "deprecated": false,
+        "name": "auto_archive_duration?",
         "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
       },
       {
@@ -596,8 +941,9 @@
         "value": [
           "integer"
         ],
+        "deprecated": false,
         "name": "rate_limit_per_user",
-        "description": "amount of seconds a user has to wait before sending another message (0-21600)"
+        "description": "amount of seconds a user has to wait before sending another message"
       }
     ]
   },
@@ -608,7 +954,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -618,7 +964,78 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure"
+      "value": "channel-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "1-100 character channel name"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "auto_archive_duration?",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "type?",
+          "description": "the to create"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "invitable",
+          "description": "whether non-moderators can add other non-moderators to a thread"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "rate_limit_per_user",
+          "description": "amount of seconds a user has to wait before sending another message"
+        }
+      ]
     },
     "description": "\\* Creating a private thread requires the server to be boosted. The [guild features](#DOCS_RESOURCES_GUILD/guild-object-guild-features) will indicate if that is possible for the guild."
   },
@@ -629,7 +1046,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -649,11 +1066,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-structure"
+        "anchor": "user-object"
       }
     ],
     "query": [],
@@ -673,7 +1090,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -693,11 +1110,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-structure"
+        "anchor": "user-object"
       }
     ],
     "query": [],
@@ -717,11 +1134,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-structure"
+        "anchor": "user-object"
       }
     ],
     "query": [],
@@ -731,7 +1148,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "thread-member-structure"
+      "value": "thread-member-object"
     }
   },
   {
@@ -741,7 +1158,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -751,7 +1168,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "thread-member-structure"
+      "value": "thread-member-object"
     }
   },
   {
@@ -761,7 +1178,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -773,7 +1190,8 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
+        "deprecated": false,
         "name": "threads",
         "description": "the active threads"
       },
@@ -783,7 +1201,8 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "thread-member-structure",
+        "value": "thread-member-object",
+        "deprecated": false,
         "name": "members",
         "description": "a thread member object for each returned thread the current user has joined"
       },
@@ -796,6 +1215,7 @@
         "value": [
           "boolean"
         ],
+        "deprecated": false,
         "name": "has_more",
         "description": "whether there are potentially additional threads that could be returned on a subsequent call"
       }
@@ -808,7 +1228,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [
@@ -831,7 +1251,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure-channel-types"
+      "value": "channel-object-channel-types"
     }
   },
   {
@@ -841,7 +1261,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [
@@ -864,7 +1284,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure-channel-types"
+      "value": "channel-object-channel-types"
     }
   },
   {
@@ -874,7 +1294,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [
@@ -897,7 +1317,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure-channel-types"
+      "value": "channel-object-channel-types"
     }
   }
 ]

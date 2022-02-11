@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "template.code",
-        "anchor": "guild-template-structure"
+        "anchor": "guild-template-object"
       }
     ],
     "query": [],
@@ -16,7 +16,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
     }
   },
   {
@@ -26,7 +26,7 @@
     "params": [
       {
         "name": "template.code",
-        "anchor": "guild-template-structure"
+        "anchor": "guild-template-object"
       }
     ],
     "query": [],
@@ -36,7 +36,37 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-structure"
+      "value": "guild-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the guild"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "base64 128x128 image for the guild icon"
+        }
+      ]
     }
   },
   {
@@ -46,7 +76,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -56,7 +86,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
     }
   },
   {
@@ -66,7 +96,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -76,7 +106,39 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the template"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description for the template"
+        }
+      ]
     }
   },
   {
@@ -86,11 +148,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-structure"
+        "anchor": "guild-template-object"
       }
     ],
     "query": [],
@@ -100,7 +162,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
     }
   },
   {
@@ -110,11 +172,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-structure"
+        "anchor": "guild-template-object"
       }
     ],
     "query": [],
@@ -124,7 +186,39 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the template"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description for the template"
+        }
+      ]
     }
   },
   {
@@ -134,11 +228,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-structure"
+        "anchor": "guild-template-object"
       }
     ],
     "query": [],
@@ -148,7 +242,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-template-structure"
+      "value": "guild-template-object"
     }
   }
 ]

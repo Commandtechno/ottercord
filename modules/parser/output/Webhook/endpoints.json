@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -16,7 +16,37 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "webhook-structure"
+      "value": "webhook-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the webhook"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "avatar",
+          "description": "image for the default webhook avatar"
+        }
+      ]
     }
   },
   {
@@ -26,7 +56,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -36,7 +66,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "webhook-structure"
+      "value": "webhook-object"
     }
   },
   {
@@ -46,7 +76,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -56,7 +86,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "webhook-structure"
+      "value": "webhook-object"
     }
   },
   {
@@ -66,7 +96,7 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       }
     ],
     "query": [],
@@ -76,7 +106,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "webhook-structure"
+      "value": "webhook-object"
     }
   },
   {
@@ -86,11 +116,11 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       }
     ],
     "query": [],
@@ -105,6 +135,7 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "name",
         "description": "the default name of the webhook"
       },
@@ -115,6 +146,7 @@
         "array": false,
         "reference": true,
         "value": "image-data",
+        "deprecated": false,
         "name": "avatar",
         "description": "image for the default webhook avatar"
       },
@@ -127,6 +159,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "channel_id",
         "description": "the new channel id this webhook should be moved to"
       }
@@ -139,11 +172,11 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       }
     ],
     "query": [],
@@ -158,8 +191,9 @@
         "value": [
           "boolean"
         ],
+        "deprecated": false,
         "name": "wait",
-        "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`; when `false` a message that is not saved does not return an error)"
+        "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`"
       },
       {
         "partial": false,
@@ -170,10 +204,152 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "thread_id",
         "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived."
       }
-    ]
+    ],
+    "request": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "content",
+          "description": "the message contents"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "username",
+          "description": "override the default username of the webhook"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "avatar_url",
+          "description": "override the default avatar of the webhook"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "tts",
+          "description": "true if this is a TTS message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "embed-object",
+          "deprecated": false,
+          "name": "embeds",
+          "description": "embedded `rich` content"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "allowed-mentions-object",
+          "deprecated": false,
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "component-object",
+          "deprecated": false,
+          "name": "components",
+          "description": "the components to include with the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "file contents"
+          ],
+          "deprecated": false,
+          "name": "files",
+          "description": "the contents of the file being sent"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "payload_json",
+          "description": "JSON encoded body of non-file params"
+        },
+        {
+          "partial": true,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "attachment-object",
+          "deprecated": false,
+          "name": "attachments",
+          "description": "attachment objects with filename and description"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "flags",
+          "description": "combined as a"
+        }
+      ]
+    }
   },
   {
     "name": "Execute Slack-Compatible Webhook",
@@ -182,11 +358,11 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       }
     ],
     "query": [],
@@ -201,6 +377,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "thread_id",
         "description": "id of the thread to send the message in"
       },
@@ -213,8 +390,9 @@
         "value": [
           "boolean"
         ],
+        "deprecated": false,
         "name": "wait",
-        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)"
+        "description": "waits for server confirmation of message send before response (defaults to `true`"
       }
     ]
   },
@@ -225,11 +403,11 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       }
     ],
     "query": [],
@@ -244,6 +422,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "thread_id",
         "description": "id of the thread to send the message in"
       },
@@ -256,8 +435,9 @@
         "value": [
           "boolean"
         ],
+        "deprecated": false,
         "name": "wait",
-        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)"
+        "description": "waits for server confirmation of message send before response (defaults to `true`"
       }
     ]
   },
@@ -268,15 +448,15 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [
@@ -293,7 +473,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "message-structure"
+      "value": "message-object"
     }
   },
   {
@@ -303,15 +483,15 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [
@@ -328,9 +508,98 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "message-structure"
+      "value": "message-object"
     },
-    "description": "When the `content` field is edited, the `mentions` array in the message object will be reconstructed from scratch based on the new content. The `allowed_mentions` field of the edit request controls how this happens. If there is no explicit `allowed_mentions` in the edit request, the content will be parsed with _default_ allowances, that is, without regard to whether or not an `allowed_mentions` was present in the request that originally created the message."
+    "description": "When the `content` field is edited, the `mentions` array in the message object will be reconstructed from scratch based on the new content. The `allowed_mentions` field of the edit request controls how this happens. If there is no explicit `allowed_mentions` in the edit request, the content will be parsed with _default_ allowances, that is, without regard to whether or not an `allowed_mentions` was present in the request that originally created the message.",
+    "request": {
+      "json": true,
+      "form": true,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "content",
+          "description": "the message contents"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "embed-object",
+          "deprecated": false,
+          "name": "embeds",
+          "description": "embedded `rich` content"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "allowed-mentions-object",
+          "deprecated": false,
+          "name": "allowed_mentions",
+          "description": "allowed mentions for the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "component-object",
+          "deprecated": false,
+          "name": "components",
+          "description": "the components to include with the message"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "file contents"
+          ],
+          "deprecated": false,
+          "name": "files",
+          "description": "the contents of the file being sent/edited"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "payload_json",
+          "description": "JSON encoded body of non-file params"
+        },
+        {
+          "partial": true,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "attachment-object",
+          "deprecated": false,
+          "name": "attachments",
+          "description": "attached files to keep and possible descriptions for new files"
+        }
+      ]
+    }
   },
   {
     "name": "Delete Webhook Message",
@@ -339,15 +608,15 @@
     "params": [
       {
         "name": "webhook.id",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "webhook.token",
-        "anchor": "webhook-structure"
+        "anchor": "webhook-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-structure"
+        "anchor": "message-object"
       }
     ],
     "query": [],
@@ -362,6 +631,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "thread_id",
         "description": "id of the thread the message is in"
       }

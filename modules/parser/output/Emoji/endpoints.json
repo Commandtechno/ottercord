@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -16,7 +16,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "emoji-structure"
+      "value": "emoji-object"
     }
   },
   {
@@ -26,11 +26,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "emoji.id",
-        "anchor": "emoji-structure"
+        "anchor": "emoji-object"
       }
     ],
     "query": [],
@@ -40,7 +40,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "emoji-structure"
+      "value": "emoji-object"
     }
   },
   {
@@ -50,7 +50,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -60,7 +60,50 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "emoji-structure"
+      "value": "emoji-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the emoji"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "image",
+          "description": "the 128x128 emoji image"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "roles",
+          "description": "roles allowed to use this emoji"
+        }
+      ]
     }
   },
   {
@@ -70,11 +113,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "emoji.id",
-        "anchor": "emoji-structure"
+        "anchor": "emoji-object"
       }
     ],
     "query": [],
@@ -84,7 +127,39 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "emoji-structure"
+      "value": "emoji-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the emoji"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": true,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "roles",
+          "description": "roles allowed to use this emoji"
+        }
+      ]
     }
   },
   {
@@ -94,11 +169,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "emoji.id",
-        "anchor": "emoji-structure"
+        "anchor": "emoji-object"
       }
     ],
     "query": [],

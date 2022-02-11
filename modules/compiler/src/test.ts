@@ -7,16 +7,20 @@ import { js } from ".";
   const folders = await readdir(dir);
 
   let output = "";
+  let links = {};
   for (const folder of folders) {
-    console.log(resolve(dir, folder, "endpoints.json"));
+    links = { ...links, ...JSON.parse(await readFile(resolve(dir, folder, "links.json"), "utf8")) };
+  }
+
+  for (const folder of folders) {
+    console.time(folder);
     const constants = JSON.parse(await readFile(resolve(dir, folder, "constants.json"), "utf8"));
-    console.log(resolve(dir, folder, "endpoints.json"));
     const endpoints = JSON.parse(await readFile(resolve(dir, folder, "endpoints.json"), "utf8"));
-    console.log(resolve(dir, folder, "structures.json"));
     const structures = JSON.parse(await readFile(resolve(dir, folder, "structures.json"), "utf8"));
-    output += "//" + folder + "\n";
-    output += await js(constants, endpoints, structures);
-    output += "\n\n";
+
+    output += "// " + folder + "\n";
+    output += await js(links, constants, endpoints, structures);
+    console.timeEnd(folder);
     // const output = await js(constants, endpoints, structures);
     // await writeFile(resolve(dir, folder, "index.ts"), output);
   }

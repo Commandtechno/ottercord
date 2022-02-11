@@ -11,7 +11,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "voice-region-structure"
+      "value": "voice-region-object"
     }
   }
 ]

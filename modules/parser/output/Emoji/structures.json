@@ -13,7 +13,7 @@
         ],
         "deprecated": false,
         "name": "id",
-        "description": "[emoji id]"
+        "description": ""
       },
       {
         "partial": false,
@@ -34,7 +34,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "role-structure",
+        "value": "role-object",
         "deprecated": false,
         "name": "roles",
         "description": "roles allowed to use this emoji"
@@ -45,7 +45,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user",
         "description": "user that created this emoji"

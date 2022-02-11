@@ -1,0 +1,16 @@
+{
+  "guild-template-resource": "Guild Template Resource",
+  "guild-template-object": "Guild Template Structure",
+  "guild-template-object-guild-template-structure": "Guild Template Structure",
+  "guild-template-object-example-guild-template-object": "Example Guild Template Structure",
+  "get-guild-template": "Get Guild Template % GET /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+  "create-guild-from-guild-template": "Create Guild from Guild Template % POST /guilds/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+  "create-guild-from-guild-template-json-params": "JSON Params",
+  "get-guild-templates": "Get Guild Templates % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
+  "create-guild-template": "Create Guild Template % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates",
+  "create-guild-template-json-params": "JSON Params",
+  "sync-guild-template": "Sync Guild Template % PUT /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+  "modify-guild-template": "Modify Guild Template % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}",
+  "modify-guild-template-json-params": "JSON Params",
+  "delete-guild-template": "Delete Guild Template % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/templates/{template.code#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object}"
+}

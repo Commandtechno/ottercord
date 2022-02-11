@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "name": "Privacy Level",
+    "values": [
+      {
+        "name": "PUBLIC",
+        "value": 1,
+        "description": "The Stage instance is visible publicly. (deprecated)"
+      },
+      {
+        "name": "GUILD_ONLY",
+        "value": 2,
+        "description": "The Stage instance is visible to only guild members."
+      }
+    ]
+  }
+]

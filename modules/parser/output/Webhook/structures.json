@@ -26,7 +26,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "the [type] of the webhook"
+        "description": "the of the webhook"
       },
       {
         "partial": false,
@@ -60,7 +60,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user",
         "description": "the user this webhook was created by"
@@ -89,7 +89,7 @@
         ],
         "deprecated": false,
         "name": "avatar",
-        "description": "the default user avatar [hash] of the webhook"
+        "description": "the default user avatar of the webhook"
       },
       {
         "partial": false,
@@ -123,7 +123,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-structure",
+        "value": "guild-object",
         "deprecated": false,
         "name": "source_guild",
         "description": "the guild of the channel that this webhook is following"
@@ -134,7 +134,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "source_channel",
         "description": "the channel that this webhook is following"

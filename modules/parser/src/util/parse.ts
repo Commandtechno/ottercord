@@ -29,7 +29,7 @@ export function isDeprecated(text: string) {
 
 export function parseAnchor(link: string) {
   const [, anchor] = lastSplit(link.slice(1), "/");
-  return anchor.replace("-object", "-structure");
+  return anchor;
 }
 
 export function parseType(row: Row): Type {
@@ -37,6 +37,11 @@ export function parseType(row: Row): Type {
   let optional = false;
   let nullable = false;
   let array = false;
+
+  if (row.field.text.startsWith("?")) {
+    optional = true;
+    row.field.text = row.field.text.slice(1);
+  }
 
   if (row.field.text.endsWith("?")) {
     optional = true;
@@ -46,6 +51,11 @@ export function parseType(row: Row): Type {
   if (row.type.text.startsWith("?")) {
     nullable = true;
     row.type.text = row.type.text.slice(1);
+  }
+
+  if (row.type.text.endsWith("?")) {
+    nullable = true;
+    row.type.text = row.type.text.slice(0, -1);
   }
 
   if (isPartial(row.type.text)) {
@@ -112,7 +122,7 @@ export function parseParam(row: Row): Param {
     row.field.text = stripDeprecated(row.field.text);
   }
 
-  if (isDeprecated(row.description.text)) {
+  if (row.description && isDeprecated(row.description.text)) {
     deprecated = true;
     row.description.text = stripDeprecated(row.description.text);
   }

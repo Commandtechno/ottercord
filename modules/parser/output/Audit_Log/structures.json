@@ -8,7 +8,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "audit-log-entry-structure",
+        "value": "audit-log-entry-object",
         "deprecated": false,
         "name": "audit_log_entries",
         "description": "list of audit log entries"
@@ -19,7 +19,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-scheduled-event-structure",
+        "value": "guild-scheduled-event-object",
         "deprecated": false,
         "name": "guild_scheduled_events",
         "description": "list of guild scheduled events found in the audit log"
@@ -30,7 +30,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "integration-structure",
+        "value": "integration-object",
         "deprecated": false,
         "name": "integrations",
         "description": "list of partial integration objects"
@@ -41,7 +41,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "threads",
         "description": "list of threads found in the audit log"
@@ -52,7 +52,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "users",
         "description": "list of users found in the audit log"
@@ -63,7 +63,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "webhook-structure",
+        "value": "webhook-object",
         "deprecated": false,
         "name": "webhooks",
         "description": "list of webhooks found in the audit log"
@@ -92,7 +92,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "audit-log-change-structure",
+        "value": "audit-log-change-object",
         "deprecated": false,
         "name": "changes",
         "description": "changes made to the target_id"
@@ -129,7 +129,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "audit-log-entry-structure-audit-log-events",
+        "value": "audit-log-entry-object-audit-log-events",
         "deprecated": false,
         "name": "action_type",
         "description": "type of action that occurred"
@@ -140,7 +140,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "audit-log-entry-structure-optional-audit-entry-info",
+        "value": "audit-log-entry-object-optional-audit-entry-info",
         "deprecated": false,
         "name": "options",
         "description": "additional info for certain action types"
@@ -169,7 +169,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "audit-log-change-structure-audit-log-change-key",
+        "value": "audit-log-change-object-audit-log-change-key",
         "deprecated": false,
         "name": "new_value",
         "description": "new value of the key"
@@ -180,7 +180,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "audit-log-change-structure-audit-log-change-key",
+        "value": "audit-log-change-object-audit-log-change-key",
         "deprecated": false,
         "name": "old_value",
         "description": "old value of the key"
@@ -196,7 +196,7 @@
         ],
         "deprecated": false,
         "name": "key",
-        "description": "name of audit log [change key]"
+        "description": "name of audit log"
       }
     ]
   }

@@ -1,0 +1,16 @@
+{
+  "invite-resource": "Invite Resource",
+  "invite-object": "Invite Structure",
+  "invite-object-invite-structure": "Invite Structure",
+  "invite-object-invite-target-types": "Invite Target Types",
+  "invite-object-example-invite-object": "Example Invite Structure",
+  "invite-metadata-object": "Invite Metadata Structure",
+  "invite-metadata-object-invite-metadata-structure": "Invite Metadata Structure",
+  "invite-metadata-object-example-invite-metadata": "Example Invite Metadata",
+  "invite-stage-instance-object": "Invite Stage Instance Structure",
+  "invite-stage-instance-object-invite-stage-instance-structure": "Invite Stage Instance Structure",
+  "invite-stage-instance-object-example-invite-stage-instance": "Example Invite Stage Instance",
+  "get-invite": "Get Invite % GET /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}",
+  "get-invite-query-string-params": "Query String Params",
+  "delete-invite": "Delete Invite % DELETE /invites/{invite.code#DOCS_RESOURCES_INVITE/invite-object}"
+}

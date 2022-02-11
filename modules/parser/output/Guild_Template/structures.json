@@ -73,7 +73,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "creator",
         "description": "the user who created the template"
@@ -123,7 +123,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-structure",
+        "value": "guild-object",
         "deprecated": false,
         "name": "serialized_source_guild",
         "description": "the guild snapshot this template contains"

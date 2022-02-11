@@ -1,5 +1,15 @@
 [
   {
+    "name": "Guild Scheduled Event Privacy Level",
+    "values": [
+      {
+        "name": "GUILD_ONLY",
+        "value": 2,
+        "description": "the scheduled event is only accessible to guild members"
+      }
+    ]
+  },
+  {
     "name": "Guild Scheduled Event Entity Types",
     "values": [
       {
@@ -13,6 +23,37 @@
       {
         "name": "EXTERNAL",
         "value": 3
+      }
+    ]
+  },
+  {
+    "name": "Guild Scheduled Event Status",
+    "values": [
+      {
+        "name": "SCHEDULED",
+        "value": 1
+      },
+      {
+        "name": "ACTIVE",
+        "value": 2
+      },
+      {
+        "name": "COMPLETED *",
+        "value": 3
+      },
+      {
+        "name": "CANCELED  *",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "name": "Guild Scheduled Event Entity Metadata",
+    "values": [
+      {
+        "name": "location? *",
+        "value": "location?",
+        "description": "location of the event (1-100 characters)"
       }
     ]
   }

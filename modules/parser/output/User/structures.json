@@ -52,7 +52,7 @@
         ],
         "deprecated": false,
         "name": "avatar",
-        "description": "the user's [avatar hash]"
+        "description": "the user's"
       },
       {
         "partial": false,
@@ -104,7 +104,7 @@
         ],
         "deprecated": false,
         "name": "banner",
-        "description": "the user's [banner hash]"
+        "description": "the user's"
       },
       {
         "partial": false,
@@ -130,7 +130,7 @@
         ],
         "deprecated": false,
         "name": "locale",
-        "description": "the user's chosen [language option]"
+        "description": "the user's chosen"
       },
       {
         "partial": false,
@@ -169,7 +169,7 @@
         ],
         "deprecated": false,
         "name": "flags",
-        "description": "the [flags] on a user's account"
+        "description": "the on a user's account"
       },
       {
         "partial": false,
@@ -182,7 +182,7 @@
         ],
         "deprecated": false,
         "name": "premium_type",
-        "description": "the [type of Nitro subscription] on a user's account"
+        "description": "the on a user's account"
       },
       {
         "partial": false,
@@ -195,7 +195,7 @@
         ],
         "deprecated": false,
         "name": "public_flags",
-        "description": "the public [flags] on a user's account"
+        "description": "the public on a user's account"
       }
     ]
   },
@@ -260,10 +260,10 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "integration-structure",
+        "value": "integration-object",
         "deprecated": false,
         "name": "integrations",
-        "description": "an array of partial [server integrations]"
+        "description": "an array of partial"
       },
       {
         "partial": false,
@@ -315,7 +315,7 @@
         ],
         "deprecated": false,
         "name": "visibility",
-        "description": "[visibility] of this connection"
+        "description": "of this connection"
       }
     ]
   }

@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "invite.code",
-        "anchor": "invite-structure"
+        "anchor": "invite-object"
       }
     ],
     "query": [
@@ -35,7 +35,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "invite-structure"
+      "value": "invite-object"
     }
   },
   {
@@ -45,7 +45,7 @@
     "params": [
       {
         "name": "invite.code",
-        "anchor": "invite-structure"
+        "anchor": "invite-object"
       }
     ],
     "query": [],
@@ -55,7 +55,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "invite-structure"
+      "value": "invite-object"
     }
   }
 ]

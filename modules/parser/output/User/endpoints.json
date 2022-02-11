@@ -11,7 +11,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "user-structure"
+      "value": "user-object"
     }
   },
   {
@@ -21,7 +21,7 @@
     "params": [
       {
         "name": "user.id",
-        "anchor": "user-structure"
+        "anchor": "user-object"
       }
     ],
     "query": [],
@@ -31,7 +31,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "user-structure"
+      "value": "user-object"
     }
   },
   {
@@ -46,7 +46,37 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "user-structure"
+      "value": "user-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "username",
+          "description": "user's username, if changed may cause the user's discriminator to be randomized."
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "avatar",
+          "description": "if passed, modifies the user's avatar"
+        }
+      ]
     }
   },
   {
@@ -80,7 +110,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "guild-structure"
+      "value": "guild-object"
     }
   },
   {
@@ -90,7 +120,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -100,7 +130,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-member-structure"
+      "value": "guild-member-object"
     }
   },
   {
@@ -110,7 +140,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -125,6 +155,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "recipient_id",
         "description": "the recipient to open a DM channel with"
       }
@@ -142,7 +173,39 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "channel-structure"
+      "value": "channel-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "access_tokens",
+          "description": "access tokens of users that have granted your app the `gdm.join` scope"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "dict"
+          ],
+          "deprecated": false,
+          "name": "nicks",
+          "description": "a dictionary of user ids to their respective nicknames"
+        }
+      ]
     }
   },
   {
@@ -157,7 +220,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "connection-structure"
+      "value": "connection-object"
     }
   }
 ]

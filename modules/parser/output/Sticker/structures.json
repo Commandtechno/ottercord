@@ -13,7 +13,7 @@
         ],
         "deprecated": false,
         "name": "id",
-        "description": "[id of the sticker]"
+        "description": ""
       },
       {
         "partial": false,
@@ -91,7 +91,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "[type of sticker]"
+        "description": ""
       },
       {
         "partial": false,
@@ -104,7 +104,7 @@
         ],
         "deprecated": false,
         "name": "format_type",
-        "description": "[type of sticker format]"
+        "description": ""
       },
       {
         "partial": false,
@@ -138,7 +138,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "user",
         "description": "the user that uploaded the guild sticker"
@@ -198,7 +198,7 @@
         ],
         "deprecated": false,
         "name": "format_type",
-        "description": "[type of sticker format]"
+        "description": ""
       }
     ]
   },
@@ -224,7 +224,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "sticker-structure",
+        "value": "sticker-object",
         "deprecated": false,
         "name": "stickers",
         "description": "the stickers in the pack"
@@ -292,7 +292,7 @@
         ],
         "deprecated": false,
         "name": "banner_asset_id",
-        "description": "id of the sticker pack's [banner image]"
+        "description": "id of the sticker pack's"
       }
     ]
   }

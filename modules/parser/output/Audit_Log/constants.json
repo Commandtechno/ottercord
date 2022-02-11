@@ -1,1 +1,595 @@
-[]
+[
+  {
+    "name": "Audit Log Events",
+    "values": [
+      {
+        "name": "GUILD_UPDATE",
+        "value": 1
+      },
+      {
+        "name": "CHANNEL_CREATE",
+        "value": 10
+      },
+      {
+        "name": "CHANNEL_UPDATE",
+        "value": 11
+      },
+      {
+        "name": "CHANNEL_DELETE",
+        "value": 12
+      },
+      {
+        "name": "CHANNEL_OVERWRITE_CREATE",
+        "value": 13
+      },
+      {
+        "name": "CHANNEL_OVERWRITE_UPDATE",
+        "value": 14
+      },
+      {
+        "name": "CHANNEL_OVERWRITE_DELETE",
+        "value": 15
+      },
+      {
+        "name": "MEMBER_KICK",
+        "value": 20
+      },
+      {
+        "name": "MEMBER_PRUNE",
+        "value": 21
+      },
+      {
+        "name": "MEMBER_BAN_ADD",
+        "value": 22
+      },
+      {
+        "name": "MEMBER_BAN_REMOVE",
+        "value": 23
+      },
+      {
+        "name": "MEMBER_UPDATE",
+        "value": 24
+      },
+      {
+        "name": "MEMBER_ROLE_UPDATE",
+        "value": 25
+      },
+      {
+        "name": "MEMBER_MOVE",
+        "value": 26
+      },
+      {
+        "name": "MEMBER_DISCONNECT",
+        "value": 27
+      },
+      {
+        "name": "BOT_ADD",
+        "value": 28
+      },
+      {
+        "name": "ROLE_CREATE",
+        "value": 30
+      },
+      {
+        "name": "ROLE_UPDATE",
+        "value": 31
+      },
+      {
+        "name": "ROLE_DELETE",
+        "value": 32
+      },
+      {
+        "name": "INVITE_CREATE",
+        "value": 40
+      },
+      {
+        "name": "INVITE_UPDATE",
+        "value": 41
+      },
+      {
+        "name": "INVITE_DELETE",
+        "value": 42
+      },
+      {
+        "name": "WEBHOOK_CREATE",
+        "value": 50
+      },
+      {
+        "name": "WEBHOOK_UPDATE",
+        "value": 51
+      },
+      {
+        "name": "WEBHOOK_DELETE",
+        "value": 52
+      },
+      {
+        "name": "EMOJI_CREATE",
+        "value": 60
+      },
+      {
+        "name": "EMOJI_UPDATE",
+        "value": 61
+      },
+      {
+        "name": "EMOJI_DELETE",
+        "value": 62
+      },
+      {
+        "name": "MESSAGE_DELETE",
+        "value": 72
+      },
+      {
+        "name": "MESSAGE_BULK_DELETE",
+        "value": 73
+      },
+      {
+        "name": "MESSAGE_PIN",
+        "value": 74
+      },
+      {
+        "name": "MESSAGE_UNPIN",
+        "value": 75
+      },
+      {
+        "name": "INTEGRATION_CREATE",
+        "value": 80
+      },
+      {
+        "name": "INTEGRATION_UPDATE",
+        "value": 81
+      },
+      {
+        "name": "INTEGRATION_DELETE",
+        "value": 82
+      },
+      {
+        "name": "STAGE_INSTANCE_CREATE",
+        "value": 83
+      },
+      {
+        "name": "STAGE_INSTANCE_UPDATE",
+        "value": 84
+      },
+      {
+        "name": "STAGE_INSTANCE_DELETE",
+        "value": 85
+      },
+      {
+        "name": "STICKER_CREATE",
+        "value": 90
+      },
+      {
+        "name": "STICKER_UPDATE",
+        "value": 91
+      },
+      {
+        "name": "STICKER_DELETE",
+        "value": 92
+      },
+      {
+        "name": "GUILD_SCHEDULED_EVENT_CREATE",
+        "value": 100
+      },
+      {
+        "name": "GUILD_SCHEDULED_EVENT_UPDATE",
+        "value": 101
+      },
+      {
+        "name": "GUILD_SCHEDULED_EVENT_DELETE",
+        "value": 102
+      },
+      {
+        "name": "THREAD_CREATE",
+        "value": 110
+      },
+      {
+        "name": "THREAD_UPDATE",
+        "value": 111
+      },
+      {
+        "name": "THREAD_DELETE",
+        "value": 112
+      }
+    ]
+  },
+  {
+    "name": "Optional Audit Entry Info",
+    "values": [
+      {
+        "name": "channel_id",
+        "value": "channel_id",
+        "description": "channel in which the entities were targeted"
+      },
+      {
+        "name": "count",
+        "value": "count",
+        "description": "number of entities that were targeted"
+      },
+      {
+        "name": "delete_member_days",
+        "value": "delete_member_days",
+        "description": "number of days after which inactive members were kicked"
+      },
+      {
+        "name": "id",
+        "value": "id",
+        "description": "id of the overwritten entity"
+      },
+      {
+        "name": "members_removed",
+        "value": "members_removed",
+        "description": "number of members removed by the prune"
+      },
+      {
+        "name": "message_id",
+        "value": "message_id",
+        "description": "id of the message that was targeted"
+      },
+      {
+        "name": "role_name",
+        "value": "role_name",
+        "description": "name of the role if type is \"0\" (not present if type is \"1\")"
+      },
+      {
+        "name": "type",
+        "value": "type",
+        "description": "type of overwritten entity - \"0\" for \"role\" or \"1\" for \"member\""
+      }
+    ]
+  },
+  {
+    "name": "Audit Log Change Key",
+    "values": [
+      {
+        "name": "afk_channel_id",
+        "value": "afk_channel_id",
+        "description": "afk channel changed"
+      },
+      {
+        "name": "afk_timeout",
+        "value": "afk_timeout",
+        "description": "afk timeout duration changed"
+      },
+      {
+        "name": "allow",
+        "value": "allow",
+        "description": "a permission on a text or voice channel was allowed for a role"
+      },
+      {
+        "name": "application_id",
+        "value": "application_id",
+        "description": "application id of the added or removed webhook or bot"
+      },
+      {
+        "name": "archived",
+        "value": "archived",
+        "description": "thread is now archived/unarchived"
+      },
+      {
+        "name": "asset",
+        "value": "asset",
+        "description": "empty string"
+      },
+      {
+        "name": "auto_archive_duration",
+        "value": "auto_archive_duration",
+        "description": "auto archive duration changed"
+      },
+      {
+        "name": "available",
+        "value": "available",
+        "description": "availability of sticker changed"
+      },
+      {
+        "name": "avatar_hash",
+        "value": "avatar_hash",
+        "description": "user avatar changed"
+      },
+      {
+        "name": "banner_hash",
+        "value": "banner_hash",
+        "description": "guild banner changed"
+      },
+      {
+        "name": "bitrate",
+        "value": "bitrate",
+        "description": "voice channel bitrate changed"
+      },
+      {
+        "name": "channel_id",
+        "value": "channel_id",
+        "description": "channel for invite code or guild scheduled event changed"
+      },
+      {
+        "name": "code",
+        "value": "code",
+        "description": "invite code changed"
+      },
+      {
+        "name": "color",
+        "value": "color",
+        "description": "role color changed"
+      },
+      {
+        "name": "communication_disabled_until",
+        "value": "communication_disabled_until",
+        "description": "member timeout state changed"
+      },
+      {
+        "name": "deaf",
+        "value": "deaf",
+        "description": "user server deafened/undeafened"
+      },
+      {
+        "name": "default_auto_archive_duration",
+        "value": "default_auto_archive_duration",
+        "description": "default auto archive duration for newly created threads changed"
+      },
+      {
+        "name": "default_message_notifications",
+        "value": "default_message_notifications",
+        "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level) changed"
+      },
+      {
+        "name": "deny",
+        "value": "deny",
+        "description": "a permission on a text or voice channel was denied for a role"
+      },
+      {
+        "name": "description",
+        "value": "description",
+        "description": "description changed"
+      },
+      {
+        "name": "discovery_splash_hash",
+        "value": "discovery_splash_hash",
+        "description": "discovery splash changed"
+      },
+      {
+        "name": "enable_emoticons",
+        "value": "enable_emoticons",
+        "description": "integration emoticons enabled/disabled"
+      },
+      {
+        "name": "entity_type",
+        "value": "entity_type",
+        "description": "entity type of guild scheduled event was changed"
+      },
+      {
+        "name": "expire_behavior",
+        "value": "expire_behavior",
+        "description": "integration expiring subscriber behavior changed"
+      },
+      {
+        "name": "expire_grace_period",
+        "value": "expire_grace_period",
+        "description": "integration expire grace period changed"
+      },
+      {
+        "name": "explicit_content_filter",
+        "value": "explicit_content_filter",
+        "description": "change in [whose messages](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level) are scanned and deleted for explicit content in the server"
+      },
+      {
+        "name": "format_type",
+        "value": "format_type",
+        "description": "format type of sticker changed"
+      },
+      {
+        "name": "guild_id",
+        "value": "guild_id",
+        "description": "guild sticker is in changed"
+      },
+      {
+        "name": "hoist",
+        "value": "hoist",
+        "description": "role is now displayed/no longer displayed separate from online users"
+      },
+      {
+        "name": "icon_hash",
+        "value": "icon_hash",
+        "description": "icon changed"
+      },
+      {
+        "name": "id",
+        "value": "id",
+        "description": "the id of the changed entity - sometimes used in conjunction with other keys"
+      },
+      {
+        "name": "invitable",
+        "value": "invitable",
+        "description": "private thread is now invitable/uninvitable"
+      },
+      {
+        "name": "inviter_id",
+        "value": "inviter_id",
+        "description": "person who created invite code changed"
+      },
+      {
+        "name": "location",
+        "value": "location",
+        "description": "change in channel id for guild scheduled event"
+      },
+      {
+        "name": "locked",
+        "value": "locked",
+        "description": "thread is now locked/unlocked"
+      },
+      {
+        "name": "max_age",
+        "value": "max_age",
+        "description": "how long invite code lasts changed"
+      },
+      {
+        "name": "max_uses",
+        "value": "max_uses",
+        "description": "change to max number of times invite code can be used"
+      },
+      {
+        "name": "mentionable",
+        "value": "mentionable",
+        "description": "role is now mentionable/unmentionable"
+      },
+      {
+        "name": "mfa_level",
+        "value": "mfa_level",
+        "description": "two-factor auth requirement changed"
+      },
+      {
+        "name": "mute",
+        "value": "mute",
+        "description": "user server muted/unmuted"
+      },
+      {
+        "name": "name",
+        "value": "name",
+        "description": "name changed"
+      },
+      {
+        "name": "nick",
+        "value": "nick",
+        "description": "user nickname changed"
+      },
+      {
+        "name": "nsfw",
+        "value": "nsfw",
+        "description": "channel nsfw restriction changed"
+      },
+      {
+        "name": "owner_id",
+        "value": "owner_id",
+        "description": "owner changed"
+      },
+      {
+        "name": "permission_overwrites",
+        "value": "permission_overwrites",
+        "description": "permissions on a channel changed"
+      },
+      {
+        "name": "permissions",
+        "value": "permissions",
+        "description": "[permissions](#DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags) for a role changed"
+      },
+      {
+        "name": "position",
+        "value": "position",
+        "description": "text or voice channel position changed"
+      },
+      {
+        "name": "preferred_locale",
+        "value": "preferred_locale",
+        "description": "preferred locale changed"
+      },
+      {
+        "name": "privacy_level",
+        "value": "privacy_level",
+        "description": "privacy level of the stage instance changed"
+      },
+      {
+        "name": "prune_delete_days",
+        "value": "prune_delete_days",
+        "description": "change in number of days after which inactive and role-unassigned members are kicked"
+      },
+      {
+        "name": "public_updates_channel_id",
+        "value": "public_updates_channel_id",
+        "description": "id of the public updates channel changed"
+      },
+      {
+        "name": "rate_limit_per_user",
+        "value": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message changed"
+      },
+      {
+        "name": "region",
+        "value": "region",
+        "description": "region changed"
+      },
+      {
+        "name": "rules_channel_id",
+        "value": "rules_channel_id",
+        "description": "id of the rules channel changed"
+      },
+      {
+        "name": "splash_hash",
+        "value": "splash_hash",
+        "description": "invite splash page artwork changed"
+      },
+      {
+        "name": "status",
+        "value": "status",
+        "description": "status of guild scheduled event was changed"
+      },
+      {
+        "name": "system_channel_id",
+        "value": "system_channel_id",
+        "description": "id of the system channel changed"
+      },
+      {
+        "name": "tags",
+        "value": "tags",
+        "description": "related emoji of sticker changed"
+      },
+      {
+        "name": "temporary",
+        "value": "temporary",
+        "description": "invite code is temporary/never expires"
+      },
+      {
+        "name": "topic",
+        "value": "topic",
+        "description": "text channel topic or stage instance topic changed"
+      },
+      {
+        "name": "type",
+        "value": "type",
+        "description": "type of entity created"
+      },
+      {
+        "name": "unicode_emoji",
+        "value": "unicode_emoji",
+        "description": "role unicode emoji changed"
+      },
+      {
+        "name": "user_limit",
+        "value": "user_limit",
+        "description": "new user limit in a voice channel"
+      },
+      {
+        "name": "uses",
+        "value": "uses",
+        "description": "number of times invite code used changed"
+      },
+      {
+        "name": "vanity_url_code",
+        "value": "vanity_url_code",
+        "description": "guild invite vanity url changed"
+      },
+      {
+        "name": "verification_level",
+        "value": "verification_level",
+        "description": "required verification level changed"
+      },
+      {
+        "name": "widget_channel_id",
+        "value": "widget_channel_id",
+        "description": "channel id of the server widget changed"
+      },
+      {
+        "name": "widget_enabled",
+        "value": "widget_enabled",
+        "description": "server widget enabled/disable"
+      },
+      {
+        "name": "\\$add",
+        "value": "$add",
+        "description": "new role added"
+      },
+      {
+        "name": "\\$remove",
+        "value": "$remove",
+        "description": "role removed"
+      }
+    ]
+  }
+]

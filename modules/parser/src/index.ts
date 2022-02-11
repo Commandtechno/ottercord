@@ -17,11 +17,23 @@ export async function parse(...pathSegments: string[]) {
   const endpointsEngine = new EndpointsEngine();
   const structuresEngine = new StructuresEngine();
 
-  let tree = [];
+  let parent = "";
+  const links: { [key: string]: string } = {};
   for (const block of page) {
     if (block.type === "heading") {
-      tree[block.depth] ??= [];
-      tree[block.depth].push(block.text.split("%", 1)[0].toLowerCase().replace(/\s+/g, "-").trim());
+      let link: string;
+      const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
+
+      if (block.depth < 5) {
+        parent = anchor + "-";
+        link = anchor;
+      } else {
+        link = parent + anchor;
+      }
+
+      if (link) {
+        links[link] = block.text.replace("Object", "Structure");
+      }
     }
 
     constantsEngine.process(block);
@@ -33,6 +45,5 @@ export async function parse(...pathSegments: string[]) {
   const endpoints = endpointsEngine.finish();
   const structures = structuresEngine.finish();
 
-  console.log(tree);
-  return { constants, endpoints, structures };
+  return { links, constants, endpoints, structures };
 }

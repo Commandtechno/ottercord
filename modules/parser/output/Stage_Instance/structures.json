@@ -65,7 +65,7 @@
         ],
         "deprecated": false,
         "name": "privacy_level",
-        "description": "The [privacy level] of the Stage instance"
+        "description": "The of the Stage instance"
       },
       {
         "partial": false,

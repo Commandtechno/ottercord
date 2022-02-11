@@ -1,4 +1,4 @@
-import { DOCS_DIR } from "../../common";
+import { DOCS_DIR } from "../../common/build";
 
 import { rm, mkdir, readdir, writeFile } from "fs/promises";
 import { basename, resolve } from "path";
@@ -17,9 +17,10 @@ import { parse } from ".";
     await mkdir(dir);
 
     console.time(name);
-    const { constants, endpoints, structures } = await parse("resources", file);
+    const { links, constants, endpoints, structures } = await parse("resources", file);
     console.timeEnd(name);
 
+    await writeFile(resolve(dir, "links.json"), JSON.stringify(links, null, 2));
     await writeFile(resolve(dir, "constants.json"), JSON.stringify(constants, null, 2));
     await writeFile(resolve(dir, "endpoints.json"), JSON.stringify(endpoints, null, 2));
     await writeFile(resolve(dir, "structures.json"), JSON.stringify(structures, null, 2));

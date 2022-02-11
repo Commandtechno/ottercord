@@ -28,13 +28,13 @@ export class EndpointsEngine {
       case "query":
         return this.processQuery(block);
 
-      case "response":
-        return this.processResponse(block);
-
       case "json-request":
       case "form-request":
       case "json-form-request":
-        return this.processEndpoint(block);
+        return this.processRequest(block);
+
+      case "response":
+        return this.processResponse(block);
     }
   }
 
@@ -130,20 +130,6 @@ export class EndpointsEngine {
     }
   }
 
-  processResponse(block: marked.Token) {
-    if (block.type === "table") {
-      const table = formatTable(block);
-      this.currentEndpoint.response = table.map(row => ({
-        ...parseType(row),
-
-        name: row.field.text.trim(),
-        description: row.description?.text.trim()
-      }));
-
-      this.context = "endpoint";
-    }
-  }
-
   processRequest(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
@@ -153,6 +139,14 @@ export class EndpointsEngine {
         params: table.map(parseParam)
       };
 
+      this.context = "endpoint";
+    }
+  }
+
+  processResponse(block: marked.Token) {
+    if (block.type === "table") {
+      const table = formatTable(block);
+      this.currentEndpoint.response = table.map(parseParam);
       this.context = "endpoint";
     }
   }

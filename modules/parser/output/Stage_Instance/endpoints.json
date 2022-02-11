@@ -16,6 +16,7 @@
         "value": [
           "snowflake"
         ],
+        "deprecated": false,
         "name": "channel_id",
         "description": "The id of the Stage channel"
       },
@@ -28,8 +29,9 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "topic",
-        "description": "The topic of the Stage instance (1-120 characters)"
+        "description": "The topic of the Stage instance"
       },
       {
         "partial": false,
@@ -40,8 +42,9 @@
         "value": [
           "integer"
         ],
+        "deprecated": false,
         "name": "privacy_level",
-        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance (default GUILD_ONLY)"
+        "description": "The of the Stage instance"
       }
     ]
   },
@@ -52,7 +55,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],
@@ -67,8 +70,9 @@
         "value": [
           "string"
         ],
+        "deprecated": false,
         "name": "topic",
-        "description": "The topic of the Stage instance (1-120 characters)"
+        "description": "The topic of the Stage instance"
       },
       {
         "partial": false,
@@ -79,8 +83,9 @@
         "value": [
           "integer"
         ],
+        "deprecated": false,
         "name": "privacy_level",
-        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance"
+        "description": "The of the Stage instance"
       }
     ]
   },
@@ -91,7 +96,7 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-structure"
+        "anchor": "channel-object"
       }
     ],
     "query": [],

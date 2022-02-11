@@ -32,7 +32,16 @@ export class ConstantsEngine {
       if (
         block.text.toLowerCase().endsWith("types") ||
         block.text.toLowerCase().endsWith("flags") ||
-        block.text.toLowerCase().endsWith("modes")
+        block.text.toLowerCase().endsWith("modes") ||
+        block.text.toLowerCase().endsWith("events") ||
+        block.text.toLowerCase().endsWith("status") ||
+        block.text.toLowerCase().endsWith("features") ||
+        block.text.toLowerCase().endsWith("behaviors") ||
+        block.text.toLowerCase().endsWith("metadata") ||
+        block.text.toLowerCase().endsWith("level") ||
+        block.text.toLowerCase().endsWith("tier") ||
+        block.text.toLowerCase().endsWith("key") ||
+        block.text.toLowerCase().endsWith("info")
       ) {
         if (this.currentConstant) this.constants.push(this.currentConstant);
         this.currentConstant = {
@@ -53,7 +62,19 @@ export class ConstantsEngine {
     if (block.type === "table") {
       const table = formatTable(block);
       this.currentConstant.values = table.map(row => {
-        const rawName = (row.name ?? row.type ?? row.flag ?? row.mode).text;
+        const rawName = (
+          row.key ??
+          row.name ??
+          row.field ??
+          row.type ??
+          row.flag ??
+          row.mode ??
+          row.event ??
+          row.feature ??
+          row.level ??
+          row.tier
+        ).text;
+
         const rawValue = (row.value ?? row.id)?.text ?? rawName;
         const description = row.description?.text;
 

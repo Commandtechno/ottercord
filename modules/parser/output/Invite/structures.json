@@ -21,7 +21,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-structure",
+        "value": "guild-object",
         "deprecated": false,
         "name": "guild",
         "description": "the guild this invite is for"
@@ -32,7 +32,7 @@
         "nullable": true,
         "array": false,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "channel",
         "description": "the channel this invite is for"
@@ -43,7 +43,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "inviter",
         "description": "the user who created the invite"
@@ -59,7 +59,7 @@
         ],
         "deprecated": false,
         "name": "target_type",
-        "description": "the [type of target] for this voice channel invite"
+        "description": "the for this voice channel invite"
       },
       {
         "partial": false,
@@ -67,7 +67,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "target_user",
         "description": "the user whose stream to display for this voice channel stream invite"
@@ -78,7 +78,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "application-structure",
+        "value": "application-object",
         "deprecated": false,
         "name": "target_application",
         "description": "the embedded application to open for this voice channel embedded application invite"
@@ -128,10 +128,10 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "invite-stage-instance-structure",
+        "value": "invite-stage-instance-object",
         "deprecated": false,
         "name": "stage_instance",
-        "description": "stage instance data if there is a [public Stage instance] in the Stage channel this invite is for"
+        "description": "stage instance data if there is a in the Stage channel this invite is for"
       },
       {
         "partial": false,
@@ -139,7 +139,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-scheduled-event-structure",
+        "value": "guild-scheduled-event-object",
         "deprecated": false,
         "name": "guild_scheduled_event",
         "description": "guild scheduled event data, only included if `guild_scheduled_event_id` contains a valid guild scheduled event id"
@@ -225,7 +225,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "guild-member-structure",
+        "value": "guild-member-object",
         "deprecated": false,
         "name": "members",
         "description": "the members speaking in the Stage"

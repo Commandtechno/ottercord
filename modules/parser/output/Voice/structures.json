@@ -47,7 +47,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-member-structure",
+        "value": "guild-member-object",
         "deprecated": false,
         "name": "member",
         "description": "the guild member this voice state is for"

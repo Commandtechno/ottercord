@@ -6,7 +6,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [
@@ -23,7 +23,7 @@
       "optional": false,
       "nullable": false,
       "array": true,
-      "value": "guild-scheduled-event-structure"
+      "value": "guild-scheduled-event-object"
     }
   },
   {
@@ -33,7 +33,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       }
     ],
     "query": [],
@@ -43,7 +43,122 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-structure"
+      "value": "guild-scheduled-event-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "channel_id?",
+          "description": "the channel id of the scheduled event."
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+          "deprecated": false,
+          "name": "entity_metadata",
+          "description": "the entity metadata of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "the name of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+          "deprecated": false,
+          "name": "privacy_level",
+          "description": "the privacy level of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "ISO8601 timestamp"
+          ],
+          "deprecated": false,
+          "name": "scheduled_start_time",
+          "description": "the time to schedule the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "ISO8601 timestamp"
+          ],
+          "deprecated": false,
+          "name": "scheduled_end_time",
+          "description": "the time when the scheduled event is scheduled to end"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "the description of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+          "deprecated": false,
+          "name": "entity_type",
+          "description": "the entity type of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "image",
+          "description": "the cover image of the scheduled event"
+        }
+      ]
     },
     "description": "\\* Optional for events with `'entity_type': EXTERNAL`"
   },
@@ -54,11 +169,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "guild_scheduled_event.id",
-        "anchor": "guild-scheduled-event-structure"
+        "anchor": "guild-scheduled-event-object"
       }
     ],
     "query": [
@@ -75,7 +190,7 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-structure"
+      "value": "guild-scheduled-event-object"
     }
   },
   {
@@ -85,11 +200,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "guild_scheduled_event.id",
-        "anchor": "guild-scheduled-event-structure"
+        "anchor": "guild-scheduled-event-object"
       }
     ],
     "query": [],
@@ -99,7 +214,133 @@
       "optional": false,
       "nullable": false,
       "array": false,
-      "value": "guild-scheduled-event-structure"
+      "value": "guild-scheduled-event-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "channel_id?",
+          "description": "the channel id of the scheduled event, set to `null` if changing entity type to `EXTERNAL`"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+          "deprecated": false,
+          "name": "entity_metadata",
+          "description": "the entity metadata of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "the name of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+          "deprecated": false,
+          "name": "privacy_level",
+          "description": "the privacy level of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "ISO8601 timestamp"
+          ],
+          "deprecated": false,
+          "name": "scheduled_start_time",
+          "description": "the time to schedule the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "ISO8601 timestamp"
+          ],
+          "deprecated": false,
+          "name": "scheduled_end_time?",
+          "description": "the time when the scheduled event is scheduled to end"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "the description of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+          "deprecated": false,
+          "name": "entity_type?",
+          "description": "the entity type of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "guild-scheduled-event-object-guild-scheduled-event-status",
+          "deprecated": false,
+          "name": "status",
+          "description": "the status of the scheduled event"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "image",
+          "description": "the cover image of the scheduled event"
+        }
+      ]
     },
     "description": "\\* If updating `entity_type` to `EXTERNAL`:"
   },
@@ -110,11 +351,11 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-structure"
+        "anchor": "guild-object"
       },
       {
         "name": "guild_scheduled_event.id",
-        "anchor": "guild-scheduled-event-structure"
+        "anchor": "guild-scheduled-event-object"
       }
     ],
     "query": [],
@@ -129,8 +370,9 @@
         "value": [
           "number"
         ],
+        "deprecated": false,
         "name": "limit",
-        "description": "number of users to return (up to maximum 100)"
+        "description": "number of users to return"
       },
       {
         "partial": false,
@@ -141,6 +383,7 @@
         "value": [
           "boolean"
         ],
+        "deprecated": false,
         "name": "with_member",
         "description": "include guild member data if it exists"
       },
@@ -153,7 +396,8 @@
         "value": [
           "snowflake"
         ],
-        "name": "before? *",
+        "deprecated": false,
+        "name": "before?",
         "description": "consider only users before given user id"
       },
       {
@@ -165,7 +409,8 @@
         "value": [
           "snowflake"
         ],
-        "name": "after? *",
+        "deprecated": false,
+        "name": "after?",
         "description": "consider only users after given user id"
       }
     ]

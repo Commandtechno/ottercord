@@ -26,7 +26,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "the [type of channel]"
+        "description": "the"
       },
       {
         "partial": false,
@@ -60,7 +60,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "overwrite-structure",
+        "value": "overwrite-object",
         "deprecated": false,
         "name": "permission_overwrites",
         "description": "explicit permission overwrites for members and roles"
@@ -162,7 +162,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "recipients",
         "description": "the recipients of the DM"
@@ -243,7 +243,7 @@
         ],
         "deprecated": false,
         "name": "rtc_region",
-        "description": "[voice region] id for the voice channel, automatic when set to null"
+        "description": "id for the voice channel, automatic when set to null"
       },
       {
         "partial": false,
@@ -256,7 +256,7 @@
         ],
         "deprecated": false,
         "name": "video_quality_mode",
-        "description": "the camera [video quality mode] of the voice channel, 1 when not present"
+        "description": "the camera of the voice channel, 1 when not present"
       },
       {
         "partial": false,
@@ -290,7 +290,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "thread-metadata-structure",
+        "value": "thread-metadata-object",
         "deprecated": false,
         "name": "thread_metadata",
         "description": "thread-specific fields not needed by other channels"
@@ -301,7 +301,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "thread-member-structure",
+        "value": "thread-member-object",
         "deprecated": false,
         "name": "member",
         "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints"
@@ -382,7 +382,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "author",
         "description": "the author of this message"
@@ -393,7 +393,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "guild-member-structure",
+        "value": "guild-member-object",
         "deprecated": false,
         "name": "member?",
         "description": "member properties for this message's author"
@@ -469,7 +469,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "user-structure",
+        "value": "user-object",
         "deprecated": false,
         "name": "mentions",
         "description": "users specifically mentioned in the message"
@@ -480,7 +480,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "role-structure",
+        "value": "role-object",
         "deprecated": false,
         "name": "mention_roles",
         "description": "roles specifically mentioned in this message"
@@ -491,7 +491,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "channel-mention-structure",
+        "value": "channel-mention-object",
         "deprecated": false,
         "name": "mention_channels?",
         "description": "channels specifically mentioned in this message"
@@ -502,7 +502,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "attachment-structure",
+        "value": "attachment-object",
         "deprecated": false,
         "name": "attachments",
         "description": "any attached files"
@@ -513,7 +513,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "embed-structure",
+        "value": "embed-object",
         "deprecated": false,
         "name": "embeds",
         "description": "any embedded content"
@@ -524,7 +524,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "reaction-structure",
+        "value": "reaction-object",
         "deprecated": false,
         "name": "reactions",
         "description": "reactions to the message"
@@ -580,7 +580,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "[type of message]"
+        "description": ""
       },
       {
         "partial": false,
@@ -588,7 +588,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "message-structure-message-activity-structure",
+        "value": "message-object-message-activity-structure",
         "deprecated": false,
         "name": "activity",
         "description": "sent with Rich Presence-related chat embeds"
@@ -599,7 +599,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "application-structure",
+        "value": "application-object",
         "deprecated": false,
         "name": "application",
         "description": "sent with Rich Presence-related chat embeds"
@@ -615,7 +615,7 @@
         ],
         "deprecated": false,
         "name": "application_id",
-        "description": "if the message is an [Interaction] or application-owned webhook, this is the id of the application"
+        "description": "if the message is an or application-owned webhook, this is the id of the application"
       },
       {
         "partial": false,
@@ -623,7 +623,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "message-reference-structure-message-reference-structure",
+        "value": "message-reference-object-message-reference-structure",
         "deprecated": false,
         "name": "message_reference",
         "description": "data showing the source of a crosspost, channel follow add, pin, or reply message"
@@ -639,7 +639,7 @@
         ],
         "deprecated": false,
         "name": "flags",
-        "description": "[message flags] combined as a [bitfield]"
+        "description": "combined as a"
       },
       {
         "partial": false,
@@ -647,7 +647,7 @@
         "nullable": true,
         "array": false,
         "reference": true,
-        "value": "message-structure",
+        "value": "message-object",
         "deprecated": false,
         "name": "referenced_message?",
         "description": "the message associated with the message_reference"
@@ -658,10 +658,10 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "message-interaction-structure-message-interaction-structure",
+        "value": "message-interaction-object-message-interaction-structure",
         "deprecated": false,
         "name": "interaction",
-        "description": "sent if the message is a response to an [Interaction]"
+        "description": "sent if the message is a response to an"
       },
       {
         "partial": false,
@@ -669,10 +669,10 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "channel-structure",
+        "value": "channel-object",
         "deprecated": false,
         "name": "thread",
-        "description": "the thread that was started from this message, includes [thread member] object"
+        "description": "the thread that was started from this message, includes object"
       },
       {
         "partial": false,
@@ -680,7 +680,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "component-structure",
+        "value": "component-object",
         "deprecated": false,
         "name": "components",
         "description": "sent if the message contains components like buttons, action rows, or other interactive components"
@@ -691,7 +691,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "sticker-item-structure",
+        "value": "sticker-item-object",
         "deprecated": false,
         "name": "sticker_items",
         "description": "sent if the message contains stickers"
@@ -702,7 +702,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "sticker-structure",
+        "value": "sticker-object",
         "deprecated": true,
         "name": "stickers",
         "description": "the stickers sent with the message"
@@ -723,7 +723,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "[type of message activity]"
+        "description": ""
       },
       {
         "partial": false,
@@ -736,7 +736,7 @@
         ],
         "deprecated": false,
         "name": "party_id",
-        "description": "party_id from a [Rich Presence event]"
+        "description": "party_id from a"
       }
     ]
   },
@@ -863,7 +863,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "emoji-structure",
+        "value": "emoji-object",
         "deprecated": false,
         "name": "emoji",
         "description": "emoji information"
@@ -1094,7 +1094,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "[type of embed]"
+        "description": ""
       },
       {
         "partial": false,
@@ -1154,7 +1154,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-footer-structure",
+        "value": "embed-object-embed-footer-structure",
         "deprecated": false,
         "name": "footer",
         "description": "footer information"
@@ -1165,7 +1165,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-image-structure",
+        "value": "embed-object-embed-image-structure",
         "deprecated": false,
         "name": "image",
         "description": "image information"
@@ -1176,7 +1176,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-thumbnail-structure",
+        "value": "embed-object-embed-thumbnail-structure",
         "deprecated": false,
         "name": "thumbnail",
         "description": "thumbnail information"
@@ -1187,7 +1187,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-video-structure",
+        "value": "embed-object-embed-video-structure",
         "deprecated": false,
         "name": "video",
         "description": "video information"
@@ -1198,7 +1198,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-provider-structure",
+        "value": "embed-object-embed-provider-structure",
         "deprecated": false,
         "name": "provider",
         "description": "provider information"
@@ -1209,7 +1209,7 @@
         "nullable": false,
         "array": false,
         "reference": true,
-        "value": "embed-structure-embed-author-structure",
+        "value": "embed-object-embed-author-structure",
         "deprecated": false,
         "name": "author",
         "description": "author information"
@@ -1220,7 +1220,7 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "embed-structure-embed-field-structure",
+        "value": "embed-object-embed-field-structure",
         "deprecated": false,
         "name": "fields",
         "description": "fields information"
@@ -1627,7 +1627,7 @@
         ],
         "deprecated": false,
         "name": "content_type",
-        "description": "the attachment's [media type]"
+        "description": "the attachment's"
       },
       {
         "partial": false,
@@ -1749,7 +1749,7 @@
         ],
         "deprecated": false,
         "name": "type",
-        "description": "the [type of channel]"
+        "description": "the"
       },
       {
         "partial": false,
@@ -1775,10 +1775,10 @@
         "nullable": false,
         "array": true,
         "reference": true,
-        "value": "allowed-mentions-structure-allowed-mention-types",
+        "value": "allowed-mentions-object-allowed-mention-types",
         "deprecated": false,
         "name": "parse",
-        "description": "An array of [allowed mention types] to parse from the content."
+        "description": "An array of to parse from the content."
       },
       {
         "partial": false,

@@ -1,0 +1,15 @@
+{
+  "emoji-resource": "Emoji Resource",
+  "emoji-object": "Emoji Structure",
+  "emoji-object-emoji-structure": "Emoji Structure",
+  "emoji-object-emoji-example": "Emoji Example",
+  "emoji-object-gateway-reaction-standard-emoji-example": "Gateway Reaction Standard Emoji Example",
+  "emoji-object-gateway-reaction-custom-emoji-examples": "Gateway Reaction Custom Emoji Examples",
+  "list-guild-emojis": "List Guild Emojis % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/emojis",
+  "get-guild-emoji": "Get Guild Emoji % GET /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/emojis/{emoji.id#DOCS_RESOURCES_EMOJI/emoji-object}",
+  "create-guild-emoji": "Create Guild Emoji % POST /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/emojis",
+  "create-guild-emoji-json-params": "JSON Params",
+  "modify-guild-emoji": "Modify Guild Emoji % PATCH /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/emojis/{emoji.id#DOCS_RESOURCES_EMOJI/emoji-object}",
+  "modify-guild-emoji-json-params": "JSON Params",
+  "delete-guild-emoji": "Delete Guild Emoji % DELETE /guilds/{guild.id#DOCS_RESOURCES_GUILD/guild-object}/emojis/{emoji.id#DOCS_RESOURCES_EMOJI/emoji-object}"
+}
