@@ -6,8 +6,8 @@ export function cleanText(text: string) {
     .split(";", 1)[0]
     .replace(/\(.*?\)/g, "")
     .replace(/\[.*?\]/g, "")
-    .replace(/^[\s\\\*"]+/, "")
-    .replace(/[\s\\\*"]+$/, "")
+    .replace(/^[\s\\\\?*"]+/, "")
+    .replace(/[\s\\\\?*"]+$/, "")
     .replace(/\s+/g, " ")
     .trim();
 }

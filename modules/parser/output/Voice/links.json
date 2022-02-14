@@ -1,9 +1,0 @@
-{
-  "voice-resource": "Voice Resource",
-  "voice-state-object": "Voice State Structure",
-  "voice-state-object-voice-state-structure": "Voice State Structure",
-  "voice-state-object-example-voice-state": "Example Voice State",
-  "voice-region-object": "Voice Region Structure",
-  "voice-region-object-voice-region-structure": "Voice Region Structure",
-  "list-voice-regions": "List Voice Regions % GET /voice/regions"
-}

@@ -1,2108 +1,2028 @@
-// Application
-export type ApplicationFlags = {
-	"GatewayPresence": 4096,
-	"GatewayPresenceLimited": 8192,
-	"GatewayGuildMembers": 16384,
-	"GatewayGuildMembersLimited": 32768,
-	"VerificationPendingGuildLimit": 65536,
-	"Embedded": 131072,
-	"GatewayMessageContent": 262144,
-	"GatewayMessageContentLimited": 524288,
+/*
+	Application
+*/
+
+export enum ApplicationFlags {
+	"GatewayPresence" = 4096,
+	"GatewayPresenceLimited" = 8192,
+	"GatewayGuildMembers" = 16384,
+	"GatewayGuildMembersLimited" = 32768,
+	"VerificationPendingGuildLimit" = 65536,
+	"Embedded" = 131072,
+	"GatewayMessageContent" = 262144,
+	"GatewayMessageContentLimited" = 524288,
 };
 
-export type ApplicationStructure = {
-	id: string;
+export interface ApplicationStructure {
+	id: string | bigint;
 	name: string;
-	icon: string;
+	icon: string | null;
 	description: string;
-	rpcOrigins: string;
-	botPublic: boolean;
-	botRequireCodeGrant: boolean;
-	termsOfServiceUrl: string;
-	privacyPolicyUrl: string;
-	owner: UserStructure;
+	rpc_origins?: string;
+	bot_public: boolean;
+	bot_require_code_grant: boolean;
+	terms_of_service_url?: string;
+	privacy_policy_url?: string;
+	owner?: UserStructure;
 	summary: string;
-	verifyKey: string;
-	team: any;
-	guildId: string;
-	primarySkuId: string;
-	slug: string;
-	coverImage: string;
-	flags: number;
+	verify_key: string;
+	team: any /* data-models-team-object */;
+	guild_id?: string | bigint;
+	primary_sku_id?: string | bigint;
+	slug?: string;
+	cover_image?: string;
+	flags?: number;
 };
 
-// Audit_Log
-export type AuditLogEvents = {
-	"GuildUpdate": 1,
-	"ChannelCreate": 10,
-	"ChannelUpdate": 11,
-	"ChannelDelete": 12,
-	"ChannelOverwriteCreate": 13,
-	"ChannelOverwriteUpdate": 14,
-	"ChannelOverwriteDelete": 15,
-	"MemberKick": 20,
-	"MemberPrune": 21,
-	"MemberBanAdd": 22,
-	"MemberBanRemove": 23,
-	"MemberUpdate": 24,
-	"MemberRoleUpdate": 25,
-	"MemberMove": 26,
-	"MemberDisconnect": 27,
-	"BotAdd": 28,
-	"RoleCreate": 30,
-	"RoleUpdate": 31,
-	"RoleDelete": 32,
-	"InviteCreate": 40,
-	"InviteUpdate": 41,
-	"InviteDelete": 42,
-	"WebhookCreate": 50,
-	"WebhookUpdate": 51,
-	"WebhookDelete": 52,
-	"EmojiCreate": 60,
-	"EmojiUpdate": 61,
-	"EmojiDelete": 62,
-	"MessageDelete": 72,
-	"MessageBulkDelete": 73,
-	"MessagePin": 74,
-	"MessageUnpin": 75,
-	"IntegrationCreate": 80,
-	"IntegrationUpdate": 81,
-	"IntegrationDelete": 82,
-	"StageInstanceCreate": 83,
-	"StageInstanceUpdate": 84,
-	"StageInstanceDelete": 85,
-	"StickerCreate": 90,
-	"StickerUpdate": 91,
-	"StickerDelete": 92,
-	"GuildScheduledEventCreate": 100,
-	"GuildScheduledEventUpdate": 101,
-	"GuildScheduledEventDelete": 102,
-	"ThreadCreate": 110,
-	"ThreadUpdate": 111,
-	"ThreadDelete": 112,
+/*
+	Audit_Log
+*/
+
+export enum AuditLogEvents {
+	"GuildUpdate" = 1,
+	"ChannelCreate" = 10,
+	"ChannelUpdate" = 11,
+	"ChannelDelete" = 12,
+	"ChannelOverwriteCreate" = 13,
+	"ChannelOverwriteUpdate" = 14,
+	"ChannelOverwriteDelete" = 15,
+	"MemberKick" = 20,
+	"MemberPrune" = 21,
+	"MemberBanAdd" = 22,
+	"MemberBanRemove" = 23,
+	"MemberUpdate" = 24,
+	"MemberRoleUpdate" = 25,
+	"MemberMove" = 26,
+	"MemberDisconnect" = 27,
+	"BotAdd" = 28,
+	"RoleCreate" = 30,
+	"RoleUpdate" = 31,
+	"RoleDelete" = 32,
+	"InviteCreate" = 40,
+	"InviteUpdate" = 41,
+	"InviteDelete" = 42,
+	"WebhookCreate" = 50,
+	"WebhookUpdate" = 51,
+	"WebhookDelete" = 52,
+	"EmojiCreate" = 60,
+	"EmojiUpdate" = 61,
+	"EmojiDelete" = 62,
+	"MessageDelete" = 72,
+	"MessageBulkDelete" = 73,
+	"MessagePin" = 74,
+	"MessageUnpin" = 75,
+	"IntegrationCreate" = 80,
+	"IntegrationUpdate" = 81,
+	"IntegrationDelete" = 82,
+	"StageInstanceCreate" = 83,
+	"StageInstanceUpdate" = 84,
+	"StageInstanceDelete" = 85,
+	"StickerCreate" = 90,
+	"StickerUpdate" = 91,
+	"StickerDelete" = 92,
+	"GuildScheduledEventCreate" = 100,
+	"GuildScheduledEventUpdate" = 101,
+	"GuildScheduledEventDelete" = 102,
+	"ThreadCreate" = 110,
+	"ThreadUpdate" = 111,
+	"ThreadDelete" = 112,
 };
 
-export type OptionalAuditEntryInfo = {
-	"ChannelId": "channel_id",
-	"Count": "count",
-	"DeleteMemberDays": "delete_member_days",
-	"Id": "id",
-	"MembersRemoved": "members_removed",
-	"MessageId": "message_id",
-	"RoleName": "role_name",
-	"Type": "type",
+export enum OptionalAuditEntryInfo {
+	"ChannelId" = "channel_id",
+	"Count" = "count",
+	"DeleteMemberDays" = "delete_member_days",
+	"Id" = "id",
+	"MembersRemoved" = "members_removed",
+	"MessageId" = "message_id",
+	"RoleName" = "role_name",
+	"Type" = "type",
 };
 
-export type AuditLogChangeKey = {
-	"AfkChannelId": "afk_channel_id",
-	"AfkTimeout": "afk_timeout",
-	"Allow": "allow",
-	"ApplicationId": "application_id",
-	"Archived": "archived",
-	"Asset": "asset",
-	"AutoArchiveDuration": "auto_archive_duration",
-	"Available": "available",
-	"AvatarHash": "avatar_hash",
-	"BannerHash": "banner_hash",
-	"Bitrate": "bitrate",
-	"ChannelId": "channel_id",
-	"Code": "code",
-	"Color": "color",
-	"CommunicationDisabledUntil": "communication_disabled_until",
-	"Deaf": "deaf",
-	"DefaultAutoArchiveDuration": "default_auto_archive_duration",
-	"DefaultMessageNotifications": "default_message_notifications",
-	"Deny": "deny",
-	"Description": "description",
-	"DiscoverySplashHash": "discovery_splash_hash",
-	"EnableEmoticons": "enable_emoticons",
-	"EntityType": "entity_type",
-	"ExpireBehavior": "expire_behavior",
-	"ExpireGracePeriod": "expire_grace_period",
-	"ExplicitContentFilter": "explicit_content_filter",
-	"FormatType": "format_type",
-	"GuildId": "guild_id",
-	"Hoist": "hoist",
-	"IconHash": "icon_hash",
-	"Id": "id",
-	"Invitable": "invitable",
-	"InviterId": "inviter_id",
-	"Location": "location",
-	"Locked": "locked",
-	"MaxAge": "max_age",
-	"MaxUses": "max_uses",
-	"Mentionable": "mentionable",
-	"MfaLevel": "mfa_level",
-	"Mute": "mute",
-	"Name": "name",
-	"Nick": "nick",
-	"Nsfw": "nsfw",
-	"OwnerId": "owner_id",
-	"PermissionOverwrites": "permission_overwrites",
-	"Permissions": "permissions",
-	"Position": "position",
-	"PreferredLocale": "preferred_locale",
-	"PrivacyLevel": "privacy_level",
-	"PruneDeleteDays": "prune_delete_days",
-	"PublicUpdatesChannelId": "public_updates_channel_id",
-	"RateLimitPerUser": "rate_limit_per_user",
-	"Region": "region",
-	"RulesChannelId": "rules_channel_id",
-	"SplashHash": "splash_hash",
-	"Status": "status",
-	"SystemChannelId": "system_channel_id",
-	"Tags": "tags",
-	"Temporary": "temporary",
-	"Topic": "topic",
-	"Type": "type",
-	"UnicodeEmoji": "unicode_emoji",
-	"UserLimit": "user_limit",
-	"Uses": "uses",
-	"VanityUrlCode": "vanity_url_code",
-	"VerificationLevel": "verification_level",
-	"WidgetChannelId": "widget_channel_id",
-	"WidgetEnabled": "widget_enabled",
-	"Add": "$add",
-	"Remove": "$remove",
+export enum AuditLogChangeKey {
+	"AfkChannelId" = "afk_channel_id",
+	"AfkTimeout" = "afk_timeout",
+	"Allow" = "allow",
+	"ApplicationId" = "application_id",
+	"Archived" = "archived",
+	"Asset" = "asset",
+	"AutoArchiveDuration" = "auto_archive_duration",
+	"Available" = "available",
+	"AvatarHash" = "avatar_hash",
+	"BannerHash" = "banner_hash",
+	"Bitrate" = "bitrate",
+	"ChannelId" = "channel_id",
+	"Code" = "code",
+	"Color" = "color",
+	"CommunicationDisabledUntil" = "communication_disabled_until",
+	"Deaf" = "deaf",
+	"DefaultAutoArchiveDuration" = "default_auto_archive_duration",
+	"DefaultMessageNotifications" = "default_message_notifications",
+	"Deny" = "deny",
+	"Description" = "description",
+	"DiscoverySplashHash" = "discovery_splash_hash",
+	"EnableEmoticons" = "enable_emoticons",
+	"EntityType" = "entity_type",
+	"ExpireBehavior" = "expire_behavior",
+	"ExpireGracePeriod" = "expire_grace_period",
+	"ExplicitContentFilter" = "explicit_content_filter",
+	"FormatType" = "format_type",
+	"GuildId" = "guild_id",
+	"Hoist" = "hoist",
+	"IconHash" = "icon_hash",
+	"Id" = "id",
+	"Invitable" = "invitable",
+	"InviterId" = "inviter_id",
+	"Location" = "location",
+	"Locked" = "locked",
+	"MaxAge" = "max_age",
+	"MaxUses" = "max_uses",
+	"Mentionable" = "mentionable",
+	"MfaLevel" = "mfa_level",
+	"Mute" = "mute",
+	"Name" = "name",
+	"Nick" = "nick",
+	"Nsfw" = "nsfw",
+	"OwnerId" = "owner_id",
+	"PermissionOverwrites" = "permission_overwrites",
+	"Permissions" = "permissions",
+	"Position" = "position",
+	"PreferredLocale" = "preferred_locale",
+	"PrivacyLevel" = "privacy_level",
+	"PruneDeleteDays" = "prune_delete_days",
+	"PublicUpdatesChannelId" = "public_updates_channel_id",
+	"RateLimitPerUser" = "rate_limit_per_user",
+	"Region" = "region",
+	"RulesChannelId" = "rules_channel_id",
+	"SplashHash" = "splash_hash",
+	"Status" = "status",
+	"SystemChannelId" = "system_channel_id",
+	"Tags" = "tags",
+	"Temporary" = "temporary",
+	"Topic" = "topic",
+	"Type" = "type",
+	"UnicodeEmoji" = "unicode_emoji",
+	"UserLimit" = "user_limit",
+	"Uses" = "uses",
+	"VanityUrlCode" = "vanity_url_code",
+	"VerificationLevel" = "verification_level",
+	"WidgetChannelId" = "widget_channel_id",
+	"WidgetEnabled" = "widget_enabled",
+	"Add" = "$add",
+	"Remove" = "$remove",
 };
 
-export type AuditLogStructure = {
-	auditLogEntries: Array<AuditLogEntryStructure>;
-	guildScheduledEvents: Array<GuildScheduledEventStructure>;
+export interface AuditLogStructure {
+	audit_log_entries: Array<AuditLogEntryStructure>;
+	guild_scheduled_events: Array<GuildScheduledEventStructure>;
 	integrations: Array<IntegrationStructure>;
 	threads: Array<ChannelStructure>;
 	users: Array<UserStructure>;
 	webhooks: Array<WebhookStructure>;
 };
 
-export type AuditLogEntryStructure = {
-	targetId: string;
-	changes: Array<AuditLogChangeStructure>;
-	userId: string;
-	id: string;
-	actionType: AuditLogEvents;
-	options: OptionalAuditEntryInfo;
-	reason: string;
+export interface AuditLogEntryStructure {
+	target_id: string | null;
+	changes?: Array<AuditLogChangeStructure>;
+	user_id: string | bigint | null;
+	id: string | bigint;
+	action_type: AuditLogEvents;
+	options?: OptionalAuditEntryInfo;
+	reason?: string;
 };
 
-export type AuditLogChangeStructure = {
-	newValue: AuditLogChangeKey;
-	oldValue: AuditLogChangeKey;
+export interface AuditLogChangeStructure {
+	new_value?: AuditLogChangeKey;
+	old_value?: AuditLogChangeKey;
 	key: string;
 };
 
-export function getGuildAuditLog_kzi668a3(guildId, ): Promise<AuditLogStructure> {
-	return fetch("/guilds/" + guildId + "/audit-logs", {
+export function getGuildAuditLog(guildId: string, query: {
+	user_id: string | bigint;
+	action_type: number;
+	before: string | bigint;
+	limit: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/audit-logs",
+		query: "&user_id=" + query.user_id + "&action_type=" + query.action_type + "&before=" + query.before + "&limit=" + query.limit + "",
+	}
 }
 
-// Channel
-export type ChannelTypes = {
-	"GuildText": 0,
-	"Dm": 1,
-	"GuildVoice": 2,
-	"GroupDm": 3,
-	"GuildCategory": 4,
-	"GuildNews": 5,
-	"GuildStore": 6,
-	"GuildNewsThread": 10,
-	"GuildPublicThread": 11,
-	"GuildPrivateThread": 12,
-	"GuildStageVoice": 13,
+/*
+	Channel
+*/
+
+export enum ChannelTypes {
+	"GuildText" = 0,
+	"Dm" = 1,
+	"GuildVoice" = 2,
+	"GroupDm" = 3,
+	"GuildCategory" = 4,
+	"GuildNews" = 5,
+	"GuildStore" = 6,
+	"GuildNewsThread" = 10,
+	"GuildPublicThread" = 11,
+	"GuildPrivateThread" = 12,
+	"GuildStageVoice" = 13,
 };
 
-export type VideoQualityModes = {
-	"Auto": 1,
-	"Full": 2,
+export enum VideoQualityModes {
+	"Auto" = 1,
+	"Full" = 2,
 };
 
-export type MessageTypes = {
-	"Default": 0,
-	"RecipientAdd": 1,
-	"RecipientRemove": 2,
-	"Call": 3,
-	"ChannelNameChange": 4,
-	"ChannelIconChange": 5,
-	"ChannelPinnedMessage": 6,
-	"GuildMemberJoin": 7,
-	"UserPremiumGuildSubscription": 8,
-	"UserPremiumGuildSubscriptionTier1": 9,
-	"UserPremiumGuildSubscriptionTier2": 10,
-	"UserPremiumGuildSubscriptionTier3": 11,
-	"ChannelFollowAdd": 12,
-	"GuildDiscoveryDisqualified": 14,
-	"GuildDiscoveryRequalified": 15,
-	"GuildDiscoveryGracePeriodInitialWarning": 16,
-	"GuildDiscoveryGracePeriodFinalWarning": 17,
-	"ThreadCreated": 18,
-	"Reply": 19,
-	"ChatInputCommand": 20,
-	"ThreadStarterMessage": 21,
-	"GuildInviteReminder": 22,
-	"ContextMenuCommand": 23,
+export enum MessageTypes {
+	"Default" = 0,
+	"RecipientAdd" = 1,
+	"RecipientRemove" = 2,
+	"Call" = 3,
+	"ChannelNameChange" = 4,
+	"ChannelIconChange" = 5,
+	"ChannelPinnedMessage" = 6,
+	"GuildMemberJoin" = 7,
+	"UserPremiumGuildSubscription" = 8,
+	"UserPremiumGuildSubscriptionTier1" = 9,
+	"UserPremiumGuildSubscriptionTier2" = 10,
+	"UserPremiumGuildSubscriptionTier3" = 11,
+	"ChannelFollowAdd" = 12,
+	"GuildDiscoveryDisqualified" = 14,
+	"GuildDiscoveryRequalified" = 15,
+	"GuildDiscoveryGracePeriodInitialWarning" = 16,
+	"GuildDiscoveryGracePeriodFinalWarning" = 17,
+	"ThreadCreated" = 18,
+	"Reply" = 19,
+	"ChatInputCommand" = 20,
+	"ThreadStarterMessage" = 21,
+	"GuildInviteReminder" = 22,
+	"ContextMenuCommand" = 23,
 };
 
-export type MessageActivityTypes = {
-	"Join": 1,
-	"Spectate": 2,
-	"Listen": 3,
-	"JoinRequest": 5,
+export enum MessageActivityTypes {
+	"Join" = 1,
+	"Spectate" = 2,
+	"Listen" = 3,
+	"JoinRequest" = 5,
 };
 
-export type MessageFlags = {
-	"Crossposted": 1,
-	"IsCrosspost": 2,
-	"SuppressEmbeds": 4,
-	"SourceMessageDeleted": 8,
-	"Urgent": 16,
-	"HasThread": 32,
-	"Ephemeral": 64,
-	"Loading": 128,
-	"FailedToMentionSomeRolesInThread": 256,
+export enum MessageFlags {
+	"Crossposted" = 1,
+	"IsCrosspost" = 2,
+	"SuppressEmbeds" = 4,
+	"SourceMessageDeleted" = 8,
+	"Urgent" = 16,
+	"HasThread" = 32,
+	"Ephemeral" = 64,
+	"Loading" = 128,
+	"FailedToMentionSomeRolesInThread" = 256,
 };
 
-export type EmbedTypes = {
-	"Rich": "rich",
-	"Image": "image",
-	"Video": "video",
-	"Gifv": "gifv",
-	"Article": "article",
-	"Link": "link",
+export enum EmbedTypes {
+	"Rich" = "rich",
+	"Image" = "image",
+	"Video" = "video",
+	"Gifv" = "gifv",
+	"Article" = "article",
+	"Link" = "link",
 };
 
-export type AllowedMentionTypes = {
-	"RoleMentions": "roles",
-	"UserMentions": "users",
-	"EveryoneMentions": "everyone",
+export enum AllowedMentionTypes {
+	"RoleMentions" = "roles",
+	"UserMentions" = "users",
+	"EveryoneMentions" = "everyone",
 };
 
-export type ChannelStructure = {
-	id: string;
+export interface ChannelStructure {
+	id: string | bigint;
 	type: number;
-	guildId: string;
-	position: number;
-	permissionOverwrites: Array<OverwriteStructure>;
-	name: string;
-	topic: string;
-	nsfw: boolean;
-	lastMessageId: string;
-	bitrate: number;
-	userLimit: number;
-	rateLimitPerUser: number;
-	recipients: Array<UserStructure>;
-	icon: string;
-	ownerId: string;
-	applicationId: string;
-	parentId: string;
-	lastPinTimestamp: Date;
-	rtcRegion: string;
-	videoQualityMode: number;
-	messageCount: number;
-	memberCount: number;
-	threadMetadata: ThreadMetadataStructure;
-	member: ThreadMemberStructure;
-	defaultAutoArchiveDuration: number;
-	permissions: string;
+	guild_id?: string | bigint;
+	position?: number;
+	permission_overwrites?: Array<OverwriteStructure>;
+	name?: string;
+	topic?: string | null;
+	nsfw?: boolean;
+	last_message_id?: string | bigint | null;
+	bitrate?: number;
+	user_limit?: number;
+	rate_limit_per_user: number;
+	recipients?: Array<UserStructure>;
+	icon?: string | null;
+	owner_id?: string | bigint;
+	application_id?: string | bigint;
+	parent_id?: string | bigint | null;
+	last_pin_timestamp?: Date | null;
+	rtc_region?: string | null;
+	video_quality_mode?: number;
+	message_count?: number;
+	member_count?: number;
+	thread_metadata?: ThreadMetadataStructure;
+	member?: ThreadMemberStructure;
+	default_auto_archive_duration?: number;
+	permissions?: string;
 };
 
-export type MessageStructure = {
-	id: string;
-	channelId: string;
-	guildId: string;
+export interface MessageStructure {
+	id: string | bigint;
+	channel_id: string | bigint;
+	guild_id?: string | bigint;
 	author: UserStructure;
 	member: GuildMemberStructure;
 	content: string;
 	timestamp: Date;
-	editedTimestamp: Date;
+	edited_timestamp: Date | null;
 	tts: boolean;
-	mentionEveryone: boolean;
+	mention_everyone: boolean;
 	mentions: Array<UserStructure>;
-	mentionRoles: any;
-	mentionChannels: Array<ChannelMentionStructure>;
+	mention_roles: any /* role-object */;
+	mention_channels: Array<ChannelMentionStructure>;
 	attachments: Array<AttachmentStructure>;
 	embeds: Array<EmbedStructure>;
-	reactions: Array<ReactionStructure>;
-	nonce: number | string;
+	reactions?: Array<ReactionStructure>;
+	nonce?: number | string;
 	pinned: boolean;
-	webhookId: string;
+	webhook_id?: string | bigint;
 	type: number;
-	activity: MessageActivityStructure;
-	application: ApplicationStructure;
-	applicationId: string;
-	messageReference: MessageReferenceStructure;
-	flags: number;
-	referencedMessage: MessageStructure;
-	interaction: any;
-	thread: ChannelStructure;
-	components: any;
-	stickerItems: Array<StickerItemStructure>;
-	stickers: Array<StickerStructure>;
+	activity?: MessageActivityStructure;
+	application?: ApplicationStructure;
+	application_id?: string | bigint;
+	message_reference?: MessageReferenceStructure;
+	flags?: number;
+	referenced_message: MessageStructure;
+	interaction?: any /* message-interaction-object-message-interaction-structure */;
+	thread?: ChannelStructure;
+	components?: any /* component-object */;
+	sticker_items?: Array<StickerItemStructure>;
+	stickers?: Array<StickerStructure>;
 };
 
-export type MessageActivityStructure = {
+export interface MessageActivityStructure {
 	type: number;
-	partyId: string;
+	party_id?: string;
 };
 
-export type MessageReferenceStructure = {
-	messageId: string;
-	channelId: string;
-	guildId: string;
-	failIfNotExists: boolean;
+export interface MessageReferenceStructure {
+	message_id?: string | bigint;
+	channel_id: string | bigint;
+	guild_id?: string | bigint;
+	fail_if_not_exists?: boolean;
 };
 
-export type FollowedChannelStructure = {
-	channelId: string;
-	webhookId: string;
+export interface FollowedChannelStructure {
+	channel_id: string | bigint;
+	webhook_id: string | bigint;
 };
 
-export type ReactionStructure = {
+export interface ReactionStructure {
 	count: number;
 	me: boolean;
 	emoji: EmojiStructure;
 };
 
-export type OverwriteStructure = {
-	id: string;
+export interface OverwriteStructure {
+	id: string | bigint;
 	type: number;
 	allow: string;
 	deny: string;
 };
 
-export type ThreadMetadataStructure = {
+export interface ThreadMetadataStructure {
 	archived: boolean;
-	autoArchiveDuration: number;
-	archiveTimestamp: Date;
+	auto_archive_duration: number;
+	archive_timestamp: Date;
 	locked: boolean;
-	invitable: boolean;
-	createTimestamp: Date;
+	invitable?: boolean;
+	create_timestamp?: Date;
 };
 
-export type ThreadMemberStructure = {
-	id: string;
-	userId: string;
-	joinTimestamp: Date;
+export interface ThreadMemberStructure {
+	id: string | bigint;
+	user_id: string | bigint;
+	join_timestamp: Date;
 	flags: number;
 };
 
-export type EmbedStructure = {
-	title: string;
-	type: string;
-	description: string;
-	url: string;
-	timestamp: Date;
-	color: number;
-	footer: EmbedFooterStructure;
-	image: EmbedImageStructure;
-	thumbnail: EmbedThumbnailStructure;
-	video: EmbedVideoStructure;
-	provider: EmbedProviderStructure;
-	author: EmbedAuthorStructure;
-	fields: Array<EmbedFieldStructure>;
+export interface EmbedStructure {
+	title?: string;
+	type?: string;
+	description?: string;
+	url?: string;
+	timestamp?: Date;
+	color?: number;
+	footer?: EmbedFooterStructure;
+	image?: EmbedImageStructure;
+	thumbnail?: EmbedThumbnailStructure;
+	video?: EmbedVideoStructure;
+	provider?: EmbedProviderStructure;
+	author?: EmbedAuthorStructure;
+	fields?: Array<EmbedFieldStructure>;
 };
 
-export type EmbedThumbnailStructure = {
+export interface EmbedThumbnailStructure {
 	url: string;
-	proxyUrl: string;
-	height: number;
-	width: number;
+	proxy_url?: string;
+	height?: number;
+	width?: number;
 };
 
-export type EmbedVideoStructure = {
-	url: string;
-	proxyUrl: string;
-	height: number;
-	width: number;
+export interface EmbedVideoStructure {
+	url?: string;
+	proxy_url?: string;
+	height?: number;
+	width?: number;
 };
 
-export type EmbedImageStructure = {
+export interface EmbedImageStructure {
 	url: string;
-	proxyUrl: string;
-	height: number;
-	width: number;
+	proxy_url?: string;
+	height?: number;
+	width?: number;
 };
 
-export type EmbedProviderStructure = {
+export interface EmbedProviderStructure {
+	name?: string;
+	url?: string;
+};
+
+export interface EmbedAuthorStructure {
 	name: string;
-	url: string;
+	url?: string;
+	icon_url?: string;
+	proxy_icon_url?: string;
 };
 
-export type EmbedAuthorStructure = {
-	name: string;
-	url: string;
-	iconUrl: string;
-	proxyIconUrl: string;
-};
-
-export type EmbedFooterStructure = {
+export interface EmbedFooterStructure {
 	text: string;
-	iconUrl: string;
-	proxyIconUrl: string;
+	icon_url?: string;
+	proxy_icon_url?: string;
 };
 
-export type EmbedFieldStructure = {
+export interface EmbedFieldStructure {
 	name: string;
 	value: string;
-	inline: boolean;
+	inline?: boolean;
 };
 
-export type AttachmentStructure = {
-	id: string;
+export interface AttachmentStructure {
+	id: string | bigint;
 	filename: string;
-	description: string;
-	contentType: string;
+	description?: string;
+	content_type?: string;
 	size: number;
 	url: string;
-	proxyUrl: string;
-	height: number;
-	width: number;
+	proxy_url: string;
+	height?: number | null;
+	width?: number | null;
 	ephemeral: boolean;
 };
 
-export type ChannelMentionStructure = {
-	id: string;
-	guildId: string;
+export interface ChannelMentionStructure {
+	id: string | bigint;
+	guild_id: string | bigint;
 	type: number;
 	name: string;
 };
 
-export type AllowedMentionsStructure = {
+export interface AllowedMentionsStructure {
 	parse: Array<AllowedMentionTypes>;
-	roles: string;
-	users: string;
-	repliedUser: boolean;
+	roles: string | bigint;
+	users: string | bigint;
+	replied_user: boolean;
 };
 
-export function getChannel_kzi668a4(channelId, ): Promise<ChannelStructure> {
-	return fetch("/channels/" + channelId + "", {
+export function getChannel(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "",
+	}
 }
 
-export function modifyChannel_kzi668a4(channelId, ): Promise<ChannelStructure> {
-	return fetch("/channels/" + channelId + "", {
+export function modifyChannel(channelId: string, ){
+	return {
 		method: "PATCH",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "",
+	}
 }
 
-export function deleteCloseChannel_kzi668a4(channelId, ): Promise<ChannelStructure> {
-	return fetch("/channels/" + channelId + "", {
+export function deleteCloseChannel(channelId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "",
+	}
 }
 
-export function getChannelMessages_kzi668a4(channelId, ): Promise<Array<MessageStructure>> {
-	return fetch("/channels/" + channelId + "/messages", {
+export function getChannelMessages(channelId: string, query: {
+	around: string | bigint;
+	before: string | bigint;
+	after: string | bigint;
+	limit: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages",
+		query: "&around=" + query.around + "&before=" + query.before + "&after=" + query.after + "&limit=" + query.limit + "",
+	}
 }
 
-export function getChannelMessage_kzi668a4(channelId, messageId, ): Promise<MessageStructure> {
-	return fetch("/channels/" + channelId + "/messages/" + messageId + "", {
+export function getChannelMessage(channelId: string, messageId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages/" + messageId + "",
+	}
 }
 
-export function createMessage_kzi668a4(channelId, body: {
+export function createMessage(channelId: string, body: {
 	content: string;
 	tts: boolean;
 	embeds: Array<EmbedStructure>;
 	embed: EmbedStructure;
-	allowedMentions: AllowedMentionsStructure;
-	messageReference: MessageReferenceStructure;
-	components: any;
-	stickerIds: string;
+	allowed_mentions: AllowedMentionsStructure;
+	message_reference: MessageReferenceStructure;
+	components: any /* component-object */;
+	sticker_ids: string | bigint;
 	files: "balls";
-	payloadJson: string;
+	payload_json: string;
 	attachments: Array<AttachmentStructure>;
 	flags: number;
-}, ): Promise<MessageStructure> {
-	return fetch("/channels/" + channelId + "/messages", {
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			content: body.content,
-			tts: body.tts,
-			embeds: body.embeds,
-			embed: body.embed,
-			allowedMentions: body.allowedMentions,
-			messageReference: body.messageReference,
-			components: body.components,
-			stickerIds: body.stickerIds,
-			files: body.files,
-			payloadJson: body.payloadJson,
-			attachments: body.attachments,
-			flags: body.flags,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages",
+		body: body,
+	}
 }
 
-export function crosspostMessage_kzi668a4(channelId, messageId, ): Promise<string> {
-	return fetch("/channels/" + channelId + "/messages/" + messageId + "/crosspost", {
+export function crosspostMessage(channelId: string, messageId: string, ){
+	return {
 		method: "POST",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages/" + messageId + "/crosspost",
+	}
 }
 
-export function deleteAllReactions_kzi668a4(channelId, messageId, ): Promise<string> {
-	return fetch("/channels/" + channelId + "/messages/" + messageId + "/reactions", {
+export function deleteAllReactions(channelId: string, messageId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions",
+	}
 }
 
-export function deleteMessage_kzi668a4(channelId, messageId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/messages/" + messageId + "", {
+export function deleteMessage(channelId: string, messageId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages/" + messageId + "",
+	}
 }
 
-export function bulkDeleteMessages_kzi668a4(channelId, body: {
-	messages: string;
-}, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/messages/bulk-delete", {
+export function bulkDeleteMessages(channelId: string, body: {
+	messages: string | bigint;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			messages: body.messages,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/messages/bulk-delete",
+		body: body,
+	}
 }
 
-export function editChannelPermissions_kzi668a4(channelId, overwriteId, body: {
-	allow: string;
-	deny: string;
+export function editChannelPermissions(channelId: string, overwriteId: string, body: {
+	allow?: string | null;
+	deny?: string | null;
 	type: number;
-}, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/permissions/" + overwriteId + "", {
+}, ){
+	return {
 		method: "PUT",
-		body: JSON.stringify({
-			allow: body.allow,
-			deny: body.deny,
-			type: body.type,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/permissions/" + overwriteId + "",
+		body: body,
+	}
 }
 
-export function getChannelInvites_kzi668a4(channelId, ): Promise<Array<InviteStructure>> {
-	return fetch("/channels/" + channelId + "/invites", {
+export function getChannelInvites(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/invites",
+	}
 }
 
-export function createChannelInvite_kzi668a4(channelId, body: {
-	maxAge: number;
-	maxUses: number;
+export function createChannelInvite(channelId: string, body: {
+	max_age: number;
+	max_uses: number;
 	temporary: boolean;
 	unique: boolean;
-	targetType: number;
-	targetUserId: string;
-	targetApplicationId: string;
-}, ): Promise<InviteStructure> {
-	return fetch("/channels/" + channelId + "/invites", {
+	target_type: number;
+	target_user_id: string | bigint;
+	target_application_id: string | bigint;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			maxAge: body.maxAge,
-			maxUses: body.maxUses,
-			temporary: body.temporary,
-			unique: body.unique,
-			targetType: body.targetType,
-			targetUserId: body.targetUserId,
-			targetApplicationId: body.targetApplicationId,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/invites",
+		body: body,
+	}
 }
 
-export function deleteChannelPermission_kzi668a4(channelId, overwriteId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/permissions/" + overwriteId + "", {
+export function deleteChannelPermission(channelId: string, overwriteId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/permissions/" + overwriteId + "",
+	}
 }
 
-export function followNewsChannel_kzi668a4(channelId, body: {
-	webhookChannelId: string;
-}, ): Promise<FollowedChannelStructure> {
-	return fetch("/channels/" + channelId + "/followers", {
+export function followNewsChannel(channelId: string, body: {
+	webhook_channel_id: string | bigint;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			webhookChannelId: body.webhookChannelId,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/followers",
+		body: body,
+	}
 }
 
-export function triggerTypingIndicator_kzi668a4(channelId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/typing", {
+export function triggerTypingIndicator(channelId: string, ){
+	return {
 		method: "POST",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/typing",
+	}
 }
 
-export function getPinnedMessages_kzi668a5(channelId, ): Promise<Array<MessageStructure>> {
-	return fetch("/channels/" + channelId + "/pins", {
+export function getPinnedMessages(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/pins",
+	}
 }
 
-export function pinMessage_kzi668a5(channelId, messageId, ): Promise<string> {
-	return fetch("/channels/" + channelId + "/pins/" + messageId + "", {
+export function pinMessage(channelId: string, messageId: string, ){
+	return {
 		method: "PUT",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/pins/" + messageId + "",
+	}
 }
 
-export function groupDmRemoveRecipient_kzi668a5(channelId, userId, ): Promise<string> {
-	return fetch("/channels/" + channelId + "/recipients/" + userId + "", {
+export function groupDmRemoveRecipient(channelId: string, userId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/recipients/" + userId + "",
+	}
 }
 
-export function startThreadWithoutMessage_kzi668a5(channelId, body: {
+export function startThreadWithoutMessage(channelId: string, body: {
 	name: string;
-	autoArchiveDuration: number;
+	auto_archive_duration: number;
 	type: number;
-	invitable: boolean;
-	rateLimitPerUser: number;
-}, ): Promise<ChannelStructure> {
-	return fetch("/channels/" + channelId + "/threads", {
+	invitable?: boolean;
+	rate_limit_per_user?: number | null;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			autoArchiveDuration: body.autoArchiveDuration,
-			type: body.type,
-			invitable: body.invitable,
-			rateLimitPerUser: body.rateLimitPerUser,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/threads",
+		body: body,
+	}
 }
 
-export function joinThread_kzi668a5(channelId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/thread-members/@me", {
+export function joinThread(channelId: string, ){
+	return {
 		method: "PUT",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members/@me",
+	}
 }
 
-export function addThreadMember_kzi668a5(channelId, userId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/thread-members/" + userId + "", {
+export function addThreadMember(channelId: string, userId: string, ){
+	return {
 		method: "PUT",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members/" + userId + "",
+	}
 }
 
-export function leaveThread_kzi668a5(channelId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/thread-members/@me", {
+export function leaveThread(channelId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members/@me",
+	}
 }
 
-export function removeThreadMember_kzi668a5(channelId, userId, ): Promise<any> {
-	return fetch("/channels/" + channelId + "/thread-members/" + userId + "", {
+export function removeThreadMember(channelId: string, userId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members/" + userId + "",
+	}
 }
 
-export function getThreadMember_kzi668a5(channelId, userId, ): Promise<ThreadMemberStructure> {
-	return fetch("/channels/" + channelId + "/thread-members/" + userId + "", {
+export function getThreadMember(channelId: string, userId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members/" + userId + "",
+	}
 }
 
-export function listThreadMembers_kzi668a5(channelId, ): Promise<Array<ThreadMemberStructure>> {
-	return fetch("/channels/" + channelId + "/thread-members", {
+export function listThreadMembers(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/thread-members",
+	}
 }
 
-export function listActiveThreads_kzi668a5(channelId, ): Promise<Array<ChannelStructure>> {
-	return fetch("/channels/" + channelId + "/threads/active", {
+export function listActiveThreads(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/threads/active",
+	}
 }
 
-export function listPublicArchivedThreads_kzi668a5(channelId, ): Promise<ChannelTypes> {
-	return fetch("/channels/" + channelId + "/threads/archived/public", {
+export function listPublicArchivedThreads(channelId: string, query: {
+	before?: Date;
+	limit?: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/threads/archived/public",
+		query: "&before=" + query.before + "&limit=" + query.limit + "",
+	}
 }
 
-export function listPrivateArchivedThreads_kzi668a5(channelId, ): Promise<ChannelTypes> {
-	return fetch("/channels/" + channelId + "/threads/archived/private", {
+export function listPrivateArchivedThreads(channelId: string, query: {
+	before?: Date;
+	limit?: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/threads/archived/private",
+		query: "&before=" + query.before + "&limit=" + query.limit + "",
+	}
 }
 
-export function listJoinedPrivateArchivedThreads_kzi668a5(channelId, ): Promise<ChannelTypes> {
-	return fetch("/channels/" + channelId + "/users/@me/threads/archived/private", {
+export function listJoinedPrivateArchivedThreads(channelId: string, query: {
+	before?: string | bigint;
+	limit?: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/users/@me/threads/archived/private",
+		query: "&before=" + query.before + "&limit=" + query.limit + "",
+	}
 }
 
-// Emoji
-export type EmojiStructure = {
-	id: string;
-	name: string;
-	roles: any;
-	user: UserStructure;
-	requireColons: boolean;
-	managed: boolean;
-	animated: boolean;
-	available: boolean;
+/*
+	Emoji
+*/
+
+export interface EmojiStructure {
+	id: string | bigint | null;
+	name: string | null;
+	roles?: any /* role-object */;
+	user?: UserStructure;
+	require_colons?: boolean;
+	managed?: boolean;
+	animated?: boolean;
+	available?: boolean;
 };
 
-export function listGuildEmojis_kzi668a5(guildId, ): Promise<Array<EmojiStructure>> {
-	return fetch("/guilds/" + guildId + "/emojis", {
+export function listGuildEmojis(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/emojis",
+	}
 }
 
-export function getGuildEmoji_kzi668a5(guildId, emojiId, ): Promise<EmojiStructure> {
-	return fetch("/guilds/" + guildId + "/emojis/" + emojiId + "", {
+export function getGuildEmoji(guildId: string, emojiId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
+	}
 }
 
-export function createGuildEmoji_kzi668a5(guildId, body: {
+export function createGuildEmoji(guildId: string, body: {
 	name: string;
-	image: any;
-	roles: string;
-}, ): Promise<EmojiStructure> {
-	return fetch("/guilds/" + guildId + "/emojis", {
+	image: any /* image-data */;
+	roles: string | bigint;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			image: body.image,
-			roles: body.roles,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/emojis",
+		body: body,
+	}
 }
 
-export function modifyGuildEmoji_kzi668a5(guildId, emojiId, body: {
+export function modifyGuildEmoji(guildId: string, emojiId: string, body: {
 	name: string;
-	roles: string;
-}, ): Promise<EmojiStructure> {
-	return fetch("/guilds/" + guildId + "/emojis/" + emojiId + "", {
+	roles: string | bigint | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			name: body.name,
-			roles: body.roles,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
+		body: body,
+	}
 }
 
-export function deleteGuildEmoji_kzi668a5(guildId, emojiId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/emojis/" + emojiId + "", {
+export function deleteGuildEmoji(guildId: string, emojiId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
+	}
 }
 
-// Guild
-export type DefaultMessageNotificationLevel = {
-	"AllMessages": 0,
-	"OnlyMentions": 1,
+/*
+	Guild
+*/
+
+export enum DefaultMessageNotificationLevel {
+	"AllMessages" = 0,
+	"OnlyMentions" = 1,
 };
 
-export type ExplicitContentFilterLevel = {
-	"Disabled": "DISABLED",
-	"MembersWithoutRoles": "MEMBERS_WITHOUT_ROLES",
-	"AllMembers": "ALL_MEMBERS",
+export enum ExplicitContentFilterLevel {
+	"Disabled" = "DISABLED",
+	"MembersWithoutRoles" = "MEMBERS_WITHOUT_ROLES",
+	"AllMembers" = "ALL_MEMBERS",
 };
 
-export type MfaLevel = {
-	"None": "NONE",
-	"Elevated": "ELEVATED",
+export enum MfaLevel {
+	"None" = "NONE",
+	"Elevated" = "ELEVATED",
 };
 
-export type VerificationLevel = {
-	"None": "NONE",
-	"Low": "LOW",
-	"Medium": "MEDIUM",
-	"High": "HIGH",
-	"VeryHigh": "VERY_HIGH",
+export enum VerificationLevel {
+	"None" = "NONE",
+	"Low" = "LOW",
+	"Medium" = "MEDIUM",
+	"High" = "HIGH",
+	"VeryHigh" = "VERY_HIGH",
 };
 
-export type GuildNsfwLevel = {
-	"Default": 0,
-	"Explicit": 1,
-	"Safe": 2,
-	"AgeRestricted": 3,
+export enum GuildNsfwLevel {
+	"Default" = 0,
+	"Explicit" = 1,
+	"Safe" = 2,
+	"AgeRestricted" = 3,
 };
 
-export type PremiumTier = {
-	"None": "NONE",
-	"Tier1": "TIER_1",
-	"Tier2": "TIER_2",
-	"Tier3": "TIER_3",
+export enum PremiumTier {
+	"None" = "NONE",
+	"Tier1" = "TIER_1",
+	"Tier2" = "TIER_2",
+	"Tier3" = "TIER_3",
 };
 
-export type SystemChannelFlags = {
-	"SuppressJoinNotifications": 1,
-	"SuppressPremiumSubscriptions": 2,
-	"SuppressGuildReminderNotifications": 4,
-	"SuppressJoinNotificationReplies": 8,
+export enum SystemChannelFlags {
+	"SuppressJoinNotifications" = 1,
+	"SuppressPremiumSubscriptions" = 2,
+	"SuppressGuildReminderNotifications" = 4,
+	"SuppressJoinNotificationReplies" = 8,
 };
 
-export type GuildFeatures = {
-	"AnimatedIcon": "ANIMATED_ICON",
-	"Banner": "BANNER",
-	"Commerce": "COMMERCE",
-	"Community": "COMMUNITY",
-	"Discoverable": "DISCOVERABLE",
-	"Featurable": "FEATURABLE",
-	"InviteSplash": "INVITE_SPLASH",
-	"MemberVerificationGateEnabled": "MEMBER_VERIFICATION_GATE_ENABLED",
-	"MonetizationEnabled": "MONETIZATION_ENABLED",
-	"MoreStickers": "MORE_STICKERS",
-	"News": "NEWS",
-	"Partnered": "PARTNERED",
-	"PreviewEnabled": "PREVIEW_ENABLED",
-	"PrivateThreads": "PRIVATE_THREADS",
-	"RoleIcons": "ROLE_ICONS",
-	"SevenDayThreadArchive": "SEVEN_DAY_THREAD_ARCHIVE",
-	"ThreeDayThreadArchive": "THREE_DAY_THREAD_ARCHIVE",
-	"TicketedEventsEnabled": "TICKETED_EVENTS_ENABLED",
-	"VanityUrl": "VANITY_URL",
-	"Verified": "VERIFIED",
-	"VipRegions": "VIP_REGIONS",
-	"WelcomeScreenEnabled": "WELCOME_SCREEN_ENABLED",
+export enum GuildFeatures {
+	"AnimatedIcon" = "ANIMATED_ICON",
+	"Banner" = "BANNER",
+	"Commerce" = "COMMERCE",
+	"Community" = "COMMUNITY",
+	"Discoverable" = "DISCOVERABLE",
+	"Featurable" = "FEATURABLE",
+	"InviteSplash" = "INVITE_SPLASH",
+	"MemberVerificationGateEnabled" = "MEMBER_VERIFICATION_GATE_ENABLED",
+	"MonetizationEnabled" = "MONETIZATION_ENABLED",
+	"MoreStickers" = "MORE_STICKERS",
+	"News" = "NEWS",
+	"Partnered" = "PARTNERED",
+	"PreviewEnabled" = "PREVIEW_ENABLED",
+	"PrivateThreads" = "PRIVATE_THREADS",
+	"RoleIcons" = "ROLE_ICONS",
+	"SevenDayThreadArchive" = "SEVEN_DAY_THREAD_ARCHIVE",
+	"ThreeDayThreadArchive" = "THREE_DAY_THREAD_ARCHIVE",
+	"TicketedEventsEnabled" = "TICKETED_EVENTS_ENABLED",
+	"VanityUrl" = "VANITY_URL",
+	"Verified" = "VERIFIED",
+	"VipRegions" = "VIP_REGIONS",
+	"WelcomeScreenEnabled" = "WELCOME_SCREEN_ENABLED",
 };
 
-export type IntegrationExpireBehaviors = {
-	"RemoveRole": 0,
-	"Kick": 1,
+export enum IntegrationExpireBehaviors {
+	"RemoveRole" = 0,
+	"Kick" = 1,
 };
 
-export type GuildStructure = {
-	id: string;
+export interface GuildStructure {
+	id: string | bigint;
 	name: string;
-	icon: string;
-	iconHash: string;
-	splash: string;
-	discoverySplash: string;
+	icon: string | null;
+	icon_hash?: string | null;
+	splash: string | null;
+	discovery_splash: string | null;
 	owner: boolean;
-	ownerId: string;
+	owner_id: string | bigint;
 	permissions: string;
-	region: string;
-	afkChannelId: string;
-	afkTimeout: number;
-	widgetEnabled: boolean;
-	widgetChannelId: string;
-	verificationLevel: number;
-	defaultMessageNotifications: number;
-	explicitContentFilter: number;
-	roles: any;
+	region: string | null;
+	afk_channel_id: string | bigint | null;
+	afk_timeout: number;
+	widget_enabled?: boolean;
+	widget_channel_id?: string | bigint | null;
+	verification_level: number;
+	default_message_notifications: number;
+	explicit_content_filter: number;
+	roles: any /* role-object */;
 	emojis: Array<EmojiStructure>;
 	features: Array<GuildFeatures>;
-	mfaLevel: number;
-	applicationId: string;
-	systemChannelId: string;
-	systemChannelFlags: number;
-	rulesChannelId: string;
-	joinedAt: Date;
+	mfa_level: number;
+	application_id: string | bigint | null;
+	system_channel_id: string | bigint | null;
+	system_channel_flags: number;
+	rules_channel_id: string | bigint | null;
+	joined_at: Date;
 	large: boolean;
 	unavailable: boolean;
-	memberCount: number;
-	voiceStates: Array<VoiceStateStructure>;
+	member_count: number;
+	voice_states: Array<VoiceStateStructure>;
 	members: Array<GuildMemberStructure>;
 	channels: Array<ChannelStructure>;
 	threads: Array<ChannelStructure>;
-	presences: any;
-	maxPresences: number;
-	maxMembers: number;
-	vanityUrlCode: string;
-	description: string;
-	banner: string;
-	premiumTier: number;
-	premiumSubscriptionCount: number;
-	preferredLocale: string;
-	publicUpdatesChannelId: string;
-	maxVideoChannelUsers: number;
-	approximateMemberCount: number;
-	approximatePresenceCount: number;
-	welcomeScreen: WelcomeScreenStructure;
-	nsfwLevel: number;
-	stageInstances: Array<StageInstanceStructure>;
-	stickers: Array<StickerStructure>;
-	guildScheduledEvents: Array<GuildScheduledEventStructure>;
-	premiumProgressBarEnabled: boolean;
+	presences: any /* presence-update */;
+	max_presences?: number | null;
+	max_members?: number;
+	vanity_url_code: string | null;
+	description: string | null;
+	banner: string | null;
+	premium_tier: number;
+	premium_subscription_count?: number;
+	preferred_locale: string;
+	public_updates_channel_id: string | bigint | null;
+	max_video_channel_users?: number;
+	approximate_member_count?: number;
+	approximate_presence_count?: number;
+	welcome_screen?: WelcomeScreenStructure;
+	nsfw_level: number;
+	stage_instances: Array<StageInstanceStructure>;
+	stickers?: Array<StickerStructure>;
+	guild_scheduled_events: Array<GuildScheduledEventStructure>;
+	premium_progress_bar_enabled: boolean;
 };
 
-export type GuildPreviewStructure = {
-	id: string;
+export interface GuildPreviewStructure {
+	id: string | bigint;
 	name: string;
-	icon: string;
-	splash: string;
-	discoverySplash: string;
+	icon: string | null;
+	splash: string | null;
+	discovery_splash: string | null;
 	emojis: Array<EmojiStructure>;
 	features: Array<GuildFeatures>;
-	approximateMemberCount: number;
-	approximatePresenceCount: number;
-	description: string;
+	approximate_member_count: number;
+	approximate_presence_count: number;
+	description: string | null;
 	stickers: Array<StickerStructure>;
 };
 
-export type GuildWidgetSettingsStructure = {
+export interface GuildWidgetSettingsStructure {
 	enabled: boolean;
-	channelId: string;
+	channel_id: string | bigint | null;
 };
 
-export type GetGuildWidgetStructure = {
-	id: string;
+export interface GetGuildWidgetStructure {
+	id: string | bigint;
 	name: string;
-	instantInvite: string;
+	instant_invite: string | null;
 	channels: Array<ChannelStructure>;
 	members: Array<UserStructure>;
-	presenceCount: number;
+	presence_count: number;
 };
 
-export type GuildMemberStructure = {
-	user: UserStructure;
-	nick: string;
-	avatar: string;
-	roles: string;
-	joinedAt: Date;
-	premiumSince: Date;
+export interface GuildMemberStructure {
+	user?: UserStructure;
+	nick?: string | null;
+	avatar?: string | null;
+	roles: string | bigint;
+	joined_at: Date;
+	premium_since?: Date | null;
 	deaf: boolean;
 	mute: boolean;
-	pending: boolean;
-	permissions: string;
-	communicationDisabledUntil: Date;
+	pending?: boolean;
+	permissions?: string;
+	communication_disabled_until?: Date | null;
 };
 
-export type IntegrationStructure = {
-	id: string;
+export interface IntegrationStructure {
+	id: string | bigint;
 	name: string;
 	type: string;
 	enabled: boolean;
 	syncing: boolean;
-	roleId: string;
-	enableEmoticons: boolean;
-	expireBehavior: IntegrationExpireBehaviors;
-	expireGracePeriod: number;
+	role_id: string | bigint;
+	enable_emoticons: boolean;
+	expire_behavior: IntegrationExpireBehaviors;
+	expire_grace_period: number;
 	user: UserStructure;
 	account: IntegrationAccountStructure;
-	syncedAt: Date;
-	subscriberCount: number;
+	synced_at: Date;
+	subscriber_count: number;
 	revoked: boolean;
-	application: IntegrationApplicationStructure;
+	application?: IntegrationApplicationStructure;
 };
 
-export type IntegrationAccountStructure = {
+export interface IntegrationAccountStructure {
 	id: string;
 	name: string;
 };
 
-export type IntegrationApplicationStructure = {
-	id: string;
+export interface IntegrationApplicationStructure {
+	id: string | bigint;
 	name: string;
-	icon: string;
+	icon: string | null;
 	description: string;
 	summary: string;
-	bot: UserStructure;
+	bot?: UserStructure;
 };
 
-export type BanStructure = {
-	reason: string;
+export interface BanStructure {
+	reason: string | null;
 	user: UserStructure;
 };
 
-export type WelcomeScreenStructure = {
-	description: string;
-	welcomeChannels: Array<WelcomeScreenChannelStructure>;
+export interface WelcomeScreenStructure {
+	description: string | null;
+	welcome_channels: Array<WelcomeScreenChannelStructure>;
 };
 
-export type WelcomeScreenChannelStructure = {
-	channelId: string;
+export interface WelcomeScreenChannelStructure {
+	channel_id: string | bigint;
 	description: string;
-	emojiId: string;
-	emojiName: string;
+	emoji_id: string | bigint | null;
+	emoji_name: string | null;
 };
 
-export function createGuild_kzi668a7(, body: {
+export function createGuild(body: {
 	name: string;
-	region: string;
-	icon: any;
-	verificationLevel: number;
-	defaultMessageNotifications: number;
-	explicitContentFilter: number;
-	roles: any;
-	channels: Array<ChannelStructure>;
-	afkChannelId: string;
-	afkTimeout: number;
-	systemChannelId: string;
-	systemChannelFlags: number;
-}, ): Promise<GuildStructure> {
-	return fetch("/guilds", {
+	region?: string | null;
+	icon?: any /* image-data */;
+	verification_level?: number;
+	default_message_notifications?: number;
+	explicit_content_filter?: number;
+	roles?: any /* role-object */;
+	channels?: Array<ChannelStructure>;
+	afk_channel_id?: string | bigint;
+	afk_timeout?: number;
+	system_channel_id?: string | bigint;
+	system_channel_flags?: number;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			region: body.region,
-			icon: body.icon,
-			verificationLevel: body.verificationLevel,
-			defaultMessageNotifications: body.defaultMessageNotifications,
-			explicitContentFilter: body.explicitContentFilter,
-			roles: body.roles,
-			channels: body.channels,
-			afkChannelId: body.afkChannelId,
-			afkTimeout: body.afkTimeout,
-			systemChannelId: body.systemChannelId,
-			systemChannelFlags: body.systemChannelFlags,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds",
+		body: body,
+	}
 }
 
-export function getGuild_kzi668a7(guildId, ): Promise<GuildStructure> {
-	return fetch("/guilds/" + guildId + "", {
+export function getGuild(guildId: string, query: {
+	with_counts?: boolean;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "",
+		query: "&with_counts=" + query.with_counts + "",
+	}
 }
 
-export function getGuildPreview_kzi668a7(guildId, ): Promise<GuildPreviewStructure> {
-	return fetch("/guilds/" + guildId + "/preview", {
+export function getGuildPreview(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/preview",
+	}
 }
 
-export function modifyGuild_kzi668a7(guildId, body: {
+export function modifyGuild(guildId: string, body: {
 	name: string;
-	region: string;
-	verificationLevel: number;
-	defaultMessageNotifications: number;
-	explicitContentFilter: number;
-	afkChannelId: string;
-	afkTimeout: number;
-	icon: any;
-	ownerId: string;
-	splash: any;
-	discoverySplash: any;
-	banner: any;
-	systemChannelId: string;
-	systemChannelFlags: number;
-	rulesChannelId: string;
-	publicUpdatesChannelId: string;
-	preferredLocale: string;
+	region: string | null;
+	verification_level: number | null;
+	default_message_notifications: number | null;
+	explicit_content_filter: number | null;
+	afk_channel_id: string | bigint | null;
+	afk_timeout: number;
+	icon: any /* image-data */;
+	owner_id: string | bigint;
+	splash: any /* image-data */;
+	discovery_splash: any /* image-data */;
+	banner: any /* image-data */;
+	system_channel_id: string | bigint | null;
+	system_channel_flags: number;
+	rules_channel_id: string | bigint | null;
+	public_updates_channel_id: string | bigint | null;
+	preferred_locale: string | null;
 	features: Array<GuildFeatures>;
-	description: string;
-	premiumProgressBarEnabled: boolean;
-}, ): Promise<GuildStructure> {
-	return fetch("/guilds/" + guildId + "", {
+	description: string | null;
+	premium_progress_bar_enabled: boolean;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			name: body.name,
-			region: body.region,
-			verificationLevel: body.verificationLevel,
-			defaultMessageNotifications: body.defaultMessageNotifications,
-			explicitContentFilter: body.explicitContentFilter,
-			afkChannelId: body.afkChannelId,
-			afkTimeout: body.afkTimeout,
-			icon: body.icon,
-			ownerId: body.ownerId,
-			splash: body.splash,
-			discoverySplash: body.discoverySplash,
-			banner: body.banner,
-			systemChannelId: body.systemChannelId,
-			systemChannelFlags: body.systemChannelFlags,
-			rulesChannelId: body.rulesChannelId,
-			publicUpdatesChannelId: body.publicUpdatesChannelId,
-			preferredLocale: body.preferredLocale,
-			features: body.features,
-			description: body.description,
-			premiumProgressBarEnabled: body.premiumProgressBarEnabled,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "",
+		body: body,
+	}
 }
 
-export function deleteGuild_kzi668a8(guildId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "", {
+export function deleteGuild(guildId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "",
+	}
 }
 
-export function getGuildChannels_kzi668a8(guildId, ): Promise<Array<ChannelStructure>> {
-	return fetch("/guilds/" + guildId + "/channels", {
+export function getGuildChannels(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/channels",
+	}
 }
 
-export function createGuildChannel_kzi668a8(guildId, body: {
+export function createGuildChannel(guildId: string, body: {
 	name: string;
 	type: number;
 	topic: string;
 	bitrate: number;
-	userLimit: number;
-	rateLimitPerUser: number;
+	user_limit: number;
+	rate_limit_per_user: number;
 	position: number;
-	permissionOverwrites: Array<OverwriteStructure>;
-	parentId: string;
+	permission_overwrites: Array<OverwriteStructure>;
+	parent_id: string | bigint;
 	nsfw: boolean;
-}, ): Promise<ChannelStructure> {
-	return fetch("/guilds/" + guildId + "/channels", {
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			type: body.type,
-			topic: body.topic,
-			bitrate: body.bitrate,
-			userLimit: body.userLimit,
-			rateLimitPerUser: body.rateLimitPerUser,
-			position: body.position,
-			permissionOverwrites: body.permissionOverwrites,
-			parentId: body.parentId,
-			nsfw: body.nsfw,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/channels",
+		body: body,
+	}
 }
 
-export function modifyGuildChannelPositions_kzi668a8(guildId, body: {
-	id: string;
-	position: number;
-	lockPermissions: boolean;
-	parentId: string;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/channels", {
+export function modifyGuildChannelPositions(guildId: string, body: {
+	id: string | bigint;
+	position: number | null;
+	lock_permissions: boolean | null;
+	parent_id: string | bigint | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			id: body.id,
-			position: body.position,
-			lockPermissions: body.lockPermissions,
-			parentId: body.parentId,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/channels",
+		body: body,
+	}
 }
 
-export function listActiveThreads_kzi668a8(guildId, ): Promise<Array<ChannelStructure>> {
-	return fetch("/guilds/" + guildId + "/threads/active", {
+export function listActiveThreads1(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/threads/active",
+	}
 }
 
-export function getGuildMember_kzi668a8(guildId, userId, ): Promise<GuildMemberStructure> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "", {
+export function getGuildMember(guildId: string, userId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "",
+	}
 }
 
-export function listGuildMembers_kzi668a8(guildId, ): Promise<Array<GuildMemberStructure>> {
-	return fetch("/guilds/" + guildId + "/members", {
+export function listGuildMembers(guildId: string, query: {
+	limit: number;
+	after: string | bigint;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members",
+		query: "&limit=" + query.limit + "&after=" + query.after + "",
+	}
 }
 
-export function searchGuildMembers_kzi668a8(guildId, ): Promise<Array<GuildMemberStructure>> {
-	return fetch("/guilds/" + guildId + "/members/search", {
+export function searchGuildMembers(guildId: string, query: {
+	query: string;
+	limit: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/search",
+		query: "&query=" + query.query + "&limit=" + query.limit + "",
+	}
 }
 
-export function addGuildMember_kzi668a8(guildId, userId, body: {
-	accessToken: string;
+export function addGuildMember(guildId: string, userId: string, body: {
+	access_token: string;
 	nick: string;
-	roles: string;
+	roles: string | bigint;
 	mute: boolean;
 	deaf: boolean;
-}, ): Promise<GuildMemberStructure> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "", {
+}, ){
+	return {
 		method: "PUT",
-		body: JSON.stringify({
-			accessToken: body.accessToken,
-			nick: body.nick,
-			roles: body.roles,
-			mute: body.mute,
-			deaf: body.deaf,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "",
+		body: body,
+	}
 }
 
-export function modifyGuildMember_kzi668a8(guildId, userId, body: {
+export function modifyGuildMember(guildId: string, userId: string, body: {
 	nick: string;
-	roles: string;
+	roles: string | bigint;
 	mute: boolean;
 	deaf: boolean;
-	channelId: string;
-	communicationDisabledUntil: Date;
-}, ): Promise<GuildMemberStructure> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "", {
+	channel_id: string | bigint;
+	communication_disabled_until: Date | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			nick: body.nick,
-			roles: body.roles,
-			mute: body.mute,
-			deaf: body.deaf,
-			channelId: body.channelId,
-			communicationDisabledUntil: body.communicationDisabledUntil,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "",
+		body: body,
+	}
 }
 
-export function modifyCurrentMember_kzi668a8(guildId, body: {
-	nick: string;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/members/@me", {
+export function modifyCurrentMember(guildId: string, body: {
+	nick?: string | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			nick: body.nick,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/@me",
+		body: body,
+	}
 }
 
-export function modifyCurrentUserNick_kzi668a8(guildId, body: {
-	nick: string;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/members/@me/nick", {
+export function modifyCurrentUserNick(guildId: string, body: {
+	nick?: string | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			nick: body.nick,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/@me/nick",
+		body: body,
+	}
 }
 
-export function addGuildMemberRole_kzi668a8(guildId, userId, roleId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "", {
+export function addGuildMemberRole(guildId: string, userId: string, roleId: string, ){
+	return {
 		method: "PUT",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "",
+	}
 }
 
-export function removeGuildMemberRole_kzi668a8(guildId, userId, roleId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "", {
+export function removeGuildMemberRole(guildId: string, userId: string, roleId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "",
+	}
 }
 
-export function removeGuildMember_kzi668a8(guildId, userId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/members/" + userId + "", {
+export function removeGuildMember(guildId: string, userId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/members/" + userId + "",
+	}
 }
 
-export function getGuildBans_kzi668a8(guildId, ): Promise<Array<BanStructure>> {
-	return fetch("/guilds/" + guildId + "/bans", {
+export function getGuildBans(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/bans",
+	}
 }
 
-export function getGuildBan_kzi668a8(guildId, userId, ): Promise<BanStructure> {
-	return fetch("/guilds/" + guildId + "/bans/" + userId + "", {
+export function getGuildBan(guildId: string, userId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/bans/" + userId + "",
+	}
 }
 
-export function createGuildBan_kzi668a8(guildId, userId, body: {
-	deleteMessageDays: number;
-	reason: string;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/bans/" + userId + "", {
+export function createGuildBan(guildId: string, userId: string, body: {
+	delete_message_days?: number;
+	reason?: string;
+}, ){
+	return {
 		method: "PUT",
-		body: JSON.stringify({
-			deleteMessageDays: body.deleteMessageDays,
-			reason: body.reason,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/bans/" + userId + "",
+		body: body,
+	}
 }
 
-export function removeGuildBan_kzi668a8(guildId, userId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/bans/" + userId + "", {
+export function removeGuildBan(guildId: string, userId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/bans/" + userId + "",
+	}
 }
 
-export function getGuildRoles_kzi668a8(guildId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/roles", {
+export function getGuildRoles(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/roles",
+	}
 }
 
-export function createGuildRole_kzi668a8(guildId, body: {
+export function createGuildRole(guildId: string, body: {
 	name: string;
 	permissions: string;
 	color: number;
 	hoist: boolean;
-	icon: any;
-	unicodeEmoji: string;
+	icon: any /* image-data */;
+	unicode_emoji: string;
 	mentionable: boolean;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/roles", {
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			permissions: body.permissions,
-			color: body.color,
-			hoist: body.hoist,
-			icon: body.icon,
-			unicodeEmoji: body.unicodeEmoji,
-			mentionable: body.mentionable,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/roles",
+		body: body,
+	}
 }
 
-export function modifyGuildRolePositions_kzi668a8(guildId, body: {
-	id: string;
-	position: number;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/roles", {
+export function modifyGuildRolePositions(guildId: string, body: {
+	id: string | bigint;
+	position?: number | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			id: body.id,
-			position: body.position,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/roles",
+		body: body,
+	}
 }
 
-export function modifyGuildRole_kzi668a8(guildId, roleId, body: {
+export function modifyGuildRole(guildId: string, roleId: string, body: {
 	name: string;
 	permissions: string;
 	color: number;
 	hoist: boolean;
-	icon: any;
-	unicodeEmoji: string;
+	icon: any /* image-data */;
+	unicode_emoji: string;
 	mentionable: boolean;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/roles/" + roleId + "", {
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			name: body.name,
-			permissions: body.permissions,
-			color: body.color,
-			hoist: body.hoist,
-			icon: body.icon,
-			unicodeEmoji: body.unicodeEmoji,
-			mentionable: body.mentionable,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/roles/" + roleId + "",
+		body: body,
+	}
 }
 
-export function deleteGuildRole_kzi668a9(guildId, roleId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/roles/" + roleId + "", {
+export function deleteGuildRole(guildId: string, roleId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/roles/" + roleId + "",
+	}
 }
 
-export function getGuildPruneCount_kzi668a9(guildId, ): Promise<number> {
-	return fetch("/guilds/" + guildId + "/prune", {
+export function getGuildPruneCount(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/prune",
+	}
 }
 
-export function beginGuildPrune_kzi668a9(guildId, body: {
+export function beginGuildPrune(guildId: string, body: {
 	days: number;
-	computePruneCount: boolean;
-	includeRoles: string;
-	reason: string;
-}, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/prune", {
+	compute_prune_count: boolean;
+	include_roles: string | bigint;
+	reason?: string;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			days: body.days,
-			computePruneCount: body.computePruneCount,
-			includeRoles: body.includeRoles,
-			reason: body.reason,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/prune",
+		body: body,
+	}
 }
 
-export function getGuildVoiceRegions_kzi668a9(guildId, ): Promise<Array<VoiceRegionStructure>> {
-	return fetch("/guilds/" + guildId + "/regions", {
+export function getGuildVoiceRegions(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/regions",
+	}
 }
 
-export function getGuildInvites_kzi668a9(guildId, ): Promise<Array<InviteStructure>> {
-	return fetch("/guilds/" + guildId + "/invites", {
+export function getGuildInvites(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/invites",
+	}
 }
 
-export function getGuildIntegrations_kzi668a9(guildId, ): Promise<Array<IntegrationStructure>> {
-	return fetch("/guilds/" + guildId + "/integrations", {
+export function getGuildIntegrations(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/integrations",
+	}
 }
 
-export function deleteGuildIntegration_kzi668a9(guildId, integrationId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/integrations/" + integrationId + "", {
+export function deleteGuildIntegration(guildId: string, integrationId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/integrations/" + integrationId + "",
+	}
 }
 
-export function getGuildWidgetSettings_kzi668a9(guildId, ): Promise<GuildWidgetSettingsStructure> {
-	return fetch("/guilds/" + guildId + "/widget", {
+export function getGuildWidgetSettings(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/widget",
+	}
 }
 
-export function modifyGuildWidget_kzi668a9(guildId, ): Promise<GuildWidgetSettingsStructure> {
-	return fetch("/guilds/" + guildId + "/widget", {
+export function modifyGuildWidget(guildId: string, ){
+	return {
 		method: "PATCH",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/widget",
+	}
 }
 
-export function getGuildWidget_kzi668a9(guildId, ): Promise<GetGuildWidgetStructure> {
-	return fetch("/guilds/" + guildId + "/widget.json", {
+export function getGuildWidget(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/widget.json",
+	}
 }
 
-export function getGuildVanityUrl_kzi668a9(guildId, ): Promise<InviteStructure> {
-	return fetch("/guilds/" + guildId + "/vanity-url", {
+export function getGuildVanityUrl(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/vanity-url",
+	}
 }
 
-export function getGuildWidgetImage_kzi668a9(guildId, ): Promise<string> {
-	return fetch("/guilds/" + guildId + "/widget.png", {
+export function getGuildWidgetImage(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/widget.png",
+	}
 }
 
-export function getGuildWelcomeScreen_kzi668a9(guildId, ): Promise<WelcomeScreenStructure> {
-	return fetch("/guilds/" + guildId + "/welcome-screen", {
+export function getGuildWelcomeScreen(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/welcome-screen",
+	}
 }
 
-export function modifyGuildWelcomeScreen_kzi668a9(guildId, body: {
+export function modifyGuildWelcomeScreen(guildId: string, body: {
 	enabled: boolean;
-	welcomeChannels: Array<WelcomeScreenChannelStructure>;
+	welcome_channels: Array<WelcomeScreenChannelStructure>;
 	description: string;
-}, ): Promise<WelcomeScreenStructure> {
-	return fetch("/guilds/" + guildId + "/welcome-screen", {
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			enabled: body.enabled,
-			welcomeChannels: body.welcomeChannels,
-			description: body.description,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/welcome-screen",
+		body: body,
+	}
 }
 
-export function modifyCurrentUserVoiceState_kzi668a9(guildId, ): Promise<string> {
-	return fetch("/guilds/" + guildId + "/voice-states/@me", {
+export function modifyCurrentUserVoiceState(guildId: string, ){
+	return {
 		method: "PATCH",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/voice-states/@me",
+	}
 }
 
-export function modifyUserVoiceState_kzi668a9(guildId, userId, ): Promise<string> {
-	return fetch("/guilds/" + guildId + "/voice-states/" + userId + "", {
+export function modifyUserVoiceState(guildId: string, userId: string, ){
+	return {
 		method: "PATCH",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/voice-states/" + userId + "",
+	}
 }
 
-// Guild_Scheduled_Event
-export type GuildScheduledEventPrivacyLevel = {
-	"GuildOnly": 2,
+/*
+	Guild_Scheduled_Event
+*/
+
+export enum GuildScheduledEventPrivacyLevel {
+	"GuildOnly" = 2,
 };
 
-export type GuildScheduledEventEntityTypes = {
-	"StageInstance": 1,
-	"Voice": 2,
-	"External": 3,
+export enum GuildScheduledEventEntityTypes {
+	"StageInstance" = 1,
+	"Voice" = 2,
+	"External" = 3,
 };
 
-export type GuildScheduledEventStatus = {
-	"Scheduled": 1,
-	"Active": 2,
-	"Completed": 3,
-	"Canceled": 4,
+export enum GuildScheduledEventStatus {
+	"Scheduled" = 1,
+	"Active" = 2,
+	"Completed" = 3,
+	"Canceled" = 4,
 };
 
-export type GuildScheduledEventEntityMetadata = {
-	"Location": "location?",
+export enum GuildScheduledEventEntityMetadata {
+	"Location" = "location",
 };
 
-export type GuildScheduledEventStructure = {
-	id: string;
-	guildId: string;
-	channelId: string;
-	creatorId: string;
+export interface GuildScheduledEventStructure {
+	id: string | bigint;
+	guild_id: string | bigint;
+	channel_id: string | bigint | null;
+	creator_id: string | bigint | null;
 	name: string;
-	description: string;
-	scheduledStartTime: Date;
-	scheduledEndTime: Date;
-	privacyLevel: GuildScheduledEventPrivacyLevel;
+	description?: string;
+	scheduled_start_time: Date;
+	scheduled_end_time: Date | null;
+	privacy_level: GuildScheduledEventPrivacyLevel;
 	status: GuildScheduledEventStatus;
-	entityType: GuildScheduledEventEntityTypes;
-	entityId: string;
-	entityMetadata: GuildScheduledEventEntityMetadata;
-	creator: UserStructure;
-	userCount: number;
-	image: string;
+	entity_type: GuildScheduledEventEntityTypes;
+	entity_id: string | bigint | null;
+	entity_metadata: GuildScheduledEventEntityMetadata;
+	creator?: UserStructure;
+	user_count?: number;
+	image: string | null;
 };
 
-export type GuildScheduledEventUserStructure = {
-	guildScheduledEventId: string;
+export interface GuildScheduledEventUserStructure {
+	guild_scheduled_event_id: string | bigint;
 	user: UserStructure;
-	member: GuildMemberStructure;
+	member?: GuildMemberStructure;
 };
 
-export function listScheduledEventsForGuild_kzi668a9(guildId, ): Promise<Array<GuildScheduledEventStructure>> {
-	return fetch("/guilds/" + guildId + "/scheduled-events", {
+export function listScheduledEventsForGuild(guildId: string, query: {
+	with_user_count?: boolean;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/scheduled-events",
+		query: "&with_user_count=" + query.with_user_count + "",
+	}
 }
 
-export function createGuildScheduledEvent_kzi668a9(guildId, body: {
-	channelId: string;
-	entityMetadata: GuildScheduledEventEntityMetadata;
+export function createGuildScheduledEvent(guildId: string, body: {
+	channel_id: string | bigint;
+	entity_metadata?: GuildScheduledEventEntityMetadata;
 	name: string;
-	privacyLevel: GuildScheduledEventPrivacyLevel;
-	scheduledStartTime: Date;
-	scheduledEndTime: Date;
-	description: string;
-	entityType: GuildScheduledEventEntityTypes;
-	image: any;
-}, ): Promise<GuildScheduledEventStructure> {
-	return fetch("/guilds/" + guildId + "/scheduled-events", {
+	privacy_level: GuildScheduledEventPrivacyLevel;
+	scheduled_start_time: Date;
+	scheduled_end_time?: Date;
+	description?: string;
+	entity_type: GuildScheduledEventEntityTypes;
+	image?: any /* image-data */;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			channelId: body.channelId,
-			entityMetadata: body.entityMetadata,
-			name: body.name,
-			privacyLevel: body.privacyLevel,
-			scheduledStartTime: body.scheduledStartTime,
-			scheduledEndTime: body.scheduledEndTime,
-			description: body.description,
-			entityType: body.entityType,
-			image: body.image,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/scheduled-events",
+		body: body,
+	}
 }
 
-export function getGuildScheduledEvent_kzi668aa(guildId, guildScheduledEventId, ): Promise<GuildScheduledEventStructure> {
-	return fetch("/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "", {
+export function getGuildScheduledEvent(guildId: string, guildScheduledEventId: string, query: {
+	with_user_count?: boolean;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
+		query: "&with_user_count=" + query.with_user_count + "",
+	}
 }
 
-export function modifyGuildScheduledEvent_kzi668aa(guildId, guildScheduledEventId, body: {
-	channelId: string;
-	entityMetadata: GuildScheduledEventEntityMetadata;
-	name: string;
-	privacyLevel: GuildScheduledEventPrivacyLevel;
-	scheduledStartTime: Date;
-	scheduledEndTime: Date;
-	description: string;
-	entityType: GuildScheduledEventEntityTypes;
-	status: GuildScheduledEventStatus;
-	image: any;
-}, ): Promise<GuildScheduledEventStructure> {
-	return fetch("/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "", {
+export function modifyGuildScheduledEvent(guildId: string, guildScheduledEventId: string, body: {
+	channel_id: string | bigint | null;
+	entity_metadata?: GuildScheduledEventEntityMetadata;
+	name?: string;
+	privacy_level?: GuildScheduledEventPrivacyLevel;
+	scheduled_start_time?: Date;
+	scheduled_end_time: Date;
+	description?: string;
+	entity_type: GuildScheduledEventEntityTypes;
+	status?: GuildScheduledEventStatus;
+	image?: any /* image-data */;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			channelId: body.channelId,
-			entityMetadata: body.entityMetadata,
-			name: body.name,
-			privacyLevel: body.privacyLevel,
-			scheduledStartTime: body.scheduledStartTime,
-			scheduledEndTime: body.scheduledEndTime,
-			description: body.description,
-			entityType: body.entityType,
-			status: body.status,
-			image: body.image,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
+		body: body,
+	}
 }
 
-export function deleteGuildScheduledEvent_kzi668aa(guildId, guildScheduledEventId, ): Promise<number> {
-	return fetch("/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "", {
+export function deleteGuildScheduledEvent(guildId: string, guildScheduledEventId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
+	}
 }
 
-// Guild_Template
-export type GuildTemplateStructure = {
+/*
+	Guild_Template
+*/
+
+export interface GuildTemplateStructure {
 	code: string;
 	name: string;
-	description: string;
-	usageCount: number;
-	creatorId: string;
+	description: string | null;
+	usage_count: number;
+	creator_id: string | bigint;
 	creator: UserStructure;
-	createdAt: Date;
-	updatedAt: Date;
-	sourceGuildId: string;
-	serializedSourceGuild: GuildStructure;
-	isDirty: boolean;
+	created_at: Date;
+	updated_at: Date;
+	source_guild_id: string | bigint;
+	serialized_source_guild: GuildStructure;
+	is_dirty: boolean | null;
 };
 
-export function getGuildTemplate_kzi668aa(templateCode, ): Promise<GuildTemplateStructure> {
-	return fetch("/guilds/templates/" + templateCode + "", {
+export function getGuildTemplate(templateCode: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/templates/" + templateCode + "",
+	}
 }
 
-export function createGuildFromGuildTemplate_kzi668aa(templateCode, body: {
+export function createGuildFromGuildTemplate(templateCode: string, body: {
 	name: string;
-	icon: any;
-}, ): Promise<GuildStructure> {
-	return fetch("/guilds/templates/" + templateCode + "", {
+	icon?: any /* image-data */;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			icon: body.icon,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/templates/" + templateCode + "",
+		body: body,
+	}
 }
 
-export function getGuildTemplates_kzi668aa(guildId, ): Promise<Array<GuildTemplateStructure>> {
-	return fetch("/guilds/" + guildId + "/templates", {
+export function getGuildTemplates(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/templates",
+	}
 }
 
-export function createGuildTemplate_kzi668aa(guildId, body: {
+export function createGuildTemplate(guildId: string, body: {
 	name: string;
-	description: string;
-}, ): Promise<GuildTemplateStructure> {
-	return fetch("/guilds/" + guildId + "/templates", {
+	description?: string | null;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			description: body.description,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/templates",
+		body: body,
+	}
 }
 
-export function syncGuildTemplate_kzi668aa(guildId, templateCode, ): Promise<GuildTemplateStructure> {
-	return fetch("/guilds/" + guildId + "/templates/" + templateCode + "", {
+export function syncGuildTemplate(guildId: string, templateCode: string, ){
+	return {
 		method: "PUT",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
+	}
 }
 
-export function modifyGuildTemplate_kzi668aa(guildId, templateCode, body: {
-	name: string;
-	description: string;
-}, ): Promise<GuildTemplateStructure> {
-	return fetch("/guilds/" + guildId + "/templates/" + templateCode + "", {
+export function modifyGuildTemplate(guildId: string, templateCode: string, body: {
+	name?: string;
+	description?: string | null;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			name: body.name,
-			description: body.description,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
+		body: body,
+	}
 }
 
-export function deleteGuildTemplate_kzi668aa(guildId, templateCode, ): Promise<GuildTemplateStructure> {
-	return fetch("/guilds/" + guildId + "/templates/" + templateCode + "", {
+export function deleteGuildTemplate(guildId: string, templateCode: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
+	}
 }
 
-// Invite
-export type InviteTargetTypes = {
-	"Stream": 1,
-	"EmbeddedApplication": 2,
+/*
+	Invite
+*/
+
+export enum InviteTargetTypes {
+	"Stream" = 1,
+	"EmbeddedApplication" = 2,
 };
 
-export type ExampleInviteMetadata = {
-	"Members": "members",
-	"ParticipantCount": "participant_count",
-	"SpeakerCount": "speaker_count",
-	"Topic": "topic",
+export enum ExampleInviteMetadata {
+	"Members" = "members",
+	"ParticipantCount" = "participant_count",
+	"SpeakerCount" = "speaker_count",
+	"Topic" = "topic",
 };
 
-export type InviteStructure = {
+export interface InviteStructure {
 	code: string;
-	guild: GuildStructure;
+	guild?: GuildStructure;
 	channel: ChannelStructure;
-	inviter: UserStructure;
-	targetType: number;
-	targetUser: UserStructure;
-	targetApplication: ApplicationStructure;
-	approximatePresenceCount: number;
-	approximateMemberCount: number;
-	expiresAt: Date;
-	stageInstance: InviteStageInstanceStructure;
-	guildScheduledEvent: GuildScheduledEventStructure;
+	inviter?: UserStructure;
+	target_type?: number;
+	target_user?: UserStructure;
+	target_application?: ApplicationStructure;
+	approximate_presence_count?: number;
+	approximate_member_count?: number;
+	expires_at?: Date | null;
+	stage_instance?: InviteStageInstanceStructure;
+	guild_scheduled_event?: GuildScheduledEventStructure;
 };
 
-export type InviteMetadataStructure = {
+export interface InviteMetadataStructure {
 	uses: number;
-	maxUses: number;
-	maxAge: number;
+	max_uses: number;
+	max_age: number;
 	temporary: boolean;
-	createdAt: Date;
+	created_at: Date;
 };
 
-export type InviteStageInstanceStructure = {
+export interface InviteStageInstanceStructure {
 	members: Array<GuildMemberStructure>;
-	participantCount: number;
-	speakerCount: number;
+	participant_count: number;
+	speaker_count: number;
 	topic: string;
 };
 
-export function getInvite_kzi668ab(inviteCode, ): Promise<InviteStructure> {
-	return fetch("/invites/" + inviteCode + "", {
+export function getInvite(inviteCode: string, query: {
+	with_counts?: boolean;
+	with_expiration?: boolean;
+	guild_scheduled_event_id?: string | bigint;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/invites/" + inviteCode + "",
+		query: "&with_counts=" + query.with_counts + "&with_expiration=" + query.with_expiration + "&guild_scheduled_event_id=" + query.guild_scheduled_event_id + "",
+	}
 }
 
-export function deleteInvite_kzi668ab(inviteCode, ): Promise<InviteStructure> {
-	return fetch("/invites/" + inviteCode + "", {
+export function deleteInvite(inviteCode: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/invites/" + inviteCode + "",
+	}
 }
 
-// Stage_Instance
-export type PrivacyLevel = {
-	"Public": 1,
-	"GuildOnly": 2,
+/*
+	Stage_Instance
+*/
+
+export enum PrivacyLevel {
+	"Public" = 1,
+	"GuildOnly" = 2,
 };
 
-export type StageInstanceStructure = {
-	id: string;
-	guildId: string;
-	channelId: string;
+export interface StageInstanceStructure {
+	id: string | bigint;
+	guild_id: string | bigint;
+	channel_id: string | bigint;
 	topic: string;
-	privacyLevel: number;
-	discoverableDisabled: boolean;
+	privacy_level: number;
+	discoverable_disabled: boolean;
 };
 
-export function createStageInstance_kzi668ab(, ): Promise<string> {
-	return fetch("/stage-instances", {
+export function createStageInstance(){
+	return {
 		method: "POST",
-	}).then(res => res.json());
+		path: "/stage-instances",
+	}
 }
 
-export function getStageInstance_kzi668ab(channelId, ): Promise<string> {
-	return fetch("/stage-instances/" + channelId + "", {
+export function getStageInstance(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/stage-instances/" + channelId + "",
+	}
 }
 
-export function deleteStageInstance_kzi668ab(channelId, ): Promise<any> {
-	return fetch("/stage-instances/" + channelId + "", {
+export function deleteStageInstance(channelId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/stage-instances/" + channelId + "",
+	}
 }
 
-// Sticker
-export type StickerTypes = {
-	"Standard": 1,
-	"Guild": 2,
+/*
+	Sticker
+*/
+
+export enum StickerTypes {
+	"Standard" = 1,
+	"Guild" = 2,
 };
 
-export type StickerFormatTypes = {
-	"Png": 1,
-	"Apng": 2,
-	"Lottie": 3,
+export enum StickerFormatTypes {
+	"Png" = 1,
+	"Apng" = 2,
+	"Lottie" = 3,
 };
 
-export type StickerStructure = {
-	id: string;
-	packId: string;
+export interface StickerStructure {
+	id: string | bigint;
+	pack_id?: string | bigint;
 	name: string;
-	description: string;
+	description: string | null;
 	tags: string;
 	asset: string;
 	type: number;
-	formatType: number;
-	available: boolean;
-	guildId: string;
-	user: UserStructure;
-	sortValue: number;
+	format_type: number;
+	available?: boolean;
+	guild_id?: string | bigint;
+	user?: UserStructure;
+	sort_value?: number;
 };
 
-export type StickerItemStructure = {
-	id: string;
+export interface StickerItemStructure {
+	id: string | bigint;
 	name: string;
-	formatType: number;
+	format_type: number;
 };
 
-export type StickerPackStructure = {
-	id: string;
+export interface StickerPackStructure {
+	id: string | bigint;
 	stickers: Array<StickerStructure>;
 	name: string;
-	skuId: string;
-	coverStickerId: string;
+	sku_id: string | bigint;
+	cover_sticker_id?: string | bigint;
 	description: string;
-	bannerAssetId: string;
+	banner_asset_id?: string | bigint;
 };
 
-export function getSticker_kzi668ac(stickerId, ): Promise<StickerStructure> {
-	return fetch("/stickers/" + stickerId + "", {
+export function getSticker(stickerId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/stickers/" + stickerId + "",
+	}
 }
 
-export function listNitroStickerPacks_kzi668ac(, ): Promise<Array<StickerPackStructure>> {
-	return fetch("/sticker-packs", {
+export function listNitroStickerPacks(){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/sticker-packs",
+	}
 }
 
-export function listGuildStickers_kzi668ac(guildId, ): Promise<Array<StickerStructure>> {
-	return fetch("/guilds/" + guildId + "/stickers", {
+export function listGuildStickers(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/stickers",
+	}
 }
 
-export function getGuildSticker_kzi668ac(guildId, stickerId, ): Promise<StickerStructure> {
-	return fetch("/guilds/" + guildId + "/stickers/" + stickerId + "", {
+export function getGuildSticker(guildId: string, stickerId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
+	}
 }
 
-export function createGuildSticker_kzi668ac(guildId, body: {
+export function createGuildSticker(guildId: string, body: {
 	name: string;
 	description: string;
 	tags: string;
 	file: "balls";
-}, ): Promise<StickerStructure> {
-	return fetch("/guilds/" + guildId + "/stickers", {
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			description: body.description,
-			tags: body.tags,
-			file: body.file,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/stickers",
+		body: body,
+	}
 }
 
-export function modifyGuildSticker_kzi668ac(guildId, stickerId, body: {
+export function modifyGuildSticker(guildId: string, stickerId: string, body: {
 	name: string;
-	description: string;
+	description: string | null;
 	tags: string;
-}, ): Promise<StickerStructure> {
-	return fetch("/guilds/" + guildId + "/stickers/" + stickerId + "", {
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			name: body.name,
-			description: body.description,
-			tags: body.tags,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
+		body: body,
+	}
 }
 
-export function deleteGuildSticker_kzi668ac(guildId, stickerId, ): Promise<any> {
-	return fetch("/guilds/" + guildId + "/stickers/" + stickerId + "", {
+export function deleteGuildSticker(guildId: string, stickerId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
+	}
 }
 
-// User
-export type UserFlags = {
-	"None": 0,
-	"Staff": 1,
-	"Partner": 2,
-	"Hypesquad": 4,
-	"BugHunterLevel1": 8,
-	"HypesquadOnlineHouse1": 64,
-	"HypesquadOnlineHouse2": 128,
-	"HypesquadOnlineHouse3": 256,
-	"PremiumEarlySupporter": 512,
-	"TeamPseudoUser": 1024,
-	"BugHunterLevel2": 16384,
-	"VerifiedBot": 65536,
-	"VerifiedDeveloper": 131072,
-	"CertifiedModerator": 262144,
-	"BotHttpInteractions": 524288,
+/*
+	User
+*/
+
+export enum UserFlags {
+	"None" = 0,
+	"Staff" = 1,
+	"Partner" = 2,
+	"Hypesquad" = 4,
+	"BugHunterLevel1" = 8,
+	"HypesquadOnlineHouse1" = 64,
+	"HypesquadOnlineHouse2" = 128,
+	"HypesquadOnlineHouse3" = 256,
+	"PremiumEarlySupporter" = 512,
+	"TeamPseudoUser" = 1024,
+	"BugHunterLevel2" = 16384,
+	"VerifiedBot" = 65536,
+	"VerifiedDeveloper" = 131072,
+	"CertifiedModerator" = 262144,
+	"BotHttpInteractions" = 524288,
 };
 
-export type PremiumTypes = {
-	"None": 0,
-	"NitroClassic": 1,
-	"Nitro": 2,
+export enum PremiumTypes {
+	"None" = 0,
+	"NitroClassic" = 1,
+	"Nitro" = 2,
 };
 
-export type VisibilityTypes = {
-	"None": 0,
-	"Everyone": 1,
+export enum VisibilityTypes {
+	"None" = 0,
+	"Everyone" = 1,
 };
 
-export type UserStructure = {
-	id: string;
+export interface UserStructure {
+	id: string | bigint;
 	username: string;
 	discriminator: string;
-	avatar: string;
-	bot: boolean;
-	system: boolean;
-	mfaEnabled: boolean;
-	banner: string;
-	accentColor: number;
-	locale: string;
-	verified: boolean;
-	email: string;
-	flags: number;
-	premiumType: number;
-	publicFlags: number;
+	avatar: string | null;
+	bot?: boolean;
+	system?: boolean;
+	mfa_enabled?: boolean;
+	banner?: string | null;
+	accent_color?: number | null;
+	locale?: string;
+	verified?: boolean;
+	email?: string | null;
+	flags?: number;
+	premium_type?: number;
+	public_flags?: number;
 };
 
-export type ConnectionStructure = {
+export interface ConnectionStructure {
 	id: string;
 	name: string;
 	type: string;
-	revoked: boolean;
-	integrations: Array<IntegrationStructure>;
+	revoked?: boolean;
+	integrations?: Array<IntegrationStructure>;
 	verified: boolean;
-	friendSync: boolean;
-	showActivity: boolean;
+	friend_sync: boolean;
+	show_activity: boolean;
 	visibility: number;
 };
 
-export function getCurrentUser_kzi668ac(, ): Promise<UserStructure> {
-	return fetch("/users/@me", {
+export function getCurrentUser(){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/users/@me",
+	}
 }
 
-export function getUser_kzi668ac(userId, ): Promise<UserStructure> {
-	return fetch("/users/" + userId + "", {
+export function getUser(userId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/users/" + userId + "",
+	}
 }
 
-export function modifyCurrentUser_kzi668ac(, body: {
+export function modifyCurrentUser(body: {
 	username: string;
-	avatar: any;
-}, ): Promise<UserStructure> {
-	return fetch("/users/@me", {
+	avatar: any /* image-data */;
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			username: body.username,
-			avatar: body.avatar,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/users/@me",
+		body: body,
+	}
 }
 
-export function getCurrentUserGuilds_kzi668ac(, ): Promise<Array<GuildStructure>> {
-	return fetch("/users/@me/guilds", {
+export function getCurrentUserGuilds(query: {
+	before: string | bigint;
+	after: string | bigint;
+	limit: number;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/users/@me/guilds",
+		query: "&before=" + query.before + "&after=" + query.after + "&limit=" + query.limit + "",
+	}
 }
 
-export function getCurrentUserGuildMember_kzi668ac(guildId, ): Promise<GuildMemberStructure> {
-	return fetch("/users/@me/guilds/" + guildId + "/member", {
+export function getCurrentUserGuildMember(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/users/@me/guilds/" + guildId + "/member",
+	}
 }
 
-export function leaveGuild_kzi668ac(guildId, ): Promise<string> {
-	return fetch("/users/@me/guilds/" + guildId + "", {
+export function leaveGuild(guildId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/users/@me/guilds/" + guildId + "",
+	}
 }
 
-export function createGroupDm_kzi668ac(, body: {
-	accessTokens: string;
+export function createGroupDm(body: {
+	access_tokens: string;
 	nicks: object;
-}, ): Promise<ChannelStructure> {
-	return fetch("/users/@me/channels", {
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			accessTokens: body.accessTokens,
-			nicks: body.nicks,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/users/@me/channels",
+		body: body,
+	}
 }
 
-export function getUserConnections_kzi668ac(, ): Promise<Array<ConnectionStructure>> {
-	return fetch("/users/@me/connections", {
+export function getUserConnections(){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/users/@me/connections",
+	}
 }
 
-// Voice
-export type VoiceStateStructure = {
-	guildId: string;
-	channelId: string;
-	userId: string;
-	member: GuildMemberStructure;
-	sessionId: string;
+/*
+	Voice
+*/
+
+export interface VoiceStateStructure {
+	guild_id?: string | bigint;
+	channel_id: string | bigint | null;
+	user_id: string | bigint;
+	member?: GuildMemberStructure;
+	session_id: string;
 	deaf: boolean;
 	mute: boolean;
-	selfDeaf: boolean;
-	selfMute: boolean;
-	selfStream: boolean;
-	selfVideo: boolean;
+	self_deaf: boolean;
+	self_mute: boolean;
+	self_stream?: boolean;
+	self_video: boolean;
 	suppress: boolean;
-	requestToSpeakTimestamp: Date;
+	request_to_speak_timestamp: Date | null;
 };
 
-export type VoiceRegionStructure = {
+export interface VoiceRegionStructure {
 	id: string;
 	name: string;
 	optimal: boolean;
@@ -2110,155 +2030,144 @@ export type VoiceRegionStructure = {
 	custom: boolean;
 };
 
-export function listVoiceRegions_kzi668ad(, ): Promise<Array<VoiceRegionStructure>> {
-	return fetch("/voice/regions", {
+export function listVoiceRegions(){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/voice/regions",
+	}
 }
 
-// Webhook
-export type WebhookTypes = {
-	"Incoming": 1,
-	"ChannelFollower": 2,
-	"Application": 3,
+/*
+	Webhook
+*/
+
+export enum WebhookTypes {
+	"Incoming" = 1,
+	"ChannelFollower" = 2,
+	"Application" = 3,
 };
 
-export type WebhookStructure = {
-	id: string;
+export interface WebhookStructure {
+	id: string | bigint;
 	type: number;
-	guildId: string;
-	channelId: string;
-	user: UserStructure;
-	name: string;
-	avatar: string;
-	token: string;
-	applicationId: string;
-	sourceGuild: GuildStructure;
-	sourceChannel: ChannelStructure;
-	url: string;
+	guild_id?: string | bigint | null;
+	channel_id: string | bigint | null;
+	user?: UserStructure;
+	name: string | null;
+	avatar: string | null;
+	token?: string;
+	application_id: string | bigint | null;
+	source_guild?: GuildStructure;
+	source_channel?: ChannelStructure;
+	url?: string;
 };
 
-export function createWebhook_kzi668ad(channelId, body: {
+export function createWebhook(channelId: string, body: {
 	name: string;
-	avatar: any;
-}, ): Promise<WebhookStructure> {
-	return fetch("/channels/" + channelId + "/webhooks", {
+	avatar?: any /* image-data */;
+}, ){
+	return {
 		method: "POST",
-		body: JSON.stringify({
-			name: body.name,
-			avatar: body.avatar,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/webhooks",
+		body: body,
+	}
 }
 
-export function getChannelWebhooks_kzi668ad(channelId, ): Promise<Array<WebhookStructure>> {
-	return fetch("/channels/" + channelId + "/webhooks", {
+export function getChannelWebhooks(channelId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/channels/" + channelId + "/webhooks",
+	}
 }
 
-export function getGuildWebhooks_kzi668ad(guildId, ): Promise<Array<WebhookStructure>> {
-	return fetch("/guilds/" + guildId + "/webhooks", {
+export function getGuildWebhooks(guildId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/guilds/" + guildId + "/webhooks",
+	}
 }
 
-export function getWebhook_kzi668ad(webhookId, ): Promise<WebhookStructure> {
-	return fetch("/webhooks/" + webhookId + "", {
+export function getWebhook(webhookId: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "",
+	}
 }
 
-export function getWebhookWithToken_kzi668ad(webhookId, webhookToken, ): Promise<string> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "", {
+export function getWebhookWithToken(webhookId: string, webhookToken: string, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
+	}
 }
 
-export function modifyWebhookWithToken_kzi668ad(webhookId, webhookToken, body: {
+export function modifyWebhookWithToken(webhookId: string, webhookToken: string, body: {
 	content: string;
 	username: string;
-	avatarUrl: string;
+	avatar_url: string;
 	tts: boolean;
 	embeds: Array<EmbedStructure>;
-	allowedMentions: AllowedMentionsStructure;
-	components: any;
+	allowed_mentions: AllowedMentionsStructure;
+	components: any /* component-object */;
 	files: "balls";
-	payloadJson: string;
+	payload_json: string;
 	attachments: Array<AttachmentStructure>;
 	flags: number;
-}, ): Promise<boolean> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "", {
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			content: body.content,
-			username: body.username,
-			avatarUrl: body.avatarUrl,
-			tts: body.tts,
-			embeds: body.embeds,
-			allowedMentions: body.allowedMentions,
-			components: body.components,
-			files: body.files,
-			payloadJson: body.payloadJson,
-			attachments: body.attachments,
-			flags: body.flags,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
+		body: body,
+	}
 }
 
-export function executeSlackCompatibleWebhook_kzi668ad(webhookId, webhookToken, ): Promise<string> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "/slack", {
+export function executeSlackCompatibleWebhook(webhookId: string, webhookToken: string, ){
+	return {
 		method: "POST",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "/slack",
+	}
 }
 
-export function executeGitHubCompatibleWebhook_kzi668ad(webhookId, webhookToken, ): Promise<string> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "/github", {
+export function executeGitHubCompatibleWebhook(webhookId: string, webhookToken: string, ){
+	return {
 		method: "POST",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "/github",
+	}
 }
 
-export function getWebhookMessage_kzi668ad(webhookId, webhookToken, messageId, ): Promise<MessageStructure> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "", {
+export function getWebhookMessage(webhookId: string, webhookToken: string, messageId: string, query: {
+	thread_id: string | bigint;
+}, ){
+	return {
 		method: "GET",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
+		query: "&thread_id=" + query.thread_id + "",
+	}
 }
 
-export function editWebhookMessage_kzi668ad(webhookId, webhookToken, messageId, body: {
+export function editWebhookMessage(webhookId: string, webhookToken: string, messageId: string, query: {
+	thread_id: string | bigint;
+}, body: {
 	content: string;
 	embeds: Array<EmbedStructure>;
-	allowedMentions: AllowedMentionsStructure;
-	components: any;
+	allowed_mentions: AllowedMentionsStructure;
+	components: any /* component-object */;
 	files: "balls";
-	payloadJson: string;
+	payload_json: string;
 	attachments: Array<AttachmentStructure>;
-}, ): Promise<MessageStructure> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "", {
+}, ){
+	return {
 		method: "PATCH",
-		body: JSON.stringify({
-			content: body.content,
-			embeds: body.embeds,
-			allowedMentions: body.allowedMentions,
-			components: body.components,
-			files: body.files,
-			payloadJson: body.payloadJson,
-			attachments: body.attachments,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
+		query: "&thread_id=" + query.thread_id + "",
+		body: body,
+	}
 }
 
-export function deleteWebhookMessage_kzi668ad(webhookId, webhookToken, messageId, ): Promise<string> {
-	return fetch("/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "", {
+export function deleteWebhookMessage(webhookId: string, webhookToken: string, messageId: string, ){
+	return {
 		method: "DELETE",
-	}).then(res => res.json());
+		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
+	}
 }
 

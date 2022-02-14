@@ -17,7 +17,7 @@ function convertType(type: string) {
       return "object";
 
     case "snowflake":
-      return "string";
+      return "string | bigint";
 
     case "string":
     case "number":
@@ -39,7 +39,7 @@ function resolveType(links: { [key: string]: string }, type: Type) {
     const link = links[type.value as string];
     if (!link) {
       console.log("unresolved reference", type.value);
-      return "any";
+      return "any /* " + type.value + " */";
     }
 
     if (type.array) {
@@ -49,9 +49,13 @@ function resolveType(links: { [key: string]: string }, type: Type) {
     return pascal(link);
   }
 
-  const tsType = Array.isArray(type.value)
+  let tsType = Array.isArray(type.value)
     ? type.value.map(convertType).join(" | ")
     : convertType(type.value as string);
+
+  if (type.nullable) {
+    tsType += " | null";
+  }
 
   return tsType;
 }
@@ -59,11 +63,16 @@ function resolveType(links: { [key: string]: string }, type: Type) {
 function resolveStructure(links: { [key: string]: string }, params: Param[]) {
   let output = "{";
   for (const param of params) {
-    output += "\n\t" + camel(param.name) + ": " + resolveType(links, param) + ";";
+    output += "\n\t" + param.name;
+    if (param.optional) output += "?";
+    output += ": " + resolveType(links, param) + ";";
   }
   output += "\n}";
   return output;
 }
+
+// todo remove
+let currentEndpoints = [];
 
 export function js(
   links: { [key: string]: string },
@@ -73,56 +82,79 @@ export function js(
 ) {
   let output = "";
   for (const constant of constants) {
-    output += "export type " + pascal(constant.name) + " = {";
+    output += "export enum " + pascal(constant.name) + " {";
     for (const value of constant.values) {
       output +=
-        "\n\t" + JSON.stringify(pascal(value.name)) + ": " + JSON.stringify(value.value) + ",";
+        "\n\t" + JSON.stringify(pascal(value.name)) + " = " + JSON.stringify(value.value) + ",";
     }
     output += "\n};\n\n";
   }
 
   for (const structure of structures) {
-    output += "export type " + pascal(structure.name) + " = ";
+    output += "export interface " + pascal(structure.name) + " ";
     output += resolveStructure(links, structure.params);
     output += ";\n\n";
   }
 
   for (const endpoint of endpoints) {
-    output +=
-      "export function " +
-      camel(endpoint.name) +
-      "_" +
-      Date.now().toString(36) +
-      "(" +
-      endpoint.params.map(param => camel(param.name)).join(", ") +
-      ", " +
-      (endpoint.request ? "body: " + resolveStructure(links, endpoint.request.params) + ", " : "") +
-      "): Promise<" +
-      (endpoint.response
-        ? resolveType(
-            links,
-            Array.isArray(endpoint.response) ? endpoint.response[0] : endpoint.response
-          )
-        : "any") +
-      "> {\n";
+    // create function
+    output += "export function ";
+    output += camel(endpoint.name);
 
-    let path = endpoint.path;
+    // make sure function name is unique because there are 2 fucking functions named list active threads and it breaks shit lmao
+    if (currentEndpoints.includes(camel(endpoint.name))) {
+      let offset = currentEndpoints.filter(e => e === camel(endpoint.name)).length;
+      output += offset;
+    }
+
+    currentEndpoints.push(camel(endpoint.name));
+
+    // params
+    output += "(";
+
+    let path = JSON.stringify(endpoint.path);
     for (const param of endpoint.params) {
-      path = path.replace(`{${param.name}}`, `" + ${camel(param.name)} + "`);
-    }
-    output += '\treturn fetch("' + path + '", {\n';
-    output += "\t\tmethod: " + JSON.stringify(endpoint.method) + ",\n";
-    if (endpoint.request) {
-      output += "\t\tbody: JSON.stringify({\n";
-      for (const param of endpoint.request.params)
-        output += "\t\t\t" + camel(param.name) + ": body." + camel(param.name) + ",\n";
-      output += "\t\t}),\n";
-      output += "\t\theaders: {\n";
-      output += '\t\t\t"Content-Type": "application/json",\n';
-      output += "\t\t},\n";
+      path = path.replace("{" + param.name + "}", '" + ' + camel(param.name) + ' + "');
+      output += camel(param.name) + ": string, ";
     }
 
-    output += "\t}).then(res => res.json());\n";
+    if (endpoint.query) {
+      output += "query: ";
+      output += resolveStructure(links, endpoint.query);
+      output += ", ";
+    }
+
+    if (endpoint.request) {
+      output += "body: ";
+      output += resolveStructure(links, endpoint.request.params);
+      output += ", ";
+    }
+
+    output += ")";
+    output += "{\n";
+    output += "\treturn {\n";
+    output += "\t\tmethod: " + JSON.stringify(endpoint.method) + ",\n";
+    output += "\t\tpath: " + path + ",\n";
+
+    if (endpoint.query) {
+      output += '\t\tquery: "';
+      for (const param of endpoint.query) {
+        output += "&" + encodeURIComponent(param.name) + '=" + query.' + param.name + ' + "';
+      }
+      output += '",\n';
+    }
+
+    if (endpoint.request) {
+      output += "\t\tbody: body,\n";
+      // output += "\t\tbody: {\n";
+      // for (const param of endpoint.request.params) {
+      //   output += "\t\t\t" + param.name + ": body." + param.name + ",\n";
+      // }
+
+      // output += "\t\t},\n";
+    }
+
+    output += "\t}\n";
     output += "}\n\n";
   }
 

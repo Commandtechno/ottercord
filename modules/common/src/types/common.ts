@@ -7,9 +7,12 @@ export interface Type {
   reference: boolean;
   partial: boolean;
 
-  // value properties
+  // optional properties
   optional: boolean;
   nullable: boolean;
+  // default?: string; add later idk
+
+  // value properties
   array: boolean;
   value: string | string[];
 }

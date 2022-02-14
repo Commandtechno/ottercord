@@ -8,8 +8,7 @@ export interface Endpoint {
   path: string;
 
   params: EndpointParam[];
-  query: EndpointQuery[];
-
+  query?: Param[];
   request?: EndpointRequest;
   response?: Type | Param[];
 }
@@ -18,13 +17,6 @@ export interface EndpointParam {
   // type: string;
   name: string;
   anchor: string;
-}
-
-export interface EndpointQuery {
-  type: string;
-  name: string;
-  description: string;
-  required: boolean;
 }
 
 export interface EndpointRequest {

@@ -29,14 +29,12 @@ export function parseEndpoint(rawText: string) {
   const method = rawMethod.trim();
 
   const { path, params } = parsePath(rawPath.trim());
-  const query = [];
   const endpoint: Endpoint = {
     name,
     method,
 
     path,
-    params,
-    query
+    params
   };
 
   return endpoint;

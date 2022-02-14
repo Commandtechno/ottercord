@@ -18,7 +18,10 @@ import { js } from ".";
     const endpoints = JSON.parse(await readFile(resolve(dir, folder, "endpoints.json"), "utf8"));
     const structures = JSON.parse(await readFile(resolve(dir, folder, "structures.json"), "utf8"));
 
-    output += "// " + folder + "\n";
+    output += "/*\n";
+    output += "\t" + folder + "\n";
+    output += "*/\n\n";
+
     output += await js(links, constants, endpoints, structures);
     console.timeEnd(folder);
     // const output = await js(constants, endpoints, structures);

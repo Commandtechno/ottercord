@@ -66,6 +66,7 @@ export class EndpointsEngine {
 
                 optional: false,
                 nullable: false,
+
                 array: isArray(block.text),
                 value: parseAnchor(link.href)
               };
@@ -119,12 +120,7 @@ export class EndpointsEngine {
   processQuery(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentEndpoint.query = table.map(row => ({
-        type: row.type.text,
-        name: row.field.text,
-        description: row.description.text,
-        required: row.required?.text === "true"
-      }));
+      this.currentEndpoint.query = table.map(parseParam);
 
       this.context = "endpoint";
     }
