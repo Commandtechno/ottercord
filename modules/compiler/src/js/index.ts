@@ -64,7 +64,7 @@ function resolveStructure(links: { [key: string]: string }, params: Param[]) {
   let output = "{";
   for (const param of params) {
     output += "\n\t" + param.name;
-    if (param.optional) output += "?";
+    if (!param.required) output += "?";
     output += ": " + resolveType(links, param) + ";";
   }
   output += "\n}";
@@ -82,12 +82,11 @@ export function js(
 ) {
   let output = "";
   for (const constant of constants) {
-    output += "export enum " + pascal(constant.name) + " {";
+    output += "export enum " + pascal(constant.name) + " {\n";
     for (const value of constant.values) {
-      output +=
-        "\n\t" + JSON.stringify(pascal(value.name)) + " = " + JSON.stringify(value.value) + ",";
+      output += "\t" + pascal(value.name) + " = " + JSON.stringify(value.value) + ",\n";
     }
-    output += "\n};\n\n";
+    output += "};\n\n";
   }
 
   for (const structure of structures) {
@@ -145,7 +144,7 @@ export function js(
     }
 
     if (endpoint.request) {
-      output += "\t\tbody: body,\n";
+      output += "\t\tbody: JSON.stringify(body),\n";
       // output += "\t\tbody: {\n";
       // for (const param of endpoint.request.params) {
       //   output += "\t\t\t" + param.name + ": body." + param.name + ",\n";

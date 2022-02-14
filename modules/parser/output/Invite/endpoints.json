@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Get Invite",
+    "method": "GET",
+    "path": "/invites/{invite.code}",
+    "params": [
+      {
+        "name": "invite.code",
+        "anchor": "invite-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "invite-object"
+    },
+    "query": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "with_counts",
+        "description": "whether the invite should contain approximate member counts"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "with_expiration",
+        "description": "whether the invite should contain the expiration date"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_scheduled_event_id",
+        "description": "the guild scheduled event to include with the invite"
+      }
+    ]
+  },
+  {
+    "name": "Delete Invite",
+    "method": "DELETE",
+    "path": "/invites/{invite.code}",
+    "params": [
+      {
+        "name": "invite.code",
+        "anchor": "invite-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "invite-object"
+    }
+  }
+]

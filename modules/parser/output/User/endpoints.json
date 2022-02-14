@@ -1,0 +1,240 @@
+[
+  {
+    "name": "Get Current User",
+    "method": "GET",
+    "path": "/users/@me",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "user-object"
+    }
+  },
+  {
+    "name": "Get User",
+    "method": "GET",
+    "path": "/users/{user.id}",
+    "params": [
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "user-object"
+    }
+  },
+  {
+    "name": "Modify Current User",
+    "method": "PATCH",
+    "path": "/users/@me",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "user-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "username",
+          "description": "user's username, if changed may cause the user's discriminator to be randomized."
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "avatar",
+          "description": "if passed, modifies the user's avatar"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Current User Guilds",
+    "method": "GET",
+    "path": "/users/@me/guilds",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": true,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "guild-object"
+    },
+    "query": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "before",
+        "description": "get guilds before this guild ID"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "after",
+        "description": "get guilds after this guild ID"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "limit",
+        "description": "max number of guilds to return"
+      }
+    ]
+  },
+  {
+    "name": "Get Current User Guild Member",
+    "method": "GET",
+    "path": "/users/@me/guilds/{guild.id}/member",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-object"
+    }
+  },
+  {
+    "name": "Leave Guild",
+    "method": "DELETE",
+    "path": "/users/@me/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Leave a guild. Returns a 204 empty response on success.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "recipient_id",
+        "description": "the recipient to open a DM channel with"
+      }
+    ]
+  },
+  {
+    "name": "Create Group DM",
+    "method": "POST",
+    "path": "/users/@me/channels",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "channel-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "access_tokens",
+          "description": "access tokens of users that have granted your app the `gdm.join` scope"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "dict"
+          ],
+          "deprecated": false,
+          "name": "nicks",
+          "description": "a dictionary of user ids to their respective nicknames"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get User Connections",
+    "method": "GET",
+    "path": "/users/@me/connections",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "connection-object"
+    }
+  }
+]

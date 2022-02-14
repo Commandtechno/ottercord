@@ -34,17 +34,22 @@ export function parseAnchor(link: string) {
 
 export function parseType(row: Row): Type {
   let partial = false;
-  let optional = false;
+  let required = false;
   let nullable = false;
   let array = false;
 
+  if (row.required?.text === "Yes" || row.required?.text === "true") {
+    required = true;
+  }
+
+  // hmm
   if (row.field.text.startsWith("?")) {
-    optional = true;
+    required = false;
     row.field.text = row.field.text.slice(1);
   }
 
   if (row.field.text.endsWith("?")) {
-    optional = true;
+    required = false;
     row.field.text = row.field.text.slice(0, -1);
   }
 
@@ -72,7 +77,7 @@ export function parseType(row: Row): Type {
     if (token.type === "link")
       return {
         partial,
-        optional,
+        required,
         nullable,
         array,
 
@@ -90,7 +95,7 @@ export function parseType(row: Row): Type {
       if (token.type === "link")
         return {
           partial,
-          optional,
+          required,
           nullable,
           array,
 
@@ -101,7 +106,7 @@ export function parseType(row: Row): Type {
 
   return {
     partial,
-    optional,
+    required,
     nullable,
     array,
 

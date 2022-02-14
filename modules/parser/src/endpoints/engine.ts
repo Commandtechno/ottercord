@@ -64,7 +64,7 @@ export class EndpointsEngine {
                 reference: true,
                 partial: isPartial(block.text),
 
-                optional: false,
+                required: true,
                 nullable: false,
 
                 array: isArray(block.text),

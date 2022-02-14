@@ -1,0 +1,243 @@
+[
+  {
+    "name": "Get Sticker",
+    "method": "GET",
+    "path": "/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "sticker.id",
+        "anchor": "sticker-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "sticker-object"
+    }
+  },
+  {
+    "name": "List Nitro Sticker Packs",
+    "method": "GET",
+    "path": "/sticker-packs",
+    "params": [],
+    "description": "Returns the list of sticker packs available to Nitro subscribers.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "sticker-pack-object",
+        "deprecated": false,
+        "name": "sticker_packs"
+      }
+    ]
+  },
+  {
+    "name": "List Guild Stickers",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "sticker-object"
+    }
+  },
+  {
+    "name": "Get Guild Sticker",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "anchor": "sticker-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "sticker-object"
+    }
+  },
+  {
+    "name": "Create Guild Sticker",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/stickers",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "sticker-object"
+    },
+    "request": {
+      "json": false,
+      "form": true,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the sticker"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description of the sticker"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "file contents"
+          ],
+          "deprecated": false,
+          "name": "file",
+          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Sticker",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "anchor": "sticker-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "sticker-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the sticker"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description of the sticker"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "tags",
+          "description": "autocomplete/suggestion tags for the sticker"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Sticker",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/stickers/{sticker.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "sticker.id",
+        "anchor": "sticker-object"
+      }
+    ],
+    "description": "Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success."
+  }
+]

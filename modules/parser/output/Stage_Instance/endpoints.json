@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Create Stage Instance",
+    "method": "POST",
+    "path": "/stage-instances",
+    "params": [],
+    "description": "Creates a new Stage instance associated to a Stage channel.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "The id of the Stage channel"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "topic",
+        "description": "The topic of the Stage instance"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "privacy_level",
+        "description": "The of the Stage instance"
+      }
+    ]
+  },
+  {
+    "name": "Get Stage Instance",
+    "method": "GET",
+    "path": "/stage-instances/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "anchor": "channel-object"
+      }
+    ],
+    "description": "Gets the stage instance associated with the Stage channel, if it exists.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "topic",
+        "description": "The topic of the Stage instance"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "privacy_level",
+        "description": "The of the Stage instance"
+      }
+    ]
+  },
+  {
+    "name": "Delete Stage Instance",
+    "method": "DELETE",
+    "path": "/stage-instances/{channel.id}",
+    "params": [
+      {
+        "name": "channel.id",
+        "anchor": "channel-object"
+      }
+    ],
+    "description": "Deletes the Stage instance."
+  }
+]

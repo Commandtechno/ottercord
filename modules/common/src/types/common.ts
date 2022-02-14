@@ -7,8 +7,8 @@ export interface Type {
   reference: boolean;
   partial: boolean;
 
-  // optional properties
-  optional: boolean;
+  // idk properties
+  required: boolean;
   nullable: boolean;
   // default?: string; add later idk
 

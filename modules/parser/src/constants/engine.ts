@@ -62,7 +62,7 @@ export class ConstantsEngine {
     if (block.type === "table") {
       const table = formatTable(block);
       this.currentConstant.values = table.map(row => {
-        const rawName = (
+        const name = (
           row.key ??
           row.name ??
           row.field ??
@@ -75,16 +75,13 @@ export class ConstantsEngine {
           row.tier
         ).text;
 
-        const rawValue = (row.value ?? row.id)?.text ?? rawName;
+        const rawValue = (row.value ?? row.id)?.text ?? name;
         const description = row.description?.text;
 
-        const name = rawName;
         let value: string | number;
         if (rawValue.includes("<<")) {
-          const [rawA, rawB] = rawValue.split("<<");
-          const a = parseInt(rawA);
-          const b = parseInt(rawB);
-          value = a << b;
+          const [left, right] = rawValue.split("<<");
+          value = parseInt(left) << parseInt(right);
         } else {
           value = parseInt(rawValue);
           if (isNaN(value)) value = cleanText(rawValue);
@@ -92,8 +89,9 @@ export class ConstantsEngine {
 
         return {
           name,
-          value,
-          description
+          description,
+
+          value
         };
       });
 

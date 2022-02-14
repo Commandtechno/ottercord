@@ -1,0 +1,2203 @@
+[
+  {
+    "name": "Create Guild",
+    "method": "POST",
+    "path": "/guilds",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the guild"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": true,
+          "name": "region",
+          "description": "id"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "base64 128x128 image for the guild icon"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "verification_level",
+          "description": ""
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "default_message_notifications",
+          "description": "default"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "explicit_content_filter",
+          "description": ""
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "role-object",
+          "deprecated": false,
+          "name": "roles",
+          "description": "new guild roles"
+        },
+        {
+          "partial": true,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "channel-object",
+          "deprecated": false,
+          "name": "channels",
+          "description": "new guild's channels"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "afk_channel_id",
+          "description": "id for afk channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "afk_timeout",
+          "description": "afk timeout in seconds"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "system_channel_id",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "system_channel_flags",
+          "description": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild",
+    "method": "GET",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-object"
+    },
+    "query": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "with_counts",
+        "description": "when `true`, will return approximate member and presence counts for the guild"
+      }
+    ]
+  },
+  {
+    "name": "Get Guild Preview",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/preview",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-preview-object"
+    }
+  },
+  {
+    "name": "Modify Guild",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "guild name"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": true,
+          "name": "region",
+          "description": "guild id"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "verification_level",
+          "description": ""
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "default_message_notifications",
+          "description": "default"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "explicit_content_filter",
+          "description": ""
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "afk_channel_id",
+          "description": "id for afk channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "afk_timeout",
+          "description": "afk timeout in seconds"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "base64 1024x1024 png/jpeg/gif image for the guild icon"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "owner_id",
+          "description": "user id to transfer guild ownership to"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "splash",
+          "description": "base64 16:9 png/jpeg image for the guild splash"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "discovery_splash",
+          "description": "base64 16:9 png/jpeg image for the guild discovery splash"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "banner",
+          "description": "base64 16:9 png/jpeg image for the guild banner"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "system_channel_id",
+          "description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "system_channel_flags",
+          "description": ""
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "rules_channel_id",
+          "description": "the id of the channel where Community guilds display rules and/or guidelines"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "public_updates_channel_id",
+          "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "preferred_locale",
+          "description": "the preferred of a Community guild used in server discovery and notices from Discord"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "guild-object-guild-features",
+          "deprecated": false,
+          "name": "features",
+          "description": "enabled guild features"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "the description for the guild, if the guild is discoverable"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "premium_progress_bar_enabled",
+          "description": "whether the guild's boost progress bar should be enabled."
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-delete"
+    }
+  },
+  {
+    "name": "Get Guild Channels",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "channel-object"
+    }
+  },
+  {
+    "name": "Create Guild Channel",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "channel-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "channel name"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "type",
+          "description": "the"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "topic",
+          "description": "channel topic"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "bitrate",
+          "description": "the bitrate of the voice channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "user_limit",
+          "description": "the user limit of the voice channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "rate_limit_per_user",
+          "description": "amount of seconds a user has to wait before sending another message"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "position",
+          "description": "sorting position of the channel"
+        },
+        {
+          "partial": true,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "overwrite-object",
+          "deprecated": false,
+          "name": "permission_overwrites",
+          "description": "the channel's permission overwrites"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "parent_id",
+          "description": "id of the parent category for a channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "nsfw",
+          "description": "whether the channel is nsfw"
+        }
+      ]
+    },
+    "description": "\\* In each overwrite object, the `allow` and `deny` keys can be omitted or set to `null`, which both default to `\"0\"`."
+  },
+  {
+    "name": "Modify Guild Channel Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/channels",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "channel-update"
+    },
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "id",
+          "description": "channel id"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "position",
+          "description": "sorting position of the channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "lock_permissions",
+          "description": "syncs the permission overwrites with the new parent, if moving to a new category"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "parent_id",
+          "description": "the new parent ID for the channel that is moved"
+        }
+      ]
+    }
+  },
+  {
+    "name": "List Active Threads",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/threads/active",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their `id`, in descending order.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "channel-object",
+        "deprecated": false,
+        "name": "threads",
+        "description": "the active threads"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "thread-member-object",
+        "deprecated": false,
+        "name": "members",
+        "description": "a thread member object for each returned thread the current user has joined"
+      }
+    ]
+  },
+  {
+    "name": "Get Guild Member",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-object"
+    }
+  },
+  {
+    "name": "List Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "guild-member-object"
+    },
+    "query": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "limit",
+        "description": "max number of members to return"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "after",
+        "description": "the highest user id in the previous page"
+      }
+    ]
+  },
+  {
+    "name": "Search Guild Members",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/members/search",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "guild-member-object"
+    },
+    "query": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "query",
+        "description": "Query string to match username and nickname against."
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "limit",
+        "description": "max number of members to return"
+      }
+    ]
+  },
+  {
+    "name": "Add Guild Member",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-object"
+    },
+    "description": "For guilds with [Membership Screening](#DOCS_RESOURCES_GUILD/membership-screening-object) enabled, this endpoint will default to adding new members as `pending` in the [guild member object](#DOCS_RESOURCES_GUILD/guild-member-object). Members that are `pending` will have to complete membership screening before they become full members that can talk.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "access_token",
+          "description": "an oauth2 access token granted with the `guilds.join` to the bot's application for the user you want to add to the guild"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "nick",
+          "description": "value to set user's nickname to"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "roles",
+          "description": "array of role ids the member is assigned"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "mute",
+          "description": "whether the user is muted in voice channels"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "nick",
+          "description": "value to set user's nickname to"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "roles",
+          "description": "array of role ids the member is assigned"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "mute",
+          "description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "deaf",
+          "description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "channel_id",
+          "description": "id of channel to move user to"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "ISO8601 timestamp"
+          ],
+          "deprecated": false,
+          "name": "communication_disabled_until",
+          "description": "when the user's will expire and the user will be able to communicate in the guild again , set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current Member",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-update"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "nick",
+          "description": "value to set user's nickname to"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Nick",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/members/@me/nick",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-update"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "nick",
+          "description": "value to set user's nickname to"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Add Guild Member Role",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      },
+      {
+        "name": "role.id",
+        "anchor": "role-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-update"
+    }
+  },
+  {
+    "name": "Remove Guild Member Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      },
+      {
+        "name": "role.id",
+        "anchor": "role-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-update"
+    }
+  },
+  {
+    "name": "Remove Guild Member",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/members/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-remove"
+    }
+  },
+  {
+    "name": "Get Guild Bans",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "ban-object"
+    }
+  },
+  {
+    "name": "Get Guild Ban",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "ban-object"
+    }
+  },
+  {
+    "name": "Create Guild Ban",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-ban-add"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "delete_message_days",
+          "description": "number of days to delete messages for"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": true,
+          "name": "reason",
+          "description": "reason for the ban"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Remove Guild Ban",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/bans/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-ban-remove"
+    }
+  },
+  {
+    "name": "Get Guild Roles",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "role-object"
+    }
+  },
+  {
+    "name": "Create Guild Role",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "role-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the role"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "color",
+          "description": "RGB color value"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "the role's icon image"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "mentionable",
+          "description": "whether the role should be mentionable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role Positions",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "role-object"
+    },
+    "description": "This endpoint takes a JSON array of parameters in the following format:",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "id",
+          "description": "role"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "position",
+          "description": "sorting position of the role"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Role",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "role.id",
+        "anchor": "role-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "role-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the role"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "permissions",
+          "description": "bitwise value of the enabled/disabled permissions"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "color",
+          "description": "RGB color value"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "hoist",
+          "description": "whether the role should be displayed separately in the sidebar"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "the role's icon image"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "unicode_emoji",
+          "description": "the role's unicode emoji as a"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "mentionable",
+          "description": "whether the role should be mentionable"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Role",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/roles/{role.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "role.id",
+        "anchor": "role-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-role-delete"
+    }
+  },
+  {
+    "name": "Get Guild Prune Count",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Returns an object with one 'pruned' key indicating the number of members that would be removed in a prune operation. Requires the `KICK_MEMBERS` permission.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "days",
+        "description": "number of days to count prune for"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "include_roles",
+        "description": "role to include"
+      }
+    ]
+  },
+  {
+    "name": "Begin Guild Prune",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/prune",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-member-remove"
+    },
+    "description": "By default, prune will not remove users with roles. You can optionally include specific roles in your prune by providing the `include_roles` parameter. Any inactive user that has a subset of the provided role(s) will be included in the prune and users with additional roles will not.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "integer"
+          ],
+          "deprecated": false,
+          "name": "days",
+          "description": "number of days to prune"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "compute_prune_count",
+          "description": "whether 'pruned' is returned, discouraged for large guilds"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": [
+            "snowflake"
+          ],
+          "deprecated": false,
+          "name": "include_roles",
+          "description": "role to include"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": true,
+          "name": "reason",
+          "description": "reason for the prune"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Voice Regions",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/regions",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "voice-region-object"
+    }
+  },
+  {
+    "name": "Get Guild Invites",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/invites",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "invite-object"
+    }
+  },
+  {
+    "name": "Get Guild Integrations",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/integrations",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": true,
+      "value": "integration-object"
+    }
+  },
+  {
+    "name": "Delete Guild Integration",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/integrations/{integration.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "integration.id",
+        "anchor": "integration-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-integrations-update"
+    }
+  },
+  {
+    "name": "Get Guild Widget Settings",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-widget-settings-object"
+    }
+  },
+  {
+    "name": "Modify Guild Widget",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/widget",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "guild-widget-settings-object"
+    }
+  },
+  {
+    "name": "Get Guild Widget",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.json",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "get-guild-widget-object"
+    }
+  },
+  {
+    "name": "Get Guild Vanity URL",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/vanity-url",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": true,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "invite-object"
+    }
+  },
+  {
+    "name": "Get Guild Widget Image",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/widget.png",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Returns a PNG image widget for the guild. Requires no permissions or authentication.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "style",
+        "description": "style of the widget image returned"
+      }
+    ]
+  },
+  {
+    "name": "Get Guild Welcome Screen",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "welcome-screen-object"
+    }
+  },
+  {
+    "name": "Modify Guild Welcome Screen",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/welcome-screen",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "required": true,
+      "nullable": false,
+      "array": false,
+      "value": "welcome-screen-object"
+    },
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "boolean"
+          ],
+          "deprecated": false,
+          "name": "enabled",
+          "description": "whether the welcome screen is enabled"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": true,
+          "reference": true,
+          "value": "welcome-screen-object-welcome-screen-channel-structure",
+          "deprecated": false,
+          "name": "welcome_channels",
+          "description": "channels linked in the welcome screen and their display options"
+        },
+        {
+          "partial": false,
+          "required": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "the server description to show in the welcome screen"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Current User Voice State",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/voice-states/@me",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Updates the current user's voice state.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "the id of the channel the user is currently in"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "suppress",
+        "description": "toggles the user's suppress state"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "request_to_speak_timestamp",
+        "description": "sets the user's request to speak"
+      }
+    ]
+  },
+  {
+    "name": "Modify User Voice State",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/voice-states/{user.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "user.id",
+        "anchor": "user-object"
+      }
+    ],
+    "description": "Updates another user's voice state.",
+    "response": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "the id of the channel the user is currently in"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "suppress",
+        "description": "toggles the user's suppress state"
+      }
+    ]
+  }
+]

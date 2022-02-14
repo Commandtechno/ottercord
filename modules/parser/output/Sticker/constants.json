@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Sticker Types",
+    "values": [
+      {
+        "name": "STANDARD",
+        "description": "an official sticker in a pack, part of Nitro or in a removed purchasable pack",
+        "value": 1
+      },
+      {
+        "name": "GUILD",
+        "description": "a sticker uploaded to a Boosted guild for the guild's members",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Sticker Format Types",
+    "values": [
+      {
+        "name": "PNG",
+        "value": 1
+      },
+      {
+        "name": "APNG",
+        "value": 2
+      },
+      {
+        "name": "LOTTIE",
+        "value": 3
+      }
+    ]
+  }
+]

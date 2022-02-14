@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Stage Instance Structure",
+    "params": [
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "The id of this Stage instance"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "The guild id of the associated Stage channel"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "The id of the associated Stage channel"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "topic",
+        "description": "The topic of the Stage instance"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "privacy_level",
+        "description": "The of the Stage instance"
+      },
+      {
+        "partial": false,
+        "required": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": true,
+        "name": "discoverable_disabled",
+        "description": "Whether or not Stage Discovery is disabled"
+      }
+    ]
+  }
+]

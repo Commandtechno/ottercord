@@ -3,30 +3,30 @@
 */
 
 export enum ApplicationFlags {
-	"GatewayPresence" = 4096,
-	"GatewayPresenceLimited" = 8192,
-	"GatewayGuildMembers" = 16384,
-	"GatewayGuildMembersLimited" = 32768,
-	"VerificationPendingGuildLimit" = 65536,
-	"Embedded" = 131072,
-	"GatewayMessageContent" = 262144,
-	"GatewayMessageContentLimited" = 524288,
+	GatewayPresence = 4096,
+	GatewayPresenceLimited = 8192,
+	GatewayGuildMembers = 16384,
+	GatewayGuildMembersLimited = 32768,
+	VerificationPendingGuildLimit = 65536,
+	Embedded = 131072,
+	GatewayMessageContent = 262144,
+	GatewayMessageContentLimited = 524288,
 };
 
 export interface ApplicationStructure {
-	id: string | bigint;
-	name: string;
-	icon: string | null;
-	description: string;
+	id?: string | bigint;
+	name?: string;
+	icon?: string | null;
+	description?: string;
 	rpc_origins?: string;
-	bot_public: boolean;
-	bot_require_code_grant: boolean;
+	bot_public?: boolean;
+	bot_require_code_grant?: boolean;
 	terms_of_service_url?: string;
 	privacy_policy_url?: string;
 	owner?: UserStructure;
-	summary: string;
-	verify_key: string;
-	team: any /* data-models-team-object */;
+	summary?: string;
+	verify_key?: string;
+	team?: any /* data-models-team-object */;
 	guild_id?: string | bigint;
 	primary_sku_id?: string | bigint;
 	slug?: string;
@@ -39,154 +39,154 @@ export interface ApplicationStructure {
 */
 
 export enum AuditLogEvents {
-	"GuildUpdate" = 1,
-	"ChannelCreate" = 10,
-	"ChannelUpdate" = 11,
-	"ChannelDelete" = 12,
-	"ChannelOverwriteCreate" = 13,
-	"ChannelOverwriteUpdate" = 14,
-	"ChannelOverwriteDelete" = 15,
-	"MemberKick" = 20,
-	"MemberPrune" = 21,
-	"MemberBanAdd" = 22,
-	"MemberBanRemove" = 23,
-	"MemberUpdate" = 24,
-	"MemberRoleUpdate" = 25,
-	"MemberMove" = 26,
-	"MemberDisconnect" = 27,
-	"BotAdd" = 28,
-	"RoleCreate" = 30,
-	"RoleUpdate" = 31,
-	"RoleDelete" = 32,
-	"InviteCreate" = 40,
-	"InviteUpdate" = 41,
-	"InviteDelete" = 42,
-	"WebhookCreate" = 50,
-	"WebhookUpdate" = 51,
-	"WebhookDelete" = 52,
-	"EmojiCreate" = 60,
-	"EmojiUpdate" = 61,
-	"EmojiDelete" = 62,
-	"MessageDelete" = 72,
-	"MessageBulkDelete" = 73,
-	"MessagePin" = 74,
-	"MessageUnpin" = 75,
-	"IntegrationCreate" = 80,
-	"IntegrationUpdate" = 81,
-	"IntegrationDelete" = 82,
-	"StageInstanceCreate" = 83,
-	"StageInstanceUpdate" = 84,
-	"StageInstanceDelete" = 85,
-	"StickerCreate" = 90,
-	"StickerUpdate" = 91,
-	"StickerDelete" = 92,
-	"GuildScheduledEventCreate" = 100,
-	"GuildScheduledEventUpdate" = 101,
-	"GuildScheduledEventDelete" = 102,
-	"ThreadCreate" = 110,
-	"ThreadUpdate" = 111,
-	"ThreadDelete" = 112,
+	GuildUpdate = 1,
+	ChannelCreate = 10,
+	ChannelUpdate = 11,
+	ChannelDelete = 12,
+	ChannelOverwriteCreate = 13,
+	ChannelOverwriteUpdate = 14,
+	ChannelOverwriteDelete = 15,
+	MemberKick = 20,
+	MemberPrune = 21,
+	MemberBanAdd = 22,
+	MemberBanRemove = 23,
+	MemberUpdate = 24,
+	MemberRoleUpdate = 25,
+	MemberMove = 26,
+	MemberDisconnect = 27,
+	BotAdd = 28,
+	RoleCreate = 30,
+	RoleUpdate = 31,
+	RoleDelete = 32,
+	InviteCreate = 40,
+	InviteUpdate = 41,
+	InviteDelete = 42,
+	WebhookCreate = 50,
+	WebhookUpdate = 51,
+	WebhookDelete = 52,
+	EmojiCreate = 60,
+	EmojiUpdate = 61,
+	EmojiDelete = 62,
+	MessageDelete = 72,
+	MessageBulkDelete = 73,
+	MessagePin = 74,
+	MessageUnpin = 75,
+	IntegrationCreate = 80,
+	IntegrationUpdate = 81,
+	IntegrationDelete = 82,
+	StageInstanceCreate = 83,
+	StageInstanceUpdate = 84,
+	StageInstanceDelete = 85,
+	StickerCreate = 90,
+	StickerUpdate = 91,
+	StickerDelete = 92,
+	GuildScheduledEventCreate = 100,
+	GuildScheduledEventUpdate = 101,
+	GuildScheduledEventDelete = 102,
+	ThreadCreate = 110,
+	ThreadUpdate = 111,
+	ThreadDelete = 112,
 };
 
 export enum OptionalAuditEntryInfo {
-	"ChannelId" = "channel_id",
-	"Count" = "count",
-	"DeleteMemberDays" = "delete_member_days",
-	"Id" = "id",
-	"MembersRemoved" = "members_removed",
-	"MessageId" = "message_id",
-	"RoleName" = "role_name",
-	"Type" = "type",
+	ChannelId = "channel_id",
+	Count = "count",
+	DeleteMemberDays = "delete_member_days",
+	Id = "id",
+	MembersRemoved = "members_removed",
+	MessageId = "message_id",
+	RoleName = "role_name",
+	Type = "type",
 };
 
 export enum AuditLogChangeKey {
-	"AfkChannelId" = "afk_channel_id",
-	"AfkTimeout" = "afk_timeout",
-	"Allow" = "allow",
-	"ApplicationId" = "application_id",
-	"Archived" = "archived",
-	"Asset" = "asset",
-	"AutoArchiveDuration" = "auto_archive_duration",
-	"Available" = "available",
-	"AvatarHash" = "avatar_hash",
-	"BannerHash" = "banner_hash",
-	"Bitrate" = "bitrate",
-	"ChannelId" = "channel_id",
-	"Code" = "code",
-	"Color" = "color",
-	"CommunicationDisabledUntil" = "communication_disabled_until",
-	"Deaf" = "deaf",
-	"DefaultAutoArchiveDuration" = "default_auto_archive_duration",
-	"DefaultMessageNotifications" = "default_message_notifications",
-	"Deny" = "deny",
-	"Description" = "description",
-	"DiscoverySplashHash" = "discovery_splash_hash",
-	"EnableEmoticons" = "enable_emoticons",
-	"EntityType" = "entity_type",
-	"ExpireBehavior" = "expire_behavior",
-	"ExpireGracePeriod" = "expire_grace_period",
-	"ExplicitContentFilter" = "explicit_content_filter",
-	"FormatType" = "format_type",
-	"GuildId" = "guild_id",
-	"Hoist" = "hoist",
-	"IconHash" = "icon_hash",
-	"Id" = "id",
-	"Invitable" = "invitable",
-	"InviterId" = "inviter_id",
-	"Location" = "location",
-	"Locked" = "locked",
-	"MaxAge" = "max_age",
-	"MaxUses" = "max_uses",
-	"Mentionable" = "mentionable",
-	"MfaLevel" = "mfa_level",
-	"Mute" = "mute",
-	"Name" = "name",
-	"Nick" = "nick",
-	"Nsfw" = "nsfw",
-	"OwnerId" = "owner_id",
-	"PermissionOverwrites" = "permission_overwrites",
-	"Permissions" = "permissions",
-	"Position" = "position",
-	"PreferredLocale" = "preferred_locale",
-	"PrivacyLevel" = "privacy_level",
-	"PruneDeleteDays" = "prune_delete_days",
-	"PublicUpdatesChannelId" = "public_updates_channel_id",
-	"RateLimitPerUser" = "rate_limit_per_user",
-	"Region" = "region",
-	"RulesChannelId" = "rules_channel_id",
-	"SplashHash" = "splash_hash",
-	"Status" = "status",
-	"SystemChannelId" = "system_channel_id",
-	"Tags" = "tags",
-	"Temporary" = "temporary",
-	"Topic" = "topic",
-	"Type" = "type",
-	"UnicodeEmoji" = "unicode_emoji",
-	"UserLimit" = "user_limit",
-	"Uses" = "uses",
-	"VanityUrlCode" = "vanity_url_code",
-	"VerificationLevel" = "verification_level",
-	"WidgetChannelId" = "widget_channel_id",
-	"WidgetEnabled" = "widget_enabled",
-	"Add" = "$add",
-	"Remove" = "$remove",
+	AfkChannelId = "afk_channel_id",
+	AfkTimeout = "afk_timeout",
+	Allow = "allow",
+	ApplicationId = "application_id",
+	Archived = "archived",
+	Asset = "asset",
+	AutoArchiveDuration = "auto_archive_duration",
+	Available = "available",
+	AvatarHash = "avatar_hash",
+	BannerHash = "banner_hash",
+	Bitrate = "bitrate",
+	ChannelId = "channel_id",
+	Code = "code",
+	Color = "color",
+	CommunicationDisabledUntil = "communication_disabled_until",
+	Deaf = "deaf",
+	DefaultAutoArchiveDuration = "default_auto_archive_duration",
+	DefaultMessageNotifications = "default_message_notifications",
+	Deny = "deny",
+	Description = "description",
+	DiscoverySplashHash = "discovery_splash_hash",
+	EnableEmoticons = "enable_emoticons",
+	EntityType = "entity_type",
+	ExpireBehavior = "expire_behavior",
+	ExpireGracePeriod = "expire_grace_period",
+	ExplicitContentFilter = "explicit_content_filter",
+	FormatType = "format_type",
+	GuildId = "guild_id",
+	Hoist = "hoist",
+	IconHash = "icon_hash",
+	Id = "id",
+	Invitable = "invitable",
+	InviterId = "inviter_id",
+	Location = "location",
+	Locked = "locked",
+	MaxAge = "max_age",
+	MaxUses = "max_uses",
+	Mentionable = "mentionable",
+	MfaLevel = "mfa_level",
+	Mute = "mute",
+	Name = "name",
+	Nick = "nick",
+	Nsfw = "nsfw",
+	OwnerId = "owner_id",
+	PermissionOverwrites = "permission_overwrites",
+	Permissions = "permissions",
+	Position = "position",
+	PreferredLocale = "preferred_locale",
+	PrivacyLevel = "privacy_level",
+	PruneDeleteDays = "prune_delete_days",
+	PublicUpdatesChannelId = "public_updates_channel_id",
+	RateLimitPerUser = "rate_limit_per_user",
+	Region = "region",
+	RulesChannelId = "rules_channel_id",
+	SplashHash = "splash_hash",
+	Status = "status",
+	SystemChannelId = "system_channel_id",
+	Tags = "tags",
+	Temporary = "temporary",
+	Topic = "topic",
+	Type = "type",
+	UnicodeEmoji = "unicode_emoji",
+	UserLimit = "user_limit",
+	Uses = "uses",
+	VanityUrlCode = "vanity_url_code",
+	VerificationLevel = "verification_level",
+	WidgetChannelId = "widget_channel_id",
+	WidgetEnabled = "widget_enabled",
+	Add = "$add",
+	Remove = "$remove",
 };
 
 export interface AuditLogStructure {
-	audit_log_entries: Array<AuditLogEntryStructure>;
-	guild_scheduled_events: Array<GuildScheduledEventStructure>;
-	integrations: Array<IntegrationStructure>;
-	threads: Array<ChannelStructure>;
-	users: Array<UserStructure>;
-	webhooks: Array<WebhookStructure>;
+	audit_log_entries?: Array<AuditLogEntryStructure>;
+	guild_scheduled_events?: Array<GuildScheduledEventStructure>;
+	integrations?: Array<IntegrationStructure>;
+	threads?: Array<ChannelStructure>;
+	users?: Array<UserStructure>;
+	webhooks?: Array<WebhookStructure>;
 };
 
 export interface AuditLogEntryStructure {
-	target_id: string | null;
+	target_id?: string | null;
 	changes?: Array<AuditLogChangeStructure>;
-	user_id: string | bigint | null;
-	id: string | bigint;
-	action_type: AuditLogEvents;
+	user_id?: string | bigint | null;
+	id?: string | bigint;
+	action_type?: AuditLogEvents;
 	options?: OptionalAuditEntryInfo;
 	reason?: string;
 };
@@ -194,14 +194,14 @@ export interface AuditLogEntryStructure {
 export interface AuditLogChangeStructure {
 	new_value?: AuditLogChangeKey;
 	old_value?: AuditLogChangeKey;
-	key: string;
+	key?: string;
 };
 
 export function getGuildAuditLog(guildId: string, query: {
-	user_id: string | bigint;
-	action_type: number;
-	before: string | bigint;
-	limit: number;
+	user_id?: string | bigint;
+	action_type?: number;
+	before?: string | bigint;
+	limit?: number;
 }, ){
 	return {
 		method: "GET",
@@ -215,87 +215,87 @@ export function getGuildAuditLog(guildId: string, query: {
 */
 
 export enum ChannelTypes {
-	"GuildText" = 0,
-	"Dm" = 1,
-	"GuildVoice" = 2,
-	"GroupDm" = 3,
-	"GuildCategory" = 4,
-	"GuildNews" = 5,
-	"GuildStore" = 6,
-	"GuildNewsThread" = 10,
-	"GuildPublicThread" = 11,
-	"GuildPrivateThread" = 12,
-	"GuildStageVoice" = 13,
+	GuildText = 0,
+	Dm = 1,
+	GuildVoice = 2,
+	GroupDm = 3,
+	GuildCategory = 4,
+	GuildNews = 5,
+	GuildStore = 6,
+	GuildNewsThread = 10,
+	GuildPublicThread = 11,
+	GuildPrivateThread = 12,
+	GuildStageVoice = 13,
 };
 
 export enum VideoQualityModes {
-	"Auto" = 1,
-	"Full" = 2,
+	Auto = 1,
+	Full = 2,
 };
 
 export enum MessageTypes {
-	"Default" = 0,
-	"RecipientAdd" = 1,
-	"RecipientRemove" = 2,
-	"Call" = 3,
-	"ChannelNameChange" = 4,
-	"ChannelIconChange" = 5,
-	"ChannelPinnedMessage" = 6,
-	"GuildMemberJoin" = 7,
-	"UserPremiumGuildSubscription" = 8,
-	"UserPremiumGuildSubscriptionTier1" = 9,
-	"UserPremiumGuildSubscriptionTier2" = 10,
-	"UserPremiumGuildSubscriptionTier3" = 11,
-	"ChannelFollowAdd" = 12,
-	"GuildDiscoveryDisqualified" = 14,
-	"GuildDiscoveryRequalified" = 15,
-	"GuildDiscoveryGracePeriodInitialWarning" = 16,
-	"GuildDiscoveryGracePeriodFinalWarning" = 17,
-	"ThreadCreated" = 18,
-	"Reply" = 19,
-	"ChatInputCommand" = 20,
-	"ThreadStarterMessage" = 21,
-	"GuildInviteReminder" = 22,
-	"ContextMenuCommand" = 23,
+	Default = 0,
+	RecipientAdd = 1,
+	RecipientRemove = 2,
+	Call = 3,
+	ChannelNameChange = 4,
+	ChannelIconChange = 5,
+	ChannelPinnedMessage = 6,
+	GuildMemberJoin = 7,
+	UserPremiumGuildSubscription = 8,
+	UserPremiumGuildSubscriptionTier1 = 9,
+	UserPremiumGuildSubscriptionTier2 = 10,
+	UserPremiumGuildSubscriptionTier3 = 11,
+	ChannelFollowAdd = 12,
+	GuildDiscoveryDisqualified = 14,
+	GuildDiscoveryRequalified = 15,
+	GuildDiscoveryGracePeriodInitialWarning = 16,
+	GuildDiscoveryGracePeriodFinalWarning = 17,
+	ThreadCreated = 18,
+	Reply = 19,
+	ChatInputCommand = 20,
+	ThreadStarterMessage = 21,
+	GuildInviteReminder = 22,
+	ContextMenuCommand = 23,
 };
 
 export enum MessageActivityTypes {
-	"Join" = 1,
-	"Spectate" = 2,
-	"Listen" = 3,
-	"JoinRequest" = 5,
+	Join = 1,
+	Spectate = 2,
+	Listen = 3,
+	JoinRequest = 5,
 };
 
 export enum MessageFlags {
-	"Crossposted" = 1,
-	"IsCrosspost" = 2,
-	"SuppressEmbeds" = 4,
-	"SourceMessageDeleted" = 8,
-	"Urgent" = 16,
-	"HasThread" = 32,
-	"Ephemeral" = 64,
-	"Loading" = 128,
-	"FailedToMentionSomeRolesInThread" = 256,
+	Crossposted = 1,
+	IsCrosspost = 2,
+	SuppressEmbeds = 4,
+	SourceMessageDeleted = 8,
+	Urgent = 16,
+	HasThread = 32,
+	Ephemeral = 64,
+	Loading = 128,
+	FailedToMentionSomeRolesInThread = 256,
 };
 
 export enum EmbedTypes {
-	"Rich" = "rich",
-	"Image" = "image",
-	"Video" = "video",
-	"Gifv" = "gifv",
-	"Article" = "article",
-	"Link" = "link",
+	Rich = "rich",
+	Image = "image",
+	Video = "video",
+	Gifv = "gifv",
+	Article = "article",
+	Link = "link",
 };
 
 export enum AllowedMentionTypes {
-	"RoleMentions" = "roles",
-	"UserMentions" = "users",
-	"EveryoneMentions" = "everyone",
+	RoleMentions = "roles",
+	UserMentions = "users",
+	EveryoneMentions = "everyone",
 };
 
 export interface ChannelStructure {
-	id: string | bigint;
-	type: number;
+	id?: string | bigint;
+	type?: number;
 	guild_id?: string | bigint;
 	position?: number;
 	permission_overwrites?: Array<OverwriteStructure>;
@@ -305,7 +305,7 @@ export interface ChannelStructure {
 	last_message_id?: string | bigint | null;
 	bitrate?: number;
 	user_limit?: number;
-	rate_limit_per_user: number;
+	rate_limit_per_user?: number;
 	recipients?: Array<UserStructure>;
 	icon?: string | null;
 	owner_id?: string | bigint;
@@ -323,32 +323,32 @@ export interface ChannelStructure {
 };
 
 export interface MessageStructure {
-	id: string | bigint;
-	channel_id: string | bigint;
+	id?: string | bigint;
+	channel_id?: string | bigint;
 	guild_id?: string | bigint;
-	author: UserStructure;
-	member: GuildMemberStructure;
-	content: string;
-	timestamp: Date;
-	edited_timestamp: Date | null;
-	tts: boolean;
-	mention_everyone: boolean;
-	mentions: Array<UserStructure>;
-	mention_roles: any /* role-object */;
-	mention_channels: Array<ChannelMentionStructure>;
-	attachments: Array<AttachmentStructure>;
-	embeds: Array<EmbedStructure>;
+	author?: UserStructure;
+	member?: GuildMemberStructure;
+	content?: string;
+	timestamp?: Date;
+	edited_timestamp?: Date | null;
+	tts?: boolean;
+	mention_everyone?: boolean;
+	mentions?: Array<UserStructure>;
+	mention_roles?: any /* role-object */;
+	mention_channels?: Array<ChannelMentionStructure>;
+	attachments?: Array<AttachmentStructure>;
+	embeds?: Array<EmbedStructure>;
 	reactions?: Array<ReactionStructure>;
 	nonce?: number | string;
-	pinned: boolean;
+	pinned?: boolean;
 	webhook_id?: string | bigint;
-	type: number;
+	type?: number;
 	activity?: MessageActivityStructure;
 	application?: ApplicationStructure;
 	application_id?: string | bigint;
 	message_reference?: MessageReferenceStructure;
 	flags?: number;
-	referenced_message: MessageStructure;
+	referenced_message?: MessageStructure;
 	interaction?: any /* message-interaction-object-message-interaction-structure */;
 	thread?: ChannelStructure;
 	components?: any /* component-object */;
@@ -357,49 +357,49 @@ export interface MessageStructure {
 };
 
 export interface MessageActivityStructure {
-	type: number;
+	type?: number;
 	party_id?: string;
 };
 
 export interface MessageReferenceStructure {
 	message_id?: string | bigint;
-	channel_id: string | bigint;
+	channel_id?: string | bigint;
 	guild_id?: string | bigint;
 	fail_if_not_exists?: boolean;
 };
 
 export interface FollowedChannelStructure {
-	channel_id: string | bigint;
-	webhook_id: string | bigint;
+	channel_id?: string | bigint;
+	webhook_id?: string | bigint;
 };
 
 export interface ReactionStructure {
-	count: number;
-	me: boolean;
-	emoji: EmojiStructure;
+	count?: number;
+	me?: boolean;
+	emoji?: EmojiStructure;
 };
 
 export interface OverwriteStructure {
-	id: string | bigint;
-	type: number;
-	allow: string;
-	deny: string;
+	id?: string | bigint;
+	type?: number;
+	allow?: string;
+	deny?: string;
 };
 
 export interface ThreadMetadataStructure {
-	archived: boolean;
-	auto_archive_duration: number;
-	archive_timestamp: Date;
-	locked: boolean;
+	archived?: boolean;
+	auto_archive_duration?: number;
+	archive_timestamp?: Date;
+	locked?: boolean;
 	invitable?: boolean;
 	create_timestamp?: Date;
 };
 
 export interface ThreadMemberStructure {
-	id: string | bigint;
-	user_id: string | bigint;
-	join_timestamp: Date;
-	flags: number;
+	id?: string | bigint;
+	user_id?: string | bigint;
+	join_timestamp?: Date;
+	flags?: number;
 };
 
 export interface EmbedStructure {
@@ -419,7 +419,7 @@ export interface EmbedStructure {
 };
 
 export interface EmbedThumbnailStructure {
-	url: string;
+	url?: string;
 	proxy_url?: string;
 	height?: number;
 	width?: number;
@@ -433,7 +433,7 @@ export interface EmbedVideoStructure {
 };
 
 export interface EmbedImageStructure {
-	url: string;
+	url?: string;
 	proxy_url?: string;
 	height?: number;
 	width?: number;
@@ -445,49 +445,49 @@ export interface EmbedProviderStructure {
 };
 
 export interface EmbedAuthorStructure {
-	name: string;
+	name?: string;
 	url?: string;
 	icon_url?: string;
 	proxy_icon_url?: string;
 };
 
 export interface EmbedFooterStructure {
-	text: string;
+	text?: string;
 	icon_url?: string;
 	proxy_icon_url?: string;
 };
 
 export interface EmbedFieldStructure {
-	name: string;
-	value: string;
+	name?: string;
+	value?: string;
 	inline?: boolean;
 };
 
 export interface AttachmentStructure {
-	id: string | bigint;
-	filename: string;
+	id?: string | bigint;
+	filename?: string;
 	description?: string;
 	content_type?: string;
-	size: number;
-	url: string;
-	proxy_url: string;
+	size?: number;
+	url?: string;
+	proxy_url?: string;
 	height?: number | null;
 	width?: number | null;
-	ephemeral: boolean;
+	ephemeral?: boolean;
 };
 
 export interface ChannelMentionStructure {
-	id: string | bigint;
-	guild_id: string | bigint;
-	type: number;
-	name: string;
+	id?: string | bigint;
+	guild_id?: string | bigint;
+	type?: number;
+	name?: string;
 };
 
 export interface AllowedMentionsStructure {
-	parse: Array<AllowedMentionTypes>;
-	roles: string | bigint;
-	users: string | bigint;
-	replied_user: boolean;
+	parse?: Array<AllowedMentionTypes>;
+	roles?: string | bigint;
+	users?: string | bigint;
+	replied_user?: boolean;
 };
 
 export function getChannel(channelId: string, ){
@@ -512,10 +512,10 @@ export function deleteCloseChannel(channelId: string, ){
 }
 
 export function getChannelMessages(channelId: string, query: {
-	around: string | bigint;
-	before: string | bigint;
-	after: string | bigint;
-	limit: number;
+	around?: string | bigint;
+	before?: string | bigint;
+	after?: string | bigint;
+	limit?: number;
 }, ){
 	return {
 		method: "GET",
@@ -532,23 +532,23 @@ export function getChannelMessage(channelId: string, messageId: string, ){
 }
 
 export function createMessage(channelId: string, body: {
-	content: string;
-	tts: boolean;
-	embeds: Array<EmbedStructure>;
-	embed: EmbedStructure;
-	allowed_mentions: AllowedMentionsStructure;
-	message_reference: MessageReferenceStructure;
-	components: any /* component-object */;
-	sticker_ids: string | bigint;
-	files: "balls";
-	payload_json: string;
-	attachments: Array<AttachmentStructure>;
-	flags: number;
+	content?: string;
+	tts?: boolean;
+	embeds?: Array<EmbedStructure>;
+	embed?: EmbedStructure;
+	allowed_mentions?: AllowedMentionsStructure;
+	message_reference?: MessageReferenceStructure;
+	components?: any /* component-object */;
+	sticker_ids?: string | bigint;
+	files?: "balls";
+	payload_json?: string;
+	attachments?: Array<AttachmentStructure>;
+	flags?: number;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/messages",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -574,24 +574,24 @@ export function deleteMessage(channelId: string, messageId: string, ){
 }
 
 export function bulkDeleteMessages(channelId: string, body: {
-	messages: string | bigint;
+	messages?: string | bigint;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/messages/bulk-delete",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function editChannelPermissions(channelId: string, overwriteId: string, body: {
 	allow?: string | null;
 	deny?: string | null;
-	type: number;
+	type?: number;
 }, ){
 	return {
 		method: "PUT",
 		path: "/channels/" + channelId + "/permissions/" + overwriteId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -603,18 +603,18 @@ export function getChannelInvites(channelId: string, ){
 }
 
 export function createChannelInvite(channelId: string, body: {
-	max_age: number;
-	max_uses: number;
-	temporary: boolean;
-	unique: boolean;
-	target_type: number;
-	target_user_id: string | bigint;
-	target_application_id: string | bigint;
+	max_age?: number;
+	max_uses?: number;
+	temporary?: boolean;
+	unique?: boolean;
+	target_type?: number;
+	target_user_id?: string | bigint;
+	target_application_id?: string | bigint;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/invites",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -626,12 +626,12 @@ export function deleteChannelPermission(channelId: string, overwriteId: string, 
 }
 
 export function followNewsChannel(channelId: string, body: {
-	webhook_channel_id: string | bigint;
+	webhook_channel_id?: string | bigint;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/followers",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -664,16 +664,16 @@ export function groupDmRemoveRecipient(channelId: string, userId: string, ){
 }
 
 export function startThreadWithoutMessage(channelId: string, body: {
-	name: string;
-	auto_archive_duration: number;
-	type: number;
+	name?: string;
+	auto_archive_duration?: number;
+	type?: number;
 	invitable?: boolean;
 	rate_limit_per_user?: number | null;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/threads",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -764,8 +764,8 @@ export function listJoinedPrivateArchivedThreads(channelId: string, query: {
 */
 
 export interface EmojiStructure {
-	id: string | bigint | null;
-	name: string | null;
+	id?: string | bigint | null;
+	name?: string | null;
 	roles?: any /* role-object */;
 	user?: UserStructure;
 	require_colons?: boolean;
@@ -789,25 +789,25 @@ export function getGuildEmoji(guildId: string, emojiId: string, ){
 }
 
 export function createGuildEmoji(guildId: string, body: {
-	name: string;
-	image: any /* image-data */;
-	roles: string | bigint;
+	name?: string;
+	image?: any /* image-data */;
+	roles?: string | bigint;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/emojis",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildEmoji(guildId: string, emojiId: string, body: {
-	name: string;
-	roles: string | bigint | null;
+	name?: string;
+	roles?: string | bigint | null;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -823,228 +823,228 @@ export function deleteGuildEmoji(guildId: string, emojiId: string, ){
 */
 
 export enum DefaultMessageNotificationLevel {
-	"AllMessages" = 0,
-	"OnlyMentions" = 1,
+	AllMessages = 0,
+	OnlyMentions = 1,
 };
 
 export enum ExplicitContentFilterLevel {
-	"Disabled" = "DISABLED",
-	"MembersWithoutRoles" = "MEMBERS_WITHOUT_ROLES",
-	"AllMembers" = "ALL_MEMBERS",
+	Disabled = "DISABLED",
+	MembersWithoutRoles = "MEMBERS_WITHOUT_ROLES",
+	AllMembers = "ALL_MEMBERS",
 };
 
 export enum MfaLevel {
-	"None" = "NONE",
-	"Elevated" = "ELEVATED",
+	None = "NONE",
+	Elevated = "ELEVATED",
 };
 
 export enum VerificationLevel {
-	"None" = "NONE",
-	"Low" = "LOW",
-	"Medium" = "MEDIUM",
-	"High" = "HIGH",
-	"VeryHigh" = "VERY_HIGH",
+	None = "NONE",
+	Low = "LOW",
+	Medium = "MEDIUM",
+	High = "HIGH",
+	VeryHigh = "VERY_HIGH",
 };
 
 export enum GuildNsfwLevel {
-	"Default" = 0,
-	"Explicit" = 1,
-	"Safe" = 2,
-	"AgeRestricted" = 3,
+	Default = 0,
+	Explicit = 1,
+	Safe = 2,
+	AgeRestricted = 3,
 };
 
 export enum PremiumTier {
-	"None" = "NONE",
-	"Tier1" = "TIER_1",
-	"Tier2" = "TIER_2",
-	"Tier3" = "TIER_3",
+	None = "NONE",
+	Tier1 = "TIER_1",
+	Tier2 = "TIER_2",
+	Tier3 = "TIER_3",
 };
 
 export enum SystemChannelFlags {
-	"SuppressJoinNotifications" = 1,
-	"SuppressPremiumSubscriptions" = 2,
-	"SuppressGuildReminderNotifications" = 4,
-	"SuppressJoinNotificationReplies" = 8,
+	SuppressJoinNotifications = 1,
+	SuppressPremiumSubscriptions = 2,
+	SuppressGuildReminderNotifications = 4,
+	SuppressJoinNotificationReplies = 8,
 };
 
 export enum GuildFeatures {
-	"AnimatedIcon" = "ANIMATED_ICON",
-	"Banner" = "BANNER",
-	"Commerce" = "COMMERCE",
-	"Community" = "COMMUNITY",
-	"Discoverable" = "DISCOVERABLE",
-	"Featurable" = "FEATURABLE",
-	"InviteSplash" = "INVITE_SPLASH",
-	"MemberVerificationGateEnabled" = "MEMBER_VERIFICATION_GATE_ENABLED",
-	"MonetizationEnabled" = "MONETIZATION_ENABLED",
-	"MoreStickers" = "MORE_STICKERS",
-	"News" = "NEWS",
-	"Partnered" = "PARTNERED",
-	"PreviewEnabled" = "PREVIEW_ENABLED",
-	"PrivateThreads" = "PRIVATE_THREADS",
-	"RoleIcons" = "ROLE_ICONS",
-	"SevenDayThreadArchive" = "SEVEN_DAY_THREAD_ARCHIVE",
-	"ThreeDayThreadArchive" = "THREE_DAY_THREAD_ARCHIVE",
-	"TicketedEventsEnabled" = "TICKETED_EVENTS_ENABLED",
-	"VanityUrl" = "VANITY_URL",
-	"Verified" = "VERIFIED",
-	"VipRegions" = "VIP_REGIONS",
-	"WelcomeScreenEnabled" = "WELCOME_SCREEN_ENABLED",
+	AnimatedIcon = "ANIMATED_ICON",
+	Banner = "BANNER",
+	Commerce = "COMMERCE",
+	Community = "COMMUNITY",
+	Discoverable = "DISCOVERABLE",
+	Featurable = "FEATURABLE",
+	InviteSplash = "INVITE_SPLASH",
+	MemberVerificationGateEnabled = "MEMBER_VERIFICATION_GATE_ENABLED",
+	MonetizationEnabled = "MONETIZATION_ENABLED",
+	MoreStickers = "MORE_STICKERS",
+	News = "NEWS",
+	Partnered = "PARTNERED",
+	PreviewEnabled = "PREVIEW_ENABLED",
+	PrivateThreads = "PRIVATE_THREADS",
+	RoleIcons = "ROLE_ICONS",
+	SevenDayThreadArchive = "SEVEN_DAY_THREAD_ARCHIVE",
+	ThreeDayThreadArchive = "THREE_DAY_THREAD_ARCHIVE",
+	TicketedEventsEnabled = "TICKETED_EVENTS_ENABLED",
+	VanityUrl = "VANITY_URL",
+	Verified = "VERIFIED",
+	VipRegions = "VIP_REGIONS",
+	WelcomeScreenEnabled = "WELCOME_SCREEN_ENABLED",
 };
 
 export enum IntegrationExpireBehaviors {
-	"RemoveRole" = 0,
-	"Kick" = 1,
+	RemoveRole = 0,
+	Kick = 1,
 };
 
 export interface GuildStructure {
-	id: string | bigint;
-	name: string;
-	icon: string | null;
+	id?: string | bigint;
+	name?: string;
+	icon?: string | null;
 	icon_hash?: string | null;
-	splash: string | null;
-	discovery_splash: string | null;
-	owner: boolean;
-	owner_id: string | bigint;
-	permissions: string;
-	region: string | null;
-	afk_channel_id: string | bigint | null;
-	afk_timeout: number;
+	splash?: string | null;
+	discovery_splash?: string | null;
+	owner?: boolean;
+	owner_id?: string | bigint;
+	permissions?: string;
+	region?: string | null;
+	afk_channel_id?: string | bigint | null;
+	afk_timeout?: number;
 	widget_enabled?: boolean;
 	widget_channel_id?: string | bigint | null;
-	verification_level: number;
-	default_message_notifications: number;
-	explicit_content_filter: number;
-	roles: any /* role-object */;
-	emojis: Array<EmojiStructure>;
-	features: Array<GuildFeatures>;
-	mfa_level: number;
-	application_id: string | bigint | null;
-	system_channel_id: string | bigint | null;
-	system_channel_flags: number;
-	rules_channel_id: string | bigint | null;
-	joined_at: Date;
-	large: boolean;
-	unavailable: boolean;
-	member_count: number;
-	voice_states: Array<VoiceStateStructure>;
-	members: Array<GuildMemberStructure>;
-	channels: Array<ChannelStructure>;
-	threads: Array<ChannelStructure>;
-	presences: any /* presence-update */;
+	verification_level?: number;
+	default_message_notifications?: number;
+	explicit_content_filter?: number;
+	roles?: any /* role-object */;
+	emojis?: Array<EmojiStructure>;
+	features?: Array<GuildFeatures>;
+	mfa_level?: number;
+	application_id?: string | bigint | null;
+	system_channel_id?: string | bigint | null;
+	system_channel_flags?: number;
+	rules_channel_id?: string | bigint | null;
+	joined_at?: Date;
+	large?: boolean;
+	unavailable?: boolean;
+	member_count?: number;
+	voice_states?: Array<VoiceStateStructure>;
+	members?: Array<GuildMemberStructure>;
+	channels?: Array<ChannelStructure>;
+	threads?: Array<ChannelStructure>;
+	presences?: any /* presence-update */;
 	max_presences?: number | null;
 	max_members?: number;
-	vanity_url_code: string | null;
-	description: string | null;
-	banner: string | null;
-	premium_tier: number;
+	vanity_url_code?: string | null;
+	description?: string | null;
+	banner?: string | null;
+	premium_tier?: number;
 	premium_subscription_count?: number;
-	preferred_locale: string;
-	public_updates_channel_id: string | bigint | null;
+	preferred_locale?: string;
+	public_updates_channel_id?: string | bigint | null;
 	max_video_channel_users?: number;
 	approximate_member_count?: number;
 	approximate_presence_count?: number;
 	welcome_screen?: WelcomeScreenStructure;
-	nsfw_level: number;
-	stage_instances: Array<StageInstanceStructure>;
+	nsfw_level?: number;
+	stage_instances?: Array<StageInstanceStructure>;
 	stickers?: Array<StickerStructure>;
-	guild_scheduled_events: Array<GuildScheduledEventStructure>;
-	premium_progress_bar_enabled: boolean;
+	guild_scheduled_events?: Array<GuildScheduledEventStructure>;
+	premium_progress_bar_enabled?: boolean;
 };
 
 export interface GuildPreviewStructure {
-	id: string | bigint;
-	name: string;
-	icon: string | null;
-	splash: string | null;
-	discovery_splash: string | null;
-	emojis: Array<EmojiStructure>;
-	features: Array<GuildFeatures>;
-	approximate_member_count: number;
-	approximate_presence_count: number;
-	description: string | null;
-	stickers: Array<StickerStructure>;
+	id?: string | bigint;
+	name?: string;
+	icon?: string | null;
+	splash?: string | null;
+	discovery_splash?: string | null;
+	emojis?: Array<EmojiStructure>;
+	features?: Array<GuildFeatures>;
+	approximate_member_count?: number;
+	approximate_presence_count?: number;
+	description?: string | null;
+	stickers?: Array<StickerStructure>;
 };
 
 export interface GuildWidgetSettingsStructure {
-	enabled: boolean;
-	channel_id: string | bigint | null;
+	enabled?: boolean;
+	channel_id?: string | bigint | null;
 };
 
 export interface GetGuildWidgetStructure {
-	id: string | bigint;
-	name: string;
-	instant_invite: string | null;
-	channels: Array<ChannelStructure>;
-	members: Array<UserStructure>;
-	presence_count: number;
+	id?: string | bigint;
+	name?: string;
+	instant_invite?: string | null;
+	channels?: Array<ChannelStructure>;
+	members?: Array<UserStructure>;
+	presence_count?: number;
 };
 
 export interface GuildMemberStructure {
 	user?: UserStructure;
 	nick?: string | null;
 	avatar?: string | null;
-	roles: string | bigint;
-	joined_at: Date;
+	roles?: string | bigint;
+	joined_at?: Date;
 	premium_since?: Date | null;
-	deaf: boolean;
-	mute: boolean;
+	deaf?: boolean;
+	mute?: boolean;
 	pending?: boolean;
 	permissions?: string;
 	communication_disabled_until?: Date | null;
 };
 
 export interface IntegrationStructure {
-	id: string | bigint;
-	name: string;
-	type: string;
-	enabled: boolean;
-	syncing: boolean;
-	role_id: string | bigint;
-	enable_emoticons: boolean;
-	expire_behavior: IntegrationExpireBehaviors;
-	expire_grace_period: number;
-	user: UserStructure;
-	account: IntegrationAccountStructure;
-	synced_at: Date;
-	subscriber_count: number;
-	revoked: boolean;
+	id?: string | bigint;
+	name?: string;
+	type?: string;
+	enabled?: boolean;
+	syncing?: boolean;
+	role_id?: string | bigint;
+	enable_emoticons?: boolean;
+	expire_behavior?: IntegrationExpireBehaviors;
+	expire_grace_period?: number;
+	user?: UserStructure;
+	account?: IntegrationAccountStructure;
+	synced_at?: Date;
+	subscriber_count?: number;
+	revoked?: boolean;
 	application?: IntegrationApplicationStructure;
 };
 
 export interface IntegrationAccountStructure {
-	id: string;
-	name: string;
+	id?: string;
+	name?: string;
 };
 
 export interface IntegrationApplicationStructure {
-	id: string | bigint;
-	name: string;
-	icon: string | null;
-	description: string;
-	summary: string;
+	id?: string | bigint;
+	name?: string;
+	icon?: string | null;
+	description?: string;
+	summary?: string;
 	bot?: UserStructure;
 };
 
 export interface BanStructure {
-	reason: string | null;
-	user: UserStructure;
+	reason?: string | null;
+	user?: UserStructure;
 };
 
 export interface WelcomeScreenStructure {
-	description: string | null;
-	welcome_channels: Array<WelcomeScreenChannelStructure>;
+	description?: string | null;
+	welcome_channels?: Array<WelcomeScreenChannelStructure>;
 };
 
 export interface WelcomeScreenChannelStructure {
-	channel_id: string | bigint;
-	description: string;
-	emoji_id: string | bigint | null;
-	emoji_name: string | null;
+	channel_id?: string | bigint;
+	description?: string;
+	emoji_id?: string | bigint | null;
+	emoji_name?: string | null;
 };
 
 export function createGuild(body: {
-	name: string;
+	name?: string;
 	region?: string | null;
 	icon?: any /* image-data */;
 	verification_level?: number;
@@ -1060,7 +1060,7 @@ export function createGuild(body: {
 	return {
 		method: "POST",
 		path: "/guilds",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1082,31 +1082,31 @@ export function getGuildPreview(guildId: string, ){
 }
 
 export function modifyGuild(guildId: string, body: {
-	name: string;
-	region: string | null;
-	verification_level: number | null;
-	default_message_notifications: number | null;
-	explicit_content_filter: number | null;
-	afk_channel_id: string | bigint | null;
-	afk_timeout: number;
-	icon: any /* image-data */;
-	owner_id: string | bigint;
-	splash: any /* image-data */;
-	discovery_splash: any /* image-data */;
-	banner: any /* image-data */;
-	system_channel_id: string | bigint | null;
-	system_channel_flags: number;
-	rules_channel_id: string | bigint | null;
-	public_updates_channel_id: string | bigint | null;
-	preferred_locale: string | null;
-	features: Array<GuildFeatures>;
-	description: string | null;
-	premium_progress_bar_enabled: boolean;
+	name?: string;
+	region?: string | null;
+	verification_level?: number | null;
+	default_message_notifications?: number | null;
+	explicit_content_filter?: number | null;
+	afk_channel_id?: string | bigint | null;
+	afk_timeout?: number;
+	icon?: any /* image-data */;
+	owner_id?: string | bigint;
+	splash?: any /* image-data */;
+	discovery_splash?: any /* image-data */;
+	banner?: any /* image-data */;
+	system_channel_id?: string | bigint | null;
+	system_channel_flags?: number;
+	rules_channel_id?: string | bigint | null;
+	public_updates_channel_id?: string | bigint | null;
+	preferred_locale?: string | null;
+	features?: Array<GuildFeatures>;
+	description?: string | null;
+	premium_progress_bar_enabled?: boolean;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1125,34 +1125,34 @@ export function getGuildChannels(guildId: string, ){
 }
 
 export function createGuildChannel(guildId: string, body: {
-	name: string;
-	type: number;
-	topic: string;
-	bitrate: number;
-	user_limit: number;
-	rate_limit_per_user: number;
-	position: number;
-	permission_overwrites: Array<OverwriteStructure>;
-	parent_id: string | bigint;
-	nsfw: boolean;
+	name?: string;
+	type?: number;
+	topic?: string;
+	bitrate?: number;
+	user_limit?: number;
+	rate_limit_per_user?: number;
+	position?: number;
+	permission_overwrites?: Array<OverwriteStructure>;
+	parent_id?: string | bigint;
+	nsfw?: boolean;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/channels",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildChannelPositions(guildId: string, body: {
-	id: string | bigint;
-	position: number | null;
-	lock_permissions: boolean | null;
-	parent_id: string | bigint | null;
+	id?: string | bigint;
+	position?: number | null;
+	lock_permissions?: boolean | null;
+	parent_id?: string | bigint | null;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/channels",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1171,8 +1171,8 @@ export function getGuildMember(guildId: string, userId: string, ){
 }
 
 export function listGuildMembers(guildId: string, query: {
-	limit: number;
-	after: string | bigint;
+	limit?: number;
+	after?: string | bigint;
 }, ){
 	return {
 		method: "GET",
@@ -1182,8 +1182,8 @@ export function listGuildMembers(guildId: string, query: {
 }
 
 export function searchGuildMembers(guildId: string, query: {
-	query: string;
-	limit: number;
+	query?: string;
+	limit?: number;
 }, ){
 	return {
 		method: "GET",
@@ -1193,31 +1193,31 @@ export function searchGuildMembers(guildId: string, query: {
 }
 
 export function addGuildMember(guildId: string, userId: string, body: {
-	access_token: string;
-	nick: string;
-	roles: string | bigint;
-	mute: boolean;
-	deaf: boolean;
+	access_token?: string;
+	nick?: string;
+	roles?: string | bigint;
+	mute?: boolean;
+	deaf?: boolean;
 }, ){
 	return {
 		method: "PUT",
 		path: "/guilds/" + guildId + "/members/" + userId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildMember(guildId: string, userId: string, body: {
-	nick: string;
-	roles: string | bigint;
-	mute: boolean;
-	deaf: boolean;
-	channel_id: string | bigint;
-	communication_disabled_until: Date | null;
+	nick?: string;
+	roles?: string | bigint;
+	mute?: boolean;
+	deaf?: boolean;
+	channel_id?: string | bigint;
+	communication_disabled_until?: Date | null;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/members/" + userId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1227,7 +1227,7 @@ export function modifyCurrentMember(guildId: string, body: {
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/members/@me",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1237,7 +1237,7 @@ export function modifyCurrentUserNick(guildId: string, body: {
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/members/@me/nick",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1283,7 +1283,7 @@ export function createGuildBan(guildId: string, userId: string, body: {
 	return {
 		method: "PUT",
 		path: "/guilds/" + guildId + "/bans/" + userId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1302,45 +1302,45 @@ export function getGuildRoles(guildId: string, ){
 }
 
 export function createGuildRole(guildId: string, body: {
-	name: string;
-	permissions: string;
-	color: number;
-	hoist: boolean;
-	icon: any /* image-data */;
-	unicode_emoji: string;
-	mentionable: boolean;
+	name?: string;
+	permissions?: string;
+	color?: number;
+	hoist?: boolean;
+	icon?: any /* image-data */;
+	unicode_emoji?: string;
+	mentionable?: boolean;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/roles",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildRolePositions(guildId: string, body: {
-	id: string | bigint;
+	id?: string | bigint;
 	position?: number | null;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/roles",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildRole(guildId: string, roleId: string, body: {
-	name: string;
-	permissions: string;
-	color: number;
-	hoist: boolean;
-	icon: any /* image-data */;
-	unicode_emoji: string;
-	mentionable: boolean;
+	name?: string;
+	permissions?: string;
+	color?: number;
+	hoist?: boolean;
+	icon?: any /* image-data */;
+	unicode_emoji?: string;
+	mentionable?: boolean;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/roles/" + roleId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1359,15 +1359,15 @@ export function getGuildPruneCount(guildId: string, ){
 }
 
 export function beginGuildPrune(guildId: string, body: {
-	days: number;
-	compute_prune_count: boolean;
-	include_roles: string | bigint;
+	days?: number;
+	compute_prune_count?: boolean;
+	include_roles?: string | bigint;
 	reason?: string;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/prune",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1442,14 +1442,14 @@ export function getGuildWelcomeScreen(guildId: string, ){
 }
 
 export function modifyGuildWelcomeScreen(guildId: string, body: {
-	enabled: boolean;
-	welcome_channels: Array<WelcomeScreenChannelStructure>;
-	description: string;
+	enabled?: boolean;
+	welcome_channels?: Array<WelcomeScreenChannelStructure>;
+	description?: string;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/welcome-screen",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1472,48 +1472,48 @@ export function modifyUserVoiceState(guildId: string, userId: string, ){
 */
 
 export enum GuildScheduledEventPrivacyLevel {
-	"GuildOnly" = 2,
+	GuildOnly = 2,
 };
 
 export enum GuildScheduledEventEntityTypes {
-	"StageInstance" = 1,
-	"Voice" = 2,
-	"External" = 3,
+	StageInstance = 1,
+	Voice = 2,
+	External = 3,
 };
 
 export enum GuildScheduledEventStatus {
-	"Scheduled" = 1,
-	"Active" = 2,
-	"Completed" = 3,
-	"Canceled" = 4,
+	Scheduled = 1,
+	Active = 2,
+	Completed = 3,
+	Canceled = 4,
 };
 
 export enum GuildScheduledEventEntityMetadata {
-	"Location" = "location",
+	Location = "location",
 };
 
 export interface GuildScheduledEventStructure {
-	id: string | bigint;
-	guild_id: string | bigint;
-	channel_id: string | bigint | null;
-	creator_id: string | bigint | null;
-	name: string;
+	id?: string | bigint;
+	guild_id?: string | bigint;
+	channel_id?: string | bigint | null;
+	creator_id?: string | bigint | null;
+	name?: string;
 	description?: string;
-	scheduled_start_time: Date;
-	scheduled_end_time: Date | null;
-	privacy_level: GuildScheduledEventPrivacyLevel;
-	status: GuildScheduledEventStatus;
-	entity_type: GuildScheduledEventEntityTypes;
-	entity_id: string | bigint | null;
-	entity_metadata: GuildScheduledEventEntityMetadata;
+	scheduled_start_time?: Date;
+	scheduled_end_time?: Date | null;
+	privacy_level?: GuildScheduledEventPrivacyLevel;
+	status?: GuildScheduledEventStatus;
+	entity_type?: GuildScheduledEventEntityTypes;
+	entity_id?: string | bigint | null;
+	entity_metadata?: GuildScheduledEventEntityMetadata;
 	creator?: UserStructure;
 	user_count?: number;
-	image: string | null;
+	image?: string | null;
 };
 
 export interface GuildScheduledEventUserStructure {
-	guild_scheduled_event_id: string | bigint;
-	user: UserStructure;
+	guild_scheduled_event_id?: string | bigint;
+	user?: UserStructure;
 	member?: GuildMemberStructure;
 };
 
@@ -1528,20 +1528,20 @@ export function listScheduledEventsForGuild(guildId: string, query: {
 }
 
 export function createGuildScheduledEvent(guildId: string, body: {
-	channel_id: string | bigint;
+	channel_id?: string | bigint;
 	entity_metadata?: GuildScheduledEventEntityMetadata;
-	name: string;
-	privacy_level: GuildScheduledEventPrivacyLevel;
-	scheduled_start_time: Date;
+	name?: string;
+	privacy_level?: GuildScheduledEventPrivacyLevel;
+	scheduled_start_time?: Date;
 	scheduled_end_time?: Date;
 	description?: string;
-	entity_type: GuildScheduledEventEntityTypes;
+	entity_type?: GuildScheduledEventEntityTypes;
 	image?: any /* image-data */;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/scheduled-events",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1556,21 +1556,21 @@ export function getGuildScheduledEvent(guildId: string, guildScheduledEventId: s
 }
 
 export function modifyGuildScheduledEvent(guildId: string, guildScheduledEventId: string, body: {
-	channel_id: string | bigint | null;
+	channel_id?: string | bigint | null;
 	entity_metadata?: GuildScheduledEventEntityMetadata;
 	name?: string;
 	privacy_level?: GuildScheduledEventPrivacyLevel;
 	scheduled_start_time?: Date;
-	scheduled_end_time: Date;
+	scheduled_end_time?: Date;
 	description?: string;
-	entity_type: GuildScheduledEventEntityTypes;
+	entity_type?: GuildScheduledEventEntityTypes;
 	status?: GuildScheduledEventStatus;
 	image?: any /* image-data */;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1586,17 +1586,17 @@ export function deleteGuildScheduledEvent(guildId: string, guildScheduledEventId
 */
 
 export interface GuildTemplateStructure {
-	code: string;
-	name: string;
-	description: string | null;
-	usage_count: number;
-	creator_id: string | bigint;
-	creator: UserStructure;
-	created_at: Date;
-	updated_at: Date;
-	source_guild_id: string | bigint;
-	serialized_source_guild: GuildStructure;
-	is_dirty: boolean | null;
+	code?: string;
+	name?: string;
+	description?: string | null;
+	usage_count?: number;
+	creator_id?: string | bigint;
+	creator?: UserStructure;
+	created_at?: Date;
+	updated_at?: Date;
+	source_guild_id?: string | bigint;
+	serialized_source_guild?: GuildStructure;
+	is_dirty?: boolean | null;
 };
 
 export function getGuildTemplate(templateCode: string, ){
@@ -1607,13 +1607,13 @@ export function getGuildTemplate(templateCode: string, ){
 }
 
 export function createGuildFromGuildTemplate(templateCode: string, body: {
-	name: string;
+	name?: string;
 	icon?: any /* image-data */;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/templates/" + templateCode + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1625,13 +1625,13 @@ export function getGuildTemplates(guildId: string, ){
 }
 
 export function createGuildTemplate(guildId: string, body: {
-	name: string;
+	name?: string;
 	description?: string | null;
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/templates",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1649,7 +1649,7 @@ export function modifyGuildTemplate(guildId: string, templateCode: string, body:
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1665,21 +1665,21 @@ export function deleteGuildTemplate(guildId: string, templateCode: string, ){
 */
 
 export enum InviteTargetTypes {
-	"Stream" = 1,
-	"EmbeddedApplication" = 2,
+	Stream = 1,
+	EmbeddedApplication = 2,
 };
 
 export enum ExampleInviteMetadata {
-	"Members" = "members",
-	"ParticipantCount" = "participant_count",
-	"SpeakerCount" = "speaker_count",
-	"Topic" = "topic",
+	Members = "members",
+	ParticipantCount = "participant_count",
+	SpeakerCount = "speaker_count",
+	Topic = "topic",
 };
 
 export interface InviteStructure {
-	code: string;
+	code?: string;
 	guild?: GuildStructure;
-	channel: ChannelStructure;
+	channel?: ChannelStructure;
 	inviter?: UserStructure;
 	target_type?: number;
 	target_user?: UserStructure;
@@ -1692,18 +1692,18 @@ export interface InviteStructure {
 };
 
 export interface InviteMetadataStructure {
-	uses: number;
-	max_uses: number;
-	max_age: number;
-	temporary: boolean;
-	created_at: Date;
+	uses?: number;
+	max_uses?: number;
+	max_age?: number;
+	temporary?: boolean;
+	created_at?: Date;
 };
 
 export interface InviteStageInstanceStructure {
-	members: Array<GuildMemberStructure>;
-	participant_count: number;
-	speaker_count: number;
-	topic: string;
+	members?: Array<GuildMemberStructure>;
+	participant_count?: number;
+	speaker_count?: number;
+	topic?: string;
 };
 
 export function getInvite(inviteCode: string, query: {
@@ -1730,17 +1730,17 @@ export function deleteInvite(inviteCode: string, ){
 */
 
 export enum PrivacyLevel {
-	"Public" = 1,
-	"GuildOnly" = 2,
+	Public = 1,
+	GuildOnly = 2,
 };
 
 export interface StageInstanceStructure {
-	id: string | bigint;
-	guild_id: string | bigint;
-	channel_id: string | bigint;
-	topic: string;
-	privacy_level: number;
-	discoverable_disabled: boolean;
+	id?: string | bigint;
+	guild_id?: string | bigint;
+	channel_id?: string | bigint;
+	topic?: string;
+	privacy_level?: number;
+	discoverable_disabled?: boolean;
 };
 
 export function createStageInstance(){
@@ -1769,25 +1769,25 @@ export function deleteStageInstance(channelId: string, ){
 */
 
 export enum StickerTypes {
-	"Standard" = 1,
-	"Guild" = 2,
+	Standard = 1,
+	Guild = 2,
 };
 
 export enum StickerFormatTypes {
-	"Png" = 1,
-	"Apng" = 2,
-	"Lottie" = 3,
+	Png = 1,
+	Apng = 2,
+	Lottie = 3,
 };
 
 export interface StickerStructure {
-	id: string | bigint;
+	id?: string | bigint;
 	pack_id?: string | bigint;
-	name: string;
-	description: string | null;
-	tags: string;
-	asset: string;
-	type: number;
-	format_type: number;
+	name?: string;
+	description?: string | null;
+	tags?: string;
+	asset?: string;
+	type?: number;
+	format_type?: number;
 	available?: boolean;
 	guild_id?: string | bigint;
 	user?: UserStructure;
@@ -1795,18 +1795,18 @@ export interface StickerStructure {
 };
 
 export interface StickerItemStructure {
-	id: string | bigint;
-	name: string;
-	format_type: number;
+	id?: string | bigint;
+	name?: string;
+	format_type?: number;
 };
 
 export interface StickerPackStructure {
-	id: string | bigint;
-	stickers: Array<StickerStructure>;
-	name: string;
-	sku_id: string | bigint;
+	id?: string | bigint;
+	stickers?: Array<StickerStructure>;
+	name?: string;
+	sku_id?: string | bigint;
 	cover_sticker_id?: string | bigint;
-	description: string;
+	description?: string;
 	banner_asset_id?: string | bigint;
 };
 
@@ -1839,27 +1839,27 @@ export function getGuildSticker(guildId: string, stickerId: string, ){
 }
 
 export function createGuildSticker(guildId: string, body: {
-	name: string;
-	description: string;
-	tags: string;
-	file: "balls";
+	name?: string;
+	description?: string;
+	tags?: string;
+	file?: "balls";
 }, ){
 	return {
 		method: "POST",
 		path: "/guilds/" + guildId + "/stickers",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function modifyGuildSticker(guildId: string, stickerId: string, body: {
-	name: string;
-	description: string | null;
-	tags: string;
+	name?: string;
+	description?: string | null;
+	tags?: string;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -1875,39 +1875,39 @@ export function deleteGuildSticker(guildId: string, stickerId: string, ){
 */
 
 export enum UserFlags {
-	"None" = 0,
-	"Staff" = 1,
-	"Partner" = 2,
-	"Hypesquad" = 4,
-	"BugHunterLevel1" = 8,
-	"HypesquadOnlineHouse1" = 64,
-	"HypesquadOnlineHouse2" = 128,
-	"HypesquadOnlineHouse3" = 256,
-	"PremiumEarlySupporter" = 512,
-	"TeamPseudoUser" = 1024,
-	"BugHunterLevel2" = 16384,
-	"VerifiedBot" = 65536,
-	"VerifiedDeveloper" = 131072,
-	"CertifiedModerator" = 262144,
-	"BotHttpInteractions" = 524288,
+	None = 0,
+	Staff = 1,
+	Partner = 2,
+	Hypesquad = 4,
+	BugHunterLevel1 = 8,
+	HypesquadOnlineHouse1 = 64,
+	HypesquadOnlineHouse2 = 128,
+	HypesquadOnlineHouse3 = 256,
+	PremiumEarlySupporter = 512,
+	TeamPseudoUser = 1024,
+	BugHunterLevel2 = 16384,
+	VerifiedBot = 65536,
+	VerifiedDeveloper = 131072,
+	CertifiedModerator = 262144,
+	BotHttpInteractions = 524288,
 };
 
 export enum PremiumTypes {
-	"None" = 0,
-	"NitroClassic" = 1,
-	"Nitro" = 2,
+	None = 0,
+	NitroClassic = 1,
+	Nitro = 2,
 };
 
 export enum VisibilityTypes {
-	"None" = 0,
-	"Everyone" = 1,
+	None = 0,
+	Everyone = 1,
 };
 
 export interface UserStructure {
-	id: string | bigint;
-	username: string;
-	discriminator: string;
-	avatar: string | null;
+	id?: string | bigint;
+	username?: string;
+	discriminator?: string;
+	avatar?: string | null;
 	bot?: boolean;
 	system?: boolean;
 	mfa_enabled?: boolean;
@@ -1922,15 +1922,15 @@ export interface UserStructure {
 };
 
 export interface ConnectionStructure {
-	id: string;
-	name: string;
-	type: string;
+	id?: string;
+	name?: string;
+	type?: string;
 	revoked?: boolean;
 	integrations?: Array<IntegrationStructure>;
-	verified: boolean;
-	friend_sync: boolean;
-	show_activity: boolean;
-	visibility: number;
+	verified?: boolean;
+	friend_sync?: boolean;
+	show_activity?: boolean;
+	visibility?: number;
 };
 
 export function getCurrentUser(){
@@ -1948,20 +1948,20 @@ export function getUser(userId: string, ){
 }
 
 export function modifyCurrentUser(body: {
-	username: string;
-	avatar: any /* image-data */;
+	username?: string;
+	avatar?: any /* image-data */;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/users/@me",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
 export function getCurrentUserGuilds(query: {
-	before: string | bigint;
-	after: string | bigint;
-	limit: number;
+	before?: string | bigint;
+	after?: string | bigint;
+	limit?: number;
 }, ){
 	return {
 		method: "GET",
@@ -1985,13 +1985,13 @@ export function leaveGuild(guildId: string, ){
 }
 
 export function createGroupDm(body: {
-	access_tokens: string;
-	nicks: object;
+	access_tokens?: string;
+	nicks?: object;
 }, ){
 	return {
 		method: "POST",
 		path: "/users/@me/channels",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -2008,26 +2008,26 @@ export function getUserConnections(){
 
 export interface VoiceStateStructure {
 	guild_id?: string | bigint;
-	channel_id: string | bigint | null;
-	user_id: string | bigint;
+	channel_id?: string | bigint | null;
+	user_id?: string | bigint;
 	member?: GuildMemberStructure;
-	session_id: string;
-	deaf: boolean;
-	mute: boolean;
-	self_deaf: boolean;
-	self_mute: boolean;
+	session_id?: string;
+	deaf?: boolean;
+	mute?: boolean;
+	self_deaf?: boolean;
+	self_mute?: boolean;
 	self_stream?: boolean;
-	self_video: boolean;
-	suppress: boolean;
-	request_to_speak_timestamp: Date | null;
+	self_video?: boolean;
+	suppress?: boolean;
+	request_to_speak_timestamp?: Date | null;
 };
 
 export interface VoiceRegionStructure {
-	id: string;
-	name: string;
-	optimal: boolean;
-	deprecated: boolean;
-	custom: boolean;
+	id?: string;
+	name?: string;
+	optimal?: boolean;
+	deprecated?: boolean;
+	custom?: boolean;
 };
 
 export function listVoiceRegions(){
@@ -2042,34 +2042,34 @@ export function listVoiceRegions(){
 */
 
 export enum WebhookTypes {
-	"Incoming" = 1,
-	"ChannelFollower" = 2,
-	"Application" = 3,
+	Incoming = 1,
+	ChannelFollower = 2,
+	Application = 3,
 };
 
 export interface WebhookStructure {
-	id: string | bigint;
-	type: number;
+	id?: string | bigint;
+	type?: number;
 	guild_id?: string | bigint | null;
-	channel_id: string | bigint | null;
+	channel_id?: string | bigint | null;
 	user?: UserStructure;
-	name: string | null;
-	avatar: string | null;
+	name?: string | null;
+	avatar?: string | null;
 	token?: string;
-	application_id: string | bigint | null;
+	application_id?: string | bigint | null;
 	source_guild?: GuildStructure;
 	source_channel?: ChannelStructure;
 	url?: string;
 };
 
 export function createWebhook(channelId: string, body: {
-	name: string;
+	name?: string;
 	avatar?: any /* image-data */;
 }, ){
 	return {
 		method: "POST",
 		path: "/channels/" + channelId + "/webhooks",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -2102,22 +2102,22 @@ export function getWebhookWithToken(webhookId: string, webhookToken: string, ){
 }
 
 export function modifyWebhookWithToken(webhookId: string, webhookToken: string, body: {
-	content: string;
-	username: string;
-	avatar_url: string;
-	tts: boolean;
-	embeds: Array<EmbedStructure>;
-	allowed_mentions: AllowedMentionsStructure;
-	components: any /* component-object */;
-	files: "balls";
-	payload_json: string;
-	attachments: Array<AttachmentStructure>;
-	flags: number;
+	content?: string;
+	username?: string;
+	avatar_url?: string;
+	tts?: boolean;
+	embeds?: Array<EmbedStructure>;
+	allowed_mentions?: AllowedMentionsStructure;
+	components?: any /* component-object */;
+	files?: "balls";
+	payload_json?: string;
+	attachments?: Array<AttachmentStructure>;
+	flags?: number;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
@@ -2136,7 +2136,7 @@ export function executeGitHubCompatibleWebhook(webhookId: string, webhookToken: 
 }
 
 export function getWebhookMessage(webhookId: string, webhookToken: string, messageId: string, query: {
-	thread_id: string | bigint;
+	thread_id?: string | bigint;
 }, ){
 	return {
 		method: "GET",
@@ -2146,21 +2146,21 @@ export function getWebhookMessage(webhookId: string, webhookToken: string, messa
 }
 
 export function editWebhookMessage(webhookId: string, webhookToken: string, messageId: string, query: {
-	thread_id: string | bigint;
+	thread_id?: string | bigint;
 }, body: {
-	content: string;
-	embeds: Array<EmbedStructure>;
-	allowed_mentions: AllowedMentionsStructure;
-	components: any /* component-object */;
-	files: "balls";
-	payload_json: string;
-	attachments: Array<AttachmentStructure>;
+	content?: string;
+	embeds?: Array<EmbedStructure>;
+	allowed_mentions?: AllowedMentionsStructure;
+	components?: any /* component-object */;
+	files?: "balls";
+	payload_json?: string;
+	attachments?: Array<AttachmentStructure>;
 }, ){
 	return {
 		method: "PATCH",
 		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
 		query: "&thread_id=" + query.thread_id + "",
-		body: body,
+		body: JSON.stringify(body),
 	}
 }
 
