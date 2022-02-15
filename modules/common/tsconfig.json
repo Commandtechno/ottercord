@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "outDir": "build",
-    "declaration": true
-  },
-  "files": ["src/index.ts"]
-}

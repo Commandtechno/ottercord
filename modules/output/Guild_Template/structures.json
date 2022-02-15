@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Guild Template Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "code",
+        "description": "the template code"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "template name"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "description",
+        "description": "the description for the template"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "usage_count",
+        "description": "number of times this template has been used"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "creator_id",
+        "description": "the ID of the user who created the template"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "creator",
+        "description": "the user who created the template"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "created_at",
+        "description": "when this template was created"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "updated_at",
+        "description": "when this template was last synced to the source guild"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "source_guild_id",
+        "description": "the ID of the guild this template is based on"
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object",
+        "deprecated": false,
+        "name": "serialized_source_guild",
+        "description": "the guild snapshot this template contains"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "is_dirty",
+        "description": "whether the template has unsynced changes"
+      }
+    ]
+  }
+]

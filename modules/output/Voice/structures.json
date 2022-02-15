@@ -1,0 +1,244 @@
+[
+  {
+    "name": "Voice State Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "the guild id this voice state is for"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "the channel id this user is connected to"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "user_id",
+        "description": "the user id this voice state is for"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-member-object",
+        "deprecated": false,
+        "name": "member",
+        "description": "the guild member this voice state is for"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "session_id",
+        "description": "the session id for this voice state"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "deaf",
+        "description": "whether this user is deafened by the server"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "mute",
+        "description": "whether this user is muted by the server"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_deaf",
+        "description": "whether this user is locally deafened"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_mute",
+        "description": "whether this user is locally muted"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_stream",
+        "description": "whether this user is streaming using \"Go Live"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_video",
+        "description": "whether this user's camera is enabled"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "suppress",
+        "description": "whether this user is muted by the current user"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "request_to_speak_timestamp",
+        "description": "the time at which the user requested to speak"
+      }
+    ]
+  },
+  {
+    "name": "Voice Region Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "unique ID for the region"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of the region"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "optimal",
+        "description": "true for a single server that is closest to the current user's client"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "deprecated",
+        "description": "whether this is a deprecated voice region"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "custom",
+        "description": "whether this is a custom voice region"
+      }
+    ]
+  }
+]

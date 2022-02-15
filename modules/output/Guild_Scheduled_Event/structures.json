@@ -1,0 +1,245 @@
+[
+  {
+    "name": "Guild Scheduled Event Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "the id of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "the guild id which the scheduled event belongs to"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "the channel id in which the scheduled event will be hosted, or `null` if is `EXTERNAL`"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "creator_id",
+        "description": "the id of the user that created the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "the name of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "description",
+        "description": "the description of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "scheduled_start_time",
+        "description": "the time the scheduled event will start"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "scheduled_end_time",
+        "description": "the time the scheduled event will end, required if entity_type is `EXTERNAL`"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+        "deprecated": false,
+        "name": "privacy_level",
+        "description": "the privacy level of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-scheduled-event-object-guild-scheduled-event-status",
+        "deprecated": false,
+        "name": "status",
+        "description": "the status of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+        "deprecated": false,
+        "name": "entity_type",
+        "description": "the type of the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "entity_id",
+        "description": "the id of an entity associated with a guild scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": true,
+        "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+        "deprecated": false,
+        "name": "entity_metadata",
+        "description": "additional metadata for the guild scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "creator",
+        "description": "the user that created the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "user_count",
+        "description": "the number of users subscribed to the scheduled event"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "image",
+        "description": "the of the scheduled event"
+      }
+    ]
+  },
+  {
+    "name": "Guild Scheduled Event User Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_scheduled_event_id",
+        "description": "the scheduled event id which the user subscribed to"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "user",
+        "description": "user which subscribed to an event"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-member-object",
+        "deprecated": false,
+        "name": "member",
+        "description": "guild member data for this user for the guild which this event belongs to, if any"
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "List Voice Regions",
+    "method": "GET",
+    "path": "/voice/regions",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": true,
+      "value": "voice-region-object"
+    }
+  }
+]

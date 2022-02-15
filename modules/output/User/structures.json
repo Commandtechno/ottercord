@@ -1,0 +1,320 @@
+[
+  {
+    "name": "User Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "the user's id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "username",
+        "description": "the user's username, not unique across the platform"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "discriminator",
+        "description": "the user's 4-digit discord-tag"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "avatar",
+        "description": "the user's"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "bot",
+        "description": "whether the user belongs to an OAuth2 application"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "system",
+        "description": "whether the user is an Official Discord System user"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "mfa_enabled",
+        "description": "whether the user has two factor enabled on their account"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "banner",
+        "description": "the user's"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "accent_color",
+        "description": "the user's banner color encoded as an integer representation of hexadecimal color code"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "locale",
+        "description": "the user's chosen"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "verified",
+        "description": "whether the email on this account has been verified"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "email",
+        "description": "the user's email"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "flags",
+        "description": "the on a user's account"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "premium_type",
+        "description": "the on a user's account"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "public_flags",
+        "description": "the public on a user's account"
+      }
+    ]
+  },
+  {
+    "name": "Connection Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "id of the connection account"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "the username of the connection account"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "type",
+        "description": "the service of the connection"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "revoked",
+        "description": "whether the connection is revoked"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "integration-object",
+        "deprecated": false,
+        "name": "integrations",
+        "description": "an array of partial"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "verified",
+        "description": "whether the connection is verified"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "friend_sync",
+        "description": "whether friend sync is enabled for this connection"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "show_activity",
+        "description": "whether activities related to this connection will be shown in presence updates"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "connection-object-visibility-types",
+        "deprecated": false,
+        "name": "visibility",
+        "description": "of this connection"
+      }
+    ]
+  }
+]

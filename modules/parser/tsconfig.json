@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "outDir": "build",
-    "downlevelIteration": true
-  },
-  "files": ["src/index.ts"]
-}

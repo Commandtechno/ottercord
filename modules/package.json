@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "parse": "ts-node --transpile-only parser/dev",
+    "compile": "ts-node --transpile-only compiler/dev",
+    "balls": "npm run parse && npm run compile",
+    "test": "ts-node --transpile-only test"
+  },
+  "devDependencies": {
+    "@types/marked": "^4.0.2",
+    "@types/node": "^17.0.18"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "marked": "^4.0.12"
+  }
+}
