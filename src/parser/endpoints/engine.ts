@@ -60,17 +60,32 @@ export class EndpointsEngine {
         }
 
         if (!this.currentEndpoint.response) {
-          const returnIndex = block.tokens.findIndex(token =>
+          let after = false;
+          for (const token of block.tokens) {
             // @ts-ignore
-            token.text?.toLowerCase().includes("return")
-          );
+            if (!token.text) {
+              continue;
+            }
 
-          if (returnIndex > -1) {
-            const link = block.tokens
-              .slice(returnIndex + 1)
-              .find(token => token.type === "link") as marked.Tokens.Link;
+            if (!after) {
+              // @ts-ignore
+              const returnsIndex = token.text.toLowerCase().indexOf("returns");
+              if (returnsIndex !== -1) {
+                // @ts-ignore
+                token.text = token.text.slice(returnsIndex + 8);
+                after = true;
+              } else {
+                break;
+              }
+            }
 
-            if (link) {
+            // @ts-ignore
+            const dotIndex = token.text.toLowerCase().indexOf(".");
+            if (dotIndex !== -1) {
+              break;
+            }
+
+            if (token.type === "link") {
               this.currentEndpoint.response = {
                 reference: true,
                 partial: isPartial(block.text),
@@ -79,8 +94,9 @@ export class EndpointsEngine {
                 nullable: false,
 
                 array: isArray(block.text),
-                value: parseAnchor(link.href)
+                value: parseAnchor(token.href)
               };
+
               break;
             }
           }
@@ -96,6 +112,7 @@ export class EndpointsEngine {
             break;
 
           case "Response Structure":
+          case "JSON Response":
             this.context = "response";
             break;
 

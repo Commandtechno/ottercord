@@ -1,0 +1,22 @@
+{
+  "certified-devices": "Certified Devices",
+  "how's-it-work?": "How's it work?",
+  "connecting": "Connecting",
+  "connecting-query-string-params": "Query String Params",
+  "connecting-http": "HTTP",
+  "connecting-websocket": "WebSocket",
+  "getting-device-uuid": "Getting Device UUID",
+  "getting-device-uuid-microphone-id-example": "Microphone Id Example",
+  "getting-device-uuid-speaker-id-example": "Speaker Id Example",
+  "http-example": "HTTP Example",
+  "http-example-http-request-example": "HTTP Request Example",
+  "http-example-http-response-example": "HTTP Response Example",
+  "websocket-example": "WebSocket Example",
+  "websocket-example-rpc-command-example": "RPC Command Example",
+  "websocket-example-rpc-response-example": "RPC Response Example",
+  "models": "Models",
+  "models-device-object": "Device Structure",
+  "models-vendor-object": "Vendor Structure",
+  "models-model-object": "Model Structure",
+  "models-device-type": "Device Type"
+}

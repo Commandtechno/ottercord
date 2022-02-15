@@ -1,0 +1,301 @@
+[
+  {
+    "name": "Channel Types",
+    "values": [
+      {
+        "name": "GUILD_TEXT",
+        "description": "a text channel within a server",
+        "value": 0
+      },
+      {
+        "name": "DM",
+        "description": "a direct message between users",
+        "value": 1
+      },
+      {
+        "name": "GUILD_VOICE",
+        "description": "a voice channel within a server",
+        "value": 2
+      },
+      {
+        "name": "GROUP_DM",
+        "description": "a direct message between multiple users",
+        "value": 3
+      },
+      {
+        "name": "GUILD_CATEGORY",
+        "description": "an [organizational category](https://support.discord.com/hc/en-us/articles/115001580171-Channel-Categories-101) that contains up to 50 channels",
+        "value": 4
+      },
+      {
+        "name": "GUILD_NEWS",
+        "description": "a channel that [users can follow and crosspost into their own server](https://support.discord.com/hc/en-us/articles/360032008192)",
+        "value": 5
+      },
+      {
+        "name": "GUILD_STORE",
+        "description": "a channel in which game developers can [sell their game on Discord](https://discord.com/developers/docs/game-and-server-management/special-channels)",
+        "value": 6
+      },
+      {
+        "name": "GUILD_NEWS_THREAD",
+        "description": "a temporary sub-channel within a GUILD_NEWS channel",
+        "value": 10
+      },
+      {
+        "name": "GUILD_PUBLIC_THREAD",
+        "description": "a temporary sub-channel within a GUILD_TEXT channel",
+        "value": 11
+      },
+      {
+        "name": "GUILD_PRIVATE_THREAD",
+        "description": "a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission",
+        "value": 12
+      },
+      {
+        "name": "GUILD_STAGE_VOICE",
+        "description": "a voice channel for [hosting events with an audience](https://support.discord.com/hc/en-us/articles/1500005513722)",
+        "value": 13
+      }
+    ]
+  },
+  {
+    "name": "Video Quality Modes",
+    "values": [
+      {
+        "name": "AUTO",
+        "description": "Discord chooses the quality for optimal performance",
+        "value": 1
+      },
+      {
+        "name": "FULL",
+        "description": "720p",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "name": "Message Types",
+    "values": [
+      {
+        "name": "DEFAULT",
+        "value": 0
+      },
+      {
+        "name": "RECIPIENT_ADD",
+        "value": 1
+      },
+      {
+        "name": "RECIPIENT_REMOVE",
+        "value": 2
+      },
+      {
+        "name": "CALL",
+        "value": 3
+      },
+      {
+        "name": "CHANNEL_NAME_CHANGE",
+        "value": 4
+      },
+      {
+        "name": "CHANNEL_ICON_CHANGE",
+        "value": 5
+      },
+      {
+        "name": "CHANNEL_PINNED_MESSAGE",
+        "value": 6
+      },
+      {
+        "name": "GUILD_MEMBER_JOIN",
+        "value": 7
+      },
+      {
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION",
+        "value": 8
+      },
+      {
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1",
+        "value": 9
+      },
+      {
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2",
+        "value": 10
+      },
+      {
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
+        "value": 11
+      },
+      {
+        "name": "CHANNEL_FOLLOW_ADD",
+        "value": 12
+      },
+      {
+        "name": "GUILD_DISCOVERY_DISQUALIFIED",
+        "value": 14
+      },
+      {
+        "name": "GUILD_DISCOVERY_REQUALIFIED",
+        "value": 15
+      },
+      {
+        "name": "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING",
+        "value": 16
+      },
+      {
+        "name": "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING",
+        "value": 17
+      },
+      {
+        "name": "THREAD_CREATED",
+        "value": 18
+      },
+      {
+        "name": "REPLY",
+        "value": 19
+      },
+      {
+        "name": "CHAT_INPUT_COMMAND",
+        "value": 20
+      },
+      {
+        "name": "THREAD_STARTER_MESSAGE",
+        "value": 21
+      },
+      {
+        "name": "GUILD_INVITE_REMINDER",
+        "value": 22
+      },
+      {
+        "name": "CONTEXT_MENU_COMMAND",
+        "value": 23
+      }
+    ]
+  },
+  {
+    "name": "Message Activity Types",
+    "values": [
+      {
+        "name": "JOIN",
+        "value": 1
+      },
+      {
+        "name": "SPECTATE",
+        "value": 2
+      },
+      {
+        "name": "LISTEN",
+        "value": 3
+      },
+      {
+        "name": "JOIN_REQUEST",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "Message Flags",
+    "values": [
+      {
+        "name": "CROSSPOSTED",
+        "description": "this message has been published to subscribed channels (via Channel Following)",
+        "value": 1
+      },
+      {
+        "name": "IS_CROSSPOST",
+        "description": "this message originated from a message in another channel (via Channel Following)",
+        "value": 1
+      },
+      {
+        "name": "SUPPRESS_EMBEDS",
+        "description": "do not include any embeds when serializing this message",
+        "value": 1
+      },
+      {
+        "name": "SOURCE_MESSAGE_DELETED",
+        "description": "the source message for this crosspost has been deleted (via Channel Following)",
+        "value": 1
+      },
+      {
+        "name": "URGENT",
+        "description": "this message came from the urgent message system",
+        "value": 1
+      },
+      {
+        "name": "HAS_THREAD",
+        "description": "this message has an associated thread, with the same id as the message",
+        "value": 1
+      },
+      {
+        "name": "EPHEMERAL",
+        "description": "this message is only visible to the user who invoked the Interaction",
+        "value": 1
+      },
+      {
+        "name": "LOADING",
+        "description": "this message is an Interaction Response and the bot is \"thinking\"",
+        "value": 1
+      },
+      {
+        "name": "FAILED_TO_MENTION_SOME_ROLES_IN_THREAD",
+        "description": "this message failed to mention some roles and add their members to the thread",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Embed Types",
+    "values": [
+      {
+        "name": "rich",
+        "description": "generic embed rendered from embed attributes",
+        "value": "rich"
+      },
+      {
+        "name": "image",
+        "description": "image embed",
+        "value": "image"
+      },
+      {
+        "name": "video",
+        "description": "video embed",
+        "value": "video"
+      },
+      {
+        "name": "gifv",
+        "description": "animated gif image embed rendered as a video embed",
+        "value": "gifv"
+      },
+      {
+        "name": "article",
+        "description": "article embed",
+        "value": "article"
+      },
+      {
+        "name": "link",
+        "description": "link embed",
+        "value": "link"
+      }
+    ],
+    "description": "Embed types are \"loosely defined\" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version."
+  },
+  {
+    "name": "Allowed Mention Types",
+    "values": [
+      {
+        "name": "Role Mentions",
+        "description": "Controls role mentions",
+        "value": "roles"
+      },
+      {
+        "name": "User Mentions",
+        "description": "Controls user mentions",
+        "value": "users"
+      },
+      {
+        "name": "Everyone Mentions",
+        "description": "Controls @everyone and @here mentions",
+        "value": "everyone"
+      }
+    ]
+  }
+]

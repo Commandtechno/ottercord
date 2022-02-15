@@ -1,0 +1,115 @@
+[
+  {
+    "name": "User Flags",
+    "values": [
+      {
+        "name": "None",
+        "description": "None",
+        "value": 0
+      },
+      {
+        "name": "STAFF",
+        "description": "Discord Employee",
+        "value": 1
+      },
+      {
+        "name": "PARTNER",
+        "description": "Partnered Server Owner",
+        "value": 1
+      },
+      {
+        "name": "HYPESQUAD",
+        "description": "HypeSquad Events Coordinator",
+        "value": 1
+      },
+      {
+        "name": "BUG_HUNTER_LEVEL_1",
+        "description": "Bug Hunter Level 1",
+        "value": 1
+      },
+      {
+        "name": "HYPESQUAD_ONLINE_HOUSE_1",
+        "description": "House Bravery Member",
+        "value": 1
+      },
+      {
+        "name": "HYPESQUAD_ONLINE_HOUSE_2",
+        "description": "House Brilliance Member",
+        "value": 1
+      },
+      {
+        "name": "HYPESQUAD_ONLINE_HOUSE_3",
+        "description": "House Balance Member",
+        "value": 1
+      },
+      {
+        "name": "PREMIUM_EARLY_SUPPORTER",
+        "description": "Early Nitro Supporter",
+        "value": 1
+      },
+      {
+        "name": "TEAM_PSEUDO_USER",
+        "description": "User is a [team](#DOCS_TOPICS_TEAMS/)",
+        "value": 1
+      },
+      {
+        "name": "BUG_HUNTER_LEVEL_2",
+        "description": "Bug Hunter Level 2",
+        "value": 1
+      },
+      {
+        "name": "VERIFIED_BOT",
+        "description": "Verified Bot",
+        "value": 1
+      },
+      {
+        "name": "VERIFIED_DEVELOPER",
+        "description": "Early Verified Bot Developer",
+        "value": 1
+      },
+      {
+        "name": "CERTIFIED_MODERATOR",
+        "description": "Discord Certified Moderator",
+        "value": 1
+      },
+      {
+        "name": "BOT_HTTP_INTERACTIONS",
+        "description": "Bot uses only [HTTP interactions](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/receiving-an-interaction) and is shown in the online member list",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "name": "Premium Types",
+    "values": [
+      {
+        "name": "None",
+        "value": 0
+      },
+      {
+        "name": "Nitro Classic",
+        "value": 1
+      },
+      {
+        "name": "Nitro",
+        "value": 2
+      }
+    ],
+    "description": "Premium types denote the level of premium a user has. Visit the [Nitro](https://discord.com/nitro) page to learn more about the premium plans we currently offer."
+  },
+  {
+    "name": "Visibility Types",
+    "values": [
+      {
+        "name": "None",
+        "description": "invisible to everyone except the user themselves",
+        "value": 0
+      },
+      {
+        "name": "Everyone",
+        "description": "visible to everyone",
+        "value": 1
+      }
+    ]
+  }
+]

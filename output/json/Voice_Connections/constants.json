@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Encryption Modes",
+    "values": [
+      {
+        "name": "xsalsa20_poly1305",
+        "value": "xsalsa20_poly1305"
+      },
+      {
+        "name": "xsalsa20_poly1305_suffix",
+        "value": "xsalsa20_poly1305_suffix"
+      },
+      {
+        "name": "xsalsa20_poly1305_lite",
+        "value": "xsalsa20_poly1305_lite"
+      }
+    ]
+  }
+]

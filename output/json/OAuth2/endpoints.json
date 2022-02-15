@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Get Current Bot Application Information",
+    "method": "GET",
+    "path": "/oauth2/applications/@me",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": false,
+      "value": "application-object"
+    },
+    "description": "Returns the bot's [application](#DOCS_RESOURCES_APPLICATION/application-object) object."
+  },
+  {
+    "name": "Get Current Authorization Information",
+    "method": "GET",
+    "path": "/oauth2/@me",
+    "params": [],
+    "description": "Returns info about the current authorization. Requires authentication with a bearer token.",
+    "response": [
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "application-object",
+        "deprecated": false,
+        "name": "application",
+        "description": "the current application"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "scopes",
+        "description": "the scopes the user has authorized the application for"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "deprecated": false,
+        "name": "expires",
+        "description": "when the access token expires"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "user",
+        "description": "the user who has authorized, if the user has authorized with the `identify` scope"
+      }
+    ]
+  }
+]

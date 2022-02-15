@@ -1,0 +1,432 @@
+[
+  {
+    "name": "Gateway Commands",
+    "values": [
+      {
+        "name": "Identify",
+        "description": "triggers the initial handshake with the gateway",
+        "value": "Identify"
+      },
+      {
+        "name": "Resume",
+        "description": "resumes a dropped gateway connection",
+        "value": "Resume"
+      },
+      {
+        "name": "Heartbeat",
+        "description": "maintains an active gateway connection",
+        "value": "Heartbeat"
+      },
+      {
+        "name": "Request Guild Members",
+        "description": "requests members for a guild",
+        "value": "Request Guild Members"
+      },
+      {
+        "name": "Update Voice State",
+        "description": "joins, moves, or disconnects the client from a voice channel",
+        "value": "Update Voice State"
+      },
+      {
+        "name": "Update Presence",
+        "description": "updates a client's presence",
+        "value": "Update Presence"
+      }
+    ]
+  },
+  {
+    "name": "Gateway Events",
+    "values": [
+      {
+        "name": "Hello",
+        "description": "defines the heartbeat interval",
+        "value": "Hello"
+      },
+      {
+        "name": "Ready",
+        "description": "contains the initial state information",
+        "value": "Ready"
+      },
+      {
+        "name": "Resumed",
+        "description": "response to [Resume](#DOCS_TOPICS_GATEWAY/resume)",
+        "value": "Resumed"
+      },
+      {
+        "name": "Reconnect",
+        "description": "server is going away, client should reconnect to gateway and resume",
+        "value": "Reconnect"
+      },
+      {
+        "name": "Invalid Session",
+        "description": "failure response to [Identify](#DOCS_TOPICS_GATEWAY/identify) or [Resume](#DOCS_TOPICS_GATEWAY/resume) or invalid active session",
+        "value": "Invalid Session"
+      },
+      {
+        "name": "Channel Create",
+        "description": "new guild channel created",
+        "value": "Channel Create"
+      },
+      {
+        "name": "Channel Update",
+        "description": "channel was updated",
+        "value": "Channel Update"
+      },
+      {
+        "name": "Channel Delete",
+        "description": "channel was deleted",
+        "value": "Channel Delete"
+      },
+      {
+        "name": "Channel Pins Update",
+        "description": "message was pinned or unpinned",
+        "value": "Channel Pins Update"
+      },
+      {
+        "name": "Thread Create",
+        "description": "thread created, also sent when being added to a private thread",
+        "value": "Thread Create"
+      },
+      {
+        "name": "Thread Update",
+        "description": "thread was updated",
+        "value": "Thread Update"
+      },
+      {
+        "name": "Thread Delete",
+        "description": "thread was deleted",
+        "value": "Thread Delete"
+      },
+      {
+        "name": "Thread List Sync",
+        "description": "sent when gaining access to a channel, contains all active threads in that channel",
+        "value": "Thread List Sync"
+      },
+      {
+        "name": "Thread Member Update",
+        "description": "[thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) for the current user was updated",
+        "value": "Thread Member Update"
+      },
+      {
+        "name": "Thread Members Update",
+        "description": "some user(s) were added to or removed from a thread",
+        "value": "Thread Members Update"
+      },
+      {
+        "name": "Guild Create",
+        "description": "lazy-load for unavailable guild, guild became available, or user joined a new guild",
+        "value": "Guild Create"
+      },
+      {
+        "name": "Guild Update",
+        "description": "guild was updated",
+        "value": "Guild Update"
+      },
+      {
+        "name": "Guild Delete",
+        "description": "guild became unavailable, or user left/was removed from a guild",
+        "value": "Guild Delete"
+      },
+      {
+        "name": "Guild Ban Add",
+        "description": "user was banned from a guild",
+        "value": "Guild Ban Add"
+      },
+      {
+        "name": "Guild Ban Remove",
+        "description": "user was unbanned from a guild",
+        "value": "Guild Ban Remove"
+      },
+      {
+        "name": "Guild Emojis Update",
+        "description": "guild emojis were updated",
+        "value": "Guild Emojis Update"
+      },
+      {
+        "name": "Guild Stickers Update",
+        "description": "guild stickers were updated",
+        "value": "Guild Stickers Update"
+      },
+      {
+        "name": "Guild Integrations Update",
+        "description": "guild integration was updated",
+        "value": "Guild Integrations Update"
+      },
+      {
+        "name": "Guild Member Add",
+        "description": "new user joined a guild",
+        "value": "Guild Member Add"
+      },
+      {
+        "name": "Guild Member Remove",
+        "description": "user was removed from a guild",
+        "value": "Guild Member Remove"
+      },
+      {
+        "name": "Guild Member Update",
+        "description": "guild member was updated",
+        "value": "Guild Member Update"
+      },
+      {
+        "name": "Guild Members Chunk",
+        "description": "response to [Request Guild Members](#DOCS_TOPICS_GATEWAY/request-guild-members)",
+        "value": "Guild Members Chunk"
+      },
+      {
+        "name": "Guild Role Create",
+        "description": "guild role was created",
+        "value": "Guild Role Create"
+      },
+      {
+        "name": "Guild Role Update",
+        "description": "guild role was updated",
+        "value": "Guild Role Update"
+      },
+      {
+        "name": "Guild Role Delete",
+        "description": "guild role was deleted",
+        "value": "Guild Role Delete"
+      },
+      {
+        "name": "Guild Scheduled Event Create",
+        "description": "guild scheduled event was created",
+        "value": "Guild Scheduled Event Create"
+      },
+      {
+        "name": "Guild Scheduled Event Update",
+        "description": "guild scheduled event was updated",
+        "value": "Guild Scheduled Event Update"
+      },
+      {
+        "name": "Guild Scheduled Event Delete",
+        "description": "guild scheduled event was deleted",
+        "value": "Guild Scheduled Event Delete"
+      },
+      {
+        "name": "Guild Scheduled Event User Add",
+        "description": "user subscribed to a guild scheduled event",
+        "value": "Guild Scheduled Event User Add"
+      },
+      {
+        "name": "Guild Scheduled Event User Remove",
+        "description": "user unsubscribed from a guild scheduled event",
+        "value": "Guild Scheduled Event User Remove"
+      },
+      {
+        "name": "Integration Create",
+        "description": "guild integration was created",
+        "value": "Integration Create"
+      },
+      {
+        "name": "Integration Update",
+        "description": "guild integration was updated",
+        "value": "Integration Update"
+      },
+      {
+        "name": "Integration Delete",
+        "description": "guild integration was deleted",
+        "value": "Integration Delete"
+      },
+      {
+        "name": "Interaction Create",
+        "description": "user used an interaction, such as an [Application Command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/)",
+        "value": "Interaction Create"
+      },
+      {
+        "name": "Invite Create",
+        "description": "invite to a channel was created",
+        "value": "Invite Create"
+      },
+      {
+        "name": "Invite Delete",
+        "description": "invite to a channel was deleted",
+        "value": "Invite Delete"
+      },
+      {
+        "name": "Message Create",
+        "description": "message was created",
+        "value": "Message Create"
+      },
+      {
+        "name": "Message Update",
+        "description": "message was edited",
+        "value": "Message Update"
+      },
+      {
+        "name": "Message Delete",
+        "description": "message was deleted",
+        "value": "Message Delete"
+      },
+      {
+        "name": "Message Delete Bulk",
+        "description": "multiple messages were deleted at once",
+        "value": "Message Delete Bulk"
+      },
+      {
+        "name": "Message Reaction Add",
+        "description": "user reacted to a message",
+        "value": "Message Reaction Add"
+      },
+      {
+        "name": "Message Reaction Remove",
+        "description": "user removed a reaction from a message",
+        "value": "Message Reaction Remove"
+      },
+      {
+        "name": "Message Reaction Remove All",
+        "description": "all reactions were explicitly removed from a message",
+        "value": "Message Reaction Remove All"
+      },
+      {
+        "name": "Message Reaction Remove Emoji",
+        "description": "all reactions for a given emoji were explicitly removed from a message",
+        "value": "Message Reaction Remove Emoji"
+      },
+      {
+        "name": "Presence Update",
+        "description": "user was updated",
+        "value": "Presence Update"
+      },
+      {
+        "name": "Stage Instance Create",
+        "description": "stage instance was created",
+        "value": "Stage Instance Create"
+      },
+      {
+        "name": "Stage Instance Delete",
+        "description": "stage instance was deleted or closed",
+        "value": "Stage Instance Delete"
+      },
+      {
+        "name": "Stage Instance Update",
+        "description": "stage instance was updated",
+        "value": "Stage Instance Update"
+      },
+      {
+        "name": "Typing Start",
+        "description": "user started typing in a channel",
+        "value": "Typing Start"
+      },
+      {
+        "name": "User Update",
+        "description": "properties about the user changed",
+        "value": "User Update"
+      },
+      {
+        "name": "Voice State Update",
+        "description": "someone joined, left, or moved a voice channel",
+        "value": "Voice State Update"
+      },
+      {
+        "name": "Voice Server Update",
+        "description": "guild's voice server was updated",
+        "value": "Voice Server Update"
+      },
+      {
+        "name": "Webhooks Update",
+        "description": "guild channel webhook was created, update, or deleted",
+        "value": "Webhooks Update"
+      }
+    ]
+  },
+  {
+    "name": "Status Types",
+    "values": [
+      {
+        "name": "online",
+        "description": "Online",
+        "value": "online"
+      },
+      {
+        "name": "dnd",
+        "description": "Do Not Disturb",
+        "value": "dnd"
+      },
+      {
+        "name": "idle",
+        "description": "AFK",
+        "value": "idle"
+      },
+      {
+        "name": "invisible",
+        "description": "Invisible and shown as offline",
+        "value": "invisible"
+      },
+      {
+        "name": "offline",
+        "description": "Offline",
+        "value": "offline"
+      }
+    ]
+  },
+  {
+    "name": "Activity Types",
+    "values": [
+      {
+        "name": "Game",
+        "value": 0
+      },
+      {
+        "name": "Streaming",
+        "value": 1
+      },
+      {
+        "name": "Listening",
+        "value": 2
+      },
+      {
+        "name": "Watching",
+        "value": 3
+      },
+      {
+        "name": "Custom",
+        "value": 4
+      },
+      {
+        "name": "Competing",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "name": "Activity Flags",
+    "values": [
+      {
+        "name": "INSTANCE",
+        "value": 1
+      },
+      {
+        "name": "JOIN",
+        "value": 1
+      },
+      {
+        "name": "SPECTATE",
+        "value": 1
+      },
+      {
+        "name": "JOIN_REQUEST",
+        "value": 1
+      },
+      {
+        "name": "SYNC",
+        "value": 1
+      },
+      {
+        "name": "PLAY",
+        "value": 1
+      },
+      {
+        "name": "PARTY_PRIVACY_FRIENDS",
+        "value": 1
+      },
+      {
+        "name": "PARTY_PRIVACY_VOICE_CHANNEL",
+        "value": 1
+      },
+      {
+        "name": "EMBEDDED",
+        "value": 1
+      }
+    ]
+  }
+]

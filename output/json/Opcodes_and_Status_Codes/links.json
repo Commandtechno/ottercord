@@ -1,0 +1,16 @@
+{
+  "opcodes-and-status-codes": "Opcodes and Status Codes",
+  "gateway": "Gateway",
+  "gateway-gateway-opcodes": "Gateway Opcodes",
+  "gateway-gateway-close-event-codes": "Gateway Close Event Codes",
+  "voice": "Voice",
+  "voice-voice-opcodes": "Voice Opcodes",
+  "voice-voice-close-event-codes": "Voice Close Event Codes",
+  "http": "HTTP",
+  "http-http-response-codes": "HTTP Response Codes",
+  "json": "JSON",
+  "json-example-json-error-response": "Example JSON Error Response",
+  "rpc": "RPC",
+  "rpc-rpc-error-codes": "RPC Error Codes",
+  "rpc-rpc-close-event-codes": "RPC Close Event Codes"
+}

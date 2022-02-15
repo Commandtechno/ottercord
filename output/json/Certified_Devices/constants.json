@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Device Type",
+    "values": [
+      {
+        "name": "AUDIO_INPUT",
+        "value": "audioinput"
+      },
+      {
+        "name": "AUDIO_OUTPUT",
+        "value": "audiooutput"
+      },
+      {
+        "name": "VIDEO_INPUT",
+        "value": "videoinput"
+      }
+    ]
+  }
+]

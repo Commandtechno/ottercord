@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Get Gateway",
+    "method": "GET",
+    "path": "/gateway",
+    "params": [],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": false,
+      "value": "connecting"
+    },
+    "description": "Returns an object with a single valid WSS URL, which the client can use for [Connecting](#DOCS_TOPICS_GATEWAY/connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL."
+  },
+  {
+    "name": "Get Gateway Bot",
+    "method": "GET",
+    "path": "/gateway/bot",
+    "params": [],
+    "response": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "The WSS URL that can be used for connecting to the gateway"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "shards",
+        "description": "The recommended number of to use when connecting"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "session-start-limit-object",
+        "deprecated": false,
+        "name": "session_start_limit",
+        "description": "Information on the current session start limit"
+      }
+    ],
+    "description": "Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds."
+  }
+]

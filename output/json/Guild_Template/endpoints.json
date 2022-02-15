@@ -1,0 +1,216 @@
+[
+  {
+    "name": "Get Guild Template",
+    "method": "GET",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "anchor": "guild-template-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": false,
+      "value": "guild-template-object"
+    },
+    "description": "Returns a [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object for the given code."
+  },
+  {
+    "name": "Create Guild from Guild Template",
+    "method": "POST",
+    "path": "/guilds/templates/{template.code}",
+    "params": [
+      {
+        "name": "template.code",
+        "anchor": "guild-template-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": false,
+      "value": "guild-object"
+    },
+    "description": "Create a new guild based on a template. Returns a [guild](#DOCS_RESOURCES_GUILD/guild-object) object on success. Fires a [Guild Create](#DOCS_TOPICS_GATEWAY/guild-create) Gateway event.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the guild"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "icon",
+          "description": "base64 128x128 image for the guild icon"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Get Guild Templates",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": true,
+      "value": "guild-template-object"
+    },
+    "description": "Returns an array of [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) objects. Requires the `MANAGE_GUILD` permission."
+  },
+  {
+    "name": "Create Guild Template",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/templates",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Creates a template for the guild. Requires the `MANAGE_GUILD` permission. Returns the created [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the template"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description for the template"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sync Guild Template",
+    "method": "PUT",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "template.code",
+        "anchor": "guild-template-object"
+      }
+    ],
+    "description": "Syncs the template to the guild's current state. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success."
+  },
+  {
+    "name": "Modify Guild Template",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "template.code",
+        "anchor": "guild-template-object"
+      }
+    ],
+    "description": "Modifies the template's metadata. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the template"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "description",
+          "description": "description for the template"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Template",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/templates/{template.code}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "template.code",
+        "anchor": "guild-template-object"
+      }
+    ],
+    "description": "Deletes the template. Requires the `MANAGE_GUILD` permission. Returns the deleted [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success."
+  }
+]

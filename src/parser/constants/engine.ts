@@ -1,4 +1,4 @@
-import { cleanText, formatTable } from "../util";
+import { cleanText, flattenBlock, formatTable } from "../util";
 import { marked } from "marked";
 
 import { Constant } from "../../common";
@@ -30,12 +30,16 @@ export class ConstantsEngine {
   processNone(block: marked.Token) {
     if (block.type === "heading" && block.depth > 5) {
       if (
+        (!block.text.toLowerCase().endsWith("entity type") &&
+          block.text.toLowerCase().endsWith("type")) ||
         block.text.toLowerCase().endsWith("types") ||
         block.text.toLowerCase().endsWith("flags") ||
         block.text.toLowerCase().endsWith("modes") ||
         block.text.toLowerCase().endsWith("events") ||
         block.text.toLowerCase().endsWith("status") ||
+        block.text.toLowerCase().endsWith("scopes") ||
         block.text.toLowerCase().endsWith("features") ||
+        block.text.toLowerCase().endsWith("commands") ||
         block.text.toLowerCase().endsWith("behaviors") ||
         block.text.toLowerCase().endsWith("metadata") ||
         block.text.toLowerCase().endsWith("level") ||
@@ -62,20 +66,22 @@ export class ConstantsEngine {
     if (block.type === "table") {
       const table = formatTable(block);
       this.currentConstant.values = table.map(row => {
-        const name = (
+        const name = flattenBlock(
           row.key ??
-          row.name ??
-          row.field ??
-          row.type ??
-          row.flag ??
-          row.mode ??
-          row.event ??
-          row.feature ??
-          row.level ??
-          row.tier
-        ).text;
+            row.name ??
+            row.field ??
+            row.type ??
+            row.flag ??
+            row.mode ??
+            row.event ??
+            row.feature ??
+            row.permission ??
+            row.status ??
+            row.level ??
+            row.tier
+        );
 
-        const rawValue = (row.value ?? row.id)?.text ?? name;
+        const rawValue = row.value ?? row.id ? flattenBlock(row.value ?? row.id) : name;
         const description = row.description?.text;
 
         let value: string | number;

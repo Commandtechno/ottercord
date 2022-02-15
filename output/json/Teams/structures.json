@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Team Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon",
+        "description": "a hash of the image of the team's icon"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "the unique id of the team"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "data-models-team-member-object",
+        "deprecated": false,
+        "name": "members",
+        "description": "the members of the team"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "the name of the team"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "owner_user_id",
+        "description": "the user id of the current team owner"
+      }
+    ]
+  },
+  {
+    "name": "Team Member Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "membership_state",
+        "description": "the user's on the team"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "permissions",
+        "description": "will always be ``"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "team_id",
+        "description": "the id of the parent team of which they are a member"
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "user",
+        "description": "the avatar, discriminator, id, and username of the user"
+      }
+    ]
+  }
+]

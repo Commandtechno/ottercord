@@ -1,0 +1,1347 @@
+[
+  {
+    "name": "Payload Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "commands-and-events-rpc-commands",
+        "deprecated": false,
+        "name": "cmd",
+        "description": ""
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "nonce",
+        "description": "unique string used once for replies from the server"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "commands-and-events-rpc-events",
+        "deprecated": false,
+        "name": "evt",
+        "description": ""
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "object"
+        ],
+        "deprecated": false,
+        "name": "data",
+        "description": "event data"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "object"
+        ],
+        "deprecated": false,
+        "name": "args",
+        "description": "command arguments"
+      }
+    ]
+  },
+  {
+    "name": "Authorize Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "shared-resources-oauth2-scopes",
+        "deprecated": false,
+        "name": "scopes",
+        "description": "scopes to authorize"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "client_id",
+        "description": "OAuth2 application id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "rpc_token",
+        "description": "one-time use RPC token"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "username",
+        "description": "username to create a guest account with if the user does not have Discord"
+      }
+    ]
+  },
+  {
+    "name": "Authenticate Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "access_token",
+        "description": "OAuth2 access token"
+      }
+    ]
+  },
+  {
+    "name": "OAuth2 Application Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "description",
+        "description": "application description"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon",
+        "description": "hash of the icon"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "application client id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "rpc_origins",
+        "description": "array of rpc origin urls"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "application name"
+      }
+    ]
+  },
+  {
+    "name": "Get Guild Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild to get"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "timeout",
+        "description": "asynchronously get guild with time to wait before timing out"
+      }
+    ]
+  },
+  {
+    "name": "Get Channel Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of the channel to get"
+      }
+    ]
+  },
+  {
+    "name": "Get Channels Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild to get channels for"
+      }
+    ]
+  },
+  {
+    "name": "Pan Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "left",
+        "description": "left pan of user"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "right",
+        "description": "right pan of user"
+      }
+    ]
+  },
+  {
+    "name": "Select Voice Channel Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "channel id to join"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "timeout",
+        "description": "asynchronously join channel with time to wait before timing out"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "force",
+        "description": "forces a user to join a voice channel"
+      }
+    ]
+  },
+  {
+    "name": "Select Text Channel Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "channel id to join"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "timeout",
+        "description": "asynchronously join channel with time to wait before timing out"
+      }
+    ]
+  },
+  {
+    "name": "Voice Settings Input Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "device_id",
+        "description": "device id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "volume",
+        "description": "input voice level"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "available_devices",
+        "description": "array of _read-only_ device objects containing `id` and `name` string keys"
+      }
+    ]
+  },
+  {
+    "name": "Voice Settings Output Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "device_id",
+        "description": "device id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "volume",
+        "description": "output voice level"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "available_devices",
+        "description": "array of _read-only_ device objects containing `id` and `name` string keys"
+      }
+    ]
+  },
+  {
+    "name": "Voice Settings Mode Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "type",
+        "description": "voice setting mode type"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "auto_threshold",
+        "description": "voice activity threshold automatically sets its threshold"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "threshold",
+        "description": "threshold for voice activity"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "getvoicesettings-shortcut-key-combo-object",
+        "deprecated": false,
+        "name": "shortcut",
+        "description": "shortcut key combos for PTT"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "float"
+        ],
+        "deprecated": false,
+        "name": "delay",
+        "description": "the PTT release delay"
+      }
+    ]
+  },
+  {
+    "name": "Shortcut Key Combo Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "type",
+        "description": "see"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "code",
+        "description": "key code"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "key name"
+      }
+    ]
+  },
+  {
+    "name": "Device Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "setcertifieddevices-device-type",
+        "deprecated": false,
+        "name": "type",
+        "description": "the type of device"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "the device's Windows UUID"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "setcertifieddevices-vendor-object",
+        "deprecated": false,
+        "name": "vendor",
+        "description": "the hardware vendor"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "setcertifieddevices-model-object",
+        "deprecated": false,
+        "name": "model",
+        "description": "the model of the product"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "related",
+        "description": "UUIDs of related devices"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "echo_cancellation",
+        "description": "if the device's native echo cancellation is enabled"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "noise_suppression",
+        "description": "if the device's native noise suppression is enabled"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "automatic_gain_control",
+        "description": "if the device's native automatic gain control is enabled"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "hardware_mute",
+        "description": "if the device is hardware muted"
+      }
+    ]
+  },
+  {
+    "name": "Vendor Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of the vendor"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "url for the vendor"
+      }
+    ]
+  },
+  {
+    "name": "Model Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of the model"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "url for the model"
+      }
+    ]
+  },
+  {
+    "name": "Set Activity Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "pid",
+        "description": "the application's process id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object",
+        "deprecated": false,
+        "name": "activity",
+        "description": "the rich presence to assign to the user"
+      }
+    ]
+  },
+  {
+    "name": "Send Activity Join Invite Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "user_id",
+        "description": "the id of the requesting user"
+      }
+    ]
+  },
+  {
+    "name": "Close Activity Request Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "user_id",
+        "description": "the id of the requesting user"
+      }
+    ]
+  },
+  {
+    "name": "Ready Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "v",
+        "description": "RPC version"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "ready-rpc-server-configuration-object",
+        "deprecated": false,
+        "name": "config",
+        "description": "server configuration"
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "user",
+        "description": "the user to whom you are connected"
+      }
+    ]
+  },
+  {
+    "name": "RPC Server Configuration Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "cdn_host",
+        "description": "server's cdn"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "api_endpoint",
+        "description": "server's api endpoint"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "environment",
+        "description": "server's environment"
+      }
+    ]
+  },
+  {
+    "name": "Error Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "code",
+        "description": "RPC Error Code"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "message",
+        "description": "Error description"
+      }
+    ]
+  },
+  {
+    "name": "Guild Status Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of guild to listen to updates of"
+      }
+    ]
+  },
+  {
+    "name": "Guild Status Dispatch Data Structure",
+    "params": [
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object",
+        "deprecated": false,
+        "name": "guild",
+        "description": "guild with requested id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "online",
+        "description": "number of online users in guild (deprecated"
+      }
+    ]
+  },
+  {
+    "name": "Guild Create Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "guild id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of the guild"
+      }
+    ]
+  },
+  {
+    "name": "Channel Create Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "id",
+        "description": "channel id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "name of the channel"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "type",
+        "description": "channel type"
+      }
+    ]
+  },
+  {
+    "name": "Voice Channel Select Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of channel"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of guild"
+      }
+    ]
+  },
+  {
+    "name": "Voice State Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of channel to listen to updates of"
+      }
+    ]
+  },
+  {
+    "name": "Voice Connection Status Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "state",
+        "description": "one of the voice connection states listed below"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "hostname",
+        "description": "hostname of the connected voice server"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "pings",
+        "description": "last 20 pings"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "average_ping",
+        "description": "average ping"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "last_ping",
+        "description": "last ping"
+      }
+    ]
+  },
+  {
+    "name": "Message Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of channel to listen to updates of"
+      }
+    ]
+  },
+  {
+    "name": "Speaking Argument Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of channel to listen to updates of"
+      }
+    ]
+  },
+  {
+    "name": "Speaking Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "user_id",
+        "description": "id of user who started/stopped speaking"
+      }
+    ]
+  },
+  {
+    "name": "Notification Create Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of channel where notification occurred"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "message-object",
+        "deprecated": false,
+        "name": "message",
+        "description": "message that generated this notification"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "icon_url",
+        "description": "icon url of the notification"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "title",
+        "description": "title of the notification"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "body",
+        "description": "body of the notification"
+      }
+    ]
+  },
+  {
+    "name": "Activity Join Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "secret",
+        "description": "the for the given invite"
+      }
+    ]
+  },
+  {
+    "name": "Activity Spectate Dispatch Data Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "secret",
+        "description": "the for the given invite"
+      }
+    ]
+  },
+  {
+    "name": "Activity Join Request Data Structure",
+    "params": [
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "user-object",
+        "deprecated": false,
+        "name": "user",
+        "description": "information about the user requesting to join"
+      }
+    ]
+  }
+]

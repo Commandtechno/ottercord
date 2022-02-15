@@ -1,0 +1,645 @@
+[
+  {
+    "name": "Gateway Payload Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "gateway-gateway-opcodes",
+        "deprecated": false,
+        "name": "op",
+        "description": "for the payload"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "mixed"
+        ],
+        "deprecated": false,
+        "name": "d",
+        "description": "event data"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "s",
+        "description": "sequence number, used for resuming sessions and heartbeats"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "t",
+        "description": "the event name for this payload"
+      }
+    ]
+  },
+  {
+    "name": "Identify Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "token",
+        "description": "authentication token"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "identify-identify-connection-properties",
+        "deprecated": false,
+        "name": "properties",
+        "description": ""
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "compress",
+        "description": "whether this connection supports compression of packets"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "large_threshold",
+        "description": "value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member list"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "shard",
+        "description": "used for"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "update-presence",
+        "deprecated": false,
+        "name": "presence",
+        "description": "presence structure for initial presence information"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "intents",
+        "description": "the you wish to receive"
+      }
+    ]
+  },
+  {
+    "name": "Resume Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "token",
+        "description": "session token"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "session_id",
+        "description": "session id"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "seq",
+        "description": "last sequence number received"
+      }
+    ]
+  },
+  {
+    "name": "Guild Request Members Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild to get members for"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "query",
+        "description": "string that username starts with, or an empty string to return all members"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "limit",
+        "description": "maximum number of members to send matching the `query`"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "presences",
+        "description": "used to specify if we want the presences of the matched members"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "user_ids",
+        "description": "used to specify which users you wish to fetch"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "nonce",
+        "description": "nonce to identify the response"
+      }
+    ]
+  },
+  {
+    "name": "Gateway Voice State Update Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "guild_id",
+        "description": "id of the guild"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "channel_id",
+        "description": "id of the voice channel client wants to join"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_mute",
+        "description": "is the client muted"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "self_deaf",
+        "description": "is the client deafened"
+      }
+    ]
+  },
+  {
+    "name": "Gateway Presence Update Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "since",
+        "description": "unix time of when the client went idle, or null if the client is not idle"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "activity-object",
+        "deprecated": false,
+        "name": "activities",
+        "description": "the user's activities"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "status",
+        "description": "the user's new"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "afk",
+        "description": "whether or not the client is afk"
+      }
+    ]
+  },
+  {
+    "name": "Hello Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "heartbeat_interval",
+        "description": "the interval the client should heartbeat with"
+      }
+    ]
+  },
+  {
+    "name": "Activity Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "name",
+        "description": "the activity's name"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-types",
+        "deprecated": false,
+        "name": "type",
+        "description": ""
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "url",
+        "description": "stream url, is validated when type is 1"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "created_at",
+        "description": "unix timestamp of when the activity was added to the user's session"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-timestamps",
+        "deprecated": false,
+        "name": "timestamps",
+        "description": "unix timestamps for start and/or end of the game"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "deprecated": false,
+        "name": "application_id",
+        "description": "application id for the game"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "details",
+        "description": "what the player is currently doing"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "deprecated": false,
+        "name": "state",
+        "description": "the user's current party status"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": true,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-emoji",
+        "deprecated": false,
+        "name": "emoji",
+        "description": "the emoji used for a custom status"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-party",
+        "deprecated": false,
+        "name": "party",
+        "description": "information for the current party of the player"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-assets",
+        "deprecated": false,
+        "name": "assets",
+        "description": "images for the presence and their hover texts"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-secrets",
+        "deprecated": false,
+        "name": "secrets",
+        "description": "secrets for Rich Presence joining and spectating"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "deprecated": false,
+        "name": "instance",
+        "description": "whether or not the activity is an instanced game session"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "activity-object-activity-flags",
+        "deprecated": false,
+        "name": "flags",
+        "description": "`OR`d together, describes what the payload includes"
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "activity-object-activity-buttons",
+        "deprecated": false,
+        "name": "buttons",
+        "description": "the custom buttons shown in the Rich Presence"
+      }
+    ]
+  },
+  {
+    "name": "Session Start Limit Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "total",
+        "description": "The total number of session starts the current user is allowed"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "remaining",
+        "description": "The remaining number of session starts the current user is allowed"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "reset_after",
+        "description": "The number of milliseconds after which the limit resets"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "deprecated": false,
+        "name": "max_concurrency",
+        "description": "The number of identify requests allowed per 5 seconds"
+      }
+    ]
+  }
+]

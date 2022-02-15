@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { unescape } from ".";
 import { Row } from "../../common";
 
 export function cleanText(text: string) {
@@ -13,18 +14,28 @@ export function cleanText(text: string) {
 }
 
 export function stripPartial(text: string) {
-  return text.replace("partial", "").trim();
+  return cleanText(text).replace("partial", "").trim();
 }
 
 export function stripArray(text: string) {
-  return text
-    .replace(/((an|a)\s)?(array|list)(\sof)?/i, "")
+  return cleanText(text)
+    .replace(
+      /((an|a)\s)?(array|list)(\sof(\s(\d+|zero|one|two|three|four|five|six|seven|eight|nine)))?/i,
+      ""
+    )
     .replace(/s$/, "")
     .trim();
 }
 
 export function stripDeprecated(text: string) {
-  return text.replace(/[\(\*]+deprecated[\)\*]+/i, "").trim();
+  return cleanText(text)
+    .replace(/[\(\*]+deprecated[\)\*]+/i, "")
+    .trim();
+}
+
+export function flattenBlock(block: any): string {
+  // @ts-ignore
+  return block.tokens.map(token => unescape(token.text)).join(" ");
 }
 
 export function formatTable(rawTable: marked.Tokens.Table) {

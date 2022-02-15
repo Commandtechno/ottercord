@@ -1,0 +1,161 @@
+[
+  {
+    "name": "List Guild Emojis",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/emojis",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": true,
+      "value": "emoji-object"
+    },
+    "description": "Returns a list of [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) objects for the given guild."
+  },
+  {
+    "name": "Get Guild Emoji",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "emoji.id",
+        "anchor": "emoji-object"
+      }
+    ],
+    "response": {
+      "reference": true,
+      "partial": false,
+      "optional": false,
+      "nullable": false,
+      "array": false,
+      "value": "emoji-object"
+    },
+    "description": "Returns an [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object for the given guild and emoji IDs."
+  },
+  {
+    "name": "Create Guild Emoji",
+    "method": "POST",
+    "path": "/guilds/{guild.id}/emojis",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      }
+    ],
+    "description": "Create a new emoji for the guild. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the emoji"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": false,
+          "reference": true,
+          "value": "image-data",
+          "deprecated": false,
+          "name": "image",
+          "description": "the 128x128 emoji image"
+        },
+        {
+          "partial": false,
+          "optional": false,
+          "nullable": false,
+          "array": true,
+          "reference": false,
+          "value": "any",
+          "deprecated": false,
+          "name": "roles",
+          "description": "roles allowed to use this emoji"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Modify Guild Emoji",
+    "method": "PATCH",
+    "path": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "emoji.id",
+        "anchor": "emoji-object"
+      }
+    ],
+    "description": "Modify the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [emoji](#DOCS_RESOURCES_EMOJI/emoji-object) object on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event.",
+    "request": {
+      "json": true,
+      "form": false,
+      "params": [
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": false,
+          "array": false,
+          "reference": false,
+          "value": [
+            "string"
+          ],
+          "deprecated": false,
+          "name": "name",
+          "description": "name of the emoji"
+        },
+        {
+          "partial": false,
+          "optional": true,
+          "nullable": true,
+          "array": true,
+          "reference": false,
+          "value": "any",
+          "deprecated": false,
+          "name": "roles",
+          "description": "roles allowed to use this emoji"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Delete Guild Emoji",
+    "method": "DELETE",
+    "path": "/guilds/{guild.id}/emojis/{emoji.id}",
+    "params": [
+      {
+        "name": "guild.id",
+        "anchor": "guild-object"
+      },
+      {
+        "name": "emoji.id",
+        "anchor": "emoji-object"
+      }
+    ],
+    "description": "Delete the given emoji. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success. Fires a [Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update) Gateway event."
+  }
+]

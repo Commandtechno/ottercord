@@ -27,13 +27,9 @@ export async function parse(...pathSegments: string[]) {
       if (block.depth < 5) {
         parent = anchor + "-";
         link = anchor;
-      } else {
-        link = parent + anchor;
-      }
+      } else link = parent + anchor;
 
-      if (link) {
-        links[link] = block.text.replace("Object", "Structure");
-      }
+      if (link) links[link] = block.text.replace("Object", "Structure");
     }
 
     constantsEngine.process(block);

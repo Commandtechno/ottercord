@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Voice Packet Structure",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "Version + Flags"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "Payload Type"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "Sequence"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "Timestamp"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "SSRC"
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "deprecated": false,
+        "name": "Encrypted audio"
+      }
+    ]
+  }
+]

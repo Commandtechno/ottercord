@@ -2,17 +2,32 @@ import { stripPartial, stripArray, lastSplit, cleanText, stripDeprecated } from 
 import { Type, Param, Row } from "../../common";
 
 export const validTypes = new Set([
-  "ISO8601 timestamp",
-  "int",
-  "integer",
+  // special
   "snowflake",
+  "file contents",
+
+  // basic
+  "null",
   "string",
-  "number",
-  "bigint",
   "boolean",
   "symbol",
+  "function",
+
+  // numbers
+  "int",
+  "integer",
+  "float",
+  "number",
+  "bigint",
+
+  // objects
+  "dict",
+  "mixed",
   "object",
-  "function"
+
+  // dates
+  "date",
+  "ISO8601 timestamp"
 ]);
 
 export function isPartial(text: string) {
@@ -95,31 +110,46 @@ export function parseType(row: Row): Type {
     array = true;
   }
 
-  const [firstToken] = row.description.tokens;
-  if (firstToken.type === "link")
+  if (row.description) {
+    const [firstToken] = row.description.tokens;
+    if (firstToken.type === "link")
+      return {
+        partial,
+        optional,
+        nullable,
+        array,
+
+        reference: true,
+        value: parseAnchor(firstToken.href)
+      };
+  }
+
+  const values = row.type.text.split("or").map(cleanText);
+  if (!values.every(type => validTypes.has(type))) {
+    if (row.description)
+      for (const token of row.description.tokens)
+        if (token.type === "link")
+          return {
+            partial,
+            optional,
+            nullable,
+            array,
+
+            reference: true,
+            value: parseAnchor(token.href)
+          };
+
+    console.log(` ! Invalid type: ${row.type.text}`);
     return {
       partial,
       optional,
       nullable,
       array,
 
-      reference: true,
-      value: parseAnchor(firstToken.href)
+      reference: false,
+      value: "any"
     };
-
-  const values = row.type.text.split("or").map(cleanText);
-  if (!values.every(type => validTypes.has(type)))
-    for (const token of row.description.tokens)
-      if (token.type === "link")
-        return {
-          partial,
-          optional,
-          nullable,
-          array,
-
-          reference: true,
-          value: parseAnchor(token.href)
-        };
+  }
 
   return {
     partial,

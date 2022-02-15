@@ -28,11 +28,17 @@ export class StructuresEngine {
   }
 
   processNone(block: marked.Token) {
+    // todo make less scuffed
     if (block.type === "heading" && block.depth > 5) {
-      if (block.text !== "Response Structure" && block.text.toLowerCase().endsWith("structure")) {
+      if (
+        !block.text.toLowerCase().includes("example") &&
+        !block.text.toLowerCase().includes("response") &&
+        (block.text.toLowerCase().endsWith("object") ||
+          block.text.toLowerCase().endsWith("structure"))
+      ) {
         if (this.currentStructure) this.structures.push(this.currentStructure);
         this.currentStructure = {
-          name: block.text.trim(),
+          name: block.text.trim().replace("Object", "Structure"),
           params: []
         };
 
@@ -42,11 +48,18 @@ export class StructuresEngine {
   }
 
   processStructure(block: marked.Token) {
-    if (block.type === "table") {
-      const table = formatTable(block);
-      this.currentStructure.params = table.map(parseParam);
+    switch (block.type) {
+      // todo make less scuffed
+      case "heading":
+        this.currentStructure = null;
+        this.context = "none";
+        break;
 
-      this.context = "none";
+      case "table":
+        const table = formatTable(block);
+        this.currentStructure.params = table.map(parseParam);
+        this.context = "none";
+        break;
     }
   }
 }
