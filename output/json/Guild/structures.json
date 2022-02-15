@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "guild id"
+        "description": "guild id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "guild name"
+        "description": "guild name (2-100 characters, excluding trailing and leading whitespace)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -35,9 +35,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "icon",
-        "description": ""
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -46,9 +46,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "icon_hash",
-        "description": ", returned when in the template object"
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting), returned when in the template object",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -57,9 +57,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "splash",
-        "description": ""
+        "description": "[splash hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -68,9 +68,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "discovery_splash",
-        "description": ""
+        "description": "[discovery splash hash](#DOCS_REFERENCE/image-formatting); only present for guilds with the \"DISCOVERABLE\" feature",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -81,9 +81,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "owner",
-        "description": "true if is the owner of the guild"
+        "description": "true if [the user](#DOCS_RESOURCES_USER/get-current-user-guilds) is the owner of the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -94,9 +94,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "owner_id",
-        "description": "id of owner"
+        "description": "id of owner",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -107,9 +107,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "permissions",
-        "description": "total permissions for in the guild"
+        "description": "total permissions for [the user](#DOCS_RESOURCES_USER/get-current-user-guilds) in the guild (excludes overwrites)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -118,9 +118,9 @@
         "array": false,
         "reference": true,
         "value": "voice-region-object",
-        "deprecated": true,
         "name": "region",
-        "description": "id for the guild"
+        "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id for the guild",
+        "deprecated": true
       },
       {
         "partial": false,
@@ -131,9 +131,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "afk_channel_id",
-        "description": "id of afk channel"
+        "description": "id of afk channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -144,9 +144,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "afk_timeout",
-        "description": "afk timeout in seconds"
+        "description": "afk timeout in seconds",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -157,9 +157,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "widget_enabled",
-        "description": "true if the server widget is enabled"
+        "description": "true if the server widget is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -170,9 +170,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "widget_channel_id",
-        "description": "the channel id that the widget will generate an invite to, or `null` if set to no invite"
+        "description": "the channel id that the widget will generate an invite to, or `null` if set to no invite",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -181,9 +181,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object-verification-level",
-        "deprecated": false,
         "name": "verification_level",
-        "description": "required for the guild"
+        "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level) required for the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -194,9 +194,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "default_message_notifications",
-        "description": "default"
+        "description": "default [message notifications level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -205,9 +205,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object-explicit-content-filter-level",
-        "deprecated": false,
         "name": "explicit_content_filter",
-        "description": ""
+        "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -216,9 +216,9 @@
         "array": true,
         "reference": true,
         "value": "role-object",
-        "deprecated": false,
         "name": "roles",
-        "description": "roles in the guild"
+        "description": "roles in the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -227,9 +227,9 @@
         "array": true,
         "reference": true,
         "value": "emoji-object",
-        "deprecated": false,
         "name": "emojis",
-        "description": "custom guild emojis"
+        "description": "custom guild emojis",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -238,9 +238,9 @@
         "array": true,
         "reference": true,
         "value": "guild-object-guild-features",
-        "deprecated": false,
         "name": "features",
-        "description": "enabled guild features"
+        "description": "enabled guild features",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -251,9 +251,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "mfa_level",
-        "description": "required for the guild"
+        "description": "required [MFA level](#DOCS_RESOURCES_GUILD/guild-object-mfa-level) for the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -264,9 +264,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "application_id",
-        "description": "application id of the guild creator if it is bot-created"
+        "description": "application id of the guild creator if it is bot-created",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -277,9 +277,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "system_channel_id",
-        "description": "the id of the channel where guild notices such as welcome messages and boost events are posted"
+        "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -288,9 +288,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object-system-channel-flags",
-        "deprecated": false,
         "name": "system_channel_flags",
-        "description": ""
+        "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -301,9 +301,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "rules_channel_id",
-        "description": "the id of the channel where Community guilds can display rules and/or guidelines"
+        "description": "the id of the channel where Community guilds can display rules and/or guidelines",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -314,9 +314,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "joined_at",
-        "description": "when this guild was joined at"
+        "description": "when this guild was joined at",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -327,9 +327,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "large",
-        "description": "true if this is considered a large guild"
+        "description": "true if this is considered a large guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -340,9 +340,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "unavailable",
-        "description": "true if this guild is unavailable due to an outage"
+        "description": "true if this guild is unavailable due to an outage",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -353,9 +353,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "member_count",
-        "description": "total number of members in this guild"
+        "description": "total number of members in this guild",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -364,9 +364,9 @@
         "array": true,
         "reference": true,
         "value": "voice-state-object",
-        "deprecated": false,
         "name": "voice_states",
-        "description": "states of members currently in voice channels"
+        "description": "states of members currently in voice channels; lacks the `guild_id` key",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -375,9 +375,9 @@
         "array": true,
         "reference": true,
         "value": "guild-member-object",
-        "deprecated": false,
         "name": "members",
-        "description": "users in the guild"
+        "description": "users in the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -386,9 +386,9 @@
         "array": true,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "channels",
-        "description": "channels in the guild"
+        "description": "channels in the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -397,9 +397,9 @@
         "array": true,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "threads",
-        "description": "all active threads in the guild that current user has permission to view"
+        "description": "all active threads in the guild that current user has permission to view",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -408,9 +408,9 @@
         "array": true,
         "reference": true,
         "value": "presence-update",
-        "deprecated": false,
         "name": "presences",
-        "description": "presences of the members in the guild, will only include non-offline members if the size is greater than `large threshold`"
+        "description": "presences of the members in the guild, will only include non-offline members if the size is greater than `large threshold`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -421,9 +421,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "max_presences",
-        "description": "the maximum number of presences for the guild"
+        "description": "the maximum number of presences for the guild (`null` is always returned, apart from the largest of guilds)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -434,9 +434,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "max_members",
-        "description": "the maximum number of members for the guild"
+        "description": "the maximum number of members for the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -447,9 +447,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "vanity_url_code",
-        "description": "the vanity url code for the guild"
+        "description": "the vanity url code for the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -460,9 +460,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description of a Community guild"
+        "description": "the description of a Community guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -471,9 +471,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "banner",
-        "description": ""
+        "description": "[banner hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -482,9 +482,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object-premium-tier",
-        "deprecated": false,
         "name": "premium_tier",
-        "description": ""
+        "description": "[premium tier](#DOCS_RESOURCES_GUILD/guild-object-premium-tier) (Server Boost level)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -495,9 +495,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "premium_subscription_count",
-        "description": "the number of boosts this guild currently has"
+        "description": "the number of boosts this guild currently has",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -508,9 +508,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "preferred_locale",
-        "description": "the preferred of a Community guild"
+        "description": "the preferred [locale](#DOCS_REFERENCE/locales) of a Community guild; used in server discovery and notices from Discord, and sent in interactions; defaults to \"en-US\"",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -521,9 +521,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "public_updates_channel_id",
-        "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord"
+        "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -534,9 +534,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "max_video_channel_users",
-        "description": "the maximum amount of users in a video channel"
+        "description": "the maximum amount of users in a video channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -547,9 +547,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_member_count",
-        "description": "approximate number of members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`"
+        "description": "approximate number of members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -560,9 +560,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_presence_count",
-        "description": "approximate number of non-offline members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`"
+        "description": "approximate number of non-offline members in this guild, returned from the `GET /guilds/<id>` endpoint when `with_counts` is `true`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -571,9 +571,9 @@
         "array": false,
         "reference": true,
         "value": "welcome-screen-object",
-        "deprecated": false,
         "name": "welcome_screen",
-        "description": "the welcome screen of a Community guild, shown to new members, returned in an 's guild object"
+        "description": "the welcome screen of a Community guild, shown to new members, returned in an [Invite](#DOCS_RESOURCES_INVITE/invite-object)'s guild object",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -582,9 +582,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object-guild-nsfw-level",
-        "deprecated": false,
         "name": "nsfw_level",
-        "description": ""
+        "description": "[guild NSFW level](#DOCS_RESOURCES_GUILD/guild-object-guild-nsfw-level)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -593,9 +593,9 @@
         "array": true,
         "reference": true,
         "value": "stage-instance-object",
-        "deprecated": false,
         "name": "stage_instances",
-        "description": "Stage instances in the guild"
+        "description": "Stage instances in the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -604,9 +604,9 @@
         "array": true,
         "reference": true,
         "value": "sticker-object",
-        "deprecated": false,
         "name": "stickers",
-        "description": "custom guild stickers"
+        "description": "custom guild stickers",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -615,9 +615,9 @@
         "array": true,
         "reference": true,
         "value": "guild-scheduled-event-object",
-        "deprecated": false,
         "name": "guild_scheduled_events",
-        "description": "the scheduled events in the guild"
+        "description": "the scheduled events in the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -628,9 +628,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "premium_progress_bar_enabled",
-        "description": "whether the guild has the boost progress bar enabled"
+        "description": "whether the guild has the boost progress bar enabled",
+        "deprecated": false
       }
     ]
   },
@@ -646,9 +646,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "guild id"
+        "description": "guild id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -659,9 +659,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "guild name"
+        "description": "guild name (2-100 characters)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -670,9 +670,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "icon",
-        "description": ""
+        "description": "[icon hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -681,9 +681,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "splash",
-        "description": ""
+        "description": "[splash hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -692,9 +692,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "discovery_splash",
-        "description": ""
+        "description": "[discovery splash hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -703,9 +703,9 @@
         "array": true,
         "reference": true,
         "value": "emoji-object",
-        "deprecated": false,
         "name": "emojis",
-        "description": "custom guild emojis"
+        "description": "custom guild emojis",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -714,9 +714,9 @@
         "array": true,
         "reference": true,
         "value": "guild-object-guild-features",
-        "deprecated": false,
         "name": "features",
-        "description": "enabled guild features"
+        "description": "enabled guild features",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -727,9 +727,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_member_count",
-        "description": "approximate number of members in this guild"
+        "description": "approximate number of members in this guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -740,9 +740,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_presence_count",
-        "description": "approximate number of online members in this guild"
+        "description": "approximate number of online members in this guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -753,9 +753,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description for the guild, if the guild is discoverable"
+        "description": "the description for the guild, if the guild is discoverable",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -764,9 +764,9 @@
         "array": true,
         "reference": true,
         "value": "sticker-object",
-        "deprecated": false,
         "name": "stickers",
-        "description": "custom guild stickers"
+        "description": "custom guild stickers",
+        "deprecated": false
       }
     ]
   },
@@ -782,9 +782,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "enabled",
-        "description": "whether the widget is enabled"
+        "description": "whether the widget is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -795,9 +795,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "the widget channel id"
+        "description": "the widget channel id",
+        "deprecated": false
       }
     ]
   },
@@ -813,9 +813,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "guild id"
+        "description": "guild id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -826,9 +826,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "guild name"
+        "description": "guild name (2-100 characters)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -839,9 +839,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "instant_invite",
-        "description": "instant invite for the guilds specified widget invite channel"
+        "description": "instant invite for the guilds specified widget invite channel",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -850,9 +850,9 @@
         "array": true,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "channels",
-        "description": "voice and stage channels which are accessible by @everyone"
+        "description": "voice and stage channels which are accessible by @everyone",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -861,9 +861,9 @@
         "array": true,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "members",
-        "description": "special widget user objects that includes users presence"
+        "description": "special widget user objects that includes users presence (Limit 100)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -874,9 +874,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "presence_count",
-        "description": "number of online members in this guild"
+        "description": "number of online members in this guild",
+        "deprecated": false
       }
     ]
   },
@@ -890,9 +890,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "the user this guild member represents"
+        "description": "the user this guild member represents",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -903,9 +903,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "nick",
-        "description": "this user's guild nickname"
+        "description": "this user's guild nickname",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -916,20 +916,22 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "avatar",
-        "description": "the member's"
+        "description": "the member's [guild avatar hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
         "optional": false,
         "nullable": false,
         "array": true,
-        "reference": true,
-        "value": "role-object",
-        "deprecated": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
         "name": "roles",
-        "description": "array of object ids"
+        "description": " [role](#DOCS_TOPICS_PERMISSIONS/role-object) object ids",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -940,9 +942,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "joined_at",
-        "description": "when the user joined the guild"
+        "description": "when the user joined the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -953,9 +955,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "premium_since",
-        "description": "when the user started the guild"
+        "description": "when the user started [boosting](https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-) the guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -966,9 +968,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "deaf",
-        "description": "whether the user is deafened in voice channels"
+        "description": "whether the user is deafened in voice channels",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -979,9 +981,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "mute",
-        "description": "whether the user is muted in voice channels"
+        "description": "whether the user is muted in voice channels",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -992,9 +994,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "pending",
-        "description": "whether the user has not yet passed the guild's requirements"
+        "description": "whether the user has not yet passed the guild's [Membership Screening](#DOCS_RESOURCES_GUILD/membership-screening-object) requirements",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1005,9 +1007,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "permissions",
-        "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object"
+        "description": "total permissions of the member in the channel, including overwrites, returned when in the interaction object",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1018,9 +1020,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "communication_disabled_until",
-        "description": "when the user's will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out"
+        "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
+        "deprecated": false
       }
     ]
   },
@@ -1036,9 +1038,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "integration id"
+        "description": "integration id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1049,9 +1051,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "integration name"
+        "description": "integration name",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1062,9 +1064,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "type",
-        "description": "integration type"
+        "description": "integration type (twitch, youtube, or discord)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1075,9 +1077,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "enabled",
-        "description": "is this integration enabled"
+        "description": "is this integration enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1088,9 +1090,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "syncing",
-        "description": "is this integration syncing"
+        "description": "is this integration syncing",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1101,9 +1103,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "role_id",
-        "description": "id that this integration uses for \"subscribers"
+        "description": "id that this integration uses for \"subscribers\"",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1114,9 +1116,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "enable_emoticons",
-        "description": "whether emoticons should be synced for this integration"
+        "description": "whether emoticons should be synced for this integration (twitch only currently)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1125,9 +1127,9 @@
         "array": false,
         "reference": true,
         "value": "integration-object-integration-expire-behaviors",
-        "deprecated": false,
         "name": "expire_behavior",
-        "description": "the behavior of expiring subscribers"
+        "description": "the behavior of expiring subscribers",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1138,9 +1140,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "expire_grace_period",
-        "description": "the grace period before expiring subscribers"
+        "description": "the grace period (in days) before expiring subscribers",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1149,9 +1151,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "user for this integration"
+        "description": "user for this integration",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1160,9 +1162,9 @@
         "array": false,
         "reference": true,
         "value": "integration-account-object",
-        "deprecated": false,
         "name": "account",
-        "description": "integration account information"
+        "description": "integration account information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1173,9 +1175,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "synced_at",
-        "description": "when this integration was last synced"
+        "description": "when this integration was last synced",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1186,9 +1188,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "subscriber_count",
-        "description": "how many subscribers this integration has"
+        "description": "how many subscribers this integration has",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1199,9 +1201,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "revoked",
-        "description": "has this integration been revoked"
+        "description": "has this integration been revoked",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1210,9 +1212,9 @@
         "array": false,
         "reference": true,
         "value": "integration-application-object",
-        "deprecated": false,
         "name": "application",
-        "description": "The bot/OAuth2 application for discord integrations"
+        "description": "The bot/OAuth2 application for discord integrations",
+        "deprecated": false
       }
     ]
   },
@@ -1228,9 +1230,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "id of the account"
+        "description": "id of the account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1241,9 +1243,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of the account"
+        "description": "name of the account",
+        "deprecated": false
       }
     ]
   },
@@ -1259,9 +1261,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the id of the app"
+        "description": "the id of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1272,9 +1274,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the name of the app"
+        "description": "the name of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1285,9 +1287,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon",
-        "description": "the of the app"
+        "description": "the [icon hash](#DOCS_REFERENCE/image-formatting) of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1298,9 +1300,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description of the app"
+        "description": "the description of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1311,9 +1313,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "summary",
-        "description": "the summary of the app"
+        "description": "the summary of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1322,9 +1324,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "bot",
-        "description": "the bot associated with this application"
+        "description": "the bot associated with this application",
+        "deprecated": false
       }
     ]
   },
@@ -1340,9 +1342,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "reason",
-        "description": "the reason for the ban"
+        "description": "the reason for the ban",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1351,9 +1353,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "the banned user"
+        "description": "the banned user",
+        "deprecated": false
       }
     ]
   },
@@ -1369,9 +1371,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the server description shown in the welcome screen"
+        "description": "the server description shown in the welcome screen",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1380,9 +1382,9 @@
         "array": true,
         "reference": true,
         "value": "welcome-screen-object-welcome-screen-channel-structure",
-        "deprecated": false,
         "name": "welcome_channels",
-        "description": "the channels shown in the welcome screen, up to 5"
+        "description": "the channels shown in the welcome screen, up to 5",
+        "deprecated": false
       }
     ]
   },
@@ -1398,9 +1400,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "the channel's id"
+        "description": "the channel's id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1411,9 +1413,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description shown for the channel"
+        "description": "the description shown for the channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1424,9 +1426,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "emoji_id",
-        "description": "the , if the emoji is custom"
+        "description": "the [emoji id](#DOCS_REFERENCE/image-formatting), if the emoji is custom",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1437,9 +1439,1337 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "emoji_name",
-        "description": "the emoji name if custom, the unicode character if standard, or `null` if no emoji is set"
+        "description": "the emoji name if custom, the unicode character if standard, or `null` if no emoji is set",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the guild (2-100 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "voice-region-object",
+        "name": "region",
+        "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "icon",
+        "description": "base64 128x128 image for the guild icon",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-verification-level",
+        "name": "verification_level",
+        "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "default_message_notifications",
+        "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-explicit-content-filter-level",
+        "name": "explicit_content_filter",
+        "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "role-object",
+        "name": "roles",
+        "description": "new guild roles",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "channel-object",
+        "name": "channels",
+        "description": "new guild's channels",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "afk_channel_id",
+        "description": "id for afk channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "afk_timeout",
+        "description": "afk timeout in seconds",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "system_channel_id",
+        "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-system-channel-flags",
+        "name": "system_channel_flags",
+        "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "with_counts",
+        "description": "when `true`, will return approximate member and presence counts for the guild",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "guild name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "region",
+        "description": "guild [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-verification-level",
+        "name": "verification_level",
+        "description": "[verification level](#DOCS_RESOURCES_GUILD/guild-object-verification-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "default_message_notifications",
+        "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-explicit-content-filter-level",
+        "name": "explicit_content_filter",
+        "description": "[explicit content filter level](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "afk_channel_id",
+        "description": "id for afk channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "afk_timeout",
+        "description": "afk timeout in seconds",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "icon",
+        "description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the `ANIMATED_ICON` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "owner_id",
+        "description": "user id to transfer guild ownership to (must be owner)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "splash",
+        "description": "base64 16:9 png/jpeg image for the guild splash (when the server has the `INVITE_SPLASH` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "discovery_splash",
+        "description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the `DISCOVERABLE` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "banner",
+        "description": "base64 16:9 png/jpeg image for the guild banner (when the server has the `BANNER` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "system_channel_id",
+        "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-system-channel-flags",
+        "name": "system_channel_flags",
+        "description": "[system channel flags](#DOCS_RESOURCES_GUILD/guild-object-system-channel-flags)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "rules_channel_id",
+        "description": "the id of the channel where Community guilds display rules and/or guidelines",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "public_updates_channel_id",
+        "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "preferred_locale",
+        "description": "the preferred [locale](#DOCS_REFERENCE/locales) of a Community guild used in server discovery and notices from Discord; defaults to \"en-US\"",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-object-guild-features",
+        "name": "features",
+        "description": "enabled guild features",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "description",
+        "description": "the description for the guild, if the guild is discoverable",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "premium_progress_bar_enabled",
+        "description": "whether the guild's boost progress bar should be enabled.",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "channel name (1-100 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "type",
+        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "channel topic (0-1024 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "bitrate",
+        "description": "the bitrate (in bits) of the voice channel (voice only)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "user_limit",
+        "description": "the user limit of the voice channel (voice only)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "position",
+        "description": "sorting position of the channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "overwrite-object",
+        "name": "permission_overwrites",
+        "description": "the channel's permission overwrites",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "parent_id",
+        "description": "id of the parent category for a channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "nsfw",
+        "description": "whether the channel is nsfw",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "id",
+        "description": "channel id",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "position",
+        "description": "sorting position of the channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "lock_permissions",
+        "description": "syncs the permission overwrites with the new parent, if moving to a new category",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "parent_id",
+        "description": "the new parent ID for the channel that is moved",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "after",
+        "description": "the highest user id in the previous page",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "query",
+        "description": "Query string to match username(s) and nickname(s) against.",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "max number of members to return (1-1000)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "access_token",
+        "description": "an oauth2 access token granted with the `guilds.join` to the bot's application for the user you want to add to the guild",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "value to set user's nickname to",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "roles",
+        "description": " role ids the member is assigned",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mute",
+        "description": "whether the user is muted in voice channels",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "deaf",
+        "description": "whether the user is deafened in voice channels",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "value to set user's nickname to",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "roles",
+        "description": " role ids the member is assigned",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mute",
+        "description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "deaf",
+        "description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "id of channel to move user to (if they are connected to voice)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "name": "communication_disabled_until",
+        "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "value to set user's nickname to",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "value to set user's nickname to",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "delete_message_days",
+        "description": "number of days to delete messages for (0-7)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "reason",
+        "description": "reason for the ban",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the role",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "permissions",
+        "description": "bitwise value of the enabled/disabled permissions",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "color",
+        "description": "RGB color value",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "hoist",
+        "description": "whether the role should be displayed separately in the sidebar",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "icon",
+        "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "unicode_emoji",
+        "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mentionable",
+        "description": "whether the role should be mentionable",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "id",
+        "description": "role",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "position",
+        "description": "sorting position of the role",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the role",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "permissions",
+        "description": "bitwise value of the enabled/disabled permissions",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "color",
+        "description": "RGB color value",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "hoist",
+        "description": "whether the role should be displayed separately in the sidebar",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "icon",
+        "description": "the role's icon image (if the guild has the `ROLE_ICONS` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "unicode_emoji",
+        "description": "the role's unicode emoji as a [standard emoji](#DOCS_REFERENCE/message-formatting) (if the guild has the `ROLE_ICONS` feature)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mentionable",
+        "description": "whether the role should be mentionable",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "days",
+        "description": "number of days to count prune for (1-30)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "include_roles",
+        "description": "role(s) to include",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "days",
+        "description": "number of days to prune (1-30)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "compute_prune_count",
+        "description": "whether 'pruned' is returned, discouraged for large guilds",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "include_roles",
+        "description": "role(s) to include",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "reason",
+        "description": "reason for the prune",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "style",
+        "description": "style of the widget image returned (see below)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "enabled",
+        "description": "whether the welcome screen is enabled",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "welcome-screen-object-welcome-screen-channel-structure",
+        "name": "welcome_channels",
+        "description": "channels linked in the welcome screen and their display options",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "description",
+        "description": "the server description to show in the welcome screen",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "the id of the channel the user is currently in",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "suppress",
+        "description": "toggles the user's suppress state",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "name": "request_to_speak_timestamp",
+        "description": "sets the user's request to speak",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "the id of the channel the user is currently in",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "suppress",
+        "description": "toggles the user's suppress state",
+        "deprecated": false
       }
     ]
   }

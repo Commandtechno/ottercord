@@ -1,5 +1,25 @@
 [
   {
+    "name": "OAuth2 URLs",
+    "values": [
+      {
+        "name": "https://discord.com/api/oauth2/authorize",
+        "description": "Base authorization URL",
+        "value": "https://discord.com/api/oauth2/authorize"
+      },
+      {
+        "name": "https://discord.com/api/oauth2/token",
+        "description": "Token URL",
+        "value": "https://discord.com/api/oauth2/token"
+      },
+      {
+        "name": "https://discord.com/api/oauth2/token/revoke",
+        "description": "Token Revocation  URL",
+        "value": "https://discord.com/api/oauth2/token/revoke"
+      }
+    ]
+  },
+  {
     "name": "OAuth2 Scopes",
     "values": [
       {
@@ -9,7 +29,7 @@
       },
       {
         "name": "activities.write",
-        "description": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR [GAMESDK ACTIVITY MANAGER](#DOCS_GAME_SDK_ACTIVITIES/))",
+        "description": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR  GAMESDK ACTIVITY MANAGER )",
         "value": "activities.write"
       },
       {
@@ -24,12 +44,12 @@
       },
       {
         "name": "applications.commands",
-        "description": "allows your app to use [commands](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/) in a guild",
+        "description": "allows your app to use  commands  in a guild",
         "value": "applications.commands"
       },
       {
         "name": "applications.commands.update",
-        "description": "allows your app to update its [commands](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/) via this bearer token - [client credentials grant](#DOCS_TOPICS_OAUTH2/client-credentials-grant) only",
+        "description": "allows your app to update its  commands  via this bearer token -  client credentials grant  only",
         "value": "applications.commands.update"
       },
       {
@@ -49,37 +69,37 @@
       },
       {
         "name": "connections",
-        "description": "allows [/users/@me/connections](#DOCS_RESOURCES_USER/get-user-connections) to return linked third-party accounts",
+        "description": "allows  /users/@me/connections  to return linked third-party accounts",
         "value": "connections"
       },
       {
         "name": "email",
-        "description": "enables [/users/@me](#DOCS_RESOURCES_USER/get-current-user) to return an `email`",
+        "description": "enables  /users/@me  to return an  email",
         "value": "email"
       },
       {
         "name": "gdm.join",
-        "description": "allows your app to [join users to a group dm](#DOCS_RESOURCES_CHANNEL/group-dm-add-recipient)",
+        "description": "allows your app to  join users to a group dm",
         "value": "gdm.join"
       },
       {
         "name": "guilds",
-        "description": "allows [/users/@me/guilds](#DOCS_RESOURCES_USER/get-current-user-guilds) to return basic information about all of a user's guilds",
+        "description": "allows  /users/@me/guilds  to return basic information about all of a user's guilds",
         "value": "guilds"
       },
       {
         "name": "guilds.join",
-        "description": "allows [/guilds/{guild.id}/members/{user.id}](#DOCS_RESOURCES_GUILD/add-guild-member) to be used for joining users to a guild",
+        "description": "allows  /guilds/{guild.id}/members/{user.id}  to be used for joining users to a guild",
         "value": "guilds.join"
       },
       {
         "name": "guilds.members.read",
-        "description": "allows [/users/@me/guilds/{guild.id}/member](#DOCS_RESOURCES_USER/get-current-user-guild-member) to return a user's member information in a guild",
+        "description": "allows  /users/@me/guilds/{guild.id}/member  to return a user's member information in a guild",
         "value": "guilds.members.read"
       },
       {
         "name": "identify",
-        "description": "allows [/users/@me](#DOCS_RESOURCES_USER/get-current-user) without `email`",
+        "description": "allows  /users/@me  without  email",
         "value": "identify"
       },
       {
@@ -124,5 +144,36 @@
       }
     ],
     "description": "These are a list of all the OAuth2 scopes that Discord supports. Some scopes require approval from Discord to use. Requesting them from a user without approval from Discord may cause errors or undocumented behavior in the OAuth2 flow."
+  },
+  {
+    "name": "Authorization URL Example",
+    "values": [
+      {
+        "name": "client_id",
+        "description": "your app's client id",
+        "value": "client_id"
+      },
+      {
+        "name": "scope",
+        "description": "needs to include  bot  for the bot flow",
+        "value": "scope"
+      },
+      {
+        "name": "permissions",
+        "description": "the  permissions  you're requesting",
+        "value": "permissions"
+      },
+      {
+        "name": "guild_id",
+        "description": "pre-fills the dropdown picker with a guild for the user",
+        "value": "guild_id"
+      },
+      {
+        "name": "disable_guild_select",
+        "description": "true  or  false —disallows the user from changing the guild dropdown",
+        "value": "disable_guild_select"
+      }
+    ],
+    "description": "Bot authorization is a special server-less and callback-less OAuth2 flow that makes it easy for users to add bots to guilds. The URL you create looks similar to what we use for full stack implementation:"
   }
 ]

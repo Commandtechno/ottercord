@@ -14,37 +14,29 @@ import { js } from ".";
   await mkdir(JS_OUTPUT_DIR, { recursive: true });
 
   let output = (await readFile(resolve(__dirname, "runtime.ts"), "utf-8")) + "\n\n";
-  let links = {};
+  let constants = [];
+  let endpoints = [];
+  let structures = [];
 
   const folders = await readdir(JSON_OUTPUT_DIR);
   for (const folder of folders) {
-    links = {
-      ...links,
-      ...JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "links.json"), "utf8"))
-    };
+    constants = [
+      ...constants,
+      ...JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "constants.json"), "utf8"))
+    ];
+
+    endpoints = [
+      ...endpoints,
+      JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "endpoints.json"), "utf8"))
+    ];
+
+    structures = [
+      ...structures,
+      JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "structures.json"), "utf8"))
+    ];
   }
 
-  for (const folder of folders) {
-    console.time(folder);
-    const constants = JSON.parse(
-      await readFile(resolve(JSON_OUTPUT_DIR, folder, "constants.json"), "utf8")
-    );
-    const endpoints = JSON.parse(
-      await readFile(resolve(JSON_OUTPUT_DIR, folder, "endpoints.json"), "utf8")
-    );
-    const structures = JSON.parse(
-      await readFile(resolve(JSON_OUTPUT_DIR, folder, "structures.json"), "utf8")
-    );
-
-    output += "/*\n";
-    output += "\t" + folder + "\n";
-    output += "*/\n\n";
-
-    output += await js(links, constants, endpoints, structures);
-    console.timeEnd(folder);
-    // const output = await js(constants, endpoints, structures);
-    // await writeFile(resolve(dir, folder, "index.ts"), output);
-  }
+  output += await js(links, constants, endpoints, structures);
 
   await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), output);
 

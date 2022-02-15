@@ -1,38 +1,38 @@
 [
   {
-    "name": "Application Flags",
+    "name": "Example Application Object",
     "values": [
       {
         "name": "GATEWAY_PRESENCE",
-        "value": 1
+        "value": 4096
       },
       {
         "name": "GATEWAY_PRESENCE_LIMITED",
-        "value": 1
+        "value": 8192
       },
       {
         "name": "GATEWAY_GUILD_MEMBERS",
-        "value": 1
+        "value": 16384
       },
       {
         "name": "GATEWAY_GUILD_MEMBERS_LIMITED",
-        "value": 1
+        "value": 32768
       },
       {
         "name": "VERIFICATION_PENDING_GUILD_LIMIT",
-        "value": 1
+        "value": 65536
       },
       {
         "name": "EMBEDDED",
-        "value": 1
+        "value": 131072
       },
       {
         "name": "GATEWAY_MESSAGE_CONTENT",
-        "value": 1
+        "value": 262144
       },
       {
         "name": "GATEWAY_MESSAGE_CONTENT_LIMITED",
-        "value": 1
+        "value": 524288
       }
     ]
   }

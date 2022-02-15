@@ -9,9 +9,9 @@
         "array": true,
         "reference": true,
         "value": "audit-log-entry-object",
-        "deprecated": false,
         "name": "audit_log_entries",
-        "description": "list of audit log entries"
+        "description": " audit log entries",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -20,9 +20,9 @@
         "array": true,
         "reference": true,
         "value": "guild-scheduled-event-object",
-        "deprecated": false,
         "name": "guild_scheduled_events",
-        "description": "list of guild scheduled events found in the audit log"
+        "description": " guild scheduled events found in the audit log",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -31,9 +31,9 @@
         "array": true,
         "reference": true,
         "value": "integration-object",
-        "deprecated": false,
         "name": "integrations",
-        "description": "list of partial integration objects"
+        "description": "  integration objects",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -42,9 +42,9 @@
         "array": true,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "threads",
-        "description": "list of threads found in the audit log"
+        "description": " threads found in the audit log\\*",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -53,9 +53,9 @@
         "array": true,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "users",
-        "description": "list of users found in the audit log"
+        "description": " users found in the audit log",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -64,9 +64,9 @@
         "array": true,
         "reference": true,
         "value": "webhook-object",
-        "deprecated": false,
         "name": "webhooks",
-        "description": "list of webhooks found in the audit log"
+        "description": " webhooks found in the audit log",
+        "deprecated": false
       }
     ]
   },
@@ -82,9 +82,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "target_id",
-        "description": "id of the affected entity"
+        "description": "id of the affected entity (webhook, user, role, etc.)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -93,9 +93,9 @@
         "array": true,
         "reference": true,
         "value": "audit-log-change-object",
-        "deprecated": false,
         "name": "changes",
-        "description": "changes made to the target_id"
+        "description": "changes made to the target_id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -106,9 +106,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "user_id",
-        "description": "the user who made the changes"
+        "description": "the user who made the changes",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -119,9 +119,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "id of the entry"
+        "description": "id of the entry",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -130,9 +130,9 @@
         "array": false,
         "reference": true,
         "value": "audit-log-entry-object-audit-log-events",
-        "deprecated": false,
         "name": "action_type",
-        "description": "type of action that occurred"
+        "description": "type of action that occurred",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -141,9 +141,9 @@
         "array": false,
         "reference": true,
         "value": "audit-log-entry-object-optional-audit-entry-info",
-        "deprecated": false,
         "name": "options",
-        "description": "additional info for certain action types"
+        "description": "additional info for certain action types",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -154,9 +154,118 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "reason",
-        "description": "the reason for the change"
+        "description": "the reason for the change (0-512 characters)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Optional Audit Entry Info",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "channel in which the entities were targeted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "count",
+        "description": "number of entities that were targeted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "delete_member_days",
+        "description": "number of days after which inactive members were kicked",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "id",
+        "description": "id of the overwritten entity",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "members_removed",
+        "description": "number of members removed by the prune",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "message_id",
+        "description": "id of the message that was targeted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "role_name",
+        "description": "name of the role if type is \"0\" (not present if type is \"1\")",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "type",
+        "description": "type of overwritten entity - \"0\" for \"role\" or \"1\" for \"member\"",
+        "deprecated": false
       }
     ]
   },
@@ -170,9 +279,9 @@
         "array": false,
         "reference": true,
         "value": "audit-log-change-object-audit-log-change-key",
-        "deprecated": false,
         "name": "new_value",
-        "description": "new value of the key"
+        "description": "new value of the key",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -181,9 +290,9 @@
         "array": false,
         "reference": true,
         "value": "audit-log-change-object-audit-log-change-key",
-        "deprecated": false,
         "name": "old_value",
-        "description": "old value of the key"
+        "description": "old value of the key",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -194,9 +303,968 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "key",
-        "description": "name of audit log"
+        "description": "name of audit log [change key](#DOCS_RESOURCES_AUDIT_LOG/audit-log-change-object-audit-log-change-key)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Audit Log Change Key",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "afk_channel_id",
+        "description": "afk channel changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "afk_timeout",
+        "description": "afk timeout duration changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "allow",
+        "description": "a permission on a text or voice channel was allowed for a role",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "application_id",
+        "description": "application id of the added or removed webhook or bot",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "bool"
+        ],
+        "name": "archived",
+        "description": "thread is now archived/unarchived",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "asset",
+        "description": "empty string",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "auto_archive_duration",
+        "description": "auto archive duration changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "available",
+        "description": "availability of sticker changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "avatar_hash",
+        "description": "user avatar changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "banner_hash",
+        "description": "guild banner changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "bitrate",
+        "description": "voice channel bitrate changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "channel for invite code or guild scheduled event changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "code",
+        "description": "invite code changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "color",
+        "description": "role color changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "name": "communication_disabled_until",
+        "description": "member timeout state changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "deaf",
+        "description": "user server deafened/undeafened",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "default_auto_archive_duration",
+        "description": "default auto archive duration for newly created threads changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "default_message_notifications",
+        "description": "default [message notification level](#DOCS_RESOURCES_GUILD/guild-object-default-message-notification-level) changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "deny",
+        "description": "a permission on a text or voice channel was denied for a role",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "description",
+        "description": "description changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "discovery_splash_hash",
+        "description": "discovery splash changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "enable_emoticons",
+        "description": "integration emoticons enabled/disabled",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "entity_type",
+        "description": "entity type of guild scheduled event was changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "expire_behavior",
+        "description": "integration expiring subscriber behavior changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "expire_grace_period",
+        "description": "integration expire grace period changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "explicit_content_filter",
+        "description": "change in [whose messages](#DOCS_RESOURCES_GUILD/guild-object-explicit-content-filter-level) are scanned and deleted for explicit content in the server",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "sticker-object-sticker-format-types",
+        "name": "format_type",
+        "description": "format type of sticker changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "guild_id",
+        "description": "guild sticker is in changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "hoist",
+        "description": "role is now displayed/no longer displayed separate from online users",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "icon_hash",
+        "description": "icon changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "id",
+        "description": "the id of the changed entity - sometimes used in conjunction with other keys",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "bool"
+        ],
+        "name": "invitable",
+        "description": "private thread is now invitable/uninvitable",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "inviter_id",
+        "description": "person who created invite code changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "location",
+        "description": "change in channel id for guild scheduled event",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "bool"
+        ],
+        "name": "locked",
+        "description": "thread is now locked/unlocked",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "max_age",
+        "description": "how long invite code lasts changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "max_uses",
+        "description": "change to max number of times invite code can be used",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mentionable",
+        "description": "role is now mentionable/unmentionable",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "mfa_level",
+        "description": "two-factor auth requirement changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "mute",
+        "description": "user server muted/unmuted",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "user nickname changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "nsfw",
+        "description": "channel nsfw restriction changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "owner_id",
+        "description": "owner changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "overwrite-object",
+        "name": "permission_overwrites",
+        "description": "permissions on a channel changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "permissions-bitwise-permission-flags",
+        "name": "permissions",
+        "description": "[permissions](#DOCS_TOPICS_PERMISSIONS/permissions-bitwise-permission-flags) for a role changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "position",
+        "description": "text or voice channel position changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "preferred_locale",
+        "description": "preferred locale changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "stage-instance-object-privacy-level",
+        "name": "privacy_level",
+        "description": "privacy level of the stage instance changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "prune_delete_days",
+        "description": "change in number of days after which inactive and role-unassigned members are kicked",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "public_updates_channel_id",
+        "description": "id of the public updates channel changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "region",
+        "description": "region changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "rules_channel_id",
+        "description": "id of the rules channel changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "splash_hash",
+        "description": "invite splash page artwork changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "guild-scheduled-event-object-guild-scheduled-event-status",
+        "name": "status",
+        "description": "status of guild scheduled event was changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "system_channel_id",
+        "description": "id of the system channel changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "tags",
+        "description": "related emoji of sticker changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "temporary",
+        "description": "invite code is temporary/never expires",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "text channel topic or stage instance topic changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer",
+          "string"
+        ],
+        "name": "type",
+        "description": "type of entity created",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "unicode_emoji",
+        "description": "role unicode emoji changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "user_limit",
+        "description": "new user limit in a voice channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "uses",
+        "description": "number of times invite code used changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "vanity_url_code",
+        "description": "guild invite vanity url changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "verification_level",
+        "description": "required verification level changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "widget_channel_id",
+        "description": "channel id of the server widget changed",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "widget_enabled",
+        "description": "server widget enabled/disable",
+        "deprecated": false
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "role-object",
+        "name": "$add",
+        "description": "new role added",
+        "deprecated": false
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": false,
+        "array": true,
+        "reference": true,
+        "value": "role-object",
+        "name": "$remove",
+        "description": "role removed",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "user_id",
+        "description": "filter the log for actions made by a user",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "action_type",
+        "description": "the type of [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "before",
+        "description": "filter the log before a certain entry id",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
+        "deprecated": false
       }
     ]
   }

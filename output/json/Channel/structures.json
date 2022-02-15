@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the id of this channel"
+        "description": "the id of this channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "type",
-        "description": "the"
+        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "the id of the guild"
+        "description": "the id of the guild (may be missing for some channel objects received over gateway guild dispatches)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "position",
-        "description": "sorting position of the channel"
+        "description": "sorting position of the channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -61,9 +61,9 @@
         "array": true,
         "reference": true,
         "value": "overwrite-object",
-        "deprecated": false,
         "name": "permission_overwrites",
-        "description": "explicit permission overwrites for members and roles"
+        "description": "explicit permission overwrites for members and roles",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -74,9 +74,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the name of the channel"
+        "description": "the name of the channel (1-100 characters)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -87,9 +87,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "topic",
-        "description": "the channel topic"
+        "description": "the channel topic (0-1024 characters)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -100,9 +100,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "nsfw",
-        "description": "whether the channel is nsfw"
+        "description": "whether the channel is nsfw",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -113,9 +113,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "last_message_id",
-        "description": "the id of the last message sent in this channel"
+        "description": "the id of the last message sent in this channel (may not point to an existing or valid message)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -126,9 +126,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "bitrate",
-        "description": "the bitrate of the voice channel"
+        "description": "the bitrate (in bits) of the voice channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -139,9 +139,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "user_limit",
-        "description": "the user limit of the voice channel"
+        "description": "the user limit of the voice channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -152,9 +152,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "rate_limit_per_user",
-        "description": "amount of seconds a user has to wait before sending another message"
+        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -163,9 +163,9 @@
         "array": true,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "recipients",
-        "description": "the recipients of the DM"
+        "description": "the recipients of the DM",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -176,9 +176,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon",
-        "description": "icon hash of the group DM"
+        "description": "icon hash of the group DM",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -189,9 +189,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "owner_id",
-        "description": "id of the creator of the group DM or thread"
+        "description": "id of the creator of the group DM or thread",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -202,9 +202,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "application_id",
-        "description": "application id of the group DM creator if it is bot-created"
+        "description": "application id of the group DM creator if it is bot-created",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -215,9 +215,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "parent_id",
-        "description": "for guild channels: id of the parent category for a channel , for threads: id of the text channel this thread was created"
+        "description": "for guild channels: id of the parent category for a channel (each parent category can contain up to 50 channels), for threads: id of the text channel this thread was created",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -228,9 +228,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "last_pin_timestamp",
-        "description": "when the last pinned message was pinned. This may be `null` in events such as `GUILD_CREATE` when a message is not pinned."
+        "description": "when the last pinned message was pinned. This may be `null` in events such as `GUILD_CREATE` when a message is not pinned.",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -239,9 +239,9 @@
         "array": false,
         "reference": true,
         "value": "voice-region-object",
-        "deprecated": false,
         "name": "rtc_region",
-        "description": "id for the voice channel, automatic when set to null"
+        "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id for the voice channel, automatic when set to null",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -252,9 +252,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "video_quality_mode",
-        "description": "the camera of the voice channel, 1 when not present"
+        "description": "the camera [video quality mode](#DOCS_RESOURCES_CHANNEL/channel-object-video-quality-modes) of the voice channel, 1 when not present",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -265,9 +265,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "message_count",
-        "description": "an approximate count of messages in a thread, stops counting at 50"
+        "description": "an approximate count of messages in a thread, stops counting at 50",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -278,9 +278,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "member_count",
-        "description": "an approximate count of users in a thread, stops counting at 50"
+        "description": "an approximate count of users in a thread, stops counting at 50",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -289,9 +289,9 @@
         "array": false,
         "reference": true,
         "value": "thread-metadata-object",
-        "deprecated": false,
         "name": "thread_metadata",
-        "description": "thread-specific fields not needed by other channels"
+        "description": "thread-specific fields not needed by other channels",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -300,9 +300,9 @@
         "array": false,
         "reference": true,
         "value": "thread-member-object",
-        "deprecated": false,
         "name": "member",
-        "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints"
+        "description": "thread member object for the current user, if they have joined the thread, only included on certain API endpoints",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -313,9 +313,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "default_auto_archive_duration",
-        "description": "default duration that the clients will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        "description": "default duration that the clients (not the API) will use for newly created threads, in minutes, to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -326,9 +326,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "permissions",
-        "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the `resolved` data received on a slash command interaction"
+        "description": "computed permissions for the invoking user in the channel, including overwrites, only included when part of the `resolved` data received on a slash command interaction",
+        "deprecated": false
       }
     ]
   },
@@ -344,9 +344,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "id of the message"
+        "description": "id of the message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -357,9 +357,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "id of the channel the message was sent in"
+        "description": "id of the channel the message was sent in",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -370,9 +370,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "id of the guild the message was sent in"
+        "description": "id of the guild the message was sent in",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -381,9 +381,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "author",
-        "description": "the author of this message"
+        "description": "the author of this message (not guaranteed to be a valid user, see below)",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -392,9 +392,9 @@
         "array": false,
         "reference": true,
         "value": "guild-member-object",
-        "deprecated": false,
         "name": "member",
-        "description": "member properties for this message's author"
+        "description": "member properties for this message's author",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -405,9 +405,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "content",
-        "description": "contents of the message"
+        "description": "contents of the message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -418,9 +418,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "timestamp",
-        "description": "when this message was sent"
+        "description": "when this message was sent",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -431,9 +431,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "edited_timestamp",
-        "description": "when this message was edited"
+        "description": "when this message was edited (or null if never)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -444,9 +444,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "tts",
-        "description": "whether this was a TTS message"
+        "description": "whether this was a TTS message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -457,9 +457,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "mention_everyone",
-        "description": "whether this message mentions everyone"
+        "description": "whether this message mentions everyone",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -468,9 +468,9 @@
         "array": true,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "mentions",
-        "description": "users specifically mentioned in the message"
+        "description": "users specifically mentioned in the message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -479,9 +479,9 @@
         "array": true,
         "reference": true,
         "value": "role-object",
-        "deprecated": false,
         "name": "mention_roles",
-        "description": "roles specifically mentioned in this message"
+        "description": "roles specifically mentioned in this message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -490,9 +490,9 @@
         "array": true,
         "reference": true,
         "value": "channel-mention-object",
-        "deprecated": false,
         "name": "mention_channels",
-        "description": "channels specifically mentioned in this message"
+        "description": "channels specifically mentioned in this message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -501,9 +501,9 @@
         "array": true,
         "reference": true,
         "value": "attachment-object",
-        "deprecated": false,
         "name": "attachments",
-        "description": "any attached files"
+        "description": "any attached files",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -512,9 +512,9 @@
         "array": true,
         "reference": true,
         "value": "embed-object",
-        "deprecated": false,
         "name": "embeds",
-        "description": "any embedded content"
+        "description": "any embedded content",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -523,9 +523,9 @@
         "array": true,
         "reference": true,
         "value": "reaction-object",
-        "deprecated": false,
         "name": "reactions",
-        "description": "reactions to the message"
+        "description": "reactions to the message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -537,9 +537,9 @@
           "integer",
           "string"
         ],
-        "deprecated": false,
         "name": "nonce",
-        "description": "used for validating a message was sent"
+        "description": "used for validating a message was sent",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -550,9 +550,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "pinned",
-        "description": "whether this message is pinned"
+        "description": "whether this message is pinned",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -563,9 +563,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "webhook_id",
-        "description": "if the message is generated by a webhook, this is the webhook's id"
+        "description": "if the message is generated by a webhook, this is the webhook's id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -574,9 +574,9 @@
         "array": false,
         "reference": true,
         "value": "message-object-message-types",
-        "deprecated": false,
         "name": "type",
-        "description": ""
+        "description": "[type of message](#DOCS_RESOURCES_CHANNEL/message-object-message-types)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -585,9 +585,9 @@
         "array": false,
         "reference": true,
         "value": "message-object-message-activity-structure",
-        "deprecated": false,
         "name": "activity",
-        "description": "sent with Rich Presence-related chat embeds"
+        "description": "sent with Rich Presence-related chat embeds",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -596,9 +596,9 @@
         "array": false,
         "reference": true,
         "value": "application-object",
-        "deprecated": false,
         "name": "application",
-        "description": "sent with Rich Presence-related chat embeds"
+        "description": "sent with Rich Presence-related chat embeds",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -609,9 +609,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "application_id",
-        "description": "if the message is an or application-owned webhook, this is the id of the application"
+        "description": "if the message is an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/) or application-owned webhook, this is the id of the application",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -620,9 +620,9 @@
         "array": false,
         "reference": true,
         "value": "message-reference-object-message-reference-structure",
-        "deprecated": false,
         "name": "message_reference",
-        "description": "data showing the source of a crosspost, channel follow add, pin, or reply message"
+        "description": "data showing the source of a crosspost, channel follow add, pin, or reply message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -631,9 +631,9 @@
         "array": false,
         "reference": true,
         "value": "message-object-message-flags",
-        "deprecated": false,
         "name": "flags",
-        "description": "combined as a"
+        "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -642,9 +642,9 @@
         "array": false,
         "reference": true,
         "value": "message-object",
-        "deprecated": false,
         "name": "referenced_message",
-        "description": "the message associated with the message_reference"
+        "description": "the message associated with the message_reference",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -653,9 +653,9 @@
         "array": false,
         "reference": true,
         "value": "message-interaction-object-message-interaction-structure",
-        "deprecated": false,
         "name": "interaction",
-        "description": "sent if the message is a response to an"
+        "description": "sent if the message is a response to an [Interaction](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -664,9 +664,9 @@
         "array": false,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "thread",
-        "description": "the thread that was started from this message, includes object"
+        "description": "the thread that was started from this message, includes [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -675,9 +675,9 @@
         "array": true,
         "reference": true,
         "value": "component-object",
-        "deprecated": false,
         "name": "components",
-        "description": "sent if the message contains components like buttons, action rows, or other interactive components"
+        "description": "sent if the message contains components like buttons, action rows, or other interactive components",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -686,9 +686,9 @@
         "array": true,
         "reference": true,
         "value": "sticker-item-object",
-        "deprecated": false,
         "name": "sticker_items",
-        "description": "sent if the message contains stickers"
+        "description": "sent if the message contains stickers",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -697,9 +697,9 @@
         "array": true,
         "reference": true,
         "value": "sticker-object",
-        "deprecated": true,
         "name": "stickers",
-        "description": "Deprecated** the stickers sent with the message"
+        "description": "the stickers sent with the message",
+        "deprecated": true
       }
     ]
   },
@@ -713,9 +713,9 @@
         "array": false,
         "reference": true,
         "value": "message-object-message-activity-types",
-        "deprecated": false,
         "name": "type",
-        "description": ""
+        "description": "[type of message activity](#DOCS_RESOURCES_CHANNEL/message-object-message-activity-types)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -726,9 +726,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "party_id",
-        "description": "party_id from a"
+        "description": "party_id from a [Rich Presence event](#DOCS_RICH_PRESENCE_HOW_TO/updating-presence-update-presence-payload-fields)",
+        "deprecated": false
       }
     ]
   },
@@ -744,9 +744,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "message_id",
-        "description": "id of the originating message"
+        "description": "id of the originating message",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -757,9 +757,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "id of the originating message's channel"
+        "description": "id of the originating message's channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -770,9 +770,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "id of the originating message's guild"
+        "description": "id of the originating message's guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -783,9 +783,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "fail_if_not_exists",
-        "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal message, default true"
+        "description": "when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true",
+        "deprecated": false
       }
     ]
   },
@@ -801,9 +801,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "source channel id"
+        "description": "source channel id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -814,9 +814,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "webhook_id",
-        "description": "created target webhook id"
+        "description": "created target webhook id",
+        "deprecated": false
       }
     ]
   },
@@ -832,9 +832,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "count",
-        "description": "times this emoji has been used to react"
+        "description": "times this emoji has been used to react",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -845,9 +845,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "me",
-        "description": "whether the current user reacted using this emoji"
+        "description": "whether the current user reacted using this emoji",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -856,9 +856,9 @@
         "array": false,
         "reference": true,
         "value": "emoji-object",
-        "deprecated": false,
         "name": "emoji",
-        "description": "emoji information"
+        "description": "emoji information",
+        "deprecated": false
       }
     ]
   },
@@ -874,9 +874,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "role or user id"
+        "description": "role or user id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -887,9 +887,9 @@
         "value": [
           "int"
         ],
-        "deprecated": false,
         "name": "type",
-        "description": "either 0 or 1"
+        "description": "either 0 (role) or 1 (member)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -900,9 +900,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "allow",
-        "description": "permission bit set"
+        "description": "permission bit set",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -913,9 +913,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "deny",
-        "description": "permission bit set"
+        "description": "permission bit set",
+        "deprecated": false
       }
     ]
   },
@@ -931,9 +931,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "archived",
-        "description": "whether the thread is archived"
+        "description": "whether the thread is archived",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -944,9 +944,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "auto_archive_duration",
-        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080"
+        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -957,9 +957,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "archive_timestamp",
-        "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity"
+        "description": "timestamp when the thread's archive status was last changed, used for calculating recent activity",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -970,9 +970,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "locked",
-        "description": "whether the thread is locked"
+        "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -983,9 +983,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "invitable",
-        "description": "whether non-moderators can add other non-moderators to a thread"
+        "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -996,9 +996,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "create_timestamp",
-        "description": "timestamp when the thread was created"
+        "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
+        "deprecated": false
       }
     ]
   },
@@ -1014,9 +1014,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the id of the thread"
+        "description": "the id of the thread",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1027,9 +1027,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "user_id",
-        "description": "the id of the user"
+        "description": "the id of the user",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1040,9 +1040,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "join_timestamp",
-        "description": "the time the current user last joined the thread"
+        "description": "the time the current user last joined the thread",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1053,9 +1053,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "flags",
-        "description": "any user-thread settings, currently only used for notifications"
+        "description": "any user-thread settings, currently only used for notifications",
+        "deprecated": false
       }
     ]
   },
@@ -1071,9 +1071,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "title",
-        "description": "title of embed"
+        "description": "title of embed",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1082,9 +1082,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-types",
-        "deprecated": false,
         "name": "type",
-        "description": ""
+        "description": "[type of embed](#DOCS_RESOURCES_CHANNEL/embed-object-embed-types) (always \"rich\" for webhook embeds)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1095,9 +1095,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "description of embed"
+        "description": "description of embed",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1108,9 +1108,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "url of embed"
+        "description": "url of embed",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1121,9 +1121,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "timestamp",
-        "description": "timestamp of embed content"
+        "description": "timestamp of embed content",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1134,9 +1134,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "color",
-        "description": "color code of the embed"
+        "description": "color code of the embed",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1145,9 +1145,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-footer-structure",
-        "deprecated": false,
         "name": "footer",
-        "description": "footer information"
+        "description": "footer information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1156,9 +1156,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-image-structure",
-        "deprecated": false,
         "name": "image",
-        "description": "image information"
+        "description": "image information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1167,9 +1167,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-thumbnail-structure",
-        "deprecated": false,
         "name": "thumbnail",
-        "description": "thumbnail information"
+        "description": "thumbnail information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1178,9 +1178,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-video-structure",
-        "deprecated": false,
         "name": "video",
-        "description": "video information"
+        "description": "video information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1189,9 +1189,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-provider-structure",
-        "deprecated": false,
         "name": "provider",
-        "description": "provider information"
+        "description": "provider information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1200,9 +1200,9 @@
         "array": false,
         "reference": true,
         "value": "embed-object-embed-author-structure",
-        "deprecated": false,
         "name": "author",
-        "description": "author information"
+        "description": "author information",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1211,9 +1211,9 @@
         "array": true,
         "reference": true,
         "value": "embed-object-embed-field-structure",
-        "deprecated": false,
         "name": "fields",
-        "description": "fields information"
+        "description": "fields information",
+        "deprecated": false
       }
     ]
   },
@@ -1229,9 +1229,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "source url of thumbnail and attachments)"
+        "description": "source url of thumbnail (only supports http(s) and attachments)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1242,9 +1242,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_url",
-        "description": "a proxied url of the thumbnail"
+        "description": "a proxied url of the thumbnail",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1255,9 +1255,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "height",
-        "description": "height of thumbnail"
+        "description": "height of thumbnail",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1268,9 +1268,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "width",
-        "description": "width of thumbnail"
+        "description": "width of thumbnail",
+        "deprecated": false
       }
     ]
   },
@@ -1286,9 +1286,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "source url of video"
+        "description": "source url of video",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1299,9 +1299,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_url",
-        "description": "a proxied url of the video"
+        "description": "a proxied url of the video",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1312,9 +1312,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "height",
-        "description": "height of video"
+        "description": "height of video",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1325,9 +1325,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "width",
-        "description": "width of video"
+        "description": "width of video",
+        "deprecated": false
       }
     ]
   },
@@ -1343,9 +1343,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "source url of image and attachments)"
+        "description": "source url of image (only supports http(s) and attachments)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1356,9 +1356,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_url",
-        "description": "a proxied url of the image"
+        "description": "a proxied url of the image",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1369,9 +1369,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "height",
-        "description": "height of image"
+        "description": "height of image",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1382,9 +1382,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "width",
-        "description": "width of image"
+        "description": "width of image",
+        "deprecated": false
       }
     ]
   },
@@ -1400,9 +1400,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of provider"
+        "description": "name of provider",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1413,9 +1413,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "url of provider"
+        "description": "url of provider",
+        "deprecated": false
       }
     ]
   },
@@ -1431,9 +1431,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of author"
+        "description": "name of author",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1444,9 +1444,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "url of author"
+        "description": "url of author",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1457,9 +1457,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon_url",
-        "description": "url of author icon and attachments)"
+        "description": "url of author icon (only supports http(s) and attachments)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1470,9 +1470,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_icon_url",
-        "description": "a proxied url of author icon"
+        "description": "a proxied url of author icon",
+        "deprecated": false
       }
     ]
   },
@@ -1488,9 +1488,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "text",
-        "description": "footer text"
+        "description": "footer text",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1501,9 +1501,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon_url",
-        "description": "url of footer icon and attachments)"
+        "description": "url of footer icon (only supports http(s) and attachments)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1514,9 +1514,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_icon_url",
-        "description": "a proxied url of footer icon"
+        "description": "a proxied url of footer icon",
+        "deprecated": false
       }
     ]
   },
@@ -1532,9 +1532,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of the field"
+        "description": "name of the field",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1545,9 +1545,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "value",
-        "description": "value of the field"
+        "description": "value of the field",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1558,9 +1558,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "inline",
-        "description": "whether or not this field should display inline"
+        "description": "whether or not this field should display inline",
+        "deprecated": false
       }
     ]
   },
@@ -1576,9 +1576,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "attachment id"
+        "description": "attachment id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1589,9 +1589,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "filename",
-        "description": "name of file attached"
+        "description": "name of file attached",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1602,9 +1602,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "description for the file"
+        "description": "description for the file",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1615,9 +1615,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "content_type",
-        "description": "the attachment's"
+        "description": "the attachment's [media type](https://en.wikipedia.org/wiki/Media_type)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1628,9 +1628,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "size",
-        "description": "size of file in bytes"
+        "description": "size of file in bytes",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1641,9 +1641,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "source url of file"
+        "description": "source url of file",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1654,9 +1654,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "proxy_url",
-        "description": "a proxied url of file"
+        "description": "a proxied url of file",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1667,9 +1667,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "height",
-        "description": "height of file"
+        "description": "height of file (if image)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1680,9 +1680,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "width",
-        "description": "width of file"
+        "description": "width of file (if image)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1693,9 +1693,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "ephemeral",
-        "description": "whether this attachment is ephemeral"
+        "description": "whether this attachment is ephemeral",
+        "deprecated": false
       }
     ]
   },
@@ -1711,9 +1711,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "id of the channel"
+        "description": "id of the channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1724,9 +1724,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "id of the guild containing the channel"
+        "description": "id of the guild containing the channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1737,9 +1737,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "type",
-        "description": "the"
+        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1750,9 +1750,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the name of the channel"
+        "description": "the name of the channel",
+        "deprecated": false
       }
     ]
   },
@@ -1766,9 +1766,9 @@
         "array": true,
         "reference": true,
         "value": "allowed-mentions-object-allowed-mention-types",
-        "deprecated": false,
         "name": "parse",
-        "description": "An array of to parse from the content."
+        "description": " [allowed mention types](#DOCS_RESOURCES_CHANNEL/allowed-mentions-object-allowed-mention-types) to parse from the content.",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1776,10 +1776,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "snowflake"
+        ],
         "name": "roles",
-        "description": "Array of role_ids to mention"
+        "description": " role_ids to mention (Max size of 100)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1787,10 +1789,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "snowflake"
+        ],
         "name": "users",
-        "description": "Array of user_ids to mention"
+        "description": " user_ids to mention (Max size of 100)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -1801,9 +1805,907 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "replied_user",
-        "description": "For replies, whether to mention the author of the message being replied to"
+        "description": "For replies, whether to mention the author of the message being replied to (default false)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params (Group DM)",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "1-100 character channel name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "binary"
+        ],
+        "name": "icon",
+        "description": "base64 encoded icon",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params (Guild channel)",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "1-100 character channel name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "type",
+        "description": "the [type of channel](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types); only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": true,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "position",
+        "description": "the position of the channel in the left-hand ing",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "0-1024 character channel topic",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "nsfw",
+        "description": "whether the channel is nsfw",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages` or `manage_channel`, are unaffected",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "bitrate",
+        "description": "the bitrate (in bits) of the voice channel; 8000 to 96000 (128000 for VIP servers)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "user_limit",
+        "description": "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
+        "deprecated": false
+      },
+      {
+        "partial": true,
+        "optional": false,
+        "nullable": true,
+        "array": true,
+        "reference": true,
+        "value": "overwrite-object",
+        "name": "permission_overwrites",
+        "description": "channel or category-specific permissions",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "parent_id",
+        "description": "id of the new parent category for a channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "rtc_region",
+        "description": "channel [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id, automatic when set to null",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "video_quality_mode",
+        "description": "the camera [video quality mode](#DOCS_RESOURCES_CHANNEL/channel-object-video-quality-modes) of the voice channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "default_auto_archive_duration",
+        "description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params (Thread)",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "1-100 character channel name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "archived",
+        "description": "whether the thread is archived",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "auto_archive_duration",
+        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "locked",
+        "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "invitable",
+        "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": true,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission `manage_messages`, `manage_thread`, or `manage_channel`, are unaffected",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "around",
+        "description": "get messages around this message ID",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "before",
+        "description": "get messages before this message ID",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "after",
+        "description": "get messages after this message ID",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "max number of messages to return (1-100)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "after",
+        "description": "get users after this user ID",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": true,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "max number of users to return (1-100)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON/Form Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "content",
+        "description": "the message contents (up to 2000 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-object",
+        "name": "embeds",
+        "description": "embedded `rich` content (up to 6000 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "embed-object",
+        "name": "embed",
+        "description": "embedded `rich` content, deprecated in favor of `embeds`",
+        "deprecated": true
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "flags",
+        "description": "edit the [flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) of a message (only `SUPPRESS_EMBEDS` can currently be set/unset)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "allowed-mentions-object",
+        "name": "allowed_mentions",
+        "description": "allowed mentions for the message",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "component-object",
+        "name": "components",
+        "description": "the components to include with the message",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": "any",
+        "name": "files[n]",
+        "description": "the contents of the file being sent/edited",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "payload_json",
+        "description": "JSON encoded body of non-file params (multipart/form-data only)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "attachment-object",
+        "name": "attachments",
+        "description": "attached files to keep and possible descriptions for new files",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "messages",
+        "description": " message ids to delete (2-100)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "allow",
+        "description": "the bitwise value of all allowed permissions (default `\"0\"`)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "deny",
+        "description": "the bitwise value of all disallowed permissions (default `\"0\"`)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "type",
+        "description": "0 for a role or 1 for a member",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "max_age",
+        "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "max_uses",
+        "description": "max number of uses or 0 for unlimited. between 0 and 100",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "temporary",
+        "description": "whether this invite only grants temporary membership",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "unique",
+        "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "target_type",
+        "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "target_user_id",
+        "description": "the id of the user whose stream to display for this invite, required if `target_type` is 1, the user must be streaming in the channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "target_application_id",
+        "description": "the id of the embedded application to open for this invite, required if `target_type` is 2, the application must have the `EMBEDDED` flag",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "webhook_channel_id",
+        "description": "id of target channel",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "access_token",
+        "description": "access token of a user that has granted your app the `gdm.join` scope",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "nick",
+        "description": "nickname of the user being added",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "1-100 character channel name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "auto_archive_duration",
+        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "1-100 character channel name",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "auto_archive_duration",
+        "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "type",
+        "description": "the [type of thread](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) to create",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "invitable",
+        "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "name": "before",
+        "description": "returns threads before this timestamp",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "optional maximum number of threads to return",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "ISO8601 timestamp"
+        ],
+        "name": "before",
+        "description": "returns threads before this timestamp",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "optional maximum number of threads to return",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "before",
+        "description": "returns threads before this id",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "limit",
+        "description": "optional maximum number of threads to return",
+        "deprecated": false
       }
     ]
   }

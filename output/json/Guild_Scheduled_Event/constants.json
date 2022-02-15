@@ -27,6 +27,24 @@
     ]
   },
   {
+    "name": "Field Requirements By Entity Type",
+    "values": [
+      {
+        "name": "STAGE_INSTANCE",
+        "value": "value"
+      },
+      {
+        "name": "VOICE",
+        "value": "value"
+      },
+      {
+        "name": "EXTERNAL",
+        "value": "null"
+      }
+    ],
+    "description": "`-`        : No strict requirements"
+  },
+  {
     "name": "Guild Scheduled Event Status",
     "values": [
       {
@@ -44,16 +62,6 @@
       {
         "name": "CANCELED  *",
         "value": 4
-      }
-    ]
-  },
-  {
-    "name": "Guild Scheduled Event Entity Metadata",
-    "values": [
-      {
-        "name": "location? *",
-        "description": "location of the event (1-100 characters)",
-        "value": "location"
       }
     ]
   }

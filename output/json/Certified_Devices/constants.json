@@ -1,18 +1,35 @@
 [
   {
+    "name": "Query String Params",
+    "values": [
+      {
+        "name": "v",
+        "value": 1
+      },
+      {
+        "name": "client_id",
+        "value": "your app's client id"
+      },
+      {
+        "name": "encoding",
+        "value": "json"
+      }
+    ]
+  },
+  {
     "name": "Device Type",
     "values": [
       {
         "name": "AUDIO_INPUT",
-        "value": "audioinput"
+        "value": "\"audioinput\""
       },
       {
         "name": "AUDIO_OUTPUT",
-        "value": "audiooutput"
+        "value": "\"audiooutput\""
       },
       {
         "name": "VIDEO_INPUT",
-        "value": "videoinput"
+        "value": "\"videoinput\""
       }
     ]
   }

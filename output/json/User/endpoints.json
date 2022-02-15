@@ -61,9 +61,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "username",
-          "description": "user's username, if changed may cause the user's discriminator to be randomized."
+          "description": "user's username, if changed may cause the user's discriminator to be randomized.",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -72,9 +72,9 @@
           "array": false,
           "reference": true,
           "value": "image-data",
-          "deprecated": false,
           "name": "avatar",
-          "description": "if passed, modifies the user's avatar"
+          "description": "if passed, modifies the user's avatar",
+          "deprecated": false
         }
       ]
     }
@@ -103,9 +103,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "before",
-        "description": "get guilds before this guild ID"
+        "description": "get guilds before this guild ID",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -116,9 +116,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "after",
-        "description": "get guilds after this guild ID"
+        "description": "get guilds after this guild ID",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -129,9 +129,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "limit",
-        "description": "max number of guilds to return"
+        "description": "max number of guilds to return (1-200)",
+        "deprecated": false
       }
     ]
   },
@@ -194,9 +194,9 @@
           "value": [
             "snowflake"
           ],
-          "deprecated": false,
           "name": "recipient_id",
-          "description": "the recipient to open a DM channel with"
+          "description": "the recipient to open a DM channel with",
+          "deprecated": false
         }
       ]
     }
@@ -225,10 +225,12 @@
           "nullable": false,
           "array": true,
           "reference": false,
-          "value": "any",
-          "deprecated": false,
+          "value": [
+            "string"
+          ],
           "name": "access_tokens",
-          "description": "access tokens of users that have granted your app the `gdm.join` scope"
+          "description": "access tokens of users that have granted your app the `gdm.join` scope",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -239,9 +241,9 @@
           "value": [
             "dict"
           ],
-          "deprecated": false,
           "name": "nicks",
-          "description": "a dictionary of user ids to their respective nicknames"
+          "description": "a dictionary of user ids to their respective nicknames",
+          "deprecated": false
         }
       ]
     }

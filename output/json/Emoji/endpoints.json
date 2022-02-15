@@ -67,9 +67,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the emoji"
+          "description": "name of the emoji",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -78,9 +78,9 @@
           "array": false,
           "reference": true,
           "value": "image-data",
-          "deprecated": false,
           "name": "image",
-          "description": "the 128x128 emoji image"
+          "description": "the 128x128 emoji image",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -88,10 +88,12 @@
           "nullable": false,
           "array": true,
           "reference": false,
-          "value": "any",
-          "deprecated": false,
+          "value": [
+            "snowflake"
+          ],
           "name": "roles",
-          "description": "roles allowed to use this emoji"
+          "description": "roles allowed to use this emoji",
+          "deprecated": false
         }
       ]
     }
@@ -124,9 +126,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the emoji"
+          "description": "name of the emoji",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -134,10 +136,12 @@
           "nullable": true,
           "array": true,
           "reference": false,
-          "value": "any",
-          "deprecated": false,
+          "value": [
+            "snowflake"
+          ],
           "name": "roles",
-          "description": "roles allowed to use this emoji"
+          "description": "roles allowed to use this emoji",
+          "deprecated": false
         }
       ]
     }

@@ -29,9 +29,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "The WSS URL that can be used for connecting to the gateway"
+        "description": "The WSS URL that can be used for connecting to the gateway",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -42,9 +42,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "shards",
-        "description": "The recommended number of to use when connecting"
+        "description": "The recommended number of [shards](#DOCS_TOPICS_GATEWAY/sharding) to use when connecting",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -53,9 +53,9 @@
         "array": false,
         "reference": true,
         "value": "session-start-limit-object",
-        "deprecated": false,
         "name": "session_start_limit",
-        "description": "Information on the current session start limit"
+        "description": "Information on the current session start limit",
+        "deprecated": false
       }
     ],
     "description": "Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds."

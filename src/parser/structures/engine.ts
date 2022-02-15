@@ -4,6 +4,16 @@ import { marked } from "marked";
 import { Structure } from "../../common";
 import { Context } from ".";
 
+// structure must contain type and field or name
+export function isStructure(block: marked.Tokens.Table) {
+  return (
+    block.header.some(header => header.text.toLowerCase() === "type") &&
+    block.header.some(
+      header => header.text.toLowerCase() === "field" || header.text.toLowerCase() === "name"
+    )
+  );
+}
+
 export class StructuresEngine {
   structures: Structure[] = [];
 
@@ -13,7 +23,7 @@ export class StructuresEngine {
   constructor() {}
 
   finish() {
-    if (this.currentStructure) this.structures.push(this.currentStructure);
+    if (this.currentStructure?.params.length) this.structures.push(this.currentStructure);
     return this.structures;
   }
 
@@ -28,15 +38,10 @@ export class StructuresEngine {
   }
 
   processNone(block: marked.Token) {
-    // todo make less scuffed
     if (block.type === "heading" && block.depth > 5) {
-      if (
-        !block.text.toLowerCase().includes("example") &&
-        !block.text.toLowerCase().includes("response") &&
-        (block.text.toLowerCase().endsWith("object") ||
-          block.text.toLowerCase().endsWith("structure"))
-      ) {
-        if (this.currentStructure) this.structures.push(this.currentStructure);
+      // endpoint parser collects response structures
+      if (!block.text.toLowerCase().includes("response")) {
+        if (this.currentStructure?.params.length) this.structures.push(this.currentStructure);
         this.currentStructure = {
           name: block.text.trim().replace("Object", "Structure"),
           params: []
@@ -56,6 +61,12 @@ export class StructuresEngine {
         break;
 
       case "table":
+        if (!isStructure(block)) {
+          this.currentStructure = null;
+          this.context = "none";
+          return;
+        }
+
         const table = formatTable(block);
         this.currentStructure.params = table.map(parseParam);
         this.context = "none";

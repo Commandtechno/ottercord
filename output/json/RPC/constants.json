@@ -1,6 +1,15 @@
 [
   {
-    "name": "RPC Commands",
+    "name": "RPC Versions",
+    "values": [
+      {
+        "name": "1",
+        "value": "no"
+      }
+    ]
+  },
+  {
+    "name": "RPC Authorize Example",
     "values": [
       {
         "name": "DISPATCH",
@@ -97,7 +106,8 @@
         "description": "used to reject a Rich Presence Ask to Join request",
         "value": "CLOSE_ACTIVITY_REQUEST"
       }
-    ]
+    ],
+    "description": "Commands are requests made to the RPC socket by a client."
   },
   {
     "name": "RPC Events",
@@ -230,15 +240,70 @@
     "values": [
       {
         "name": "AUDIO_INPUT",
-        "value": "audioinput"
+        "value": "\"audioinput\""
       },
       {
         "name": "AUDIO_OUTPUT",
-        "value": "audiooutput"
+        "value": "\"audiooutput\""
       },
       {
         "name": "VIDEO_INPUT",
-        "value": "videoinput"
+        "value": "\"videoinput\""
+      }
+    ]
+  },
+  {
+    "name": "Voice Connection States",
+    "values": [
+      {
+        "name": "DISCONNECTED",
+        "description": "TCP disconnected",
+        "value": "DISCONNECTED"
+      },
+      {
+        "name": "AWAITING_ENDPOINT",
+        "description": "Waiting for voice endpoint",
+        "value": "AWAITING_ENDPOINT"
+      },
+      {
+        "name": "AUTHENTICATING",
+        "description": "TCP authenticating",
+        "value": "AUTHENTICATING"
+      },
+      {
+        "name": "CONNECTING",
+        "description": "TCP connecting",
+        "value": "CONNECTING"
+      },
+      {
+        "name": "CONNECTED",
+        "description": "TCP connected",
+        "value": "CONNECTED"
+      },
+      {
+        "name": "VOICE_DISCONNECTED",
+        "description": "TCP connected, Voice disconnected",
+        "value": "VOICE_DISCONNECTED"
+      },
+      {
+        "name": "VOICE_CONNECTING",
+        "description": "TCP connected, Voice connecting",
+        "value": "VOICE_CONNECTING"
+      },
+      {
+        "name": "VOICE_CONNECTED",
+        "description": "TCP connected, Voice connected",
+        "value": "VOICE_CONNECTED"
+      },
+      {
+        "name": "NO_ROUTE",
+        "description": "No route to host",
+        "value": "NO_ROUTE"
+      },
+      {
+        "name": "ICE_CHECKING",
+        "description": "WebRTC ice checking",
+        "value": "ICE_CHECKING"
       }
     ]
   }

@@ -10,202 +10,202 @@
       {
         "name": "KICK_MEMBERS  *",
         "description": "Allows kicking members",
-        "value": 2
+        "value": 4
       },
       {
         "name": "BAN_MEMBERS  *",
         "description": "Allows banning members",
-        "value": 4
+        "value": 16
       },
       {
         "name": "ADMINISTRATOR  *",
         "description": "Allows all permissions and bypasses channel permission overwrites",
-        "value": 8
+        "value": 64
       },
       {
         "name": "MANAGE_CHANNELS  *",
         "description": "Allows management and editing of channels",
-        "value": 16
+        "value": 256
       },
       {
         "name": "MANAGE_GUILD  *",
         "description": "Allows management and editing of the guild",
-        "value": 32
+        "value": 1024
       },
       {
         "name": "ADD_REACTIONS",
         "description": "Allows for the addition of reactions to messages",
-        "value": 64
+        "value": 4096
       },
       {
         "name": "VIEW_AUDIT_LOG",
         "description": "Allows for viewing of audit logs",
-        "value": 128
+        "value": 16384
       },
       {
         "name": "PRIORITY_SPEAKER",
         "description": "Allows for using priority speaker in a voice channel",
-        "value": 256
+        "value": 65536
       },
       {
         "name": "STREAM",
         "description": "Allows the user to go live",
-        "value": 512
+        "value": 262144
       },
       {
         "name": "VIEW_CHANNEL",
         "description": "Allows guild members to view a channel, which includes reading messages in text channels",
-        "value": 1024
+        "value": 1048576
       },
       {
         "name": "SEND_MESSAGES",
         "description": "Allows for sending messages in a channel (does not allow sending messages in threads)",
-        "value": 2048
+        "value": 4194304
       },
       {
         "name": "SEND_TTS_MESSAGES",
-        "description": "Allows for sending of `/tts` messages",
-        "value": 4096
+        "description": "Allows for sending of  /tts  messages",
+        "value": 16777216
       },
       {
         "name": "MANAGE_MESSAGES  *",
         "description": "Allows for deletion of other users messages",
-        "value": 8192
+        "value": 67108864
       },
       {
         "name": "EMBED_LINKS",
         "description": "Links sent by users with this permission will be auto-embedded",
-        "value": 16384
+        "value": 268435456
       },
       {
         "name": "ATTACH_FILES",
         "description": "Allows for uploading images and files",
-        "value": 32768
+        "value": 1073741824
       },
       {
         "name": "READ_MESSAGE_HISTORY",
         "description": "Allows for reading of message history",
-        "value": 65536
+        "value": 0
       },
       {
         "name": "MENTION_EVERYONE",
-        "description": "Allows for using the `@everyone` tag to notify all users in a channel, and the `@here` tag to notify all online users in a channel",
-        "value": 131072
+        "description": "Allows for using the  @everyone  tag to notify all users in a channel, and the  @here  tag to notify all online users in a channel",
+        "value": 0
       },
       {
         "name": "USE_EXTERNAL_EMOJIS",
         "description": "Allows the usage of custom emojis from other servers",
-        "value": 262144
+        "value": 0
       },
       {
         "name": "VIEW_GUILD_INSIGHTS",
         "description": "Allows for viewing guild insights",
-        "value": 524288
+        "value": 0
       },
       {
         "name": "CONNECT",
         "description": "Allows for joining of a voice channel",
-        "value": 1048576
+        "value": 0
       },
       {
         "name": "SPEAK",
         "description": "Allows for speaking in a voice channel",
-        "value": 2097152
+        "value": 0
       },
       {
         "name": "MUTE_MEMBERS",
         "description": "Allows for muting members in a voice channel",
-        "value": 4194304
+        "value": 0
       },
       {
         "name": "DEAFEN_MEMBERS",
         "description": "Allows for deafening of members in a voice channel",
-        "value": 8388608
+        "value": 0
       },
       {
         "name": "MOVE_MEMBERS",
         "description": "Allows for moving of members between voice channels",
-        "value": 16777216
+        "value": 0
       },
       {
         "name": "USE_VAD",
         "description": "Allows for using voice-activity-detection in a voice channel",
-        "value": 33554432
+        "value": 0
       },
       {
         "name": "CHANGE_NICKNAME",
         "description": "Allows for modification of own nickname",
-        "value": 67108864
+        "value": 0
       },
       {
         "name": "MANAGE_NICKNAMES",
         "description": "Allows for modification of other users nicknames",
-        "value": 134217728
+        "value": 0
       },
       {
         "name": "MANAGE_ROLES  *",
         "description": "Allows management and editing of roles",
-        "value": 268435456
+        "value": 0
       },
       {
         "name": "MANAGE_WEBHOOKS  *",
         "description": "Allows management and editing of webhooks",
-        "value": 536870912
+        "value": 0
       },
       {
         "name": "MANAGE_EMOJIS_AND_STICKERS  *",
         "description": "Allows management and editing of emojis and stickers",
-        "value": 1073741824
+        "value": 0
       },
       {
         "name": "USE_APPLICATION_COMMANDS",
         "description": "Allows members to use application commands, including slash commands and context menu commands.",
-        "value": 2147483648
+        "value": 0
       },
       {
         "name": "REQUEST_TO_SPEAK",
-        "description": "Allows for requesting to speak in stage channels. (_This permission is under active development and may be changed or removed._)",
-        "value": 4294967296
+        "description": "Allows for requesting to speak in stage channels. ( This permission is under active development and may be changed or removed. )",
+        "value": 0
       },
       {
         "name": "MANAGE_EVENTS",
         "description": "Allows for creating, editing, and deleting scheduled events",
-        "value": 8589934592
+        "value": 0
       },
       {
         "name": "MANAGE_THREADS  *",
         "description": "Allows for deleting and archiving threads, and viewing all private threads",
-        "value": 17179869184
+        "value": 0
       },
       {
         "name": "CREATE_PUBLIC_THREADS",
         "description": "Allows for creating public and announcement threads",
-        "value": 34359738368
+        "value": 0
       },
       {
         "name": "CREATE_PRIVATE_THREADS",
         "description": "Allows for creating private threads",
-        "value": 68719476736
+        "value": 0
       },
       {
         "name": "USE_EXTERNAL_STICKERS",
         "description": "Allows the usage of custom stickers from other servers",
-        "value": 137438953472
+        "value": 0
       },
       {
         "name": "SEND_MESSAGES_IN_THREADS",
         "description": "Allows for sending messages in threads",
-        "value": 274877906944
+        "value": 0
       },
       {
         "name": "START_EMBEDDED_ACTIVITIES",
-        "description": "Allows for launching activities (applications with the `EMBEDDED` flag) in a voice channel",
-        "value": 549755813888
+        "description": "Allows for launching activities (applications with the  EMBEDDED  flag) in a voice channel",
+        "value": 0
       },
       {
         "name": "MODERATE_MEMBERS  * *",
         "description": "Allows for timing out users to prevent them from sending or reacting to messages in chat and threads, and from speaking in voice and stage channels",
-        "value": 1099511627776
+        "value": 0
       }
     ]
   }

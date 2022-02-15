@@ -4,20 +4,25 @@ import { camel, pascal } from "../util";
 function convertType(type: string) {
   switch (type) {
     // special
+    case "binary":
+      return "Buffer";
+
     case "snowflake":
       return "string | bigint";
 
     case "file contents":
-      return '"balls"';
+      return JSON.stringify("balls");
 
     // basic
     case "any":
     case "null":
     case "string":
-    case "boolean":
-    case "symbol":
-    case "function":
       return type;
+
+    // booleans
+    case "bool":
+    case "boolean":
+      return "boolean";
 
     // numbers
     case "int":
@@ -62,9 +67,9 @@ function resolveType(links: { [key: string]: string }, type: Type) {
     ? type.value.map(convertType).join(" | ")
     : convertType(type.value as string);
 
-  if (type.nullable) {
-    tsType += " | null";
-  }
+  if (type.nullable) tsType += " | null";
+  if (type.array) tsType = "Array<" + tsType + ">";
+  if (type.partial) tsType = "Partial<" + tsType + ">";
 
   return tsType;
 }
@@ -85,9 +90,10 @@ let nameCache = [];
 
 // make sure function name is unique because there are 2 fucking functions named list active threads and it breaks shit lmao
 function getName(name: string) {
-  if (nameCache.includes(name)) name += nameCache.filter(n => n === name).length;
+  let uniqueName = name;
+  if (nameCache.includes(name)) uniqueName += nameCache.filter(n => n === name).length;
   nameCache.push(name);
-  return name;
+  return uniqueName;
 }
 
 export function js(
@@ -98,7 +104,7 @@ export function js(
 ) {
   let output = "";
   for (const constant of constants) {
-    output += "export enum " + getName(pascal(constant.name)) + " {\n";
+    output += "enum " + getName(pascal(constant.name)) + " {\n";
     for (const value of constant.values)
       output += "\t" + pascal(value.name) + " = " + JSON.stringify(value.value) + ",\n";
 

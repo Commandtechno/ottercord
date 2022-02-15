@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "role id"
+        "description": "role id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "role name"
+        "description": "role name",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "color",
-        "description": "integer representation of hexadecimal color code"
+        "description": "integer representation of hexadecimal color code",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "hoist",
-        "description": "if this role is pinned in the user listing"
+        "description": "if this role is pinned in the user ing",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -63,9 +63,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon",
-        "description": "role"
+        "description": "role [icon hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -76,9 +76,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "unicode_emoji",
-        "description": "role unicode emoji"
+        "description": "role unicode emoji",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -89,9 +89,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "position",
-        "description": "position of this role"
+        "description": "position of this role",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -102,9 +102,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "permissions",
-        "description": "permission bit set"
+        "description": "permission bit set",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -115,9 +115,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "managed",
-        "description": "whether this role is managed by an integration"
+        "description": "whether this role is managed by an integration",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -128,9 +128,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "mentionable",
-        "description": "whether this role is mentionable"
+        "description": "whether this role is mentionable",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -139,9 +139,9 @@
         "array": false,
         "reference": true,
         "value": "role-object-role-tags-structure",
-        "deprecated": false,
         "name": "tags",
-        "description": "the tags this role has"
+        "description": "the tags this role has",
+        "deprecated": false
       }
     ]
   },
@@ -157,9 +157,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "bot_id",
-        "description": "the id of the bot this role belongs to"
+        "description": "the id of the bot this role belongs to",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -170,9 +170,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "integration_id",
-        "description": "the id of the integration this role belongs to"
+        "description": "the id of the integration this role belongs to",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -183,9 +183,9 @@
         "value": [
           "null"
         ],
-        "deprecated": false,
         "name": "premium_subscriber",
-        "description": "whether this is the guild's premium subscriber role"
+        "description": "whether this is the guild's premium subscriber role",
+        "deprecated": false
       }
     ]
   }

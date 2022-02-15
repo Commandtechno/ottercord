@@ -1,1 +1,183 @@
-[]
+[
+  {
+    "name": "Discord Libraries",
+    "values": [
+      {
+        "name": "orca",
+        "value": "C"
+      },
+      {
+        "name": "Discord.Net",
+        "value": "C#"
+      },
+      {
+        "name": "DSharpPlus",
+        "value": "C#"
+      },
+      {
+        "name": "Remora.Discord",
+        "value": "C#"
+      },
+      {
+        "name": "aegis.cpp",
+        "value": "C++"
+      },
+      {
+        "name": "D++",
+        "value": "C++"
+      },
+      {
+        "name": "Discord++",
+        "value": "C++"
+      },
+      {
+        "name": "Sleepy Discord",
+        "value": "C++"
+      },
+      {
+        "name": "discljord",
+        "value": "Clojure"
+      },
+      {
+        "name": "discordcr",
+        "value": "Crystal"
+      },
+      {
+        "name": "nyxx",
+        "value": "Dart"
+      },
+      {
+        "name": "coxir",
+        "value": "Elixir"
+      },
+      {
+        "name": "Nostrum",
+        "value": "Elixir"
+      },
+      {
+        "name": "DiscordGo",
+        "value": "Go"
+      },
+      {
+        "name": "DisGord",
+        "value": "Go"
+      },
+      {
+        "name": "catnip",
+        "value": "Java"
+      },
+      {
+        "name": "Discord4J",
+        "value": "Java"
+      },
+      {
+        "name": "Javacord",
+        "value": "Java"
+      },
+      {
+        "name": "JDA",
+        "value": "Java"
+      },
+      {
+        "name": "discord.js",
+        "value": "JavaScript"
+      },
+      {
+        "name": "Eris",
+        "value": "JavaScript"
+      },
+      {
+        "name": "Discord.jl",
+        "value": "Julia"
+      },
+      {
+        "name": "Discordia",
+        "value": "Lua"
+      },
+      {
+        "name": "lacord",
+        "value": "Lua"
+      },
+      {
+        "name": "Dimscord",
+        "value": "Nim"
+      },
+      {
+        "name": "discordnim",
+        "value": "Nim"
+      },
+      {
+        "name": "DiscordPHP",
+        "value": "PHP"
+      },
+      {
+        "name": "RestCord",
+        "value": "PHP"
+      },
+      {
+        "name": "discord.py",
+        "value": "Python"
+      },
+      {
+        "name": "disco",
+        "value": "Python"
+      },
+      {
+        "name": "disnake",
+        "value": "Python"
+      },
+      {
+        "name": "hikari",
+        "value": "Python"
+      },
+      {
+        "name": "nextcord",
+        "value": "Python"
+      },
+      {
+        "name": "pycord",
+        "value": "Python"
+      },
+      {
+        "name": "discordrb",
+        "value": "Ruby"
+      },
+      {
+        "name": "discord-rs",
+        "value": "Rust"
+      },
+      {
+        "name": "Serenity",
+        "value": "Rust"
+      },
+      {
+        "name": "Twilight",
+        "value": "Rust"
+      },
+      {
+        "name": "AckCord",
+        "value": "Scala"
+      },
+      {
+        "name": "Sword",
+        "value": "Swift"
+      },
+      {
+        "name": "Detritus",
+        "value": "TypeScript"
+      },
+      {
+        "name": "discordeno",
+        "value": "TypeScript"
+      },
+      {
+        "name": "droff",
+        "value": "TypeScript"
+      },
+      {
+        "name": "Harmony",
+        "value": "TypeScript"
+      }
+    ]
+  }
+]

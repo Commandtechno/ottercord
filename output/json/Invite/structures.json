@@ -11,9 +11,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "code",
-        "description": "the invite code"
+        "description": "the invite code (unique ID)",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -22,9 +22,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object",
-        "deprecated": false,
         "name": "guild",
-        "description": "the guild this invite is for"
+        "description": "the guild this invite is for",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -33,9 +33,9 @@
         "array": false,
         "reference": true,
         "value": "channel-object",
-        "deprecated": false,
         "name": "channel",
-        "description": "the channel this invite is for"
+        "description": "the channel this invite is for",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -44,9 +44,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "inviter",
-        "description": "the user who created the invite"
+        "description": "the user who created the invite",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -57,9 +57,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "target_type",
-        "description": "the for this voice channel invite"
+        "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -68,9 +68,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "target_user",
-        "description": "the user whose stream to display for this voice channel stream invite"
+        "description": "the user whose stream to display for this voice channel stream invite",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -79,9 +79,9 @@
         "array": false,
         "reference": true,
         "value": "application-object",
-        "deprecated": false,
         "name": "target_application",
-        "description": "the embedded application to open for this voice channel embedded application invite"
+        "description": "the embedded application to open for this voice channel embedded application invite",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -92,9 +92,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_presence_count",
-        "description": "approximate count of online members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`"
+        "description": "approximate count of online members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -105,9 +105,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "approximate_member_count",
-        "description": "approximate count of total members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`"
+        "description": "approximate count of total members, returned from the `GET /invites/<code>` endpoint when `with_counts` is `true`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -118,9 +118,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "expires_at",
-        "description": "the expiration date of this invite, returned from the `GET /invites/<code>` endpoint when `with_expiration` is `true`"
+        "description": "the expiration date of this invite, returned from the `GET /invites/<code>` endpoint when `with_expiration` is `true`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -129,9 +129,9 @@
         "array": false,
         "reference": true,
         "value": "invite-stage-instance-object",
-        "deprecated": false,
         "name": "stage_instance",
-        "description": "stage instance data if there is a in the Stage channel this invite is for"
+        "description": "stage instance data if there is a [public Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE) in the Stage channel this invite is for",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -140,9 +140,9 @@
         "array": false,
         "reference": true,
         "value": "guild-scheduled-event-object",
-        "deprecated": false,
         "name": "guild_scheduled_event",
-        "description": "guild scheduled event data, only included if `guild_scheduled_event_id` contains a valid guild scheduled event id"
+        "description": "guild scheduled event data, only included if `guild_scheduled_event_id` contains a valid guild scheduled event id",
+        "deprecated": false
       }
     ]
   },
@@ -158,9 +158,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "uses",
-        "description": "number of times this invite has been used"
+        "description": "number of times this invite has been used",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -171,9 +171,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "max_uses",
-        "description": "max number of times this invite can be used"
+        "description": "max number of times this invite can be used",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -184,9 +184,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "max_age",
-        "description": "duration after which the invite expires"
+        "description": "duration (in seconds) after which the invite expires",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -197,9 +197,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "temporary",
-        "description": "whether this invite only grants temporary membership"
+        "description": "whether this invite only grants temporary membership",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -210,9 +210,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "created_at",
-        "description": "when this invite was created"
+        "description": "when this invite was created",
+        "deprecated": false
       }
     ]
   },
@@ -226,9 +226,9 @@
         "array": true,
         "reference": true,
         "value": "guild-member-object",
-        "deprecated": false,
         "name": "members",
-        "description": "the members speaking in the Stage"
+        "description": "the members speaking in the Stage",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -239,9 +239,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "participant_count",
-        "description": "the number of users in the Stage"
+        "description": "the number of users in the Stage",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -252,9 +252,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "speaker_count",
-        "description": "the number of users speaking in the Stage"
+        "description": "the number of users speaking in the Stage",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -265,9 +265,53 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "topic",
-        "description": "the topic of the Stage instance"
+        "description": "the topic of the Stage instance (1-120 characters)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "Query String Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "with_counts",
+        "description": "whether the invite should contain approximate member counts",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "boolean"
+        ],
+        "name": "with_expiration",
+        "description": "whether the invite should contain the expiration date",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "guild_scheduled_event_id",
+        "description": "the guild scheduled event to include with the invite",
+        "deprecated": false
       }
     ]
   }

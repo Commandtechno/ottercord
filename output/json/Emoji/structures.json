@@ -9,9 +9,9 @@
         "array": false,
         "reference": true,
         "value": "image-formatting",
-        "deprecated": false,
         "name": "id",
-        "description": ""
+        "description": "[emoji id](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -22,9 +22,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "emoji name"
+        "description": "emoji name",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -33,9 +33,9 @@
         "array": true,
         "reference": true,
         "value": "role-object",
-        "deprecated": false,
         "name": "roles",
-        "description": "roles allowed to use this emoji"
+        "description": "roles allowed to use this emoji",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -44,9 +44,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "user that created this emoji"
+        "description": "user that created this emoji",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -57,9 +57,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "require_colons",
-        "description": "whether this emoji must be wrapped in colons"
+        "description": "whether this emoji must be wrapped in colons",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -70,9 +70,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "managed",
-        "description": "whether this emoji is managed"
+        "description": "whether this emoji is managed",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -83,9 +83,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "animated",
-        "description": "whether this emoji is animated"
+        "description": "whether this emoji is animated",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -96,9 +96,82 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "available",
-        "description": "whether this emoji can be used, may be false due to loss of Server Boosts"
+        "description": "whether this emoji can be used, may be false due to loss of Server Boosts",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the emoji",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "image",
+        "description": "the 128x128 emoji image",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "roles",
+        "description": "roles allowed to use this emoji",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the emoji",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "roles",
+        "description": "roles allowed to use this emoji",
+        "deprecated": false
       }
     ]
   }

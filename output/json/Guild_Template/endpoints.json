@@ -51,9 +51,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the guild"
+          "description": "name of the guild (2-100 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -62,9 +62,9 @@
           "array": false,
           "reference": true,
           "value": "image-data",
-          "deprecated": false,
           "name": "icon",
-          "description": "base64 128x128 image for the guild icon"
+          "description": "base64 128x128 image for the guild icon",
+          "deprecated": false
         }
       ]
     }
@@ -113,9 +113,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the template"
+          "description": "name of the template (1-100 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -126,9 +126,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "description for the template"
+          "description": "description for the template (0-120 characters)",
+          "deprecated": false
         }
       ]
     }
@@ -177,9 +177,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the template"
+          "description": "name of the template (1-100 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -190,9 +190,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "description for the template"
+          "description": "description for the template (0-120 characters)",
+          "deprecated": false
         }
       ]
     }

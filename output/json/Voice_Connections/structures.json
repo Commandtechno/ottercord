@@ -9,8 +9,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "Version + Flags"
+        "name": "Version + Flags",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -19,8 +19,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "Payload Type"
+        "name": "Payload Type",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -29,8 +29,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "Sequence"
+        "name": "Sequence",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -39,8 +39,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "Timestamp"
+        "name": "Timestamp",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -49,8 +49,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "SSRC"
+        "name": "SSRC",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -59,8 +59,8 @@
         "array": false,
         "reference": false,
         "value": "any",
-        "deprecated": false,
-        "name": "Encrypted audio"
+        "name": "Encrypted audio",
+        "deprecated": false
       }
     ]
   }

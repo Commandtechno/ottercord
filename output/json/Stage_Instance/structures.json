@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "The id of this Stage instance"
+        "description": "The id of this Stage instance",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "The guild id of the associated Stage channel"
+        "description": "The guild id of the associated Stage channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "channel_id",
-        "description": "The id of the associated Stage channel"
+        "description": "The id of the associated Stage channel",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "topic",
-        "description": "The topic of the Stage instance"
+        "description": "The topic of the Stage instance (1-120 characters)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -63,9 +63,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "privacy_level",
-        "description": "The of the Stage instance"
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -76,9 +76,84 @@
         "value": [
           "boolean"
         ],
-        "deprecated": true,
         "name": "discoverable_disabled",
-        "description": "Whether or not Stage Discovery is disabled"
+        "description": "Whether or not Stage Discovery is disabled",
+        "deprecated": true
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "channel_id",
+        "description": "The id of the Stage channel",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "The topic of the Stage instance (1-120 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "privacy_level",
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance (default GUILD_ONLY)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "topic",
+        "description": "The topic of the Stage instance (1-120 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "integer"
+        ],
+        "name": "privacy_level",
+        "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
+        "deprecated": false
       }
     ]
   }

@@ -1,7 +1,7 @@
 import { Endpoint } from "../../common";
 import { Context, parseEndpoint } from ".";
 
-import { formatTable, isArray, isPartial, parseAnchor, parseParam, parseType } from "../util";
+import { stripBrackets, formatTable, isArray, isPartial, parseParam, parseAnchor } from "../util";
 import { marked } from "marked";
 
 export class EndpointsEngine {
@@ -106,7 +106,7 @@ export class EndpointsEngine {
         break;
 
       case "heading":
-        switch (block.text) {
+        switch (stripBrackets(block.text)) {
           case "Query String Params":
             this.context = "query";
             break;

@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "name": "Membership State Enum",
+    "values": [
+      {
+        "name": "INVITED",
+        "value": 1
+      },
+      {
+        "name": "ACCEPTED",
+        "value": 2
+      }
+    ]
+  }
+]

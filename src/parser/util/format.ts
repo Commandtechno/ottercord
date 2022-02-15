@@ -1,43 +1,38 @@
 import { marked } from "marked";
-import { unescape } from ".";
+import { decode } from "he";
 import { Row } from "../../common";
+import { stripArray } from ".";
 
-export function cleanText(text: string) {
+// get text before the first semicolon
+export function cutText(text: string) {
+  return text.split(";", 1)[0].trim();
+}
+
+// normalize whitespace
+export function trimText(text: string) {
   return text
-    .split(";", 1)[0]
-    .replace(/\(.*?\)/g, "")
-    .replace(/\[.*?\]/g, "")
     .replace(/^[\s\\\\?*"]+/, "")
     .replace(/[\s\\\\?*"]+$/, "")
-    .replace(/\s+/g, " ")
-    .trim();
+    .replace(/\s+/g, " ");
 }
 
-export function stripPartial(text: string) {
-  return cleanText(text).replace("partial", "").trim();
+// remove s from the end of a string
+export function stripPlural(text: string) {
+  return text.replace(/s$/, "");
 }
 
-export function stripArray(text: string) {
-  return cleanText(text)
-    .replace(
-      /((an|a)\s)?(array|list)(\sof(\s(\d+|zero|one|two|three|four|five|six|seven|eight|nine)))?/i,
-      ""
-    )
-    .replace(/s$/, "")
-    .trim();
+// remove normal and square brackets
+export function stripBrackets(text: string) {
+  return text.replace(/\(.*?\)/g, "").replace(/\[.*?\]/g, "");
 }
 
-export function stripDeprecated(text: string) {
-  return cleanText(text)
-    .replace(/[\(\*]+deprecated[\)\*]+/i, "")
-    .trim();
-}
-
+// token doesnt contain tokens so just any for now
 export function flattenBlock(block: any): string {
   // @ts-ignore
-  return block.tokens.map(token => unescape(token.text)).join(" ");
+  return block.tokens.map(token => decode(token.text)).join(" ");
 }
 
+// turns a table headings and rows into an object
 export function formatTable(rawTable: marked.Tokens.Table) {
   const headers: string[] = [];
   rawTable.header.forEach(rawHeader => {
@@ -45,16 +40,16 @@ export function formatTable(rawTable: marked.Tokens.Table) {
     headers.push(header);
   });
 
-  const rows: Row[] = [];
+  const table: Row[] = [];
   rawTable.rows.forEach(rawRow => {
-    const row: Row = {};
+    const row: Partial<Row> = {};
     rawRow.forEach((value, index) => {
       const key = headers[index];
       row[key] = value;
     });
 
-    rows.push(row);
+    table.push(row as Row);
   });
 
-  return rows;
+  return table;
 }

@@ -9,9 +9,9 @@
         "array": false,
         "reference": true,
         "value": "models-device-type",
-        "deprecated": false,
         "name": "type",
-        "description": "the type of device"
+        "description": "the type of device",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -22,9 +22,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the device's Windows UUID"
+        "description": "the device's Windows UUID",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -33,9 +33,9 @@
         "array": false,
         "reference": true,
         "value": "models-vendor-object",
-        "deprecated": false,
         "name": "vendor",
-        "description": "the hardware vendor"
+        "description": "the hardware vendor",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -44,9 +44,9 @@
         "array": false,
         "reference": true,
         "value": "models-model-object",
-        "deprecated": false,
         "name": "model",
-        "description": "the model of the product"
+        "description": "the model of the product",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -54,10 +54,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "string"
+        ],
         "name": "related",
-        "description": "UUIDs of related devices"
+        "description": "UUIDs of related devices",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -68,9 +70,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "echo_cancellation",
-        "description": "if the device's native echo cancellation is enabled"
+        "description": "if the device's native echo cancellation is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -81,9 +83,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "noise_suppression",
-        "description": "if the device's native noise suppression is enabled"
+        "description": "if the device's native noise suppression is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -94,9 +96,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "automatic_gain_control",
-        "description": "if the device's native automatic gain control is enabled"
+        "description": "if the device's native automatic gain control is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -107,9 +109,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "hardware_mute",
-        "description": "if the device is hardware muted"
+        "description": "if the device is hardware muted",
+        "deprecated": false
       }
     ]
   },
@@ -125,9 +127,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of the vendor"
+        "description": "name of the vendor",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -138,9 +140,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "url for the vendor"
+        "description": "url for the vendor",
+        "deprecated": false
       }
     ]
   },
@@ -156,9 +158,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "name of the model"
+        "description": "name of the model",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -169,9 +171,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "url",
-        "description": "url for the model"
+        "description": "url for the model",
+        "deprecated": false
       }
     ]
   }

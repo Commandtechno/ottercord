@@ -22,7 +22,7 @@ import { parse } from ".";
       const { links, constants, endpoints, structures } = await parse(folder, file);
       console.timeEnd(name);
 
-      await writeFile(resolve(output, "links.json"), JSON.stringify(links, null, 2));
+      // await writeFile(resolve(output, "links.json"), JSON.stringify(links, null, 2));
       await writeFile(resolve(output, "constants.json"), JSON.stringify(constants, null, 2));
       await writeFile(resolve(output, "endpoints.json"), JSON.stringify(endpoints, null, 2));
       await writeFile(resolve(output, "structures.json"), JSON.stringify(structures, null, 2));

@@ -11,30 +11,5 @@
         "value": 2
       }
     ]
-  },
-  {
-    "name": "Example Invite Metadata",
-    "values": [
-      {
-        "name": "members",
-        "description": "the members speaking in the Stage",
-        "value": "members"
-      },
-      {
-        "name": "participant_count",
-        "description": "the number of users in the Stage",
-        "value": "participant_count"
-      },
-      {
-        "name": "speaker_count",
-        "description": "the number of users speaking in the Stage",
-        "value": "speaker_count"
-      },
-      {
-        "name": "topic",
-        "description": "the topic of the Stage instance (1-120 characters)",
-        "value": "topic"
-      }
-    ]
   }
 ]

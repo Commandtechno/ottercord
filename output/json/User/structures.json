@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the user's id"
+        "description": "the user's id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "username",
-        "description": "the user's username, not unique across the platform"
+        "description": "the user's username, not unique across the platform",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "discriminator",
-        "description": "the user's 4-digit discord-tag"
+        "description": "the user's 4-digit discord-tag",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "avatar",
-        "description": "the user's"
+        "description": "the user's [avatar hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -63,9 +63,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "bot",
-        "description": "whether the user belongs to an OAuth2 application"
+        "description": "whether the user belongs to an OAuth2 application",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -76,9 +76,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "system",
-        "description": "whether the user is an Official Discord System user"
+        "description": "whether the user is an Official Discord System user (part of the urgent message system)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -89,9 +89,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "mfa_enabled",
-        "description": "whether the user has two factor enabled on their account"
+        "description": "whether the user has two factor enabled on their account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -102,9 +102,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "banner",
-        "description": "the user's"
+        "description": "the user's [banner hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -115,9 +115,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "accent_color",
-        "description": "the user's banner color encoded as an integer representation of hexadecimal color code"
+        "description": "the user's banner color encoded as an integer representation of hexadecimal color code",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -128,9 +128,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "locale",
-        "description": "the user's chosen"
+        "description": "the user's chosen [language option](#DOCS_REFERENCE/locales)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -141,9 +141,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "verified",
-        "description": "whether the email on this account has been verified"
+        "description": "whether the email on this account has been verified",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -154,9 +154,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "email",
-        "description": "the user's email"
+        "description": "the user's email",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -167,9 +167,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "flags",
-        "description": "the on a user's account"
+        "description": "the [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -180,9 +180,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "premium_type",
-        "description": "the on a user's account"
+        "description": "the [type of Nitro subscription](#DOCS_RESOURCES_USER/user-object-premium-types) on a user's account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -193,9 +193,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "public_flags",
-        "description": "the public on a user's account"
+        "description": "the public [flags](#DOCS_RESOURCES_USER/user-object-user-flags) on a user's account",
+        "deprecated": false
       }
     ]
   },
@@ -211,9 +211,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "id of the connection account"
+        "description": "id of the connection account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -224,9 +224,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the username of the connection account"
+        "description": "the username of the connection account",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -237,9 +237,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "type",
-        "description": "the service of the connection"
+        "description": "the service of the connection (twitch, youtube)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -250,20 +250,20 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "revoked",
-        "description": "whether the connection is revoked"
+        "description": "whether the connection is revoked",
+        "deprecated": false
       },
       {
-        "partial": false,
+        "partial": true,
         "optional": true,
         "nullable": false,
         "array": true,
         "reference": true,
         "value": "integration-object",
-        "deprecated": false,
         "name": "integrations",
-        "description": "an array of partial"
+        "description": "  [server integrations](#DOCS_RESOURCES_GUILD/integration-object)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -274,9 +274,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "verified",
-        "description": "whether the connection is verified"
+        "description": "whether the connection is verified",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -287,9 +287,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "friend_sync",
-        "description": "whether friend sync is enabled for this connection"
+        "description": "whether friend sync is enabled for this connection",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -300,9 +300,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "show_activity",
-        "description": "whether activities related to this connection will be shown in presence updates"
+        "description": "whether activities related to this connection will be shown in presence updates",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -311,9 +311,87 @@
         "array": false,
         "reference": true,
         "value": "connection-object-visibility-types",
-        "deprecated": false,
         "name": "visibility",
-        "description": "of this connection"
+        "description": "[visibility](#DOCS_RESOURCES_USER/connection-object-visibility-types) of this connection",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "username",
+        "description": "user's username, if changed may cause the user's discriminator to be randomized.",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "avatar",
+        "description": "if passed, modifies the user's avatar",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "snowflake"
+        ],
+        "name": "recipient_id",
+        "description": "the recipient to open a DM channel with",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "access_tokens",
+        "description": "access tokens of users that have granted your app the `gdm.join` scope",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "dict"
+        ],
+        "name": "nicks",
+        "description": "a dictionary of user ids to their respective nicknames",
+        "deprecated": false
       }
     ]
   }

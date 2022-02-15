@@ -28,9 +28,9 @@
         "array": false,
         "reference": true,
         "value": "application-object",
-        "deprecated": false,
         "name": "application",
-        "description": "the current application"
+        "description": "the current application",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -38,10 +38,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "string"
+        ],
         "name": "scopes",
-        "description": "the scopes the user has authorized the application for"
+        "description": "the scopes the user has authorized the application for",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -52,9 +54,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "expires",
-        "description": "when the access token expires"
+        "description": "when the access token expires",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -63,9 +65,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "the user who has authorized, if the user has authorized with the `identify` scope"
+        "description": "the user who has authorized, if the user has authorized with the `identify` scope",
+        "deprecated": false
       }
     ]
   }

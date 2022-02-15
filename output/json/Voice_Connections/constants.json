@@ -1,19 +1,72 @@
 [
   {
-    "name": "Encryption Modes",
+    "name": "Gateway Versions",
     "values": [
       {
-        "name": "xsalsa20_poly1305",
+        "name": "4",
+        "value": "recommended"
+      },
+      {
+        "name": "3",
+        "value": "available"
+      },
+      {
+        "name": "2",
+        "value": "available"
+      },
+      {
+        "name": "1",
+        "value": "default"
+      }
+    ]
+  },
+  {
+    "name": "Gateway Voice State Update Example",
+    "values": [
+      {
+        "name": "Normal",
         "value": "xsalsa20_poly1305"
       },
       {
-        "name": "xsalsa20_poly1305_suffix",
+        "name": "Suffix",
         "value": "xsalsa20_poly1305_suffix"
       },
       {
-        "name": "xsalsa20_poly1305_lite",
+        "name": "Lite",
         "value": "xsalsa20_poly1305_lite"
       }
-    ]
+    ],
+    "description": "Once we receive the properties of a UDP voice server from our [Opcode 2 Ready](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice) payload, we can proceed to the final step of voice connections, which entails establishing and handshaking a UDP connection for voice data. First, we open a UDP connection to the IP and port provided in the Ready payload. If required, we can now perform an [IP Discovery](#DOCS_TOPICS_VOICE_CONNECTIONS/ip-discovery) using this connection. Once we've fully discovered our external IP and UDP port, we can then tell the voice WebSocket what it is, and start receiving/sending data. We do this using [Opcode 1 Select Protocol](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice):"
+  },
+  {
+    "name": "Example Speaking Payload",
+    "values": [
+      {
+        "name": "Type",
+        "description": "Values 0x1 and 0x2 indicate request and response, respectively",
+        "value": 2
+      },
+      {
+        "name": "Length",
+        "description": "Message length excluding Type and Length fields (value 70)",
+        "value": 2
+      },
+      {
+        "name": "SSRC",
+        "description": "Unsigned integer",
+        "value": 4
+      },
+      {
+        "name": "Address",
+        "description": "Null-terminated string in response",
+        "value": 64
+      },
+      {
+        "name": "Port",
+        "description": "Unsigned short",
+        "value": 2
+      }
+    ],
+    "description": "Generally routers on the Internet mask or obfuscate UDP ports through a process called NAT. Most users who implement voice will want to utilize IP discovery to find their external IP and port which will then be used for receiving voice communications. To retrieve your external IP and port, send the following UDP packet to your voice port (all numeric are big endian):"
   }
 ]

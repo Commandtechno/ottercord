@@ -11,9 +11,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "code",
-        "description": "the template code"
+        "description": "the template code (unique ID)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "template name"
+        "description": "template name",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description for the template"
+        "description": "the description for the template",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "usage_count",
-        "description": "number of times this template has been used"
+        "description": "number of times this template has been used",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -63,9 +63,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "creator_id",
-        "description": "the ID of the user who created the template"
+        "description": "the ID of the user who created the template",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -74,9 +74,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "creator",
-        "description": "the user who created the template"
+        "description": "the user who created the template",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -87,9 +87,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "created_at",
-        "description": "when this template was created"
+        "description": "when this template was created",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -100,9 +100,9 @@
         "value": [
           "ISO8601 timestamp"
         ],
-        "deprecated": false,
         "name": "updated_at",
-        "description": "when this template was last synced to the source guild"
+        "description": "when this template was last synced to the source guild",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -113,9 +113,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "source_guild_id",
-        "description": "the ID of the guild this template is based on"
+        "description": "the ID of the guild this template is based on",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -124,9 +124,9 @@
         "array": false,
         "reference": true,
         "value": "guild-object",
-        "deprecated": false,
         "name": "serialized_source_guild",
-        "description": "the guild snapshot this template contains"
+        "description": "the guild snapshot this template contains",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -137,9 +137,100 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "is_dirty",
-        "description": "whether the template has unsynced changes"
+        "description": "whether the template has unsynced changes",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the guild (2-100 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": true,
+        "value": "image-data",
+        "name": "icon",
+        "description": "base64 128x128 image for the guild icon",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the template (1-100 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "description",
+        "description": "description for the template (0-120 characters)",
+        "deprecated": false
+      }
+    ]
+  },
+  {
+    "name": "JSON Params",
+    "params": [
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "name",
+        "description": "name of the template (1-100 characters)",
+        "deprecated": false
+      },
+      {
+        "partial": false,
+        "optional": false,
+        "nullable": false,
+        "array": false,
+        "reference": false,
+        "value": [
+          "string"
+        ],
+        "name": "description",
+        "description": "description for the template (0-120 characters)",
+        "deprecated": false
       }
     ]
   }

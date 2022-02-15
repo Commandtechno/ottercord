@@ -32,6 +32,7 @@ export async function parse(...pathSegments: string[]) {
       if (link) links[link] = block.text.replace("Object", "Structure");
     }
 
+    // temporary switch algorithm
     constantsEngine.process(block);
     endpointsEngine.process(block);
     structuresEngine.process(block);

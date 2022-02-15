@@ -11,9 +11,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon",
-        "description": "a hash of the image of the team's icon"
+        "description": "a hash of the image of the team's icon",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the unique id of the team"
+        "description": "the unique id of the team",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -35,9 +35,9 @@
         "array": true,
         "reference": true,
         "value": "data-models-team-member-object",
-        "deprecated": false,
         "name": "members",
-        "description": "the members of the team"
+        "description": "the members of the team",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -48,9 +48,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the name of the team"
+        "description": "the name of the team",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -61,9 +61,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "owner_user_id",
-        "description": "the user id of the current team owner"
+        "description": "the user id of the current team owner",
+        "deprecated": false
       }
     ]
   },
@@ -79,9 +79,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "membership_state",
-        "description": "the user's on the team"
+        "description": "the user's [membership state](#DOCS_TOPICS_TEAMS/data-models-membership-state-enum) on the team",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -89,10 +89,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "string"
+        ],
         "name": "permissions",
-        "description": "will always be ``"
+        "description": "will always be `[\"*\"]`",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -103,9 +105,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "team_id",
-        "description": "the id of the parent team of which they are a member"
+        "description": "the id of the parent team of which they are a member",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -114,9 +116,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "user",
-        "description": "the avatar, discriminator, id, and username of the user"
+        "description": "the avatar, discriminator, id, and username of the user",
+        "deprecated": false
       }
     ]
   }

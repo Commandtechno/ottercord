@@ -28,9 +28,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "with_user_count",
-        "description": "include number of users subscribed to each event"
+        "description": "include number of users subscribed to each event",
+        "deprecated": false
       }
     ]
   },
@@ -66,9 +66,9 @@
           "value": [
             "snowflake"
           ],
-          "deprecated": false,
           "name": "channel_id",
-          "description": "the channel id of the scheduled event."
+          "description": "the channel id of the scheduled event.",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -77,9 +77,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
-          "deprecated": false,
           "name": "entity_metadata",
-          "description": "the entity metadata of the scheduled event"
+          "description": "the entity metadata of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -90,9 +90,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "the name of the scheduled event"
+          "description": "the name of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -101,9 +101,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
-          "deprecated": false,
           "name": "privacy_level",
-          "description": "the privacy level of the scheduled event"
+          "description": "the privacy level of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -114,9 +114,9 @@
           "value": [
             "ISO8601 timestamp"
           ],
-          "deprecated": false,
           "name": "scheduled_start_time",
-          "description": "the time to schedule the scheduled event"
+          "description": "the time to schedule the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -127,9 +127,9 @@
           "value": [
             "ISO8601 timestamp"
           ],
-          "deprecated": false,
           "name": "scheduled_end_time",
-          "description": "the time when the scheduled event is scheduled to end"
+          "description": "the time when the scheduled event is scheduled to end",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -140,9 +140,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "the description of the scheduled event"
+          "description": "the description of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -151,9 +151,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
-          "deprecated": false,
           "name": "entity_type",
-          "description": "the entity type of the scheduled event"
+          "description": "the entity type of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -162,9 +162,9 @@
           "array": false,
           "reference": true,
           "value": "image-data",
-          "deprecated": false,
           "name": "image",
-          "description": "the cover image of the scheduled event"
+          "description": "the cover image of the scheduled event",
+          "deprecated": false
         }
       ]
     }
@@ -202,9 +202,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "with_user_count",
-        "description": "include number of users subscribed to this event"
+        "description": "include number of users subscribed to this event",
+        "deprecated": false
       }
     ]
   },
@@ -244,9 +244,9 @@
           "value": [
             "snowflake"
           ],
-          "deprecated": false,
           "name": "channel_id",
-          "description": "the channel id of the scheduled event, set to `null` if changing entity type to `EXTERNAL`"
+          "description": "the channel id of the scheduled event, set to `null` if changing entity type to `EXTERNAL`",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -255,9 +255,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
-          "deprecated": false,
           "name": "entity_metadata",
-          "description": "the entity metadata of the scheduled event"
+          "description": "the entity metadata of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -268,9 +268,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "the name of the scheduled event"
+          "description": "the name of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -279,9 +279,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
-          "deprecated": false,
           "name": "privacy_level",
-          "description": "the privacy level of the scheduled event"
+          "description": "the privacy level of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -292,9 +292,9 @@
           "value": [
             "ISO8601 timestamp"
           ],
-          "deprecated": false,
           "name": "scheduled_start_time",
-          "description": "the time to schedule the scheduled event"
+          "description": "the time to schedule the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -305,9 +305,9 @@
           "value": [
             "ISO8601 timestamp"
           ],
-          "deprecated": false,
           "name": "scheduled_end_time",
-          "description": "the time when the scheduled event is scheduled to end"
+          "description": "the time when the scheduled event is scheduled to end",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -318,9 +318,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "the description of the scheduled event"
+          "description": "the description of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -329,9 +329,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-entity-types",
-          "deprecated": false,
           "name": "entity_type",
-          "description": "the entity type of the scheduled event"
+          "description": "the entity type of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -340,9 +340,9 @@
           "array": false,
           "reference": true,
           "value": "guild-scheduled-event-object-guild-scheduled-event-status",
-          "deprecated": false,
           "name": "status",
-          "description": "the status of the scheduled event"
+          "description": "the status of the scheduled event",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -351,9 +351,9 @@
           "array": false,
           "reference": true,
           "value": "image-data",
-          "deprecated": false,
           "name": "image",
-          "description": "the cover image of the scheduled event"
+          "description": "the cover image of the scheduled event",
+          "deprecated": false
         }
       ]
     }
@@ -407,9 +407,9 @@
         "value": [
           "number"
         ],
-        "deprecated": false,
         "name": "limit",
-        "description": "number of users to return"
+        "description": "number of users to return (up to maximum 100)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -420,9 +420,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "with_member",
-        "description": "include guild member data if it exists"
+        "description": "include guild member data if it exists",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -433,9 +433,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "before",
-        "description": "consider only users before given user id"
+        "description": "consider only users before given user id",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -446,9 +446,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "after",
-        "description": "consider only users after given user id"
+        "description": "consider only users after given user id",
+        "deprecated": false
       }
     ]
   }

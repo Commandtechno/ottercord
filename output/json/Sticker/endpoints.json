@@ -33,8 +33,8 @@
         "array": true,
         "reference": true,
         "value": "sticker-pack-object",
-        "deprecated": false,
-        "name": "sticker_packs"
+        "name": "sticker_packs",
+        "deprecated": false
       }
     ]
   },
@@ -106,9 +106,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the sticker"
+          "description": "name of the sticker (2-30 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -119,9 +119,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "description of the sticker"
+          "description": "description of the sticker (empty or 2-100 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -132,9 +132,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "tags",
-          "description": "autocomplete/suggestion tags for the sticker"
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -142,12 +142,10 @@
           "nullable": false,
           "array": false,
           "reference": false,
-          "value": [
-            "file contents"
-          ],
-          "deprecated": false,
+          "value": "any",
           "name": "file",
-          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB"
+          "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
+          "deprecated": false
         }
       ]
     }
@@ -180,9 +178,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "name",
-          "description": "name of the sticker"
+          "description": "name of the sticker (2-30 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -193,9 +191,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "description",
-          "description": "description of the sticker"
+          "description": "description of the sticker (2-100 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -206,9 +204,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "tags",
-          "description": "autocomplete/suggestion tags for the sticker"
+          "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
+          "deprecated": false
         }
       ]
     }

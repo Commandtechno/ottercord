@@ -18,9 +18,9 @@
           "value": [
             "snowflake"
           ],
-          "deprecated": false,
           "name": "channel_id",
-          "description": "The id of the Stage channel"
+          "description": "The id of the Stage channel",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -31,9 +31,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "topic",
-          "description": "The topic of the Stage instance"
+          "description": "The topic of the Stage instance (1-120 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -44,9 +44,9 @@
           "value": [
             "integer"
           ],
-          "deprecated": false,
           "name": "privacy_level",
-          "description": "The of the Stage instance"
+          "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance (default GUILD_ONLY)",
+          "deprecated": false
         }
       ]
     }
@@ -87,9 +87,9 @@
           "value": [
             "string"
           ],
-          "deprecated": false,
           "name": "topic",
-          "description": "The topic of the Stage instance"
+          "description": "The topic of the Stage instance (1-120 characters)",
+          "deprecated": false
         },
         {
           "partial": false,
@@ -100,9 +100,9 @@
           "value": [
             "integer"
           ],
-          "deprecated": false,
           "name": "privacy_level",
-          "description": "The of the Stage instance"
+          "description": "The [privacy level](#DOCS_RESOURCES_STAGE_INSTANCE/stage-instance-object-privacy-level) of the Stage instance",
+          "deprecated": false
         }
       ]
     }

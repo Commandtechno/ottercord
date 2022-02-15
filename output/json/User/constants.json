@@ -1,6 +1,6 @@
 [
   {
-    "name": "User Flags",
+    "name": "Example User",
     "values": [
       {
         "name": "None",
@@ -15,67 +15,67 @@
       {
         "name": "PARTNER",
         "description": "Partnered Server Owner",
-        "value": 1
+        "value": 2
       },
       {
         "name": "HYPESQUAD",
         "description": "HypeSquad Events Coordinator",
-        "value": 1
+        "value": 4
       },
       {
         "name": "BUG_HUNTER_LEVEL_1",
         "description": "Bug Hunter Level 1",
-        "value": 1
+        "value": 8
       },
       {
         "name": "HYPESQUAD_ONLINE_HOUSE_1",
         "description": "House Bravery Member",
-        "value": 1
+        "value": 64
       },
       {
         "name": "HYPESQUAD_ONLINE_HOUSE_2",
         "description": "House Brilliance Member",
-        "value": 1
+        "value": 128
       },
       {
         "name": "HYPESQUAD_ONLINE_HOUSE_3",
         "description": "House Balance Member",
-        "value": 1
+        "value": 256
       },
       {
         "name": "PREMIUM_EARLY_SUPPORTER",
         "description": "Early Nitro Supporter",
-        "value": 1
+        "value": 512
       },
       {
         "name": "TEAM_PSEUDO_USER",
-        "description": "User is a [team](#DOCS_TOPICS_TEAMS/)",
-        "value": 1
+        "description": "User is a  team",
+        "value": 1024
       },
       {
         "name": "BUG_HUNTER_LEVEL_2",
         "description": "Bug Hunter Level 2",
-        "value": 1
+        "value": 16384
       },
       {
         "name": "VERIFIED_BOT",
         "description": "Verified Bot",
-        "value": 1
+        "value": 65536
       },
       {
         "name": "VERIFIED_DEVELOPER",
         "description": "Early Verified Bot Developer",
-        "value": 1
+        "value": 131072
       },
       {
         "name": "CERTIFIED_MODERATOR",
         "description": "Discord Certified Moderator",
-        "value": 1
+        "value": 262144
       },
       {
         "name": "BOT_HTTP_INTERACTIONS",
-        "description": "Bot uses only [HTTP interactions](#DOCS_INTERACTIONS_RECEIVING_AND_RESPONDING/receiving-an-interaction) and is shown in the online member list",
-        "value": 1
+        "description": "Bot uses only  HTTP interactions  and is shown in the online member list",
+        "value": 524288
       }
     ]
   },

@@ -11,9 +11,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "id",
-        "description": "the id of the app"
+        "description": "the id of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -24,9 +24,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "name",
-        "description": "the name of the app"
+        "description": "the name of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -37,9 +37,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "icon",
-        "description": "the of the app"
+        "description": "the [icon hash](#DOCS_REFERENCE/image-formatting) of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -50,9 +50,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "description",
-        "description": "the description of the app"
+        "description": "the description of the app",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -60,10 +60,12 @@
         "nullable": false,
         "array": true,
         "reference": false,
-        "value": "any",
-        "deprecated": false,
+        "value": [
+          "string"
+        ],
         "name": "rpc_origins",
-        "description": "an array of rpc origin urls, if rpc is enabled"
+        "description": " rpc origin urls, if rpc is enabled",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -74,9 +76,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "bot_public",
-        "description": "when false only app owner can join the app's bot to guilds"
+        "description": "when false only app owner can join the app's bot to guilds",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -87,9 +89,9 @@
         "value": [
           "boolean"
         ],
-        "deprecated": false,
         "name": "bot_require_code_grant",
-        "description": "when true the app's bot will only join upon completion of the full oauth2 code grant flow"
+        "description": "when true the app's bot will only join upon completion of the full oauth2 code grant flow",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -100,9 +102,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "terms_of_service_url",
-        "description": "the url of the app's terms of service"
+        "description": "the url of the app's terms of service",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -113,9 +115,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "privacy_policy_url",
-        "description": "the url of the app's privacy policy"
+        "description": "the url of the app's privacy policy",
+        "deprecated": false
       },
       {
         "partial": true,
@@ -124,9 +126,9 @@
         "array": false,
         "reference": true,
         "value": "user-object",
-        "deprecated": false,
         "name": "owner",
-        "description": "partial user object containing info on the owner of the application"
+        "description": " user object containing info on the owner of the application",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -137,9 +139,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "summary",
-        "description": "if this application is a game sold on Discord, this field will be the summary field for the store page of its primary sku"
+        "description": "if this application is a game sold on Discord, this field will be the summary field for the store page of its primary sku",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -150,20 +152,20 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "verify_key",
-        "description": "the hex encoded key for verification in interactions and the GameSDK's"
+        "description": "the hex encoded key for verification in interactions and the GameSDK's [GetTicket](#DOCS_GAME_SDK_APPLICATIONS/getticket)",
+        "deprecated": false
       },
       {
         "partial": false,
         "optional": false,
         "nullable": true,
-        "array": false,
+        "array": true,
         "reference": true,
         "value": "data-models-team-object",
-        "deprecated": false,
         "name": "team",
-        "description": "if the application belongs to a team, this will be a list of the members of that team"
+        "description": "if the application belongs to a team, this will be  the members of that team",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -174,9 +176,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "guild_id",
-        "description": "if this application is a game sold on Discord, this field will be the guild to which it has been linked"
+        "description": "if this application is a game sold on Discord, this field will be the guild to which it has been linked",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -187,9 +189,9 @@
         "value": [
           "snowflake"
         ],
-        "deprecated": false,
         "name": "primary_sku_id",
-        "description": "if this application is a game sold on Discord, this field will be the id of the \"Game SKU\" that is created, if exists"
+        "description": "if this application is a game sold on Discord, this field will be the id of the \"Game SKU\" that is created, if exists",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -200,9 +202,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "slug",
-        "description": "if this application is a game sold on Discord, this field will be the URL slug that links to the store page"
+        "description": "if this application is a game sold on Discord, this field will be the URL slug that links to the store page",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -213,9 +215,9 @@
         "value": [
           "string"
         ],
-        "deprecated": false,
         "name": "cover_image",
-        "description": "the application's default rich presence invite"
+        "description": "the application's default rich presence invite [cover image hash](#DOCS_REFERENCE/image-formatting)",
+        "deprecated": false
       },
       {
         "partial": false,
@@ -226,9 +228,9 @@
         "value": [
           "integer"
         ],
-        "deprecated": false,
         "name": "flags",
-        "description": "the application's public"
+        "description": "the application's public [flags](#DOCS_RESOURCES_APPLICATION/application-object-application-flags)",
+        "deprecated": false
       }
     ]
   }

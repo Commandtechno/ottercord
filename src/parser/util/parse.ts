@@ -1,17 +1,19 @@
-import { stripPartial, stripArray, lastSplit, cleanText, stripDeprecated } from ".";
 import { Type, Param, Row } from "../../common";
+import { cutText, lastSplit, stripBrackets, stripPlural, trimText } from ".";
 
 export const validTypes = new Set([
   // special
+  "binary",
   "snowflake",
   "file contents",
 
   // basic
   "null",
   "string",
+
+  // booleans
+  "bool",
   "boolean",
-  "symbol",
-  "function",
 
   // numbers
   "int",
@@ -30,6 +32,8 @@ export const validTypes = new Set([
   "ISO8601 timestamp"
 ]);
 
+// is
+
 export function isPartial(text: string) {
   return text.toLowerCase().includes("partial");
 }
@@ -40,6 +44,24 @@ export function isArray(text: string) {
 
 export function isDeprecated(text: string) {
   return text.toLowerCase().includes("(deprecated)") || text.toLowerCase().includes("*deprecated*");
+}
+
+// strip
+
+export function stripPartial(text: string) {
+  return text.replace("partial", "");
+}
+
+// strips array, an array, an array of, an array of 6, an arrow of nine
+export function stripArray(text: string) {
+  return text.replace(
+    /((an|a)\s)?(array|list)(\sof(\s(\d+|zero|one|two|three|four|five|six|seven|eight|nine))?)?/i,
+    ""
+  );
+}
+
+export function stripDeprecated(text: string) {
+  return text.replace(/[\(\*]+deprecated[\)\*]+/i, "").trim();
 }
 
 export function parseAnchor(link: string) {
@@ -55,21 +77,23 @@ export function parseType(row: Row): Type {
   let nullable = false;
   let array = false;
 
+  // optional
   if (row.required && row.required?.text !== "Yes" && row.required?.text !== "true") {
     optional = true;
   }
 
-  // hmm
-  if (row.field.text.startsWith("?")) {
+  // optional cont.
+  if (row.field?.text.startsWith("?")) {
     optional = true;
     row.field.text = row.field.text.slice(1);
   }
 
-  if (row.field.text.endsWith("?")) {
+  if (row.field?.text.endsWith("?")) {
     optional = true;
     row.field.text = row.field.text.slice(0, -1);
   }
 
+  // nullable
   if (row.type.text.startsWith("?")) {
     nullable = true;
     row.type.text = row.type.text.slice(1);
@@ -80,18 +104,29 @@ export function parseType(row: Row): Type {
     row.type.text = row.type.text.slice(0, -1);
   }
 
+  // partial
   if (isPartial(row.type.text)) {
     partial = true;
     row.type.text = stripPartial(row.type.text);
   }
 
+  if (row.description && isPartial(row.description.text)) {
+    partial = true;
+    row.description.text = stripPartial(row.description.text);
+  }
+
+  // array
   if (isArray(row.type.text)) {
     array = true;
     row.type.text = stripArray(row.type.text);
   }
 
-  // type field
+  if (row.description && isArray(row.description.text)) {
+    array = true;
+    row.description.text = stripArray(row.description.text);
+  }
 
+  // type field links
   for (const token of row.type.tokens)
     if (token.type === "link")
       return {
@@ -104,12 +139,7 @@ export function parseType(row: Row): Type {
         value: parseAnchor(token.href)
       };
 
-  // description field
-
-  if (row.description && isArray(row.description.text)) {
-    array = true;
-  }
-
+  // description field first token link
   if (row.description) {
     const [firstToken] = row.description.tokens;
     if (firstToken.type === "link")
@@ -124,8 +154,23 @@ export function parseType(row: Row): Type {
       };
   }
 
-  const values = row.type.text.split("or").map(cleanText);
-  if (!values.every(type => validTypes.has(type))) {
+  const values = stripBrackets(cutText(row.type.text))
+    .split("or")
+    .map(value => stripPlural(trimText(value)));
+
+  // type field raw
+  if (values.every(type => validTypes.has(type))) {
+    return {
+      partial,
+      optional,
+      nullable,
+      array,
+
+      reference: false,
+      value: values
+    };
+  } else {
+    // description field links
     if (row.description)
       for (const token of row.description.tokens)
         if (token.type === "link")
@@ -139,6 +184,7 @@ export function parseType(row: Row): Type {
             value: parseAnchor(token.href)
           };
 
+    // could not resolve type
     console.log(` ! Invalid type: ${row.type.text}`);
     return {
       partial,
@@ -150,28 +196,20 @@ export function parseType(row: Row): Type {
       value: "any"
     };
   }
-
-  return {
-    partial,
-    optional,
-    nullable,
-    array,
-
-    reference: false,
-    value: values
-  };
 }
 
 export function parseParam(row: Row): Param {
+  let name = row.field?.text ?? row.name?.text;
   let deprecated = false;
+
+  if (isDeprecated(name)) {
+    deprecated = true;
+    name = stripDeprecated(name);
+  }
+
   if (isDeprecated(row.type.text)) {
     deprecated = true;
     row.type.text = stripDeprecated(row.type.text);
-  }
-
-  if (isDeprecated(row.field.text)) {
-    deprecated = true;
-    row.field.text = stripDeprecated(row.field.text);
   }
 
   if (row.description && isDeprecated(row.description.text)) {
@@ -182,9 +220,9 @@ export function parseParam(row: Row): Param {
   return {
     ...parseType(row),
 
-    deprecated,
+    name: trimText(name),
+    description: row.description?.text,
 
-    name: cleanText(row.field.text),
-    description: row.description?.text && cleanText(row.description.text)
+    deprecated
   };
 }

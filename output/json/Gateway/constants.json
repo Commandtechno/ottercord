@@ -1,6 +1,35 @@
 [
   {
-    "name": "Gateway Commands",
+    "name": "Gateway Versions",
+    "values": [
+      {
+        "name": "9",
+        "value": "Available"
+      },
+      {
+        "name": "8",
+        "value": "Available"
+      },
+      {
+        "name": "7",
+        "value": "Doesn't look like anything to me"
+      },
+      {
+        "name": "6",
+        "value": "Deprecated"
+      },
+      {
+        "name": "5",
+        "value": "Discontinued"
+      },
+      {
+        "name": "4",
+        "value": "Discontinued"
+      }
+    ]
+  },
+  {
+    "name": "Example Gateway Hello",
     "values": [
       {
         "name": "Identify",
@@ -32,7 +61,8 @@
         "description": "updates a client's presence",
         "value": "Update Presence"
       }
-    ]
+    ],
+    "description": "Commands are requests made to the gateway socket by a client."
   },
   {
     "name": "Gateway Events",
@@ -49,7 +79,7 @@
       },
       {
         "name": "Resumed",
-        "description": "response to [Resume](#DOCS_TOPICS_GATEWAY/resume)",
+        "description": "response to  Resume",
         "value": "Resumed"
       },
       {
@@ -59,7 +89,7 @@
       },
       {
         "name": "Invalid Session",
-        "description": "failure response to [Identify](#DOCS_TOPICS_GATEWAY/identify) or [Resume](#DOCS_TOPICS_GATEWAY/resume) or invalid active session",
+        "description": "failure response to  Identify  or  Resume  or invalid active session",
         "value": "Invalid Session"
       },
       {
@@ -104,7 +134,7 @@
       },
       {
         "name": "Thread Member Update",
-        "description": "[thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) for the current user was updated",
+        "description": "thread member  for the current user was updated",
         "value": "Thread Member Update"
       },
       {
@@ -169,7 +199,7 @@
       },
       {
         "name": "Guild Members Chunk",
-        "description": "response to [Request Guild Members](#DOCS_TOPICS_GATEWAY/request-guild-members)",
+        "description": "response to  Request Guild Members",
         "value": "Guild Members Chunk"
       },
       {
@@ -229,7 +259,7 @@
       },
       {
         "name": "Interaction Create",
-        "description": "user used an interaction, such as an [Application Command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/)",
+        "description": "user used an interaction, such as an  Application Command",
         "value": "Interaction Create"
       },
       {
@@ -389,6 +419,20 @@
     ]
   },
   {
+    "name": "Activity Asset Image",
+    "values": [
+      {
+        "name": "Application Asset",
+        "value": "`{application_asset_id}`"
+      },
+      {
+        "name": "Media Proxy Image",
+        "value": "`mp:{image_id}`"
+      }
+    ],
+    "description": "Activity asset images are arbitrary strings which usually contain snowflake IDs or prefixed image IDs. Treat data within this field carefully, as it is user-specifiable and not sanitized."
+  },
+  {
     "name": "Activity Flags",
     "values": [
       {
@@ -397,35 +441,35 @@
       },
       {
         "name": "JOIN",
-        "value": 1
+        "value": 2
       },
       {
         "name": "SPECTATE",
-        "value": 1
+        "value": 4
       },
       {
         "name": "JOIN_REQUEST",
-        "value": 1
+        "value": 8
       },
       {
         "name": "SYNC",
-        "value": 1
+        "value": 16
       },
       {
         "name": "PLAY",
-        "value": 1
+        "value": 32
       },
       {
         "name": "PARTY_PRIVACY_FRIENDS",
-        "value": 1
+        "value": 64
       },
       {
         "name": "PARTY_PRIVACY_VOICE_CHANNEL",
-        "value": 1
+        "value": 128
       },
       {
         "name": "EMBEDDED",
-        "value": 1
+        "value": 256
       }
     ]
   }

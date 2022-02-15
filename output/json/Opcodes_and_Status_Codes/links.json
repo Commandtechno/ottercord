@@ -9,6 +9,7 @@
   "http": "HTTP",
   "http-http-response-codes": "HTTP Response Codes",
   "json": "JSON",
+  "json-json-error-codes": "JSON Error Codes",
   "json-example-json-error-response": "Example JSON Error Response",
   "rpc": "RPC",
   "rpc-rpc-error-codes": "RPC Error Codes",
