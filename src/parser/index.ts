@@ -20,17 +20,17 @@ export async function parse(...pathSegments: string[]) {
   let parent = "";
   const links: { [key: string]: string } = {};
   for (const block of page) {
-    if (block.type === "heading") {
-      let link: string;
-      const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
+    // if (block.type === "heading") {
+    //   let link: string;
+    //   const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
 
-      if (block.depth < 5) {
-        parent = anchor + "-";
-        link = anchor;
-      } else link = parent + anchor;
+    //   if (block.depth < 5) {
+    //     parent = anchor + "-";
+    //     link = anchor;
+    //   } else link = parent + anchor;
 
-      if (link) links[link] = block.text.replace("Object", "Structure");
-    }
+    //   if (link) links[link] = block.text.replace("Object", "Structure");
+    // }
 
     // temporary switch algorithm
     constantsEngine.process(block);
