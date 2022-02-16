@@ -1,30 +1,37 @@
+import { parseEndpoint } from ".";
 import { Endpoint } from "../../common";
-import { Context, parseEndpoint } from ".";
 
 import { stripBrackets, formatTable, isArray, isPartial, parseParam, parseAnchor } from "../util";
 import { marked } from "marked";
 
-export class EndpointsEngine {
-  endpoints: Endpoint[] = [];
+export interface Context {
+  type:
+    | "none"
+    | "endpoint"
+    | "query"
+    | "response"
+    | "json-request"
+    | "form-request"
+    | "json-form-request";
 
+  name?: string;
+}
+
+export class EndpointEngine {
   context: Context = "none";
-  currentEndpoint: Endpoint;
+  endpoint: Endpoint;
   __optional = false; // todo: find better solution
 
-  constructor() {}
-
-  finish() {
-    if (this.currentEndpoint) this.endpoints.push(this.currentEndpoint);
-    return this.endpoints;
+  constructor(block: marked.Token) {
+    if (block.type === "heading" && block.depth < 3) {
+      this.endpoint = parseEndpoint(block.text);
+    }
   }
 
   process(block: marked.Token) {
     switch (this.context) {
       case "none":
         return this.processNone(block);
-
-      case "endpoint":
-        return this.processEndpoint(block);
 
       case "query":
         return this.processQuery(block);
@@ -40,13 +47,6 @@ export class EndpointsEngine {
   }
 
   processNone(block: marked.Token) {
-    if (block.type === "heading" && block.depth < 3) {
-      this.currentEndpoint = parseEndpoint(block.text);
-      if (this.currentEndpoint) this.context = "endpoint";
-    }
-  }
-
-  processEndpoint(block: marked.Token) {
     switch (block.type) {
       case "blockquote":
         if (block.text.includes("optional")) {
@@ -59,7 +59,7 @@ export class EndpointsEngine {
           this.__optional = true;
         }
 
-        if (!this.currentEndpoint.response) {
+        if (!this.endpoint.response) {
           let after = false;
           for (const token of block.tokens) {
             // @ts-ignore

@@ -1,6 +1,15 @@
-import { Param } from ".";
+import { Type } from ".";
 
 export interface Structure {
   name: string;
-  params: Param[];
+  description: string;
+
+  properties: StructureProperty[];
+}
+
+export interface StructureProperty {
+  name: string;
+  description?: string;
+
+  type: Type;
 }

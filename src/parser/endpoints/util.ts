@@ -1,4 +1,4 @@
-import { Endpoint, EndpointParam } from "../../../common/build";
+import { Endpoint, EndpointParam } from "../../common";
 import { parseAnchor } from "../util";
 
 export function parseParam(rawParam: string): EndpointParam {

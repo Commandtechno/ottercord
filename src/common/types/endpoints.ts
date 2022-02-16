@@ -1,26 +1,26 @@
-import { Type, Param } from ".";
+import { ReferenceType, Structure } from ".";
 
 export interface Endpoint {
   name: string;
   description?: string;
 
   method: string;
-  path: string;
 
+  path: string;
   params: EndpointParam[];
   query?: Param[];
+
   request?: EndpointRequest;
-  response?: Type | Param[];
+  response?: EndpointResponse;
 }
 
 export interface EndpointParam {
-  // type: string;
   name: string;
-  anchor: string;
 }
 
-export interface EndpointRequest {
+export interface EndpointRequest extends Structure {
   json: boolean;
   form: boolean;
-  params: Param[];
 }
+
+export type EndpointResponse = ReferenceType | Structure;
