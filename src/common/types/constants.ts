@@ -1,13 +1,9 @@
-export interface Constant {
-  name: string;
-  description?: string;
+import { Meta } from ".";
 
-  values: ConstantValue[];
+export interface Constant extends Meta {
+  properties: ConstantProperty[];
 }
 
-export interface ConstantValue {
-  name: string;
-  description?: string;
-
+export interface ConstantProperty extends Meta {
   value: string | number;
 }

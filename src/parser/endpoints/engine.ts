@@ -4,18 +4,14 @@ import { Endpoint } from "../../common";
 import { stripBrackets, formatTable, isArray, isPartial, parseParam, parseAnchor } from "../util";
 import { marked } from "marked";
 
-export interface Context {
-  type:
-    | "none"
-    | "endpoint"
-    | "query"
-    | "response"
-    | "json-request"
-    | "form-request"
-    | "json-form-request";
-
-  name?: string;
-}
+export type Context =
+  | "none"
+  | "endpoint"
+  | "query"
+  | "response"
+  | "json-request"
+  | "form-request"
+  | "json-form-request";
 
 export class EndpointEngine {
   context: Context = "none";

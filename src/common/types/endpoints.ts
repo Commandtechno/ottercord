@@ -1,14 +1,10 @@
-import { ReferenceType, Structure } from ".";
+import { Meta, ReferenceType, Structure } from ".";
 
-export interface Endpoint {
-  name: string;
-  description?: string;
-
+export interface Endpoint extends Meta {
   method: string;
-
   path: string;
-  params: EndpointParam[];
-  query?: Param[];
+  params: Structure;
+  query?: Structure;
 
   request?: EndpointRequest;
   response?: EndpointResponse;
