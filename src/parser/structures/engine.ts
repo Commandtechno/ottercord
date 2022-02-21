@@ -1,75 +1,42 @@
 import { formatTable, parseParam, parseType } from "../util";
 import { marked } from "marked";
 
-import { Structure } from "../../common";
-import { Context } from ".";
+import { Structure, StructureProperty } from "../../common";
 
-// structure must contain type and field or name
-export function isStructure(block: marked.Tokens.Table) {
-  return (
-    block.header.some(header => header.text.toLowerCase() === "type") &&
-    block.header.some(
-      header => header.text.toLowerCase() === "field" || header.text.toLowerCase() === "name"
-    )
-  );
-}
+export class StructureEngine implements Structure {
+  name: string;
+  // description?: string;
 
-export class StructuresEngine {
-  structures: Structure[] = [];
+  properties: StructureProperty[];
 
-  context: Context = "none";
-  currentStructure: Structure;
+  constructor(block: marked.Token) {
+    if (block.type === "heading" && block.depth > 5) {
+      this.name = block.text;
+      this.properties = [];
+    }
 
-  constructor() {}
-
-  finish() {
-    if (this.currentStructure?.params.length) this.structures.push(this.currentStructure);
-    return this.structures;
+    throw new Error("not structure");
   }
 
   process(block: marked.Token) {
-    switch (this.context) {
-      case "none":
-        return this.processNone(block);
-
-      case "structure":
-        return this.processStructure(block);
-    }
-  }
-
-  processNone(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 5) {
-      // endpoint parser collects response structures
-      if (!block.text.toLowerCase().includes("response")) {
-        if (this.currentStructure?.params.length) this.structures.push(this.currentStructure);
-        this.currentStructure = {
-          name: block.text.trim().replace("Object", "Structure"),
-          params: []
-        };
-
-        this.context = "structure";
-      }
-    }
-  }
-
-  processStructure(block: marked.Token) {
     switch (block.type) {
       // todo make less scuffed
       case "heading":
-        this.currentStructure = null;
-        this.context = "none";
-        break;
+        throw "exit";
 
       case "table":
-        if (!isStructure(block)) {
-          this.currentStructure = null;
-          this.context = "none";
-          return;
+        // structure must contain type and field or name header
+        if (
+          !block.header.some(header => header.text.toLowerCase() === "type") ||
+          !block.header.some(
+            header => header.text.toLowerCase() === "field" || header.text.toLowerCase() === "name"
+          )
+        ) {
+          throw "exit";
         }
 
         const table = formatTable(block);
-        this.currentStructure.params = table.map(parseParam);
-        this.context = "none";
+        this.properties = table.map(parseParam);
         break;
     }
   }

@@ -20,12 +20,23 @@ export interface ValueType extends BaseType {
 
 export interface ReferenceType extends BaseType {
   type: "reference";
-  reference: string;
+  link: string;
 }
 
 export interface UnionType extends BaseType {
   type: "union";
-  values: Type[];
+  types: Type[];
 }
 
-export type Type = ValueType | ReferenceType | UnionType;
+export interface StructureType extends BaseType {
+  type: "structure";
+  properties: Type[];
+}
+
+export interface PropertyType extends BaseType {
+  type: "property";
+  optional: boolean;
+  nullable: boolean;
+}
+
+export type Type = ValueType | ReferenceType | UnionType | StructureType | PropertyType;

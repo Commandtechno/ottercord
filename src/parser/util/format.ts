@@ -16,16 +16,6 @@ export function trimText(text: string) {
     .replace(/\s+/g, " ");
 }
 
-// remove s from the end of a string
-export function stripPlural(text: string) {
-  return text.replace(/s$/, "");
-}
-
-// remove normal and square brackets
-export function stripBrackets(text: string) {
-  return text.replace(/\(.*?\)/g, "").replace(/\[.*?\]/g, "");
-}
-
 // token doesnt contain tokens so just any for now
 export function flattenBlock(block: any): string {
   // @ts-ignore

@@ -1,4 +1,4 @@
 export * from "./common";
-export * from "./constants";
-export * from "./endpoints";
-export * from "./structures";
+export * from "./constant";
+export * from "./endpoint";
+export * from "./structure";

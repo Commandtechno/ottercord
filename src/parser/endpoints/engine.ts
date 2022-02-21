@@ -1,27 +1,52 @@
-import { parseEndpoint } from ".";
-import { Endpoint } from "../../common";
+import { Endpoint, EndpointParam, EndpointRequest, PropertyType, Type } from "../../common";
 
-import { stripBrackets, formatTable, isArray, isPartial, parseParam, parseAnchor } from "../util";
+import { stripBrackets, formatTable, isArray, isPartial, parseParam, isDeprecated } from "../util";
 import { marked } from "marked";
 
-export type Context =
-  | "none"
-  | "endpoint"
-  | "query"
-  | "response"
-  | "json-request"
-  | "form-request"
-  | "json-form-request";
+export class EndpointEngine implements Endpoint {
+  name: string;
+  description?: string;
 
-export class EndpointEngine {
-  context: Context = "none";
-  endpoint: Endpoint;
-  __optional = false; // todo: find better solution
+  method: string;
+  path: string;
+  params: EndpointParam[];
+  query?: PropertyType[];
+
+  request?: EndpointRequest;
+  response?: Type;
+
+  private context: "none" | "query" | "request" | "response" = "none";
+  private state: { optional: boolean; json: boolean; form: boolean } = {
+    optional: false,
+    json: false,
+    form: false
+  };
 
   constructor(block: marked.Token) {
     if (block.type === "heading" && block.depth < 3) {
-      this.endpoint = parseEndpoint(block.text);
+      const [name, route] = block.text.split("%");
+      if (!name || !route) throw new Error("not endpotni");
+
+      this.name = name;
+
+      const [method, path] = route.trim().split(" ");
+      if (!method || !path) throw new Error("not endpotni");
+
+      this.method = method;
+      this.path = path;
+
+      const params: EndpointParam[] = [];
+      this.path = path.replace(/(?<=\{).+?(?=\})/g, param => {
+        const [name, link] = param.slice(1, -1).split("#");
+        params.push({ name, link });
+
+        return `{${name}}`;
+      });
+
+      this.params = params;
     }
+
+    throw new Error("not endpotni ethier");
   }
 
   process(block: marked.Token) {
@@ -32,9 +57,7 @@ export class EndpointEngine {
       case "query":
         return this.processQuery(block);
 
-      case "json-request":
-      case "form-request":
-      case "json-form-request":
+      case "request":
         return this.processRequest(block);
 
       case "response":
@@ -45,17 +68,12 @@ export class EndpointEngine {
   processNone(block: marked.Token) {
     switch (block.type) {
       case "blockquote":
-        if (block.text.includes("optional")) {
-          this.__optional = true;
-        }
+        if (block.text.includes("optional")) this.state.optional = true;
         break;
 
       case "paragraph":
-        if (block.text.includes("optional")) {
-          this.__optional = true;
-        }
-
-        if (!this.endpoint.response) {
+        if (block.text.includes("optional")) this.state.optional = true;
+        if (!this.response) {
           let after = false;
           for (const token of block.tokens) {
             // @ts-ignore
@@ -82,15 +100,13 @@ export class EndpointEngine {
             }
 
             if (token.type === "link") {
-              this.currentEndpoint.response = {
-                reference: true,
-                partial: isPartial(block.text),
-
-                optional: false,
-                nullable: false,
-
+              this.response = {
                 array: isArray(block.text),
-                value: parseAnchor(token.href)
+                partial: isPartial(block.text),
+                deprecated: isDeprecated(block.text),
+
+                type: "reference",
+                link: token.href
               };
 
               break;
@@ -98,7 +114,7 @@ export class EndpointEngine {
           }
         }
 
-        this.currentEndpoint.description ??= block.text;
+        this.description ??= block.text;
         break;
 
       case "heading":
@@ -113,26 +129,28 @@ export class EndpointEngine {
             break;
 
           case "JSON Params":
-            this.context = "json-request";
+            this.context = "request";
+            this.state.json = true;
             break;
 
           case "Form Params":
-            this.context = "form-request";
+            this.context = "request";
+            this.state.form = true;
             break;
 
           case "JSON/Form Params":
-            this.context = "json-form-request";
+            this.context = "request";
+            this.state.json = true;
+            this.state.form = true;
             break;
 
-          default:
-            if (block.depth < 3) {
-              const nextEndpoint = parseEndpoint(block.text);
-              if (nextEndpoint) {
-                this.endpoints.push(this.currentEndpoint);
-                this.currentEndpoint = nextEndpoint;
-              }
-            }
-            break;
+          // default:
+          //   try {
+          //     new EndpointEngine(block);
+          //     return "end";
+          //   } catch {
+          //     break;
+          //   }
         }
         break;
     }
@@ -141,35 +159,29 @@ export class EndpointEngine {
   processQuery(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentEndpoint.query = table.map(parseParam);
-
-      this.context = "endpoint";
+      this.query = table.map(parseParam);
+      this.context = "none";
     }
   }
 
   processRequest(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentEndpoint.request = {
-        json: this.context === "json-request" || this.context === "json-form-request",
-        form: this.context === "form-request" || this.context === "json-form-request",
-        params: table.map(parseParam).map(param => {
-          // find better solution later very temporary
-          if (this.__optional) return { ...param, optional: true };
-          return param;
-        })
+      this.request = {
+        json: this.state.json,
+        form: this.state.form,
+        params: table.map(parseParam)
       };
 
-      this.__optional = false;
-      this.context = "endpoint";
+      this.context = "none";
     }
   }
 
   processResponse(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-      this.currentEndpoint.response = table.map(parseParam);
-      this.context = "endpoint";
+      this.response = table.map(parseParam);
+      this.context = "none";
     }
   }
 }
