@@ -1,7 +1,7 @@
 [
   {
     "name": "Audit Log Events",
-    "values": [
+    "properties": [
       {
         "name": "GUILD_UPDATE",
         "value": 1
@@ -191,5 +191,9 @@
         "value": 112
       }
     ]
+  },
+  {
+    "name": "Example Partial Role Object",
+    "properties": []
   }
 ]

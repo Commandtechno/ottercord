@@ -1,67 +1,83 @@
 [
   {
     "name": "Voice Packet Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "Version + Flags",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "Payload Type",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "Sequence",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "Timestamp",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "SSRC",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
         "name": "Encrypted audio",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
+  },
+  {
+    "name": "Example Resumed Payload",
+    "properties": []
   }
 ]

@@ -1,7 +1,6 @@
 import { marked } from "marked";
 import { decode } from "he";
 import { Row } from "../../common";
-import { stripArray } from ".";
 
 // get text before the first semicolon
 export function cutText(text: string) {
@@ -11,8 +10,8 @@ export function cutText(text: string) {
 // normalize whitespace
 export function trimText(text: string) {
   return text
-    .replace(/^[\s\\\\?*"]+/, "")
-    .replace(/[\s\\\\?*"]+$/, "")
+    .replace(/^[\s\\\?*"]+/, "")
+    .replace(/[\s\\\?*"]+$/, "")
     .replace(/\s+/g, " ");
 }
 

@@ -1,7 +1,7 @@
 [
   {
     "name": "Discord Libraries",
-    "values": [
+    "properties": [
       {
         "name": "orca",
         "value": "C"
@@ -178,6 +178,7 @@
         "name": "Harmony",
         "value": "TypeScript"
       }
-    ]
+    ],
+    "description": "If you're working on a project that interacts with our API, you might find an API types module useful as it provides type inspection/completion for the Discord API."
   }
 ]

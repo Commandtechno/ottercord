@@ -1,7 +1,7 @@
 [
   {
     "name": "Webhook Types",
-    "values": [
+    "properties": [
       {
         "name": "Incoming",
         "description": "Incoming Webhooks can post messages to channels with a generated token",
@@ -18,5 +18,9 @@
         "value": 3
       }
     ]
+  },
+  {
+    "name": "Example Application Webhook",
+    "properties": []
   }
 ]

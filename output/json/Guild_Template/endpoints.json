@@ -6,18 +6,17 @@
     "params": [
       {
         "name": "template.code",
-        "anchor": "guild-template-object"
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
       }
     ],
+    "description": "Returns a guild template object for the given code.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "guild-template-object"
-    },
-    "description": "Returns a [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object for the given code."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    }
   },
   {
     "name": "Create Guild from Guild Template",
@@ -26,45 +25,47 @@
     "params": [
       {
         "name": "template.code",
-        "anchor": "guild-template-object"
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
       }
     ],
+    "description": "Create a new guild based on a template. Returns a guild object on success. Fires a Guild Create Gateway event.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "guild-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-object"
     },
-    "description": "Create a new guild based on a template. Returns a [guild](#DOCS_RESOURCES_GUILD/guild-object) object on success. Fires a [Guild Create](#DOCS_TOPICS_GATEWAY/guild-create) Gateway event.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "name of the guild (2-100 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "image-data",
           "name": "icon",
           "description": "base64 128x128 image for the guild icon",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "image-data"
+          },
+          "optional": true,
+          "nullable": false
         }
       ]
     }
@@ -76,18 +77,17 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
+    "description": "Returns an array of guild template objects. Requires the MANAGE_GUILD permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "guild-template-object"
-    },
-    "description": "Returns an array of [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) objects. Requires the `MANAGE_GUILD` permission."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    }
   },
   {
     "name": "Create Guild Template",
@@ -96,39 +96,47 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Creates a template for the guild. Requires the `MANAGE_GUILD` permission. Returns the created [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.",
+    "description": "Creates a template for the guild. Requires the MANAGE_GUILD permission. Returns the created guild template object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "name of the template (1-100 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "description",
           "description": "description for the template (0-120 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": true
         }
       ]
     }
@@ -140,14 +148,21 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-object"
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
       }
     ],
-    "description": "Syncs the template to the guild's current state. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success."
+    "description": "Syncs the template to the guild's current state. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    }
   },
   {
     "name": "Modify Guild Template",
@@ -156,43 +171,51 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-object"
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
       }
     ],
-    "description": "Modifies the template's metadata. Requires the `MANAGE_GUILD` permission. Returns the [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success.",
+    "description": "Modifies the template's metadata. Requires the MANAGE_GUILD permission. Returns the guild template object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "name of the template (1-100 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "description",
           "description": "description for the template (0-120 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": true
         }
       ]
     }
@@ -204,13 +227,20 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "template.code",
-        "anchor": "guild-template-object"
+        "link": "DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object"
       }
     ],
-    "description": "Deletes the template. Requires the `MANAGE_GUILD` permission. Returns the deleted [guild template](#DOCS_RESOURCES_GUILD_TEMPLATE/guild-template-object) object on success."
+    "description": "Deletes the template. Requires the MANAGE_GUILD permission. Returns the deleted guild template object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-template-object"
+    }
   }
 ]

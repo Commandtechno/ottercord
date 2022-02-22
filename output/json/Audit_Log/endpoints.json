@@ -6,71 +6,73 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
+    "description": "Returns an audit log object for the guild. Requires the 'VIEW_AUDIT_LOG' permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "audit-log-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "audit-log-object"
     },
-    "description": "Returns an [audit log](#DOCS_RESOURCES_AUDIT_LOG/audit-log-object) object for the guild. Requires the 'VIEW_AUDIT_LOG' permission.",
-    "query": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "user_id",
-        "description": "filter the log for actions made by a user",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "action_type",
-        "description": "the type of [audit log event](#DOCS_RESOURCES_AUDIT_LOG/audit-log-entry-object-audit-log-events)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "before",
-        "description": "filter the log before a certain entry id",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
-        "deprecated": false
-      }
-    ]
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "user_id",
+          "description": "filter the log for actions made by a user",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "action_type",
+          "description": "the type of audit log event",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "before",
+          "description": "filter the log before a certain entry id",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
+        }
+      ]
+    }
   }
 ]

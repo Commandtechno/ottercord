@@ -1,66 +1,32 @@
 import { flattenBlock, formatTable, stripBrackets } from "../util";
 import { marked } from "marked";
 
-import { isStructure } from "../structures";
-import { Constant } from "../../common";
-import { Context } from ".";
+import { Constant, ConstantProperty } from "../../common";
 
-export class ConstantsEngine {
-  constants: Constant[] = [];
+export class ConstantEngine implements Constant {
+  name: string;
+  description?: string;
 
-  context: Context = "none";
-  currentConstant: Constant;
+  properties: ConstantProperty[];
 
-  constructor() {}
+  get ready() {
+    return this.properties.length > 0;
+  }
 
-  finish() {
-    if (this.currentConstant?.values.length) this.constants.push(this.currentConstant);
-    return this.constants;
+  constructor(block: marked.Token) {
+    if (block.type === "heading" && block.depth > 5) {
+      this.name = block.text;
+      this.properties = [];
+    } else {
+      throw "not constant";
+    }
   }
 
   process(block: marked.Token) {
-    switch (this.context) {
-      case "none":
-        return this.processNone(block);
-
-      case "constant":
-        return this.processConstant(block);
-    }
-  }
-
-  processNone(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 5) {
-      if (
-        stripBrackets(block.text) !== "JSON Params" ||
-        stripBrackets(block.text) !== "Form Params" ||
-        stripBrackets(block.text) !== "JSON/Form Params"
-      ) {
-        if (this.currentConstant?.values.length) this.constants.push(this.currentConstant);
-        this.currentConstant = {
-          name: block.text,
-          values: []
-        };
-
-        this.context = "constant";
-      }
-    }
-  }
-
-  processConstant(block: marked.Token) {
-    if (block.type === "paragraph") {
-      this.currentConstant.description = block.text;
-    }
-
+    if (block.type === "paragraph") this.description = block.text;
     if (block.type === "table") {
-      // if it has a type header then it is a structure
-      if (isStructure(block)) {
-        this.currentConstant = null;
-        this.context = "none";
-        return;
-      }
-
       const table = formatTable(block);
-      this.currentConstant.values = table.map(row => {
+      this.properties = table.map(row => {
         let name: string;
         let description: string;
         let rawValue: string;
@@ -134,8 +100,6 @@ export class ConstantsEngine {
           value
         };
       });
-
-      this.context = "none";
     }
   }
 }

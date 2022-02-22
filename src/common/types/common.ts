@@ -7,10 +7,17 @@ export interface Meta {
   description?: string;
 }
 
+export interface Property extends Meta {
+  type: Type;
+
+  optional: boolean;
+  nullable: boolean;
+}
+
 export interface BaseType {
-  array: boolean;
-  partial: boolean;
-  deprecated: boolean;
+  array?: boolean;
+  partial?: boolean;
+  deprecated?: boolean;
 }
 
 export interface ValueType extends BaseType {
@@ -18,25 +25,19 @@ export interface ValueType extends BaseType {
   value: string;
 }
 
+export interface UnionType extends BaseType {
+  type: "union";
+  values: string[];
+}
+
 export interface ReferenceType extends BaseType {
   type: "reference";
   link: string;
 }
 
-export interface UnionType extends BaseType {
-  type: "union";
-  types: Type[];
-}
-
 export interface StructureType extends BaseType {
   type: "structure";
-  properties: Type[];
+  properties: Property[];
 }
 
-export interface PropertyType extends BaseType {
-  type: "property";
-  optional: boolean;
-  nullable: boolean;
-}
-
-export type Type = ValueType | ReferenceType | UnionType | StructureType | PropertyType;
+export type Type = ValueType | UnionType | ReferenceType | StructureType;

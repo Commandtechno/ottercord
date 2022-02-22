@@ -1,9 +1,9 @@
 // import { Endpoint, EndpointParam } from "../../common";
-// import { parseAnchor } from "../util";
+// import { parseLink } from "../util";
 
 // export function parseParam(rawParam: string): EndpointParam {
 //   const [name, link] = rawParam.slice(1, -1).split("#");
-//   const anchor = parseAnchor(link);
+//   const anchor = parseLink(link);
 //   return { name, anchor };
 // }
 

@@ -1,180 +1,190 @@
 [
   {
-    "name": "Device Structure",
-    "params": [
+    "name": "Device Object",
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "models-device-type",
         "name": "type",
         "description": "the type of device",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "models-device-type"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "id",
         "description": "the device's Windows UUID",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "models-vendor-object",
         "name": "vendor",
         "description": "the hardware vendor",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "models-vendor-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "models-model-object",
         "name": "model",
         "description": "the model of the product",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "models-model-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "related",
         "description": "UUIDs of related devices",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "echo_cancellation",
         "description": "if the device's native echo cancellation is enabled",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "noise_suppression",
         "description": "if the device's native noise suppression is enabled",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "automatic_gain_control",
         "description": "if the device's native automatic gain control is enabled",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "hardware_mute",
         "description": "if the device is hardware muted",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
-    "name": "Vendor Structure",
-    "params": [
+    "name": "Vendor Object",
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "name of the vendor",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "url",
         "description": "url for the vendor",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
-    "name": "Model Structure",
-    "params": [
+    "name": "Model Object",
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "name of the model",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "url",
         "description": "url for the model",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
+  },
+  {
+    "name": "Device Type",
+    "properties": []
   }
 ]

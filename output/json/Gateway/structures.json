@@ -1,2645 +1,2643 @@
 [
   {
     "name": "Gateway Payload Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "gateway-gateway-opcodes",
         "name": "op",
-        "description": "[opcode](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/gateway-gateway-opcodes) for the payload",
-        "deprecated": false
+        "description": "opcode for the payload",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "gateway-gateway-opcodes"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "mixed"
-        ],
         "name": "d",
         "description": "event data",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "mixed"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "s",
         "description": "sequence number, used for resuming sessions and heartbeats",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "t",
         "description": "the event name for this payload",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": true
       }
     ]
   },
   {
     "name": "Gateway URL Query String Params",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "v",
         "description": "Gateway Version to use",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "encoding",
         "description": "The encoding of received gateway packets",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "compress",
         "description": "The (optional) compression of gateway packets",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Identify Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "token",
         "description": "authentication token",
-        "deprecated": false
-      },
-      {
-        "partial": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
         "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "identify-identify-connection-properties",
-        "name": "properties",
-        "description": "[connection properties](#DOCS_TOPICS_GATEWAY/identify-identify-connection-properties)",
-        "deprecated": false
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
+        "name": "properties",
+        "description": "connection properties",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "identify-identify-connection-properties"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
         "name": "compress",
         "description": "whether this connection supports compression of packets",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "large_threshold",
         "description": "value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member ",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "shard",
-        "description": "used for [Guild Sharding](#DOCS_TOPICS_GATEWAY/sharding)",
-        "deprecated": false
+        "description": "used for Guild Sharding",
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "update-presence",
         "name": "presence",
         "description": "presence structure for initial presence information",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "update-presence"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "intents",
-        "description": "the [Gateway Intents](#DOCS_TOPICS_GATEWAY/gateway-intents) you wish to receive",
-        "deprecated": false
+        "description": "the Gateway Intents you wish to receive",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Identify Connection Properties",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "$os",
         "description": "your operating system",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "$browser",
         "description": "your library name",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "$device",
         "description": "your library name",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Resume Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "token",
         "description": "session token",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "session_id",
         "description": "session id",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "seq",
         "description": "last sequence number received",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Request Members Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild to get members for",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "query",
         "description": "string that username starts with, or an empty string to return all members",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "limit",
-        "description": "maximum number of members to send matching the `query`; a limit of `0` can be used with an empty string `query` to return all members",
-        "deprecated": false
+        "description": "maximum number of members to send matching the query ; a limit of 0 can be used with an empty string query to return all members",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "presences",
         "description": "used to specify if we want the presences of the matched members",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "snowflake",
-          "snowflake"
-        ],
         "name": "user_ids",
         "description": "used to specify which users you wish to fetch",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake or snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "nonce",
-        "description": "nonce to identify the [Guild Members Chunk](#DOCS_TOPICS_GATEWAY/guild-members-chunk) response",
-        "deprecated": false
+        "description": "nonce to identify the Guild Members Chunk response",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Gateway Voice State Update Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "id of the voice channel client wants to join (null if disconnecting)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "self_mute",
         "description": "is the client muted",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "self_deaf",
         "description": "is the client deafened",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Gateway Presence Update Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "since",
         "description": "unix time (in milliseconds) of when the client went idle, or null if the client is not idle",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "activity-object",
         "name": "activities",
         "description": "the user's activities",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "status",
-        "description": "the user's new [status](#DOCS_TOPICS_GATEWAY/update-presence-status-types)",
-        "deprecated": false
+        "description": "the user's new status",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "afk",
         "description": "whether or not the client is afk",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Hello Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "heartbeat_interval",
         "description": "the interval (in milliseconds) the client should heartbeat with",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Ready Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "gateways-gateway-versions",
         "name": "v",
-        "description": "[gateway version](#DOCS_TOPICS_GATEWAY/gateways-gateway-versions)",
-        "deprecated": false
+        "description": "gateway version",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "gateways-gateway-versions"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "information about the user including email",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "unavailable-guild-object",
         "name": "guilds",
         "description": "the guilds the user is in",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "unavailable-guild-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "session_id",
         "description": "used for resuming connections",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "shard",
-        "description": "the [shard information](#DOCS_TOPICS_GATEWAY/sharding) associated with this session, if sent when identifying",
-        "deprecated": false
-      },
-      {
-        "partial": true,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
         "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "application-object",
+        "nullable": false
+      },
+      {
+        "name": "shard",
+        "description": "the shard information associated with this session, if sent when identifying",
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
+      },
+      {
         "name": "application",
-        "description": "contains `id` and `flags`",
-        "deprecated": false
+        "description": "contains id and flags",
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "application-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Thread List Sync Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_ids",
         "description": "the parent channel ids whose threads are being synced.  If omitted, then threads were synced for the entire guild.  This  may contain channel_ids that have no active threads as well, so you know to clear that data.",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "channel-object",
         "name": "threads",
         "description": "all active threads in the given channels that the current user can access",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "channel-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "thread-member-object",
         "name": "members",
         "description": "all thread member objects from the synced threads for the current user, indicating which threads the current user has been added to",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "thread-member-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Thread Member Update Event Extra Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Thread Members Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "the id of the thread",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "member_count",
         "description": "the approximate number of members in the thread, capped at 50",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "thread-member-object",
         "name": "added_members",
         "description": "the users who were added to the thread",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "thread-member-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "removed_member_ids",
         "description": "the id of the users who were removed from the thread",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Channel Pins Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
         "name": "last_pin_timestamp",
         "description": "the time at which the most recent pinned message was pinned",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "ISO8601 timestamp"
+        },
+        "optional": true,
+        "nullable": true
       }
     ]
   },
   {
     "name": "Guild Ban Add Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the banned user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Ban Remove Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the unbanned user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Emojis Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "emoji-object",
         "name": "emojis",
         "description": " [emojis](#DOCS_RESOURCES_EMOJI/emoji-object)",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "emoji-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Stickers Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "sticker-object",
         "name": "stickers",
         "description": " [stickers](#DOCS_RESOURCES_STICKER/sticker-object)",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "sticker-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Integrations Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild whose integrations were updated",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Member Add Extra Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Member Remove Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the user who was removed",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Member Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "roles",
         "description": "user role ids",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "nick",
         "description": "nickname of the user in the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "avatar",
-        "description": "the member's [guild avatar hash](#DOCS_REFERENCE/image-formatting)",
-        "deprecated": false
+        "description": "the member's guild avatar hash",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
         "name": "joined_at",
         "description": "when the user joined the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "ISO8601 timestamp"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
         "name": "premium_since",
-        "description": "when the user starting [boosting](https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-) the guild",
-        "deprecated": false
+        "description": "when the user starting boosting the guild",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "ISO8601 timestamp"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "deaf",
         "description": "whether the user is deafened in voice channels",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "mute",
         "description": "whether the user is muted in voice channels",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "pending",
-        "description": "whether the user has not yet passed the guild's [Membership Screening](#DOCS_RESOURCES_GUILD/membership-screening-object) requirements",
-        "deprecated": false
+        "description": "whether the user has not yet passed the guild's Membership Screening requirements",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
         "name": "communication_disabled_until",
-        "description": "when the user's [timeout](https://support.discord.com/hc/en-us/articles/4413305239191-Time-Out-FAQ) will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
-        "deprecated": false
+        "description": "when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "ISO8601 timestamp"
+        },
+        "optional": true,
+        "nullable": true
       }
     ]
   },
   {
     "name": "Guild Members Chunk Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "guild-member-object",
         "name": "members",
         "description": "set of guild members",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "guild-member-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "chunk_index",
-        "description": "the chunk index in the expected chunks for this response (0 <= chunk\\_index < chunk\\_count)",
-        "deprecated": false
+        "description": "the chunk index in the expected chunks for this response (0 <= chunk _ index < chunk _ count)",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "chunk_count",
         "description": "the total number of expected chunks for this response",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": "any",
         "name": "not_found",
-        "description": "if passing an invalid id to `REQUEST_GUILD_MEMBERS`, it will be returned here",
-        "deprecated": false
+        "description": "if passing an invalid id to REQUEST_GUILD_MEMBERS , it will be returned here",
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "any"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "presence",
         "name": "presences",
-        "description": "if passing true to `REQUEST_GUILD_MEMBERS`, presences of the returned members will be here",
-        "deprecated": false
+        "description": "if passing true to REQUEST_GUILD_MEMBERS , presences of the returned members will be here",
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "presence"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "nonce",
-        "description": "the nonce used in the [Guild Members Request](#DOCS_TOPICS_GATEWAY/request-guild-members)",
-        "deprecated": false
+        "description": "the nonce used in the Guild Members Request",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Role Create Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "role-object",
         "name": "role",
         "description": "the role created",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "role-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Role Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "role-object",
         "name": "role",
         "description": "the role updated",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "role-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Role Delete Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "role_id",
         "description": "id of the role",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Scheduled Event User Add Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_scheduled_event_id",
         "description": "id of the guild scheduled event",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "user_id",
         "description": "id of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Guild Scheduled Event User Remove Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_scheduled_event_id",
         "description": "id of the guild scheduled event",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "user_id",
         "description": "id of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Integration Create Event Additional Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Integration Update Event Additional Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Integration Delete Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "integration id",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "application_id",
         "description": "id of the bot/OAuth2 application for this discord integration",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Invite Create Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the channel the invite is for",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "code",
-        "description": "the unique invite [code](#DOCS_RESOURCES_INVITE/invite-object)",
-        "deprecated": false
+        "description": "the unique invite code",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
         "name": "created_at",
         "description": "the time at which the invite was created",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "ISO8601 timestamp"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the guild of the invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "inviter",
         "description": "the user that created the invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "max_age",
         "description": "how long the invite is valid for (in seconds)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "max_uses",
         "description": "the maximum number of times the invite can be used",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "target_type",
-        "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
-        "deprecated": false
+        "description": "the type of target for this voice channel invite",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "target_user",
         "description": "the user whose stream to display for this voice channel stream invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "application-object",
         "name": "target_application",
         "description": "the embedded application to open for this voice channel embedded application invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "application-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "temporary",
         "description": "whether or not the invite is temporary (invited users will be kicked on disconnect unless they're assigned a role)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "uses",
         "description": "how many times the invite has been used (always will be 0)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Invite Delete Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the channel of the invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the guild of the invite",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "code",
-        "description": "the unique invite [code](#DOCS_RESOURCES_INVITE/invite-object)",
-        "deprecated": false
+        "description": "the unique invite code",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Delete Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "the id of the message",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Delete Bulk Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "ids",
         "description": "the ids of the messages",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Reaction Add Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "user_id",
         "description": "the id of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "message_id",
         "description": "the id of the message",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "guild-member-object",
         "name": "member",
         "description": "the member who reacted if this happened in a guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "guild-member-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "emoji-object",
         "name": "emoji",
-        "description": "the emoji used to react - [example](#DOCS_RESOURCES_EMOJI/emoji-object-gateway-reaction-standard-emoji-example)",
-        "deprecated": false
+        "description": "the emoji used to react - example",
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "emoji-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Reaction Remove Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "user_id",
         "description": "the id of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "message_id",
         "description": "the id of the message",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "emoji-object",
         "name": "emoji",
-        "description": "the emoji used to react - [example](#DOCS_RESOURCES_EMOJI/emoji-object-gateway-reaction-standard-emoji-example)",
-        "deprecated": false
+        "description": "the emoji used to react - example",
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "emoji-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Reaction Remove All Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "message_id",
         "description": "the id of the message",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Message Reaction Remove Emoji Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "message_id",
         "description": "the id of the message",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "emoji-object",
         "name": "emoji",
         "description": "the emoji that was removed",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "emoji-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Presence Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
-        "name": "user",
-        "description": "the user presence is being updated for",
-        "deprecated": false
+        "name": "desktop",
+        "description": "the user's status set for an active desktop (Windows, Linux, Mac) application session",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "guild_id",
-        "description": "id of the guild",
-        "deprecated": false
+        "name": "mobile",
+        "description": "the user's status set for an active mobile (iOS, Android) application session",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "status",
-        "description": "either \"idle\", \"dnd\", \"online\", or \"offline\"",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "activity-object",
-        "name": "activities",
-        "description": "user's current activities",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "client-status-object",
-        "name": "client_status",
-        "description": "user's platform-dependent status",
-        "deprecated": false
+        "name": "web",
+        "description": "the user's status set for an active web (browser, bot account) application session",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "the activity's name",
-        "deprecated": false
-      },
-      {
-        "partial": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
         "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-types",
-        "name": "type",
-        "description": "[activity type](#DOCS_TOPICS_GATEWAY/activity-object-activity-types)",
-        "deprecated": false
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
+        "name": "type",
+        "description": "activity type",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-types"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
         "name": "url",
         "description": "stream url, is validated when type is 1",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "created_at",
         "description": "unix timestamp (in milliseconds) of when the activity was added to the user's session",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-timestamps",
         "name": "timestamps",
         "description": "unix timestamps for start and/or end of the game",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-timestamps"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "application_id",
         "description": "application id for the game",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "details",
         "description": "what the player is currently doing",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "state",
         "description": "the user's current party status",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-emoji",
         "name": "emoji",
         "description": "the emoji used for a custom status",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-emoji"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-party",
         "name": "party",
         "description": "information for the current party of the player",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-party"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-assets",
         "name": "assets",
         "description": "images for the presence and their hover texts",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-assets"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-secrets",
         "name": "secrets",
         "description": "secrets for Rich Presence joining and spectating",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-secrets"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "instance",
         "description": "whether or not the activity is an instanced game session",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "activity-object-activity-flags",
         "name": "flags",
-        "description": "[activity flags](#DOCS_TOPICS_GATEWAY/activity-object-activity-flags) `OR`d together, describes what the payload includes",
-        "deprecated": false
+        "description": "activity flags OR d together, describes what the payload includes",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-flags"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "activity-object-activity-buttons",
         "name": "buttons",
         "description": "the custom buttons shown in the Rich Presence (max 2)",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "activity-object-activity-buttons"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Timestamps",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "start",
         "description": "unix time (in milliseconds) of when the activity started",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "end",
         "description": "unix time (in milliseconds) of when the activity ends",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Emoji",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "the name of the emoji",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "the id of the emoji",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
         "name": "animated",
         "description": "whether this emoji is animated",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Party",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "id",
         "description": "the id of the party",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "size",
         "description": "used to show the party's current and maximum size",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Assets",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "large_image",
-        "description": "see [Activity Asset Image](#DOCS_TOPICS_GATEWAY/activity-object-activity-asset-image)",
-        "deprecated": false
+        "description": "see Activity Asset Image",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "large_text",
         "description": "text displayed when hovering over the large image of the activity",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "small_image",
-        "description": "see [Activity Asset Image](#DOCS_TOPICS_GATEWAY/activity-object-activity-asset-image)",
-        "deprecated": false
+        "description": "see Activity Asset Image",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "small_text",
         "description": "text displayed when hovering over the small image of the activity",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Secrets",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "join",
         "description": "the secret for joining a party",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "spectate",
         "description": "the secret for spectating a game",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "match",
         "description": "the secret for a specific instanced match",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Activity Buttons",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "label",
         "description": "the text shown on the button (1-32 characters)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "url",
         "description": "the url opened when clicking the button (1-512 characters)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Typing Start Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "id of the channel",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "user_id",
         "description": "id of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "timestamp",
         "description": "unix time (in seconds) of when the user started typing",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "guild-member-object",
         "name": "member",
         "description": "the member who started typing if this happened in a guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "guild-member-object"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
     "name": "Voice Server Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "token",
         "description": "voice connection token",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "the guild this voice server update is for",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "endpoint",
         "description": "the voice server host",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": true
       }
     ]
   },
   {
     "name": "Webhooks Update Event Fields",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "guild_id",
         "description": "id of the guild",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "id of the channel",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Session Start Limit Structure",
-    "params": [
-      {
-        "partial": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
         "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "total",
-        "description": "The total number of session starts the current user is allowed",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "remaining",
-        "description": "The remaining number of session starts the current user is allowed",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "reset_after",
-        "description": "The number of milliseconds after which the limit resets",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "max_concurrency",
-        "description": "The number of identify requests allowed per 5 seconds",
-        "deprecated": false
+        "nullable": false
       }
     ]
   }

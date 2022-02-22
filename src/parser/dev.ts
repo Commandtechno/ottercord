@@ -19,7 +19,7 @@ import { parse } from ".";
       await mkdir(output);
 
       console.time(name);
-      const { links, constants, endpoints, structures } = await parse(folder, file);
+      const { constants, endpoints, structures } = await parse(folder, file);
       console.timeEnd(name);
 
       // await writeFile(resolve(output, "links.json"), JSON.stringify(links, null, 2));

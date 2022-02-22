@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "name": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ]
+  },
+  {
+    "name": "Example Exceeded Global Rate Limit Response",
+    "properties": []
+  }
+]

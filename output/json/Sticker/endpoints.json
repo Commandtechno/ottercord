@@ -6,18 +6,17 @@
     "params": [
       {
         "name": "sticker.id",
-        "anchor": "sticker-object"
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
       }
     ],
+    "description": "Returns a sticker object for the given sticker ID.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Returns a [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object for the given sticker ID."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "sticker-object"
+    }
   },
   {
     "name": "List Nitro Sticker Packs",
@@ -25,18 +24,23 @@
     "path": "/sticker-packs",
     "params": [],
     "description": "Returns the list of sticker packs available to Nitro subscribers.",
-    "response": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "sticker-pack-object",
-        "name": "sticker_packs",
-        "deprecated": false
-      }
-    ]
+    "response": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "sticker_packs",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "sticker-pack-object"
+          },
+          "optional": false,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "List Guild Stickers",
@@ -45,18 +49,17 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
+    "description": "Returns an array of sticker objects for the given guild. Includes user fields if the bot has the MANAGE_EMOJIS_AND_STICKERS permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "sticker-object"
-    },
-    "description": "Returns an array of [sticker](#DOCS_RESOURCES_STICKER/sticker-object) objects for the given guild. Includes `user` fields if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "sticker-object"
+    }
   },
   {
     "name": "Get Guild Sticker",
@@ -65,22 +68,21 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "sticker.id",
-        "anchor": "sticker-object"
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
       }
     ],
+    "description": "Returns a sticker object for the given guild and sticker IDs. Includes the user field if the bot has the MANAGE_EMOJIS_AND_STICKERS permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "sticker-object"
-    },
-    "description": "Returns a [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object for the given guild and sticker IDs. Includes the `user` field if the bot has the `MANAGE_EMOJIS_AND_STICKERS` permission."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "sticker-object"
+    }
   },
   {
     "name": "Create Guild Sticker",
@@ -89,63 +91,73 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Create a new sticker for the guild. Send a `multipart/form-data` body. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the new [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object on success.",
+    "description": "Create a new sticker for the guild. Send a multipart/form-data body. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the new sticker object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "sticker-object"
+    },
     "request": {
       "json": false,
       "form": true,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "name of the sticker (2-30 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "description",
           "description": "description of the sticker (empty or 2-100 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "tags",
           "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": "any",
           "name": "file",
           "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "any"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -157,56 +169,64 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "sticker.id",
-        "anchor": "sticker-object"
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
       }
     ],
-    "description": "Modify the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns the updated [sticker](#DOCS_RESOURCES_STICKER/sticker-object) object on success.",
+    "description": "Modify the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns the updated sticker object on success.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "sticker-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "name of the sticker (2-30 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "description",
           "description": "description of the sticker (2-100 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": true
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "tags",
           "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -218,13 +238,13 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       },
       {
         "name": "sticker.id",
-        "anchor": "sticker-object"
+        "link": "DOCS_RESOURCES_STICKER/sticker-object"
       }
     ],
-    "description": "Delete the given sticker. Requires the `MANAGE_EMOJIS_AND_STICKERS` permission. Returns `204 No Content` on success."
+    "description": "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success."
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "name": "Membership State Enum",
-    "values": [
+    "properties": [
       {
         "name": "INVITED",
         "value": 1

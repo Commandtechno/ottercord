@@ -4,15 +4,14 @@
     "method": "GET",
     "path": "/oauth2/applications/@me",
     "params": [],
+    "description": "Returns the bot's application object.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "application-object"
-    },
-    "description": "Returns the bot's [application](#DOCS_RESOURCES_APPLICATION/application-object) object."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "application-object"
+    }
   },
   {
     "name": "Get Current Authorization Information",
@@ -20,55 +19,62 @@
     "path": "/oauth2/@me",
     "params": [],
     "description": "Returns info about the current authorization. Requires authentication with a bearer token.",
-    "response": [
-      {
-        "partial": true,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "application-object",
-        "name": "application",
-        "description": "the current application",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "scopes",
-        "description": "the scopes the user has authorized the application for",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
-        "name": "expires",
-        "description": "when the access token expires",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
-        "name": "user",
-        "description": "the user who has authorized, if the user has authorized with the `identify` scope",
-        "deprecated": false
-      }
-    ]
+    "response": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "application",
+          "description": "the current application",
+          "type": {
+            "array": false,
+            "partial": true,
+            "deprecated": false,
+            "type": "reference",
+            "link": "application-object"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "scopes",
+          "description": "the scopes the user has authorized the application for",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "expires",
+          "description": "when the access token expires",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "ISO8601 timestamp"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "user",
+          "description": "the user who has authorized, if the user has authorized with the identify scope",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "user-object"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   }
 ]

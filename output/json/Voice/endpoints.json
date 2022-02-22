@@ -4,14 +4,13 @@
     "method": "GET",
     "path": "/voice/regions",
     "params": [],
+    "description": "Returns an array of voice region objects that can be used when setting a voice or stage channel's `rtc_region` .",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "voice-region-object"
-    },
-    "description": "Returns an array of [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) objects that can be used when setting a voice or stage channel's [`rtc_region`](#DOCS_RESOURCES_CHANNEL/channel-object-channel-structure)."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "voice-region-object"
+    }
   }
 ]

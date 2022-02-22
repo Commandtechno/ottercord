@@ -1,7 +1,7 @@
 [
   {
     "name": "Channel Types",
-    "values": [
+    "properties": [
       {
         "name": "GUILD_TEXT",
         "description": "a text channel within a server",
@@ -61,7 +61,7 @@
   },
   {
     "name": "Video Quality Modes",
-    "values": [
+    "properties": [
       {
         "name": "AUTO",
         "description": "Discord chooses the quality for optimal performance",
@@ -76,7 +76,7 @@
   },
   {
     "name": "Message Types",
-    "values": [
+    "properties": [
       {
         "name": "DEFAULT",
         "value": 0
@@ -173,7 +173,7 @@
   },
   {
     "name": "Message Activity Types",
-    "values": [
+    "properties": [
       {
         "name": "JOIN",
         "value": 1
@@ -194,7 +194,7 @@
   },
   {
     "name": "Message Flags",
-    "values": [
+    "properties": [
       {
         "name": "CROSSPOSTED",
         "description": "this message has been published to subscribed channels (via Channel Following)",
@@ -244,7 +244,7 @@
   },
   {
     "name": "Embed Types",
-    "values": [
+    "properties": [
       {
         "name": "rich",
         "description": "generic embed rendered from embed attributes",
@@ -280,7 +280,7 @@
   },
   {
     "name": "Allowed Mention Types",
-    "values": [
+    "properties": [
       {
         "name": "Role Mentions",
         "description": "Controls role mentions",
@@ -299,8 +299,8 @@
     ]
   },
   {
-    "name": "Allowed Mentions Reference",
-    "values": [
+    "name": "Limits",
+    "properties": [
       {
         "name": "title",
         "value": 256
@@ -330,6 +330,6 @@
         "value": 256
       }
     ],
-    "description": "All of the following limits are measured inclusively. Leading and trailing whitespace characters are not included (they are trimmed automatically)."
+    "description": "Additionally, the combined sum of characters in all `title`, `description`, `field.name`, `field.value`, `footer.text`, and `author.name` fields across all embeds attached to a message must not exceed 6000 characters. Violating any of these constraints will result in a `Bad Request` response."
   }
 ]

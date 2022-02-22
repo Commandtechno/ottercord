@@ -1,7 +1,7 @@
 [
   {
     "name": "Invite Target Types",
-    "values": [
+    "properties": [
       {
         "name": "STREAM",
         "value": 1
@@ -11,5 +11,9 @@
         "value": 2
       }
     ]
+  },
+  {
+    "name": "Example Invite Stage Instance",
+    "properties": []
   }
 ]

@@ -1,125 +1,133 @@
 [
   {
-    "name": "Team Structure",
-    "params": [
+    "name": "Team Object",
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "icon",
         "description": "a hash of the image of the team's icon",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "the unique id of the team",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": true,
-        "value": "data-models-team-member-object",
         "name": "members",
         "description": "the members of the team",
-        "deprecated": false
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "data-models-team-member-object"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "the name of the team",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "owner_user_id",
         "description": "the user id of the current team owner",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
   },
   {
-    "name": "Team Member Structure",
-    "params": [
+    "name": "Team Member Object",
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
         "name": "membership_state",
-        "description": "the user's [membership state](#DOCS_TOPICS_TEAMS/data-models-membership-state-enum) on the team",
-        "deprecated": false
+        "description": "the user's membership state on the team",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": true,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "permissions",
-        "description": "will always be `[\"*\"]`",
-        "deprecated": false
+        "description": "will always be [\"*\"]",
+        "type": {
+          "array": true,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "team_id",
         "description": "the id of the parent team of which they are a member",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the avatar, discriminator, id, and username of the user",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
       }
     ]
+  },
+  {
+    "name": "Membership State Enum",
+    "properties": []
   }
 ]

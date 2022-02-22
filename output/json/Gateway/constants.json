@@ -1,7 +1,7 @@
 [
   {
     "name": "Gateway Versions",
-    "values": [
+    "properties": [
       {
         "name": "9",
         "value": "Available"
@@ -29,8 +29,8 @@
     ]
   },
   {
-    "name": "Example Gateway Hello",
-    "values": [
+    "name": "Gateway Commands",
+    "properties": [
       {
         "name": "Identify",
         "description": "triggers the initial handshake with the gateway",
@@ -62,11 +62,11 @@
         "value": "Update Presence"
       }
     ],
-    "description": "Commands are requests made to the gateway socket by a client."
+    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord."
   },
   {
     "name": "Gateway Events",
-    "values": [
+    "properties": [
       {
         "name": "Hello",
         "description": "defines the heartbeat interval",
@@ -357,11 +357,12 @@
         "description": "guild channel webhook was created, update, or deleted",
         "value": "Webhooks Update"
       }
-    ]
+    ],
+    "description": "Used to trigger the initial handshake with the gateway."
   },
   {
     "name": "Status Types",
-    "values": [
+    "properties": [
       {
         "name": "online",
         "description": "Online",
@@ -391,7 +392,7 @@
   },
   {
     "name": "Activity Types",
-    "values": [
+    "properties": [
       {
         "name": "Game",
         "value": 0
@@ -420,7 +421,7 @@
   },
   {
     "name": "Activity Asset Image",
-    "values": [
+    "properties": [
       {
         "name": "Application Asset",
         "value": "`{application_asset_id}`"
@@ -434,7 +435,7 @@
   },
   {
     "name": "Activity Flags",
-    "values": [
+    "properties": [
       {
         "name": "INSTANCE",
         "value": 1
@@ -472,5 +473,9 @@
         "value": 256
       }
     ]
+  },
+  {
+    "name": "Webhooks Update Event Fields",
+    "properties": []
   }
 ]

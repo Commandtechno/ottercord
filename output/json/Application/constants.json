@@ -1,7 +1,7 @@
 [
   {
-    "name": "Example Application Object",
-    "values": [
+    "name": "Application Flags",
+    "properties": [
       {
         "name": "GATEWAY_PRESENCE",
         "value": 4096

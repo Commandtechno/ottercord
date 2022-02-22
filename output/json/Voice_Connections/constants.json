@@ -1,7 +1,7 @@
 [
   {
     "name": "Gateway Versions",
-    "values": [
+    "properties": [
       {
         "name": "4",
         "value": "recommended"
@@ -18,11 +18,12 @@
         "name": "1",
         "value": "default"
       }
-    ]
+    ],
+    "description": "The first step in connecting to a voice server (and in turn, a guild's voice channel) is formulating a request that can be sent to the [Gateway](#DOCS_TOPICS_GATEWAY/gateways), which will return information about the voice server we will connect to. Because Discord's voice platform is widely distributed, users **should never** cache or save the results of this call. To inform the gateway of our intent to establish voice connectivity, we first send an [Opcode 4 Gateway Voice State Update](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/gateway):"
   },
   {
-    "name": "Gateway Voice State Update Example",
-    "values": [
+    "name": "Encryption Modes",
+    "properties": [
       {
         "name": "Normal",
         "value": "xsalsa20_poly1305"
@@ -36,11 +37,11 @@
         "value": "xsalsa20_poly1305_lite"
       }
     ],
-    "description": "Once we receive the properties of a UDP voice server from our [Opcode 2 Ready](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice) payload, we can proceed to the final step of voice connections, which entails establishing and handshaking a UDP connection for voice data. First, we open a UDP connection to the IP and port provided in the Ready payload. If required, we can now perform an [IP Discovery](#DOCS_TOPICS_VOICE_CONNECTIONS/ip-discovery) using this connection. Once we've fully discovered our external IP and UDP port, we can then tell the voice WebSocket what it is, and start receiving/sending data. We do this using [Opcode 1 Select Protocol](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice):"
+    "description": "Finally, the voice server will respond with a [Opcode 4 Session Description](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice) that includes the `mode` and `secret_key`, a 32 byte array used for [encrypting and sending](#DOCS_TOPICS_VOICE_CONNECTIONS/encrypting-and-sending-voice) voice data:"
   },
   {
-    "name": "Example Speaking Payload",
-    "values": [
+    "name": "Example Resumed Payload",
+    "properties": [
       {
         "name": "Type",
         "description": "Values 0x1 and 0x2 indicate request and response, respectively",

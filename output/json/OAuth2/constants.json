@@ -1,7 +1,7 @@
 [
   {
     "name": "OAuth2 URLs",
-    "values": [
+    "properties": [
       {
         "name": "https://discord.com/api/oauth2/authorize",
         "description": "Base authorization URL",
@@ -21,7 +21,7 @@
   },
   {
     "name": "OAuth2 Scopes",
-    "values": [
+    "properties": [
       {
         "name": "activities.read",
         "description": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval",
@@ -143,11 +143,11 @@
         "value": "webhook.incoming"
       }
     ],
-    "description": "These are a list of all the OAuth2 scopes that Discord supports. Some scopes require approval from Discord to use. Requesting them from a user without approval from Discord may cause errors or undocumented behavior in the OAuth2 flow."
+    "description": "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client."
   },
   {
-    "name": "Authorization URL Example",
-    "values": [
+    "name": "Bot Auth Parameters",
+    "properties": [
       {
         "name": "client_id",
         "description": "your app's client id",
@@ -173,7 +173,11 @@
         "description": "true  or  false —disallows the user from changing the guild dropdown",
         "value": "disable_guild_select"
       }
-    ],
-    "description": "Bot authorization is a special server-less and callback-less OAuth2 flow that makes it easy for users to add bots to guilds. The URL you create looks similar to what we use for full stack implementation:"
+    ]
+  },
+  {
+    "name": "Webhook Token Response Example",
+    "properties": [],
+    "description": "Any user that wishes to add your webhook to their channel will need to go through the full OAuth2 flow. A new webhook is created each time, so you will need to save the token and id. If you wish to send a message to all your webhooks, you'll need to iterate over each stored id:token combination and make `POST` requests to each one. Be mindful of our [Rate Limits](#DOCS_TOPICS_RATE_LIMITS/rate-limits)!"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "name": "Gateway Opcodes",
-    "values": [
+    "properties": [
       {
         "name": "Dispatch",
         "description": "An event was dispatched.",
@@ -61,7 +61,7 @@
   },
   {
     "name": "Gateway Close Event Codes",
-    "values": [
+    "properties": [
       {
         "name": "4000",
         "description": "Unknown error",
@@ -133,11 +133,11 @@
         "value": "You sent a disallowed intent for a [Gateway Intent](#DOCS_TOPICS_GATEWAY/gateway-intents). You may have tried to specify an intent that you [have not enabled or are not approved for](#DOCS_TOPICS_GATEWAY/privileged-intents)."
       }
     ],
-    "description": "In order to prevent broken reconnect loops, you should consider some close codes as a signal to stop reconnnecting. This can be because your token expired, or your identification is invalid. This table explains what the application defined close codes for the gateway are, and which close codes you should not attempt to reconnect."
+    "description": "Our voice gateways have their own set of opcodes and close codes."
   },
   {
     "name": "Voice Opcodes",
-    "values": [
+    "properties": [
       {
         "name": "Identify",
         "description": "Begin a voice websocket connection.",
@@ -197,7 +197,7 @@
   },
   {
     "name": "Voice Close Event Codes",
-    "values": [
+    "properties": [
       {
         "name": "4001",
         "description": "Unknown opcode",
@@ -258,11 +258,12 @@
         "description": "Unknown encryption mode",
         "value": "We didn't recognize your [encryption](#DOCS_TOPICS_VOICE_CONNECTIONS/encrypting-and-sending-voice)."
       }
-    ]
+    ],
+    "description": "Our API will return semantically valid HTTP response codes based on the success of your request. The following table can be used as a reference for response codes it will return."
   },
   {
     "name": "HTTP Response Codes",
-    "values": [
+    "properties": [
       {
         "name": "200 (OK)",
         "value": "The request completed successfully."
@@ -311,11 +312,12 @@
         "name": "5xx (SERVER ERROR)",
         "value": "The server had an error processing your request (these are rare)."
       }
-    ]
+    ],
+    "description": "Along with the HTTP error code, our API can also return more detailed error codes through a `code` key in the JSON error response. The response will also contain a `message` key containing a more friendly error string. Some of these errors may include additional details in the form of [Error Messages](#DOCS_REFERENCE/error-messages) provided by an `errors` object."
   },
   {
-    "name": "Example JSON Error Response",
-    "values": [
+    "name": "RPC Error Codes",
+    "properties": [
       {
         "name": "Unknown error",
         "description": "An unknown error occurred.",
@@ -396,12 +398,11 @@
         "description": "You tried to capture more than one shortcut key at once.",
         "value": 5004
       }
-    ],
-    "description": "RPC is the [local Discord server](#DOCS_TOPICS_RPC/) running on localhost. Access to the RPC server requires approval from Discord."
+    ]
   },
   {
     "name": "RPC Close Event Codes",
-    "values": [
+    "properties": [
       {
         "name": "Invalid client ID",
         "description": "You connected to the RPC server with an invalid client ID.",

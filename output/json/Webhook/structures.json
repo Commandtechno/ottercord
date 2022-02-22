@@ -1,597 +1,167 @@
 [
   {
     "name": "Webhook Structure",
-    "params": [
+    "properties": [
       {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "id",
         "description": "the id of the webhook",
-        "deprecated": false
-      },
-      {
-        "partial": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
         "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "type",
-        "description": "the [type](#DOCS_RESOURCES_WEBHOOK/webhook-object-webhook-types) of the webhook",
-        "deprecated": false
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
+        "name": "type",
+        "description": "the type of the webhook",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "integer"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
         "name": "guild_id",
         "description": "the guild id this webhook is for, if any",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": true,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "channel_id",
         "description": "the channel id this webhook is for, if any",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "user-object",
         "name": "user",
         "description": "the user this webhook was created by (not returned when getting a webhook with its token)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "reference",
+          "link": "user-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "name",
         "description": "the default name of the webhook",
-        "deprecated": false
-      },
-      {
-        "partial": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
         "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "avatar",
-        "description": "the default user avatar [hash](#DOCS_REFERENCE/image-formatting) of the webhook",
-        "deprecated": false
+        "nullable": true
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
+        "name": "avatar",
+        "description": "the default user avatar hash of the webhook",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": true
+      },
+      {
         "name": "token",
         "description": "the secure token of the webhook (returned for Incoming Webhooks)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": false,
-        "nullable": true,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
         "name": "application_id",
         "description": "the bot/OAuth2 application that created this webhook",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "snowflake"
+        },
+        "optional": false,
+        "nullable": true
       },
       {
-        "partial": true,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "guild-object",
         "name": "source_guild",
         "description": "the guild of the channel that this webhook is following (returned for Channel Follower Webhooks)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "guild-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": true,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "channel-object",
         "name": "source_channel",
         "description": "the channel that this webhook is following (returned for Channel Follower Webhooks)",
-        "deprecated": false
+        "type": {
+          "array": false,
+          "partial": true,
+          "deprecated": false,
+          "type": "reference",
+          "link": "channel-object"
+        },
+        "optional": true,
+        "nullable": false
       },
       {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
         "name": "url",
-        "description": "the url used for executing the webhook (returned by the [webhooks](#DOCS_TOPICS_OAUTH2/webhooks) OAuth2 flow)",
-        "deprecated": false
+        "description": "the url used for executing the webhook (returned by the webhooks OAuth2 flow)",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": true,
+        "nullable": false
       }
     ]
   },
   {
-    "name": "JSON Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "name",
-        "description": "name of the webhook (1-80 characters)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "image-data",
-        "name": "avatar",
-        "description": "image for the default webhook avatar",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "JSON Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "name",
-        "description": "the default name of the webhook",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "image-data",
-        "name": "avatar",
-        "description": "image for the default webhook avatar",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "channel_id",
-        "description": "the new channel id this webhook should be moved to",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
-        "name": "wait",
-        "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to `false`; when `false` a message that is not saved does not return an error)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "JSON/Form Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "content",
-        "description": "the message contents (up to 2000 characters)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "username",
-        "description": "override the default username of the webhook",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "avatar_url",
-        "description": "override the default avatar of the webhook",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
-        "name": "tts",
-        "description": "true if this is a TTS message",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "embed-object",
-        "name": "embeds",
-        "description": "embedded `rich` content",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "allowed-mentions-object",
-        "name": "allowed_mentions",
-        "description": "allowed mentions for the message",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "component-object",
-        "name": "components",
-        "description": "the components to include with the message",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
-        "name": "files[n]",
-        "description": "the contents of the file being sent",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "payload_json",
-        "description": "JSON encoded body of non-file params",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "attachment-object",
-        "name": "attachments",
-        "description": "attachment objects with filename and description",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "message-object-message-flags",
-        "name": "flags",
-        "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field) (only `SUPPRESS_EMBEDS` can be set)",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "id of the thread to send the message in",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
-        "name": "wait",
-        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "id of the thread to send the message in",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "boolean"
-        ],
-        "name": "wait",
-        "description": "waits for server confirmation of message send before response (defaults to `true`; when `false` a message that is not saved does not return an error)",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "id of the thread the message is in",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "id of the thread the message is in",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "JSON/Form Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "content",
-        "description": "the message contents (up to 2000 characters)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "embed-object",
-        "name": "embeds",
-        "description": "embedded `rich` content",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "allowed-mentions-object",
-        "name": "allowed_mentions",
-        "description": "allowed mentions for the message",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "component-object",
-        "name": "components",
-        "description": "the components to include with the message",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": "any",
-        "name": "files[n]",
-        "description": "the contents of the file being sent/edited",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "payload_json",
-        "description": "JSON encoded body of non-file params (multipart/form-data only)",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "attachment-object",
-        "name": "attachments",
-        "description": "attached files to keep and possible descriptions for new files",
-        "deprecated": false
-      }
-    ]
-  },
-  {
-    "name": "Query String Params",
-    "params": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "thread_id",
-        "description": "id of the thread the message is in",
-        "deprecated": false
-      }
-    ]
+    "name": "Example Application Webhook",
+    "properties": []
   }
 ]

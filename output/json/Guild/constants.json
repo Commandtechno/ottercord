@@ -1,7 +1,7 @@
 [
   {
     "name": "Default Message Notification Level",
-    "values": [
+    "properties": [
       {
         "name": "ALL_MESSAGES",
         "description": "members will receive notifications for all messages by default",
@@ -16,7 +16,7 @@
   },
   {
     "name": "Explicit Content Filter Level",
-    "values": [
+    "properties": [
       {
         "name": "DISABLED",
         "description": "media content will not be scanned",
@@ -36,7 +36,7 @@
   },
   {
     "name": "MFA Level",
-    "values": [
+    "properties": [
       {
         "name": "NONE",
         "description": "guild has no MFA/2FA requirement for moderation actions",
@@ -51,7 +51,7 @@
   },
   {
     "name": "Verification Level",
-    "values": [
+    "properties": [
       {
         "name": "NONE",
         "description": "unrestricted",
@@ -81,7 +81,7 @@
   },
   {
     "name": "Guild NSFW Level",
-    "values": [
+    "properties": [
       {
         "name": "DEFAULT",
         "value": 0
@@ -102,7 +102,7 @@
   },
   {
     "name": "Premium Tier",
-    "values": [
+    "properties": [
       {
         "name": "NONE",
         "description": "guild has not unlocked any Server Boost perks",
@@ -127,7 +127,7 @@
   },
   {
     "name": "System Channel Flags",
-    "values": [
+    "properties": [
       {
         "name": "SUPPRESS_JOIN_NOTIFICATIONS",
         "description": "Suppress member join notifications",
@@ -152,7 +152,7 @@
   },
   {
     "name": "Guild Features",
-    "values": [
+    "properties": [
       {
         "name": "ANIMATED_ICON",
         "description": "guild has access to set an animated guild icon",
@@ -267,7 +267,7 @@
   },
   {
     "name": "Integration Expire Behaviors",
-    "values": [
+    "properties": [
       {
         "name": "Remove role",
         "value": 0
@@ -279,33 +279,8 @@
     ]
   },
   {
-    "name": "Widget Style Options",
-    "values": [
-      {
-        "name": "Example",
-        "description": "shield style widget with Discord icon and guild members online count",
-        "value": "shield"
-      },
-      {
-        "name": "Example",
-        "description": "large image with guild icon, name and online count. \"POWERED BY DISCORD\" as the footer of the widget",
-        "value": "banner1"
-      },
-      {
-        "name": "Example",
-        "description": "smaller widget style with guild icon, name and online count. Split on the right with Discord logo",
-        "value": "banner2"
-      },
-      {
-        "name": "Example",
-        "description": "large image with guild icon, name and online count. In the footer, Discord logo on the left and \"Chat Now\" on the right",
-        "value": "banner3"
-      },
-      {
-        "name": "Example",
-        "description": "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
-        "value": "banner4"
-      }
-    ]
+    "name": "Example Welcome Screen",
+    "properties": [],
+    "description": "Giving the member a role will bypass Membership Screening as well as the guild's verification level, giving the member immediate access to chat. Therefore, instead of giving a role when the member joins, it is recommended to not give the role until the user is no longer `pending`."
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "name": "Privacy Level",
-    "values": [
+    "properties": [
       {
         "name": "PUBLIC",
         "description": "The Stage instance is visible publicly. (deprecated)",
@@ -13,5 +13,10 @@
         "value": 2
       }
     ]
+  },
+  {
+    "name": "Example Stage Instance",
+    "properties": [],
+    "description": "When a Stage channel has no speakers for a certain period of time (on the order of minutes) it will be automatically deleted."
   }
 ]

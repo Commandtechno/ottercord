@@ -1,7 +1,7 @@
 [
   {
     "name": "Query String Params",
-    "values": [
+    "properties": [
       {
         "name": "v",
         "value": 1
@@ -14,11 +14,12 @@
         "name": "encoding",
         "value": "json"
       }
-    ]
+    ],
+    "description": "You can send event updates to the following URIs:"
   },
   {
     "name": "Device Type",
-    "values": [
+    "properties": [
       {
         "name": "AUDIO_INPUT",
         "value": "\"audioinput\""

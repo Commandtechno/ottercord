@@ -1,29 +1,30 @@
-import { formatTable, parseParam, parseType } from "../util";
+import { formatTable, parseProperty } from "../util";
 import { marked } from "marked";
 
-import { Structure, StructureProperty } from "../../common";
+import { Property, Structure } from "../../common";
 
 export class StructureEngine implements Structure {
   name: string;
-  // description?: string;
+  description?: string;
 
-  properties: StructureProperty[];
+  type: "structure";
+  properties: Property[];
+
+  get ready() {
+    return this.properties.length > 0;
+  }
 
   constructor(block: marked.Token) {
     if (block.type === "heading" && block.depth > 5) {
       this.name = block.text;
       this.properties = [];
+    } else {
+      throw "not structure";
     }
-
-    throw new Error("not structure");
   }
 
   process(block: marked.Token) {
     switch (block.type) {
-      // todo make less scuffed
-      case "heading":
-        throw "exit";
-
       case "table":
         // structure must contain type and field or name header
         if (
@@ -31,13 +32,11 @@ export class StructureEngine implements Structure {
           !block.header.some(
             header => header.text.toLowerCase() === "field" || header.text.toLowerCase() === "name"
           )
-        ) {
-          throw "exit";
-        }
+        )
+          return;
 
         const table = formatTable(block);
-        this.properties = table.map(parseParam);
-        break;
+        this.properties = table.map(parseProperty);
     }
   }
 }

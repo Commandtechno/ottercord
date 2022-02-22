@@ -1,16 +1,17 @@
 [
   {
     "name": "RPC Versions",
-    "values": [
+    "properties": [
       {
         "name": "1",
         "value": "no"
       }
-    ]
+    ],
+    "description": "For applications/games not approved, we limit you to creating 10 guilds and 10 channels. This limit is raised to virtually unlimited after approval."
   },
   {
-    "name": "RPC Authorize Example",
-    "values": [
+    "name": "RPC Commands",
+    "properties": [
       {
         "name": "DISPATCH",
         "description": "event dispatch",
@@ -107,11 +108,11 @@
         "value": "CLOSE_ACTIVITY_REQUEST"
       }
     ],
-    "description": "Commands are requests made to the RPC socket by a client."
+    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord."
   },
   {
     "name": "RPC Events",
-    "values": [
+    "properties": [
       {
         "name": "READY",
         "description": "non-subscription event sent immediately after connecting, contains server information",
@@ -212,11 +213,12 @@
         "description": "sent when the user receives a Rich Presence Ask to Join request",
         "value": "ACTIVITY_JOIN_REQUEST"
       }
-    ]
+    ],
+    "description": "We also have an RPC token system to bypass the user authorization modal. This is usable by approved games as well as by users on a game's list of testers, and also disallows use of the `messages.read` scope. If you have been granted access, you can send a POST request to `https://discord.com/api/oauth2/token/rpc` with your application's `client_id` and `client_secret` in the body (sent as a url-encoded body, **not JSON**). You can then pass the returned `rpc_token` value to the `rpc_token` field in your RPC authorize request (documented below)."
   },
   {
     "name": "Key Types",
-    "values": [
+    "properties": [
       {
         "name": "KEYBOARD_KEY",
         "value": 0
@@ -237,7 +239,7 @@
   },
   {
     "name": "Device Type",
-    "values": [
+    "properties": [
       {
         "name": "AUDIO_INPUT",
         "value": "\"audioinput\""
@@ -254,7 +256,7 @@
   },
   {
     "name": "Voice Connection States",
-    "values": [
+    "properties": [
       {
         "name": "DISCONNECTED",
         "description": "TCP disconnected",
@@ -306,5 +308,9 @@
         "value": "ICE_CHECKING"
       }
     ]
+  },
+  {
+    "name": "Example Activity Join Request Dispatch Payload",
+    "properties": []
   }
 ]

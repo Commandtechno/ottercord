@@ -1,7 +1,7 @@
 [
   {
     "name": "Sticker Types",
-    "values": [
+    "properties": [
       {
         "name": "STANDARD",
         "description": "an official sticker in a pack, part of Nitro or in a removed purchasable pack",
@@ -16,7 +16,7 @@
   },
   {
     "name": "Sticker Format Types",
-    "values": [
+    "properties": [
       {
         "name": "PNG",
         "value": 1
@@ -30,5 +30,9 @@
         "value": 3
       }
     ]
+  },
+  {
+    "name": "Example Sticker Pack",
+    "properties": []
   }
 ]

@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "name": "Example Exceeded Global Rate Limit Response",
+    "properties": [],
+    "description": "In addition, you are expected to reasonably account for other invalid statuses. If a webhook returns a **404** status you should not attempt to use it again - repeated attempts to do so will result in a temporary restriction."
+  }
+]

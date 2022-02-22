@@ -4,15 +4,14 @@
     "method": "GET",
     "path": "/users/@me",
     "params": [],
+    "description": "Returns the user object of the requester's account. For OAuth2, this requires the identify scope, which will return the object without an email, and optionally the email scope, which returns the object with an email.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "user-object"
-    },
-    "description": "Returns the [user](#DOCS_RESOURCES_USER/user-object) object of the requester's account. For OAuth2, this requires the `identify` scope, which will return the object _without_ an email, and optionally the `email` scope, which returns the object _with_ an email."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "user-object"
+    }
   },
   {
     "name": "Get User",
@@ -21,60 +20,61 @@
     "params": [
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
+    "description": "Returns a user object for a given user ID.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "user-object"
-    },
-    "description": "Returns a [user](#DOCS_RESOURCES_USER/user-object) object for a given user ID."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "user-object"
+    }
   },
   {
     "name": "Modify Current User",
     "method": "PATCH",
     "path": "/users/@me",
     "params": [],
+    "description": "Modify the requester's user account settings. Returns a user object on success.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "user-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "user-object"
     },
-    "description": "Modify the requester's user account settings. Returns a [user](#DOCS_RESOURCES_USER/user-object) object on success.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "username",
           "description": "user's username, if changed may cause the user's discriminator to be randomized.",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": true,
-          "value": "image-data",
           "name": "avatar",
           "description": "if passed, modifies the user's avatar",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "image-data"
+          },
+          "optional": false,
+          "nullable": true
         }
       ]
     }
@@ -84,56 +84,58 @@
     "method": "GET",
     "path": "/users/@me/guilds",
     "params": [],
+    "description": "Returns a list of partial guild objects the current user is a member of. Requires the guilds OAuth2 scope.",
     "response": {
-      "reference": true,
-      "partial": true,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "guild-object"
+      "partial": true,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-object"
     },
-    "description": "Returns a list of partial [guild](#DOCS_RESOURCES_GUILD/guild-object) objects the current user is a member of. Requires the `guilds` OAuth2 scope.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "before",
-        "description": "get guilds before this guild ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "after",
-        "description": "get guilds after this guild ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "max number of guilds to return (1-200)",
-        "deprecated": false
-      }
-    ]
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "before",
+          "description": "get guilds before this guild ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "after",
+          "description": "get guilds after this guild ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "max number of guilds to return (1-200)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "Get Current User Guild Member",
@@ -142,18 +144,17 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
+    "description": "Returns a guild member object for the current user. Requires the guilds.members.read OAuth2 scope.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "guild-member-object"
-    },
-    "description": "Returns a [guild member](#DOCS_RESOURCES_GUILD/guild-member-object) object for the current user. Requires the `guilds.members.read` OAuth2 scope."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "guild-member-object"
+    }
   },
   {
     "name": "Leave Guild",
@@ -162,7 +163,7 @@
     "params": [
       {
         "name": "guild.id",
-        "anchor": "guild-object"
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
     "description": "Leave a guild. Returns a 204 empty response on success."
@@ -172,31 +173,31 @@
     "method": "POST",
     "path": "/users/@me/channels",
     "params": [],
+    "description": "Create a new DM channel with a user. Returns a DM channel object.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
     },
-    "description": "Create a new DM channel with a user. Returns a [DM channel](#DOCS_RESOURCES_CHANNEL/channel-object) object.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "recipient_id",
           "description": "the recipient to open a DM channel with",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -206,44 +207,44 @@
     "method": "POST",
     "path": "/users/@me/channels",
     "params": [],
+    "description": "Create a new group DM channel with multiple users. Returns a DM channel object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
     },
-    "description": "Create a new group DM channel with multiple users. Returns a [DM channel](#DOCS_RESOURCES_CHANNEL/channel-object) object. This endpoint was intended to be used with the now-deprecated GameBridge SDK. DMs created with this endpoint will not be shown in the Discord client",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": true,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "access_tokens",
-          "description": "access tokens of users that have granted your app the `gdm.join` scope",
-          "deprecated": false
+          "description": "access tokens of users that have granted your app the gdm.join scope",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "dict"
-          ],
           "name": "nicks",
           "description": "a dictionary of user ids to their respective nicknames",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "dict"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -253,14 +254,13 @@
     "method": "GET",
     "path": "/users/@me/connections",
     "params": [],
+    "description": "Returns a list of connection objects. Requires the connections OAuth2 scope.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "connection-object"
-    },
-    "description": "Returns a list of [connection](#DOCS_RESOURCES_USER/connection-object) objects. Requires the `connections` OAuth2 scope."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "connection-object"
+    }
   }
 ]

@@ -1,7 +1,8 @@
-import { Type, Row } from "../../common";
+import { Row, Property } from "../../common";
 import {
   cutText,
   trimText,
+  flattenBlock,
   isArray,
   isDeprecated,
   isPartial,
@@ -44,13 +45,16 @@ export const validTypes = new Set([
   "ISO8601 timestamp"
 ]);
 
-export function parseAnchor(link: string) {
+export function parseLink(link: string) {
   const [, anchor] = lastSplit(link.slice(1), "/");
   return anchor;
 }
 
 // type hierarchy: type field links, description field first token link, type field raw, description field links
-export function parseType(row: Row): Type {
+export function parseProperty(row: Row): Property {
+  let name = trimText(stripBrackets(row.field?.text ?? row.name?.text));
+  let description = row.description && trimText(flattenBlock(row.description));
+
   let array = false;
   let partial = false;
   let deprecated = false;
@@ -95,7 +99,8 @@ export function parseType(row: Row): Type {
     row.description.text = stripPartial(row.description.text);
   }
 
-  if (isDeprecated(row.field?.text ?? row.name?.text)) {
+  // deprecated
+  if (isDeprecated(name)) {
     deprecated = true;
     name = stripDeprecated(name);
   }
@@ -105,9 +110,9 @@ export function parseType(row: Row): Type {
     row.type.text = stripDeprecated(row.type.text);
   }
 
-  if (row.description && isDeprecated(row.description.text)) {
+  if (description && isDeprecated(row.description.text)) {
     deprecated = true;
-    row.description.text = stripDeprecated(row.description.text);
+    description = stripDeprecated(row.description.text);
   }
 
   // array
@@ -116,21 +121,29 @@ export function parseType(row: Row): Type {
     row.type.text = stripArray(row.type.text);
   }
 
-  if (row.description && isArray(row.description.text)) {
+  if (description && isArray(row.description.text)) {
     array = true;
-    row.description.text = stripArray(row.description.text);
+    description = stripArray(row.description.text);
   }
 
   // type field links
   for (const token of row.type.tokens)
     if (token.type === "link")
       return {
-        array,
-        partial,
-        deprecated,
+        name,
+        description,
 
-        type: "reference",
-        link: parseAnchor(token.href)
+        type: {
+          array,
+          partial,
+          deprecated,
+
+          type: "reference",
+          link: parseLink(token.href)
+        },
+
+        optional,
+        nullable
       };
 
   // description field first token link
@@ -138,67 +151,102 @@ export function parseType(row: Row): Type {
     const [firstToken] = row.description.tokens;
     if (firstToken.type === "link")
       return {
-        array,
-        partial,
-        deprecated,
+        name,
+        description,
 
-        type: "reference",
-        link: parseAnchor(firstToken.href)
+        type: {
+          array,
+          partial,
+          deprecated,
+
+          type: "reference",
+          link: parseLink(firstToken.href)
+        },
+
+        optional,
+        nullable
       };
   }
 
-  const values = stripBrackets(cutText(row.type.text))
-    .split("or")
-    .map(value => stripPlural(trimText(value)));
+  const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
+
+  if (value.includes("or") || value.includes(",")) {
+    const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
+    if (values.every(value => validTypes.has(value)))
+      return {
+        name,
+        description,
+
+        type: {
+          array,
+          partial,
+          deprecated,
+
+          type: "value",
+          value
+        },
+
+        optional,
+        nullable
+      };
+  }
 
   // type field raw
+  if (validTypes.has(value))
+    return {
+      name,
+      description,
 
-  if (values.every(type => validTypes.has(type))) {
-    const types = values.map(value => ({array, partial, deprecated, type: value}));
-
-    if (values.length === 1)
-      return {
+      type: {
         array,
         partial,
         deprecated,
 
         type: "value",
-        value: values[0]
-      };
+        value
+      },
 
-    return {
+      optional,
+      nullable
+    };
+
+  // description field links
+  if (row.description)
+    for (const token of row.description.tokens)
+      if (token.type === "link")
+        return {
+          name,
+          description,
+
+          type: {
+            array,
+            partial,
+            deprecated,
+
+            type: "reference",
+            link: parseLink(token.href)
+          },
+
+          optional,
+          nullable
+        };
+
+  // could not resolve type
+  console.log(`Invalid type: ${row.type.text}`);
+  return {
+    name,
+    description,
+
+    type: {
       array,
       partial,
       deprecated,
 
-      type: "union",
-      types: 
-    };
-  } else {
-    // description field links
-    if (row.description)
-      for (const token of row.description.tokens)
-        if (token.type === "link")
-          return {
-            partial,
-            optional,
-            nullable,
-            array,
-
-            reference: true,
-            value: parseAnchor(token.href)
-          };
-
-    // could not resolve type
-    console.log(` ! Invalid type: ${row.type.text}`);
-    return {
-      partial,
-      optional,
-      nullable,
-      array,
-
-      reference: false,
+      type: "value",
       value: "any"
-    };
-  }
+    },
+
+    optional,
+    nullable
+  };
 }

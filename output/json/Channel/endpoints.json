@@ -6,18 +6,17 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Get a channel by ID. Returns a channel object. If the channel is a thread, a thread member object is included in the returned result.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object"
-    },
-    "description": "Get a channel by ID. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object.  If the channel is a thread, a [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object is included in the returned result."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
+    }
   },
   {
     "name": "Modify Channel",
@@ -26,18 +25,102 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Update a channel's settings. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. All JSON parameters are optional.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
     },
-    "description": "Update a channel's settings. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. All JSON parameters are optional."
+    "request": {
+      "json": true,
+      "form": false,
+      "type": "structure",
+      "properties": [
+        {
+          "name": "name",
+          "description": "1-100 character channel name",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "archived",
+          "description": "whether the thread is archived",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "auto_archive_duration",
+          "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "locked",
+          "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "invitable",
+          "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "rate_limit_per_user",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages , manage_thread , or manage_channel , are unaffected",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": true
+        }
+      ]
+    }
   },
   {
     "name": "Delete/Close Channel",
@@ -46,10 +129,17 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Delete a channel, or close a private message. Requires the `MANAGE_CHANNELS` permission for the guild, or `MANAGE_THREADS` if the channel is a thread. Deleting a category does not delete its child channels; they will have their `parent_id` removed and a [Channel Update](#DOCS_TOPICS_GATEWAY/channel-update) Gateway event will fire for each of them. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) object on success. Fires a [Channel Delete](#DOCS_TOPICS_GATEWAY/channel-delete) Gateway event (or [Thread Delete](#DOCS_TOPICS_GATEWAY/thread-delete) if the channel was a thread)."
+    "description": "Delete a channel, or close a private message. Requires the MANAGE_CHANNELS permission for the guild, or MANAGE_THREADS if the channel is a thread. Deleting a category does not delete its child channels; they will have their parent_id removed and a Channel Update Gateway event will fire for each of them. Returns a channel object on success. Fires a Channel Delete Gateway event (or Thread Delete if the channel was a thread).",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
+    }
   },
   {
     "name": "Get Channel Messages",
@@ -58,64 +148,74 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns the messages for a channel. If operating on a guild channel, this endpoint requires the `VIEW_CHANNEL` permission to be present on the current user. If the current user is missing the 'READ_MESSAGE_HISTORY' permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of [message](#DOCS_RESOURCES_CHANNEL/message-object) objects on success.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "around",
-        "description": "get messages around this message ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "before",
-        "description": "get messages before this message ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "after",
-        "description": "get messages after this message ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "max number of messages to return (1-100)",
-        "deprecated": false
-      }
-    ]
+    "description": "Returns the messages for a channel. If operating on a guild channel, this endpoint requires the VIEW_CHANNEL permission to be present on the current user. If the current user is missing the 'READ_MESSAGE_HISTORY' permission in the channel then this will return no messages (since they cannot read the message history). Returns an array of message objects on success.",
+    "response": {
+      "array": true,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "message-object"
+    },
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "around",
+          "description": "get messages around this message ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "before",
+          "description": "get messages before this message ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "after",
+          "description": "get messages after this message ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "max number of messages to return (1-100)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "Get Channel Message",
@@ -124,14 +224,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object on success."
+    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success."
   },
   {
     "name": "Create Message",
@@ -140,161 +240,177 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Post a message to a guild text or DM channel. Returns a message object. Fires a Message Create Gateway event. See message formatting for more information on how to properly format messages.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "message-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "message-object"
     },
-    "description": "Post a message to a guild text or DM channel. Returns a [message](#DOCS_RESOURCES_CHANNEL/message-object) object. Fires a [Message Create](#DOCS_TOPICS_GATEWAY/message-create) Gateway event. See [message formatting](#DOCS_REFERENCE/message-formatting) for more information on how to properly format messages.",
     "request": {
       "json": true,
       "form": true,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "content",
           "description": "the message contents (up to 2000 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "boolean"
-          ],
           "name": "tts",
           "description": "true if this is a TTS message",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "embed-object",
           "name": "embeds",
-          "description": "embedded `rich` content (up to 6000 characters)",
-          "deprecated": false
+          "description": "embedded rich content (up to 6000 characters)",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "embed-object"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "embed-object",
           "name": "embed",
-          "description": "embedded `rich` content, deprecated in favor of `embeds`",
-          "deprecated": true
+          "description": "embedded rich content, deprecated in favor of embeds",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "embed-object"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "allowed-mentions-object",
           "name": "allowed_mentions",
           "description": "allowed mentions for the message",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "allowed-mentions-object"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "message-reference-object-message-reference-structure",
           "name": "message_reference",
           "description": "include to make your message a reply",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "message-reference-object-message-reference-structure"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "component-object",
           "name": "components",
           "description": "the components to include with the message",
-          "deprecated": false
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "component-object"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "sticker_ids",
-          "description": "IDs of up to 3 [stickers](#DOCS_RESOURCES_STICKER/sticker-object) in the server to send in the message",
-          "deprecated": false
+          "description": "IDs of up to 3 stickers in the server to send in the message",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": "any",
-          "name": "files[n]",
+          "name": "files",
           "description": "the contents of the file being sent",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "any"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "payload_json",
           "description": "JSON encoded body of non-file params",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": true,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "attachment-object",
           "name": "attachments",
           "description": "attachment objects with filename and description",
-          "deprecated": false
+          "type": {
+            "array": true,
+            "partial": true,
+            "deprecated": false,
+            "type": "reference",
+            "link": "attachment-object"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "message-object-message-flags",
           "name": "flags",
-          "description": "[message flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) combined as a [bitfield](https://en.wikipedia.org/wiki/Bit_field) (only `SUPPRESS_EMBEDS` can be set)",
-          "deprecated": false
+          "description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "message-object-message-flags"
+          },
+          "optional": true,
+          "nullable": false
         }
       ]
     }
@@ -306,21 +422,20 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
     "description": "Crosspost a message in a News Channel to following channels. This endpoint requires the 'SEND_MESSAGES' permission, if the current user sent the message, or additionally the 'MANAGE_MESSAGES' permission, for all other messages, to be present for the current user.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "message-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "message-object"
     }
   },
   {
@@ -330,18 +445,18 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       },
       {
         "name": "emoji",
-        "anchor": "emoji-object"
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success.\nThe `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id."
+    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
     "name": "Delete Own Reaction",
@@ -350,18 +465,18 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       },
       {
         "name": "emoji",
-        "anchor": "emoji-object"
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success.\nThe `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id."
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
     "name": "Delete User Reaction",
@@ -370,22 +485,22 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       },
       {
         "name": "emoji",
-        "anchor": "emoji-object"
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success.\nThe `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id."
+    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
     "name": "Get Reactions",
@@ -394,54 +509,56 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       },
       {
         "name": "emoji",
-        "anchor": "emoji-object"
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
+    "description": "Get a list of users that reacted with this emoji. Returns an array of user objects on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "user-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "user-object"
     },
-    "description": "Get a list of users that reacted with this emoji. Returns an array of [user](#DOCS_RESOURCES_USER/user-object) objects on success.\nThe `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "after",
-        "description": "get users after this user ID",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "max number of users to return (1-100)",
-        "deprecated": false
-      }
-    ]
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "after",
+          "description": "get users after this user ID",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "max number of users to return (1-100)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "Delete All Reactions",
@@ -450,14 +567,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a [Message Reaction Remove All](#DOCS_TOPICS_GATEWAY/message-reaction-remove-all) Gateway event."
+    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
   },
   {
     "name": "Delete All Reactions for Emoji",
@@ -466,18 +583,18 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       },
       {
         "name": "emoji",
-        "anchor": "emoji-object"
+        "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the `MANAGE_MESSAGES` permission to be present on the current user. Fires a [Message Reaction Remove Emoji](#DOCS_TOPICS_GATEWAY/message-reaction-remove-emoji) Gateway event.\nThe `emoji` must be [URL Encoded](https://en.wikipedia.org/wiki/Percent-encoding) or the request will fail with `10014: Unknown Emoji`. To use custom emoji, you must encode it in the format `name:id` with the emoji name and emoji id."
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
     "name": "Edit Message",
@@ -486,130 +603,142 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Edit a previously sent message. The fields `content`, `embeds`, and `flags` can be edited by the original message author. Other users can only edit `flags` and only if they have the `MANAGE_MESSAGES` permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only `flags` documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).",
+    "description": "Edit a previously sent message. The fields content , embeds , and flags can be edited by the original message author. Other users can only edit flags and only if they have the MANAGE_MESSAGES permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only flags documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "message-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "message-object"
     },
     "request": {
       "json": true,
       "form": true,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "content",
           "description": "the message contents (up to 2000 characters)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "embed-object",
           "name": "embeds",
-          "description": "embedded `rich` content (up to 6000 characters)",
-          "deprecated": false
+          "description": "embedded rich content (up to 6000 characters)",
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "embed-object"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "embed-object",
           "name": "embed",
-          "description": "embedded `rich` content, deprecated in favor of `embeds`",
-          "deprecated": true
+          "description": "embedded rich content, deprecated in favor of embeds",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "embed-object"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "flags",
-          "description": "edit the [flags](#DOCS_RESOURCES_CHANNEL/message-object-message-flags) of a message (only `SUPPRESS_EMBEDS` can currently be set/unset)",
-          "deprecated": false
+          "description": "edit the flags of a message (only SUPPRESS_EMBEDS can currently be set/unset)",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": true,
-          "value": "allowed-mentions-object",
           "name": "allowed_mentions",
           "description": "allowed mentions for the message",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "allowed-mentions-object"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "component-object",
           "name": "components",
           "description": "the components to include with the message",
-          "deprecated": false
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "component-object"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": "any",
-          "name": "files[n]",
+          "name": "files",
           "description": "the contents of the file being sent/edited",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "any"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "payload_json",
           "description": "JSON encoded body of non-file params (multipart/form-data only)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": true,
-          "reference": true,
-          "value": "attachment-object",
           "name": "attachments",
           "description": "attached files to keep and possible descriptions for new files",
-          "deprecated": false
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "attachment-object"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -621,14 +750,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete](#DOCS_TOPICS_GATEWAY/message-delete) Gateway event."
+    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event."
   },
   {
     "name": "Bulk Delete Messages",
@@ -637,26 +766,27 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success. Fires a [Message Delete Bulk](#DOCS_TOPICS_GATEWAY/message-delete-bulk) Gateway event.",
+    "description": "Delete multiple messages in a single request. This endpoint can only be used on guild channels and requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Bulk Gateway event.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": true,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "messages",
           "description": " message ids to delete (2-100)",
-          "deprecated": false
+          "type": {
+            "array": true,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -668,56 +798,57 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "overwrite.id",
-        "anchor": "overwrite-object"
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
       }
     ],
-    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a `MANAGE_ROLES` overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see [permissions](#DOCS_TOPICS_PERMISSIONS/permissions).",
+    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions .",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "allow",
-          "description": "the bitwise value of all allowed permissions (default `\"0\"`)",
-          "deprecated": false
-        },
-        {
-          "partial": false,
+          "description": "the bitwise value of all allowed permissions (default \"0\" )",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
           "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
-          "name": "deny",
-          "description": "the bitwise value of all disallowed permissions (default `\"0\"`)",
-          "deprecated": false
+          "nullable": true
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
+          "name": "deny",
+          "description": "the bitwise value of all disallowed permissions (default \"0\" )",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": true,
+          "nullable": true
+        },
+        {
           "name": "type",
           "description": "0 for a role or 1 for a member",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -729,18 +860,17 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Returns a list of invite objects (with invite metadata ) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "invite-object"
-    },
-    "description": "Returns a list of [invite](#DOCS_RESOURCES_INVITE/invite-object) objects (with [invite metadata](#DOCS_RESOURCES_INVITE/invite-metadata-object)) for the channel. Only usable for guild channels. Requires the `MANAGE_CHANNELS` permission."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "invite-object"
+    }
   },
   {
     "name": "Create Channel Invite",
@@ -749,104 +879,112 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Create a new [invite](#DOCS_RESOURCES_INVITE/invite-object) object for the channel. Only usable for guild channels. Requires the `CREATE_INSTANT_INVITE` permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object (`{}`). Returns an [invite](#DOCS_RESOURCES_INVITE/invite-object) object. Fires an [Invite Create](#DOCS_TOPICS_GATEWAY/invite-create) Gateway event.",
+    "description": "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ( {} ). Returns an invite object. Fires an Invite Create Gateway event.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "invite-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "max_age",
           "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "max_uses",
           "description": "max number of uses or 0 for unlimited. between 0 and 100",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "boolean"
-          ],
           "name": "temporary",
           "description": "whether this invite only grants temporary membership",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "boolean"
-          ],
           "name": "unique",
           "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "target_type",
-          "description": "the [type of target](#DOCS_RESOURCES_INVITE/invite-object-invite-target-types) for this voice channel invite",
-          "deprecated": false
+          "description": "the type of target for this voice channel invite",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "target_user_id",
-          "description": "the id of the user whose stream to display for this invite, required if `target_type` is 1, the user must be streaming in the channel",
-          "deprecated": false
+          "description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "target_application_id",
-          "description": "the id of the embedded application to open for this invite, required if `target_type` is 2, the application must have the `EMBEDDED` flag",
-          "deprecated": false
+          "description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -858,14 +996,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "overwrite.id",
-        "anchor": "overwrite-object"
+        "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
       }
     ],
-    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the `MANAGE_ROLES` permission. Returns a 204 empty response on success. For more information about permissions, see [permissions](#DOCS_TOPICS_PERMISSIONS/permissions)"
+    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
   },
   {
     "name": "Follow News Channel",
@@ -874,26 +1012,34 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Follow a News Channel to send messages to a target channel. Requires the `MANAGE_WEBHOOKS` permission in the target channel. Returns a [followed channel](#DOCS_RESOURCES_CHANNEL/followed-channel-object) object.",
+    "description": "Follow a News Channel to send messages to a target channel. Requires the MANAGE_WEBHOOKS permission in the target channel. Returns a followed channel object.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "followed-channel-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "snowflake"
-          ],
           "name": "webhook_channel_id",
           "description": "id of target channel",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -905,10 +1051,10 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Post a typing indicator for the specified channel. Generally bots should **not** implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a [Typing Start](#DOCS_TOPICS_GATEWAY/typing-start) Gateway event."
+    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
   },
   {
     "name": "Get Pinned Messages",
@@ -917,18 +1063,17 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Returns all pinned messages in the channel as an array of message objects.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "message-object"
-    },
-    "description": "Returns all pinned messages in the channel as an array of [message](#DOCS_RESOURCES_CHANNEL/message-object) objects."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "message-object"
+    }
   },
   {
     "name": "Pin Message",
@@ -937,14 +1082,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Pin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success."
+    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
   },
   {
     "name": "Unpin Message",
@@ -953,14 +1098,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Unpin a message in a channel. Requires the `MANAGE_MESSAGES` permission. Returns a 204 empty response on success."
+    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
   },
   {
     "name": "Group DM Add Recipient",
@@ -969,43 +1114,44 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
     "description": "Adds a recipient to a Group DM using their access token.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "access_token",
-          "description": "access token of a user that has granted your app the `gdm.join` scope",
-          "deprecated": false
+          "description": "access token of a user that has granted your app the gdm.join scope",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "nick",
           "description": "nickname of the user being added",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         }
       ]
     }
@@ -1017,11 +1163,11 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
     "description": "Removes a recipient from a Group DM."
@@ -1033,64 +1179,64 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "message.id",
-        "anchor": "message-object"
+        "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
+    "description": "Creates a new thread from an existing message. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
     },
-    "description": "Creates a new thread from an existing message. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](#DOCS_TOPICS_GATEWAY/thread-create) Gateway event.",
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "1-100 character channel name",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "auto_archive_duration",
           "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "rate_limit_per_user",
           "description": "amount of seconds a user has to wait before sending another message (0-21600)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": true
         }
       ]
     }
@@ -1102,78 +1248,86 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Creates a new thread that is not connected to an existing message. The created thread defaults to a `GUILD_PRIVATE_THREAD`\\*. Returns a [channel](#DOCS_RESOURCES_CHANNEL/channel-object) on success, and a 400 BAD REQUEST on invalid parameters. Fires a [Thread Create](#DOCS_TOPICS_GATEWAY/thread-create) Gateway event.",
+    "description": "Creates a new thread that is not connected to an existing message. The created thread defaults to a GUILD_PRIVATE_THREAD * . Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object"
+    },
     "request": {
       "json": true,
       "form": false,
-      "params": [
+      "type": "structure",
+      "properties": [
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "string"
-          ],
           "name": "name",
           "description": "1-100 character channel name",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "auto_archive_duration",
           "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
-          "deprecated": false
-        },
-        {
-          "partial": false,
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
           "optional": false,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
-          "name": "type",
-          "description": "the [type of thread](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) to create",
-          "deprecated": false
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": false,
-          "array": false,
-          "reference": false,
-          "value": [
-            "boolean"
-          ],
+          "name": "type",
+          "description": "the type of thread to create",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
           "name": "invitable",
           "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "boolean"
+          },
+          "optional": true,
+          "nullable": false
         },
         {
-          "partial": false,
-          "optional": true,
-          "nullable": true,
-          "array": false,
-          "reference": false,
-          "value": [
-            "integer"
-          ],
           "name": "rate_limit_per_user",
           "description": "amount of seconds a user has to wait before sending another message (0-21600)",
-          "deprecated": false
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": true
         }
       ]
     }
@@ -1185,10 +1339,10 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event."
+    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
     "name": "Add Thread Member",
@@ -1197,14 +1351,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event."
+    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
   },
   {
     "name": "Leave Thread",
@@ -1213,10 +1367,10 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event."
+    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
     "name": "Remove Thread Member",
@@ -1225,14 +1379,14 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes another member from a thread. Requires the `MANAGE_THREADS` permission, or the creator of the thread if it is a `GUILD_PRIVATE_THREAD`. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a [Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update) Gateway event."
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
     "name": "Get Thread Member",
@@ -1241,22 +1395,21 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       },
       {
         "name": "user.id",
-        "anchor": "user-object"
+        "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
+    "description": "Returns a thread member object for the specified user if they are a member of the thread, returns a 404 response otherwise.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "thread-member-object"
-    },
-    "description": "Returns a [thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) object for the specified user if they are a member of the thread, returns a 404 response otherwise."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "thread-member-object"
+    }
   },
   {
     "name": "List Thread Members",
@@ -1265,18 +1418,17 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Returns array of thread members objects that are members of the thread.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": true,
-      "value": "thread-member-object"
-    },
-    "description": "Returns array of [thread members](#DOCS_RESOURCES_CHANNEL/thread-member-object) objects that are members of the thread."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "thread-member-object"
+    }
   },
   {
     "name": "List Active Threads",
@@ -1285,10 +1437,10 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their `id`, in descending order."
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id , in descending order."
   },
   {
     "name": "List Public Archived Threads",
@@ -1297,38 +1449,48 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns archived threads in the channel that are public. When called on a `GUILD_TEXT` channel, returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PUBLIC_THREAD`. When called on a `GUILD_NEWS` channel returns threads of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_NEWS_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
-        "name": "before",
-        "description": "returns threads before this timestamp",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "optional maximum number of threads to return",
-        "deprecated": false
-      }
-    ]
+    "description": "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD . When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD . Threads are ordered by archive_timestamp , in descending order. Requires the READ_MESSAGE_HISTORY permission.",
+    "response": {
+      "array": false,
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object-channel-types"
+    },
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "before",
+          "description": "returns threads before this timestamp",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "ISO8601 timestamp"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "optional maximum number of threads to return",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "List Private Archived Threads",
@@ -1337,46 +1499,48 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD . Threads are ordered by archive_timestamp , in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object-channel-types"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object-channel-types"
     },
-    "description": "Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`. Threads are ordered by `archive_timestamp`, in descending order. Requires both the `READ_MESSAGE_HISTORY` and `MANAGE_THREADS` permissions.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "ISO8601 timestamp"
-        ],
-        "name": "before",
-        "description": "returns threads before this timestamp",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "optional maximum number of threads to return",
-        "deprecated": false
-      }
-    ]
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "before",
+          "description": "returns threads before this timestamp",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "ISO8601 timestamp"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "optional maximum number of threads to return",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   },
   {
     "name": "List Joined Private Archived Threads",
@@ -1385,45 +1549,47 @@
     "params": [
       {
         "name": "channel.id",
-        "anchor": "channel-object"
+        "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD , and the user has joined. Threads are ordered by their id , in descending order. Requires the READ_MESSAGE_HISTORY permission.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "channel-object-channel-types"
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "channel-object-channel-types"
     },
-    "description": "Returns archived threads in the channel that are of [type](#DOCS_RESOURCES_CHANNEL/channel-object-channel-types) `GUILD_PRIVATE_THREAD`, and the user has joined. Threads are ordered by their `id`, in descending order. Requires the `READ_MESSAGE_HISTORY` permission.",
-    "query": [
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "snowflake"
-        ],
-        "name": "before",
-        "description": "returns threads before this id",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": true,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "limit",
-        "description": "optional maximum number of threads to return",
-        "deprecated": false
-      }
-    ]
+    "query": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "before",
+          "description": "returns threads before this id",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "snowflake"
+          },
+          "optional": true,
+          "nullable": false
+        },
+        {
+          "name": "limit",
+          "description": "optional maximum number of threads to return",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": true,
+          "nullable": false
+        }
+      ]
+    }
   }
 ]

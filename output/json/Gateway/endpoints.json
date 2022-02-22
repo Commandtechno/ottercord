@@ -4,60 +4,64 @@
     "method": "GET",
     "path": "/gateway",
     "params": [],
+    "description": "Returns an object with a single valid WSS URL, which the client can use for Connecting . Clients should cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.",
     "response": {
-      "reference": true,
-      "partial": false,
-      "optional": false,
-      "nullable": false,
       "array": false,
-      "value": "connecting"
-    },
-    "description": "Returns an object with a single valid WSS URL, which the client can use for [Connecting](#DOCS_TOPICS_GATEWAY/connecting). Clients **should** cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL."
+      "partial": false,
+      "deprecated": false,
+      "type": "reference",
+      "link": "connecting"
+    }
   },
   {
     "name": "Get Gateway Bot",
     "method": "GET",
     "path": "/gateway/bot",
     "params": [],
-    "response": [
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "string"
-        ],
-        "name": "url",
-        "description": "The WSS URL that can be used for connecting to the gateway",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": false,
-        "value": [
-          "integer"
-        ],
-        "name": "shards",
-        "description": "The recommended number of [shards](#DOCS_TOPICS_GATEWAY/sharding) to use when connecting",
-        "deprecated": false
-      },
-      {
-        "partial": false,
-        "optional": false,
-        "nullable": false,
-        "array": false,
-        "reference": true,
-        "value": "session-start-limit-object",
-        "name": "session_start_limit",
-        "description": "Information on the current session start limit",
-        "deprecated": false
-      }
-    ],
-    "description": "Returns an object based on the information in [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), plus additional metadata that can help during the operation of large or [sharded](#DOCS_TOPICS_GATEWAY/sharding) bots. Unlike the [Get Gateway](#DOCS_TOPICS_GATEWAY/get-gateway), this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds."
+    "description": "Returns an object based on the information in Get Gateway , plus additional metadata that can help during the operation of large or sharded bots. Unlike the Get Gateway , this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.",
+    "response": {
+      "type": "structure",
+      "properties": [
+        {
+          "name": "url",
+          "description": "The WSS URL that can be used for connecting to the gateway",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "string"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "shards",
+          "description": "The recommended number of shards to use when connecting",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "value",
+            "value": "integer"
+          },
+          "optional": false,
+          "nullable": false
+        },
+        {
+          "name": "session_start_limit",
+          "description": "Information on the current session start limit",
+          "type": {
+            "array": false,
+            "partial": false,
+            "deprecated": false,
+            "type": "reference",
+            "link": "session-start-limit-object"
+          },
+          "optional": false,
+          "nullable": false
+        }
+      ]
+    }
   }
 ]

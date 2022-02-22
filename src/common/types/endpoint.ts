@@ -1,10 +1,10 @@
-import { Meta, PropertyType, StructureType, Type } from ".";
+import { Meta, StructureType, Type } from ".";
 
 export interface Endpoint extends Meta {
   method: string;
   path: string;
   params: EndpointParam[];
-  query?: PropertyType[];
+  query?: StructureType;
 
   request?: EndpointRequest;
   response?: Type;
