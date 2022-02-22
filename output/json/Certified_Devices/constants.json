@@ -15,7 +15,14 @@
         "value": "json"
       }
     ],
-    "description": "You can send event updates to the following URIs:"
+    "description": "You can send event updates to the following URIs:",
+    "tree": [
+      "certified-devices",
+      "how's-it-work?",
+      "connecting",
+      "connecting-query-string-params",
+      "connecting-http"
+    ]
   },
   {
     "name": "Device Type",

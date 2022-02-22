@@ -57,6 +57,12 @@
         "description": "Sent in response to receiving a heartbeat to acknowledge that it has been received.",
         "value": 11
       }
+    ],
+    "tree": [
+      "opcodes-and-status-codes",
+      "gateway",
+      "gateway-gateway-opcodes",
+      "gateway-gateway-close-event-codes"
     ]
   },
   {
@@ -133,7 +139,11 @@
         "value": "You sent a disallowed intent for a [Gateway Intent](#DOCS_TOPICS_GATEWAY/gateway-intents). You may have tried to specify an intent that you [have not enabled or are not approved for](#DOCS_TOPICS_GATEWAY/privileged-intents)."
       }
     ],
-    "description": "Our voice gateways have their own set of opcodes and close codes."
+    "description": "Our voice gateways have their own set of opcodes and close codes.",
+    "tree": [
+      "voice",
+      "voice-voice-opcodes"
+    ]
   },
   {
     "name": "Voice Opcodes",
@@ -193,6 +203,9 @@
         "description": "A client has disconnected from the voice channel",
         "value": 13
       }
+    ],
+    "tree": [
+      "voice-voice-close-event-codes"
     ]
   },
   {
@@ -259,7 +272,11 @@
         "value": "We didn't recognize your [encryption](#DOCS_TOPICS_VOICE_CONNECTIONS/encrypting-and-sending-voice)."
       }
     ],
-    "description": "Our API will return semantically valid HTTP response codes based on the success of your request. The following table can be used as a reference for response codes it will return."
+    "description": "Our API will return semantically valid HTTP response codes based on the success of your request. The following table can be used as a reference for response codes it will return.",
+    "tree": [
+      "http",
+      "http-http-response-codes"
+    ]
   },
   {
     "name": "HTTP Response Codes",
@@ -313,7 +330,611 @@
         "value": "The server had an error processing your request (these are rare)."
       }
     ],
-    "description": "Along with the HTTP error code, our API can also return more detailed error codes through a `code` key in the JSON error response. The response will also contain a `message` key containing a more friendly error string. Some of these errors may include additional details in the form of [Error Messages](#DOCS_REFERENCE/error-messages) provided by an `errors` object."
+    "description": "Along with the HTTP error code, our API can also return more detailed error codes through a `code` key in the JSON error response. The response will also contain a `message` key containing a more friendly error string. Some of these errors may include additional details in the form of [Error Messages](#DOCS_REFERENCE/error-messages) provided by an `errors` object.",
+    "tree": [
+      "json",
+      "json-json-error-codes"
+    ]
+  },
+  {
+    "name": "JSON Error Codes",
+    "properties": [
+      {
+        "name": "0",
+        "value": "General error (such as a malformed request body, amongst other things)"
+      },
+      {
+        "name": "10001",
+        "value": "Unknown account"
+      },
+      {
+        "name": "10002",
+        "value": "Unknown application"
+      },
+      {
+        "name": "10003",
+        "value": "Unknown channel"
+      },
+      {
+        "name": "10004",
+        "value": "Unknown guild"
+      },
+      {
+        "name": "10005",
+        "value": "Unknown integration"
+      },
+      {
+        "name": "10006",
+        "value": "Unknown invite"
+      },
+      {
+        "name": "10007",
+        "value": "Unknown member"
+      },
+      {
+        "name": "10008",
+        "value": "Unknown message"
+      },
+      {
+        "name": "10009",
+        "value": "Unknown permission overwrite"
+      },
+      {
+        "name": "10010",
+        "value": "Unknown provider"
+      },
+      {
+        "name": "10011",
+        "value": "Unknown role"
+      },
+      {
+        "name": "10012",
+        "value": "Unknown token"
+      },
+      {
+        "name": "10013",
+        "value": "Unknown user"
+      },
+      {
+        "name": "10014",
+        "value": "Unknown emoji"
+      },
+      {
+        "name": "10015",
+        "value": "Unknown webhook"
+      },
+      {
+        "name": "10016",
+        "value": "Unknown webhook service"
+      },
+      {
+        "name": "10020",
+        "value": "Unknown session"
+      },
+      {
+        "name": "10026",
+        "value": "Unknown ban"
+      },
+      {
+        "name": "10027",
+        "value": "Unknown SKU"
+      },
+      {
+        "name": "10028",
+        "value": "Unknown Store Listing"
+      },
+      {
+        "name": "10029",
+        "value": "Unknown entitlement"
+      },
+      {
+        "name": "10030",
+        "value": "Unknown build"
+      },
+      {
+        "name": "10031",
+        "value": "Unknown lobby"
+      },
+      {
+        "name": "10032",
+        "value": "Unknown branch"
+      },
+      {
+        "name": "10033",
+        "value": "Unknown store directory layout"
+      },
+      {
+        "name": "10036",
+        "value": "Unknown redistributable"
+      },
+      {
+        "name": "10038",
+        "value": "Unknown gift code"
+      },
+      {
+        "name": "10049",
+        "value": "Unknown stream"
+      },
+      {
+        "name": "10050",
+        "value": "Unknown premium server subscribe cooldown"
+      },
+      {
+        "name": "10057",
+        "value": "Unknown guild template"
+      },
+      {
+        "name": "10059",
+        "value": "Unknown discoverable server category"
+      },
+      {
+        "name": "10060",
+        "value": "Unknown sticker"
+      },
+      {
+        "name": "10062",
+        "value": "Unknown interaction"
+      },
+      {
+        "name": "10063",
+        "value": "Unknown application command"
+      },
+      {
+        "name": "10066",
+        "value": "Unknown application command permissions"
+      },
+      {
+        "name": "10067",
+        "value": "Unknown Stage Instance"
+      },
+      {
+        "name": "10068",
+        "value": "Unknown Guild Member Verification Form"
+      },
+      {
+        "name": "10069",
+        "value": "Unknown Guild Welcome Screen"
+      },
+      {
+        "name": "10070",
+        "value": "Unknown Guild Scheduled Event"
+      },
+      {
+        "name": "10071",
+        "value": "Unknown Guild Scheduled Event User"
+      },
+      {
+        "name": "20001",
+        "value": "Bots cannot use this endpoint"
+      },
+      {
+        "name": "20002",
+        "value": "Only bots can use this endpoint"
+      },
+      {
+        "name": "20009",
+        "value": "Explicit content cannot be sent to the desired recipient(s)"
+      },
+      {
+        "name": "20012",
+        "value": "You are not authorized to perform this action on this application"
+      },
+      {
+        "name": "20016",
+        "value": "This action cannot be performed due to slowmode rate limit"
+      },
+      {
+        "name": "20018",
+        "value": "Only the owner of this account can perform this action"
+      },
+      {
+        "name": "20022",
+        "value": "This message cannot be edited due to announcement rate limits"
+      },
+      {
+        "name": "20028",
+        "value": "The channel you are writing has hit the write rate limit"
+      },
+      {
+        "name": "20029",
+        "value": "The write action you are performing on the server has hit the write rate limit"
+      },
+      {
+        "name": "20031",
+        "value": "Your Stage topic, server name, server description, or channel names contain words that are not allowed"
+      },
+      {
+        "name": "20035",
+        "value": "Guild premium subscription level too low"
+      },
+      {
+        "name": "30001",
+        "value": "Maximum number of guilds reached (100)"
+      },
+      {
+        "name": "30002",
+        "value": "Maximum number of friends reached (1000)"
+      },
+      {
+        "name": "30003",
+        "value": "Maximum number of pins reached for the channel (50)"
+      },
+      {
+        "name": "30004",
+        "value": "Maximum number of recipients reached (10)"
+      },
+      {
+        "name": "30005",
+        "value": "Maximum number of guild roles reached (250)"
+      },
+      {
+        "name": "30007",
+        "value": "Maximum number of webhooks reached (10)"
+      },
+      {
+        "name": "30008",
+        "value": "Maximum number of emojis reached"
+      },
+      {
+        "name": "30010",
+        "value": "Maximum number of reactions reached (20)"
+      },
+      {
+        "name": "30013",
+        "value": "Maximum number of guild channels reached (500)"
+      },
+      {
+        "name": "30015",
+        "value": "Maximum number of attachments in a message reached (10)"
+      },
+      {
+        "name": "30016",
+        "value": "Maximum number of invites reached (1000)"
+      },
+      {
+        "name": "30018",
+        "value": "Maximum number of animated emojis reached"
+      },
+      {
+        "name": "30019",
+        "value": "Maximum number of server members reached"
+      },
+      {
+        "name": "30030",
+        "value": "Maximum number of server categories has been reached (5)"
+      },
+      {
+        "name": "30031",
+        "value": "Guild already has a template"
+      },
+      {
+        "name": "30033",
+        "value": "Max number of thread participants has been reached (1000)"
+      },
+      {
+        "name": "30035",
+        "value": "Maximum number of bans for non-guild members have been exceeded"
+      },
+      {
+        "name": "30037",
+        "value": "Maximum number of bans fetches has been reached"
+      },
+      {
+        "name": "30038",
+        "value": "Maximum number of uncompleted guild scheduled events reached (100)"
+      },
+      {
+        "name": "30039",
+        "value": "Maximum number of stickers reached"
+      },
+      {
+        "name": "30040",
+        "value": "Maximum number of prune requests has been reached. Try again later"
+      },
+      {
+        "name": "30042",
+        "value": "Maximum number of guild widget settings updates has been reached. Try again later"
+      },
+      {
+        "name": "30046",
+        "value": "Maximum number of edits to messages older than 1 hour reached. Try again later"
+      },
+      {
+        "name": "40001",
+        "value": "Unauthorized. Provide a valid token and try again"
+      },
+      {
+        "name": "40002",
+        "value": "You need to verify your account in order to perform this action"
+      },
+      {
+        "name": "40003",
+        "value": "You are opening direct messages too fast"
+      },
+      {
+        "name": "40005",
+        "value": "Request entity too large. Try sending something smaller in size"
+      },
+      {
+        "name": "40006",
+        "value": "This feature has been temporarily disabled server-side"
+      },
+      {
+        "name": "40007",
+        "value": "The user is banned from this guild"
+      },
+      {
+        "name": "40032",
+        "value": "Target user is not connected to voice"
+      },
+      {
+        "name": "40033",
+        "value": "This message has already been crossposted"
+      },
+      {
+        "name": "40041",
+        "value": "An application command with that name already exists"
+      },
+      {
+        "name": "50001",
+        "value": "Missing access"
+      },
+      {
+        "name": "50002",
+        "value": "Invalid account type"
+      },
+      {
+        "name": "50003",
+        "value": "Cannot execute action on a DM channel"
+      },
+      {
+        "name": "50004",
+        "value": "Guild widget disabled"
+      },
+      {
+        "name": "50005",
+        "value": "Cannot edit a message authored by another user"
+      },
+      {
+        "name": "50006",
+        "value": "Cannot send an empty message"
+      },
+      {
+        "name": "50007",
+        "value": "Cannot send messages to this user"
+      },
+      {
+        "name": "50008",
+        "value": "Cannot send messages in a voice channel"
+      },
+      {
+        "name": "50009",
+        "value": "Channel verification level is too high for you to gain access"
+      },
+      {
+        "name": "50010",
+        "value": "OAuth2 application does not have a bot"
+      },
+      {
+        "name": "50011",
+        "value": "OAuth2 application limit reached"
+      },
+      {
+        "name": "50012",
+        "value": "Invalid OAuth2 state"
+      },
+      {
+        "name": "50013",
+        "value": "You lack permissions to perform that action"
+      },
+      {
+        "name": "50014",
+        "value": "Invalid authentication token provided"
+      },
+      {
+        "name": "50015",
+        "value": "Note was too long"
+      },
+      {
+        "name": "50016",
+        "value": "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete"
+      },
+      {
+        "name": "50019",
+        "value": "A message can only be pinned to the channel it was sent in"
+      },
+      {
+        "name": "50020",
+        "value": "Invite code was either invalid or taken"
+      },
+      {
+        "name": "50021",
+        "value": "Cannot execute action on a system message"
+      },
+      {
+        "name": "50024",
+        "value": "Cannot execute action on this channel type"
+      },
+      {
+        "name": "50025",
+        "value": "Invalid OAuth2 access token provided"
+      },
+      {
+        "name": "50026",
+        "value": "Missing required OAuth2 scope"
+      },
+      {
+        "name": "50027",
+        "value": "Invalid webhook token provided"
+      },
+      {
+        "name": "50028",
+        "value": "Invalid role"
+      },
+      {
+        "name": "50033",
+        "value": "Invalid Recipient(s)"
+      },
+      {
+        "name": "50034",
+        "value": "A message provided was too old to bulk delete"
+      },
+      {
+        "name": "50035",
+        "value": "Invalid form body (returned for both `application/json` and `multipart/form-data` bodies), or invalid `Content-Type` provided"
+      },
+      {
+        "name": "50036",
+        "value": "An invite was accepted to a guild the application's bot is not in"
+      },
+      {
+        "name": "50041",
+        "value": "Invalid API version provided"
+      },
+      {
+        "name": "50045",
+        "value": "File uploaded exceeds the maximum size"
+      },
+      {
+        "name": "50046",
+        "value": "Invalid file uploaded"
+      },
+      {
+        "name": "50054",
+        "value": "Cannot self-redeem this gift"
+      },
+      {
+        "name": "50055",
+        "value": "Invalid Guild"
+      },
+      {
+        "name": "50068",
+        "value": "Invalid message type"
+      },
+      {
+        "name": "50070",
+        "value": "Payment source required to redeem gift"
+      },
+      {
+        "name": "50074",
+        "value": "Cannot delete a channel required for Community guilds"
+      },
+      {
+        "name": "50081",
+        "value": "Invalid sticker sent"
+      },
+      {
+        "name": "50083",
+        "value": "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread"
+      },
+      {
+        "name": "50084",
+        "value": "Invalid thread notification settings"
+      },
+      {
+        "name": "50085",
+        "value": "`before` value is earlier than the thread creation date"
+      },
+      {
+        "name": "50086",
+        "value": "Community server channels must be text channels"
+      },
+      {
+        "name": "50095",
+        "value": "This server is not available in your location"
+      },
+      {
+        "name": "50097",
+        "value": "This server needs monetization enabled in order to perform this action"
+      },
+      {
+        "name": "50101",
+        "value": "This server needs more boosts to perform this action"
+      },
+      {
+        "name": "50109",
+        "value": "The request body contains invalid JSON."
+      },
+      {
+        "name": "60003",
+        "value": "Two factor is required for this operation"
+      },
+      {
+        "name": "80004",
+        "value": "No users with DiscordTag exist"
+      },
+      {
+        "name": "90001",
+        "value": "Reaction was blocked"
+      },
+      {
+        "name": "130000",
+        "value": "API resource is currently overloaded. Try again a little later"
+      },
+      {
+        "name": "150006",
+        "value": "The Stage is already open"
+      },
+      {
+        "name": "160002",
+        "value": "Cannot reply without permission to read message history"
+      },
+      {
+        "name": "160004",
+        "value": "A thread has already been created for this message"
+      },
+      {
+        "name": "160005",
+        "value": "Thread is locked"
+      },
+      {
+        "name": "160006",
+        "value": "Maximum number of active threads reached"
+      },
+      {
+        "name": "160007",
+        "value": "Maximum number of active announcement threads reached"
+      },
+      {
+        "name": "170001",
+        "value": "Invalid JSON for uploaded Lottie file"
+      },
+      {
+        "name": "170002",
+        "value": "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG"
+      },
+      {
+        "name": "170003",
+        "value": "Sticker maximum framerate exceeded"
+      },
+      {
+        "name": "170004",
+        "value": "Sticker frame count exceeds maximum of 1000 frames"
+      },
+      {
+        "name": "170005",
+        "value": "Lottie animation maximum dimensions exceeded"
+      },
+      {
+        "name": "170006",
+        "value": "Sticker frame rate is either too small or too large"
+      },
+      {
+        "name": "170007",
+        "value": "Sticker animation duration exceeds maximum of 5 seconds"
+      },
+      {
+        "name": "180000",
+        "value": "Cannot update a finished event"
+      },
+      {
+        "name": "180002",
+        "value": "Failed to create stage needed for stage event"
+      }
+    ],
+    "tree": [
+      "json-example-json-error-response"
+    ]
   },
   {
     "name": "RPC Error Codes",
@@ -398,6 +1019,11 @@
         "description": "You tried to capture more than one shortcut key at once.",
         "value": 5004
       }
+    ],
+    "tree": [
+      "rpc",
+      "rpc-rpc-error-codes",
+      "rpc-rpc-close-event-codes"
     ]
   },
   {

@@ -158,6 +158,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "sticker-resource",
+      "sticker-object",
+      "sticker-object-sticker-structure",
+      "sticker-object-sticker-types"
     ]
   },
   {
@@ -202,6 +208,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "sticker-item-object",
+      "sticker-item-object-sticker-item-structure",
+      "sticker-pack-object",
+      "sticker-pack-object-sticker-pack-structure"
     ]
   },
   {
@@ -298,10 +310,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "sticker-pack-object-example-sticker-pack"
     ]
-  },
-  {
-    "name": "Example Sticker Pack",
-    "properties": []
   }
 ]

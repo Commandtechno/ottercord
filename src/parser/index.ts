@@ -13,9 +13,6 @@ export async function parse(...pathSegments: string[]) {
   const file = await readFile(path, "utf8");
   const page = marked.lexer(file);
 
-  // let parent = "";
-  // const links: { [key: string]: string } = {};
-
   const endpoints: EndpointEngine[] = [];
   const structures: StructureEngine[] = [];
   const constants: ConstantEngine[] = [];
@@ -24,24 +21,30 @@ export async function parse(...pathSegments: string[]) {
   let structureEngine: StructureEngine;
   let constantEngine: ConstantEngine;
 
+  let parent = "";
+  let tree = [];
   for (const block of page) {
-    // if (block.type === "heading") {
-    //   let link: string;
-    //   const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
+    if (block.type === "heading") {
+      let link: string;
+      const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
+      if (block.depth < 5) {
+        parent = anchor + "-";
+        link = anchor;
+      } else link = parent + anchor;
 
-    //   if (block.depth < 5) {
-    //     parent = anchor + "-";
-    //     link = anchor;
-    //   } else link = parent + anchor;
-
-    //   if (link) links[link] = block.text.replace("Object", "Structure");
-    // }
+      if (link) {
+        tree.push(link);
+      }
+    }
 
     // temporary switch algorithm
 
     try {
       const newEndpointEngine = new EndpointEngine(block);
       if (endpointEngine?.ready) {
+        endpointEngine.tree = tree;
+        tree = [];
+
         endpoints.push(endpointEngine);
 
         // constantEngine = undefined;
@@ -62,6 +65,9 @@ export async function parse(...pathSegments: string[]) {
     try {
       const newStructureEngine = new StructureEngine(block);
       if (structureEngine?.ready) {
+        structureEngine.tree = tree;
+        tree = [];
+
         structures.push(structureEngine);
 
         // constantEngine = undefined;
@@ -82,6 +88,9 @@ export async function parse(...pathSegments: string[]) {
     try {
       const newConstantEngine = new ConstantEngine(block);
       if (constantEngine?.ready) {
+        constantEngine.tree = tree;
+        tree = [];
+
         constants.push(constantEngine);
 
         constantEngine = undefined;
@@ -100,9 +109,9 @@ export async function parse(...pathSegments: string[]) {
     }
   }
 
-  if (endpointEngine) endpoints.push(endpointEngine);
-  if (structureEngine) structures.push(structureEngine);
-  if (constantEngine) constants.push(constantEngine);
+  if (endpointEngine?.ready) endpoints.push(endpointEngine);
+  if (structureEngine?.ready) structures.push(structureEngine);
+  if (constantEngine?.ready) constants.push(constantEngine);
 
   return { endpoints, structures, constants };
 }

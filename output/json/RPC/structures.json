@@ -67,6 +67,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "connecting",
+      "rpc-server-ports",
+      "authenticating",
+      "authenticating-rpc-authorize-example"
     ]
   },
   {
@@ -124,6 +130,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authorize-authorize-response-structure"
     ]
   },
   {
@@ -142,6 +151,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authorize-example-authorize-command-payload"
     ]
   },
   {
@@ -160,6 +172,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authorize-example-authorize-response-payload",
+      "authenticate",
+      "authenticate-authenticate-argument-structure",
+      "authenticate-authenticate-response-structure"
     ]
   },
   {
@@ -217,6 +235,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authenticate-oauth2-application-structure"
     ]
   },
   {
@@ -287,6 +308,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authenticate-example-authenticate-command-payload"
     ]
   },
   {
@@ -305,6 +329,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "authenticate-example-authenticate-response-payload",
+      "get_guilds",
+      "get_guilds-get-guilds-response-structure",
+      "get_guilds-example-get-guilds-command-payload"
     ]
   },
   {
@@ -336,6 +366,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_guilds-example-get-guilds-response-payload",
+      "get_guild",
+      "get_guild-get-guild-argument-structure",
+      "get_guild-get-guild-response-structure"
     ]
   },
   {
@@ -393,6 +429,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_guild-example-get-guild-command-payload"
     ]
   },
   {
@@ -411,6 +450,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_guild-example-get-guild-response-payload",
+      "get_channel",
+      "get_channel-get-channel-argument-structure",
+      "get_channel-get-channel-response-structure"
     ]
   },
   {
@@ -546,6 +591,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_channel-example-get-channel-command-payload"
     ]
   },
   {
@@ -564,6 +612,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_channel-example-get-channel-response-payload",
+      "get_channels",
+      "get_channels-get-channels-argument-structure",
+      "get_channels-get-channels-response-structure"
     ]
   },
   {
@@ -582,6 +636,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_channels-example-get-channels-command-payload"
     ]
   },
   {
@@ -639,6 +696,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_channels-example-get-channels-response-payload",
+      "set_user_voice_settings",
+      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure",
+      "set_user_voice_settings-pan-object"
     ]
   },
   {
@@ -670,6 +733,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-command-payload"
     ]
   },
   {
@@ -714,6 +780,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-response-payload",
+      "select_voice_channel",
+      "select_voice_channel-select-voice-channel-argument-structure",
+      "select_voice_channel-example-select-voice-channel-command-payload"
     ]
   },
   {
@@ -745,6 +817,14 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "select_voice_channel-example-select-voice-channel-response-payload",
+      "get_selected_voice_channel",
+      "select_text_channel",
+      "select_text_channel-select-text-channel-argument-structure",
+      "get_voice_settings",
+      "get_voice_settings-get-voice-settings-response-structure"
     ]
   },
   {
@@ -880,6 +960,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_voice_settings-voice-settings-input-object"
     ]
   },
   {
@@ -924,6 +1007,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_voice_settings-voice-settings-output-object"
     ]
   },
   {
@@ -968,6 +1054,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_voice_settings-voice-settings-mode-object"
     ]
   },
   {
@@ -1038,6 +1127,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_voice_settings-shortcut-key-combo-object"
     ]
   },
   {
@@ -1082,6 +1174,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get_voice_settings-key-types"
     ]
   },
   {
@@ -1217,6 +1312,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_voice_settings",
+      "set_voice_settings-set-voice-settings-argument-and-response-structure",
+      "set_voice_settings-example-set-voice-settings-command-payload"
     ]
   },
   {
@@ -1235,6 +1335,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_voice_settings-example-set-voice-settings-response-payload",
+      "subscribe",
+      "subscribe-subscribe-response-structure",
+      "subscribe-example-subscribe-command-payload"
     ]
   },
   {
@@ -1253,6 +1359,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "subscribe-example-subscribe-response-payload",
+      "unsubscribe",
+      "unsubscribe-unsubscribe-response-structure",
+      "unsubscribe-example-unsubscribe-command-payload"
     ]
   },
   {
@@ -1271,6 +1383,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "unsubscribe-example-unsubscribe-response-payload",
+      "set_certified_devices",
+      "set_certified_devices-set-certified-devices-argument-strucure",
+      "set_certified_devices-device-object"
     ]
   },
   {
@@ -1393,6 +1511,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_certified_devices-vendor-object"
     ]
   },
   {
@@ -1424,6 +1545,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_certified_devices-model-object"
     ]
   },
   {
@@ -1455,6 +1579,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_certified_devices-device-type"
     ]
   },
   {
@@ -1486,6 +1613,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-response-payload",
+      "set_activity",
+      "set_activity-set-activity-argument-structure",
+      "set_activity-example-set-activity-payload"
     ]
   },
   {
@@ -1504,6 +1637,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "send_activity_join_invite",
+      "send_activity_join_invite-send-activity-join-invite-argument-structure",
+      "send_activity_join_invite-example-send-activity-join-invite-payload"
     ]
   },
   {
@@ -1522,6 +1660,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "close_activity_request",
+      "close_activity_request-close-activity-request-argument-structure",
+      "close_activity_request-example-close-activity-request-payload"
     ]
   },
   {
@@ -1566,6 +1709,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "ready",
+      "ready-ready-dispatch-data-structure",
+      "ready-rpc-server-configuration-object"
     ]
   },
   {
@@ -1610,6 +1758,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "ready-example-ready-dispatch-payload"
     ]
   },
   {
@@ -1641,6 +1792,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "error",
+      "error-error-data-structure",
+      "error-example-error-payload"
     ]
   },
   {
@@ -1659,6 +1815,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild_status",
+      "guild_status-guild-status-argument-structure",
+      "guild_status-guild-status-dispatch-data-structure"
     ]
   },
   {
@@ -1690,6 +1851,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild_status-example-guild-status-dispatch-payload"
     ]
   },
   {
@@ -1721,6 +1885,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild_create",
+      "guild_create-guild-create-dispatch-data-structure",
+      "guild_create-example-guild-create-dispatch-payload"
     ]
   },
   {
@@ -1765,6 +1934,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "channel_create",
+      "channel_create-channel-create-dispatch-data-structure",
+      "channel_create-example-channel-create-dispatch-payload"
     ]
   },
   {
@@ -1796,6 +1970,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "voice_channel_select",
+      "voice_channel_select-voice-channel-select-dispatch-data-structure",
+      "voice_channel_select-example-voice-channel-select-dispatch-payload"
     ]
   },
   {
@@ -1814,6 +1993,14 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "voice_settings_update",
+      "voice_settings_update-voice-settings-argument-structure",
+      "voice_settings_update-example-voice-settings-dispatch-payload",
+      "voice_state_create/voice_state_update/voice_state_delete",
+      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure",
+      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload"
     ]
   },
   {
@@ -1884,6 +2071,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "voice_connection_status",
+      "voice_connection_status-voice-connection-status-dispatch-data-structure",
+      "voice_connection_status-voice-connection-states"
     ]
   },
   {
@@ -1902,6 +2094,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message_create/message_update/message_delete",
+      "message_create/message_update/message_delete-message-argument-structure",
+      "message_create/message_update/message_delete-example-message-dispatch-payload"
     ]
   },
   {
@@ -1920,6 +2117,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "speaking_start/speaking_stop",
+      "speaking_start/speaking_stop-speaking-argument-structure",
+      "speaking_start/speaking_stop-speaking-dispatch-data-structure"
     ]
   },
   {
@@ -1938,6 +2140,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "speaking_start/speaking_stop-example-speaking-dispatch-payload"
     ]
   },
   {
@@ -2008,6 +2213,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "notification_create",
+      "notification_create-notification-create-dispatch-data-structure",
+      "notification_create-example-notification-create-dispatch-payload"
     ]
   },
   {
@@ -2026,6 +2236,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity_join",
+      "activity_join-activity-join-dispatch-data-structure",
+      "activity_join-example-activity-join-dispatch-payload"
     ]
   },
   {
@@ -2044,6 +2259,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity_spectate",
+      "activity_spectate-activity-spectate-dispatch-data-structure",
+      "activity_spectate-example-activity-spectate-dispatch-payload"
     ]
   },
   {
@@ -2062,10 +2282,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity_join_request",
+      "activity_join_request-activity-join-request-data-structure",
+      "activity_join_request-example-activity-join-request-dispatch-payload"
     ]
-  },
-  {
-    "name": "Example Activity Join Request Dispatch Payload",
-    "properties": []
   }
 ]

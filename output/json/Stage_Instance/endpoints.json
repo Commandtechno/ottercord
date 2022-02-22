@@ -50,7 +50,14 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "definitions",
+      "auto-closing",
+      "create-stage-instance",
+      "create-stage-instance-json-params",
+      "get-stage-instance"
+    ]
   },
   {
     "name": "Get Stage Instance",
@@ -62,7 +69,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Gets the stage instance associated with the Stage channel, if it exists."
+    "description": "Gets the stage instance associated with the Stage channel, if it exists.",
+    "tree": [
+      "modify-stage-instance"
+    ]
   },
   {
     "name": "Modify Stage Instance",
@@ -107,7 +117,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-stage-instance-json-params",
+      "delete-stage-instance"
+    ]
   },
   {
     "name": "Delete Stage Instance",

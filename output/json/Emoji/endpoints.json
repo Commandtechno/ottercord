@@ -16,7 +16,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "emoji-object"
-    }
+    },
+    "tree": [
+      "emoji-object-gateway-reaction-standard-emoji-example",
+      "emoji-object-gateway-reaction-custom-emoji-examples",
+      "list-guild-emojis",
+      "get-guild-emoji"
+    ]
   },
   {
     "name": "Get Guild Emoji",
@@ -39,7 +45,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "emoji-object"
-    }
+    },
+    "tree": [
+      "create-guild-emoji"
+    ]
   },
   {
     "name": "Create Guild Emoji",
@@ -104,7 +113,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-emoji-json-params",
+      "modify-guild-emoji"
+    ]
   },
   {
     "name": "Modify Guild Emoji",
@@ -160,7 +173,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-emoji-json-params",
+      "delete-guild-emoji"
+    ]
   },
   {
     "name": "Delete Guild Emoji",

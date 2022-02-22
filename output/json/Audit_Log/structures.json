@@ -80,6 +80,13 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "audit-logs-resource",
+      "audit-logs",
+      "audit-log-object",
+      "audit-log-object-audit-log-structure",
+      "audit-log-object-example-partial-integration-object"
     ]
   },
   {
@@ -176,6 +183,11 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "audit-log-entry-object",
+      "audit-log-entry-object-audit-log-entry-structure",
+      "audit-log-entry-object-audit-log-events"
     ]
   },
   {
@@ -285,6 +297,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "audit-log-change-object",
+      "audit-log-change-object-audit-log-change-structure"
     ]
   },
   {
@@ -329,6 +345,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "audit-log-change-object-audit-log-change-key"
     ]
   },
   {
@@ -1244,10 +1263,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "audit-log-change-object-example-partial-role-object"
     ]
-  },
-  {
-    "name": "Example Partial Role Object",
-    "properties": []
   }
 ]

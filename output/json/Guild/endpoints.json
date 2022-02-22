@@ -174,7 +174,15 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "membership-screening-object",
+      "create-guild",
+      "create-guild-json-params",
+      "create-guild-example-partial-channel-object",
+      "create-guild-example-category-channel",
+      "get-guild"
+    ]
   },
   {
     "name": "Get Guild",
@@ -211,7 +219,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-guild-query-string-params",
+      "get-guild-example-response",
+      "get-guild-preview"
+    ]
   },
   {
     "name": "Get Guild Preview",
@@ -230,7 +243,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-preview-object"
-    }
+    },
+    "tree": [
+      "modify-guild"
+    ]
   },
   {
     "name": "Modify Guild",
@@ -516,7 +532,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-json-params",
+      "delete-guild"
+    ]
   },
   {
     "name": "Delete Guild",
@@ -528,7 +548,10 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
+    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event.",
+    "tree": [
+      "get-guild-channels"
+    ]
   },
   {
     "name": "Get Guild Channels",
@@ -547,7 +570,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    }
+    },
+    "tree": [
+      "create-guild-channel"
+    ]
   },
   {
     "name": "Create Guild Channel",
@@ -703,7 +729,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-channel-json-params",
+      "modify-guild-channel-positions"
+    ]
   },
   {
     "name": "Modify Guild Channel Positions",
@@ -774,7 +804,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-channel-positions-json-params",
+      "list-active-threads"
+    ]
   },
   {
     "name": "List Active Threads",
@@ -786,7 +820,11 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id , in descending order."
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id , in descending order.",
+    "tree": [
+      "list-active-threads-response-body",
+      "get-guild-member"
+    ]
   },
   {
     "name": "Get Guild Member",
@@ -809,7 +847,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-member-object"
-    }
+    },
+    "tree": [
+      "list-guild-members"
+    ]
   },
   {
     "name": "List Guild Members",
@@ -859,7 +900,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "list-guild-members-query-string-params",
+      "search-guild-members"
+    ]
   },
   {
     "name": "Search Guild Members",
@@ -909,7 +954,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "search-guild-members-query-string-params",
+      "add-guild-member"
+    ]
   },
   {
     "name": "Add Guild Member",
@@ -1004,7 +1053,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "add-guild-member-json-params",
+      "modify-guild-member"
+    ]
   },
   {
     "name": "Modify Guild Member",
@@ -1112,7 +1165,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-member-json-params",
+      "modify-current-member"
+    ]
   },
   {
     "name": "Modify Current Member",
@@ -1144,7 +1201,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-current-member-json-params",
+      "modify-current-user-nick"
+    ]
   },
   {
     "name": "Modify Current User Nick",
@@ -1176,7 +1237,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-current-user-nick-json-params",
+      "add-guild-member-role"
+    ]
   },
   {
     "name": "Add Guild Member Role",
@@ -1196,7 +1261,10 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Adds a role to a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+    "description": "Adds a role to a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+    "tree": [
+      "remove-guild-member-role"
+    ]
   },
   {
     "name": "Remove Guild Member Role",
@@ -1216,7 +1284,10 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Removes a role from a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
+    "description": "Removes a role from a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+    "tree": [
+      "remove-guild-member"
+    ]
   },
   {
     "name": "Remove Guild Member",
@@ -1232,7 +1303,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event."
+    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event.",
+    "tree": [
+      "get-guild-bans"
+    ]
   },
   {
     "name": "Get Guild Bans",
@@ -1251,7 +1325,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "ban-object"
-    }
+    },
+    "tree": [
+      "get-guild-ban"
+    ]
   },
   {
     "name": "Get Guild Ban",
@@ -1274,7 +1351,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "ban-object"
-    }
+    },
+    "tree": [
+      "create-guild-ban"
+    ]
   },
   {
     "name": "Create Guild Ban",
@@ -1323,7 +1403,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-ban-json-params",
+      "remove-guild-ban"
+    ]
   },
   {
     "name": "Remove Guild Ban",
@@ -1339,7 +1423,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event."
+    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event.",
+    "tree": [
+      "get-guild-roles"
+    ]
   },
   {
     "name": "Get Guild Roles",
@@ -1358,7 +1445,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "role-object"
-    }
+    },
+    "tree": [
+      "create-guild-role"
+    ]
   },
   {
     "name": "Create Guild Role",
@@ -1475,7 +1565,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-role-json-params",
+      "modify-guild-role-positions"
+    ]
   },
   {
     "name": "Modify Guild Role Positions",
@@ -1527,7 +1621,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-role-positions-json-params",
+      "modify-guild-role"
+    ]
   },
   {
     "name": "Modify Guild Role",
@@ -1648,7 +1746,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-role-json-params",
+      "delete-guild-role"
+    ]
   },
   {
     "name": "Delete Guild Role",
@@ -1664,7 +1766,10 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event."
+    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event.",
+    "tree": [
+      "get-guild-prune-count"
+    ]
   },
   {
     "name": "Get Guild Prune Count",
@@ -1707,7 +1812,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-guild-prune-count-query-string-params",
+      "begin-guild-prune"
+    ]
   },
   {
     "name": "Begin Guild Prune",
@@ -1778,7 +1887,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "begin-guild-prune-json-params",
+      "get-guild-voice-regions"
+    ]
   },
   {
     "name": "Get Guild Voice Regions",
@@ -1797,7 +1910,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "voice-region-object"
-    }
+    },
+    "tree": [
+      "get-guild-invites"
+    ]
   },
   {
     "name": "Get Guild Invites",
@@ -1816,7 +1932,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    }
+    },
+    "tree": [
+      "get-guild-integrations"
+    ]
   },
   {
     "name": "Get Guild Integrations",
@@ -1835,7 +1954,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "integration-object"
-    }
+    },
+    "tree": [
+      "delete-guild-integration"
+    ]
   },
   {
     "name": "Delete Guild Integration",
@@ -1851,7 +1973,10 @@
         "link": "DOCS_RESOURCES_GUILD/integration-object"
       }
     ],
-    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event."
+    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
+    "tree": [
+      "get-guild-widget-settings"
+    ]
   },
   {
     "name": "Get Guild Widget Settings",
@@ -1870,7 +1995,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-widget-settings-object"
-    }
+    },
+    "tree": [
+      "modify-guild-widget"
+    ]
   },
   {
     "name": "Modify Guild Widget",
@@ -1889,7 +2017,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-widget-settings-object"
-    }
+    },
+    "tree": [
+      "get-guild-widget"
+    ]
   },
   {
     "name": "Get Guild Widget",
@@ -1908,7 +2039,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "get-guild-widget-object"
-    }
+    },
+    "tree": [
+      "get-guild-vanity-url"
+    ]
   },
   {
     "name": "Get Guild Vanity URL",
@@ -1927,7 +2061,11 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    }
+    },
+    "tree": [
+      "get-guild-vanity-url-example-partial-invite-object",
+      "get-guild-widget-image"
+    ]
   },
   {
     "name": "Get Guild Widget Image",
@@ -1957,7 +2095,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-guild-widget-image-query-string-params",
+      "get-guild-widget-image-widget-style-options",
+      "get-guild-welcome-screen"
+    ]
   },
   {
     "name": "Get Guild Welcome Screen",
@@ -1976,7 +2119,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "welcome-screen-object"
-    }
+    },
+    "tree": [
+      "modify-guild-welcome-screen"
+    ]
   },
   {
     "name": "Modify Guild Welcome Screen",
@@ -2041,7 +2187,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-welcome-screen-json-params",
+      "modify-current-user-voice-state"
+    ]
   },
   {
     "name": "Modify Current User Voice State",
@@ -2099,7 +2249,12 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-current-user-voice-state-json-params",
+      "modify-current-user-voice-state-caveats",
+      "modify-user-voice-state"
+    ]
   },
   {
     "name": "Modify User Voice State",

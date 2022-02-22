@@ -7,6 +7,9 @@
         "description": "the scheduled event is only accessible to guild members",
         "value": 2
       }
+    ],
+    "tree": [
+      "guild-scheduled-event-object-guild-scheduled-event-entity-types"
     ]
   },
   {
@@ -24,6 +27,9 @@
         "name": "EXTERNAL",
         "value": 3
       }
+    ],
+    "tree": [
+      "guild-scheduled-event-object-field-requirements-by-entity-type"
     ]
   },
   {
@@ -42,7 +48,10 @@
         "value": "null"
       }
     ],
-    "description": "\\* `entity_metadata` with a non-null `location` must be provided"
+    "description": "\\* `entity_metadata` with a non-null `location` must be provided",
+    "tree": [
+      "guild-scheduled-event-object-guild-scheduled-event-status"
+    ]
   },
   {
     "name": "Guild Scheduled Event Status",
@@ -64,10 +73,9 @@
         "value": 4
       }
     ],
-    "description": "\\* Once `status` is set to `COMPLETED` or `CANCELED`, the `status` can no longer be updated"
-  },
-  {
-    "name": "Guild Scheduled Event User Structure",
-    "properties": []
+    "description": "\\* Once `status` is set to `COMPLETED` or `CANCELED`, the `status` can no longer be updated",
+    "tree": [
+      "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions"
+    ]
   }
 ]

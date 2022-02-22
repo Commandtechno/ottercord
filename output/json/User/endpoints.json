@@ -11,7 +11,11 @@
       "deprecated": false,
       "type": "reference",
       "link": "user-object"
-    }
+    },
+    "tree": [
+      "get-current-user",
+      "get-user"
+    ]
   },
   {
     "name": "Get User",
@@ -30,7 +34,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "user-object"
-    }
+    },
+    "tree": [
+      "modify-current-user"
+    ]
   },
   {
     "name": "Modify Current User",
@@ -77,7 +84,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-current-user-json-params",
+      "get-current-user-guilds"
+    ]
   },
   {
     "name": "Get Current User Guilds",
@@ -135,7 +146,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-current-user-guilds-example-partial-guild",
+      "get-current-user-guilds-query-string-params",
+      "get-current-user-guild-member"
+    ]
   },
   {
     "name": "Get Current User Guild Member",
@@ -154,7 +170,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-member-object"
-    }
+    },
+    "tree": [
+      "leave-guild"
+    ]
   },
   {
     "name": "Leave Guild",
@@ -166,7 +185,10 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Leave a guild. Returns a 204 empty response on success."
+    "description": "Leave a guild. Returns a 204 empty response on success.",
+    "tree": [
+      "create-dm"
+    ]
   },
   {
     "name": "Create DM",
@@ -200,7 +222,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-dm-json-params",
+      "create-group-dm"
+    ]
   },
   {
     "name": "Create Group DM",
@@ -247,7 +273,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-group-dm-json-params",
+      "get-user-connections"
+    ]
   },
   {
     "name": "Get User Connections",

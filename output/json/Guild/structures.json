@@ -678,6 +678,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-resource",
+      "guild-object",
+      "guild-object-guild-structure",
+      "guild-object-default-message-notification-level"
     ]
   },
   {
@@ -826,6 +832,13 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "unavailable-guild-object",
+      "unavailable-guild-object-example-unavailable-guild",
+      "guild-preview-object",
+      "guild-preview-object-guild-preview-structure",
+      "guild-preview-object-example-guild-preview"
     ]
   },
   {
@@ -857,6 +870,11 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guild-widget-settings-object",
+      "guild-widget-settings-object-guild-widget-settings-structure",
+      "guild-widget-settings-object-example-guild-widget-settings"
     ]
   },
   {
@@ -940,6 +958,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "get-guild-widget-object",
+      "get-guild-widget-object-get-guild-widget-structure",
+      "get-guild-widget-object-example-get-guild-widget"
     ]
   },
   {
@@ -1088,6 +1111,11 @@
         "optional": true,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guild-member-object",
+      "guild-member-object-guild-member-structure",
+      "guild-member-object-example-guild-member"
     ]
   },
   {
@@ -1288,6 +1316,11 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "integration-object",
+      "integration-object-integration-structure",
+      "integration-object-integration-expire-behaviors"
     ]
   },
   {
@@ -1319,6 +1352,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "integration-application-object",
+      "integration-application-object-integration-application-structure"
     ]
   },
   {
@@ -1402,6 +1439,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "ban-object",
+      "ban-object-ban-structure"
     ]
   },
   {
@@ -1433,6 +1474,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "ban-object-example-ban"
     ]
   },
   {
@@ -1464,6 +1508,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "welcome-screen-object",
+      "welcome-screen-object-welcome-screen-structure",
+      "welcome-screen-object-welcome-screen-channel-structure"
     ]
   },
   {
@@ -1521,10 +1570,9 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "welcome-screen-object-example-welcome-screen"
     ]
-  },
-  {
-    "name": "Example Welcome Screen",
-    "properties": []
   }
 ]

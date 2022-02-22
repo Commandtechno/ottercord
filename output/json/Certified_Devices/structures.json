@@ -119,6 +119,21 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "connecting-websocket",
+      "getting-device-uuid",
+      "getting-device-uuid-microphone-id-example",
+      "getting-device-uuid-speaker-id-example",
+      "http-example",
+      "http-example-http-request-example",
+      "http-example-http-response-example",
+      "websocket-example",
+      "websocket-example-rpc-command-example",
+      "websocket-example-rpc-response-example",
+      "models",
+      "models-device-object",
+      "models-vendor-object"
     ]
   },
   {
@@ -150,6 +165,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "models-model-object"
     ]
   },
   {
@@ -181,10 +199,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "models-device-type"
     ]
-  },
-  {
-    "name": "Device Type",
-    "properties": []
   }
 ]

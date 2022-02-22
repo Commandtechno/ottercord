@@ -12,11 +12,9 @@
         "description": "The Stage instance is visible to only guild members.",
         "value": 2
       }
+    ],
+    "tree": [
+      "stage-instance-object-example-stage-instance"
     ]
-  },
-  {
-    "name": "Example Stage Instance",
-    "properties": [],
-    "description": "When a Stage channel has no speakers for a certain period of time (on the order of minutes) it will be automatically deleted."
   }
 ]

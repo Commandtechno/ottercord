@@ -11,7 +11,17 @@
       "deprecated": false,
       "type": "reference",
       "link": "application-object"
-    }
+    },
+    "tree": [
+      "advanced-bot-authorization",
+      "advanced-bot-authorization-extended-bot-authorization-access-token-example",
+      "two-factor-authentication-requirement",
+      "webhooks",
+      "webhooks-url-example",
+      "webhooks-webhook-token-response-example",
+      "get-current-bot-application-information",
+      "get-current-authorization-information"
+    ]
   },
   {
     "name": "Get Current Authorization Information",

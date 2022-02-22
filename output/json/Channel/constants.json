@@ -57,6 +57,9 @@
         "description": "a voice channel for  hosting events with an audience",
         "value": 13
       }
+    ],
+    "tree": [
+      "channel-object-video-quality-modes"
     ]
   },
   {
@@ -72,6 +75,9 @@
         "description": "720p",
         "value": 2
       }
+    ],
+    "tree": [
+      "channel-object-example-guild-text-channel"
     ]
   },
   {
@@ -169,6 +175,9 @@
         "name": "CONTEXT_MENU_COMMAND",
         "value": 23
       }
+    ],
+    "tree": [
+      "message-object-message-activity-structure"
     ]
   },
   {
@@ -190,6 +199,9 @@
         "name": "JOIN_REQUEST",
         "value": 5
       }
+    ],
+    "tree": [
+      "message-object-message-flags"
     ]
   },
   {
@@ -240,6 +252,9 @@
         "description": "this message failed to mention some roles and add their members to the thread",
         "value": 256
       }
+    ],
+    "tree": [
+      "message-object-example-message"
     ]
   },
   {
@@ -276,7 +291,10 @@
         "value": "link"
       }
     ],
-    "description": "Embed types are \"loosely defined\" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version."
+    "description": "Embed types are \"loosely defined\" and, for the most part, are not used by our clients for rendering. Embed attributes power what is rendered. Embed types should be considered deprecated and might be removed in a future API version.",
+    "tree": [
+      "embed-object-embed-thumbnail-structure"
+    ]
   },
   {
     "name": "Allowed Mention Types",
@@ -296,6 +314,9 @@
         "description": "Controls @everyone and @here mentions",
         "value": "\"everyone\""
       }
+    ],
+    "tree": [
+      "allowed-mentions-object-allowed-mentions-structure"
     ]
   },
   {

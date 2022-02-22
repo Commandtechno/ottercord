@@ -49,7 +49,14 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "webhook-object-example-channel-follower-webhook",
+      "webhook-object-example-application-webhook",
+      "create-webhook",
+      "create-webhook-json-params",
+      "get-channel-webhooks"
+    ]
   },
   {
     "name": "Get Channel Webhooks",
@@ -68,7 +75,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    }
+    },
+    "tree": [
+      "get-guild-webhooks"
+    ]
   },
   {
     "name": "Get Guild Webhooks",
@@ -87,7 +97,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    }
+    },
+    "tree": [
+      "get-webhook"
+    ]
   },
   {
     "name": "Get Webhook",
@@ -106,7 +119,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    }
+    },
+    "tree": [
+      "get-webhook-with-token"
+    ]
   },
   {
     "name": "Get Webhook with Token",
@@ -122,7 +138,10 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object."
+    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object.",
+    "tree": [
+      "modify-webhook"
+    ]
   },
   {
     "name": "Modify Webhook",
@@ -187,7 +206,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-webhook-json-params",
+      "modify-webhook-with-token"
+    ]
   },
   {
     "name": "Modify Webhook with Token",
@@ -203,7 +226,10 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
+    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object.",
+    "tree": [
+      "delete-webhook"
+    ]
   },
   {
     "name": "Delete Webhook",
@@ -215,7 +241,10 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success."
+    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
+    "tree": [
+      "delete-webhook-with-token"
+    ]
   },
   {
     "name": "Delete Webhook with Token",
@@ -231,7 +260,10 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication."
+    "description": "Same as above, except this call does not require authentication.",
+    "tree": [
+      "execute-webhook"
+    ]
   },
   {
     "name": "Execute Webhook",
@@ -428,7 +460,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "execute-webhook-query-string-params",
+      "execute-webhook-json/form-params",
+      "execute-slack-compatible-webhook"
+    ]
   },
   {
     "name": "Execute Slack-Compatible Webhook",
@@ -475,7 +512,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "execute-slack-compatible-webhook-query-string-params",
+      "execute-github-compatible-webhook"
+    ]
   },
   {
     "name": "Execute GitHub-Compatible Webhook",
@@ -522,7 +563,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "execute-github-compatible-webhook-query-string-params",
+      "get-webhook-message"
+    ]
   },
   {
     "name": "Get Webhook Message",
@@ -560,7 +605,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-webhook-message-query-string-params",
+      "edit-webhook-message"
+    ]
   },
   {
     "name": "Edit Webhook Message",
@@ -703,7 +752,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "edit-webhook-message-query-string-params",
+      "edit-webhook-message-json/form-params",
+      "delete-webhook-message"
+    ]
   },
   {
     "name": "Delete Webhook Message",

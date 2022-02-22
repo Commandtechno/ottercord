@@ -145,10 +145,12 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guild-template-resource",
+      "guild-template-object",
+      "guild-template-object-guild-template-structure",
+      "guild-template-object-example-guild-template-object"
     ]
-  },
-  {
-    "name": "Example Guild Template Object",
-    "properties": []
   }
 ]

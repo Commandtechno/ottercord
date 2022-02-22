@@ -54,6 +54,10 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "sending-payloads",
+      "sending-payloads-example-gateway-dispatch"
     ]
   },
   {
@@ -98,6 +102,19 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "receiving-payloads",
+      "encoding-and-compression",
+      "etf/json",
+      "etf/json-using-etf",
+      "payload-compression",
+      "transport-compression",
+      "transport-compression-transport-compression-example",
+      "connecting-to-the-gateway",
+      "connecting",
+      "connecting-gateway-url-query-string-params",
+      "connecting-example-gateway-hello"
     ]
   },
   {
@@ -194,6 +211,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "identify-identify-connection-properties"
     ]
   },
   {
@@ -238,6 +258,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "identify-example-identify"
     ]
   },
   {
@@ -282,6 +305,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "resume",
+      "resume-resume-structure",
+      "resume-example-resume"
     ]
   },
   {
@@ -365,6 +393,13 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "heartbeat",
+      "heartbeat-example-heartbeat",
+      "request-guild-members",
+      "request-guild-members-guild-request-members-structure",
+      "request-guild-members-guild-request-members"
     ]
   },
   {
@@ -422,6 +457,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "update-voice-state",
+      "update-voice-state-gateway-voice-state-update-structure",
+      "update-voice-state-example-gateway-voice-state-update"
     ]
   },
   {
@@ -479,6 +519,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "update-presence",
+      "update-presence-gateway-presence-update-structure",
+      "update-presence-status-types"
     ]
   },
   {
@@ -497,6 +542,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "connecting-and-resuming",
+      "hello",
+      "hello-hello-structure",
+      "hello-example-hello"
     ]
   },
   {
@@ -580,6 +631,13 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "ready",
+      "ready-ready-event-fields",
+      "resumed",
+      "reconnect",
+      "reconnect-example-gateway-reconnect"
     ]
   },
   {
@@ -637,6 +695,21 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invalid-session",
+      "invalid-session-example-gateway-invalid-session",
+      "channels",
+      "channel-create",
+      "channel-update",
+      "channel-delete",
+      "thread-create",
+      "thread-update",
+      "thread-delete",
+      "thread-list-sync",
+      "thread-list-sync-thread-list-sync-event-fields",
+      "thread-member-update",
+      "thread-member-update-thread-member-update-event-extra-fields"
     ]
   },
   {
@@ -655,6 +728,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "thread-members-update",
+      "thread-members-update-thread-members-update-event-fields"
     ]
   },
   {
@@ -725,6 +802,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "channel-pins-update",
+      "channel-pins-update-channel-pins-update-event-fields"
     ]
   },
   {
@@ -769,6 +850,14 @@
         "optional": true,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guilds",
+      "guild-create",
+      "guild-update",
+      "guild-delete",
+      "guild-ban-add",
+      "guild-ban-add-guild-ban-add-event-fields"
     ]
   },
   {
@@ -800,6 +889,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-ban-remove",
+      "guild-ban-remove-guild-ban-remove-event-fields"
     ]
   },
   {
@@ -831,6 +924,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-emojis-update",
+      "guild-emojis-update-guild-emojis-update-event-fields"
     ]
   },
   {
@@ -862,6 +959,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-stickers-update",
+      "guild-stickers-update-guild-stickers-update-event-fields"
     ]
   },
   {
@@ -893,6 +994,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-integrations-update",
+      "guild-integrations-update-guild-integrations-update-event-fields"
     ]
   },
   {
@@ -911,6 +1016,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-member-add",
+      "guild-member-add-guild-member-add-extra-fields"
     ]
   },
   {
@@ -929,6 +1038,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-member-remove",
+      "guild-member-remove-guild-member-remove-event-fields"
     ]
   },
   {
@@ -960,6 +1073,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-member-update",
+      "guild-member-update-guild-member-update-event-fields"
     ]
   },
   {
@@ -1108,6 +1225,10 @@
         "optional": true,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guild-members-chunk",
+      "guild-members-chunk-guild-members-chunk-event-fields"
     ]
   },
   {
@@ -1204,6 +1325,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-role-create",
+      "guild-role-create-guild-role-create-event-fields"
     ]
   },
   {
@@ -1235,6 +1360,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-role-update",
+      "guild-role-update-guild-role-update-event-fields"
     ]
   },
   {
@@ -1266,6 +1395,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-role-delete",
+      "guild-role-delete-guild-role-delete-event-fields"
     ]
   },
   {
@@ -1297,6 +1430,13 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-scheduled-event-create",
+      "guild-scheduled-event-update",
+      "guild-scheduled-event-delete",
+      "guild-scheduled-event-user-add",
+      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields"
     ]
   },
   {
@@ -1341,6 +1481,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-scheduled-event-user-remove",
+      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields"
     ]
   },
   {
@@ -1385,6 +1529,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "integrations",
+      "integration-create",
+      "integration-create-integration-create-event-additional-fields"
     ]
   },
   {
@@ -1403,6 +1552,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "integration-update",
+      "integration-update-integration-update-event-additional-fields"
     ]
   },
   {
@@ -1421,6 +1574,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "integration-delete",
+      "integration-delete-integration-delete-event-fields"
     ]
   },
   {
@@ -1465,6 +1622,11 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invites",
+      "invite-create",
+      "invite-create-invite-create-event-fields"
     ]
   },
   {
@@ -1626,6 +1788,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invite-delete",
+      "invite-delete-invite-delete-event-fields"
     ]
   },
   {
@@ -1670,6 +1836,13 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "messages",
+      "message-create",
+      "message-update",
+      "message-delete",
+      "message-delete-message-delete-event-fields"
     ]
   },
   {
@@ -1714,6 +1887,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-delete-bulk",
+      "message-delete-bulk-message-delete-bulk-event-fields"
     ]
   },
   {
@@ -1758,6 +1935,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-reaction-add",
+      "message-reaction-add-message-reaction-add-event-fields"
     ]
   },
   {
@@ -1841,6 +2022,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-reaction-remove",
+      "message-reaction-remove-message-reaction-remove-event-fields"
     ]
   },
   {
@@ -1911,6 +2096,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-reaction-remove-all",
+      "message-reaction-remove-all-message-reaction-remove-all-event-fields"
     ]
   },
   {
@@ -1955,6 +2144,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-reaction-remove-emoji",
+      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields"
     ]
   },
   {
@@ -2012,6 +2205,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "presence",
+      "presence-update",
+      "presence-update-presence-update-event-fields"
     ]
   },
   {
@@ -2056,6 +2254,11 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "client-status-object",
+      "activity-object",
+      "activity-object-activity-structure"
     ]
   },
   {
@@ -2256,6 +2459,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-types"
     ]
   },
   {
@@ -2287,6 +2493,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-emoji"
     ]
   },
   {
@@ -2331,6 +2540,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-party"
     ]
   },
   {
@@ -2362,6 +2574,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-assets"
     ]
   },
   {
@@ -2419,6 +2634,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-asset-image"
     ]
   },
   {
@@ -2463,6 +2681,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-activity-flags"
     ]
   },
   {
@@ -2494,6 +2715,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-example-activity"
     ]
   },
   {
@@ -2564,6 +2788,16 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "activity-object-example-activity-with-rich-presence",
+      "typing-start",
+      "typing-start-typing-start-event-fields",
+      "user-update",
+      "voice",
+      "voice-state-update",
+      "voice-server-update",
+      "voice-server-update-voice-server-update-event-fields"
     ]
   },
   {
@@ -2608,6 +2842,9 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "voice-server-update-example-voice-server-update-payload"
     ]
   },
   {

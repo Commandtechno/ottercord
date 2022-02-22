@@ -17,10 +17,9 @@
         "description": "Application webhooks are webhooks used with Interactions",
         "value": 3
       }
+    ],
+    "tree": [
+      "webhook-object-example-incoming-webhook"
     ]
-  },
-  {
-    "name": "Example Application Webhook",
-    "properties": []
   }
 ]

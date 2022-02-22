@@ -26,6 +26,12 @@
         "name": "4",
         "value": "Discontinued"
       }
+    ],
+    "tree": [
+      "gateways",
+      "gateways-gateway-versions",
+      "payloads",
+      "payloads-gateway-payload-structure"
     ]
   },
   {
@@ -62,7 +68,30 @@
         "value": "Update Presence"
       }
     ],
-    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord."
+    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord.",
+    "tree": [
+      "heartbeating",
+      "heartbeating-example-gateway-heartbeat-ack",
+      "identifying",
+      "identifying-example-gateway-identify",
+      "resuming",
+      "resuming-example-gateway-resume",
+      "disconnections",
+      "gateway-intents",
+      "list-of-intents",
+      "caveats",
+      "privileged-intents",
+      "rate-limiting",
+      "tracking-state",
+      "guild-availability",
+      "sharding",
+      "sharding-sharding-formula",
+      "sharding-max-concurrency",
+      "sharding-for-very-large-bots",
+      "commands-and-events",
+      "commands-and-events-gateway-commands",
+      "commands-and-events-gateway-events"
+    ]
   },
   {
     "name": "Gateway Events",
@@ -358,7 +387,12 @@
         "value": "Webhooks Update"
       }
     ],
-    "description": "Used to trigger the initial handshake with the gateway."
+    "description": "Used to trigger the initial handshake with the gateway.",
+    "tree": [
+      "event-names",
+      "identify",
+      "identify-identify-structure"
+    ]
   },
   {
     "name": "Status Types",
@@ -388,6 +422,9 @@
         "description": "Offline",
         "value": "offline"
       }
+    ],
+    "tree": [
+      "update-presence-example-gateway-presence-update"
     ]
   },
   {
@@ -417,6 +454,9 @@
         "name": "Competing",
         "value": 5
       }
+    ],
+    "tree": [
+      "activity-object-activity-timestamps"
     ]
   },
   {
@@ -431,7 +471,10 @@
         "value": "`mp:{image_id}`"
       }
     ],
-    "description": "Activity asset images are arbitrary strings which usually contain snowflake IDs or prefixed image IDs. Treat data within this field carefully, as it is user-specifiable and not sanitized."
+    "description": "Activity asset images are arbitrary strings which usually contain snowflake IDs or prefixed image IDs. Treat data within this field carefully, as it is user-specifiable and not sanitized.",
+    "tree": [
+      "activity-object-activity-secrets"
+    ]
   },
   {
     "name": "Activity Flags",
@@ -472,10 +515,9 @@
         "name": "EMBEDDED",
         "value": 256
       }
+    ],
+    "tree": [
+      "activity-object-activity-buttons"
     ]
-  },
-  {
-    "name": "Webhooks Update Event Fields",
-    "properties": []
   }
 ]

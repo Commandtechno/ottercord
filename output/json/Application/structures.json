@@ -236,10 +236,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "application-resource",
+      "application-object",
+      "application-object-application-structure",
+      "application-object-example-application-object"
     ]
-  },
-  {
-    "name": "Application Flags",
-    "properties": []
   }
 ]

@@ -208,11 +208,17 @@
         "value": 0
       }
     ],
-    "description": "Roles represent a set of permissions attached to a group of users. Roles have unique names, colors, and can be \"pinned\" to the side bar, causing their members to be listed separately. Roles are unique per guild, and can have separate permission profiles for the global context (guild) and channel context. The `@everyone` role has the same ID as the guild it belongs to."
-  },
-  {
-    "name": "Example Role",
-    "properties": [],
-    "description": "Timed out members will temporarily lose all permissions except `VIEW_CHANNEL` and `READ_MESSAGE_HISTORY`. Owners and admin users with `ADMINISTRATOR` permissions are exempt."
+    "description": "Roles represent a set of permissions attached to a group of users. Roles have unique names, colors, and can be \"pinned\" to the side bar, causing their members to be listed separately. Roles are unique per guild, and can have separate permission profiles for the global context (guild) and channel context. The `@everyone` role has the same ID as the guild it belongs to.",
+    "tree": [
+      "permissions",
+      "permissions-bitwise-permission-flags",
+      "permission-hierarchy",
+      "permission-overwrites",
+      "implicit-permissions",
+      "inherited-permissions-(threads)",
+      "permission-syncing",
+      "role-object",
+      "role-object-role-structure"
+    ]
   }
 ]

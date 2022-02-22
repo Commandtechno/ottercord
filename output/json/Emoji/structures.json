@@ -106,10 +106,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "emoji-resource",
+      "emoji-object",
+      "emoji-object-emoji-structure",
+      "emoji-object-emoji-example"
     ]
-  },
-  {
-    "name": "Gateway Reaction Custom Emoji Examples",
-    "properties": []
   }
 ]

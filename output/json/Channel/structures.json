@@ -340,6 +340,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "channels-resource",
+      "channel-object",
+      "channel-object-channel-structure",
+      "channel-object-channel-types"
     ]
   },
   {
@@ -748,6 +754,18 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "channel-object-example-guild-news-channel",
+      "channel-object-example-guild-voice-channel",
+      "channel-object-example-dm-channel",
+      "channel-object-example-group-dm-channel",
+      "channel-object-example-channel-category",
+      "channel-object-example-store-channel",
+      "channel-object-example-thread-channel",
+      "message-object",
+      "message-object-message-structure",
+      "message-object-message-types"
     ]
   },
   {
@@ -779,6 +797,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-object-message-activity-types"
     ]
   },
   {
@@ -836,6 +857,13 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-object-example-crossposted-message",
+      "message-reference-object",
+      "message-reference-object-message-reference-structure",
+      "message-types",
+      "message-types-crosspost-messages"
     ]
   },
   {
@@ -867,6 +895,16 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "message-types-channel-follow-add-messages",
+      "message-types-pin-messages",
+      "message-types-replies",
+      "message-types-thread-starter-messsage",
+      "followed-channel-object",
+      "followed-channel-object-followed-channel-structure",
+      "reaction-object",
+      "reaction-object-reaction-structure"
     ]
   },
   {
@@ -911,6 +949,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "overwrite-object",
+      "overwrite-object-overwrite-structure"
     ]
   },
   {
@@ -968,6 +1010,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "thread-metadata-object",
+      "thread-metadata-object-thread-metadata-structure"
     ]
   },
   {
@@ -1051,6 +1097,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "thread-member-object",
+      "thread-member-object-thread-member-structure"
     ]
   },
   {
@@ -1108,6 +1158,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object",
+      "embed-object-embed-structure"
     ]
   },
   {
@@ -1282,6 +1336,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-types"
     ]
   },
   {
@@ -1339,6 +1396,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-video-structure"
     ]
   },
   {
@@ -1396,6 +1456,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-image-structure"
     ]
   },
   {
@@ -1453,6 +1516,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-provider-structure"
     ]
   },
   {
@@ -1484,6 +1550,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-author-structure"
     ]
   },
   {
@@ -1541,6 +1610,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-footer-structure"
     ]
   },
   {
@@ -1585,6 +1657,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "embed-object-embed-field-structure"
     ]
   },
   {
@@ -1629,6 +1704,10 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "attachment-object",
+      "attachment-object-attachment-structure"
     ]
   },
   {
@@ -1764,6 +1843,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "channel-mention-object",
+      "channel-mention-object-channel-mention-structure"
     ]
   },
   {
@@ -1821,6 +1904,10 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "allowed-mentions-object",
+      "allowed-mentions-object-allowed-mention-types"
     ]
   },
   {
@@ -1878,10 +1965,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "allowed-mentions-object-allowed-mentions-reference"
     ]
-  },
-  {
-    "name": "Limits",
-    "properties": []
   }
 ]

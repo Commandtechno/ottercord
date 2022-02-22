@@ -16,7 +16,11 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    }
+    },
+    "tree": [
+      "get-guild-template",
+      "create-guild-from-guild-template"
+    ]
   },
   {
     "name": "Create Guild from Guild Template",
@@ -68,7 +72,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-from-guild-template-json-params",
+      "get-guild-templates"
+    ]
   },
   {
     "name": "Get Guild Templates",
@@ -87,7 +95,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    }
+    },
+    "tree": [
+      "create-guild-template"
+    ]
   },
   {
     "name": "Create Guild Template",
@@ -139,7 +150,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-template-json-params",
+      "sync-guild-template"
+    ]
   },
   {
     "name": "Sync Guild Template",
@@ -162,7 +177,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    }
+    },
+    "tree": [
+      "modify-guild-template"
+    ]
   },
   {
     "name": "Modify Guild Template",
@@ -218,7 +236,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-template-json-params",
+      "delete-guild-template"
+    ]
   },
   {
     "name": "Delete Guild Template",

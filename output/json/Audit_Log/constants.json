@@ -190,10 +190,9 @@
         "name": "THREAD_DELETE",
         "value": 112
       }
+    ],
+    "tree": [
+      "audit-log-entry-object-optional-audit-entry-info"
     ]
-  },
-  {
-    "name": "Example Partial Role Object",
-    "properties": []
   }
 ]

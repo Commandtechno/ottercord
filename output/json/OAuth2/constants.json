@@ -17,6 +17,12 @@
         "description": "Token Revocation  URL",
         "value": "https://discord.com/api/oauth2/token/revoke"
       }
+    ],
+    "tree": [
+      "oauth2",
+      "shared-resources",
+      "shared-resources-oauth2-urls",
+      "shared-resources-oauth2-scopes"
     ]
   },
   {
@@ -143,7 +149,12 @@
         "value": "webhook.incoming"
       }
     ],
-    "description": "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client."
+    "description": "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client.",
+    "tree": [
+      "state-and-security",
+      "authorization-code-grant",
+      "authorization-code-grant-authorization-url-example"
+    ]
   },
   {
     "name": "Bot Auth Parameters",
@@ -173,11 +184,23 @@
         "description": "true  or  false —disallows the user from changing the guild dropdown",
         "value": "disable_guild_select"
       }
+    ],
+    "tree": [
+      "authorization-code-grant-redirect-url-example",
+      "authorization-code-grant-access-token-exchange-example",
+      "authorization-code-grant-access-token-response",
+      "authorization-code-grant-refresh-token-exchange-example",
+      "implicit-grant",
+      "implicit-grant-authorization-url-example",
+      "implicit-grant-redirect-url-example",
+      "client-credentials-grant",
+      "client-credentials-grant-client-credentials-token-request-example",
+      "client-credentials-grant-client-credentials-access-token-response",
+      "bots",
+      "bot-vs-user-accounts",
+      "bot-authorization-flow",
+      "bot-authorization-flow-bot-auth-parameters",
+      "bot-authorization-flow-url-example"
     ]
-  },
-  {
-    "name": "Webhook Token Response Example",
-    "properties": [],
-    "description": "Any user that wishes to add your webhook to their channel will need to go through the full OAuth2 flow. A new webhook is created each time, so you will need to save the token and id. If you wish to send a message to all your webhooks, you'll need to iterate over each stored id:token combination and make `POST` requests to each one. Be mindful of our [Rate Limits](#DOCS_TOPICS_RATE_LIMITS/rate-limits)!"
   }
 ]

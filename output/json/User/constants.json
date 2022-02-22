@@ -77,6 +77,10 @@
         "description": "Bot uses only  HTTP interactions  and is shown in the online member list",
         "value": 524288
       }
+    ],
+    "tree": [
+      "user-object-user-flags",
+      "user-object-premium-types"
     ]
   },
   {
@@ -95,7 +99,11 @@
         "value": 2
       }
     ],
-    "description": "The connection object that the user has attached."
+    "description": "The connection object that the user has attached.",
+    "tree": [
+      "connection-object",
+      "connection-object-connection-structure"
+    ]
   },
   {
     "name": "Visibility Types",

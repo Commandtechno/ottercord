@@ -34,7 +34,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "list-scheduled-events-for-guild",
+      "list-scheduled-events-for-guild-query-string-params",
+      "create-guild-scheduled-event"
+    ]
   },
   {
     "name": "Create Guild Scheduled Event",
@@ -177,7 +182,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-guild-scheduled-event-json-params",
+      "get-guild-scheduled-event"
+    ]
   },
   {
     "name": "Get Guild Scheduled Event",
@@ -218,7 +227,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-guild-scheduled-event-query-string-params",
+      "modify-guild-scheduled-event"
+    ]
   },
   {
     "name": "Modify Guild Scheduled Event",
@@ -378,7 +391,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-guild-scheduled-event-json-params",
+      "delete-guild-scheduled-event"
+    ]
   },
   {
     "name": "Delete Guild Scheduled Event",
@@ -394,7 +411,10 @@
         "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
       }
     ],
-    "description": "Delete a guild scheduled event. Returns a 204 on success."
+    "description": "Delete a guild scheduled event. Returns a 204 on success.",
+    "tree": [
+      "get-guild-scheduled-event-users"
+    ]
   },
   {
     "name": "Get Guild Scheduled Event Users",

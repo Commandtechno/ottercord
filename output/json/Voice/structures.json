@@ -171,6 +171,12 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "voice-resource",
+      "voice-state-object",
+      "voice-state-object-voice-state-structure",
+      "voice-state-object-example-voice-state"
     ]
   },
   {

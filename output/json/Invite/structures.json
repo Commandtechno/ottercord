@@ -158,6 +158,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invite-resource",
+      "invite-object",
+      "invite-object-invite-structure",
+      "invite-object-invite-target-types"
     ]
   },
   {
@@ -228,6 +234,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invite-metadata-object",
+      "invite-metadata-object-invite-metadata-structure",
+      "invite-metadata-object-example-invite-metadata"
     ]
   },
   {
@@ -285,10 +296,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "invite-stage-instance-object",
+      "invite-stage-instance-object-invite-stage-instance-structure",
+      "invite-stage-instance-object-example-invite-stage-instance"
     ]
-  },
-  {
-    "name": "Example Invite Stage Instance",
-    "properties": []
   }
 ]

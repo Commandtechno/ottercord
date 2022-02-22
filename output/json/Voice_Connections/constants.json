@@ -19,7 +19,15 @@
         "value": "default"
       }
     ],
-    "description": "The first step in connecting to a voice server (and in turn, a guild's voice channel) is formulating a request that can be sent to the [Gateway](#DOCS_TOPICS_GATEWAY/gateways), which will return information about the voice server we will connect to. Because Discord's voice platform is widely distributed, users **should never** cache or save the results of this call. To inform the gateway of our intent to establish voice connectivity, we first send an [Opcode 4 Gateway Voice State Update](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/gateway):"
+    "description": "The first step in connecting to a voice server (and in turn, a guild's voice channel) is formulating a request that can be sent to the [Gateway](#DOCS_TOPICS_GATEWAY/gateways), which will return information about the voice server we will connect to. Because Discord's voice platform is widely distributed, users **should never** cache or save the results of this call. To inform the gateway of our intent to establish voice connectivity, we first send an [Opcode 4 Gateway Voice State Update](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/gateway):",
+    "tree": [
+      "voice",
+      "voice-gateway-versioning",
+      "voice-gateway-versioning-gateway-versions",
+      "connecting-to-voice",
+      "retrieving-voice-server-information",
+      "retrieving-voice-server-information-gateway-voice-state-update-example"
+    ]
   },
   {
     "name": "Encryption Modes",
@@ -37,7 +45,22 @@
         "value": "xsalsa20_poly1305_lite"
       }
     ],
-    "description": "Finally, the voice server will respond with a [Opcode 4 Session Description](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice) that includes the `mode` and `secret_key`, a 32 byte array used for [encrypting and sending](#DOCS_TOPICS_VOICE_CONNECTIONS/encrypting-and-sending-voice) voice data:"
+    "description": "Finally, the voice server will respond with a [Opcode 4 Session Description](#DOCS_TOPICS_OPCODES_AND_STATUS_CODES/voice) that includes the `mode` and `secret_key`, a 32 byte array used for [encrypting and sending](#DOCS_TOPICS_VOICE_CONNECTIONS/encrypting-and-sending-voice) voice data:",
+    "tree": [
+      "retrieving-voice-server-information-example-voice-server-update-payload",
+      "establishing-a-voice-websocket-connection",
+      "establishing-a-voice-websocket-connection-example-voice-identify-payload",
+      "establishing-a-voice-websocket-connection-example-voice-ready-payload",
+      "heartbeating",
+      "heartbeating-example-hello-payload-below-v3",
+      "heartbeating-example-hello-payload-since-v3",
+      "heartbeating-example-heartbeat-payload",
+      "heartbeating-example-heartbeat-ack-payload",
+      "establishing-a-voice-udp-connection",
+      "establishing-a-voice-udp-connection-example-select-protocol-payload",
+      "establishing-a-voice-udp-connection-encryption-modes",
+      "establishing-a-voice-udp-connection-example-session-description-payload"
+    ]
   },
   {
     "name": "Example Resumed Payload",

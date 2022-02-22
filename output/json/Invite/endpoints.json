@@ -60,7 +60,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-invite",
+      "get-invite-query-string-params",
+      "delete-invite"
+    ]
   },
   {
     "name": "Delete Invite",

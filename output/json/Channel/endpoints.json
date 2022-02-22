@@ -16,7 +16,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    }
+    },
+    "tree": [
+      "embed-limits",
+      "embed-limits-limits",
+      "get-channel",
+      "modify-channel"
+    ]
   },
   {
     "name": "Modify Channel",
@@ -120,7 +126,13 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "modify-channel-json-params-(group-dm)",
+      "modify-channel-json-params-(guild-channel)",
+      "modify-channel-json-params-(thread)",
+      "delete/close-channel"
+    ]
   },
   {
     "name": "Delete/Close Channel",
@@ -139,7 +151,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    }
+    },
+    "tree": [
+      "get-channel-messages"
+    ]
   },
   {
     "name": "Get Channel Messages",
@@ -215,7 +230,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-channel-messages-query-string-params",
+      "get-channel-message"
+    ]
   },
   {
     "name": "Get Channel Message",
@@ -231,7 +250,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success."
+    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success.",
+    "tree": [
+      "create-message"
+    ]
   },
   {
     "name": "Create Message",
@@ -413,7 +435,13 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-message-limitations",
+      "create-message-json/form-params",
+      "create-message-example-request-body-(application/json)",
+      "crosspost-message"
+    ]
   },
   {
     "name": "Crosspost Message",
@@ -436,7 +464,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "message-object"
-    }
+    },
+    "tree": [
+      "create-reaction"
+    ]
   },
   {
     "name": "Create Reaction",
@@ -456,7 +487,10 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "tree": [
+      "delete-own-reaction"
+    ]
   },
   {
     "name": "Delete Own Reaction",
@@ -476,7 +510,10 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "tree": [
+      "delete-user-reaction"
+    ]
   },
   {
     "name": "Delete User Reaction",
@@ -500,7 +537,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "tree": [
+      "get-reactions"
+    ]
   },
   {
     "name": "Get Reactions",
@@ -558,7 +598,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "get-reactions-query-string-params",
+      "delete-all-reactions"
+    ]
   },
   {
     "name": "Delete All Reactions",
@@ -574,7 +618,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
+    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event.",
+    "tree": [
+      "delete-all-reactions-for-emoji"
+    ]
   },
   {
     "name": "Delete All Reactions for Emoji",
@@ -594,7 +641,10 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "tree": [
+      "edit-message"
+    ]
   },
   {
     "name": "Edit Message",
@@ -741,7 +791,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "edit-message-json/form-params",
+      "delete-message"
+    ]
   },
   {
     "name": "Delete Message",
@@ -757,7 +811,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event."
+    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event.",
+    "tree": [
+      "bulk-delete-messages"
+    ]
   },
   {
     "name": "Bulk Delete Messages",
@@ -789,7 +846,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "bulk-delete-messages-json-params",
+      "edit-channel-permissions"
+    ]
   },
   {
     "name": "Edit Channel Permissions",
@@ -851,7 +912,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "edit-channel-permissions-json-params",
+      "get-channel-invites"
+    ]
   },
   {
     "name": "Get Channel Invites",
@@ -870,7 +935,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    }
+    },
+    "tree": [
+      "create-channel-invite"
+    ]
   },
   {
     "name": "Create Channel Invite",
@@ -987,7 +1055,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "create-channel-invite-json-params",
+      "delete-channel-permission"
+    ]
   },
   {
     "name": "Delete Channel Permission",
@@ -1003,7 +1075,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
       }
     ],
-    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
+    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions",
+    "tree": [
+      "follow-news-channel"
+    ]
   },
   {
     "name": "Follow News Channel",
@@ -1042,7 +1117,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "follow-news-channel-json-params",
+      "trigger-typing-indicator"
+    ]
   },
   {
     "name": "Trigger Typing Indicator",
@@ -1054,7 +1133,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
+    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event.",
+    "tree": [
+      "get-pinned-messages"
+    ]
   },
   {
     "name": "Get Pinned Messages",
@@ -1073,7 +1155,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "message-object"
-    }
+    },
+    "tree": [
+      "pin-message"
+    ]
   },
   {
     "name": "Pin Message",
@@ -1089,7 +1174,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
+    "tree": [
+      "unpin-message"
+    ]
   },
   {
     "name": "Unpin Message",
@@ -1105,7 +1193,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
+    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
+    "tree": [
+      "group-dm-add-recipient"
+    ]
   },
   {
     "name": "Group DM Add Recipient",
@@ -1154,7 +1245,11 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "group-dm-add-recipient-json-params",
+      "group-dm-remove-recipient"
+    ]
   },
   {
     "name": "Group DM Remove Recipient",
@@ -1170,7 +1265,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes a recipient from a Group DM."
+    "description": "Removes a recipient from a Group DM.",
+    "tree": [
+      "start-thread-with-message"
+    ]
   },
   {
     "name": "Start Thread with Message",
@@ -1239,7 +1337,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "start-thread-with-message-json-params",
+      "start-thread-without-message"
+    ]
   },
   {
     "name": "Start Thread without Message",
@@ -1330,7 +1432,11 @@
           "nullable": true
         }
       ]
-    }
+    },
+    "tree": [
+      "start-thread-without-message-json-params",
+      "join-thread"
+    ]
   },
   {
     "name": "Join Thread",
@@ -1342,7 +1448,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
+    "tree": [
+      "add-thread-member"
+    ]
   },
   {
     "name": "Add Thread Member",
@@ -1358,7 +1467,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
+    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event.",
+    "tree": [
+      "leave-thread"
+    ]
   },
   {
     "name": "Leave Thread",
@@ -1370,7 +1482,10 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
+    "tree": [
+      "remove-thread-member"
+    ]
   },
   {
     "name": "Remove Thread Member",
@@ -1386,7 +1501,10 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
+    "tree": [
+      "get-thread-member"
+    ]
   },
   {
     "name": "Get Thread Member",
@@ -1409,7 +1527,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "thread-member-object"
-    }
+    },
+    "tree": [
+      "list-thread-members"
+    ]
   },
   {
     "name": "List Thread Members",
@@ -1428,7 +1549,10 @@
       "deprecated": false,
       "type": "reference",
       "link": "thread-member-object"
-    }
+    },
+    "tree": [
+      "list-active-threads"
+    ]
   },
   {
     "name": "List Active Threads",
@@ -1440,7 +1564,11 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id , in descending order."
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id , in descending order.",
+    "tree": [
+      "list-active-threads-response-body",
+      "list-public-archived-threads"
+    ]
   },
   {
     "name": "List Public Archived Threads",
@@ -1490,7 +1618,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "list-public-archived-threads-query-string-params",
+      "list-public-archived-threads-response-body",
+      "list-private-archived-threads"
+    ]
   },
   {
     "name": "List Private Archived Threads",
@@ -1540,7 +1673,12 @@
           "nullable": false
         }
       ]
-    }
+    },
+    "tree": [
+      "list-private-archived-threads-query-string-params",
+      "list-private-archived-threads-response-body",
+      "list-joined-private-archived-threads"
+    ]
   },
   {
     "name": "List Joined Private Archived Threads",

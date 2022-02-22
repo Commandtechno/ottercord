@@ -197,6 +197,13 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "users-resource",
+      "usernames-and-nicknames",
+      "user-object",
+      "user-object-user-structure",
+      "user-object-example-user"
     ]
   },
   {
@@ -319,10 +326,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "connection-object-visibility-types"
     ]
-  },
-  {
-    "name": "Visibility Types",
-    "properties": []
   }
 ]

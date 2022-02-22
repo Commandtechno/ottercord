@@ -12,6 +12,9 @@
         "description": "a sticker uploaded to a Boosted guild for the guild's members",
         "value": 2
       }
+    ],
+    "tree": [
+      "sticker-object-sticker-format-types"
     ]
   },
   {
@@ -29,10 +32,9 @@
         "name": "LOTTIE",
         "value": 3
       }
+    ],
+    "tree": [
+      "sticker-object-example-sticker"
     ]
-  },
-  {
-    "name": "Example Sticker Pack",
-    "properties": []
   }
 ]

@@ -12,6 +12,9 @@
         "description": "members will receive notifications only for messages that @mention them by default",
         "value": 1
       }
+    ],
+    "tree": [
+      "guild-object-explicit-content-filter-level"
     ]
   },
   {
@@ -32,6 +35,9 @@
         "description": "media content sent by all members will be scanned",
         "value": 2
       }
+    ],
+    "tree": [
+      "guild-object-mfa-level"
     ]
   },
   {
@@ -47,6 +53,9 @@
         "description": "guild has a 2FA requirement for moderation actions",
         "value": 1
       }
+    ],
+    "tree": [
+      "guild-object-verification-level"
     ]
   },
   {
@@ -77,6 +86,9 @@
         "description": "must have a verified phone number",
         "value": 4
       }
+    ],
+    "tree": [
+      "guild-object-guild-nsfw-level"
     ]
   },
   {
@@ -98,6 +110,9 @@
         "name": "AGE_RESTRICTED",
         "value": 3
       }
+    ],
+    "tree": [
+      "guild-object-premium-tier"
     ]
   },
   {
@@ -123,6 +138,9 @@
         "description": "guild has unlocked Server Boost level 3 perks",
         "value": 3
       }
+    ],
+    "tree": [
+      "guild-object-system-channel-flags"
     ]
   },
   {
@@ -148,6 +166,9 @@
         "description": "Hide member join sticker reply buttons",
         "value": 8
       }
+    ],
+    "tree": [
+      "guild-object-guild-features"
     ]
   },
   {
@@ -263,6 +284,9 @@
         "description": "guild has enabled the welcome screen",
         "value": "WELCOME_SCREEN_ENABLED"
       }
+    ],
+    "tree": [
+      "guild-object-example-guild"
     ]
   },
   {
@@ -276,11 +300,10 @@
         "name": "Kick",
         "value": 1
       }
+    ],
+    "tree": [
+      "integration-account-object",
+      "integration-account-object-integration-account-structure"
     ]
-  },
-  {
-    "name": "Example Welcome Screen",
-    "properties": [],
-    "description": "Giving the member a role will bypass Membership Screening as well as the guild's verification level, giving the member immediate access to chat. Therefore, instead of giving a role when the member joins, it is recommended to not give the role until the user is no longer `pending`."
   }
 ]

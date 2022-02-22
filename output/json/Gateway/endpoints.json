@@ -11,7 +11,21 @@
       "deprecated": false,
       "type": "reference",
       "link": "connecting"
-    }
+    },
+    "tree": [
+      "webhooks",
+      "webhooks-update",
+      "webhooks-update-webhooks-update-event-fields",
+      "interactions",
+      "interaction-create",
+      "stage-instances",
+      "stage-instance-create",
+      "stage-instance-update",
+      "stage-instance-delete",
+      "get-gateway",
+      "get-gateway-example-response",
+      "get-gateway-bot"
+    ]
   },
   {
     "name": "Get Gateway Bot",

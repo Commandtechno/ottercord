@@ -145,6 +145,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "role-object-role-tags-structure"
     ]
   },
   {
@@ -189,10 +192,9 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "role-object-example-role"
     ]
-  },
-  {
-    "name": "Example Role",
-    "properties": []
   }
 ]

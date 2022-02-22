@@ -80,10 +80,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "stage-instance-resource",
+      "stage-instance-object",
+      "stage-instance-object-stage-instance-structure",
+      "stage-instance-object-privacy-level"
     ]
-  },
-  {
-    "name": "Example Stage Instance",
-    "properties": []
   }
 ]

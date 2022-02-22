@@ -74,10 +74,12 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "encrypting-and-sending-voice",
+      "encrypting-and-sending-voice-voice-packet-structure",
+      "speaking",
+      "speaking-example-speaking-payload"
     ]
-  },
-  {
-    "name": "Example Resumed Payload",
-    "properties": []
   }
 ]

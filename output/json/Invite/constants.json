@@ -10,10 +10,9 @@
         "name": "EMBEDDED_APPLICATION",
         "value": 2
       }
+    ],
+    "tree": [
+      "invite-object-example-invite-object"
     ]
-  },
-  {
-    "name": "Example Invite Stage Instance",
-    "properties": []
   }
 ]

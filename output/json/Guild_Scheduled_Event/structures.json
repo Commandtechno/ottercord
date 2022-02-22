@@ -210,6 +210,12 @@
         "optional": false,
         "nullable": true
       }
+    ],
+    "tree": [
+      "guild-scheduled-event",
+      "guild-scheduled-event-object",
+      "guild-scheduled-event-object-guild-scheduled-event-structure",
+      "guild-scheduled-event-object-guild-scheduled-event-privacy-level"
     ]
   },
   {
@@ -228,6 +234,11 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+      "guild-scheduled-event-user-object",
+      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure"
     ]
   },
   {

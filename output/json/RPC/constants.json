@@ -7,7 +7,14 @@
         "value": "no"
       }
     ],
-    "description": "For applications/games not approved, we limit you to creating 10 guilds and 10 channels. This limit is raised to virtually unlimited after approval."
+    "description": "For applications/games not approved, we limit you to creating 10 guilds and 10 channels. This limit is raised to virtually unlimited after approval.",
+    "tree": [
+      "rpc",
+      "rpc-rpc-versions",
+      "restrictions",
+      "payloads",
+      "payloads-payload-structure"
+    ]
   },
   {
     "name": "RPC Commands",
@@ -108,7 +115,13 @@
         "value": "CLOSE_ACTIVITY_REQUEST"
       }
     ],
-    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord."
+    "description": "Events are payloads sent over the socket to a client that correspond to events in Discord.",
+    "tree": [
+      "authenticating-rpc-authenticate-example",
+      "commands-and-events",
+      "commands-and-events-rpc-commands",
+      "commands-and-events-rpc-events"
+    ]
   },
   {
     "name": "RPC Events",
@@ -214,7 +227,11 @@
         "value": "ACTIVITY_JOIN_REQUEST"
       }
     ],
-    "description": "We also have an RPC token system to bypass the user authorization modal. This is usable by approved games as well as by users on a game's list of testers, and also disallows use of the `messages.read` scope. If you have been granted access, you can send a POST request to `https://discord.com/api/oauth2/token/rpc` with your application's `client_id` and `client_secret` in the body (sent as a url-encoded body, **not JSON**). You can then pass the returned `rpc_token` value to the `rpc_token` field in your RPC authorize request (documented below)."
+    "description": "We also have an RPC token system to bypass the user authorization modal. This is usable by approved games as well as by users on a game's list of testers, and also disallows use of the `messages.read` scope. If you have been granted access, you can send a POST request to `https://discord.com/api/oauth2/token/rpc` with your application's `client_id` and `client_secret` in the body (sent as a url-encoded body, **not JSON**). You can then pass the returned `rpc_token` value to the `rpc_token` field in your RPC authorize request (documented below).",
+    "tree": [
+      "authorize",
+      "authorize-authorize-argument-structure"
+    ]
   },
   {
     "name": "Key Types",
@@ -235,6 +252,9 @@
         "name": "GAMEPAD_BUTTON",
         "value": 3
       }
+    ],
+    "tree": [
+      "get_voice_settings-example-get-voice-settings-response-payload"
     ]
   },
   {
@@ -252,6 +272,9 @@
         "name": "VIDEO_INPUT",
         "value": "\"videoinput\""
       }
+    ],
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-command-payload"
     ]
   },
   {
@@ -307,10 +330,9 @@
         "description": "WebRTC ice checking",
         "value": "ICE_CHECKING"
       }
+    ],
+    "tree": [
+      "voice_connection_status-example-voice-connection-status-dispatch-payload"
     ]
-  },
-  {
-    "name": "Example Activity Join Request Dispatch Payload",
-    "properties": []
   }
 ]

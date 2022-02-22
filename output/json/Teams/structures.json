@@ -67,6 +67,16 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "teams",
+      "what-do-they-do",
+      "how-do-i-make-one",
+      "apps-on-teams",
+      "what-next",
+      "data-models",
+      "data-models-team-object",
+      "data-models-team-member-object"
     ]
   },
   {
@@ -124,10 +134,9 @@
         "optional": false,
         "nullable": false
       }
+    ],
+    "tree": [
+      "data-models-membership-state-enum"
     ]
-  },
-  {
-    "name": "Membership State Enum",
-    "properties": []
   }
 ]

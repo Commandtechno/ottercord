@@ -158,10 +158,12 @@
         "optional": true,
         "nullable": false
       }
+    ],
+    "tree": [
+      "webhook-resource",
+      "webhook-object",
+      "webhook-object-webhook-structure",
+      "webhook-object-webhook-types"
     ]
-  },
-  {
-    "name": "Example Application Webhook",
-    "properties": []
   }
 ]
