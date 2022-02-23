@@ -31,12 +31,22 @@ export async function parse(...pathSegments: string[]) {
 
   let parent = "";
   for (const block of page) {
+    let link: string;
+    if (block.type === "heading") {
+      const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
+      if (block.depth < 5) {
+        parent = anchor + "-";
+        link = anchor;
+      } else link = parent + anchor;
+    }
+
     // temporary switch algorithm
     try {
       const newEndpoint = new Endpoint(block);
       if (endpoint?.ready) {
         endpoint.tree = endpointTree;
         endpointTree = [];
+        exampleTree = [];
         structureTree = [];
         constantTree = [];
 
@@ -48,7 +58,16 @@ export async function parse(...pathSegments: string[]) {
     } catch (e) {
       if (endpoint) {
         endpoint.process(block);
-        if (endpoint.ready) continue;
+        if (endpoint.ready) {
+          if (link) {
+            endpointTree.push(link);
+            exampleTree.push(link);
+            structureTree.push(link);
+            constantTree.push(link);
+          }
+
+          continue;
+        }
       }
 
       if (typeof e !== "string") console.log(e);
@@ -58,6 +77,7 @@ export async function parse(...pathSegments: string[]) {
       const newExample = new Example(block);
       if (example?.ready) {
         example.tree = exampleTree;
+        endpointTree = [];
         exampleTree = [];
         structureTree = [];
         constantTree = [];
@@ -70,7 +90,16 @@ export async function parse(...pathSegments: string[]) {
     } catch (e) {
       if (example) {
         example.process(block);
-        if (example.ready) continue;
+        if (example.ready) {
+          if (link) {
+            endpointTree.push(link);
+            exampleTree.push(link);
+            structureTree.push(link);
+            constantTree.push(link);
+          }
+
+          continue;
+        }
       }
 
       if (typeof e !== "string") console.log(e);
@@ -81,6 +110,7 @@ export async function parse(...pathSegments: string[]) {
       if (structure?.ready) {
         structure.tree = structureTree;
         endpointTree = [];
+        exampleTree = [];
         structureTree = [];
         constantTree = [];
 
@@ -92,7 +122,16 @@ export async function parse(...pathSegments: string[]) {
     } catch (e) {
       if (structure) {
         structure.process(block);
-        if (structure.ready) continue;
+        if (structure.ready) {
+          if (link) {
+            endpointTree.push(link);
+            exampleTree.push(link);
+            structureTree.push(link);
+            constantTree.push(link);
+          }
+
+          continue;
+        }
       }
 
       if (typeof e !== "string") console.log(e);
@@ -103,6 +142,7 @@ export async function parse(...pathSegments: string[]) {
       if (constant?.ready) {
         constant.tree = constantTree;
         endpointTree = [];
+        exampleTree = [];
         structureTree = [];
         constantTree = [];
 
@@ -114,25 +154,26 @@ export async function parse(...pathSegments: string[]) {
     } catch (e) {
       if (constant) {
         constant.process(block);
-        if (constant.ready) continue;
+        if (constant.ready) {
+          if (link) {
+            endpointTree.push(link);
+            exampleTree.push(link);
+            structureTree.push(link);
+            constantTree.push(link);
+          }
+
+          continue;
+        }
       }
 
       if (typeof e !== "string") console.log(e);
     }
 
-    if (block.type === "heading") {
-      let link: string;
-      const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
-      if (block.depth < 5) {
-        parent = anchor + "-";
-        link = anchor;
-      } else link = parent + anchor;
-
-      if (link) {
-        endpointTree.push(link);
-        structureTree.push(link);
-        constantTree.push(link);
-      }
+    if (link) {
+      endpointTree.push(link);
+      exampleTree.push(link);
+      structureTree.push(link);
+      constantTree.push(link);
     }
   }
 

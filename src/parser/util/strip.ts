@@ -1,6 +1,14 @@
+import * as pluralize from "pluralize";
+
 // remove s from the end of a string
+// export function stripPlural(text: string) {
+//   return text.replace(/s$/, "");
+// }
+
+// testing using a library because plurals are a lot more complicated than i thought
+// example: libraries > library
 export function stripPlural(text: string) {
-  return text.replace(/s$/, "");
+  return pluralize.singular(text);
 }
 
 // remove normal and square brackets

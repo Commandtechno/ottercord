@@ -94,8 +94,8 @@
       "link": "channel-object"
     },
     "tree": [
-      "followed-channel-object-allowed-mentions-reference",
-      "followed-channel-object-limits"
+      "embed-limits-limits",
+      "get-channel"
     ]
   },
   {
@@ -412,7 +412,12 @@
         ]
       }
     ],
-    "tree": []
+    "tree": [
+      "modify-channel",
+      "modify-channel-json-params-(group-dm)",
+      "modify-channel-json-params-(guild-channel)",
+      "modify-channel-json-params-(thread)"
+    ]
   },
   {
     "name": "Delete/Close Channel",
@@ -432,7 +437,9 @@
       "type": "reference",
       "link": "channel-object"
     },
-    "tree": []
+    "tree": [
+      "delete/close-channel"
+    ]
   },
   {
     "name": "Get Channel Messages",
@@ -509,7 +516,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-channel-messages",
+      "get-channel-messages-query-string-params"
+    ]
   },
   {
     "name": "Get Channel Message",
@@ -526,7 +536,9 @@
       }
     ],
     "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success.",
-    "tree": []
+    "tree": [
+      "get-channel-message"
+    ]
   },
   {
     "name": "Create Message",
@@ -709,7 +721,12 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-message",
+      "create-message-limitations",
+      "create-message-json/form-params",
+      "create-message-example-request-body-(application/json)"
+    ]
   },
   {
     "name": "Crosspost Message",
@@ -733,7 +750,9 @@
       "type": "reference",
       "link": "message-object"
     },
-    "tree": []
+    "tree": [
+      "crosspost-message"
+    ]
   },
   {
     "name": "Create Reaction",
@@ -754,7 +773,9 @@
       }
     ],
     "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": []
+    "tree": [
+      "create-reaction"
+    ]
   },
   {
     "name": "Delete Own Reaction",
@@ -775,7 +796,9 @@
       }
     ],
     "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": []
+    "tree": [
+      "delete-own-reaction"
+    ]
   },
   {
     "name": "Delete User Reaction",
@@ -800,7 +823,9 @@
       }
     ],
     "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": []
+    "tree": [
+      "delete-user-reaction"
+    ]
   },
   {
     "name": "Get Reactions",
@@ -859,7 +884,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-reactions",
+      "get-reactions-query-string-params"
+    ]
   },
   {
     "name": "Delete All Reactions",
@@ -876,7 +904,9 @@
       }
     ],
     "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event.",
-    "tree": []
+    "tree": [
+      "delete-all-reactions"
+    ]
   },
   {
     "name": "Delete All Reactions for Emoji",
@@ -897,7 +927,9 @@
       }
     ],
     "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": []
+    "tree": [
+      "delete-all-reactions-for-emoji"
+    ]
   },
   {
     "name": "Edit Message",
@@ -1045,7 +1077,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "edit-message",
+      "edit-message-json/form-params"
+    ]
   },
   {
     "name": "Delete Message",
@@ -1062,7 +1097,9 @@
       }
     ],
     "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event.",
-    "tree": []
+    "tree": [
+      "delete-message"
+    ]
   },
   {
     "name": "Bulk Delete Messages",
@@ -1095,7 +1132,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "bulk-delete-messages",
+      "bulk-delete-messages-json-params"
+    ]
   },
   {
     "name": "Edit Channel Permissions",
@@ -1158,7 +1198,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "edit-channel-permissions",
+      "edit-channel-permissions-json-params"
+    ]
   },
   {
     "name": "Get Channel Invites",
@@ -1178,7 +1221,9 @@
       "type": "reference",
       "link": "invite-object"
     },
-    "tree": []
+    "tree": [
+      "get-channel-invites"
+    ]
   },
   {
     "name": "Create Channel Invite",
@@ -1296,7 +1341,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-channel-invite",
+      "create-channel-invite-json-params"
+    ]
   },
   {
     "name": "Delete Channel Permission",
@@ -1313,7 +1361,9 @@
       }
     ],
     "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions",
-    "tree": []
+    "tree": [
+      "delete-channel-permission"
+    ]
   },
   {
     "name": "Follow News Channel",
@@ -1353,7 +1403,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "follow-news-channel",
+      "follow-news-channel-json-params"
+    ]
   },
   {
     "name": "Trigger Typing Indicator",
@@ -1366,7 +1419,9 @@
       }
     ],
     "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event.",
-    "tree": []
+    "tree": [
+      "trigger-typing-indicator"
+    ]
   },
   {
     "name": "Get Pinned Messages",
@@ -1386,7 +1441,9 @@
       "type": "reference",
       "link": "message-object"
     },
-    "tree": []
+    "tree": [
+      "get-pinned-messages"
+    ]
   },
   {
     "name": "Pin Message",
@@ -1403,7 +1460,9 @@
       }
     ],
     "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
-    "tree": []
+    "tree": [
+      "pin-message"
+    ]
   },
   {
     "name": "Unpin Message",
@@ -1420,7 +1479,9 @@
       }
     ],
     "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
-    "tree": []
+    "tree": [
+      "unpin-message"
+    ]
   },
   {
     "name": "Group DM Add Recipient",
@@ -1470,7 +1531,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "group-dm-add-recipient",
+      "group-dm-add-recipient-json-params"
+    ]
   },
   {
     "name": "Group DM Remove Recipient",
@@ -1487,7 +1551,9 @@
       }
     ],
     "description": "Removes a recipient from a Group DM.",
-    "tree": []
+    "tree": [
+      "group-dm-remove-recipient"
+    ]
   },
   {
     "name": "Start Thread with Message",
@@ -1557,7 +1623,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "start-thread-with-message",
+      "start-thread-with-message-json-params"
+    ]
   },
   {
     "name": "Start Thread without Message",
@@ -1649,7 +1718,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "start-thread-without-message",
+      "start-thread-without-message-json-params"
+    ]
   },
   {
     "name": "Join Thread",
@@ -1662,7 +1734,9 @@
       }
     ],
     "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": []
+    "tree": [
+      "join-thread"
+    ]
   },
   {
     "name": "Add Thread Member",
@@ -1679,7 +1753,9 @@
       }
     ],
     "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event.",
-    "tree": []
+    "tree": [
+      "add-thread-member"
+    ]
   },
   {
     "name": "Leave Thread",
@@ -1692,7 +1768,9 @@
       }
     ],
     "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": []
+    "tree": [
+      "leave-thread"
+    ]
   },
   {
     "name": "Remove Thread Member",
@@ -1709,7 +1787,9 @@
       }
     ],
     "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": []
+    "tree": [
+      "remove-thread-member"
+    ]
   },
   {
     "name": "Get Thread Member",
@@ -1733,7 +1813,9 @@
       "type": "reference",
       "link": "thread-member-object"
     },
-    "tree": []
+    "tree": [
+      "get-thread-member"
+    ]
   },
   {
     "name": "List Thread Members",
@@ -1753,7 +1835,9 @@
       "type": "reference",
       "link": "thread-member-object"
     },
-    "tree": []
+    "tree": [
+      "list-thread-members"
+    ]
   },
   {
     "name": "List Active Threads",
@@ -1766,7 +1850,10 @@
       }
     ],
     "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id , in descending order.",
-    "tree": []
+    "tree": [
+      "list-active-threads",
+      "list-active-threads-response-body"
+    ]
   },
   {
     "name": "List Public Archived Threads",
@@ -1817,7 +1904,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "list-public-archived-threads",
+      "list-public-archived-threads-query-string-params",
+      "list-public-archived-threads-response-body"
+    ]
   },
   {
     "name": "List Private Archived Threads",
@@ -1868,7 +1959,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "list-private-archived-threads",
+      "list-private-archived-threads-query-string-params",
+      "list-private-archived-threads-response-body"
+    ]
   },
   {
     "name": "List Joined Private Archived Threads",
@@ -1939,9 +2034,8 @@
       "link": "emoji-object"
     },
     "tree": [
-      "emoji-object-emoji-example",
-      "emoji-object-gateway-reaction-standard-emoji-example",
-      "emoji-object-gateway-reaction-custom-emoji-examples"
+      "emoji-object-gateway-reaction-custom-emoji-examples",
+      "list-guild-emojis"
     ]
   },
   {
@@ -1966,7 +2060,9 @@
       "type": "reference",
       "link": "emoji-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-emoji"
+    ]
   },
   {
     "name": "Create Guild Emoji",
@@ -2032,7 +2128,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-emoji",
+      "create-guild-emoji-json-params"
+    ]
   },
   {
     "name": "Modify Guild Emoji",
@@ -2089,7 +2188,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-emoji",
+      "modify-guild-emoji-json-params"
+    ]
   },
   {
     "name": "Delete Guild Emoji",
@@ -2284,7 +2386,12 @@
       ]
     },
     "tree": [
-      "guild-object-example-welcome-screen"
+      "welcome-screen-object-example-welcome-screen",
+      "membership-screening-object",
+      "create-guild",
+      "create-guild-json-params",
+      "create-guild-example-partial-channel-object",
+      "create-guild-example-category-channel"
     ]
   },
   {
@@ -2323,7 +2430,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-guild",
+      "get-guild-query-string-params",
+      "get-guild-example-response"
+    ]
   },
   {
     "name": "Get Guild Preview",
@@ -2343,7 +2454,9 @@
       "type": "reference",
       "link": "guild-preview-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-preview"
+    ]
   },
   {
     "name": "Modify Guild",
@@ -2630,7 +2743,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild",
+      "modify-guild-json-params"
+    ]
   },
   {
     "name": "Delete Guild",
@@ -2643,7 +2759,9 @@
       }
     ],
     "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event.",
-    "tree": []
+    "tree": [
+      "delete-guild"
+    ]
   },
   {
     "name": "Get Guild Channels",
@@ -2663,7 +2781,9 @@
       "type": "reference",
       "link": "channel-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-channels"
+    ]
   },
   {
     "name": "Create Guild Channel",
@@ -2820,7 +2940,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-channel",
+      "create-guild-channel-json-params"
+    ]
   },
   {
     "name": "Modify Guild Channel Positions",
@@ -2892,7 +3015,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-channel-positions",
+      "modify-guild-channel-positions-json-params"
+    ]
   },
   {
     "name": "List Active Threads",
@@ -2905,7 +3031,10 @@
       }
     ],
     "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id , in descending order.",
-    "tree": []
+    "tree": [
+      "list-active-threads",
+      "list-active-threads-response-body"
+    ]
   },
   {
     "name": "Get Guild Member",
@@ -2929,7 +3058,9 @@
       "type": "reference",
       "link": "guild-member-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-member"
+    ]
   },
   {
     "name": "List Guild Members",
@@ -2980,7 +3111,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "list-guild-members",
+      "list-guild-members-query-string-params"
+    ]
   },
   {
     "name": "Search Guild Members",
@@ -3031,7 +3165,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "search-guild-members",
+      "search-guild-members-query-string-params"
+    ]
   },
   {
     "name": "Add Guild Member",
@@ -3127,7 +3264,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "add-guild-member",
+      "add-guild-member-json-params"
+    ]
   },
   {
     "name": "Modify Guild Member",
@@ -3236,7 +3376,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-member",
+      "modify-guild-member-json-params"
+    ]
   },
   {
     "name": "Modify Current Member",
@@ -3269,7 +3412,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-current-member",
+      "modify-current-member-json-params"
+    ]
   },
   {
     "name": "Modify Current User Nick",
@@ -3302,7 +3448,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-current-user-nick",
+      "modify-current-user-nick-json-params"
+    ]
   },
   {
     "name": "Add Guild Member Role",
@@ -3323,7 +3472,9 @@
       }
     ],
     "description": "Adds a role to a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-    "tree": []
+    "tree": [
+      "add-guild-member-role"
+    ]
   },
   {
     "name": "Remove Guild Member Role",
@@ -3344,7 +3495,9 @@
       }
     ],
     "description": "Removes a role from a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-    "tree": []
+    "tree": [
+      "remove-guild-member-role"
+    ]
   },
   {
     "name": "Remove Guild Member",
@@ -3361,7 +3514,9 @@
       }
     ],
     "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event.",
-    "tree": []
+    "tree": [
+      "remove-guild-member"
+    ]
   },
   {
     "name": "Get Guild Bans",
@@ -3381,7 +3536,9 @@
       "type": "reference",
       "link": "ban-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-bans"
+    ]
   },
   {
     "name": "Get Guild Ban",
@@ -3405,7 +3562,9 @@
       "type": "reference",
       "link": "ban-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-ban"
+    ]
   },
   {
     "name": "Create Guild Ban",
@@ -3455,7 +3614,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-ban",
+      "create-guild-ban-json-params"
+    ]
   },
   {
     "name": "Remove Guild Ban",
@@ -3472,7 +3634,9 @@
       }
     ],
     "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event.",
-    "tree": []
+    "tree": [
+      "remove-guild-ban"
+    ]
   },
   {
     "name": "Get Guild Roles",
@@ -3492,7 +3656,9 @@
       "type": "reference",
       "link": "role-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-roles"
+    ]
   },
   {
     "name": "Create Guild Role",
@@ -3610,7 +3776,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-role",
+      "create-guild-role-json-params"
+    ]
   },
   {
     "name": "Modify Guild Role Positions",
@@ -3663,7 +3832,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-role-positions",
+      "modify-guild-role-positions-json-params"
+    ]
   },
   {
     "name": "Modify Guild Role",
@@ -3785,7 +3957,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-role",
+      "modify-guild-role-json-params"
+    ]
   },
   {
     "name": "Delete Guild Role",
@@ -3802,7 +3977,9 @@
       }
     ],
     "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event.",
-    "tree": []
+    "tree": [
+      "delete-guild-role"
+    ]
   },
   {
     "name": "Get Guild Prune Count",
@@ -3846,7 +4023,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-guild-prune-count",
+      "get-guild-prune-count-query-string-params"
+    ]
   },
   {
     "name": "Begin Guild Prune",
@@ -3918,7 +4098,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "begin-guild-prune",
+      "begin-guild-prune-json-params"
+    ]
   },
   {
     "name": "Get Guild Voice Regions",
@@ -3938,7 +4121,9 @@
       "type": "reference",
       "link": "voice-region-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-voice-regions"
+    ]
   },
   {
     "name": "Get Guild Invites",
@@ -3958,7 +4143,9 @@
       "type": "reference",
       "link": "invite-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-invites"
+    ]
   },
   {
     "name": "Get Guild Integrations",
@@ -3978,7 +4165,9 @@
       "type": "reference",
       "link": "integration-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-integrations"
+    ]
   },
   {
     "name": "Delete Guild Integration",
@@ -3995,7 +4184,9 @@
       }
     ],
     "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
-    "tree": []
+    "tree": [
+      "delete-guild-integration"
+    ]
   },
   {
     "name": "Get Guild Widget Settings",
@@ -4015,7 +4206,9 @@
       "type": "reference",
       "link": "guild-widget-settings-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-widget-settings"
+    ]
   },
   {
     "name": "Modify Guild Widget",
@@ -4035,7 +4228,9 @@
       "type": "reference",
       "link": "guild-widget-settings-object"
     },
-    "tree": []
+    "tree": [
+      "modify-guild-widget"
+    ]
   },
   {
     "name": "Get Guild Widget",
@@ -4055,7 +4250,9 @@
       "type": "reference",
       "link": "get-guild-widget-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-widget"
+    ]
   },
   {
     "name": "Get Guild Vanity URL",
@@ -4075,7 +4272,10 @@
       "type": "reference",
       "link": "invite-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-vanity-url",
+      "get-guild-vanity-url-example-partial-invite-object"
+    ]
   },
   {
     "name": "Get Guild Widget Image",
@@ -4106,7 +4306,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-guild-widget-image",
+      "get-guild-widget-image-query-string-params",
+      "get-guild-widget-image-widget-style-options"
+    ]
   },
   {
     "name": "Get Guild Welcome Screen",
@@ -4126,7 +4330,9 @@
       "type": "reference",
       "link": "welcome-screen-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-welcome-screen"
+    ]
   },
   {
     "name": "Modify Guild Welcome Screen",
@@ -4192,7 +4398,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-welcome-screen",
+      "modify-guild-welcome-screen-json-params"
+    ]
   },
   {
     "name": "Modify Current User Voice State",
@@ -4251,7 +4460,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-current-user-voice-state",
+      "modify-current-user-voice-state-json-params",
+      "modify-current-user-voice-state-caveats"
+    ]
   },
   {
     "name": "Modify User Voice State",
@@ -4339,7 +4552,9 @@
       ]
     },
     "tree": [
-      "guild-scheduled-event-object-guild-scheduled-event-user-structure"
+      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
+      "list-scheduled-events-for-guild",
+      "list-scheduled-events-for-guild-query-string-params"
     ]
   },
   {
@@ -4484,7 +4699,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-scheduled-event",
+      "create-guild-scheduled-event-json-params"
+    ]
   },
   {
     "name": "Get Guild Scheduled Event",
@@ -4526,7 +4744,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-guild-scheduled-event",
+      "get-guild-scheduled-event-query-string-params"
+    ]
   },
   {
     "name": "Modify Guild Scheduled Event",
@@ -4687,7 +4908,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-scheduled-event",
+      "modify-guild-scheduled-event-json-params"
+    ]
   },
   {
     "name": "Delete Guild Scheduled Event",
@@ -4704,7 +4928,9 @@
       }
     ],
     "description": "Delete a guild scheduled event. Returns a 204 on success.",
-    "tree": []
+    "tree": [
+      "delete-guild-scheduled-event"
+    ]
   },
   {
     "name": "Get Guild Scheduled Event Users",
@@ -4805,7 +5031,8 @@
       "link": "guild-template-object"
     },
     "tree": [
-      "guild-template-object-example-guild-template-object"
+      "guild-template-object-example-guild-template-object",
+      "get-guild-template"
     ]
   },
   {
@@ -4859,7 +5086,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-from-guild-template",
+      "create-guild-from-guild-template-json-params"
+    ]
   },
   {
     "name": "Get Guild Templates",
@@ -4879,7 +5109,9 @@
       "type": "reference",
       "link": "guild-template-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-templates"
+    ]
   },
   {
     "name": "Create Guild Template",
@@ -4932,7 +5164,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-template",
+      "create-guild-template-json-params"
+    ]
   },
   {
     "name": "Sync Guild Template",
@@ -4956,7 +5191,9 @@
       "type": "reference",
       "link": "guild-template-object"
     },
-    "tree": []
+    "tree": [
+      "sync-guild-template"
+    ]
   },
   {
     "name": "Modify Guild Template",
@@ -5013,7 +5250,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-template",
+      "modify-guild-template-json-params"
+    ]
   },
   {
     "name": "Delete Guild Template",
@@ -5101,7 +5341,9 @@
       ]
     },
     "tree": [
-      "invite-object-example-invite-stage-instance"
+      "invite-stage-instance-object-example-invite-stage-instance",
+      "get-invite",
+      "get-invite-query-string-params"
     ]
   },
   {
@@ -5176,7 +5418,11 @@
       ]
     },
     "tree": [
-      "stage-instance-object-example-stage-instance"
+      "stage-instance-object-example-stage-instance",
+      "definitions",
+      "auto-closing",
+      "create-stage-instance",
+      "create-stage-instance-json-params"
     ]
   },
   {
@@ -5190,7 +5436,9 @@
       }
     ],
     "description": "Gets the stage instance associated with the Stage channel, if it exists.",
-    "tree": []
+    "tree": [
+      "get-stage-instance"
+    ]
   },
   {
     "name": "Modify Stage Instance",
@@ -5236,7 +5484,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-stage-instance",
+      "modify-stage-instance-json-params"
+    ]
   },
   {
     "name": "Delete Stage Instance",
@@ -5269,7 +5520,8 @@
       "link": "sticker-object"
     },
     "tree": [
-      "sticker-object-example-sticker-pack"
+      "sticker-pack-object-example-sticker-pack",
+      "get-sticker"
     ]
   },
   {
@@ -5295,7 +5547,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "list-nitro-sticker-packs",
+      "list-nitro-sticker-packs-response-structure"
+    ]
   },
   {
     "name": "List Guild Stickers",
@@ -5315,7 +5570,9 @@
       "type": "reference",
       "link": "sticker-object"
     },
-    "tree": []
+    "tree": [
+      "list-guild-stickers"
+    ]
   },
   {
     "name": "Get Guild Sticker",
@@ -5339,7 +5596,9 @@
       "type": "reference",
       "link": "sticker-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-sticker"
+    ]
   },
   {
     "name": "Create Guild Sticker",
@@ -5418,7 +5677,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-guild-sticker",
+      "create-guild-sticker-form-params"
+    ]
   },
   {
     "name": "Modify Guild Sticker",
@@ -5488,7 +5750,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-guild-sticker",
+      "modify-guild-sticker-json-params"
+    ]
   },
   {
     "name": "Delete Guild Sticker",
@@ -5520,7 +5785,8 @@
       "link": "user-object"
     },
     "tree": [
-      "user-object-visibility-types"
+      "connection-object-visibility-types",
+      "get-current-user"
     ]
   },
   {
@@ -5541,7 +5807,9 @@
       "type": "reference",
       "link": "user-object"
     },
-    "tree": []
+    "tree": [
+      "get-user"
+    ]
   },
   {
     "name": "Modify Current User",
@@ -5589,7 +5857,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-current-user",
+      "modify-current-user-json-params"
+    ]
   },
   {
     "name": "Get Current User Guilds",
@@ -5648,7 +5919,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-current-user-guilds",
+      "get-current-user-guilds-example-partial-guild",
+      "get-current-user-guilds-query-string-params"
+    ]
   },
   {
     "name": "Get Current User Guild Member",
@@ -5668,7 +5943,9 @@
       "type": "reference",
       "link": "guild-member-object"
     },
-    "tree": []
+    "tree": [
+      "get-current-user-guild-member"
+    ]
   },
   {
     "name": "Leave Guild",
@@ -5681,7 +5958,9 @@
       }
     ],
     "description": "Leave a guild. Returns a 204 empty response on success.",
-    "tree": []
+    "tree": [
+      "leave-guild"
+    ]
   },
   {
     "name": "Create DM",
@@ -5716,7 +5995,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-dm",
+      "create-dm-json-params"
+    ]
   },
   {
     "name": "Create Group DM",
@@ -5764,7 +6046,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "create-group-dm",
+      "create-group-dm-json-params"
+    ]
   },
   {
     "name": "Get User Connections",
@@ -5846,9 +6131,9 @@
       ]
     },
     "tree": [
-      "webhook-object-example-incoming-webhook",
-      "webhook-object-example-channel-follower-webhook",
-      "webhook-object-example-application-webhook"
+      "webhook-object-example-application-webhook",
+      "create-webhook",
+      "create-webhook-json-params"
     ]
   },
   {
@@ -5869,7 +6154,9 @@
       "type": "reference",
       "link": "webhook-object"
     },
-    "tree": []
+    "tree": [
+      "get-channel-webhooks"
+    ]
   },
   {
     "name": "Get Guild Webhooks",
@@ -5889,7 +6176,9 @@
       "type": "reference",
       "link": "webhook-object"
     },
-    "tree": []
+    "tree": [
+      "get-guild-webhooks"
+    ]
   },
   {
     "name": "Get Webhook",
@@ -5909,7 +6198,9 @@
       "type": "reference",
       "link": "webhook-object"
     },
-    "tree": []
+    "tree": [
+      "get-webhook"
+    ]
   },
   {
     "name": "Get Webhook with Token",
@@ -5926,7 +6217,9 @@
       }
     ],
     "description": "Same as above, except this call does not require authentication and returns no user in the webhook object.",
-    "tree": []
+    "tree": [
+      "get-webhook-with-token"
+    ]
   },
   {
     "name": "Modify Webhook",
@@ -5992,7 +6285,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "modify-webhook",
+      "modify-webhook-json-params"
+    ]
   },
   {
     "name": "Modify Webhook with Token",
@@ -6009,7 +6305,9 @@
       }
     ],
     "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object.",
-    "tree": []
+    "tree": [
+      "modify-webhook-with-token"
+    ]
   },
   {
     "name": "Delete Webhook",
@@ -6022,7 +6320,9 @@
       }
     ],
     "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
-    "tree": []
+    "tree": [
+      "delete-webhook"
+    ]
   },
   {
     "name": "Delete Webhook with Token",
@@ -6039,7 +6339,9 @@
       }
     ],
     "description": "Same as above, except this call does not require authentication.",
-    "tree": []
+    "tree": [
+      "delete-webhook-with-token"
+    ]
   },
   {
     "name": "Execute Webhook",
@@ -6237,7 +6539,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "execute-webhook",
+      "execute-webhook-query-string-params",
+      "execute-webhook-json/form-params"
+    ]
   },
   {
     "name": "Execute Slack-Compatible Webhook",
@@ -6285,7 +6591,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "execute-slack-compatible-webhook",
+      "execute-slack-compatible-webhook-query-string-params"
+    ]
   },
   {
     "name": "Execute GitHub-Compatible Webhook",
@@ -6333,7 +6642,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "execute-github-compatible-webhook",
+      "execute-github-compatible-webhook-query-string-params"
+    ]
   },
   {
     "name": "Get Webhook Message",
@@ -6372,7 +6684,10 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "get-webhook-message",
+      "get-webhook-message-query-string-params"
+    ]
   },
   {
     "name": "Edit Webhook Message",
@@ -6516,7 +6831,11 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "edit-webhook-message",
+      "edit-webhook-message-query-string-params",
+      "edit-webhook-message-json/form-params"
+    ]
   },
   {
     "name": "Delete Webhook Message",
@@ -6570,8 +6889,15 @@
       "link": "connecting"
     },
     "tree": [
-      "resume-example-voice-server-update-payload",
-      "resume-webhooks-update-event-fields"
+      "webhooks-update-webhooks-update-event-fields",
+      "interactions",
+      "interaction-create",
+      "stage-instances",
+      "stage-instance-create",
+      "stage-instance-update",
+      "stage-instance-delete",
+      "get-gateway",
+      "get-gateway-example-response"
     ]
   },
   {
@@ -6639,11 +6965,9 @@
       "link": "application-object"
     },
     "tree": [
-      "client-credentials-grant-url-example",
-      "advanced-bot-authorization",
-      "advanced-bot-authorization-extended-bot-authorization-access-token-example",
-      "advanced-bot-authorization-url-example",
-      "advanced-bot-authorization-webhook-token-response-example"
+      "webhooks-url-example",
+      "webhooks-webhook-token-response-example",
+      "get-current-bot-application-information"
     ]
   },
   {

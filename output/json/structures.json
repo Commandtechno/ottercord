@@ -428,7 +428,7 @@
       }
     ],
     "tree": [
-      "audit-log-object-audit-log-entry-structure"
+      "audit-log-entry-object-audit-log-entry-structure"
     ]
   },
   {
@@ -540,7 +540,8 @@
       }
     ],
     "tree": [
-      "audit-log-object-optional-audit-entry-info"
+      "audit-log-entry-object-optional-audit-entry-info",
+      "audit-log-change-object"
     ]
   },
   {
@@ -587,7 +588,7 @@
       }
     ],
     "tree": [
-      "audit-log-object-audit-log-change-structure"
+      "audit-log-change-object-audit-log-change-structure"
     ]
   },
   {
@@ -1514,7 +1515,7 @@
       }
     ],
     "tree": [
-      "audit-log-object-audit-log-change-key"
+      "audit-log-change-object-audit-log-change-key"
     ]
   },
   {
@@ -2282,7 +2283,7 @@
       }
     ],
     "tree": [
-      "channel-object-message-structure"
+      "message-object-message-structure"
     ]
   },
   {
@@ -2316,7 +2317,7 @@
       }
     ],
     "tree": [
-      "channel-object-message-activity-structure"
+      "message-object-message-activity-structure"
     ]
   },
   {
@@ -2376,7 +2377,8 @@
       }
     ],
     "tree": [
-      "channel-object-message-reference-structure"
+      "message-reference-object-message-reference-structure",
+      "message-types"
     ]
   },
   {
@@ -2410,13 +2412,14 @@
       }
     ],
     "tree": [
-      "channel-object-crosspost-messages",
-      "channel-object-channel-follow-add-messages",
-      "channel-object-pin-messages",
-      "channel-object-replies",
-      "channel-object-thread-starter-messsage",
+      "message-types-crosspost-messages",
+      "message-types-channel-follow-add-messages",
+      "message-types-pin-messages",
+      "message-types-replies",
+      "message-types-thread-starter-messsage",
       "followed-channel-object",
-      "followed-channel-object-followed-channel-structure"
+      "followed-channel-object-followed-channel-structure",
+      "reaction-object"
     ]
   },
   {
@@ -2463,7 +2466,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-reaction-structure"
+      "reaction-object-reaction-structure",
+      "overwrite-object"
     ]
   },
   {
@@ -2523,7 +2527,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-overwrite-structure"
+      "overwrite-object-overwrite-structure",
+      "thread-metadata-object"
     ]
   },
   {
@@ -2609,7 +2614,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-thread-metadata-structure"
+      "thread-metadata-object-thread-metadata-structure",
+      "thread-member-object"
     ]
   },
   {
@@ -2669,7 +2675,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-thread-member-structure"
+      "thread-member-object-thread-member-structure",
+      "embed-object"
     ]
   },
   {
@@ -2846,7 +2853,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-structure"
+      "embed-object-embed-structure"
     ]
   },
   {
@@ -2906,7 +2913,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-thumbnail-structure"
+      "embed-object-embed-thumbnail-structure"
     ]
   },
   {
@@ -2966,7 +2973,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-video-structure"
+      "embed-object-embed-video-structure"
     ]
   },
   {
@@ -3026,7 +3033,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-image-structure"
+      "embed-object-embed-image-structure"
     ]
   },
   {
@@ -3060,7 +3067,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-provider-structure"
+      "embed-object-embed-provider-structure"
     ]
   },
   {
@@ -3120,7 +3127,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-author-structure"
+      "embed-object-embed-author-structure"
     ]
   },
   {
@@ -3167,7 +3174,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-footer-structure"
+      "embed-object-embed-footer-structure"
     ]
   },
   {
@@ -3214,7 +3221,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-embed-field-structure"
+      "embed-object-embed-field-structure",
+      "attachment-object"
     ]
   },
   {
@@ -3352,7 +3360,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-attachment-structure"
+      "attachment-object-attachment-structure",
+      "channel-mention-object"
     ]
   },
   {
@@ -3412,7 +3421,8 @@
       }
     ],
     "tree": [
-      "followed-channel-object-channel-mention-structure"
+      "channel-mention-object-channel-mention-structure",
+      "allowed-mentions-object"
     ]
   },
   {
@@ -3472,7 +3482,7 @@
       }
     ],
     "tree": [
-      "followed-channel-object-allowed-mentions-structure"
+      "allowed-mentions-object-allowed-mentions-structure"
     ]
   },
   {
@@ -4423,7 +4433,7 @@
       }
     ],
     "tree": [
-      "guild-object-guild-preview-structure"
+      "guild-preview-object-guild-preview-structure"
     ]
   },
   {
@@ -4457,7 +4467,7 @@
       }
     ],
     "tree": [
-      "guild-object-guild-widget-settings-structure"
+      "guild-widget-settings-object-guild-widget-settings-structure"
     ]
   },
   {
@@ -4543,7 +4553,7 @@
       }
     ],
     "tree": [
-      "guild-object-get-guild-widget-structure"
+      "get-guild-widget-object-get-guild-widget-structure"
     ]
   },
   {
@@ -4694,7 +4704,7 @@
       }
     ],
     "tree": [
-      "guild-object-guild-member-structure"
+      "guild-member-object-guild-member-structure"
     ]
   },
   {
@@ -4897,7 +4907,7 @@
       }
     ],
     "tree": [
-      "guild-object-integration-structure"
+      "integration-object-integration-structure"
     ]
   },
   {
@@ -4931,7 +4941,8 @@
       }
     ],
     "tree": [
-      "guild-object-integration-account-structure"
+      "integration-account-object-integration-account-structure",
+      "integration-application-object"
     ]
   },
   {
@@ -5017,7 +5028,8 @@
       }
     ],
     "tree": [
-      "guild-object-integration-application-structure"
+      "integration-application-object-integration-application-structure",
+      "ban-object"
     ]
   },
   {
@@ -5051,7 +5063,7 @@
       }
     ],
     "tree": [
-      "guild-object-ban-structure"
+      "ban-object-ban-structure"
     ]
   },
   {
@@ -5085,7 +5097,7 @@
       }
     ],
     "tree": [
-      "guild-object-welcome-screen-structure"
+      "welcome-screen-object-welcome-screen-structure"
     ]
   },
   {
@@ -5145,7 +5157,7 @@
       }
     ],
     "tree": [
-      "guild-object-welcome-screen-channel-structure"
+      "welcome-screen-object-welcome-screen-channel-structure"
     ]
   },
   {
@@ -5385,7 +5397,8 @@
     ],
     "tree": [
       "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions",
-      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata"
+      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+      "guild-scheduled-event-user-object"
     ]
   },
   {
@@ -5821,7 +5834,7 @@
       }
     ],
     "tree": [
-      "invite-object-invite-metadata-structure"
+      "invite-metadata-object-invite-metadata-structure"
     ]
   },
   {
@@ -5881,7 +5894,7 @@
       }
     ],
     "tree": [
-      "invite-object-invite-stage-instance-structure"
+      "invite-stage-instance-object-invite-stage-instance-structure"
     ]
   },
   {
@@ -6182,7 +6195,8 @@
       }
     ],
     "tree": [
-      "sticker-object-sticker-item-structure"
+      "sticker-item-object-sticker-item-structure",
+      "sticker-pack-object"
     ]
   },
   {
@@ -6281,7 +6295,7 @@
       }
     ],
     "tree": [
-      "sticker-object-sticker-pack-structure"
+      "sticker-pack-object-sticker-pack-structure"
     ]
   },
   {
@@ -6612,7 +6626,7 @@
       }
     ],
     "tree": [
-      "user-object-connection-structure"
+      "connection-object-connection-structure"
     ]
   },
   {
@@ -7152,7 +7166,7 @@
       }
     ],
     "tree": [
-      "http-example-device-object"
+      "models-device-object"
     ]
   },
   {
@@ -7186,7 +7200,7 @@
       }
     ],
     "tree": [
-      "http-example-vendor-object"
+      "models-vendor-object"
     ]
   },
   {
@@ -7220,7 +7234,7 @@
       }
     ],
     "tree": [
-      "http-example-model-object"
+      "models-model-object"
     ]
   },
   {
@@ -7280,7 +7294,8 @@
       }
     ],
     "tree": [
-      "gateways-gateway-payload-structure"
+      "payloads-gateway-payload-structure",
+      "sending-payloads"
     ]
   },
   {
@@ -7327,7 +7342,7 @@
       }
     ],
     "tree": [
-      "gateways-transport-compression-example",
+      "transport-compression-transport-compression-example",
       "connecting-to-the-gateway",
       "connecting",
       "connecting-gateway-url-query-string-params"
@@ -7429,7 +7444,7 @@
       }
     ],
     "tree": [
-      "commands-and-events-identify-structure"
+      "identify-identify-structure"
     ]
   },
   {
@@ -7476,7 +7491,7 @@
       }
     ],
     "tree": [
-      "commands-and-events-identify-connection-properties"
+      "identify-identify-connection-properties"
     ]
   },
   {
@@ -7523,7 +7538,7 @@
       }
     ],
     "tree": [
-      "commands-and-events-example-identify",
+      "identify-example-identify",
       "resume",
       "resume-resume-structure"
     ]
@@ -7620,7 +7635,7 @@
       }
     ],
     "tree": [
-      "resume-guild-request-members-structure"
+      "request-guild-members-guild-request-members-structure"
     ]
   },
   {
@@ -7680,7 +7695,7 @@
       }
     ],
     "tree": [
-      "resume-gateway-voice-state-update-structure"
+      "update-voice-state-gateway-voice-state-update-structure"
     ]
   },
   {
@@ -7740,7 +7755,7 @@
       }
     ],
     "tree": [
-      "resume-gateway-presence-update-structure"
+      "update-presence-gateway-presence-update-structure"
     ]
   },
   {
@@ -7761,7 +7776,7 @@
       }
     ],
     "tree": [
-      "resume-hello-structure"
+      "hello-hello-structure"
     ]
   },
   {
@@ -7847,7 +7862,9 @@
       }
     ],
     "tree": [
-      "resume-ready-event-fields"
+      "ready-ready-event-fields",
+      "resumed",
+      "reconnect"
     ]
   },
   {
@@ -7907,7 +7924,8 @@
       }
     ],
     "tree": [
-      "resume-thread-list-sync-event-fields"
+      "thread-list-sync-thread-list-sync-event-fields",
+      "thread-member-update"
     ]
   },
   {
@@ -7928,7 +7946,8 @@
       }
     ],
     "tree": [
-      "resume-thread-member-update-event-extra-fields"
+      "thread-member-update-thread-member-update-event-extra-fields",
+      "thread-members-update"
     ]
   },
   {
@@ -8001,7 +8020,8 @@
       }
     ],
     "tree": [
-      "resume-thread-members-update-event-fields"
+      "thread-members-update-thread-members-update-event-fields",
+      "channel-pins-update"
     ]
   },
   {
@@ -8048,7 +8068,12 @@
       }
     ],
     "tree": [
-      "resume-channel-pins-update-event-fields"
+      "channel-pins-update-channel-pins-update-event-fields",
+      "guilds",
+      "guild-create",
+      "guild-update",
+      "guild-delete",
+      "guild-ban-add"
     ]
   },
   {
@@ -8082,7 +8107,8 @@
       }
     ],
     "tree": [
-      "resume-guild-ban-add-event-fields"
+      "guild-ban-add-guild-ban-add-event-fields",
+      "guild-ban-remove"
     ]
   },
   {
@@ -8116,7 +8142,8 @@
       }
     ],
     "tree": [
-      "resume-guild-ban-remove-event-fields"
+      "guild-ban-remove-guild-ban-remove-event-fields",
+      "guild-emojis-update"
     ]
   },
   {
@@ -8150,7 +8177,8 @@
       }
     ],
     "tree": [
-      "resume-guild-emojis-update-event-fields"
+      "guild-emojis-update-guild-emojis-update-event-fields",
+      "guild-stickers-update"
     ]
   },
   {
@@ -8184,7 +8212,8 @@
       }
     ],
     "tree": [
-      "resume-guild-stickers-update-event-fields"
+      "guild-stickers-update-guild-stickers-update-event-fields",
+      "guild-integrations-update"
     ]
   },
   {
@@ -8205,7 +8234,8 @@
       }
     ],
     "tree": [
-      "resume-guild-integrations-update-event-fields"
+      "guild-integrations-update-guild-integrations-update-event-fields",
+      "guild-member-add"
     ]
   },
   {
@@ -8226,7 +8256,8 @@
       }
     ],
     "tree": [
-      "resume-guild-member-add-extra-fields"
+      "guild-member-add-guild-member-add-extra-fields",
+      "guild-member-remove"
     ]
   },
   {
@@ -8260,7 +8291,8 @@
       }
     ],
     "tree": [
-      "resume-guild-member-remove-event-fields"
+      "guild-member-remove-guild-member-remove-event-fields",
+      "guild-member-update"
     ]
   },
   {
@@ -8411,7 +8443,8 @@
       }
     ],
     "tree": [
-      "resume-guild-member-update-event-fields"
+      "guild-member-update-guild-member-update-event-fields",
+      "guild-members-chunk"
     ]
   },
   {
@@ -8510,7 +8543,8 @@
       }
     ],
     "tree": [
-      "resume-guild-members-chunk-event-fields"
+      "guild-members-chunk-guild-members-chunk-event-fields",
+      "guild-role-create"
     ]
   },
   {
@@ -8544,7 +8578,8 @@
       }
     ],
     "tree": [
-      "resume-guild-role-create-event-fields"
+      "guild-role-create-guild-role-create-event-fields",
+      "guild-role-update"
     ]
   },
   {
@@ -8578,7 +8613,8 @@
       }
     ],
     "tree": [
-      "resume-guild-role-update-event-fields"
+      "guild-role-update-guild-role-update-event-fields",
+      "guild-role-delete"
     ]
   },
   {
@@ -8612,7 +8648,11 @@
       }
     ],
     "tree": [
-      "resume-guild-role-delete-event-fields"
+      "guild-role-delete-guild-role-delete-event-fields",
+      "guild-scheduled-event-create",
+      "guild-scheduled-event-update",
+      "guild-scheduled-event-delete",
+      "guild-scheduled-event-user-add"
     ]
   },
   {
@@ -8659,7 +8699,8 @@
       }
     ],
     "tree": [
-      "resume-guild-scheduled-event-user-add-event-fields"
+      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
+      "guild-scheduled-event-user-remove"
     ]
   },
   {
@@ -8706,7 +8747,9 @@
       }
     ],
     "tree": [
-      "resume-guild-scheduled-event-user-remove-event-fields"
+      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
+      "integrations",
+      "integration-create"
     ]
   },
   {
@@ -8727,7 +8770,8 @@
       }
     ],
     "tree": [
-      "resume-integration-create-event-additional-fields"
+      "integration-create-integration-create-event-additional-fields",
+      "integration-update"
     ]
   },
   {
@@ -8748,7 +8792,8 @@
       }
     ],
     "tree": [
-      "resume-integration-update-event-additional-fields"
+      "integration-update-integration-update-event-additional-fields",
+      "integration-delete"
     ]
   },
   {
@@ -8795,7 +8840,9 @@
       }
     ],
     "tree": [
-      "resume-integration-delete-event-fields"
+      "integration-delete-integration-delete-event-fields",
+      "invites",
+      "invite-create"
     ]
   },
   {
@@ -8959,7 +9006,8 @@
       }
     ],
     "tree": [
-      "resume-invite-create-event-fields"
+      "invite-create-invite-create-event-fields",
+      "invite-delete"
     ]
   },
   {
@@ -9006,7 +9054,11 @@
       }
     ],
     "tree": [
-      "resume-invite-delete-event-fields"
+      "invite-delete-invite-delete-event-fields",
+      "messages",
+      "message-create",
+      "message-update",
+      "message-delete"
     ]
   },
   {
@@ -9053,7 +9105,8 @@
       }
     ],
     "tree": [
-      "resume-message-delete-event-fields"
+      "message-delete-message-delete-event-fields",
+      "message-delete-bulk"
     ]
   },
   {
@@ -9100,7 +9153,8 @@
       }
     ],
     "tree": [
-      "resume-message-delete-bulk-event-fields"
+      "message-delete-bulk-message-delete-bulk-event-fields",
+      "message-reaction-add"
     ]
   },
   {
@@ -9186,7 +9240,8 @@
       }
     ],
     "tree": [
-      "resume-message-reaction-add-event-fields"
+      "message-reaction-add-message-reaction-add-event-fields",
+      "message-reaction-remove"
     ]
   },
   {
@@ -9259,7 +9314,8 @@
       }
     ],
     "tree": [
-      "resume-message-reaction-remove-event-fields"
+      "message-reaction-remove-message-reaction-remove-event-fields",
+      "message-reaction-remove-all"
     ]
   },
   {
@@ -9306,7 +9362,8 @@
       }
     ],
     "tree": [
-      "resume-message-reaction-remove-all-event-fields"
+      "message-reaction-remove-all-message-reaction-remove-all-event-fields",
+      "message-reaction-remove-emoji"
     ]
   },
   {
@@ -9366,7 +9423,9 @@
       }
     ],
     "tree": [
-      "resume-message-reaction-remove-emoji-event-fields"
+      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
+      "presence",
+      "presence-update"
     ]
   },
   {
@@ -9413,7 +9472,9 @@
       }
     ],
     "tree": [
-      "resume-presence-update-event-fields"
+      "presence-update-presence-update-event-fields",
+      "client-status-object",
+      "activity-object"
     ]
   },
   {
@@ -9616,7 +9677,7 @@
       }
     ],
     "tree": [
-      "resume-activity-structure"
+      "activity-object-activity-structure"
     ]
   },
   {
@@ -9650,7 +9711,7 @@
       }
     ],
     "tree": [
-      "resume-activity-timestamps"
+      "activity-object-activity-timestamps"
     ]
   },
   {
@@ -9697,7 +9758,7 @@
       }
     ],
     "tree": [
-      "resume-activity-emoji"
+      "activity-object-activity-emoji"
     ]
   },
   {
@@ -9731,7 +9792,7 @@
       }
     ],
     "tree": [
-      "resume-activity-party"
+      "activity-object-activity-party"
     ]
   },
   {
@@ -9791,7 +9852,7 @@
       }
     ],
     "tree": [
-      "resume-activity-assets"
+      "activity-object-activity-assets"
     ]
   },
   {
@@ -9838,7 +9899,7 @@
       }
     ],
     "tree": [
-      "resume-activity-secrets"
+      "activity-object-activity-secrets"
     ]
   },
   {
@@ -9872,7 +9933,7 @@
       }
     ],
     "tree": [
-      "resume-activity-buttons"
+      "activity-object-activity-buttons"
     ]
   },
   {
@@ -9945,7 +10006,11 @@
       }
     ],
     "tree": [
-      "resume-typing-start-event-fields"
+      "typing-start-typing-start-event-fields",
+      "user-update",
+      "voice",
+      "voice-state-update",
+      "voice-server-update"
     ]
   },
   {
@@ -9992,7 +10057,7 @@
       }
     ],
     "tree": [
-      "resume-voice-server-update-event-fields"
+      "voice-server-update-voice-server-update-event-fields"
     ]
   },
   {
@@ -10174,7 +10239,7 @@
       }
     ],
     "tree": [
-      "permissions-role-structure"
+      "role-object-role-structure"
     ]
   },
   {
@@ -10221,58 +10286,7 @@
       }
     ],
     "tree": [
-      "permissions-role-tags-structure"
-    ]
-  },
-  {
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "name": "message",
-        "description": "A message saying you are being rate limited.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "name": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "name": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
-        },
-        "optional": false,
-        "nullable": false
-      }
-    ],
-    "tree": [
-      "rate-limits",
-      "header-format",
-      "header-format-rate-limit-header-examples",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
+      "role-object-role-tags-structure"
     ]
   },
   {
@@ -10345,7 +10359,10 @@
       }
     ],
     "tree": [
-      "rpc-payload-structure"
+      "payloads-payload-structure",
+      "connecting",
+      "rpc-server-ports",
+      "authenticating"
     ]
   },
   {
@@ -10405,7 +10422,7 @@
       }
     ],
     "tree": [
-      "rpc-authorize-argument-structure"
+      "authorize-authorize-argument-structure"
     ]
   },
   {
@@ -10426,7 +10443,7 @@
       }
     ],
     "tree": [
-      "rpc-authorize-response-structure"
+      "authorize-authorize-response-structure"
     ]
   },
   {
@@ -10447,7 +10464,7 @@
       }
     ],
     "tree": [
-      "rpc-authenticate-argument-structure"
+      "authenticate-authenticate-argument-structure"
     ]
   },
   {
@@ -10507,7 +10524,7 @@
       }
     ],
     "tree": [
-      "rpc-authenticate-response-structure"
+      "authenticate-authenticate-response-structure"
     ]
   },
   {
@@ -10580,7 +10597,7 @@
       }
     ],
     "tree": [
-      "rpc-oauth2-application-structure"
+      "authenticate-oauth2-application-structure"
     ]
   },
   {
@@ -10601,7 +10618,7 @@
       }
     ],
     "tree": [
-      "rpc-get-guilds-response-structure"
+      "get_guilds-get-guilds-response-structure"
     ]
   },
   {
@@ -10635,7 +10652,7 @@
       }
     ],
     "tree": [
-      "rpc-get-guild-argument-structure"
+      "get_guild-get-guild-argument-structure"
     ]
   },
   {
@@ -10695,7 +10712,7 @@
       }
     ],
     "tree": [
-      "rpc-get-guild-response-structure"
+      "get_guild-get-guild-response-structure"
     ]
   },
   {
@@ -10716,7 +10733,7 @@
       }
     ],
     "tree": [
-      "rpc-get-channel-argument-structure"
+      "get_channel-get-channel-argument-structure"
     ]
   },
   {
@@ -10854,7 +10871,7 @@
       }
     ],
     "tree": [
-      "rpc-get-channel-response-structure"
+      "get_channel-get-channel-response-structure"
     ]
   },
   {
@@ -10875,7 +10892,7 @@
       }
     ],
     "tree": [
-      "rpc-get-channels-argument-structure"
+      "get_channels-get-channels-argument-structure"
     ]
   },
   {
@@ -10896,7 +10913,7 @@
       }
     ],
     "tree": [
-      "rpc-get-channels-response-structure"
+      "get_channels-get-channels-response-structure"
     ]
   },
   {
@@ -10956,7 +10973,7 @@
       }
     ],
     "tree": [
-      "rpc-set-user-voice-settings-argument-and-response-structure"
+      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure"
     ]
   },
   {
@@ -10990,7 +11007,7 @@
       }
     ],
     "tree": [
-      "rpc-pan-object"
+      "set_user_voice_settings-pan-object"
     ]
   },
   {
@@ -11037,7 +11054,7 @@
       }
     ],
     "tree": [
-      "rpc-select-voice-channel-argument-structure"
+      "select_voice_channel-select-voice-channel-argument-structure"
     ]
   },
   {
@@ -11071,7 +11088,8 @@
       }
     ],
     "tree": [
-      "rpc-select-text-channel-argument-structure"
+      "select_text_channel-select-text-channel-argument-structure",
+      "get_voice_settings"
     ]
   },
   {
@@ -11209,7 +11227,7 @@
       }
     ],
     "tree": [
-      "rpc-get-voice-settings-response-structure"
+      "get_voice_settings-get-voice-settings-response-structure"
     ]
   },
   {
@@ -11256,7 +11274,7 @@
       }
     ],
     "tree": [
-      "rpc-voice-settings-input-object"
+      "get_voice_settings-voice-settings-input-object"
     ]
   },
   {
@@ -11303,7 +11321,7 @@
       }
     ],
     "tree": [
-      "rpc-voice-settings-output-object"
+      "get_voice_settings-voice-settings-output-object"
     ]
   },
   {
@@ -11376,7 +11394,7 @@
       }
     ],
     "tree": [
-      "rpc-voice-settings-mode-object"
+      "get_voice_settings-voice-settings-mode-object"
     ]
   },
   {
@@ -11423,7 +11441,7 @@
       }
     ],
     "tree": [
-      "rpc-shortcut-key-combo-object"
+      "get_voice_settings-shortcut-key-combo-object"
     ]
   },
   {
@@ -11561,7 +11579,7 @@
       }
     ],
     "tree": [
-      "rpc-set-voice-settings-argument-and-response-structure"
+      "set_voice_settings-set-voice-settings-argument-and-response-structure"
     ]
   },
   {
@@ -11582,7 +11600,7 @@
       }
     ],
     "tree": [
-      "rpc-subscribe-response-structure"
+      "subscribe-subscribe-response-structure"
     ]
   },
   {
@@ -11603,7 +11621,7 @@
       }
     ],
     "tree": [
-      "rpc-unsubscribe-response-structure"
+      "unsubscribe-unsubscribe-response-structure"
     ]
   },
   {
@@ -11624,7 +11642,7 @@
       }
     ],
     "tree": [
-      "rpc-set-certified-devices-argument-strucure"
+      "set_certified_devices-set-certified-devices-argument-strucure"
     ]
   },
   {
@@ -11749,7 +11767,7 @@
       }
     ],
     "tree": [
-      "rpc-device-object"
+      "set_certified_devices-device-object"
     ]
   },
   {
@@ -11783,7 +11801,7 @@
       }
     ],
     "tree": [
-      "rpc-vendor-object"
+      "set_certified_devices-vendor-object"
     ]
   },
   {
@@ -11817,7 +11835,7 @@
       }
     ],
     "tree": [
-      "rpc-model-object"
+      "set_certified_devices-model-object"
     ]
   },
   {
@@ -11851,7 +11869,7 @@
       }
     ],
     "tree": [
-      "rpc-set-activity-argument-structure"
+      "set_activity-set-activity-argument-structure"
     ]
   },
   {
@@ -11872,7 +11890,7 @@
       }
     ],
     "tree": [
-      "rpc-example-set-activity-payload",
+      "set_activity-example-set-activity-payload",
       "send_activity_join_invite",
       "send_activity_join_invite-send-activity-join-invite-argument-structure"
     ]
@@ -11895,7 +11913,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-close-activity-request-argument-structure"
+      "close_activity_request-close-activity-request-argument-structure"
     ]
   },
   {
@@ -11942,7 +11960,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-ready-dispatch-data-structure"
+      "ready-ready-dispatch-data-structure"
     ]
   },
   {
@@ -11989,7 +12007,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-rpc-server-configuration-object"
+      "ready-rpc-server-configuration-object"
     ]
   },
   {
@@ -12023,7 +12041,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-error-data-structure"
+      "error-error-data-structure"
     ]
   },
   {
@@ -12044,7 +12062,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-guild-status-argument-structure"
+      "guild_status-guild-status-argument-structure"
     ]
   },
   {
@@ -12078,7 +12096,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-guild-status-dispatch-data-structure"
+      "guild_status-guild-status-dispatch-data-structure"
     ]
   },
   {
@@ -12112,7 +12130,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-guild-create-dispatch-data-structure"
+      "guild_create-guild-create-dispatch-data-structure"
     ]
   },
   {
@@ -12159,7 +12177,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-channel-create-dispatch-data-structure"
+      "channel_create-channel-create-dispatch-data-structure"
     ]
   },
   {
@@ -12193,7 +12211,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-voice-channel-select-dispatch-data-structure"
+      "voice_channel_select-voice-channel-select-dispatch-data-structure"
     ]
   },
   {
@@ -12214,7 +12232,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-voice-state-argument-structure"
+      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure"
     ]
   },
   {
@@ -12287,7 +12305,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-voice-connection-status-dispatch-data-structure"
+      "voice_connection_status-voice-connection-status-dispatch-data-structure"
     ]
   },
   {
@@ -12308,7 +12326,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-message-argument-structure"
+      "message_create/message_update/message_delete-message-argument-structure"
     ]
   },
   {
@@ -12329,7 +12347,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-speaking-argument-structure"
+      "speaking_start/speaking_stop-speaking-argument-structure"
     ]
   },
   {
@@ -12350,7 +12368,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-speaking-dispatch-data-structure"
+      "speaking_start/speaking_stop-speaking-dispatch-data-structure"
     ]
   },
   {
@@ -12423,7 +12441,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-notification-create-dispatch-data-structure"
+      "notification_create-notification-create-dispatch-data-structure"
     ]
   },
   {
@@ -12444,7 +12462,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-activity-join-dispatch-data-structure"
+      "activity_join-activity-join-dispatch-data-structure"
     ]
   },
   {
@@ -12465,7 +12483,7 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-activity-spectate-dispatch-data-structure"
+      "activity_spectate-activity-spectate-dispatch-data-structure"
     ]
   },
   {
@@ -12486,7 +12504,58 @@
       }
     ],
     "tree": [
-      "send_activity_join_invite-activity-join-request-data-structure"
+      "activity_join_request-activity-join-request-data-structure"
+    ]
+  },
+  {
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "name": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ],
+    "tree": [
+      "rate-limits",
+      "header-format",
+      "header-format-rate-limit-header-examples",
+      "exceeding-a-rate-limit",
+      "exceeding-a-rate-limit-rate-limit-response-structure"
     ]
   },
   {
@@ -12705,9 +12774,10 @@
       }
     ],
     "tree": [
-      "voice-gateway-versioning-example-session-description-payload",
+      "establishing-a-voice-udp-connection-example-session-description-payload",
       "encrypting-and-sending-voice",
-      "encrypting-and-sending-voice-voice-packet-structure"
+      "encrypting-and-sending-voice-voice-packet-structure",
+      "speaking"
     ]
   }
 ]

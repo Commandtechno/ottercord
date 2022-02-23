@@ -41,7 +41,9 @@
       },
       "verify_key": "1e0a356058d627ca38a5c8c9648818061d49e49bd9da9e3ab17d98ad4d6bg2u8"
     },
-    "tree": []
+    "tree": [
+      "application-object-example-application-object"
+    ]
   },
   {
     "name": "Example Partial Integration Object",
@@ -54,7 +56,10 @@
         "id": "1234567"
       }
     },
-    "tree": []
+    "tree": [
+      "audit-log-object-example-partial-integration-object",
+      "audit-log-entry-object"
+    ]
   },
   {
     "name": "Example Partial Role Object",
@@ -79,7 +84,9 @@
       "parent_id": "399942396007890945",
       "default_auto_archive_duration": 60
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-guild-text-channel"
+    ]
   },
   {
     "name": "Example Guild News Channel",
@@ -96,7 +103,9 @@
       "parent_id": "399942396007890945",
       "default_auto_archive_duration": 60
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-guild-news-channel"
+    ]
   },
   {
     "name": "Example Guild Voice Channel",
@@ -113,7 +122,9 @@
       "parent_id": null,
       "rtc_region": null
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-guild-voice-channel"
+    ]
   },
   {
     "name": "Example DM Channel",
@@ -130,7 +141,9 @@
         }
       ]
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-dm-channel"
+    ]
   },
   {
     "name": "Example Group DM Channel",
@@ -156,7 +169,9 @@
       "id": "319674150115710528",
       "owner_id": "82198810841029460"
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-group-dm-channel"
+    ]
   },
   {
     "name": "Example Channel Category",
@@ -170,7 +185,9 @@
       "type": 4,
       "id": "399942396007890945"
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-channel-category"
+    ]
   },
   {
     "name": "Example Store Channel",
@@ -184,7 +201,9 @@
       "nsfw": false,
       "parent_id": null
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-store-channel"
+    ]
   },
   {
     "name": "Example Thread Channel",
@@ -206,7 +225,10 @@
         "locked": false
       }
     },
-    "tree": []
+    "tree": [
+      "channel-object-example-thread-channel",
+      "message-object"
+    ]
   },
   {
     "name": "Example Message",
@@ -241,7 +263,9 @@
       "mentions": [],
       "type": 0
     },
-    "tree": []
+    "tree": [
+      "message-object-example-message"
+    ]
   },
   {
     "name": "Example Crossposted Message",
@@ -290,7 +314,10 @@
         "message_id": "306588351130107906"
       }
     },
-    "tree": []
+    "tree": [
+      "message-object-example-crossposted-message",
+      "message-reference-object"
+    ]
   },
   {
     "name": "Allowed Mentions Reference",
@@ -303,7 +330,10 @@
         ]
       }
     },
-    "tree": []
+    "tree": [
+      "allowed-mentions-object-allowed-mentions-reference",
+      "embed-limits"
+    ]
   },
   {
     "name": "Emoji Example",
@@ -325,7 +355,9 @@
       "managed": false,
       "animated": false
     },
-    "tree": []
+    "tree": [
+      "emoji-object-emoji-example"
+    ]
   },
   {
     "name": "Gateway Reaction Standard Emoji Example",
@@ -333,7 +365,9 @@
       "id": null,
       "name": "🔥"
     },
-    "tree": []
+    "tree": [
+      "emoji-object-gateway-reaction-standard-emoji-example"
+    ]
   },
   {
     "name": "Gateway Reaction Custom Emoji Examples",
@@ -387,7 +421,10 @@
       "rules_channel_id": "441688182833020939",
       "public_updates_channel_id": "281283303326089216"
     },
-    "tree": []
+    "tree": [
+      "guild-object-example-guild",
+      "unavailable-guild-object"
+    ]
   },
   {
     "name": "Example Unavailable Guild",
@@ -395,7 +432,10 @@
       "id": "41771983423143937",
       "unavailable": true
     },
-    "tree": []
+    "tree": [
+      "unavailable-guild-object-example-unavailable-guild",
+      "guild-preview-object"
+    ]
   },
   {
     "name": "Example Guild Preview",
@@ -422,7 +462,10 @@
       "description": "The official place to report Discord Bugs!",
       "stickers": []
     },
-    "tree": []
+    "tree": [
+      "guild-preview-object-example-guild-preview",
+      "guild-widget-settings-object"
+    ]
   },
   {
     "name": "Example Guild Widget Settings",
@@ -430,7 +473,10 @@
       "enabled": true,
       "channel_id": "41771983444115456"
     },
-    "tree": []
+    "tree": [
+      "guild-widget-settings-object-example-guild-widget-settings",
+      "get-guild-widget-object"
+    ]
   },
   {
     "name": "Example Get Guild Widget",
@@ -462,7 +508,10 @@
       ],
       "presence_count": 1
     },
-    "tree": []
+    "tree": [
+      "get-guild-widget-object-example-get-guild-widget",
+      "guild-member-object"
+    ]
   },
   {
     "name": "Example Guild Member",
@@ -475,7 +524,10 @@
       "deaf": false,
       "mute": false
     },
-    "tree": []
+    "tree": [
+      "guild-member-object-example-guild-member",
+      "integration-object"
+    ]
   },
   {
     "name": "Example Ban",
@@ -489,7 +541,10 @@
         "public_flags": 131141
       }
     },
-    "tree": []
+    "tree": [
+      "ban-object-example-ban",
+      "welcome-screen-object"
+    ]
   },
   {
     "name": "Example Welcome Screen",
@@ -642,7 +697,10 @@
         "public_flags": 64
       }
     },
-    "tree": []
+    "tree": [
+      "invite-object-example-invite-object",
+      "invite-metadata-object"
+    ]
   },
   {
     "name": "Example Invite Metadata",
@@ -653,7 +711,10 @@
       "temporary": false,
       "created_at": "2016-03-31T19:15:39.954000+00:00"
     },
-    "tree": []
+    "tree": [
+      "invite-metadata-object-example-invite-metadata",
+      "invite-stage-instance-object"
+    ]
   },
   {
     "name": "Example Invite Stage Instance",
@@ -698,7 +759,10 @@
       "pack_id": "847199849233514549",
       "sort_value": 12
     },
-    "tree": []
+    "tree": [
+      "sticker-object-example-sticker",
+      "sticker-item-object"
+    ]
   },
   {
     "name": "Example Sticker Pack",
@@ -727,7 +791,9 @@
       "premium_type": 1,
       "public_flags": 64
     },
-    "tree": []
+    "tree": [
+      "user-object-example-user"
+    ]
   },
   {
     "name": "Example Voice State",
@@ -742,7 +808,10 @@
       "suppress": false,
       "request_to_speak_timestamp": "2021-03-31T18:45:31.297561+00:00"
     },
-    "tree": []
+    "tree": [
+      "voice-state-object-example-voice-state",
+      "voice-region-object"
+    ]
   },
   {
     "name": "Example Incoming Webhook",
@@ -763,7 +832,9 @@
         "public_flags": 131328
       }
     },
-    "tree": []
+    "tree": [
+      "webhook-object-example-incoming-webhook"
+    ]
   },
   {
     "name": "Example Channel Follower Webhook",
@@ -792,7 +863,9 @@
         "public_flags": 131328
       }
     },
-    "tree": []
+    "tree": [
+      "webhook-object-example-channel-follower-webhook"
+    ]
   },
   {
     "name": "Example Application Webhook",
@@ -814,7 +887,17 @@
       "evt": null,
       "nonce": "9b4e9711-97f3-4f35-b047-32c82a51978e"
     },
-    "tree": []
+    "tree": [
+      "connecting-http",
+      "connecting-websocket",
+      "getting-device-uuid",
+      "getting-device-uuid-microphone-id-example",
+      "getting-device-uuid-speaker-id-example",
+      "http-example",
+      "http-example-http-request-example",
+      "http-example-http-response-example",
+      "websocket-example"
+    ]
   },
   {
     "name": "RPC Command Example",
@@ -845,7 +928,9 @@
         ]
       }
     },
-    "tree": []
+    "tree": [
+      "websocket-example-rpc-command-example"
+    ]
   },
   {
     "name": "RPC Response Example",
@@ -855,7 +940,10 @@
       "data": null,
       "evt": null
     },
-    "tree": []
+    "tree": [
+      "websocket-example-rpc-response-example",
+      "models"
+    ]
   },
   {
     "name": "Example Gateway Dispatch",
@@ -865,7 +953,15 @@
       "s": 42,
       "t": "GATEWAY_EVENT_NAME"
     },
-    "tree": []
+    "tree": [
+      "sending-payloads-example-gateway-dispatch",
+      "receiving-payloads",
+      "encoding-and-compression",
+      "etf/json",
+      "etf/json-using-etf",
+      "payload-compression",
+      "transport-compression"
+    ]
   },
   {
     "name": "Example Gateway Hello",
@@ -875,14 +971,20 @@
         "heartbeat_interval": 45000
       }
     },
-    "tree": []
+    "tree": [
+      "connecting-example-gateway-hello",
+      "heartbeating"
+    ]
   },
   {
     "name": "Example Gateway Heartbeat ACK",
     "content": {
       "op": 11
     },
-    "tree": []
+    "tree": [
+      "heartbeating-example-gateway-heartbeat-ack",
+      "identifying"
+    ]
   },
   {
     "name": "Example Gateway Identify",
@@ -898,7 +1000,10 @@
         }
       }
     },
-    "tree": []
+    "tree": [
+      "identifying-example-gateway-identify",
+      "resuming"
+    ]
   },
   {
     "name": "Example Gateway Resume",
@@ -910,7 +1015,18 @@
         "seq": 1337
       }
     },
-    "tree": []
+    "tree": [
+      "resuming-example-gateway-resume",
+      "disconnections",
+      "gateway-intents",
+      "list-of-intents",
+      "caveats",
+      "privileged-intents",
+      "rate-limiting",
+      "tracking-state",
+      "guild-availability",
+      "sharding"
+    ]
   },
   {
     "name": "Example Resume",
@@ -922,7 +1038,10 @@
         "seq": 1337
       }
     },
-    "tree": []
+    "tree": [
+      "resume-example-resume",
+      "heartbeat"
+    ]
   },
   {
     "name": "Example Heartbeat",
@@ -930,7 +1049,10 @@
       "op": 1,
       "d": 251
     },
-    "tree": []
+    "tree": [
+      "heartbeat-example-heartbeat",
+      "request-guild-members"
+    ]
   },
   {
     "name": "Guild Request Members",
@@ -942,7 +1064,10 @@
         "limit": 0
       }
     },
-    "tree": []
+    "tree": [
+      "request-guild-members-guild-request-members",
+      "update-voice-state"
+    ]
   },
   {
     "name": "Example Gateway Voice State Update",
@@ -955,7 +1080,10 @@
         "self_deaf": false
       }
     },
-    "tree": []
+    "tree": [
+      "update-voice-state-example-gateway-voice-state-update",
+      "update-presence"
+    ]
   },
   {
     "name": "Example Gateway Presence Update",
@@ -973,7 +1101,11 @@
         "afk": false
       }
     },
-    "tree": []
+    "tree": [
+      "update-presence-example-gateway-presence-update",
+      "connecting-and-resuming",
+      "hello"
+    ]
   },
   {
     "name": "Example Hello",
@@ -983,7 +1115,10 @@
         "heartbeat_interval": 45000
       }
     },
-    "tree": []
+    "tree": [
+      "hello-example-hello",
+      "ready"
+    ]
   },
   {
     "name": "Example Gateway Reconnect",
@@ -991,7 +1126,10 @@
       "op": 7,
       "d": null
     },
-    "tree": []
+    "tree": [
+      "reconnect-example-gateway-reconnect",
+      "invalid-session"
+    ]
   },
   {
     "name": "Example Gateway Invalid Session",
@@ -999,7 +1137,17 @@
       "op": 9,
       "d": false
     },
-    "tree": []
+    "tree": [
+      "invalid-session-example-gateway-invalid-session",
+      "channels",
+      "channel-create",
+      "channel-update",
+      "channel-delete",
+      "thread-create",
+      "thread-update",
+      "thread-delete",
+      "thread-list-sync"
+    ]
   },
   {
     "name": "Example Activity",
@@ -1010,7 +1158,9 @@
       "type": 1,
       "url": "https://www.twitch.tv/discord"
     },
-    "tree": []
+    "tree": [
+      "activity-object-example-activity"
+    ]
   },
   {
     "name": "Example Activity with Rich Presence",
@@ -1042,7 +1192,10 @@
         "match": "4b2fdce12f639de8bfa7e3591b71a0d679d7c93f"
       }
     },
-    "tree": []
+    "tree": [
+      "activity-object-example-activity-with-rich-presence",
+      "typing-start"
+    ]
   },
   {
     "name": "Example Voice Server Update Payload",
@@ -1051,7 +1204,11 @@
       "guild_id": "41771983423143937",
       "endpoint": "smart.loyal.discord.gg"
     },
-    "tree": []
+    "tree": [
+      "voice-server-update-example-voice-server-update-payload",
+      "webhooks",
+      "webhooks-update"
+    ]
   },
   {
     "name": "Access Token Response",
@@ -1062,7 +1219,12 @@
       "refresh_token": "D43f5y0ahjqew82jZ4NViEr2YafMKhue",
       "scope": "identify"
     },
-    "tree": []
+    "tree": [
+      "authorization-code-grant-authorization-url-example",
+      "authorization-code-grant-redirect-url-example",
+      "authorization-code-grant-access-token-exchange-example",
+      "authorization-code-grant-access-token-response"
+    ]
   },
   {
     "name": "Client Credentials Access Token Response",
@@ -1072,7 +1234,18 @@
       "expires_in": 604800,
       "scope": "identify connections"
     },
-    "tree": []
+    "tree": [
+      "authorization-code-grant-refresh-token-exchange-example",
+      "implicit-grant",
+      "implicit-grant-authorization-url-example",
+      "implicit-grant-redirect-url-example",
+      "client-credentials-grant",
+      "client-credentials-grant-client-credentials-token-request-example",
+      "client-credentials-grant-client-credentials-access-token-response",
+      "bots",
+      "bot-vs-user-accounts",
+      "bot-authorization-flow"
+    ]
   },
   {
     "name": "Extended Bot Authorization Access Token Example",
@@ -1129,7 +1302,13 @@
       "expires_in": 604800,
       "refresh_token": "mgp8qnvBwJcmadwgCYKyYD5CAzGAX4"
     },
-    "tree": []
+    "tree": [
+      "bot-authorization-flow-url-example",
+      "advanced-bot-authorization",
+      "advanced-bot-authorization-extended-bot-authorization-access-token-example",
+      "two-factor-authentication-requirement",
+      "webhooks"
+    ]
   },
   {
     "name": "Webhook Token Response Example",
@@ -1158,7 +1337,10 @@
       "message": "Invalid authentication token",
       "code": 50014
     },
-    "tree": []
+    "tree": [
+      "json-example-json-error-response",
+      "rpc"
+    ]
   },
   {
     "name": "Example Role",
@@ -1188,7 +1370,9 @@
       },
       "cmd": "AUTHORIZE"
     },
-    "tree": []
+    "tree": [
+      "authenticating-rpc-authorize-example"
+    ]
   },
   {
     "name": "RPC Authenticate Example",
@@ -1199,7 +1383,10 @@
       },
       "cmd": "AUTHENTICATE"
     },
-    "tree": []
+    "tree": [
+      "authenticating-rpc-authenticate-example",
+      "commands-and-events"
+    ]
   },
   {
     "name": "Example Authorize Command Payload",
@@ -1214,7 +1401,9 @@
       },
       "cmd": "AUTHORIZE"
     },
-    "tree": []
+    "tree": [
+      "authorize-example-authorize-command-payload"
+    ]
   },
   {
     "name": "Example Authorize Response Payload",
@@ -1225,7 +1414,10 @@
       },
       "nonce": "f48f6176-4afb-4c03-b1b8-d960861f5216"
     },
-    "tree": []
+    "tree": [
+      "authorize-example-authorize-response-payload",
+      "authenticate"
+    ]
   },
   {
     "name": "Example Authenticate Command Payload",
@@ -1236,7 +1428,9 @@
       },
       "cmd": "AUTHENTICATE"
     },
-    "tree": []
+    "tree": [
+      "authenticate-example-authenticate-command-payload"
+    ]
   },
   {
     "name": "Example Authenticate Response Payload",
@@ -1266,7 +1460,10 @@
       },
       "nonce": "5bb10a43-1fdc-4391-9512-0c8f4aa203d4"
     },
-    "tree": []
+    "tree": [
+      "authenticate-example-authenticate-response-payload",
+      "get_guilds"
+    ]
   },
   {
     "name": "Example Get Guilds Command Payload",
@@ -1275,7 +1472,9 @@
       "args": {},
       "cmd": "GET_GUILDS"
     },
-    "tree": []
+    "tree": [
+      "get_guilds-example-get-guilds-command-payload"
+    ]
   },
   {
     "name": "Example Get Guilds Response Payload",
@@ -1291,7 +1490,10 @@
       },
       "nonce": "e16fcbed-8bfa-4fd4-ba09-73b72e809833"
     },
-    "tree": []
+    "tree": [
+      "get_guilds-example-get-guilds-response-payload",
+      "get_guild"
+    ]
   },
   {
     "name": "Example Get Guild Command Payload",
@@ -1302,7 +1504,9 @@
       },
       "cmd": "GET_GUILD"
     },
-    "tree": []
+    "tree": [
+      "get_guild-example-get-guild-command-payload"
+    ]
   },
   {
     "name": "Example Get Guild Response Payload",
@@ -1316,7 +1520,10 @@
       },
       "nonce": "9524922c-3d32-413a-bdaa-0804f4332588"
     },
-    "tree": []
+    "tree": [
+      "get_guild-example-get-guild-response-payload",
+      "get_channel"
+    ]
   },
   {
     "name": "Example Get Channel Command Payload",
@@ -1327,7 +1534,9 @@
       },
       "cmd": "GET_CHANNEL"
     },
-    "tree": []
+    "tree": [
+      "get_channel-example-get-channel-command-payload"
+    ]
   },
   {
     "name": "Example Get Channel Response Payload",
@@ -1369,7 +1578,10 @@
       },
       "nonce": "f682697e-d257-4a17-ac0a-7e4b84e66663"
     },
-    "tree": []
+    "tree": [
+      "get_channel-example-get-channel-response-payload",
+      "get_channels"
+    ]
   },
   {
     "name": "Example Get Channels Command Payload",
@@ -1380,7 +1592,9 @@
       },
       "cmd": "GET_CHANNELS"
     },
-    "tree": []
+    "tree": [
+      "get_channels-example-get-channels-command-payload"
+    ]
   },
   {
     "name": "Example Get Channels Response Payload",
@@ -1402,7 +1616,10 @@
       },
       "nonce": "0dee7bd4-8f62-4ecc-9e0f-1b1839a4fa93"
     },
-    "tree": []
+    "tree": [
+      "get_channels-example-get-channels-response-payload",
+      "set_user_voice_settings"
+    ]
   },
   {
     "name": "Example Set User Voice Settings Command Payload",
@@ -1419,7 +1636,9 @@
       },
       "cmd": "SET_USER_VOICE_SETTINGS"
     },
-    "tree": []
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-command-payload"
+    ]
   },
   {
     "name": "Example Set User Voice Settings Response Payload",
@@ -1436,7 +1655,10 @@
       },
       "nonce": "eafc8152-2248-4478-9827-8457b7900cb4"
     },
-    "tree": []
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-response-payload",
+      "select_voice_channel"
+    ]
   },
   {
     "name": "Example Select Voice Channel Command Payload",
@@ -1447,7 +1669,9 @@
       },
       "cmd": "SELECT_VOICE_CHANNEL"
     },
-    "tree": []
+    "tree": [
+      "select_voice_channel-example-select-voice-channel-command-payload"
+    ]
   },
   {
     "name": "Example Select Voice Channel Response Payload",
@@ -1489,7 +1713,11 @@
       },
       "nonce": "5d9df76d-6408-46a1-9368-33dca74fa423"
     },
-    "tree": []
+    "tree": [
+      "select_voice_channel-example-select-voice-channel-response-payload",
+      "get_selected_voice_channel",
+      "select_text_channel"
+    ]
   },
   {
     "name": "Example Get Voice Settings Response Payload",
@@ -1547,7 +1775,10 @@
       },
       "nonce": "fa07c532-bb03-4f75-8b9a-397f5109afb6"
     },
-    "tree": []
+    "tree": [
+      "get_voice_settings-example-get-voice-settings-response-payload",
+      "set_voice_settings"
+    ]
   },
   {
     "name": "Example Set Voice Settings Command Payload",
@@ -1560,7 +1791,9 @@
       },
       "cmd": "SET_VOICE_SETTINGS"
     },
-    "tree": []
+    "tree": [
+      "set_voice_settings-example-set-voice-settings-command-payload"
+    ]
   },
   {
     "name": "Example Set Voice Settings Response Payload",
@@ -1618,7 +1851,10 @@
       },
       "nonce": "3d64ed55-ef6e-4bd5-99c9-677533babc22"
     },
-    "tree": []
+    "tree": [
+      "set_voice_settings-example-set-voice-settings-response-payload",
+      "subscribe"
+    ]
   },
   {
     "name": "Example Subscribe Command Payload",
@@ -1630,7 +1866,9 @@
       "evt": "GUILD_STATUS",
       "cmd": "SUBSCRIBE"
     },
-    "tree": []
+    "tree": [
+      "subscribe-example-subscribe-command-payload"
+    ]
   },
   {
     "name": "Example Subscribe Response Payload",
@@ -1641,7 +1879,10 @@
       },
       "nonce": "be9a6de3-31d0-4767-a8e9-4818c5690015"
     },
-    "tree": []
+    "tree": [
+      "subscribe-example-subscribe-response-payload",
+      "unsubscribe"
+    ]
   },
   {
     "name": "Example Unsubscribe Command Payload",
@@ -1653,7 +1894,9 @@
       "evt": "GUILD_STATUS",
       "cmd": "UNSUBSCRIBE"
     },
-    "tree": []
+    "tree": [
+      "unsubscribe-example-unsubscribe-command-payload"
+    ]
   },
   {
     "name": "Example Unsubscribe Response Payload",
@@ -1664,7 +1907,10 @@
       },
       "nonce": "647d814a-4cf8-4fbb-948f-898aad24f55b"
     },
-    "tree": []
+    "tree": [
+      "unsubscribe-example-unsubscribe-response-payload",
+      "set_certified_devices"
+    ]
   },
   {
     "name": "Example Set Certified Devices Command Payload",
@@ -1695,7 +1941,9 @@
         ]
       }
     },
-    "tree": []
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-command-payload"
+    ]
   },
   {
     "name": "Example Set Certified Devices Response Payload",
@@ -1705,7 +1953,10 @@
       "data": null,
       "evt": null
     },
-    "tree": []
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-response-payload",
+      "set_activity"
+    ]
   },
   {
     "name": "Example Send Activity Join Invite Payload",
@@ -1716,7 +1967,10 @@
         "user_id": "53908232506183680"
       }
     },
-    "tree": []
+    "tree": [
+      "send_activity_join_invite-example-send-activity-join-invite-payload",
+      "close_activity_request"
+    ]
   },
   {
     "name": "Example Close Activity Request Payload",
@@ -1727,7 +1981,10 @@
         "user_id": "53908232506183680"
       }
     },
-    "tree": []
+    "tree": [
+      "close_activity_request-example-close-activity-request-payload",
+      "ready"
+    ]
   },
   {
     "name": "Example Ready Dispatch Payload",
@@ -1749,7 +2006,10 @@
       },
       "evt": "READY"
     },
-    "tree": []
+    "tree": [
+      "ready-example-ready-dispatch-payload",
+      "error"
+    ]
   },
   {
     "name": "Example Error Payload",
@@ -1762,7 +2022,10 @@
       "evt": "ERROR",
       "nonce": "5102b6f0-c769-4f37-8cca-25fb0ab22628"
     },
-    "tree": []
+    "tree": [
+      "error-example-error-payload",
+      "guild_status"
+    ]
   },
   {
     "name": "Example Guild Status Dispatch Payload",
@@ -1778,7 +2041,10 @@
       },
       "evt": "GUILD_STATUS"
     },
-    "tree": []
+    "tree": [
+      "guild_status-example-guild-status-dispatch-payload",
+      "guild_create"
+    ]
   },
   {
     "name": "Example Guild Create Dispatch Payload",
@@ -1790,7 +2056,10 @@
       },
       "evt": "GUILD_CREATE"
     },
-    "tree": []
+    "tree": [
+      "guild_create-example-guild-create-dispatch-payload",
+      "channel_create"
+    ]
   },
   {
     "name": "Example Channel Create Dispatch Payload",
@@ -1803,7 +2072,10 @@
       },
       "evt": "CHANNEL_CREATE"
     },
-    "tree": []
+    "tree": [
+      "channel_create-example-channel-create-dispatch-payload",
+      "voice_channel_select"
+    ]
   },
   {
     "name": "Example Voice Channel Select Dispatch Payload",
@@ -1815,7 +2087,10 @@
       },
       "evt": "VOICE_CHANNEL_SELECT"
     },
-    "tree": []
+    "tree": [
+      "voice_channel_select-example-voice-channel-select-dispatch-payload",
+      "voice_settings_update"
+    ]
   },
   {
     "name": "Example Voice Settings Dispatch Payload",
@@ -1871,7 +2146,11 @@
       },
       "evt": "VOICE_SETTINGS_UPDATE"
     },
-    "tree": []
+    "tree": [
+      "voice_settings_update-voice-settings-argument-structure",
+      "voice_settings_update-example-voice-settings-dispatch-payload",
+      "voice_state_create/voice_state_update/voice_state_delete"
+    ]
   },
   {
     "name": "Example Voice State Dispatch Payload",
@@ -1902,7 +2181,10 @@
         }
       }
     },
-    "tree": []
+    "tree": [
+      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload",
+      "voice_connection_status"
+    ]
   },
   {
     "name": "Example Voice Connection Status Dispatch Payload",
@@ -1920,7 +2202,10 @@
         "last_ping": 20
       }
     },
-    "tree": []
+    "tree": [
+      "voice_connection_status-example-voice-connection-status-dispatch-payload",
+      "message_create/message_update/message_delete"
+    ]
   },
   {
     "name": "Example Message Dispatch Payload",
@@ -1960,7 +2245,10 @@
       },
       "evt": "MESSAGE_CREATE"
     },
-    "tree": []
+    "tree": [
+      "message_create/message_update/message_delete-example-message-dispatch-payload",
+      "speaking_start/speaking_stop"
+    ]
   },
   {
     "name": "Example Speaking Dispatch Payload",
@@ -1971,7 +2259,10 @@
       },
       "evt": "SPEAKING_STOP"
     },
-    "tree": []
+    "tree": [
+      "speaking_start/speaking_stop-example-speaking-dispatch-payload",
+      "notification_create"
+    ]
   },
   {
     "name": "Example Notification Create Dispatch Payload",
@@ -2014,7 +2305,10 @@
       },
       "evt": "NOTIFICATION_CREATE"
     },
-    "tree": []
+    "tree": [
+      "notification_create-example-notification-create-dispatch-payload",
+      "activity_join"
+    ]
   },
   {
     "name": "Example Activity Join Dispatch Payload",
@@ -2025,7 +2319,10 @@
       },
       "evt": "ACTIVITY_JOIN"
     },
-    "tree": []
+    "tree": [
+      "activity_join-example-activity-join-dispatch-payload",
+      "activity_spectate"
+    ]
   },
   {
     "name": "Example Activity Spectate Dispatch Payload",
@@ -2036,7 +2333,10 @@
       },
       "evt": "ACTIVITY_SPECTATE"
     },
-    "tree": []
+    "tree": [
+      "activity_spectate-example-activity-spectate-dispatch-payload",
+      "activity_join_request"
+    ]
   },
   {
     "name": "Example Activity Join Request Dispatch Payload",
@@ -2064,7 +2364,9 @@
         "self_deaf": false
       }
     },
-    "tree": []
+    "tree": [
+      "retrieving-voice-server-information-gateway-voice-state-update-example"
+    ]
   },
   {
     "name": "Example Voice Server Update Payload",
@@ -2078,7 +2380,10 @@
         "endpoint": "smart.loyal.discord.gg"
       }
     },
-    "tree": []
+    "tree": [
+      "retrieving-voice-server-information-example-voice-server-update-payload",
+      "establishing-a-voice-websocket-connection"
+    ]
   },
   {
     "name": "Example Voice Identify Payload",
@@ -2091,7 +2396,9 @@
         "token": "my_token"
       }
     },
-    "tree": []
+    "tree": [
+      "establishing-a-voice-websocket-connection-example-voice-identify-payload"
+    ]
   },
   {
     "name": "Example Voice Ready Payload",
@@ -2109,14 +2416,19 @@
         "heartbeat_interval": 1
       }
     },
-    "tree": []
+    "tree": [
+      "establishing-a-voice-websocket-connection-example-voice-ready-payload",
+      "heartbeating"
+    ]
   },
   {
     "name": "Example Hello Payload below V3",
     "content": {
       "heartbeat_interval": 41250
     },
-    "tree": []
+    "tree": [
+      "heartbeating-example-hello-payload-below-v3"
+    ]
   },
   {
     "name": "Example Hello Payload since V3",
@@ -2126,7 +2438,9 @@
         "heartbeat_interval": 41250
       }
     },
-    "tree": []
+    "tree": [
+      "heartbeating-example-hello-payload-since-v3"
+    ]
   },
   {
     "name": "Example Heartbeat Payload",
@@ -2134,7 +2448,9 @@
       "op": 3,
       "d": 1501184119561
     },
-    "tree": []
+    "tree": [
+      "heartbeating-example-heartbeat-payload"
+    ]
   },
   {
     "name": "Example Heartbeat ACK Payload",
@@ -2142,7 +2458,10 @@
       "op": 6,
       "d": 1501184119561
     },
-    "tree": []
+    "tree": [
+      "heartbeating-example-heartbeat-ack-payload",
+      "establishing-a-voice-udp-connection"
+    ]
   },
   {
     "name": "Example Select Protocol Payload",
@@ -2157,7 +2476,9 @@
         }
       }
     },
-    "tree": []
+    "tree": [
+      "establishing-a-voice-udp-connection-example-select-protocol-payload"
+    ]
   },
   {
     "name": "Example Speaking Payload",
@@ -2169,7 +2490,11 @@
         "ssrc": 1
       }
     },
-    "tree": []
+    "tree": [
+      "speaking-example-speaking-payload",
+      "voice-data-interpolation",
+      "resuming-voice-connection"
+    ]
   },
   {
     "name": "Example Resume Connection Payload",
@@ -2181,7 +2506,9 @@
         "token": "my_token"
       }
     },
-    "tree": []
+    "tree": [
+      "resuming-voice-connection-example-resume-connection-payload"
+    ]
   },
   {
     "name": "Example Resumed Payload",
