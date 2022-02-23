@@ -169,7 +169,6 @@ export function parseProperty(row: Row): Property {
   }
 
   const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
-
   if (value.includes("or") || value.includes(",")) {
     const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
     if (values.every(value => validTypes.has(value)))
@@ -177,14 +176,14 @@ export function parseProperty(row: Row): Property {
         name,
         description,
 
-        type: {
+        type: values.map(value => ({
           array,
           partial,
           deprecated,
 
           type: "value",
           value
-        },
+        })),
 
         optional,
         nullable

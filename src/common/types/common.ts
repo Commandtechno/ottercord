@@ -8,7 +8,7 @@ export interface Meta {
 }
 
 export interface Property extends Meta {
-  type: Type;
+  type: Type | Type[];
 
   optional: boolean;
   nullable: boolean;
@@ -25,11 +25,6 @@ export interface ValueType extends BaseType {
   value: string;
 }
 
-export interface UnionType extends BaseType {
-  type: "union";
-  values: string[];
-}
-
 export interface ReferenceType extends BaseType {
   type: "reference";
   link: string;
@@ -40,4 +35,4 @@ export interface StructureType extends BaseType {
   properties: Property[];
 }
 
-export type Type = ValueType | UnionType | ReferenceType | StructureType;
+export type Type = ValueType | ReferenceType | StructureType;

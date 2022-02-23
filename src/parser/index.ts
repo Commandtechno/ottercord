@@ -4,26 +4,122 @@ import { readFile } from "fs/promises";
 import { resolve } from "path";
 import { marked } from "marked";
 
-import { EndpointEngine } from "./endpoints";
-import { StructureEngine } from "./structures";
-import { ConstantEngine } from "./constants";
+import Endpoint from "./endpoint";
+import Example from "./example";
+import Structure from "./structure";
+import Constant from "./constant";
 
 export async function parse(...pathSegments: string[]) {
   const path = resolve(DOCS_DIR, ...pathSegments);
   const file = await readFile(path, "utf8");
   const page = marked.lexer(file);
 
-  const endpoints: EndpointEngine[] = [];
-  const structures: StructureEngine[] = [];
-  const constants: ConstantEngine[] = [];
+  const endpoints: Endpoint[] = [];
+  const examples: Example[] = [];
+  const structures: Structure[] = [];
+  const constants: Constant[] = [];
 
-  let endpointEngine: EndpointEngine;
-  let structureEngine: StructureEngine;
-  let constantEngine: ConstantEngine;
+  let endpointTree: string[] = [];
+  let exampleTree: string[] = [];
+  let structureTree: string[] = [];
+  let constantTree: string[] = [];
+
+  let endpoint: Endpoint;
+  let example: Example;
+  let structure: Structure;
+  let constant: Constant;
 
   let parent = "";
-  let tree = [];
   for (const block of page) {
+    // temporary switch algorithm
+    try {
+      const newEndpoint = new Endpoint(block);
+      if (endpoint?.ready) {
+        endpoint.tree = endpointTree;
+        endpointTree = [];
+        structureTree = [];
+        constantTree = [];
+
+        endpoints.push(endpoint);
+        endpoint = undefined;
+      }
+
+      endpoint = newEndpoint;
+    } catch (e) {
+      if (endpoint) {
+        endpoint.process(block);
+        if (endpoint.ready) continue;
+      }
+
+      if (typeof e !== "string") console.log(e);
+    }
+
+    try {
+      const newExample = new Example(block);
+      if (example?.ready) {
+        example.tree = exampleTree;
+        exampleTree = [];
+        structureTree = [];
+        constantTree = [];
+
+        examples.push(example);
+        example = undefined;
+      }
+
+      example = newExample;
+    } catch (e) {
+      if (example) {
+        example.process(block);
+        if (example.ready) continue;
+      }
+
+      if (typeof e !== "string") console.log(e);
+    }
+
+    try {
+      const newStructure = new Structure(block);
+      if (structure?.ready) {
+        structure.tree = structureTree;
+        endpointTree = [];
+        structureTree = [];
+        constantTree = [];
+
+        structures.push(structure);
+        structure = undefined;
+      }
+
+      structure = newStructure;
+    } catch (e) {
+      if (structure) {
+        structure.process(block);
+        if (structure.ready) continue;
+      }
+
+      if (typeof e !== "string") console.log(e);
+    }
+
+    try {
+      const newConstant = new Constant(block);
+      if (constant?.ready) {
+        constant.tree = constantTree;
+        endpointTree = [];
+        structureTree = [];
+        constantTree = [];
+
+        constants.push(constant);
+        constant = undefined;
+      }
+
+      constant = newConstant;
+    } catch (e) {
+      if (constant) {
+        constant.process(block);
+        if (constant.ready) continue;
+      }
+
+      if (typeof e !== "string") console.log(e);
+    }
+
     if (block.type === "heading") {
       let link: string;
       const anchor = block.text.split("%", 1)[0].trim().toLowerCase().replace(/\s+/g, "-");
@@ -33,85 +129,28 @@ export async function parse(...pathSegments: string[]) {
       } else link = parent + anchor;
 
       if (link) {
-        tree.push(link);
+        endpointTree.push(link);
+        structureTree.push(link);
+        constantTree.push(link);
       }
-    }
-
-    // temporary switch algorithm
-
-    try {
-      const newEndpointEngine = new EndpointEngine(block);
-      if (endpointEngine?.ready) {
-        endpointEngine.tree = tree;
-        tree = [];
-
-        endpoints.push(endpointEngine);
-
-        // constantEngine = undefined;
-        endpointEngine = undefined;
-        // structureEngine = undefined;
-      }
-
-      endpointEngine = newEndpointEngine;
-    } catch (e) {
-      if (endpointEngine) {
-        endpointEngine.process(block);
-        if (endpointEngine.ready) continue;
-      }
-
-      if (typeof e !== "string") console.log(e);
-    }
-
-    try {
-      const newStructureEngine = new StructureEngine(block);
-      if (structureEngine?.ready) {
-        structureEngine.tree = tree;
-        tree = [];
-
-        structures.push(structureEngine);
-
-        // constantEngine = undefined;
-        // endpointEngine = undefined;
-        structureEngine = undefined;
-      }
-
-      structureEngine = newStructureEngine;
-    } catch (e) {
-      if (structureEngine) {
-        structureEngine.process(block);
-        if (structureEngine.ready) continue;
-      }
-
-      if (typeof e !== "string") console.log(e);
-    }
-
-    try {
-      const newConstantEngine = new ConstantEngine(block);
-      if (constantEngine?.ready) {
-        constantEngine.tree = tree;
-        tree = [];
-
-        constants.push(constantEngine);
-
-        constantEngine = undefined;
-        // endpointEngine = undefined;
-        // structureEngine = undefined;
-      }
-
-      constantEngine = newConstantEngine;
-    } catch (e) {
-      if (constantEngine) {
-        constantEngine.process(block);
-        if (constantEngine.ready) continue;
-      }
-
-      if (typeof e !== "string") console.log(e);
     }
   }
 
-  if (endpointEngine?.ready) endpoints.push(endpointEngine);
-  if (structureEngine?.ready) structures.push(structureEngine);
-  if (constantEngine?.ready) constants.push(constantEngine);
+  if (endpoint?.ready) {
+    endpoints.push(endpoint);
+  }
 
-  return { endpoints, structures, constants };
+  if (example?.ready) {
+    examples.push(example);
+  }
+
+  if (structure?.ready) {
+    structures.push(structure);
+  }
+
+  if (constant?.ready) {
+    constants.push(constant);
+  }
+
+  return { endpoints, examples, structures, constants };
 }

@@ -10,22 +10,37 @@ import { parse } from ".";
   if (existsSync(JSON_OUTPUT_DIR)) await rm(JSON_OUTPUT_DIR, { recursive: true });
   await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
+  const endpoints = [];
+  const examples = [];
+  const structures = [];
+  const constants = [];
+
   const folders = ["resources", "topics"];
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
       const name = basename(file, ".md");
-      const output = resolve(JSON_OUTPUT_DIR, name);
-      await mkdir(output);
 
       console.time(name);
-      const { constants, endpoints, structures } = await parse(folder, file);
-      console.timeEnd(name);
 
-      // await writeFile(resolve(output, "links.json"), JSON.stringify(links, null, 2));
-      await writeFile(resolve(output, "constants.json"), JSON.stringify(constants, null, 2));
-      await writeFile(resolve(output, "endpoints.json"), JSON.stringify(endpoints, null, 2));
-      await writeFile(resolve(output, "structures.json"), JSON.stringify(structures, null, 2));
+      const {
+        endpoints: newEndpoints,
+        examples: newExamples,
+        structures: newStructures,
+        constants: newConstants
+      } = await parse(folder, file);
+
+      endpoints.push(...newEndpoints);
+      examples.push(...newExamples);
+      structures.push(...newStructures);
+      constants.push(...newConstants);
+
+      console.timeEnd(name);
     }
   }
+
+  await writeFile(resolve(JSON_OUTPUT_DIR, "endpoints.json"), JSON.stringify(endpoints, null, 2));
+  await writeFile(resolve(JSON_OUTPUT_DIR, "examples.json"), JSON.stringify(examples, null, 2));
+  await writeFile(resolve(JSON_OUTPUT_DIR, "structures.json"), JSON.stringify(structures, null, 2));
+  await writeFile(resolve(JSON_OUTPUT_DIR, "constants.json"), JSON.stringify(constants, null, 2));
 })();

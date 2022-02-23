@@ -6,7 +6,7 @@ export interface Endpoint extends Meta {
   params: EndpointParam[];
   query?: StructureType;
 
-  request?: EndpointRequest;
+  request?: EndpointRequest | EndpointRequest[];
   response?: Type;
 }
 
@@ -15,7 +15,4 @@ export interface EndpointParam {
   link: string;
 }
 
-export interface EndpointRequest extends StructureType {
-  json: boolean;
-  form: boolean;
-}
+export type EndpointRequest = Type & { json: boolean; form: boolean };
