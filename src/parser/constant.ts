@@ -124,7 +124,6 @@ export default class implements Constant {
         if (rawValue.includes("<<")) {
           const [left, right] = rawValue.split("<<");
           value = parseInt(left) << parseInt(right);
-          console.log(left, right, value);
         }
 
         // if value is a number, use the number

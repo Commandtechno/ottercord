@@ -2198,12 +2198,12 @@
       {
         "name": "4013",
         "description": "You sent an invalid intent for a Gateway Intent. You may have incorrectly calculated the bitwise value.",
-        "value": "Invalid intent(s)"
+        "value": "Invalid intent"
       },
       {
         "name": "4014",
         "description": "You sent a disallowed intent for a Gateway Intent. You may have tried to specify an intent that you have not enabled or are not approved for.",
-        "value": "Disallowed intent(s)"
+        "value": "Disallowed intent"
       }
     ],
     "description": "Our voice gateways have their own set of opcodes and close codes.",
@@ -2362,7 +2362,7 @@
       },
       {
         "name": "304",
-        "value": "The entity was not modified (no action was taken)."
+        "value": "The entity was not modified."
       },
       {
         "name": "400",
@@ -2394,7 +2394,7 @@
       },
       {
         "name": "5xx",
-        "value": "The server had an error processing your request (these are rare)."
+        "value": "The server had an error processing your request."
       }
     ],
     "description": "Along with the HTTP error code, our API can also return more detailed error codes through a code key in the JSON error response. The response will also contain a message key containing a more friendly error string. Some of these errors may include additional details in the form of Error Messages provided by an errors object.",

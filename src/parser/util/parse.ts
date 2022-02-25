@@ -168,7 +168,7 @@ export function parseProperty(row: Row): Property {
       };
   }
 
-  const value = stripPlural(trimText(stripBrackets(cutText(flattenBlock(row.type)))));
+  const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
   if (value.includes("or") || value.includes(",")) {
     const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
     if (values.every(value => validTypes.has(value)))
