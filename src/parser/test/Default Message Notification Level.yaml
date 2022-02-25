@@ -1,9 +1,0 @@
-name: Default Message Notification Level
-balls:
-  - key: ALL_MESSAGES
-    value: "0"
-    description: members will receive notifications for all messages by default
-  - key: ONLY_MENTIONS
-    value: "1"
-    description: members will receive notifications only for messages that @mention
-      them by default

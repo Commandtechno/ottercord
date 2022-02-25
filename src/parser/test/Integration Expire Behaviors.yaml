@@ -1,6 +1,0 @@
-name: Integration Expire Behaviors
-balls:
-  - value: "0"
-    name: Remove role
-  - value: "1"
-    name: Kick

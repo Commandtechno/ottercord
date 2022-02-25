@@ -1,9 +1,0 @@
-name: Sticker Types
-balls:
-  - type: STANDARD
-    value: "1"
-    description: an official sticker in a pack, part of Nitro or in a removed
-      purchasable pack
-  - type: GUILD
-    value: "2"
-    description: a sticker uploaded to a Boosted guild for the guild's members

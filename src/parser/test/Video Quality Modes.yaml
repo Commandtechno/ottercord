@@ -1,8 +1,0 @@
-name: Video Quality Modes
-balls:
-  - mode: AUTO
-    value: "1"
-    description: Discord chooses the quality for optimal performance
-  - mode: FULL
-    value: "2"
-    description: 720p

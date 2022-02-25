@@ -1,5 +1,0 @@
-name: Guild Scheduled Event Privacy Level
-balls:
-  - level: GUILD_ONLY
-    value: "2"
-    description: the scheduled event is only accessible to guild members

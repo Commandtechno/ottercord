@@ -1,8 +1,0 @@
-name: MFA Level
-balls:
-  - level: NONE
-    integer: "0"
-    description: guild has no MFA/2FA requirement for moderation actions
-  - level: ELEVATED
-    integer: "1"
-    description: guild has a 2FA requirement for moderation actions

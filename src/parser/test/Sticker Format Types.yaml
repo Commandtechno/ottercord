@@ -1,8 +1,0 @@
-name: Sticker Format Types
-balls:
-  - type: PNG
-    value: "1"
-  - type: APNG
-    value: "2"
-  - type: LOTTIE
-    value: "3"

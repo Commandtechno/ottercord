@@ -1,8 +1,0 @@
-name: Visibility Types
-balls:
-  - value: "0"
-    name: None
-    description: invisible to everyone except the user themselves
-  - value: "1"
-    name: Everyone
-    description: visible to everyone

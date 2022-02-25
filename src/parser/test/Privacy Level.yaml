@@ -1,8 +1,0 @@
-name: Privacy Level
-balls:
-  - level: PUBLIC
-    value: "1"
-    description: The Stage instance is visible publicly. (deprecated)
-  - level: GUILD_ONLY
-    value: "2"
-    description: The Stage instance is visible to only guild members.

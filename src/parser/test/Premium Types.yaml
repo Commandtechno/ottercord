@@ -1,8 +1,0 @@
-name: Premium Types
-balls:
-  - value: "0"
-    name: None
-  - value: "1"
-    name: Nitro Classic
-  - value: "2"
-    name: Nitro
