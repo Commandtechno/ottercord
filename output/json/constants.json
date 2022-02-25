@@ -3,36 +3,36 @@
     "name": "Application Flags",
     "properties": [
       {
-        "name": "1 << 12",
-        "value": "GATEWAY_PRESENCE"
+        "name": "GATEWAY_PRESENCE",
+        "value": 4096
       },
       {
-        "name": "1 << 13",
-        "value": "GATEWAY_PRESENCE_LIMITED"
+        "name": "GATEWAY_PRESENCE_LIMITED",
+        "value": 8192
       },
       {
-        "name": "1 << 14",
-        "value": "GATEWAY_GUILD_MEMBERS"
+        "name": "GATEWAY_GUILD_MEMBERS",
+        "value": 16384
       },
       {
-        "name": "1 << 15",
-        "value": "GATEWAY_GUILD_MEMBERS_LIMITED"
+        "name": "GATEWAY_GUILD_MEMBERS_LIMITED",
+        "value": 32768
       },
       {
-        "name": "1 << 16",
-        "value": "VERIFICATION_PENDING_GUILD_LIMIT"
+        "name": "VERIFICATION_PENDING_GUILD_LIMIT",
+        "value": 65536
       },
       {
-        "name": "1 << 17",
-        "value": "EMBEDDED"
+        "name": "EMBEDDED",
+        "value": 131072
       },
       {
-        "name": "1 << 18",
-        "value": "GATEWAY_MESSAGE_CONTENT"
+        "name": "GATEWAY_MESSAGE_CONTENT",
+        "value": 262144
       },
       {
-        "name": "1 << 19",
-        "value": "GATEWAY_MESSAGE_CONTENT_LIMITED"
+        "name": "GATEWAY_MESSAGE_CONTENT_LIMITED",
+        "value": 524288
       }
     ]
   },
@@ -40,192 +40,192 @@
     "name": "Audit Log Events",
     "properties": [
       {
-        "name": "1",
-        "value": "GUILD_UPDATE"
+        "name": "GUILD_UPDATE",
+        "value": 1
       },
       {
-        "name": "10",
-        "value": "CHANNEL_CREATE"
+        "name": "CHANNEL_CREATE",
+        "value": 10
       },
       {
-        "name": "11",
-        "value": "CHANNEL_UPDATE"
+        "name": "CHANNEL_UPDATE",
+        "value": 11
       },
       {
-        "name": "12",
-        "value": "CHANNEL_DELETE"
+        "name": "CHANNEL_DELETE",
+        "value": 12
       },
       {
-        "name": "13",
-        "value": "CHANNEL_OVERWRITE_CREATE"
+        "name": "CHANNEL_OVERWRITE_CREATE",
+        "value": 13
       },
       {
-        "name": "14",
-        "value": "CHANNEL_OVERWRITE_UPDATE"
+        "name": "CHANNEL_OVERWRITE_UPDATE",
+        "value": 14
       },
       {
-        "name": "15",
-        "value": "CHANNEL_OVERWRITE_DELETE"
+        "name": "CHANNEL_OVERWRITE_DELETE",
+        "value": 15
       },
       {
-        "name": "20",
-        "value": "MEMBER_KICK"
+        "name": "MEMBER_KICK",
+        "value": 20
       },
       {
-        "name": "21",
-        "value": "MEMBER_PRUNE"
+        "name": "MEMBER_PRUNE",
+        "value": 21
       },
       {
-        "name": "22",
-        "value": "MEMBER_BAN_ADD"
+        "name": "MEMBER_BAN_ADD",
+        "value": 22
       },
       {
-        "name": "23",
-        "value": "MEMBER_BAN_REMOVE"
+        "name": "MEMBER_BAN_REMOVE",
+        "value": 23
       },
       {
-        "name": "24",
-        "value": "MEMBER_UPDATE"
+        "name": "MEMBER_UPDATE",
+        "value": 24
       },
       {
-        "name": "25",
-        "value": "MEMBER_ROLE_UPDATE"
+        "name": "MEMBER_ROLE_UPDATE",
+        "value": 25
       },
       {
-        "name": "26",
-        "value": "MEMBER_MOVE"
+        "name": "MEMBER_MOVE",
+        "value": 26
       },
       {
-        "name": "27",
-        "value": "MEMBER_DISCONNECT"
+        "name": "MEMBER_DISCONNECT",
+        "value": 27
       },
       {
-        "name": "28",
-        "value": "BOT_ADD"
+        "name": "BOT_ADD",
+        "value": 28
       },
       {
-        "name": "30",
-        "value": "ROLE_CREATE"
+        "name": "ROLE_CREATE",
+        "value": 30
       },
       {
-        "name": "31",
-        "value": "ROLE_UPDATE"
+        "name": "ROLE_UPDATE",
+        "value": 31
       },
       {
-        "name": "32",
-        "value": "ROLE_DELETE"
+        "name": "ROLE_DELETE",
+        "value": 32
       },
       {
-        "name": "40",
-        "value": "INVITE_CREATE"
+        "name": "INVITE_CREATE",
+        "value": 40
       },
       {
-        "name": "41",
-        "value": "INVITE_UPDATE"
+        "name": "INVITE_UPDATE",
+        "value": 41
       },
       {
-        "name": "42",
-        "value": "INVITE_DELETE"
+        "name": "INVITE_DELETE",
+        "value": 42
       },
       {
-        "name": "50",
-        "value": "WEBHOOK_CREATE"
+        "name": "WEBHOOK_CREATE",
+        "value": 50
       },
       {
-        "name": "51",
-        "value": "WEBHOOK_UPDATE"
+        "name": "WEBHOOK_UPDATE",
+        "value": 51
       },
       {
-        "name": "52",
-        "value": "WEBHOOK_DELETE"
+        "name": "WEBHOOK_DELETE",
+        "value": 52
       },
       {
-        "name": "60",
-        "value": "EMOJI_CREATE"
+        "name": "EMOJI_CREATE",
+        "value": 60
       },
       {
-        "name": "61",
-        "value": "EMOJI_UPDATE"
+        "name": "EMOJI_UPDATE",
+        "value": 61
       },
       {
-        "name": "62",
-        "value": "EMOJI_DELETE"
+        "name": "EMOJI_DELETE",
+        "value": 62
       },
       {
-        "name": "72",
-        "value": "MESSAGE_DELETE"
+        "name": "MESSAGE_DELETE",
+        "value": 72
       },
       {
-        "name": "73",
-        "value": "MESSAGE_BULK_DELETE"
+        "name": "MESSAGE_BULK_DELETE",
+        "value": 73
       },
       {
-        "name": "74",
-        "value": "MESSAGE_PIN"
+        "name": "MESSAGE_PIN",
+        "value": 74
       },
       {
-        "name": "75",
-        "value": "MESSAGE_UNPIN"
+        "name": "MESSAGE_UNPIN",
+        "value": 75
       },
       {
-        "name": "80",
-        "value": "INTEGRATION_CREATE"
+        "name": "INTEGRATION_CREATE",
+        "value": 80
       },
       {
-        "name": "81",
-        "value": "INTEGRATION_UPDATE"
+        "name": "INTEGRATION_UPDATE",
+        "value": 81
       },
       {
-        "name": "82",
-        "value": "INTEGRATION_DELETE"
+        "name": "INTEGRATION_DELETE",
+        "value": 82
       },
       {
-        "name": "83",
-        "value": "STAGE_INSTANCE_CREATE"
+        "name": "STAGE_INSTANCE_CREATE",
+        "value": 83
       },
       {
-        "name": "84",
-        "value": "STAGE_INSTANCE_UPDATE"
+        "name": "STAGE_INSTANCE_UPDATE",
+        "value": 84
       },
       {
-        "name": "85",
-        "value": "STAGE_INSTANCE_DELETE"
+        "name": "STAGE_INSTANCE_DELETE",
+        "value": 85
       },
       {
-        "name": "90",
-        "value": "STICKER_CREATE"
+        "name": "STICKER_CREATE",
+        "value": 90
       },
       {
-        "name": "91",
-        "value": "STICKER_UPDATE"
+        "name": "STICKER_UPDATE",
+        "value": 91
       },
       {
-        "name": "92",
-        "value": "STICKER_DELETE"
+        "name": "STICKER_DELETE",
+        "value": 92
       },
       {
-        "name": "100",
-        "value": "GUILD_SCHEDULED_EVENT_CREATE"
+        "name": "GUILD_SCHEDULED_EVENT_CREATE",
+        "value": 100
       },
       {
-        "name": "101",
-        "value": "GUILD_SCHEDULED_EVENT_UPDATE"
+        "name": "GUILD_SCHEDULED_EVENT_UPDATE",
+        "value": 101
       },
       {
-        "name": "102",
-        "value": "GUILD_SCHEDULED_EVENT_DELETE"
+        "name": "GUILD_SCHEDULED_EVENT_DELETE",
+        "value": 102
       },
       {
-        "name": "110",
-        "value": "THREAD_CREATE"
+        "name": "THREAD_CREATE",
+        "value": 110
       },
       {
-        "name": "111",
-        "value": "THREAD_UPDATE"
+        "name": "THREAD_UPDATE",
+        "value": 111
       },
       {
-        "name": "112",
-        "value": "THREAD_DELETE"
+        "name": "THREAD_DELETE",
+        "value": 112
       }
     ],
     "tree": [
@@ -236,59 +236,59 @@
     "name": "Channel Types",
     "properties": [
       {
-        "name": "0",
+        "name": "GUILD_TEXT",
         "description": "a text channel within a server",
-        "value": "GUILD_TEXT"
+        "value": 0
       },
       {
-        "name": "1",
+        "name": "DM",
         "description": "a direct message between users",
-        "value": "DM"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "GUILD_VOICE",
         "description": "a voice channel within a server",
-        "value": "GUILD_VOICE"
+        "value": 2
       },
       {
-        "name": "3",
+        "name": "GROUP_DM",
         "description": "a direct message between multiple users",
-        "value": "GROUP_DM"
+        "value": 3
       },
       {
-        "name": "4",
+        "name": "GUILD_CATEGORY",
         "description": "an organizational category that contains up to 50 channels",
-        "value": "GUILD_CATEGORY"
+        "value": 4
       },
       {
-        "name": "5",
+        "name": "GUILD_NEWS",
         "description": "a channel that users can follow and crosspost into their own server",
-        "value": "GUILD_NEWS"
+        "value": 5
       },
       {
-        "name": "6",
+        "name": "GUILD_STORE",
         "description": "a channel in which game developers can sell their game on Discord",
-        "value": "GUILD_STORE"
+        "value": 6
       },
       {
-        "name": "10",
+        "name": "GUILD_NEWS_THREAD",
         "description": "a temporary sub-channel within a GUILD_NEWS channel",
-        "value": "GUILD_NEWS_THREAD"
+        "value": 10
       },
       {
-        "name": "11",
+        "name": "GUILD_PUBLIC_THREAD",
         "description": "a temporary sub-channel within a GUILD_TEXT channel",
-        "value": "GUILD_PUBLIC_THREAD"
+        "value": 11
       },
       {
-        "name": "12",
+        "name": "GUILD_PRIVATE_THREAD",
         "description": "a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission",
-        "value": "GUILD_PRIVATE_THREAD"
+        "value": 12
       },
       {
-        "name": "13",
+        "name": "GUILD_STAGE_VOICE",
         "description": "a voice channel for hosting events with an audience",
-        "value": "GUILD_STAGE_VOICE"
+        "value": 13
       }
     ],
     "tree": [
@@ -299,14 +299,14 @@
     "name": "Video Quality Modes",
     "properties": [
       {
-        "name": "1",
+        "name": "AUTO",
         "description": "Discord chooses the quality for optimal performance",
-        "value": "AUTO"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "FULL",
         "description": "720p",
-        "value": "FULL"
+        "value": 2
       }
     ],
     "tree": [
@@ -317,96 +317,96 @@
     "name": "Message Types",
     "properties": [
       {
-        "name": "0",
-        "value": "DEFAULT"
+        "name": "DEFAULT",
+        "value": 0
       },
       {
-        "name": "1",
-        "value": "RECIPIENT_ADD"
+        "name": "RECIPIENT_ADD",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "RECIPIENT_REMOVE"
+        "name": "RECIPIENT_REMOVE",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "CALL"
+        "name": "CALL",
+        "value": 3
       },
       {
-        "name": "4",
-        "value": "CHANNEL_NAME_CHANGE"
+        "name": "CHANNEL_NAME_CHANGE",
+        "value": 4
       },
       {
-        "name": "5",
-        "value": "CHANNEL_ICON_CHANGE"
+        "name": "CHANNEL_ICON_CHANGE",
+        "value": 5
       },
       {
-        "name": "6",
-        "value": "CHANNEL_PINNED_MESSAGE"
+        "name": "CHANNEL_PINNED_MESSAGE",
+        "value": 6
       },
       {
-        "name": "7",
-        "value": "GUILD_MEMBER_JOIN"
+        "name": "GUILD_MEMBER_JOIN",
+        "value": 7
       },
       {
-        "name": "8",
-        "value": "USER_PREMIUM_GUILD_SUBSCRIPTION"
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION",
+        "value": 8
       },
       {
-        "name": "9",
-        "value": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1"
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_1",
+        "value": 9
       },
       {
-        "name": "10",
-        "value": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2"
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_2",
+        "value": 10
       },
       {
-        "name": "11",
-        "value": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3"
+        "name": "USER_PREMIUM_GUILD_SUBSCRIPTION_TIER_3",
+        "value": 11
       },
       {
-        "name": "12",
-        "value": "CHANNEL_FOLLOW_ADD"
+        "name": "CHANNEL_FOLLOW_ADD",
+        "value": 12
       },
       {
-        "name": "14",
-        "value": "GUILD_DISCOVERY_DISQUALIFIED"
+        "name": "GUILD_DISCOVERY_DISQUALIFIED",
+        "value": 14
       },
       {
-        "name": "15",
-        "value": "GUILD_DISCOVERY_REQUALIFIED"
+        "name": "GUILD_DISCOVERY_REQUALIFIED",
+        "value": 15
       },
       {
-        "name": "16",
-        "value": "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING"
+        "name": "GUILD_DISCOVERY_GRACE_PERIOD_INITIAL_WARNING",
+        "value": 16
       },
       {
-        "name": "17",
-        "value": "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING"
+        "name": "GUILD_DISCOVERY_GRACE_PERIOD_FINAL_WARNING",
+        "value": 17
       },
       {
-        "name": "18",
-        "value": "THREAD_CREATED"
+        "name": "THREAD_CREATED",
+        "value": 18
       },
       {
-        "name": "19",
-        "value": "REPLY"
+        "name": "REPLY",
+        "value": 19
       },
       {
-        "name": "20",
-        "value": "CHAT_INPUT_COMMAND"
+        "name": "CHAT_INPUT_COMMAND",
+        "value": 20
       },
       {
-        "name": "21",
-        "value": "THREAD_STARTER_MESSAGE"
+        "name": "THREAD_STARTER_MESSAGE",
+        "value": 21
       },
       {
-        "name": "22",
-        "value": "GUILD_INVITE_REMINDER"
+        "name": "GUILD_INVITE_REMINDER",
+        "value": 22
       },
       {
-        "name": "23",
-        "value": "CONTEXT_MENU_COMMAND"
+        "name": "CONTEXT_MENU_COMMAND",
+        "value": 23
       }
     ],
     "tree": [
@@ -417,20 +417,20 @@
     "name": "Message Activity Types",
     "properties": [
       {
-        "name": "1",
-        "value": "JOIN"
+        "name": "JOIN",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "SPECTATE"
+        "name": "SPECTATE",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "LISTEN"
+        "name": "LISTEN",
+        "value": 3
       },
       {
-        "name": "5",
-        "value": "JOIN_REQUEST"
+        "name": "JOIN_REQUEST",
+        "value": 5
       }
     ],
     "tree": [
@@ -441,49 +441,49 @@
     "name": "Message Flags",
     "properties": [
       {
-        "name": "1 << 0",
+        "name": "CROSSPOSTED",
         "description": "this message has been published to subscribed channels (via Channel Following)",
-        "value": "CROSSPOSTED"
+        "value": 1
       },
       {
-        "name": "1 << 1",
+        "name": "IS_CROSSPOST",
         "description": "this message originated from a message in another channel (via Channel Following)",
-        "value": "IS_CROSSPOST"
+        "value": 2
       },
       {
-        "name": "1 << 2",
+        "name": "SUPPRESS_EMBEDS",
         "description": "do not include any embeds when serializing this message",
-        "value": "SUPPRESS_EMBEDS"
+        "value": 4
       },
       {
-        "name": "1 << 3",
+        "name": "SOURCE_MESSAGE_DELETED",
         "description": "the source message for this crosspost has been deleted (via Channel Following)",
-        "value": "SOURCE_MESSAGE_DELETED"
+        "value": 8
       },
       {
-        "name": "1 << 4",
+        "name": "URGENT",
         "description": "this message came from the urgent message system",
-        "value": "URGENT"
+        "value": 16
       },
       {
-        "name": "1 << 5",
+        "name": "HAS_THREAD",
         "description": "this message has an associated thread, with the same id as the message",
-        "value": "HAS_THREAD"
+        "value": 32
       },
       {
-        "name": "1 << 6",
+        "name": "EPHEMERAL",
         "description": "this message is only visible to the user who invoked the Interaction",
-        "value": "EPHEMERAL"
+        "value": 64
       },
       {
-        "name": "1 << 7",
+        "name": "LOADING",
         "description": "this message is an Interaction Response and the bot is \"thinking",
-        "value": "LOADING"
+        "value": 128
       },
       {
-        "name": "1 << 8",
+        "name": "FAILED_TO_MENTION_SOME_ROLES_IN_THREAD",
         "description": "this message failed to mention some roles and add their members to the thread",
-        "value": "FAILED_TO_MENTION_SOME_ROLES_IN_THREAD"
+        "value": 256
       }
     ],
     "tree": [
@@ -494,27 +494,33 @@
     "name": "Embed Types",
     "properties": [
       {
-        "name": "generic embed rendered from embed attributes",
+        "name": "rich",
+        "description": "generic embed rendered from embed attributes",
         "value": "rich"
       },
       {
-        "name": "image embed",
+        "name": "image",
+        "description": "image embed",
         "value": "image"
       },
       {
-        "name": "video embed",
+        "name": "video",
+        "description": "video embed",
         "value": "video"
       },
       {
-        "name": "animated gif image embed rendered as a video embed",
+        "name": "gifv",
+        "description": "animated gif image embed rendered as a video embed",
         "value": "gifv"
       },
       {
-        "name": "article embed",
+        "name": "article",
+        "description": "article embed",
         "value": "article"
       },
       {
-        "name": "link embed",
+        "name": "link",
+        "description": "link embed",
         "value": "link"
       }
     ],
@@ -526,19 +532,19 @@
     "name": "Allowed Mention Types",
     "properties": [
       {
-        "name": "roles",
+        "name": "Role Mentions",
         "description": "Controls role mentions",
-        "value": "Role Mentions"
+        "value": "roles"
       },
       {
-        "name": "users",
+        "name": "User Mentions",
         "description": "Controls user mentions",
-        "value": "User Mentions"
+        "value": "users"
       },
       {
-        "name": "everyone",
+        "name": "Everyone Mentions",
         "description": "Controls @everyone and @here mentions",
-        "value": "Everyone Mentions"
+        "value": "everyone"
       }
     ],
     "tree": [
@@ -567,19 +573,19 @@
     "name": "Explicit Content Filter Level",
     "properties": [
       {
-        "name": "0",
+        "name": "DISABLED",
         "description": "media content will not be scanned",
-        "value": "DISABLED"
+        "value": 0
       },
       {
-        "name": "1",
+        "name": "MEMBERS_WITHOUT_ROLES",
         "description": "media content sent by members without roles will be scanned",
-        "value": "MEMBERS_WITHOUT_ROLES"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "ALL_MEMBERS",
         "description": "media content sent by all members will be scanned",
-        "value": "ALL_MEMBERS"
+        "value": 2
       }
     ],
     "tree": [
@@ -590,14 +596,14 @@
     "name": "MFA Level",
     "properties": [
       {
-        "name": "0",
+        "name": "NONE",
         "description": "guild has no MFA/2FA requirement for moderation actions",
-        "value": "NONE"
+        "value": 0
       },
       {
-        "name": "1",
+        "name": "ELEVATED",
         "description": "guild has a 2FA requirement for moderation actions",
-        "value": "ELEVATED"
+        "value": 1
       }
     ],
     "tree": [
@@ -608,29 +614,29 @@
     "name": "Verification Level",
     "properties": [
       {
-        "name": "0",
+        "name": "NONE",
         "description": "unrestricted",
-        "value": "NONE"
+        "value": 0
       },
       {
-        "name": "1",
+        "name": "LOW",
         "description": "must have verified email on account",
-        "value": "LOW"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "MEDIUM",
         "description": "must be registered on Discord for longer than 5 minutes",
-        "value": "MEDIUM"
+        "value": 2
       },
       {
-        "name": "3",
+        "name": "HIGH",
         "description": "must be a member of the server for longer than 10 minutes",
-        "value": "HIGH"
+        "value": 3
       },
       {
-        "name": "4",
+        "name": "VERY_HIGH",
         "description": "must have a verified phone number",
-        "value": "VERY_HIGH"
+        "value": 4
       }
     ],
     "tree": [
@@ -641,20 +647,20 @@
     "name": "Guild NSFW Level",
     "properties": [
       {
-        "name": "0",
-        "value": "DEFAULT"
+        "name": "DEFAULT",
+        "value": 0
       },
       {
-        "name": "1",
-        "value": "EXPLICIT"
+        "name": "EXPLICIT",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "SAFE"
+        "name": "SAFE",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "AGE_RESTRICTED"
+        "name": "AGE_RESTRICTED",
+        "value": 3
       }
     ],
     "tree": [
@@ -693,24 +699,24 @@
     "name": "System Channel Flags",
     "properties": [
       {
-        "name": "1 << 0",
+        "name": "SUPPRESS_JOIN_NOTIFICATIONS",
         "description": "Suppress member join notifications",
-        "value": "SUPPRESS_JOIN_NOTIFICATIONS"
+        "value": 1
       },
       {
-        "name": "1 << 1",
+        "name": "SUPPRESS_PREMIUM_SUBSCRIPTIONS",
         "description": "Suppress server boost notifications",
-        "value": "SUPPRESS_PREMIUM_SUBSCRIPTIONS"
+        "value": 2
       },
       {
-        "name": "1 << 2",
+        "name": "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS",
         "description": "Suppress server setup tips",
-        "value": "SUPPRESS_GUILD_REMINDER_NOTIFICATIONS"
+        "value": 4
       },
       {
-        "name": "1 << 3",
+        "name": "SUPPRESS_JOIN_NOTIFICATION_REPLIES",
         "description": "Hide member join sticker reply buttons",
-        "value": "SUPPRESS_JOIN_NOTIFICATION_REPLIES"
+        "value": 8
       }
     ],
     "tree": [
@@ -721,91 +727,113 @@
     "name": "Guild Features",
     "properties": [
       {
-        "name": "guild has access to set an animated guild icon",
+        "name": "ANIMATED_ICON",
+        "description": "guild has access to set an animated guild icon",
         "value": "ANIMATED_ICON"
       },
       {
-        "name": "guild has access to set a guild banner image",
+        "name": "BANNER",
+        "description": "guild has access to set a guild banner image",
         "value": "BANNER"
       },
       {
-        "name": "guild has access to use commerce features",
+        "name": "COMMERCE",
+        "description": "guild has access to use commerce features (i.e. create store channels)",
         "value": "COMMERCE"
       },
       {
-        "name": "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates",
+        "name": "COMMUNITY",
+        "description": "guild can enable welcome screen, Membership Screening, stage channels and discovery, and receives community updates",
         "value": "COMMUNITY"
       },
       {
-        "name": "guild is able to be discovered in the directory",
+        "name": "DISCOVERABLE",
+        "description": "guild is able to be discovered in the directory",
         "value": "DISCOVERABLE"
       },
       {
-        "name": "guild is able to be featured in the directory",
+        "name": "FEATURABLE",
+        "description": "guild is able to be featured in the directory",
         "value": "FEATURABLE"
       },
       {
-        "name": "guild has access to set an invite splash background",
+        "name": "INVITE_SPLASH",
+        "description": "guild has access to set an invite splash background",
         "value": "INVITE_SPLASH"
       },
       {
-        "name": "guild has enabled Membership Screening",
+        "name": "MEMBER_VERIFICATION_GATE_ENABLED",
+        "description": "guild has enabled Membership Screening",
         "value": "MEMBER_VERIFICATION_GATE_ENABLED"
       },
       {
-        "name": "guild has enabled monetization",
+        "name": "MONETIZATION_ENABLED",
+        "description": "guild has enabled monetization",
         "value": "MONETIZATION_ENABLED"
       },
       {
-        "name": "guild has increased custom sticker slots",
+        "name": "MORE_STICKERS",
+        "description": "guild has increased custom sticker slots",
         "value": "MORE_STICKERS"
       },
       {
-        "name": "guild has access to create news channels",
+        "name": "NEWS",
+        "description": "guild has access to create news channels",
         "value": "NEWS"
       },
       {
-        "name": "guild is partnered",
+        "name": "PARTNERED",
+        "description": "guild is partnered",
         "value": "PARTNERED"
       },
       {
-        "name": "guild can be previewed before joining via Membership Screening or the directory",
+        "name": "PREVIEW_ENABLED",
+        "description": "guild can be previewed before joining via Membership Screening or the directory",
         "value": "PREVIEW_ENABLED"
       },
       {
-        "name": "guild has access to create private threads",
+        "name": "PRIVATE_THREADS",
+        "description": "guild has access to create private threads",
         "value": "PRIVATE_THREADS"
       },
       {
-        "name": "guild is able to set role icons",
+        "name": "ROLE_ICONS",
+        "description": "guild is able to set role icons",
         "value": "ROLE_ICONS"
       },
       {
-        "name": "guild has access to the seven day archive time for threads",
+        "name": "SEVEN_DAY_THREAD_ARCHIVE",
+        "description": "guild has access to the seven day archive time for threads",
         "value": "SEVEN_DAY_THREAD_ARCHIVE"
       },
       {
-        "name": "guild has access to the three day archive time for threads",
+        "name": "THREE_DAY_THREAD_ARCHIVE",
+        "description": "guild has access to the three day archive time for threads",
         "value": "THREE_DAY_THREAD_ARCHIVE"
       },
       {
-        "name": "guild has enabled ticketed events",
+        "name": "TICKETED_EVENTS_ENABLED",
+        "description": "guild has enabled ticketed events",
         "value": "TICKETED_EVENTS_ENABLED"
       },
       {
-        "name": "guild has access to set a vanity URL",
+        "name": "VANITY_URL",
+        "description": "guild has access to set a vanity URL",
         "value": "VANITY_URL"
       },
       {
-        "name": "guild is verified",
+        "name": "VERIFIED",
+        "description": "guild is verified",
         "value": "VERIFIED"
       },
       {
-        "name": "guild has access to set 384kbps bitrate in voice",
+        "name": "VIP_REGIONS",
+        "description": "guild has access to set 384kbps bitrate in voice (previously VIP voice servers)",
         "value": "VIP_REGIONS"
       },
       {
-        "name": "guild has enabled the welcome screen",
+        "name": "WELCOME_SCREEN_ENABLED",
+        "description": "guild has enabled the welcome screen",
         "value": "WELCOME_SCREEN_ENABLED"
       }
     ],
@@ -834,9 +862,9 @@
     "name": "Guild Scheduled Event Privacy Level",
     "properties": [
       {
-        "name": "2",
+        "name": "GUILD_ONLY",
         "description": "the scheduled event is only accessible to guild members",
-        "value": "GUILD_ONLY"
+        "value": 2
       }
     ],
     "tree": [
@@ -847,16 +875,16 @@
     "name": "Guild Scheduled Event Entity Types",
     "properties": [
       {
-        "name": "1",
-        "value": "STAGE_INSTANCE"
+        "name": "STAGE_INSTANCE",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "VOICE"
+        "name": "VOICE",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "EXTERNAL"
+        "name": "EXTERNAL",
+        "value": 3
       }
     ],
     "tree": [
@@ -868,17 +896,14 @@
     "properties": [
       {
         "name": "STAGE_INSTANCE",
-        "description": "null",
         "value": "value"
       },
       {
         "name": "VOICE",
-        "description": "null",
         "value": "value"
       },
       {
         "name": "EXTERNAL",
-        "description": "value",
         "value": "null"
       }
     ],
@@ -916,12 +941,12 @@
     "name": "Invite Target Types",
     "properties": [
       {
-        "name": "1",
-        "value": "STREAM"
+        "name": "STREAM",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "EMBEDDED_APPLICATION"
+        "name": "EMBEDDED_APPLICATION",
+        "value": 2
       }
     ],
     "tree": [
@@ -932,14 +957,14 @@
     "name": "Privacy Level",
     "properties": [
       {
-        "name": "1",
+        "name": "PUBLIC",
         "description": "The Stage instance is visible publicly. (deprecated)",
-        "value": "PUBLIC"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "GUILD_ONLY",
         "description": "The Stage instance is visible to only guild members.",
-        "value": "GUILD_ONLY"
+        "value": 2
       }
     ],
     "tree": [
@@ -950,14 +975,14 @@
     "name": "Sticker Types",
     "properties": [
       {
-        "name": "1",
+        "name": "STANDARD",
         "description": "an official sticker in a pack, part of Nitro or in a removed purchasable pack",
-        "value": "STANDARD"
+        "value": 1
       },
       {
-        "name": "2",
+        "name": "GUILD",
         "description": "a sticker uploaded to a Boosted guild for the guild's members",
-        "value": "GUILD"
+        "value": 2
       }
     ],
     "tree": [
@@ -968,16 +993,16 @@
     "name": "Sticker Format Types",
     "properties": [
       {
-        "name": "1",
-        "value": "PNG"
+        "name": "PNG",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "APNG"
+        "name": "APNG",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "LOTTIE"
+        "name": "LOTTIE",
+        "value": 3
       }
     ],
     "tree": [
@@ -1132,17 +1157,14 @@
     "properties": [
       {
         "name": "v",
-        "description": "All",
         "value": 1
       },
       {
         "name": "client_id",
-        "description": "All",
         "value": "your app's client id"
       },
       {
         "name": "encoding",
-        "description": "WebSocket",
         "value": "json"
       }
     ],
@@ -1158,16 +1180,16 @@
     "name": "Device Type",
     "properties": [
       {
-        "name": "audioinput",
-        "value": "AUDIO_INPUT"
+        "name": "AUDIO_INPUT",
+        "value": "audioinput"
       },
       {
-        "name": "audiooutput",
-        "value": "AUDIO_OUTPUT"
+        "name": "AUDIO_OUTPUT",
+        "value": "audiooutput"
       },
       {
-        "name": "videoinput",
-        "value": "VIDEO_INPUT"
+        "name": "VIDEO_INPUT",
+        "value": "videoinput"
       }
     ]
   },
@@ -1357,28 +1379,28 @@
     "name": "Gateway Versions",
     "properties": [
       {
-        "name": "Available",
-        "value": 9
+        "name": "9",
+        "value": "Available"
       },
       {
-        "name": "Available",
-        "value": 8
+        "name": "8",
+        "value": "Available"
       },
       {
-        "name": "Doesn't look like anything to me",
-        "value": 7
+        "name": "7",
+        "value": "Doesn't look like anything to me"
       },
       {
-        "name": "Deprecated",
-        "value": 6
+        "name": "6",
+        "value": "Deprecated"
       },
       {
-        "name": "Discontinued",
-        "value": 5
+        "name": "5",
+        "value": "Discontinued"
       },
       {
-        "name": "Discontinued",
-        "value": 4
+        "name": "4",
+        "value": "Discontinued"
       }
     ],
     "tree": [
@@ -1392,27 +1414,33 @@
     "properties": [
       {
         "name": "Identify",
-        "value": "triggers the initial handshake with the gateway"
+        "description": "triggers the initial handshake with the gateway",
+        "value": "Identify"
       },
       {
         "name": "Resume",
-        "value": "resumes a dropped gateway connection"
+        "description": "resumes a dropped gateway connection",
+        "value": "Resume"
       },
       {
         "name": "Heartbeat",
-        "value": "maintains an active gateway connection"
+        "description": "maintains an active gateway connection",
+        "value": "Heartbeat"
       },
       {
         "name": "Request Guild Members",
-        "value": "requests members for a guild"
+        "description": "requests members for a guild",
+        "value": "Request Guild Members"
       },
       {
         "name": "Update Voice State",
-        "value": "joins, moves, or disconnects the client from a voice channel"
+        "description": "joins, moves, or disconnects the client from a voice channel",
+        "value": "Update Voice State"
       },
       {
         "name": "Update Presence",
-        "value": "updates a client's presence"
+        "description": "updates a client's presence",
+        "value": "Update Presence"
       }
     ],
     "description": "Events are payloads sent over the socket to a client that correspond to events in Discord.",
@@ -1429,235 +1457,293 @@
     "properties": [
       {
         "name": "Hello",
-        "value": "defines the heartbeat interval"
+        "description": "defines the heartbeat interval",
+        "value": "Hello"
       },
       {
         "name": "Ready",
-        "value": "contains the initial state information"
+        "description": "contains the initial state information",
+        "value": "Ready"
       },
       {
         "name": "Resumed",
-        "value": "response to Resume"
+        "description": "response to Resume",
+        "value": "Resumed"
       },
       {
         "name": "Reconnect",
-        "value": "server is going away, client should reconnect to gateway and resume"
+        "description": "server is going away, client should reconnect to gateway and resume",
+        "value": "Reconnect"
       },
       {
         "name": "Invalid Session",
-        "value": "failure response to Identify or Resume or invalid active session"
+        "description": "failure response to Identify or Resume or invalid active session",
+        "value": "Invalid Session"
       },
       {
         "name": "Channel Create",
-        "value": "new guild channel created"
+        "description": "new guild channel created",
+        "value": "Channel Create"
       },
       {
         "name": "Channel Update",
-        "value": "channel was updated"
+        "description": "channel was updated",
+        "value": "Channel Update"
       },
       {
         "name": "Channel Delete",
-        "value": "channel was deleted"
+        "description": "channel was deleted",
+        "value": "Channel Delete"
       },
       {
         "name": "Channel Pins Update",
-        "value": "message was pinned or unpinned"
+        "description": "message was pinned or unpinned",
+        "value": "Channel Pins Update"
       },
       {
         "name": "Thread Create",
-        "value": "thread created, also sent when being added to a private thread"
+        "description": "thread created, also sent when being added to a private thread",
+        "value": "Thread Create"
       },
       {
         "name": "Thread Update",
-        "value": "thread was updated"
+        "description": "thread was updated",
+        "value": "Thread Update"
       },
       {
         "name": "Thread Delete",
-        "value": "thread was deleted"
+        "description": "thread was deleted",
+        "value": "Thread Delete"
       },
       {
         "name": "Thread List Sync",
-        "value": "sent when gaining access to a channel, contains all active threads in that channel"
+        "description": "sent when gaining access to a channel, contains all active threads in that channel",
+        "value": "Thread List Sync"
       },
       {
         "name": "Thread Member Update",
-        "value": "thread member for the current user was updated"
+        "description": "thread member for the current user was updated",
+        "value": "Thread Member Update"
       },
       {
         "name": "Thread Members Update",
-        "value": "some user(s) were added to or removed from a thread"
+        "description": "some user(s) were added to or removed from a thread",
+        "value": "Thread Members Update"
       },
       {
         "name": "Guild Create",
-        "value": "lazy-load for unavailable guild, guild became available, or user joined a new guild"
+        "description": "lazy-load for unavailable guild, guild became available, or user joined a new guild",
+        "value": "Guild Create"
       },
       {
         "name": "Guild Update",
-        "value": "guild was updated"
+        "description": "guild was updated",
+        "value": "Guild Update"
       },
       {
         "name": "Guild Delete",
-        "value": "guild became unavailable, or user left/was removed from a guild"
+        "description": "guild became unavailable, or user left/was removed from a guild",
+        "value": "Guild Delete"
       },
       {
         "name": "Guild Ban Add",
-        "value": "user was banned from a guild"
+        "description": "user was banned from a guild",
+        "value": "Guild Ban Add"
       },
       {
         "name": "Guild Ban Remove",
-        "value": "user was unbanned from a guild"
+        "description": "user was unbanned from a guild",
+        "value": "Guild Ban Remove"
       },
       {
         "name": "Guild Emojis Update",
-        "value": "guild emojis were updated"
+        "description": "guild emojis were updated",
+        "value": "Guild Emojis Update"
       },
       {
         "name": "Guild Stickers Update",
-        "value": "guild stickers were updated"
+        "description": "guild stickers were updated",
+        "value": "Guild Stickers Update"
       },
       {
         "name": "Guild Integrations Update",
-        "value": "guild integration was updated"
+        "description": "guild integration was updated",
+        "value": "Guild Integrations Update"
       },
       {
         "name": "Guild Member Add",
-        "value": "new user joined a guild"
+        "description": "new user joined a guild",
+        "value": "Guild Member Add"
       },
       {
         "name": "Guild Member Remove",
-        "value": "user was removed from a guild"
+        "description": "user was removed from a guild",
+        "value": "Guild Member Remove"
       },
       {
         "name": "Guild Member Update",
-        "value": "guild member was updated"
+        "description": "guild member was updated",
+        "value": "Guild Member Update"
       },
       {
         "name": "Guild Members Chunk",
-        "value": "response to Request Guild Members"
+        "description": "response to Request Guild Members",
+        "value": "Guild Members Chunk"
       },
       {
         "name": "Guild Role Create",
-        "value": "guild role was created"
+        "description": "guild role was created",
+        "value": "Guild Role Create"
       },
       {
         "name": "Guild Role Update",
-        "value": "guild role was updated"
+        "description": "guild role was updated",
+        "value": "Guild Role Update"
       },
       {
         "name": "Guild Role Delete",
-        "value": "guild role was deleted"
+        "description": "guild role was deleted",
+        "value": "Guild Role Delete"
       },
       {
         "name": "Guild Scheduled Event Create",
-        "value": "guild scheduled event was created"
+        "description": "guild scheduled event was created",
+        "value": "Guild Scheduled Event Create"
       },
       {
         "name": "Guild Scheduled Event Update",
-        "value": "guild scheduled event was updated"
+        "description": "guild scheduled event was updated",
+        "value": "Guild Scheduled Event Update"
       },
       {
         "name": "Guild Scheduled Event Delete",
-        "value": "guild scheduled event was deleted"
+        "description": "guild scheduled event was deleted",
+        "value": "Guild Scheduled Event Delete"
       },
       {
         "name": "Guild Scheduled Event User Add",
-        "value": "user subscribed to a guild scheduled event"
+        "description": "user subscribed to a guild scheduled event",
+        "value": "Guild Scheduled Event User Add"
       },
       {
         "name": "Guild Scheduled Event User Remove",
-        "value": "user unsubscribed from a guild scheduled event"
+        "description": "user unsubscribed from a guild scheduled event",
+        "value": "Guild Scheduled Event User Remove"
       },
       {
         "name": "Integration Create",
-        "value": "guild integration was created"
+        "description": "guild integration was created",
+        "value": "Integration Create"
       },
       {
         "name": "Integration Update",
-        "value": "guild integration was updated"
+        "description": "guild integration was updated",
+        "value": "Integration Update"
       },
       {
         "name": "Integration Delete",
-        "value": "guild integration was deleted"
+        "description": "guild integration was deleted",
+        "value": "Integration Delete"
       },
       {
         "name": "Interaction Create",
-        "value": "user used an interaction, such as an Application Command"
+        "description": "user used an interaction, such as an Application Command",
+        "value": "Interaction Create"
       },
       {
         "name": "Invite Create",
-        "value": "invite to a channel was created"
+        "description": "invite to a channel was created",
+        "value": "Invite Create"
       },
       {
         "name": "Invite Delete",
-        "value": "invite to a channel was deleted"
+        "description": "invite to a channel was deleted",
+        "value": "Invite Delete"
       },
       {
         "name": "Message Create",
-        "value": "message was created"
+        "description": "message was created",
+        "value": "Message Create"
       },
       {
         "name": "Message Update",
-        "value": "message was edited"
+        "description": "message was edited",
+        "value": "Message Update"
       },
       {
         "name": "Message Delete",
-        "value": "message was deleted"
+        "description": "message was deleted",
+        "value": "Message Delete"
       },
       {
         "name": "Message Delete Bulk",
-        "value": "multiple messages were deleted at once"
+        "description": "multiple messages were deleted at once",
+        "value": "Message Delete Bulk"
       },
       {
         "name": "Message Reaction Add",
-        "value": "user reacted to a message"
+        "description": "user reacted to a message",
+        "value": "Message Reaction Add"
       },
       {
         "name": "Message Reaction Remove",
-        "value": "user removed a reaction from a message"
+        "description": "user removed a reaction from a message",
+        "value": "Message Reaction Remove"
       },
       {
         "name": "Message Reaction Remove All",
-        "value": "all reactions were explicitly removed from a message"
+        "description": "all reactions were explicitly removed from a message",
+        "value": "Message Reaction Remove All"
       },
       {
         "name": "Message Reaction Remove Emoji",
-        "value": "all reactions for a given emoji were explicitly removed from a message"
+        "description": "all reactions for a given emoji were explicitly removed from a message",
+        "value": "Message Reaction Remove Emoji"
       },
       {
         "name": "Presence Update",
-        "value": "user was updated"
+        "description": "user was updated",
+        "value": "Presence Update"
       },
       {
         "name": "Stage Instance Create",
-        "value": "stage instance was created"
+        "description": "stage instance was created",
+        "value": "Stage Instance Create"
       },
       {
         "name": "Stage Instance Delete",
-        "value": "stage instance was deleted or closed"
+        "description": "stage instance was deleted or closed",
+        "value": "Stage Instance Delete"
       },
       {
         "name": "Stage Instance Update",
-        "value": "stage instance was updated"
+        "description": "stage instance was updated",
+        "value": "Stage Instance Update"
       },
       {
         "name": "Typing Start",
-        "value": "user started typing in a channel"
+        "description": "user started typing in a channel",
+        "value": "Typing Start"
       },
       {
         "name": "User Update",
-        "value": "properties about the user changed"
+        "description": "properties about the user changed",
+        "value": "User Update"
       },
       {
         "name": "Voice State Update",
-        "value": "someone joined, left, or moved a voice channel"
+        "description": "someone joined, left, or moved a voice channel",
+        "value": "Voice State Update"
       },
       {
         "name": "Voice Server Update",
-        "value": "guild's voice server was updated"
+        "description": "guild's voice server was updated",
+        "value": "Voice Server Update"
       },
       {
         "name": "Webhooks Update",
-        "value": "guild channel webhook was created, update, or deleted"
+        "description": "guild channel webhook was created, update, or deleted",
+        "value": "Webhooks Update"
       }
     ],
     "description": "Used to trigger the initial handshake with the gateway.",
@@ -1672,23 +1758,28 @@
     "properties": [
       {
         "name": "online",
-        "value": "Online"
+        "description": "Online",
+        "value": "online"
       },
       {
         "name": "dnd",
-        "value": "Do Not Disturb"
+        "description": "Do Not Disturb",
+        "value": "dnd"
       },
       {
         "name": "idle",
-        "value": "AFK"
+        "description": "AFK",
+        "value": "idle"
       },
       {
         "name": "invisible",
-        "value": "Invisible and shown as offline"
+        "description": "Invisible and shown as offline",
+        "value": "invisible"
       },
       {
         "name": "offline",
-        "value": "Offline"
+        "description": "Offline",
+        "value": "offline"
       }
     ],
     "tree": [
@@ -1699,34 +1790,28 @@
     "name": "Activity Types",
     "properties": [
       {
-        "name": "0",
-        "description": "Playing {name}",
-        "value": "Game"
+        "name": "Game",
+        "value": 0
       },
       {
-        "name": "1",
-        "description": "Streaming {details}",
-        "value": "Streaming"
+        "name": "Streaming",
+        "value": 1
       },
       {
-        "name": "2",
-        "description": "Listening to {name}",
-        "value": "Listening"
+        "name": "Listening",
+        "value": 2
       },
       {
-        "name": "3",
-        "description": "Watching {name}",
-        "value": "Watching"
+        "name": "Watching",
+        "value": 3
       },
       {
-        "name": "4",
-        "description": "{emoji} {name}",
-        "value": "Custom"
+        "name": "Custom",
+        "value": 4
       },
       {
-        "name": "5",
-        "description": "Competing in {name}",
-        "value": "Competing"
+        "name": "Competing",
+        "value": 5
       }
     ],
     "tree": [
@@ -1738,12 +1823,10 @@
     "properties": [
       {
         "name": "Application Asset",
-        "description": "see Application Asset Image Formatting",
         "value": "{application_asset_id}"
       },
       {
         "name": "Media Proxy Image",
-        "description": "https://media.discordapp.net/{image_id}",
         "value": "mp:{image_id}"
       }
     ],
@@ -1799,15 +1882,18 @@
     "name": "OAuth2 URLs",
     "properties": [
       {
-        "name": "Base authorization URL",
+        "name": "https://discord.com/api/oauth2/authorize",
+        "description": "Base authorization URL",
         "value": "https://discord.com/api/oauth2/authorize"
       },
       {
-        "name": "Token URL",
+        "name": "https://discord.com/api/oauth2/token",
+        "description": "Token URL",
         "value": "https://discord.com/api/oauth2/token"
       },
       {
-        "name": "Token Revocation URL",
+        "name": "https://discord.com/api/oauth2/token/revoke",
+        "description": "Token Revocation URL",
         "value": "https://discord.com/api/oauth2/token/revoke"
       }
     ],
@@ -1822,99 +1908,123 @@
     "properties": [
       {
         "name": "activities.read",
-        "value": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval"
+        "description": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval",
+        "value": "activities.read"
       },
       {
         "name": "activities.write",
-        "value": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)"
+        "description": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
+        "value": "activities.write"
       },
       {
         "name": "applications.builds.read",
-        "value": "allows your app to read build data for a user's applications"
+        "description": "allows your app to read build data for a user's applications",
+        "value": "applications.builds.read"
       },
       {
         "name": "applications.builds.upload",
-        "value": "allows your app to upload/update builds for a user's applications - requires Discord approval"
+        "description": "allows your app to upload/update builds for a user's applications - requires Discord approval",
+        "value": "applications.builds.upload"
       },
       {
         "name": "applications.commands",
-        "value": "allows your app to use commands in a guild"
+        "description": "allows your app to use commands in a guild",
+        "value": "applications.commands"
       },
       {
         "name": "applications.commands.update",
-        "value": "allows your app to update its commands via this bearer token - client credentials grant only"
+        "description": "allows your app to update its commands via this bearer token - client credentials grant only",
+        "value": "applications.commands.update"
       },
       {
         "name": "applications.entitlements",
-        "value": "allows your app to read entitlements for a user's applications"
+        "description": "allows your app to read entitlements for a user's applications",
+        "value": "applications.entitlements"
       },
       {
         "name": "applications.store.update",
-        "value": "allows your app to read and update store data (SKUs, store listings, achievements, etc.) for a user's applications"
+        "description": "allows your app to read and update store data (SKUs, store listings, achievements, etc.) for a user's applications",
+        "value": "applications.store.update"
       },
       {
         "name": "bot",
-        "value": "for oauth2 bots, this puts the bot in the user's selected guild by default"
+        "description": "for oauth2 bots, this puts the bot in the user's selected guild by default",
+        "value": "bot"
       },
       {
         "name": "connections",
-        "value": "allows /users/@me/connections to return linked third-party accounts"
+        "description": "allows /users/@me/connections to return linked third-party accounts",
+        "value": "connections"
       },
       {
         "name": "email",
-        "value": "enables /users/@me to return an email"
+        "description": "enables /users/@me to return an email",
+        "value": "email"
       },
       {
         "name": "gdm.join",
-        "value": "allows your app to join users to a group dm"
+        "description": "allows your app to join users to a group dm",
+        "value": "gdm.join"
       },
       {
         "name": "guilds",
-        "value": "allows /users/@me/guilds to return basic information about all of a user's guilds"
+        "description": "allows /users/@me/guilds to return basic information about all of a user's guilds",
+        "value": "guilds"
       },
       {
         "name": "guilds.join",
-        "value": "allows /guilds/{guild.id}/members/{user.id} to be used for joining users to a guild"
+        "description": "allows /guilds/{guild.id}/members/{user.id} to be used for joining users to a guild",
+        "value": "guilds.join"
       },
       {
         "name": "guilds.members.read",
-        "value": "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild"
+        "description": "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild",
+        "value": "guilds.members.read"
       },
       {
         "name": "identify",
-        "value": "allows /users/@me without email"
+        "description": "allows /users/@me without email",
+        "value": "identify"
       },
       {
         "name": "messages.read",
-        "value": "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)"
+        "description": "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)",
+        "value": "messages.read"
       },
       {
         "name": "relationships.read",
-        "value": "allows your app to know a user's friends and implicit relationships - requires Discord approval"
+        "description": "allows your app to know a user's friends and implicit relationships - requires Discord approval",
+        "value": "relationships.read"
       },
       {
         "name": "rpc",
-        "value": "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval"
+        "description": "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval",
+        "value": "rpc"
       },
       {
         "name": "rpc.activities.write",
-        "value": "for local rpc server access, this allows you to update a user's activity - requires Discord approval"
+        "description": "for local rpc server access, this allows you to update a user's activity - requires Discord approval",
+        "value": "rpc.activities.write"
       },
       {
         "name": "rpc.notifications.read",
-        "value": "for local rpc server access, this allows you to receive notifications pushed out to the user - requires Discord approval"
+        "description": "for local rpc server access, this allows you to receive notifications pushed out to the user - requires Discord approval",
+        "value": "rpc.notifications.read"
       },
       {
         "name": "rpc.voice.read",
-        "value": "for local rpc server access, this allows you to read a user's voice settings and listen for voice events - requires Discord approval"
+        "description": "for local rpc server access, this allows you to read a user's voice settings and listen for voice events - requires Discord approval",
+        "value": "rpc.voice.read"
       },
       {
         "name": "rpc.voice.write",
-        "value": "for local rpc server access, this allows you to update a user's voice settings - requires Discord approval"
+        "description": "for local rpc server access, this allows you to update a user's voice settings - requires Discord approval",
+        "value": "rpc.voice.write"
       },
       {
         "name": "webhook.incoming",
-        "value": "this generates a webhook that is returned in the oauth token response for authorization code grants"
+        "description": "this generates a webhook that is returned in the oauth token response for authorization code grants",
+        "value": "webhook.incoming"
       }
     ],
     "description": "The authorization code grant is what most developers will recognize as \"standard OAuth2\" and involves retrieving an access code and exchanging it for a user's access token. It allows the authorization server to act as an intermediary between the client and the resource owner, so the resource owner's credentials are never shared directly with the client.",
@@ -1929,23 +2039,28 @@
     "properties": [
       {
         "name": "client_id",
-        "value": "your app's client id"
+        "description": "your app's client id",
+        "value": "client_id"
       },
       {
         "name": "scope",
-        "value": "needs to include bot for the bot flow"
+        "description": "needs to include bot for the bot flow",
+        "value": "scope"
       },
       {
         "name": "permissions",
-        "value": "the permissions you're requesting"
+        "description": "the permissions you're requesting",
+        "value": "permissions"
       },
       {
         "name": "guild_id",
-        "value": "pre-fills the dropdown picker with a guild for the user"
+        "description": "pre-fills the dropdown picker with a guild for the user",
+        "value": "guild_id"
       },
       {
         "name": "disable_guild_select",
-        "value": "true or false—disallows the user from changing the guild dropdown"
+        "description": "true or false—disallows the user from changing the guild dropdown",
+        "value": "disable_guild_select"
       }
     ],
     "tree": [
@@ -1956,59 +2071,59 @@
     "name": "Gateway Opcodes",
     "properties": [
       {
-        "name": "0",
-        "description": "Receive",
-        "value": "Dispatch"
+        "name": "Dispatch",
+        "description": "An event was dispatched.",
+        "value": 0
       },
       {
-        "name": "1",
-        "description": "Send/Receive",
-        "value": "Heartbeat"
+        "name": "Heartbeat",
+        "description": "Fired periodically by the client to keep the connection alive.",
+        "value": 1
       },
       {
-        "name": "2",
-        "description": "Send",
-        "value": "Identify"
+        "name": "Identify",
+        "description": "Starts a new session during the initial handshake.",
+        "value": 2
       },
       {
-        "name": "3",
-        "description": "Send",
-        "value": "Presence Update"
+        "name": "Presence Update",
+        "description": "Update the client's presence.",
+        "value": 3
       },
       {
-        "name": "4",
-        "description": "Send",
-        "value": "Voice State Update"
+        "name": "Voice State Update",
+        "description": "Used to join/leave or move between voice channels.",
+        "value": 4
       },
       {
-        "name": "6",
-        "description": "Send",
-        "value": "Resume"
+        "name": "Resume",
+        "description": "Resume a previous session that was disconnected.",
+        "value": 6
       },
       {
-        "name": "7",
-        "description": "Receive",
-        "value": "Reconnect"
+        "name": "Reconnect",
+        "description": "You should attempt to reconnect and resume immediately.",
+        "value": 7
       },
       {
-        "name": "8",
-        "description": "Send",
-        "value": "Request Guild Members"
+        "name": "Request Guild Members",
+        "description": "Request information about offline guild members in a large guild.",
+        "value": 8
       },
       {
-        "name": "9",
-        "description": "Receive",
-        "value": "Invalid Session"
+        "name": "Invalid Session",
+        "description": "The session has been invalidated. You should reconnect and identify/resume accordingly.",
+        "value": 9
       },
       {
-        "name": "10",
-        "description": "Receive",
-        "value": "Hello"
+        "name": "Hello",
+        "description": "Sent immediately after connecting, contains the heartbeat_interval to use.",
+        "value": 10
       },
       {
-        "name": "11",
-        "description": "Receive",
-        "value": "Heartbeat ACK"
+        "name": "Heartbeat ACK",
+        "description": "Sent in response to receiving a heartbeat to acknowledge that it has been received.",
+        "value": 11
       }
     ],
     "tree": [
@@ -2021,74 +2136,74 @@
     "name": "Gateway Close Event Codes",
     "properties": [
       {
-        "name": "Unknown error",
+        "name": "4000",
         "description": "We're not sure what went wrong. Try reconnecting",
-        "value": 4000
+        "value": "Unknown error"
       },
       {
-        "name": "Unknown opcode",
+        "name": "4001",
         "description": "You sent an invalid Gateway opcode or an invalid payload for an opcode. Don't do that!",
-        "value": 4001
+        "value": "Unknown opcode"
       },
       {
-        "name": "Decode error",
+        "name": "4002",
         "description": "You sent an invalid payload to us. Don't do that!",
-        "value": 4002
+        "value": "Decode error"
       },
       {
-        "name": "Not authenticated",
+        "name": "4003",
         "description": "You sent us a payload prior to identifying.",
-        "value": 4003
+        "value": "Not authenticated"
       },
       {
-        "name": "Authentication failed",
+        "name": "4004",
         "description": "The account token sent with your identify payload is incorrect.",
-        "value": 4004
+        "value": "Authentication failed"
       },
       {
-        "name": "Already authenticated",
+        "name": "4005",
         "description": "You sent more than one identify payload. Don't do that!",
-        "value": 4005
+        "value": "Already authenticated"
       },
       {
-        "name": "Invalid seq",
+        "name": "4007",
         "description": "The sequence sent when resuming the session was invalid. Reconnect and start a new session.",
-        "value": 4007
+        "value": "Invalid seq"
       },
       {
-        "name": "Rate limited",
+        "name": "4008",
         "description": "Woah nelly! You're sending payloads to us too quickly. Slow it down! You will be disconnected on receiving this.",
-        "value": 4008
+        "value": "Rate limited"
       },
       {
-        "name": "Session timed out",
+        "name": "4009",
         "description": "Your session timed out. Reconnect and start a new one.",
-        "value": 4009
+        "value": "Session timed out"
       },
       {
-        "name": "Invalid shard",
+        "name": "4010",
         "description": "You sent us an invalid shard when identifying.",
-        "value": 4010
+        "value": "Invalid shard"
       },
       {
-        "name": "Sharding required",
+        "name": "4011",
         "description": "The session would have handled too many guilds - you are required to shard your connection in order to connect.",
-        "value": 4011
+        "value": "Sharding required"
       },
       {
-        "name": "Invalid API version",
+        "name": "4012",
         "description": "You sent an invalid version for the gateway.",
-        "value": 4012
+        "value": "Invalid API version"
       },
       {
-        "name": "Invalid intent",
+        "name": "4013",
         "description": "You sent an invalid intent for a Gateway Intent. You may have incorrectly calculated the bitwise value.",
-        "value": 4013
+        "value": "Invalid intent(s)"
       },
       {
-        "name": "Disallowed intent",
+        "name": "4014",
         "description": "You sent a disallowed intent for a Gateway Intent. You may have tried to specify an intent that you have not enabled or are not approved for.",
-        "value": 4014
+        "value": "Disallowed intent(s)"
       }
     ],
     "description": "Our voice gateways have their own set of opcodes and close codes.",
@@ -2101,59 +2216,59 @@
     "name": "Voice Opcodes",
     "properties": [
       {
-        "name": "0",
-        "description": "client",
-        "value": "Identify"
+        "name": "Identify",
+        "description": "Begin a voice websocket connection.",
+        "value": 0
       },
       {
-        "name": "1",
-        "description": "client",
-        "value": "Select Protocol"
+        "name": "Select Protocol",
+        "description": "Select the voice protocol.",
+        "value": 1
       },
       {
-        "name": "2",
-        "description": "server",
-        "value": "Ready"
+        "name": "Ready",
+        "description": "Complete the websocket handshake.",
+        "value": 2
       },
       {
-        "name": "3",
-        "description": "client",
-        "value": "Heartbeat"
+        "name": "Heartbeat",
+        "description": "Keep the websocket connection alive.",
+        "value": 3
       },
       {
-        "name": "4",
-        "description": "server",
-        "value": "Session Description"
+        "name": "Session Description",
+        "description": "Describe the session.",
+        "value": 4
       },
       {
-        "name": "5",
-        "description": "client and server",
-        "value": "Speaking"
+        "name": "Speaking",
+        "description": "Indicate which users are speaking.",
+        "value": 5
       },
       {
-        "name": "6",
-        "description": "server",
-        "value": "Heartbeat ACK"
+        "name": "Heartbeat ACK",
+        "description": "Sent to acknowledge a received client heartbeat.",
+        "value": 6
       },
       {
-        "name": "7",
-        "description": "client",
-        "value": "Resume"
+        "name": "Resume",
+        "description": "Resume a connection.",
+        "value": 7
       },
       {
-        "name": "8",
-        "description": "server",
-        "value": "Hello"
+        "name": "Hello",
+        "description": "Time to wait between sending heartbeats in milliseconds.",
+        "value": 8
       },
       {
-        "name": "9",
-        "description": "server",
-        "value": "Resumed"
+        "name": "Resumed",
+        "description": "Acknowledge a successful session resume.",
+        "value": 9
       },
       {
-        "name": "13",
-        "description": "server",
-        "value": "Client Disconnect"
+        "name": "Client Disconnect",
+        "description": "A client has disconnected from the voice channel",
+        "value": 13
       }
     ],
     "tree": [
@@ -2164,64 +2279,64 @@
     "name": "Voice Close Event Codes",
     "properties": [
       {
-        "name": "Unknown opcode",
+        "name": "4001",
         "description": "You sent an invalid opcode.",
-        "value": 4001
+        "value": "Unknown opcode"
       },
       {
-        "name": "Failed to decode payload",
+        "name": "4002",
         "description": "You sent a invalid payload in your identifying to the Gateway.",
-        "value": 4002
+        "value": "Failed to decode payload"
       },
       {
-        "name": "Not authenticated",
+        "name": "4003",
         "description": "You sent a payload before identifying with the Gateway.",
-        "value": 4003
+        "value": "Not authenticated"
       },
       {
-        "name": "Authentication failed",
+        "name": "4004",
         "description": "The token you sent in your identify payload is incorrect.",
-        "value": 4004
+        "value": "Authentication failed"
       },
       {
-        "name": "Already authenticated",
+        "name": "4005",
         "description": "You sent more than one identify payload. Stahp.",
-        "value": 4005
+        "value": "Already authenticated"
       },
       {
-        "name": "Session no longer valid",
+        "name": "4006",
         "description": "Your session is no longer valid.",
-        "value": 4006
+        "value": "Session no longer valid"
       },
       {
-        "name": "Session timeout",
+        "name": "4009",
         "description": "Your session has timed out.",
-        "value": 4009
+        "value": "Session timeout"
       },
       {
-        "name": "Server not found",
+        "name": "4011",
         "description": "We can't find the server you're trying to connect to.",
-        "value": 4011
+        "value": "Server not found"
       },
       {
-        "name": "Unknown protocol",
+        "name": "4012",
         "description": "We didn't recognize the protocol you sent.",
-        "value": 4012
+        "value": "Unknown protocol"
       },
       {
-        "name": "Disconnected",
+        "name": "4014",
         "description": "Channel was deleted, you were kicked, voice server changed, or the main gateway session was dropped. Should not reconnect.",
-        "value": 4014
+        "value": "Disconnected"
       },
       {
-        "name": "Voice server crashed",
+        "name": "4015",
         "description": "The server crashed. Our bad! Try resuming.",
-        "value": 4015
+        "value": "Voice server crashed"
       },
       {
-        "name": "Unknown encryption mode",
+        "name": "4016",
         "description": "We didn't recognize your encryption.",
-        "value": 4016
+        "value": "Unknown encryption mode"
       }
     ],
     "description": "Our API will return semantically valid HTTP response codes based on the success of your request. The following table can be used as a reference for response codes it will return.",
@@ -2234,52 +2349,52 @@
     "name": "HTTP Response Codes",
     "properties": [
       {
-        "name": "The request completed successfully.",
-        "value": 200
+        "name": "200",
+        "value": "The request completed successfully."
       },
       {
-        "name": "The entity was created successfully.",
-        "value": 201
+        "name": "201",
+        "value": "The entity was created successfully."
       },
       {
-        "name": "The request completed successfully but returned no content.",
-        "value": 204
+        "name": "204",
+        "value": "The request completed successfully but returned no content."
       },
       {
-        "name": "The entity was not modified.",
-        "value": 304
+        "name": "304",
+        "value": "The entity was not modified (no action was taken)."
       },
       {
-        "name": "The request was improperly formatted, or the server couldn't understand it.",
-        "value": 400
+        "name": "400",
+        "value": "The request was improperly formatted, or the server couldn't understand it."
       },
       {
-        "name": "The Authorization header was missing or invalid.",
-        "value": 401
+        "name": "401",
+        "value": "The Authorization header was missing or invalid."
       },
       {
-        "name": "The Authorization token you passed did not have permission to the resource.",
-        "value": 403
+        "name": "403",
+        "value": "The Authorization token you passed did not have permission to the resource."
       },
       {
-        "name": "The resource at the location specified doesn't exist.",
-        "value": 404
+        "name": "404",
+        "value": "The resource at the location specified doesn't exist."
       },
       {
-        "name": "The HTTP method used is not valid for the location specified.",
-        "value": 405
+        "name": "405",
+        "value": "The HTTP method used is not valid for the location specified."
       },
       {
-        "name": "You are being rate limited, see Rate Limits.",
-        "value": 429
+        "name": "429",
+        "value": "You are being rate limited, see Rate Limits."
       },
       {
-        "name": "There was not a gateway available to process your request. Wait a bit and retry.",
-        "value": 502
+        "name": "502",
+        "value": "There was not a gateway available to process your request. Wait a bit and retry."
       },
       {
-        "name": "The server had an error processing your request.",
-        "value": 5
+        "name": "5xx",
+        "value": "The server had an error processing your request (these are rare)."
       }
     ],
     "description": "Along with the HTTP error code, our API can also return more detailed error codes through a code key in the JSON error response. The response will also contain a message key containing a more friendly error string. Some of these errors may include additional details in the form of Error Messages provided by an errors object.",
@@ -2636,8 +2751,8 @@
     "name": "RPC Versions",
     "properties": [
       {
-        "name": "no",
-        "value": 1
+        "name": "1",
+        "value": "no"
       }
     ],
     "description": "For applications/games not approved, we limit you to creating 10 guilds and 10 channels. This limit is raised to virtually unlimited after approval.",
@@ -2653,79 +2768,98 @@
     "properties": [
       {
         "name": "DISPATCH",
-        "value": "event dispatch"
+        "description": "event dispatch",
+        "value": "DISPATCH"
       },
       {
         "name": "AUTHORIZE",
-        "value": "used to authorize a new client with your app"
+        "description": "used to authorize a new client with your app",
+        "value": "AUTHORIZE"
       },
       {
         "name": "AUTHENTICATE",
-        "value": "used to authenticate an existing client with your app"
+        "description": "used to authenticate an existing client with your app",
+        "value": "AUTHENTICATE"
       },
       {
         "name": "GET_GUILD",
-        "value": "used to retrieve guild information from the client"
+        "description": "used to retrieve guild information from the client",
+        "value": "GET_GUILD"
       },
       {
         "name": "GET_GUILDS",
-        "value": "used to retrieve a list of guilds from the client"
+        "description": "used to retrieve a list of guilds from the client",
+        "value": "GET_GUILDS"
       },
       {
         "name": "GET_CHANNEL",
-        "value": "used to retrieve channel information from the client"
+        "description": "used to retrieve channel information from the client",
+        "value": "GET_CHANNEL"
       },
       {
         "name": "GET_CHANNELS",
-        "value": "used to retrieve a list of channels for a guild from the client"
+        "description": "used to retrieve a list of channels for a guild from the client",
+        "value": "GET_CHANNELS"
       },
       {
         "name": "SUBSCRIBE",
-        "value": "used to subscribe to an RPC event"
+        "description": "used to subscribe to an RPC event",
+        "value": "SUBSCRIBE"
       },
       {
         "name": "UNSUBSCRIBE",
-        "value": "used to unsubscribe from an RPC event"
+        "description": "used to unsubscribe from an RPC event",
+        "value": "UNSUBSCRIBE"
       },
       {
         "name": "SET_USER_VOICE_SETTINGS",
-        "value": "used to change voice settings of users in voice channels"
+        "description": "used to change voice settings of users in voice channels",
+        "value": "SET_USER_VOICE_SETTINGS"
       },
       {
         "name": "SELECT_VOICE_CHANNEL",
-        "value": "used to join or leave a voice channel, group dm, or dm"
+        "description": "used to join or leave a voice channel, group dm, or dm",
+        "value": "SELECT_VOICE_CHANNEL"
       },
       {
         "name": "GET_SELECTED_VOICE_CHANNEL",
-        "value": "used to get the current voice channel the client is in"
+        "description": "used to get the current voice channel the client is in",
+        "value": "GET_SELECTED_VOICE_CHANNEL"
       },
       {
         "name": "SELECT_TEXT_CHANNEL",
-        "value": "used to join or leave a text channel, group dm, or dm"
+        "description": "used to join or leave a text channel, group dm, or dm",
+        "value": "SELECT_TEXT_CHANNEL"
       },
       {
         "name": "GET_VOICE_SETTINGS",
-        "value": "used to retrieve the client's voice settings"
+        "description": "used to retrieve the client's voice settings",
+        "value": "GET_VOICE_SETTINGS"
       },
       {
         "name": "SET_VOICE_SETTINGS",
-        "value": "used to set the client's voice settings"
+        "description": "used to set the client's voice settings",
+        "value": "SET_VOICE_SETTINGS"
       },
       {
         "name": "SET_CERTIFIED_DEVICES",
-        "value": "used to send info about certified hardware devices"
+        "description": "used to send info about certified hardware devices",
+        "value": "SET_CERTIFIED_DEVICES"
       },
       {
         "name": "SET_ACTIVITY",
-        "value": "used to update a user's Rich Presence"
+        "description": "used to update a user's Rich Presence",
+        "value": "SET_ACTIVITY"
       },
       {
         "name": "SEND_ACTIVITY_JOIN_INVITE",
-        "value": "used to consent to a Rich Presence Ask to Join request"
+        "description": "used to consent to a Rich Presence Ask to Join request",
+        "value": "SEND_ACTIVITY_JOIN_INVITE"
       },
       {
         "name": "CLOSE_ACTIVITY_REQUEST",
-        "value": "used to reject a Rich Presence Ask to Join request"
+        "description": "used to reject a Rich Presence Ask to Join request",
+        "value": "CLOSE_ACTIVITY_REQUEST"
       }
     ],
     "description": "Events are payloads sent over the socket to a client that correspond to events in Discord.",
@@ -2738,83 +2872,103 @@
     "properties": [
       {
         "name": "READY",
-        "value": "non-subscription event sent immediately after connecting, contains server information"
+        "description": "non-subscription event sent immediately after connecting, contains server information",
+        "value": "READY"
       },
       {
         "name": "ERROR",
-        "value": "non-subscription event sent when there is an error, including command responses"
+        "description": "non-subscription event sent when there is an error, including command responses",
+        "value": "ERROR"
       },
       {
         "name": "GUILD_STATUS",
-        "value": "sent when a subscribed server's state changes"
+        "description": "sent when a subscribed server's state changes",
+        "value": "GUILD_STATUS"
       },
       {
         "name": "GUILD_CREATE",
-        "value": "sent when a guild is created/joined on the client"
+        "description": "sent when a guild is created/joined on the client",
+        "value": "GUILD_CREATE"
       },
       {
         "name": "CHANNEL_CREATE",
-        "value": "sent when a channel is created/joined on the client"
+        "description": "sent when a channel is created/joined on the client",
+        "value": "CHANNEL_CREATE"
       },
       {
         "name": "VOICE_CHANNEL_SELECT",
-        "value": "sent when the client joins a voice channel"
+        "description": "sent when the client joins a voice channel",
+        "value": "VOICE_CHANNEL_SELECT"
       },
       {
         "name": "VOICE_STATE_CREATE",
-        "value": "sent when a user joins a subscribed voice channel"
+        "description": "sent when a user joins a subscribed voice channel",
+        "value": "VOICE_STATE_CREATE"
       },
       {
         "name": "VOICE_STATE_UPDATE",
-        "value": "sent when a user's voice state changes in a subscribed voice channel (mute, volume, etc.)"
+        "description": "sent when a user's voice state changes in a subscribed voice channel (mute, volume, etc.)",
+        "value": "VOICE_STATE_UPDATE"
       },
       {
         "name": "VOICE_STATE_DELETE",
-        "value": "sent when a user parts a subscribed voice channel"
+        "description": "sent when a user parts a subscribed voice channel",
+        "value": "VOICE_STATE_DELETE"
       },
       {
         "name": "VOICE_SETTINGS_UPDATE",
-        "value": "sent when the client's voice settings update"
+        "description": "sent when the client's voice settings update",
+        "value": "VOICE_SETTINGS_UPDATE"
       },
       {
         "name": "VOICE_CONNECTION_STATUS",
-        "value": "sent when the client's voice connection status changes"
+        "description": "sent when the client's voice connection status changes",
+        "value": "VOICE_CONNECTION_STATUS"
       },
       {
         "name": "SPEAKING_START",
-        "value": "sent when a user in a subscribed voice channel speaks"
+        "description": "sent when a user in a subscribed voice channel speaks",
+        "value": "SPEAKING_START"
       },
       {
         "name": "SPEAKING_STOP",
-        "value": "sent when a user in a subscribed voice channel stops speaking"
+        "description": "sent when a user in a subscribed voice channel stops speaking",
+        "value": "SPEAKING_STOP"
       },
       {
         "name": "MESSAGE_CREATE",
-        "value": "sent when a message is created in a subscribed text channel"
+        "description": "sent when a message is created in a subscribed text channel",
+        "value": "MESSAGE_CREATE"
       },
       {
         "name": "MESSAGE_UPDATE",
-        "value": "sent when a message is updated in a subscribed text channel"
+        "description": "sent when a message is updated in a subscribed text channel",
+        "value": "MESSAGE_UPDATE"
       },
       {
         "name": "MESSAGE_DELETE",
-        "value": "sent when a message is deleted in a subscribed text channel"
+        "description": "sent when a message is deleted in a subscribed text channel",
+        "value": "MESSAGE_DELETE"
       },
       {
         "name": "NOTIFICATION_CREATE",
-        "value": "sent when the client receives a notification (mention or new message in eligible channels)"
+        "description": "sent when the client receives a notification (mention or new message in eligible channels)",
+        "value": "NOTIFICATION_CREATE"
       },
       {
         "name": "ACTIVITY_JOIN",
-        "value": "sent when the user clicks a Rich Presence join invite in chat to join a game"
+        "description": "sent when the user clicks a Rich Presence join invite in chat to join a game",
+        "value": "ACTIVITY_JOIN"
       },
       {
         "name": "ACTIVITY_SPECTATE",
-        "value": "sent when the user clicks a Rich Presence spectate invite in chat to spectate a game"
+        "description": "sent when the user clicks a Rich Presence spectate invite in chat to spectate a game",
+        "value": "ACTIVITY_SPECTATE"
       },
       {
         "name": "ACTIVITY_JOIN_REQUEST",
-        "value": "sent when the user receives a Rich Presence Ask to Join request"
+        "description": "sent when the user receives a Rich Presence Ask to Join request",
+        "value": "ACTIVITY_JOIN_REQUEST"
       }
     ],
     "description": "We also have an RPC token system to bypass the user authorization modal. This is usable by approved games as well as by users on a game's list of testers, and also disallows use of the messages.read scope. If you have been granted access, you can send a POST request to https://discord.com/api/oauth2/token/rpc with your application's client_id and client_secret in the body (sent as a url-encoded body, not JSON). You can then pass the returned rpc_token value to the rpc_token field in your RPC authorize request (documented below).",
@@ -2827,20 +2981,20 @@
     "name": "Key Types",
     "properties": [
       {
-        "name": "0",
-        "value": "KEYBOARD_KEY"
+        "name": "KEYBOARD_KEY",
+        "value": 0
       },
       {
-        "name": "1",
-        "value": "MOUSE_BUTTON"
+        "name": "MOUSE_BUTTON",
+        "value": 1
       },
       {
-        "name": "2",
-        "value": "KEYBOARD_MODIFIER_KEY"
+        "name": "KEYBOARD_MODIFIER_KEY",
+        "value": 2
       },
       {
-        "name": "3",
-        "value": "GAMEPAD_BUTTON"
+        "name": "GAMEPAD_BUTTON",
+        "value": 3
       }
     ],
     "tree": [
@@ -2851,16 +3005,16 @@
     "name": "Device Type",
     "properties": [
       {
-        "name": "audioinput",
-        "value": "AUDIO_INPUT"
+        "name": "AUDIO_INPUT",
+        "value": "audioinput"
       },
       {
-        "name": "audiooutput",
-        "value": "AUDIO_OUTPUT"
+        "name": "AUDIO_OUTPUT",
+        "value": "audiooutput"
       },
       {
-        "name": "videoinput",
-        "value": "VIDEO_INPUT"
+        "name": "VIDEO_INPUT",
+        "value": "videoinput"
       }
     ],
     "tree": [
@@ -2872,43 +3026,53 @@
     "properties": [
       {
         "name": "DISCONNECTED",
-        "value": "TCP disconnected"
+        "description": "TCP disconnected",
+        "value": "DISCONNECTED"
       },
       {
         "name": "AWAITING_ENDPOINT",
-        "value": "Waiting for voice endpoint"
+        "description": "Waiting for voice endpoint",
+        "value": "AWAITING_ENDPOINT"
       },
       {
         "name": "AUTHENTICATING",
-        "value": "TCP authenticating"
+        "description": "TCP authenticating",
+        "value": "AUTHENTICATING"
       },
       {
         "name": "CONNECTING",
-        "value": "TCP connecting"
+        "description": "TCP connecting",
+        "value": "CONNECTING"
       },
       {
         "name": "CONNECTED",
-        "value": "TCP connected"
+        "description": "TCP connected",
+        "value": "CONNECTED"
       },
       {
         "name": "VOICE_DISCONNECTED",
-        "value": "TCP connected, Voice disconnected"
+        "description": "TCP connected, Voice disconnected",
+        "value": "VOICE_DISCONNECTED"
       },
       {
         "name": "VOICE_CONNECTING",
-        "value": "TCP connected, Voice connecting"
+        "description": "TCP connected, Voice connecting",
+        "value": "VOICE_CONNECTING"
       },
       {
         "name": "VOICE_CONNECTED",
-        "value": "TCP connected, Voice connected"
+        "description": "TCP connected, Voice connected",
+        "value": "VOICE_CONNECTED"
       },
       {
         "name": "NO_ROUTE",
-        "value": "No route to host"
+        "description": "No route to host",
+        "value": "NO_ROUTE"
       },
       {
         "name": "ICE_CHECKING",
-        "value": "WebRTC ice checking"
+        "description": "WebRTC ice checking",
+        "value": "ICE_CHECKING"
       }
     ],
     "tree": [
@@ -2932,24 +3096,20 @@
     "name": "Gateway Versions",
     "properties": [
       {
-        "name": "recommended",
-        "description": "v=4",
-        "value": 4
+        "name": "4",
+        "value": "recommended"
       },
       {
-        "name": "available",
-        "description": "v=3",
-        "value": 3
+        "name": "3",
+        "value": "available"
       },
       {
-        "name": "available",
-        "description": "v=2",
-        "value": 2
+        "name": "2",
+        "value": "available"
       },
       {
-        "name": "default",
-        "description": "v=1 or omit",
-        "value": 1
+        "name": "1",
+        "value": "default"
       }
     ],
     "description": "The first step in connecting to a voice server (and in turn, a guild's voice channel) is formulating a request that can be sent to the Gateway, which will return information about the voice server we will connect to. Because Discord's voice platform is widely distributed, users should never cache or save the results of this call. To inform the gateway of our intent to establish voice connectivity, we first send an Opcode 4 Gateway Voice State Update:",
@@ -2965,19 +3125,16 @@
     "name": "Encryption Modes",
     "properties": [
       {
-        "name": "xsalsa20_poly1305",
-        "description": "The nonce bytes are the RTP header",
-        "value": "Normal"
+        "name": "Normal",
+        "value": "xsalsa20_poly1305"
       },
       {
-        "name": "xsalsa20_poly1305_suffix",
-        "description": "The nonce bytes are 24 bytes appended to the payload of the RTP packet",
-        "value": "Suffix"
+        "name": "Suffix",
+        "value": "xsalsa20_poly1305_suffix"
       },
       {
-        "name": "xsalsa20_poly1305_lite",
-        "description": "The nonce bytes are 4 bytes appended to the payload of the RTP packet",
-        "value": "Lite"
+        "name": "Lite",
+        "value": "xsalsa20_poly1305_lite"
       }
     ],
     "description": "Finally, the voice server will respond with a Opcode 4 Session Description that includes the mode and secret_key, a 32 byte array used for encrypting and sending voice data:",

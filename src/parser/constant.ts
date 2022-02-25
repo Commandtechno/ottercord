@@ -29,78 +29,102 @@ export default class implements Constant {
     }
 
     if (block.type === "table") {
-      // test
-      let [, valueKey] = lastSplit(this.name, " ");
-      if (!valueKey) return; // Limits
-      valueKey = stripPlural(trimText(valueKey.toLowerCase()));
+      let [, primaryKey] = lastSplit(this.name, " ");
+      if (!primaryKey) return; // name is one word like Limits
+      primaryKey = stripPlural(trimText(primaryKey.toLowerCase()));
 
       const table = formatTable(block);
       this.properties = table.map(row => {
-        // const [longestKey] = Object.keys(row).sort(
-        //   (a, b) => row[a].text.length - row[b].text.length
-        // );
-
-        // console.log(longestKey);
-
         let name: string;
         let description: string;
         let rawValue: string;
 
-        // temp
-        if (!name && valueKey && row[valueKey]) {
-          // if (!isNaN(parseInt(row[valueKey].text)))
-          //   rawValue = trimText(flattenBlock(row[valueKey]));
-          // else
-          // name = trimText(flattenBlock(row[valueKey]));
-          rawValue = trimText(flattenBlock(row[valueKey]));
-          delete row[valueKey];
+        /*
+        name
+        */
+
+        // name can be name or field row
+        // primary key and next key as a fallback
+        if (!name && row.name) {
+          name = trimText(stripBrackets(flattenBlock(row.name)));
+          delete row.name;
         }
 
-        // if (!name && row.name) {
-        //   name = trimText(flattenBlock(row.name));
-        //   delete row.name;
-        // }
+        if (!name && row.field) {
+          name = trimText(stripBrackets(flattenBlock(row.field)));
+          delete row.field;
+        }
 
+        if (!name && row[primaryKey]) {
+          name = trimText(stripBrackets(flattenBlock(row[primaryKey])));
+          delete row[primaryKey];
+        }
+
+        if (!name) {
+          const [firstKey] = Object.keys(row);
+          if (firstKey) {
+            name = trimText(stripBrackets(flattenBlock(row[firstKey])));
+            delete row[firstKey];
+          }
+        }
+
+        /*
+        description
+        */
+
+        // description will never come first
+        // name can also be the first key next that can be description
+        // otherwise description may come before value
+        // goes from explanation to description because sometimes its explanation
+        // doesnt have any fallbacks because its optional lol
+        if (!description && row.explanation) {
+          description = trimText(flattenBlock(row.explanation));
+          delete row.explanation;
+        }
+
+        if (!description && row.description) {
+          description = trimText(flattenBlock(row.description));
+          delete row.description;
+        }
+
+        /*
+        value
+        */
+
+        // value can be the value row or the primary key
+        // next key or name as a fallback
         if (!rawValue && row.value) {
-          rawValue = trimText(flattenBlock(row.value));
+          rawValue = trimText(stripBrackets(flattenBlock(row.value)));
           delete row.value;
         }
 
-        // if (!description && row.description) {
-        //   description = trimText(flattenBlock(row.description));
-        //   delete row.description;
-        // }
-
-        // name is an alternate field
-        if (!name) {
-          const [firstKey] = Object.keys(row);
-          if (firstKey) name = trimText(flattenBlock(row[firstKey]));
-          else name = description;
-          // else name = rawValue;
-          delete row[firstKey];
+        // primary key is like "User Flags" > flag row
+        if (!rawValue && row[primaryKey]) {
+          rawValue = trimText(stripBrackets(flattenBlock(row[primaryKey])));
+          delete row[primaryKey];
         }
 
+        // value is an alternate field
         if (!rawValue) {
           const [firstKey] = Object.keys(row);
-          if (firstKey) rawValue = trimText(flattenBlock(row[firstKey]));
-          else rawValue = name;
-          delete row[firstKey];
-        }
-
-        if (!description) {
-          const [firstKey] = Object.keys(row);
           if (firstKey) {
-            description = trimText(flattenBlock(row[firstKey]));
+            rawValue = trimText(stripBrackets(flattenBlock(row[firstKey])));
             delete row[firstKey];
           }
+        }
+
+        // some constants like features have the same value as name
+        if (!rawValue) {
+          rawValue = name;
         }
 
         let value: string | number;
 
         // resolve bitshifts for flags
-        if (trimText(stripBrackets(rawValue)).includes("<<")) {
+        if (rawValue.includes("<<")) {
           const [left, right] = rawValue.split("<<");
           value = parseInt(left) << parseInt(right);
+          console.log(left, right, value);
         }
 
         // if value is a number, use the number

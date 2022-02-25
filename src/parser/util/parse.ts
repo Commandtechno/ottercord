@@ -52,7 +52,7 @@ export function parseLink(link: string) {
 
 // type hierarchy: type field links, description field first token link, type field raw, description field links
 export function parseProperty(row: Row): Property {
-  let name = trimText(stripBrackets(row.field?.text ?? row.name?.text));
+  let name = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
   let description = row.description && trimText(flattenBlock(row.description));
 
   let array = false;
@@ -168,7 +168,7 @@ export function parseProperty(row: Row): Property {
       };
   }
 
-  const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
+  const value = stripPlural(trimText(stripBrackets(cutText(flattenBlock(row.type)))));
   if (value.includes("or") || value.includes(",")) {
     const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
     if (values.every(value => validTypes.has(value)))
