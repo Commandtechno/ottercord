@@ -1,0 +1,54 @@
+name: RPC Events
+balls:
+  - name: "[READY](#DOCS_TOPICS_RPC/ready)"
+    description: non-subscription event sent immediately after connecting, contains
+      server information
+  - name: "[ERROR](#DOCS_TOPICS_RPC/error)"
+    description: non-subscription event sent when there is an error, including
+      command responses
+  - name: "[GUILD_STATUS](#DOCS_TOPICS_RPC/guildstatus)"
+    description: sent when a subscribed server's state changes
+  - name: "[GUILD_CREATE](#DOCS_TOPICS_RPC/guildcreate)"
+    description: sent when a guild is created/joined on the client
+  - name: "[CHANNEL_CREATE](#DOCS_TOPICS_RPC/channelcreate)"
+    description: sent when a channel is created/joined on the client
+  - name: "[VOICE_CHANNEL_SELECT](#DOCS_TOPICS_RPC/voicechannelselect)"
+    description: sent when the client joins a voice channel
+  - name: "[VOICE_STATE_CREATE](#DOCS_TOPICS_RPC/voicestatecreatevoicestateupdatevo\
+      icestatedelete)"
+    description: sent when a user joins a subscribed voice channel
+  - name: "[VOICE_STATE_UPDATE](#DOCS_TOPICS_RPC/voicestatecreatevoicestateupdatevo\
+      icestatedelete)"
+    description: sent when a user's voice state changes in a subscribed voice
+      channel (mute, volume, etc.)
+  - name: "[VOICE_STATE_DELETE](#DOCS_TOPICS_RPC/voicestatecreatevoicestateupdatevo\
+      icestatedelete)"
+    description: sent when a user parts a subscribed voice channel
+  - name: "[VOICE_SETTINGS_UPDATE](#DOCS_TOPICS_RPC/voicesettingsupdate)"
+    description: sent when the client's voice settings update
+  - name: "[VOICE_CONNECTION_STATUS](#DOCS_TOPICS_RPC/voiceconnectionstatus)"
+    description: sent when the client's voice connection status changes
+  - name: "[SPEAKING_START](#DOCS_TOPICS_RPC/speakingstartspeakingstop)"
+    description: sent when a user in a subscribed voice channel speaks
+  - name: "[SPEAKING_STOP](#DOCS_TOPICS_RPC/speakingstartspeakingstop)"
+    description: sent when a user in a subscribed voice channel stops speaking
+  - name: "[MESSAGE_CREATE](#DOCS_TOPICS_RPC/messagecreatemessageupdatemessagedelet\
+      e)"
+    description: sent when a message is created in a subscribed text channel
+  - name: "[MESSAGE_UPDATE](#DOCS_TOPICS_RPC/messagecreatemessageupdatemessagedelet\
+      e)"
+    description: sent when a message is updated in a subscribed text channel
+  - name: "[MESSAGE_DELETE](#DOCS_TOPICS_RPC/messagecreatemessageupdatemessagedelet\
+      e)"
+    description: sent when a message is deleted in a subscribed text channel
+  - name: "[NOTIFICATION_CREATE](#DOCS_TOPICS_RPC/notificationcreate)"
+    description: sent when the client receives a notification (mention or new
+      message in eligible channels)
+  - name: "[ACTIVITY_JOIN](#DOCS_TOPICS_RPC/activityjoin)"
+    description: sent when the user clicks a Rich Presence join invite in chat to
+      join a game
+  - name: "[ACTIVITY_SPECTATE](#DOCS_TOPICS_RPC/activityspectate)"
+    description: sent when the user clicks a Rich Presence spectate invite in chat
+      to spectate a game
+  - name: "[ACTIVITY_JOIN_REQUEST](#DOCS_TOPICS_RPC/activityjoinrequest)"
+    description: sent when the user receives a Rich Presence Ask to Join request

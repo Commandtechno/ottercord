@@ -1,0 +1,305 @@
+name: JSON Error Codes
+balls:
+  - code: "0"
+    meaning: General error (such as a malformed request body, amongst other things)
+  - code: "10001"
+    meaning: Unknown account
+  - code: "10002"
+    meaning: Unknown application
+  - code: "10003"
+    meaning: Unknown channel
+  - code: "10004"
+    meaning: Unknown guild
+  - code: "10005"
+    meaning: Unknown integration
+  - code: "10006"
+    meaning: Unknown invite
+  - code: "10007"
+    meaning: Unknown member
+  - code: "10008"
+    meaning: Unknown message
+  - code: "10009"
+    meaning: Unknown permission overwrite
+  - code: "10010"
+    meaning: Unknown provider
+  - code: "10011"
+    meaning: Unknown role
+  - code: "10012"
+    meaning: Unknown token
+  - code: "10013"
+    meaning: Unknown user
+  - code: "10014"
+    meaning: Unknown emoji
+  - code: "10015"
+    meaning: Unknown webhook
+  - code: "10016"
+    meaning: Unknown webhook service
+  - code: "10020"
+    meaning: Unknown session
+  - code: "10026"
+    meaning: Unknown ban
+  - code: "10027"
+    meaning: Unknown SKU
+  - code: "10028"
+    meaning: Unknown Store Listing
+  - code: "10029"
+    meaning: Unknown entitlement
+  - code: "10030"
+    meaning: Unknown build
+  - code: "10031"
+    meaning: Unknown lobby
+  - code: "10032"
+    meaning: Unknown branch
+  - code: "10033"
+    meaning: Unknown store directory layout
+  - code: "10036"
+    meaning: Unknown redistributable
+  - code: "10038"
+    meaning: Unknown gift code
+  - code: "10049"
+    meaning: Unknown stream
+  - code: "10050"
+    meaning: Unknown premium server subscribe cooldown
+  - code: "10057"
+    meaning: Unknown guild template
+  - code: "10059"
+    meaning: Unknown discoverable server category
+  - code: "10060"
+    meaning: Unknown sticker
+  - code: "10062"
+    meaning: Unknown interaction
+  - code: "10063"
+    meaning: Unknown application command
+  - code: "10066"
+    meaning: Unknown application command permissions
+  - code: "10067"
+    meaning: Unknown Stage Instance
+  - code: "10068"
+    meaning: Unknown Guild Member Verification Form
+  - code: "10069"
+    meaning: Unknown Guild Welcome Screen
+  - code: "10070"
+    meaning: Unknown Guild Scheduled Event
+  - code: "10071"
+    meaning: Unknown Guild Scheduled Event User
+  - code: "20001"
+    meaning: Bots cannot use this endpoint
+  - code: "20002"
+    meaning: Only bots can use this endpoint
+  - code: "20009"
+    meaning: Explicit content cannot be sent to the desired recipient(s)
+  - code: "20012"
+    meaning: You are not authorized to perform this action on this application
+  - code: "20016"
+    meaning: This action cannot be performed due to slowmode rate limit
+  - code: "20018"
+    meaning: Only the owner of this account can perform this action
+  - code: "20022"
+    meaning: This message cannot be edited due to announcement rate limits
+  - code: "20028"
+    meaning: The channel you are writing has hit the write rate limit
+  - code: "20029"
+    meaning: The write action you are performing on the server has hit the write
+      rate limit
+  - code: "20031"
+    meaning: Your Stage topic, server name, server description, or channel names
+      contain words that are not allowed
+  - code: "20035"
+    meaning: Guild premium subscription level too low
+  - code: "30001"
+    meaning: Maximum number of guilds reached (100)
+  - code: "30002"
+    meaning: Maximum number of friends reached (1000)
+  - code: "30003"
+    meaning: Maximum number of pins reached for the channel (50)
+  - code: "30004"
+    meaning: Maximum number of recipients reached (10)
+  - code: "30005"
+    meaning: Maximum number of guild roles reached (250)
+  - code: "30007"
+    meaning: Maximum number of webhooks reached (10)
+  - code: "30008"
+    meaning: Maximum number of emojis reached
+  - code: "30010"
+    meaning: Maximum number of reactions reached (20)
+  - code: "30013"
+    meaning: Maximum number of guild channels reached (500)
+  - code: "30015"
+    meaning: Maximum number of attachments in a message reached (10)
+  - code: "30016"
+    meaning: Maximum number of invites reached (1000)
+  - code: "30018"
+    meaning: Maximum number of animated emojis reached
+  - code: "30019"
+    meaning: Maximum number of server members reached
+  - code: "30030"
+    meaning: Maximum number of server categories has been reached (5)
+  - code: "30031"
+    meaning: Guild already has a template
+  - code: "30033"
+    meaning: Max number of thread participants has been reached (1000)
+  - code: "30035"
+    meaning: Maximum number of bans for non-guild members have been exceeded
+  - code: "30037"
+    meaning: Maximum number of bans fetches has been reached
+  - code: "30038"
+    meaning: Maximum number of uncompleted guild scheduled events reached (100)
+  - code: "30039"
+    meaning: Maximum number of stickers reached
+  - code: "30040"
+    meaning: Maximum number of prune requests has been reached. Try again later
+  - code: "30042"
+    meaning: Maximum number of guild widget settings updates has been reached. Try
+      again later
+  - code: "30046"
+    meaning: Maximum number of edits to messages older than 1 hour reached. Try
+      again later
+  - code: "40001"
+    meaning: Unauthorized. Provide a valid token and try again
+  - code: "40002"
+    meaning: You need to verify your account in order to perform this action
+  - code: "40003"
+    meaning: You are opening direct messages too fast
+  - code: "40005"
+    meaning: Request entity too large. Try sending something smaller in size
+  - code: "40006"
+    meaning: This feature has been temporarily disabled server-side
+  - code: "40007"
+    meaning: The user is banned from this guild
+  - code: "40032"
+    meaning: Target user is not connected to voice
+  - code: "40033"
+    meaning: This message has already been crossposted
+  - code: "40041"
+    meaning: An application command with that name already exists
+  - code: "50001"
+    meaning: Missing access
+  - code: "50002"
+    meaning: Invalid account type
+  - code: "50003"
+    meaning: Cannot execute action on a DM channel
+  - code: "50004"
+    meaning: Guild widget disabled
+  - code: "50005"
+    meaning: Cannot edit a message authored by another user
+  - code: "50006"
+    meaning: Cannot send an empty message
+  - code: "50007"
+    meaning: Cannot send messages to this user
+  - code: "50008"
+    meaning: Cannot send messages in a voice channel
+  - code: "50009"
+    meaning: Channel verification level is too high for you to gain access
+  - code: "50010"
+    meaning: OAuth2 application does not have a bot
+  - code: "50011"
+    meaning: OAuth2 application limit reached
+  - code: "50012"
+    meaning: Invalid OAuth2 state
+  - code: "50013"
+    meaning: You lack permissions to perform that action
+  - code: "50014"
+    meaning: Invalid authentication token provided
+  - code: "50015"
+    meaning: Note was too long
+  - code: "50016"
+    meaning: Provided too few or too many messages to delete. Must provide at least
+      2 and fewer than 100 messages to delete
+  - code: "50019"
+    meaning: A message can only be pinned to the channel it was sent in
+  - code: "50020"
+    meaning: Invite code was either invalid or taken
+  - code: "50021"
+    meaning: Cannot execute action on a system message
+  - code: "50024"
+    meaning: Cannot execute action on this channel type
+  - code: "50025"
+    meaning: Invalid OAuth2 access token provided
+  - code: "50026"
+    meaning: Missing required OAuth2 scope
+  - code: "50027"
+    meaning: Invalid webhook token provided
+  - code: "50028"
+    meaning: Invalid role
+  - code: "50033"
+    meaning: Invalid Recipient(s)
+  - code: "50034"
+    meaning: A message provided was too old to bulk delete
+  - code: "50035"
+    meaning: Invalid form body (returned for both `application/json` and
+      `multipart/form-data` bodies), or invalid `Content-Type` provided
+  - code: "50036"
+    meaning: An invite was accepted to a guild the application's bot is not in
+  - code: "50041"
+    meaning: Invalid API version provided
+  - code: "50045"
+    meaning: File uploaded exceeds the maximum size
+  - code: "50046"
+    meaning: Invalid file uploaded
+  - code: "50054"
+    meaning: Cannot self-redeem this gift
+  - code: "50055"
+    meaning: Invalid Guild
+  - code: "50068"
+    meaning: Invalid message type
+  - code: "50070"
+    meaning: Payment source required to redeem gift
+  - code: "50074"
+    meaning: Cannot delete a channel required for Community guilds
+  - code: "50081"
+    meaning: Invalid sticker sent
+  - code: "50083"
+    meaning: Tried to perform an operation on an archived thread, such as editing a
+      message or adding a user to the thread
+  - code: "50084"
+    meaning: Invalid thread notification settings
+  - code: "50085"
+    meaning: "`before` value is earlier than the thread creation date"
+  - code: "50086"
+    meaning: Community server channels must be text channels
+  - code: "50095"
+    meaning: This server is not available in your location
+  - code: "50097"
+    meaning: This server needs monetization enabled in order to perform this action
+  - code: "50101"
+    meaning: This server needs more boosts to perform this action
+  - code: "50109"
+    meaning: The request body contains invalid JSON.
+  - code: "60003"
+    meaning: Two factor is required for this operation
+  - code: "80004"
+    meaning: No users with DiscordTag exist
+  - code: "90001"
+    meaning: Reaction was blocked
+  - code: "130000"
+    meaning: API resource is currently overloaded. Try again a little later
+  - code: "150006"
+    meaning: The Stage is already open
+  - code: "160002"
+    meaning: Cannot reply without permission to read message history
+  - code: "160004"
+    meaning: A thread has already been created for this message
+  - code: "160005"
+    meaning: Thread is locked
+  - code: "160006"
+    meaning: Maximum number of active threads reached
+  - code: "160007"
+    meaning: Maximum number of active announcement threads reached
+  - code: "170001"
+    meaning: Invalid JSON for uploaded Lottie file
+  - code: "170002"
+    meaning: Uploaded Lotties cannot contain rasterized images such as PNG or JPEG
+  - code: "170003"
+    meaning: Sticker maximum framerate exceeded
+  - code: "170004"
+    meaning: Sticker frame count exceeds maximum of 1000 frames
+  - code: "170005"
+    meaning: Lottie animation maximum dimensions exceeded
+  - code: "170006"
+    meaning: Sticker frame rate is either too small or too large
+  - code: "170007"
+    meaning: Sticker animation duration exceeds maximum of 5 seconds
+  - code: "180000"
+    meaning: Cannot update a finished event
+  - code: "180002"
+    meaning: Failed to create stage needed for stage event

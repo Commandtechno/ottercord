@@ -1,0 +1,28 @@
+name: HTTP Response Codes
+balls:
+  - code: 200 (OK)
+    meaning: The request completed successfully.
+  - code: 201 (CREATED)
+    meaning: The entity was created successfully.
+  - code: 204 (NO CONTENT)
+    meaning: The request completed successfully but returned no content.
+  - code: 304 (NOT MODIFIED)
+    meaning: The entity was not modified (no action was taken).
+  - code: 400 (BAD REQUEST)
+    meaning: The request was improperly formatted, or the server couldn't understand it.
+  - code: 401 (UNAUTHORIZED)
+    meaning: The `Authorization` header was missing or invalid.
+  - code: 403 (FORBIDDEN)
+    meaning: The `Authorization` token you passed did not have permission to the
+      resource.
+  - code: 404 (NOT FOUND)
+    meaning: The resource at the location specified doesn't exist.
+  - code: 405 (METHOD NOT ALLOWED)
+    meaning: The HTTP method used is not valid for the location specified.
+  - code: 429 (TOO MANY REQUESTS)
+    meaning: You are being rate limited, see [Rate Limits](#DOCS_TOPICS_RATE_LIMITS).
+  - code: 502 (GATEWAY UNAVAILABLE)
+    meaning: There was not a gateway available to process your request. Wait a bit
+      and retry.
+  - code: 5xx (SERVER ERROR)
+    meaning: The server had an error processing your request (these are rare).

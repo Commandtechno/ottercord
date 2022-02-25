@@ -2,6 +2,9 @@ import { flattenBlock, formatTable, lastSplit, stripBrackets, stripPlural, trimT
 import { marked } from "marked";
 
 import { Constant, ConstantProperty } from "../common";
+// test
+import { writeFileSync } from "fs";
+import { stringify } from "yaml";
 
 export default class implements Constant {
   name: string;
@@ -33,6 +36,18 @@ export default class implements Constant {
       let [, valueKey] = lastSplit(this.name, " ");
       if (!valueKey) return; // Limits
       valueKey = stripPlural(trimText(valueKey.toLowerCase()));
+
+      // test
+      const test = {
+        name: this.name,
+        balls: formatTable(block).map(row =>
+          Object.fromEntries(
+            Object.entries(row).map(([key, value]) => [key.toLowerCase(), value.text])
+          )
+        )
+      };
+
+      writeFileSync(__dirname + "/test/" + this.name + ".yaml", stringify(test));
 
       const table = formatTable(block);
       this.properties = table.map(row => {

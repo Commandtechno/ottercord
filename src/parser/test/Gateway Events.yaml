@@ -1,0 +1,132 @@
+name: Gateway Events
+balls:
+  - name: "[Hello](#DOCS_TOPICS_GATEWAY/hello)"
+    description: defines the heartbeat interval
+  - name: "[Ready](#DOCS_TOPICS_GATEWAY/ready)"
+    description: contains the initial state information
+  - name: "[Resumed](#DOCS_TOPICS_GATEWAY/resumed)"
+    description: response to [Resume](#DOCS_TOPICS_GATEWAY/resume)
+  - name: "[Reconnect](#DOCS_TOPICS_GATEWAY/reconnect)"
+    description: server is going away, client should reconnect to gateway and resume
+  - name: "[Invalid Session](#DOCS_TOPICS_GATEWAY/invalid-session)"
+    description: failure response to [Identify](#DOCS_TOPICS_GATEWAY/identify) or
+      [Resume](#DOCS_TOPICS_GATEWAY/resume) or invalid active session
+  - name: "[Channel Create](#DOCS_TOPICS_GATEWAY/channel-create)"
+    description: new guild channel created
+  - name: "[Channel Update](#DOCS_TOPICS_GATEWAY/channel-update)"
+    description: channel was updated
+  - name: "[Channel Delete](#DOCS_TOPICS_GATEWAY/channel-delete)"
+    description: channel was deleted
+  - name: "[Channel Pins Update](#DOCS_TOPICS_GATEWAY/channel-pins-update)"
+    description: message was pinned or unpinned
+  - name: "[Thread Create](#DOCS_TOPICS_GATEWAY/thread-create)"
+    description: thread created, also sent when being added to a private thread
+  - name: "[Thread Update](#DOCS_TOPICS_GATEWAY/thread-update)"
+    description: thread was updated
+  - name: "[Thread Delete](#DOCS_TOPICS_GATEWAY/thread-delete)"
+    description: thread was deleted
+  - name: "[Thread List Sync](#DOCS_TOPICS_GATEWAY/thread-list-sync)"
+    description: sent when gaining access to a channel, contains all active threads
+      in that channel
+  - name: "[Thread Member Update](#DOCS_TOPICS_GATEWAY/thread-member-update)"
+    description: "[thread member](#DOCS_RESOURCES_CHANNEL/thread-member-object) for
+      the current user was updated"
+  - name: "[Thread Members Update](#DOCS_TOPICS_GATEWAY/thread-members-update)"
+    description: some user(s) were added to or removed from a thread
+  - name: "[Guild Create](#DOCS_TOPICS_GATEWAY/guild-create)"
+    description: lazy-load for unavailable guild, guild became available, or user
+      joined a new guild
+  - name: "[Guild Update](#DOCS_TOPICS_GATEWAY/guild-update)"
+    description: guild was updated
+  - name: "[Guild Delete](#DOCS_TOPICS_GATEWAY/guild-delete)"
+    description: guild became unavailable, or user left/was removed from a guild
+  - name: "[Guild Ban Add](#DOCS_TOPICS_GATEWAY/guild-ban-add)"
+    description: user was banned from a guild
+  - name: "[Guild Ban Remove](#DOCS_TOPICS_GATEWAY/guild-ban-remove)"
+    description: user was unbanned from a guild
+  - name: "[Guild Emojis Update](#DOCS_TOPICS_GATEWAY/guild-emojis-update)"
+    description: guild emojis were updated
+  - name: "[Guild Stickers Update](#DOCS_TOPICS_GATEWAY/guild-stickers-update)"
+    description: guild stickers were updated
+  - name: "[Guild Integrations
+      Update](#DOCS_TOPICS_GATEWAY/guild-integrations-update)"
+    description: guild integration was updated
+  - name: "[Guild Member Add](#DOCS_TOPICS_GATEWAY/guild-member-add)"
+    description: new user joined a guild
+  - name: "[Guild Member Remove](#DOCS_TOPICS_GATEWAY/guild-member-remove)"
+    description: user was removed from a guild
+  - name: "[Guild Member Update](#DOCS_TOPICS_GATEWAY/guild-member-update)"
+    description: guild member was updated
+  - name: "[Guild Members Chunk](#DOCS_TOPICS_GATEWAY/guild-members-chunk)"
+    description: response to [Request Guild
+      Members](#DOCS_TOPICS_GATEWAY/request-guild-members)
+  - name: "[Guild Role Create](#DOCS_TOPICS_GATEWAY/guild-role-create)"
+    description: guild role was created
+  - name: "[Guild Role Update](#DOCS_TOPICS_GATEWAY/guild-role-update)"
+    description: guild role was updated
+  - name: "[Guild Role Delete](#DOCS_TOPICS_GATEWAY/guild-role-delete)"
+    description: guild role was deleted
+  - name: "[Guild Scheduled Event
+      Create](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-create)"
+    description: guild scheduled event was created
+  - name: "[Guild Scheduled Event
+      Update](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-update)"
+    description: guild scheduled event was updated
+  - name: "[Guild Scheduled Event
+      Delete](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-delete)"
+    description: guild scheduled event was deleted
+  - name: "[Guild Scheduled Event User
+      Add](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-user-add)"
+    description: user subscribed to a guild scheduled event
+  - name: "[Guild Scheduled Event User
+      Remove](#DOCS_TOPICS_GATEWAY/guild-scheduled-event-user-remove)"
+    description: user unsubscribed from a guild scheduled event
+  - name: "[Integration Create](#DOCS_TOPICS_GATEWAY/integration-create)"
+    description: guild integration was created
+  - name: "[Integration Update](#DOCS_TOPICS_GATEWAY/integration-update)"
+    description: guild integration was updated
+  - name: "[Integration Delete](#DOCS_TOPICS_GATEWAY/integration-delete)"
+    description: guild integration was deleted
+  - name: "[Interaction Create](#DOCS_TOPICS_GATEWAY/interaction-create)"
+    description: user used an interaction, such as an [Application
+      Command](#DOCS_INTERACTIONS_APPLICATION_COMMANDS/)
+  - name: "[Invite Create](#DOCS_TOPICS_GATEWAY/invite-create)"
+    description: invite to a channel was created
+  - name: "[Invite Delete](#DOCS_TOPICS_GATEWAY/invite-delete)"
+    description: invite to a channel was deleted
+  - name: "[Message Create](#DOCS_TOPICS_GATEWAY/message-create)"
+    description: message was created
+  - name: "[Message Update](#DOCS_TOPICS_GATEWAY/message-update)"
+    description: message was edited
+  - name: "[Message Delete](#DOCS_TOPICS_GATEWAY/message-delete)"
+    description: message was deleted
+  - name: "[Message Delete Bulk](#DOCS_TOPICS_GATEWAY/message-delete-bulk)"
+    description: multiple messages were deleted at once
+  - name: "[Message Reaction Add](#DOCS_TOPICS_GATEWAY/message-reaction-add)"
+    description: user reacted to a message
+  - name: "[Message Reaction Remove](#DOCS_TOPICS_GATEWAY/message-reaction-remove)"
+    description: user removed a reaction from a message
+  - name: "[Message Reaction Remove
+      All](#DOCS_TOPICS_GATEWAY/message-reaction-remove-all)"
+    description: all reactions were explicitly removed from a message
+  - name: "[Message Reaction Remove
+      Emoji](#DOCS_TOPICS_GATEWAY/message-reaction-remove-emoji)"
+    description: all reactions for a given emoji were explicitly removed from a message
+  - name: "[Presence Update](#DOCS_TOPICS_GATEWAY/presence-update)"
+    description: user was updated
+  - name: "[Stage Instance Create](#DOCS_TOPICS_GATEWAY/stage-instance-create)"
+    description: stage instance was created
+  - name: "[Stage Instance Delete](#DOCS_TOPICS_GATEWAY/stage-instance-delete)"
+    description: stage instance was deleted or closed
+  - name: "[Stage Instance Update](#DOCS_TOPICS_GATEWAY/stage-instance-update)"
+    description: stage instance was updated
+  - name: "[Typing Start](#DOCS_TOPICS_GATEWAY/typing-start)"
+    description: user started typing in a channel
+  - name: "[User Update](#DOCS_TOPICS_GATEWAY/user-update)"
+    description: properties about the user changed
+  - name: "[Voice State Update](#DOCS_TOPICS_GATEWAY/voice-state-update)"
+    description: someone joined, left, or moved a voice channel
+  - name: "[Voice Server Update](#DOCS_TOPICS_GATEWAY/voice-server-update)"
+    description: guild's voice server was updated
+  - name: "[Webhooks Update](#DOCS_TOPICS_GATEWAY/webhooks-update)"
+    description: guild channel webhook was created, update, or deleted

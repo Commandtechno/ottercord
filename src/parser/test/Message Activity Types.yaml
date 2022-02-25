@@ -1,0 +1,10 @@
+name: Message Activity Types
+balls:
+  - type: JOIN
+    value: "1"
+  - type: SPECTATE
+    value: "2"
+  - type: LISTEN
+    value: "3"
+  - type: JOIN_REQUEST
+    value: "5"

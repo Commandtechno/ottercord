@@ -1,0 +1,8 @@
+name: Device Type
+balls:
+  - type: AUDIO_INPUT
+    value: '"audioinput"'
+  - type: AUDIO_OUTPUT
+    value: '"audiooutput"'
+  - type: VIDEO_INPUT
+    value: '"videoinput"'

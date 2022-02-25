@@ -1,0 +1,8 @@
+name: Activity Asset Image
+balls:
+  - type: Application Asset
+    format: "`{application_asset_id}`"
+    image url: see [Application Asset Image Formatting](#DOCS_REFERENCE/image-formatting)
+  - type: Media Proxy Image
+    format: "`mp:{image_id}`"
+    image url: "`https://media.discordapp.net/{image_id}`"

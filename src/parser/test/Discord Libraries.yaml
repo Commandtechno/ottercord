@@ -1,0 +1,90 @@
+name: Discord Libraries
+balls:
+  - name: "[orca](https://github.com/cee-studio/orca)"
+    language: C
+  - name: "[Discord.Net](https://github.com/discord-net/Discord.Net)"
+    language: C#
+  - name: "[DSharpPlus](https://github.com/DSharpPlus/DSharpPlus)"
+    language: C#
+  - name: "[Remora.Discord](https://github.com/Nihlus/Remora.Discord)"
+    language: C#
+  - name: "[aegis.cpp](https://github.com/zeroxs/aegis.cpp)"
+    language: C++
+  - name: "[D++](https://github.com/brainboxdotcc/DPP)"
+    language: C++
+  - name: "[Discord++](https://github.com/DiscordPP/discordpp)"
+    language: C++
+  - name: "[Sleepy Discord](https://github.com/yourWaifu/sleepy-discord)"
+    language: C++
+  - name: "[discljord](https://github.com/igjoshua/discljord)"
+    language: Clojure
+  - name: "[discordcr](https://github.com/shardlab/discordcr)"
+    language: Crystal
+  - name: "[nyxx](https://github.com/l7ssha/Nyxx)"
+    language: Dart
+  - name: "[coxir](https://github.com/satom99/coxir)"
+    language: Elixir
+  - name: "[Nostrum](https://github.com/Kraigie/nostrum)"
+    language: Elixir
+  - name: "[DiscordGo](https://github.com/bwmarrin/discordgo)"
+    language: Go
+  - name: "[DisGord](https://github.com/andersfylling/disgord)"
+    language: Go
+  - name: "[catnip](https://github.com/mewna/catnip)"
+    language: Java
+  - name: "[Discord4J](https://discord4j.com/)"
+    language: Java
+  - name: "[Javacord](https://github.com/Javacord/Javacord)"
+    language: Java
+  - name: "[JDA](https://github.com/DV8FromTheWorld/JDA)"
+    language: Java
+  - name: "[discord.js](https://github.com/discordjs/discord.js)"
+    language: JavaScript
+  - name: "[Eris](https://github.com/abalabahaha/eris)"
+    language: JavaScript
+  - name: "[Discord.jl](https://github.com/Xh4H/Discord.jl)"
+    language: Julia
+  - name: "[Discordia](https://github.com/SinisterRectus/Discordia)"
+    language: Lua
+  - name: "[lacord](https://github.com/Mehgugs/lacord)"
+    language: Lua
+  - name: "[Dimscord](https://github.com/krisppurg/dimscord)"
+    language: Nim
+  - name: "[discordnim](https://github.com/Krognol/discordnim)"
+    language: Nim
+  - name: "[DiscordPHP](https://github.com/discord-php/DiscordPHP)"
+    language: PHP
+  - name: "[RestCord](https://www.restcord.com/)"
+    language: PHP
+  - name: "[discord.py](https://github.com/Rapptz/discord.py)"
+    language: Python
+  - name: "[disco](https://github.com/b1naryth1ef/disco)"
+    language: Python
+  - name: "[disnake](https://github.com/DisnakeDev/disnake)"
+    language: Python
+  - name: "[hikari](https://github.com/hikari-py/hikari)"
+    language: Python
+  - name: "[nextcord](https://github.com/nextcord/nextcord)"
+    language: Python
+  - name: "[pycord](https://github.com/Pycord-Development/pycord)"
+    language: Python
+  - name: "[discordrb](https://github.com/shardlab/discordrb)"
+    language: Ruby
+  - name: "[discord-rs](https://github.com/SpaceManiac/discord-rs)"
+    language: Rust
+  - name: "[Serenity](https://github.com/serenity-rs/serenity)"
+    language: Rust
+  - name: "[Twilight](https://github.com/twilight-rs/twilight)"
+    language: Rust
+  - name: "[AckCord](https://github.com/Katrix/AckCord)"
+    language: Scala
+  - name: "[Sword](https://github.com/Azoy/Sword)"
+    language: Swift
+  - name: "[Detritus](https://github.com/detritusjs/client)"
+    language: TypeScript
+  - name: "[discordeno](https://github.com/discordeno/discordeno)"
+    language: TypeScript
+  - name: "[droff](https://github.com/tim-smart/droff)"
+    language: TypeScript
+  - name: "[Harmony](https://github.com/harmonyland/harmony)"
+    language: TypeScript

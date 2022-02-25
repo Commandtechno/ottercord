@@ -1,0 +1,12 @@
+name: Bot Auth Parameters
+balls:
+  - name: client_id
+    description: your app's client id
+  - name: scope
+    description: needs to include `bot` for the bot flow
+  - name: permissions
+    description: the [permissions](#DOCS_TOPICS_PERMISSIONS/) you're requesting
+  - name: guild_id
+    description: pre-fills the dropdown picker with a guild for the user
+  - name: disable_guild_select
+    description: "`true` or `false`—disallows the user from changing the guild dropdown"

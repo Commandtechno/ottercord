@@ -1,0 +1,10 @@
+name: Guild NSFW Level
+balls:
+  - level: DEFAULT
+    value: "0"
+  - level: EXPLICIT
+    value: "1"
+  - level: SAFE
+    value: "2"
+  - level: AGE_RESTRICTED
+    value: "3"

@@ -1,0 +1,8 @@
+name: Guild Scheduled Event Entity Types
+balls:
+  - type: STAGE_INSTANCE
+    value: "1"
+  - type: VOICE
+    value: "2"
+  - type: EXTERNAL
+    value: "3"

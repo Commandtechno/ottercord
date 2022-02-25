@@ -1,0 +1,20 @@
+name: RPC Close Event Codes
+balls:
+  - code: "4000"
+    name: Invalid client ID
+    description: You connected to the RPC server with an invalid client ID.
+  - code: "4001"
+    name: Invalid origin
+    description: You connected to the RPC server with an invalid origin.
+  - code: "4002"
+    name: Rate limited
+    description: You are being rate limited.
+  - code: "4003"
+    name: Token revoked
+    description: The OAuth2 token associated with a connection was revoked, get a new one!
+  - code: "4004"
+    name: Invalid version
+    description: The RPC Server version specified in the connection string was not valid.
+  - code: "4005"
+    name: Invalid encoding
+    description: The encoding specified in the connection string was not valid.

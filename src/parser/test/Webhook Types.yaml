@@ -1,0 +1,12 @@
+name: Webhook Types
+balls:
+  - value: "1"
+    name: Incoming
+    description: Incoming Webhooks can post messages to channels with a generated token
+  - value: "2"
+    name: Channel Follower
+    description: Channel Follower Webhooks are internal webhooks used with Channel
+      Following to post new messages into channels
+  - value: "3"
+    name: Application
+    description: Application webhooks are webhooks used with Interactions

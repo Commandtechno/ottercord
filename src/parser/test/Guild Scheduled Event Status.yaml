@@ -1,0 +1,10 @@
+name: Guild Scheduled Event Status
+balls:
+  - type: SCHEDULED
+    value: "1"
+  - type: ACTIVE
+    value: "2"
+  - type: COMPLETED *
+    value: "3"
+  - type: CANCELED  *
+    value: "4"

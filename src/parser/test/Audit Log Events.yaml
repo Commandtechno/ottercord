@@ -1,0 +1,96 @@
+name: Audit Log Events
+balls:
+  - event: GUILD_UPDATE
+    value: "1"
+  - event: CHANNEL_CREATE
+    value: "10"
+  - event: CHANNEL_UPDATE
+    value: "11"
+  - event: CHANNEL_DELETE
+    value: "12"
+  - event: CHANNEL_OVERWRITE_CREATE
+    value: "13"
+  - event: CHANNEL_OVERWRITE_UPDATE
+    value: "14"
+  - event: CHANNEL_OVERWRITE_DELETE
+    value: "15"
+  - event: MEMBER_KICK
+    value: "20"
+  - event: MEMBER_PRUNE
+    value: "21"
+  - event: MEMBER_BAN_ADD
+    value: "22"
+  - event: MEMBER_BAN_REMOVE
+    value: "23"
+  - event: MEMBER_UPDATE
+    value: "24"
+  - event: MEMBER_ROLE_UPDATE
+    value: "25"
+  - event: MEMBER_MOVE
+    value: "26"
+  - event: MEMBER_DISCONNECT
+    value: "27"
+  - event: BOT_ADD
+    value: "28"
+  - event: ROLE_CREATE
+    value: "30"
+  - event: ROLE_UPDATE
+    value: "31"
+  - event: ROLE_DELETE
+    value: "32"
+  - event: INVITE_CREATE
+    value: "40"
+  - event: INVITE_UPDATE
+    value: "41"
+  - event: INVITE_DELETE
+    value: "42"
+  - event: WEBHOOK_CREATE
+    value: "50"
+  - event: WEBHOOK_UPDATE
+    value: "51"
+  - event: WEBHOOK_DELETE
+    value: "52"
+  - event: EMOJI_CREATE
+    value: "60"
+  - event: EMOJI_UPDATE
+    value: "61"
+  - event: EMOJI_DELETE
+    value: "62"
+  - event: MESSAGE_DELETE
+    value: "72"
+  - event: MESSAGE_BULK_DELETE
+    value: "73"
+  - event: MESSAGE_PIN
+    value: "74"
+  - event: MESSAGE_UNPIN
+    value: "75"
+  - event: INTEGRATION_CREATE
+    value: "80"
+  - event: INTEGRATION_UPDATE
+    value: "81"
+  - event: INTEGRATION_DELETE
+    value: "82"
+  - event: STAGE_INSTANCE_CREATE
+    value: "83"
+  - event: STAGE_INSTANCE_UPDATE
+    value: "84"
+  - event: STAGE_INSTANCE_DELETE
+    value: "85"
+  - event: STICKER_CREATE
+    value: "90"
+  - event: STICKER_UPDATE
+    value: "91"
+  - event: STICKER_DELETE
+    value: "92"
+  - event: GUILD_SCHEDULED_EVENT_CREATE
+    value: "100"
+  - event: GUILD_SCHEDULED_EVENT_UPDATE
+    value: "101"
+  - event: GUILD_SCHEDULED_EVENT_DELETE
+    value: "102"
+  - event: THREAD_CREATE
+    value: "110"
+  - event: THREAD_UPDATE
+    value: "111"
+  - event: THREAD_DELETE
+    value: "112"

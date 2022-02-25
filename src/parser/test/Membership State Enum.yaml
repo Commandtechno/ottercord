@@ -1,0 +1,6 @@
+name: Membership State Enum
+balls:
+  - name: INVITED
+    value: "1"
+  - name: ACCEPTED
+    value: "2"

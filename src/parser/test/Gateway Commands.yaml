@@ -1,0 +1,14 @@
+name: Gateway Commands
+balls:
+  - name: "[Identify](#DOCS_TOPICS_GATEWAY/identify)"
+    description: triggers the initial handshake with the gateway
+  - name: "[Resume](#DOCS_TOPICS_GATEWAY/resume)"
+    description: resumes a dropped gateway connection
+  - name: "[Heartbeat](#DOCS_TOPICS_GATEWAY/heartbeat)"
+    description: maintains an active gateway connection
+  - name: "[Request Guild Members](#DOCS_TOPICS_GATEWAY/request-guild-members)"
+    description: requests members for a guild
+  - name: "[Update Voice State](#DOCS_TOPICS_GATEWAY/update-voice-state)"
+    description: joins, moves, or disconnects the client from a voice channel
+  - name: "[Update Presence](#DOCS_TOPICS_GATEWAY/update-presence)"
+    description: updates a client's presence

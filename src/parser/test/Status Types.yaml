@@ -1,0 +1,12 @@
+name: Status Types
+balls:
+  - status: online
+    description: Online
+  - status: dnd
+    description: Do Not Disturb
+  - status: idle
+    description: AFK
+  - status: invisible
+    description: Invisible and shown as offline
+  - status: offline
+    description: Offline

@@ -1,0 +1,11 @@
+name: Query String Params
+balls:
+  - name: v
+    value: "`1`"
+    required: All
+  - name: client_id
+    value: your app's client id
+    required: All
+  - name: encoding
+    value: "`json`"
+    required: WebSocket

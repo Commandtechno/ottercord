@@ -1,0 +1,6 @@
+name: Invite Target Types
+balls:
+  - type: STREAM
+    value: "1"
+  - type: EMBEDDED_APPLICATION
+    value: "2"

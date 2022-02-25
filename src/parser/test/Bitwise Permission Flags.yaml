@@ -1,0 +1,174 @@
+name: Bitwise Permission Flags
+balls:
+  - permission: CREATE_INSTANT_INVITE
+    value: "`0x0000000000000001` `(1 << 0)`"
+    description: Allows creation of instant invites
+    channel type: T, V, S
+  - permission: KICK_MEMBERS \*
+    value: "`0x0000000000000002` `(1 << 1)`"
+    description: Allows kicking members
+    channel type: ""
+  - permission: BAN_MEMBERS \*
+    value: "`0x0000000000000004` `(1 << 2)`"
+    description: Allows banning members
+    channel type: ""
+  - permission: ADMINISTRATOR \*
+    value: "`0x0000000000000008` `(1 << 3)`"
+    description: Allows all permissions and bypasses channel permission overwrites
+    channel type: ""
+  - permission: MANAGE_CHANNELS \*
+    value: "`0x0000000000000010` `(1 << 4)`"
+    description: Allows management and editing of channels
+    channel type: T, V, S
+  - permission: MANAGE_GUILD \*
+    value: "`0x0000000000000020` `(1 << 5)`"
+    description: Allows management and editing of the guild
+    channel type: ""
+  - permission: ADD_REACTIONS
+    value: "`0x0000000000000040` `(1 << 6)`"
+    description: Allows for the addition of reactions to messages
+    channel type: T
+  - permission: VIEW_AUDIT_LOG
+    value: "`0x0000000000000080` `(1 << 7)`"
+    description: Allows for viewing of audit logs
+    channel type: ""
+  - permission: PRIORITY_SPEAKER
+    value: "`0x0000000000000100` `(1 << 8)`"
+    description: Allows for using priority speaker in a voice channel
+    channel type: V
+  - permission: STREAM
+    value: "`0x0000000000000200` `(1 << 9)`"
+    description: Allows the user to go live
+    channel type: V
+  - permission: VIEW_CHANNEL
+    value: "`0x0000000000000400` `(1 << 10)`"
+    description: Allows guild members to view a channel, which includes reading
+      messages in text channels
+    channel type: T, V, S
+  - permission: SEND_MESSAGES
+    value: "`0x0000000000000800` `(1 << 11)`"
+    description: Allows for sending messages in a channel (does not allow sending
+      messages in threads)
+    channel type: T
+  - permission: SEND_TTS_MESSAGES
+    value: "`0x0000000000001000` `(1 << 12)`"
+    description: Allows for sending of `/tts` messages
+    channel type: T
+  - permission: MANAGE_MESSAGES \*
+    value: "`0x0000000000002000` `(1 << 13)`"
+    description: Allows for deletion of other users messages
+    channel type: T
+  - permission: EMBED_LINKS
+    value: "`0x0000000000004000` `(1 << 14)`"
+    description: Links sent by users with this permission will be auto-embedded
+    channel type: T
+  - permission: ATTACH_FILES
+    value: "`0x0000000000008000` `(1 << 15)`"
+    description: Allows for uploading images and files
+    channel type: T
+  - permission: READ_MESSAGE_HISTORY
+    value: "`0x0000000000010000` `(1 << 16)`"
+    description: Allows for reading of message history
+    channel type: T
+  - permission: MENTION_EVERYONE
+    value: "`0x0000000000020000` `(1 << 17)`"
+    description: Allows for using the `@everyone` tag to notify all users in a
+      channel, and the `@here` tag to notify all online users in a channel
+    channel type: T
+  - permission: USE_EXTERNAL_EMOJIS
+    value: "`0x0000000000040000` `(1 << 18)`"
+    description: Allows the usage of custom emojis from other servers
+    channel type: T
+  - permission: VIEW_GUILD_INSIGHTS
+    value: "`0x0000000000080000` `(1 << 19)`"
+    description: Allows for viewing guild insights
+    channel type: ""
+  - permission: CONNECT
+    value: "`0x0000000000100000` `(1 << 20)`"
+    description: Allows for joining of a voice channel
+    channel type: V, S
+  - permission: SPEAK
+    value: "`0x0000000000200000` `(1 << 21)`"
+    description: Allows for speaking in a voice channel
+    channel type: V
+  - permission: MUTE_MEMBERS
+    value: "`0x0000000000400000` `(1 << 22)`"
+    description: Allows for muting members in a voice channel
+    channel type: V, S
+  - permission: DEAFEN_MEMBERS
+    value: "`0x0000000000800000` `(1 << 23)`"
+    description: Allows for deafening of members in a voice channel
+    channel type: V, S
+  - permission: MOVE_MEMBERS
+    value: "`0x0000000001000000` `(1 << 24)`"
+    description: Allows for moving of members between voice channels
+    channel type: V, S
+  - permission: USE_VAD
+    value: "`0x0000000002000000` `(1 << 25)`"
+    description: Allows for using voice-activity-detection in a voice channel
+    channel type: V
+  - permission: CHANGE_NICKNAME
+    value: "`0x0000000004000000` `(1 << 26)`"
+    description: Allows for modification of own nickname
+    channel type: ""
+  - permission: MANAGE_NICKNAMES
+    value: "`0x0000000008000000` `(1 << 27)`"
+    description: Allows for modification of other users nicknames
+    channel type: ""
+  - permission: MANAGE_ROLES \*
+    value: "`0x0000000010000000` `(1 << 28)`"
+    description: Allows management and editing of roles
+    channel type: T, V, S
+  - permission: MANAGE_WEBHOOKS \*
+    value: "`0x0000000020000000` `(1 << 29)`"
+    description: Allows management and editing of webhooks
+    channel type: T
+  - permission: MANAGE_EMOJIS_AND_STICKERS \*
+    value: "`0x0000000040000000` `(1 << 30)`"
+    description: Allows management and editing of emojis and stickers
+    channel type: ""
+  - permission: USE_APPLICATION_COMMANDS
+    value: "`0x0000000080000000` `(1 << 31)`"
+    description: Allows members to use application commands, including slash
+      commands and context menu commands.
+    channel type: T
+  - permission: REQUEST_TO_SPEAK
+    value: "`0x0000000100000000` `(1 << 32)`"
+    description: Allows for requesting to speak in stage channels. (_This permission
+      is under active development and may be changed or removed._)
+    channel type: S
+  - permission: MANAGE_EVENTS
+    value: "`0x0000000200000000` `(1 << 33)`"
+    description: Allows for creating, editing, and deleting scheduled events
+    channel type: V, S
+  - permission: MANAGE_THREADS \*
+    value: "`0x0000000400000000` `(1 << 34)`"
+    description: Allows for deleting and archiving threads, and viewing all private threads
+    channel type: T
+  - permission: CREATE_PUBLIC_THREADS
+    value: "`0x0000000800000000` `(1 << 35)`"
+    description: Allows for creating public and announcement threads
+    channel type: T
+  - permission: CREATE_PRIVATE_THREADS
+    value: "`0x0000001000000000` `(1 << 36)`"
+    description: Allows for creating private threads
+    channel type: T
+  - permission: USE_EXTERNAL_STICKERS
+    value: "`0x0000002000000000` `(1 << 37)`"
+    description: Allows the usage of custom stickers from other servers
+    channel type: T
+  - permission: SEND_MESSAGES_IN_THREADS
+    value: "`0x0000004000000000` `(1 << 38)`"
+    description: Allows for sending messages in threads
+    channel type: T
+  - permission: START_EMBEDDED_ACTIVITIES
+    value: "`0x0000008000000000` `(1 << 39)`"
+    description: Allows for launching activities (applications with the `EMBEDDED`
+      flag) in a voice channel
+    channel type: V
+  - permission: MODERATE_MEMBERS \*\*
+    value: "`0x0000010000000000` `(1 << 40)`"
+    description: Allows for timing out users to prevent them from sending or
+      reacting to messages in chat and threads, and from speaking in voice and
+      stage channels
+    channel type: ""

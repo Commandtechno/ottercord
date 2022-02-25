@@ -1,0 +1,41 @@
+name: Channel Types
+balls:
+  - type: GUILD_TEXT
+    id: "0"
+    description: a text channel within a server
+  - type: DM
+    id: "1"
+    description: a direct message between users
+  - type: GUILD_VOICE
+    id: "2"
+    description: a voice channel within a server
+  - type: GROUP_DM
+    id: "3"
+    description: a direct message between multiple users
+  - type: GUILD_CATEGORY
+    id: "4"
+    description: an [organizational
+      category](https://support.discord.com/hc/en-us/articles/115001580171-Channel-Categories-101)
+      that contains up to 50 channels
+  - type: GUILD_NEWS
+    id: "5"
+    description: a channel that [users can follow and crosspost into their own
+      server](https://support.discord.com/hc/en-us/articles/360032008192)
+  - type: GUILD_STORE
+    id: "6"
+    description: a channel in which game developers can [sell their game on
+      Discord](https://discord.com/developers/docs/game-and-server-management/special-channels)
+  - type: GUILD_NEWS_THREAD
+    id: "10"
+    description: a temporary sub-channel within a GUILD_NEWS channel
+  - type: GUILD_PUBLIC_THREAD
+    id: "11"
+    description: a temporary sub-channel within a GUILD_TEXT channel
+  - type: GUILD_PRIVATE_THREAD
+    id: "12"
+    description: a temporary sub-channel within a GUILD_TEXT channel that is only
+      viewable by those invited and those with the MANAGE_THREADS permission
+  - type: GUILD_STAGE_VOICE
+    id: "13"
+    description: a voice channel for [hosting events with an
+      audience](https://support.discord.com/hc/en-us/articles/1500005513722)

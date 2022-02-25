@@ -1,0 +1,14 @@
+name: Embed Types
+balls:
+  - type: rich
+    description: generic embed rendered from embed attributes
+  - type: image
+    description: image embed
+  - type: video
+    description: video embed
+  - type: gifv
+    description: animated gif image embed rendered as a video embed
+  - type: article
+    description: article embed
+  - type: link
+    description: link embed

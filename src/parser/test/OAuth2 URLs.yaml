@@ -1,0 +1,8 @@
+name: OAuth2 URLs
+balls:
+  - url: https://discord.com/api/oauth2/authorize
+    description: Base authorization URL
+  - url: https://discord.com/api/oauth2/token
+    description: Token URL
+  - url: https://discord.com/api/oauth2/token/revoke
+    description: "[Token Revocation](https://tools.ietf.org/html/rfc7009) URL"

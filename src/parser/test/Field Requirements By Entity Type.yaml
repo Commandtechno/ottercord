@@ -1,0 +1,14 @@
+name: Field Requirements By Entity Type
+balls:
+  - entity type: STAGE_INSTANCE
+    channel_id: value
+    entity_metadata: "null"
+    scheduled_end_time: "-"
+  - entity type: VOICE
+    channel_id: value
+    entity_metadata: "null"
+    scheduled_end_time: "-"
+  - entity type: EXTERNAL
+    channel_id: "null"
+    entity_metadata: value *
+    scheduled_end_time: value
