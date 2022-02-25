@@ -1666,7 +1666,7 @@
       },
       {
         "name": "rate_limit_per_user",
-        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel , are unaffected",
+        "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
         "type": {
           "array": false,
           "partial": false,
@@ -3643,7 +3643,7 @@
       },
       {
         "name": "icon_hash",
-        "description": "icon hash , returned when in the template object",
+        "description": "icon hash, returned when in the template object",
         "type": {
           "array": false,
           "partial": false,
@@ -3669,7 +3669,7 @@
       },
       {
         "name": "discovery_splash",
-        "description": "discovery splash hash ; only present for guilds with the \"DISCOVERABLE\" feature",
+        "description": "discovery splash hash; only present for guilds with the \"DISCOVERABLE\" feature",
         "type": {
           "array": false,
           "partial": false,
@@ -4046,7 +4046,7 @@
       },
       {
         "name": "max_presences",
-        "description": "the maximum number of presences for the guild ( null is always returned, apart from the largest of guilds)",
+        "description": "the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)",
         "type": {
           "array": false,
           "partial": false,
@@ -4202,7 +4202,7 @@
       },
       {
         "name": "welcome_screen",
-        "description": "the welcome screen of a Community guild, shown to new members, returned in an Invite 's guild object",
+        "description": "the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object",
         "type": {
           "array": false,
           "partial": false,
@@ -5131,7 +5131,7 @@
       },
       {
         "name": "emoji_id",
-        "description": "the emoji id , if the emoji is custom",
+        "description": "the emoji id, if the emoji is custom",
         "type": {
           "array": false,
           "partial": false,
@@ -7574,7 +7574,7 @@
       },
       {
         "name": "limit",
-        "description": "maximum number of members to send matching the query ; a limit of 0 can be used with an empty string query to return all members",
+        "description": "maximum number of members to send matching the query; a limit of 0 can be used with an empty string query to return all members",
         "type": {
           "array": false,
           "partial": false,
@@ -8478,7 +8478,7 @@
       },
       {
         "name": "chunk_index",
-        "description": "the chunk index in the expected chunks for this response (0 <= chunk _ index < chunk _ count)",
+        "description": "the chunk index in the expected chunks for this response (0 <= chunk_index < chunk_count)",
         "type": {
           "array": false,
           "partial": false,
@@ -8504,7 +8504,7 @@
       },
       {
         "name": "not_found",
-        "description": "if passing an invalid id to REQUEST_GUILD_MEMBERS , it will be returned here",
+        "description": "if passing an invalid id to REQUEST_GUILD_MEMBERS, it will be returned here",
         "type": {
           "array": true,
           "partial": false,
@@ -8517,7 +8517,7 @@
       },
       {
         "name": "presences",
-        "description": "if passing true to REQUEST_GUILD_MEMBERS , presences of the returned members will be here",
+        "description": "if passing true to REQUEST_GUILD_MEMBERS, presences of the returned members will be here",
         "type": {
           "array": true,
           "partial": false,
@@ -9651,7 +9651,7 @@
       },
       {
         "name": "flags",
-        "description": "activity flags OR d together, describes what the payload includes",
+        "description": "activity flags ORd together, describes what the payload includes",
         "type": {
           "array": false,
           "partial": false,
@@ -10287,6 +10287,57 @@
     ],
     "tree": [
       "role-object-role-tags-structure"
+    ]
+  },
+  {
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "name": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "name": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ],
+    "tree": [
+      "rate-limits",
+      "header-format",
+      "header-format-rate-limit-header-examples",
+      "exceeding-a-rate-limit",
+      "exceeding-a-rate-limit-rate-limit-response-structure"
     ]
   },
   {
@@ -11329,7 +11380,7 @@
     "properties": [
       {
         "name": "type",
-        "description": "voice setting mode type (can be PUSH_TO_TALK or VOICE_ACTIVITY )",
+        "description": "voice setting mode type (can be PUSH_TO_TALK or VOICE_ACTIVITY)",
         "type": {
           "array": false,
           "partial": false,
@@ -12185,7 +12236,7 @@
     "properties": [
       {
         "name": "channel_id",
-        "description": "id of channel ( null if none)",
+        "description": "id of channel (null if none)",
         "type": {
           "array": false,
           "partial": false,
@@ -12198,7 +12249,7 @@
       },
       {
         "name": "guild_id",
-        "description": "id of guild ( null if none)",
+        "description": "id of guild (null if none)",
         "type": {
           "array": false,
           "partial": false,
@@ -12505,57 +12556,6 @@
     ],
     "tree": [
       "activity_join_request-activity-join-request-data-structure"
-    ]
-  },
-  {
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "name": "message",
-        "description": "A message saying you are being rate limited.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "name": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "name": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
-        },
-        "optional": false,
-        "nullable": false
-      }
-    ],
-    "tree": [
-      "rate-limits",
-      "header-format",
-      "header-format-rate-limit-header-examples",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
     ]
   },
   {

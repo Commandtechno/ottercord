@@ -123,6 +123,8 @@ export async function parse(...pathSegments: string[]) {
       if (structure) {
         structure.process(block);
         if (structure.ready) {
+          // doesnt work, change
+          // example: role-object
           if (link) {
             endpointTree.push(link);
             exampleTree.push(link);

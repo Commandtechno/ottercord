@@ -18,7 +18,7 @@ export function trimText(text: string) {
 // token doesnt contain tokens so just any for now
 export function flattenBlock(block: any): string {
   // @ts-ignore
-  return block.tokens.map(token => decode(token.text)).join(" ");
+  return block.tokens.map(token => decode(token.text)).join("");
 }
 
 // turns a table headings and rows into an object

@@ -170,7 +170,7 @@
           },
           {
             "name": "type",
-            "description": "the type of channel ; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
+            "description": "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
             "type": {
               "array": false,
               "partial": false,
@@ -222,7 +222,7 @@
           },
           {
             "name": "rate_limit_per_user",
-            "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel , are unaffected",
+            "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
             "type": {
               "array": false,
               "partial": false,
@@ -398,7 +398,7 @@
           },
           {
             "name": "rate_limit_per_user",
-            "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages , manage_thread , or manage_channel , are unaffected",
+            "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages, manage_thread, or manage_channel, are unaffected",
             "type": {
               "array": false,
               "partial": false,
@@ -772,7 +772,7 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "tree": [
       "create-reaction"
     ]
@@ -795,7 +795,7 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "tree": [
       "delete-own-reaction"
     ]
@@ -822,7 +822,7 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "tree": [
       "delete-user-reaction"
     ]
@@ -845,7 +845,7 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Get a list of users that reacted with this emoji. Returns an array of user objects on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "description": "Get a list of users that reacted with this emoji. Returns an array of user objects on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "response": {
       "array": true,
       "partial": false,
@@ -926,7 +926,7 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji . To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
     "tree": [
       "delete-all-reactions-for-emoji"
     ]
@@ -945,7 +945,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Edit a previously sent message. The fields content , embeds , and flags can be edited by the original message author. Other users can only edit flags and only if they have the MANAGE_MESSAGES permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only flags documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).",
+    "description": "Edit a previously sent message. The fields content, embeds, and flags can be edited by the original message author. Other users can only edit flags and only if they have the MANAGE_MESSAGES permission in the corresponding channel. When specifying flags, ensure to include all previously set flags/bits in addition to ones that you are modifying. Only flags documented in the table below may be modified by users (unsupported flag changes are currently ignored without error).",
     "response": {
       "array": false,
       "partial": false,
@@ -1151,7 +1151,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
       }
     ],
-    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions .",
+    "description": "Edit the channel permission overwrites for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Only permissions your bot has in the guild or channel can be allowed/denied (unless your bot has a MANAGE_ROLES overwrite in the channel). Returns a 204 empty response on success. For more information about permissions, see permissions.",
     "request": {
       "json": true,
       "form": false,
@@ -1159,7 +1159,7 @@
       "properties": [
         {
           "name": "allow",
-          "description": "the bitwise value of all allowed permissions (default \"0\" )",
+          "description": "the bitwise value of all allowed permissions (default \"0\")",
           "type": {
             "array": false,
             "partial": false,
@@ -1172,7 +1172,7 @@
         },
         {
           "name": "deny",
-          "description": "the bitwise value of all disallowed permissions (default \"0\" )",
+          "description": "the bitwise value of all disallowed permissions (default \"0\")",
           "type": {
             "array": false,
             "partial": false,
@@ -1213,7 +1213,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns a list of invite objects (with invite metadata ) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission.",
+    "description": "Returns a list of invite objects (with invite metadata) for the channel. Only usable for guild channels. Requires the MANAGE_CHANNELS permission.",
     "response": {
       "array": true,
       "partial": false,
@@ -1235,7 +1235,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ( {} ). Returns an invite object. Fires an Invite Create Gateway event.",
+    "description": "Create a new invite object for the channel. Only usable for guild channels. Requires the CREATE_INSTANT_INVITE permission. All JSON parameters for this route are optional, however the request body is not. If you are not sending any fields, you still have to send an empty JSON object ({}). Returns an invite object. Fires an Invite Create Gateway event.",
     "response": {
       "array": false,
       "partial": false,
@@ -1638,7 +1638,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Creates a new thread that is not connected to an existing message. The created thread defaults to a GUILD_PRIVATE_THREAD * . Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
+    "description": "Creates a new thread that is not connected to an existing message. The created thread defaults to a GUILD_PRIVATE_THREAD*. Returns a channel on success, and a 400 BAD REQUEST on invalid parameters. Fires a Thread Create Gateway event.",
     "response": {
       "array": false,
       "partial": false,
@@ -1786,7 +1786,7 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD . Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
     "tree": [
       "remove-thread-member"
     ]
@@ -1849,7 +1849,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id , in descending order.",
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id, in descending order.",
     "tree": [
       "list-active-threads",
       "list-active-threads-response-body"
@@ -1865,7 +1865,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD . When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD . Threads are ordered by archive_timestamp , in descending order. Requires the READ_MESSAGE_HISTORY permission.",
+    "description": "Returns archived threads in the channel that are public. When called on a GUILD_TEXT channel, returns threads of type GUILD_PUBLIC_THREAD. When called on a GUILD_NEWS channel returns threads of type GUILD_NEWS_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
     "response": {
       "array": false,
       "partial": false,
@@ -1920,7 +1920,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD . Threads are ordered by archive_timestamp , in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD. Threads are ordered by archive_timestamp, in descending order. Requires both the READ_MESSAGE_HISTORY and MANAGE_THREADS permissions.",
     "response": {
       "array": false,
       "partial": false,
@@ -1975,7 +1975,7 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD , and the user has joined. Threads are ordered by their id , in descending order. Requires the READ_MESSAGE_HISTORY permission.",
+    "description": "Returns archived threads in the channel that are of type GUILD_PRIVATE_THREAD, and the user has joined. Threads are ordered by their id, in descending order. Requires the READ_MESSAGE_HISTORY permission.",
     "response": {
       "array": false,
       "partial": false,
@@ -2404,7 +2404,7 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Returns the guild object for the given id. If with_counts is set to true , this endpoint will also return approximate_member_count and approximate_presence_count for the guild.",
+    "description": "Returns the guild object for the given id. If with_counts is set to true, this endpoint will also return approximate_member_count and approximate_presence_count for the guild.",
     "response": {
       "array": false,
       "partial": false,
@@ -2417,7 +2417,7 @@
       "properties": [
         {
           "name": "with_counts",
-          "description": "when true , will return approximate member and presence counts for the guild",
+          "description": "when true, will return approximate member and presence counts for the guild",
           "type": {
             "array": false,
             "partial": false,
@@ -2875,7 +2875,7 @@
         },
         {
           "name": "rate_limit_per_user",
-          "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel , are unaffected",
+          "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
           "type": {
             "array": false,
             "partial": false,
@@ -3030,7 +3030,7 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id , in descending order.",
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order.",
     "tree": [
       "list-active-threads",
       "list-active-threads-response-body"
@@ -3283,7 +3283,7 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Modify attributes of a guild member . Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
+    "description": "Modify attributes of a guild member. Returns a 200 OK with the guild member as the body. Fires a Guild Member Update Gateway event. If the channel_id is set to null, this will force the target user to be disconnected from voice.",
     "response": {
       "array": false,
       "partial": false,
@@ -3471,7 +3471,7 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Adds a role to a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+    "description": "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
     "tree": [
       "add-guild-member-role"
     ]
@@ -3494,7 +3494,7 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Removes a role from a guild member . Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
+    "description": "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
     "tree": [
       "remove-guild-member-role"
     ]
@@ -4038,7 +4038,7 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Begin a prune operation. Requires the KICK_MEMBERS permission. Returns an object with one 'pruned' key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the compute_prune_count option to false , forcing 'pruned' to null . Fires multiple Guild Member Remove Gateway events.",
+    "description": "Begin a prune operation. Requires the KICK_MEMBERS permission. Returns an object with one 'pruned' key indicating the number of members that were removed in the prune operation. For large guilds it's recommended to set the compute_prune_count option to false, forcing 'pruned' to null. Fires multiple Guild Member Remove Gateway events.",
     "request": {
       "json": true,
       "form": false,
@@ -4135,7 +4135,7 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Returns a list of invite objects (with invite metadata ) for the guild. Requires the MANAGE_GUILD permission.",
+    "description": "Returns a list of invite objects (with invite metadata) for the guild. Requires the MANAGE_GUILD permission.",
     "response": {
       "array": true,
       "partial": false,
@@ -4344,7 +4344,7 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Modify the guild's Welcome Screen . Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
+    "description": "Modify the guild's Welcome Screen. Requires the MANAGE_GUILD permission. Returns the updated Welcome Screen object.",
     "response": {
       "array": false,
       "partial": false,
@@ -6070,7 +6070,7 @@
     "method": "GET",
     "path": "/voice/regions",
     "params": [],
-    "description": "Returns an array of voice region objects that can be used when setting a voice or stage channel's `rtc_region` .",
+    "description": "Returns an array of voice region objects that can be used when setting a voice or stage channel's `rtc_region`.",
     "response": {
       "array": true,
       "partial": false,
@@ -6363,7 +6363,7 @@
       "properties": [
         {
           "name": "wait",
-          "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false ; when false a message that is not saved does not return an error)",
+          "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
             "partial": false,
@@ -6559,7 +6559,7 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Refer to Slack's documentation for more information. We do not support Slack's channel , icon_emoji , mrkdwn , or mrkdwn_in properties.",
+    "description": "Refer to Slack's documentation for more information. We do not support Slack's channel, icon_emoji, mrkdwn, or mrkdwn_in properties.",
     "query": {
       "type": "structure",
       "properties": [
@@ -6578,7 +6578,7 @@
         },
         {
           "name": "wait",
-          "description": "waits for server confirmation of message send before response (defaults to true ; when false a message that is not saved does not return an error)",
+          "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
             "partial": false,
@@ -6629,7 +6629,7 @@
         },
         {
           "name": "wait",
-          "description": "waits for server confirmation of message send before response (defaults to true ; when false a message that is not saved does not return an error)",
+          "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
             "partial": false,
@@ -6880,7 +6880,7 @@
     "method": "GET",
     "path": "/gateway",
     "params": [],
-    "description": "Returns an object with a single valid WSS URL, which the client can use for Connecting . Clients should cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.",
+    "description": "Returns an object with a single valid WSS URL, which the client can use for Connecting. Clients should cache this value and only call this endpoint to retrieve a new URL if they are unable to properly establish a connection using the cached version of the URL.",
     "response": {
       "array": false,
       "partial": false,
@@ -6905,7 +6905,7 @@
     "method": "GET",
     "path": "/gateway/bot",
     "params": [],
-    "description": "Returns an object based on the information in Get Gateway , plus additional metadata that can help during the operation of large or sharded bots. Unlike the Get Gateway , this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.",
+    "description": "Returns an object based on the information in Get Gateway, plus additional metadata that can help during the operation of large or sharded bots. Unlike the Get Gateway, this route should not be cached for extended periods of time as the value is not guaranteed to be the same per-call, and changes as the bot joins/leaves guilds.",
     "response": {
       "type": "structure",
       "properties": [

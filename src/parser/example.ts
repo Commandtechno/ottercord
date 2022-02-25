@@ -1,7 +1,7 @@
-import { formatTable, parseProperty } from "../util";
+import { formatTable, parseProperty } from "./util";
 import { marked } from "marked";
 
-import { Property, Example } from "../../common";
+import { Property, Example } from "../common";
 
 export default class implements Example {
   name: string;
@@ -26,7 +26,9 @@ export default class implements Example {
       case "code":
         try {
           this.content = JSON.parse(block.text);
-        } catch {}
+        } catch {
+          // console.log(this.name, block.lang);
+        }
     }
   }
 }

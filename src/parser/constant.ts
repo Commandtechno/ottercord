@@ -1,14 +1,7 @@
-import {
-  flattenBlock,
-  formatTable,
-  lastSplit,
-  stripBrackets,
-  stripPlural,
-  trimText
-} from "../util";
+import { flattenBlock, formatTable, lastSplit, stripBrackets, stripPlural, trimText } from "./util";
 import { marked } from "marked";
 
-import { Constant, ConstantProperty } from "../../common";
+import { Constant, ConstantProperty } from "../common";
 
 export default class implements Constant {
   name: string;
@@ -31,12 +24,15 @@ export default class implements Constant {
 
   // todo make better lol
   process(block: marked.Token) {
-    if (block.type === "paragraph") this.description = trimText(flattenBlock(block));
+    if (block.type === "paragraph" && this.ready) {
+      this.description = trimText(flattenBlock(block));
+    }
+
     if (block.type === "table") {
       // test
-      let [, primaryKey] = lastSplit(this.name, " ");
-      if (!primaryKey) return; // Limits
-      primaryKey = stripPlural(trimText(primaryKey.toLowerCase()));
+      let [, valueKey] = lastSplit(this.name, " ");
+      if (!valueKey) return; // Limits
+      valueKey = stripPlural(trimText(valueKey.toLowerCase()));
 
       const table = formatTable(block);
       this.properties = table.map(row => {
@@ -44,45 +40,52 @@ export default class implements Constant {
         let description: string;
         let rawValue: string;
 
-        if (!name && primaryKey && row[primaryKey]) {
-          name = trimText(flattenBlock(row[primaryKey]));
-          delete row[primaryKey];
+        // temp
+        if (!name && valueKey && row[valueKey]) {
+          // if (!isNaN(parseInt(row[valueKey].text)))
+          //   rawValue = trimText(flattenBlock(row[valueKey]));
+          // else
+          // name = trimText(flattenBlock(row[valueKey]));
+          rawValue = trimText(flattenBlock(row[valueKey]));
+          delete row[valueKey];
         }
 
-        if (!name && row.field) {
-          name = trimText(flattenBlock(row.field));
-          delete row.field;
-        }
-
-        if (!name && row.name) {
-          name = trimText(flattenBlock(row.name));
-          delete row.name;
-        }
+        // if (!name && row.name) {
+        //   name = trimText(flattenBlock(row.name));
+        //   delete row.name;
+        // }
 
         if (!rawValue && row.value) {
           rawValue = trimText(flattenBlock(row.value));
           delete row.value;
         }
 
-        if (!description && row.description) {
-          description = trimText(flattenBlock(row.description));
-          delete row.description;
-        }
+        // if (!description && row.description) {
+        //   description = trimText(flattenBlock(row.description));
+        //   delete row.description;
+        // }
 
         // name is an alternate field
         if (!name) {
           const [firstKey] = Object.keys(row);
-          name = trimText(flattenBlock(row[firstKey]));
+          if (firstKey) name = trimText(flattenBlock(row[firstKey]));
+          else name = description;
+          // else name = rawValue;
           delete row[firstKey];
         }
 
         if (!rawValue) {
           const [firstKey] = Object.keys(row);
+          if (firstKey) rawValue = trimText(flattenBlock(row[firstKey]));
+          else rawValue = name;
+          delete row[firstKey];
+        }
+
+        if (!description) {
+          const [firstKey] = Object.keys(row);
           if (firstKey) {
-            rawValue = trimText(flattenBlock(row[firstKey]));
+            description = trimText(flattenBlock(row[firstKey]));
             delete row[firstKey];
-          } else {
-            rawValue = name;
           }
         }
 
@@ -99,7 +102,7 @@ export default class implements Constant {
         else value = rawValue;
 
         return {
-          name,
+          name: stripBrackets(name),
           description,
 
           value

@@ -1,6 +1,6 @@
 import { marked } from "marked";
 
-import { Endpoint, EndpointParam, EndpointRequest, StructureType, Type } from "../../common";
+import { Endpoint, EndpointParam, EndpointRequest, StructureType, Type } from "../common";
 import {
   trimText,
   flattenBlock,
@@ -11,7 +11,7 @@ import {
   parseProperty,
   stripBrackets,
   parseLink
-} from "../util";
+} from "./util";
 
 export default class implements Endpoint {
   name: string;

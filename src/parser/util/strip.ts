@@ -13,7 +13,7 @@ export function stripPlural(text: string) {
 
 // remove normal and square brackets
 export function stripBrackets(text: string) {
-  return text.replace(/\(.*?\)/g, "").replace(/\[.*?\]/g, "");
+  return text.replace(/\s*\(.*?\)\s*/g, "").replace(/\s*\[.*?\]\s*/g, "");
 }
 
 export function stripPartial(text: string) {

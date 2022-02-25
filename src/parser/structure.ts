@@ -1,7 +1,7 @@
-import { formatTable, parseProperty } from "../util";
+import { formatTable, parseProperty } from "./util";
 import { marked } from "marked";
 
-import { Property, Structure } from "../../common";
+import { Property, Structure } from "../common";
 
 export default class implements Structure {
   name: string;
@@ -37,6 +37,7 @@ export default class implements Structure {
 
         const table = formatTable(block);
         this.properties = table.map(parseProperty);
+        break;
     }
   }
 }
