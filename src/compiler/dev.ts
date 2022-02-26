@@ -25,7 +25,7 @@ import { JS } from "./js";
 
   const js = new JS({ constants, endpoints, examples, structures });
   for (const constant of constants) js.renderConstant(constant);
-  // for (const endpoint of endpoints) js.processEndpoint(endpoint);
+  for (const endpoint of endpoints) js.renderEndpoint(endpoint);
   for (const structure of structures) js.renderStructure(structure);
 
   const code = js.render();

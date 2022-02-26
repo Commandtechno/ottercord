@@ -1,3 +1,5 @@
+import { readFileSync } from "fs";
+import { resolve } from "path";
 import {
   Constant,
   Endpoint,
@@ -8,7 +10,7 @@ import {
   ValueType
 } from "../../common";
 import { Base } from "../base";
-import { pascal } from "../util";
+import { camel, pascal } from "../util";
 
 export class JS extends Base {
   renderValueType(valueType: ValueType) {
@@ -69,11 +71,17 @@ export class JS extends Base {
   }
 
   renderStructureType(structureType: StructureType) {
-    this.line("{");
+    this.write("{");
     this.indent++;
 
-    for (const prop of structureType.properties)
-      this.write(`${prop.key}: ${this.renderType(prop.type)},`);
+    for (const prop of structureType.properties) {
+      this.line(`${prop.key}`);
+      if (prop.optional) this.write("?");
+      this.write(": ");
+      this.renderType(prop.type);
+      if (prop.nullable) this.write(" | null");
+      this.write(",");
+    }
 
     this.indent--;
     this.line("}");
@@ -141,7 +149,48 @@ export class JS extends Base {
     this.line("}");
   }
 
-  renderEndpoint(endpoint: Endpoint) {}
+  renderEndpoint(endpoint: Endpoint) {
+    this.line(`export function ${this.getName(camel(endpoint.name))}(`);
+
+    let path = JSON.stringify(endpoint.path);
+
+    // parameters
+    this.indent++;
+    for (const param of endpoint.params) {
+      this.line(`${camel(param.name)}: string,`);
+      path = path.replace(`{${param.name}}`, `" + ${camel(param.name)} + "`);
+    }
+
+    if (endpoint.request) {
+      this.line(`body: `);
+      this.renderType(endpoint.request);
+      this.write(", ");
+    }
+    this.indent--;
+
+    // return type
+    this.line("): Promise<");
+    if (endpoint.response) {
+      this.indent++;
+      this.renderType(endpoint.response);
+      this.indent--;
+    } else this.write("any");
+    this.write(">");
+
+    // function body
+    this.write(" {");
+    this.indent++;
+    this.line(`return $({`);
+    this.indent++;
+    this.line("method: " + JSON.stringify(endpoint.method) + ",");
+    this.line("path: " + path + ",");
+    if (endpoint.request) this.line("body: JSON.stringify(body),");
+    this.line('headers: { Authorization: "Bot BALLS" }');
+    this.indent--;
+    this.line("})");
+    this.indent--;
+    this.line("}");
+  }
 
   renderStructure(structure: Structure) {
     this.line(`export interface ${this.getName(pascal(structure.name))} {`);
@@ -159,5 +208,9 @@ export class JS extends Base {
 
     this.indent--;
     this.line("}");
+  }
+
+  render() {
+    return readFileSync(resolve(__dirname, "runtime.ts"), "utf-8") + super.render();
   }
 }

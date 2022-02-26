@@ -10498,57 +10498,6 @@
   },
   {
     "tree": [
-      "rate-limits",
-      "header-format",
-      "header-format-rate-limit-header-examples",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
-    ],
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "key": "message",
-        "description": "A message saying you are being rate limited.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
-        },
-        "optional": false,
-        "nullable": false
-      }
-    ]
-  },
-  {
-    "tree": [
       "rpc",
       "rpc-rpc-versions",
       "restrictions",
@@ -12844,6 +12793,57 @@
           "deprecated": false,
           "type": "reference",
           "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ]
+  },
+  {
+    "tree": [
+      "rate-limits",
+      "header-format",
+      "header-format-rate-limit-header-examples",
+      "exceeding-a-rate-limit",
+      "exceeding-a-rate-limit-rate-limit-response-structure"
+    ],
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "key": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
         },
         "optional": false,
         "nullable": false
