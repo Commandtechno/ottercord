@@ -38,7 +38,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "user_id",
+          "key": "user_id",
           "description": "filter the log for actions made by a user",
           "type": {
             "array": false,
@@ -51,7 +51,7 @@
           "nullable": false
         },
         {
-          "name": "action_type",
+          "key": "action_type",
           "description": "the type of audit log event",
           "type": {
             "array": false,
@@ -64,7 +64,7 @@
           "nullable": false
         },
         {
-          "name": "before",
+          "key": "before",
           "description": "filter the log before a certain entry id",
           "type": {
             "array": false,
@@ -77,7 +77,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
           "type": {
             "array": false,
@@ -204,7 +204,7 @@
         "type": "structure",
         "properties": [
           {
-            "name": "name",
+            "key": "name",
             "description": "1-100 character channel name",
             "type": {
               "array": false,
@@ -217,7 +217,7 @@
             "nullable": false
           },
           {
-            "name": "icon",
+            "key": "icon",
             "description": "base64 encoded icon",
             "type": {
               "array": false,
@@ -237,7 +237,7 @@
         "type": "structure",
         "properties": [
           {
-            "name": "name",
+            "key": "name",
             "description": "1-100 character channel name",
             "type": {
               "array": false,
@@ -250,7 +250,7 @@
             "nullable": false
           },
           {
-            "name": "type",
+            "key": "type",
             "description": "the type of channel; only conversion between text and news is supported and only in guilds with the \"NEWS\" feature",
             "type": {
               "array": false,
@@ -263,7 +263,7 @@
             "nullable": false
           },
           {
-            "name": "position",
+            "key": "position",
             "description": "the position of the channel in the left-hand ing",
             "type": {
               "array": true,
@@ -276,7 +276,7 @@
             "nullable": true
           },
           {
-            "name": "topic",
+            "key": "topic",
             "description": "0-1024 character channel topic",
             "type": {
               "array": false,
@@ -289,7 +289,7 @@
             "nullable": true
           },
           {
-            "name": "nsfw",
+            "key": "nsfw",
             "description": "whether the channel is nsfw",
             "type": {
               "array": false,
@@ -302,7 +302,7 @@
             "nullable": true
           },
           {
-            "name": "rate_limit_per_user",
+            "key": "rate_limit_per_user",
             "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
             "type": {
               "array": false,
@@ -315,7 +315,7 @@
             "nullable": true
           },
           {
-            "name": "bitrate",
+            "key": "bitrate",
             "description": "the bitrate (in bits) of the voice channel; 8000 to 96000 (128000 for VIP servers)",
             "type": {
               "array": false,
@@ -328,7 +328,7 @@
             "nullable": true
           },
           {
-            "name": "user_limit",
+            "key": "user_limit",
             "description": "the user limit of the voice channel; 0 refers to no limit, 1 to 99 refers to a user limit",
             "type": {
               "array": false,
@@ -341,7 +341,7 @@
             "nullable": true
           },
           {
-            "name": "permission_overwrites",
+            "key": "permission_overwrites",
             "description": "channel or category-specific permissions",
             "type": {
               "array": true,
@@ -354,7 +354,7 @@
             "nullable": true
           },
           {
-            "name": "parent_id",
+            "key": "parent_id",
             "description": "id of the new parent category for a channel",
             "type": {
               "array": false,
@@ -367,7 +367,7 @@
             "nullable": true
           },
           {
-            "name": "rtc_region",
+            "key": "rtc_region",
             "description": "channel voice region id, automatic when set to null",
             "type": {
               "array": false,
@@ -380,7 +380,7 @@
             "nullable": true
           },
           {
-            "name": "video_quality_mode",
+            "key": "video_quality_mode",
             "description": "the camera video quality mode of the voice channel",
             "type": {
               "array": false,
@@ -393,7 +393,7 @@
             "nullable": true
           },
           {
-            "name": "default_auto_archive_duration",
+            "key": "default_auto_archive_duration",
             "description": "the default duration that the clients use (not the API) for newly created threads in the channel, in minutes, to automatically archive the thread after recent activity",
             "type": {
               "array": false,
@@ -413,7 +413,7 @@
         "type": "structure",
         "properties": [
           {
-            "name": "name",
+            "key": "name",
             "description": "1-100 character channel name",
             "type": {
               "array": false,
@@ -426,7 +426,7 @@
             "nullable": false
           },
           {
-            "name": "archived",
+            "key": "archived",
             "description": "whether the thread is archived",
             "type": {
               "array": false,
@@ -439,7 +439,7 @@
             "nullable": false
           },
           {
-            "name": "auto_archive_duration",
+            "key": "auto_archive_duration",
             "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
             "type": {
               "array": false,
@@ -452,7 +452,7 @@
             "nullable": false
           },
           {
-            "name": "locked",
+            "key": "locked",
             "description": "whether the thread is locked; when a thread is locked, only users with MANAGE_THREADS can unarchive it",
             "type": {
               "array": false,
@@ -465,7 +465,7 @@
             "nullable": false
           },
           {
-            "name": "invitable",
+            "key": "invitable",
             "description": "whether non-moderators can add other non-moderators to a thread; only available on private threads",
             "type": {
               "array": false,
@@ -478,7 +478,7 @@
             "nullable": false
           },
           {
-            "name": "rate_limit_per_user",
+            "key": "rate_limit_per_user",
             "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages, manage_thread, or manage_channel, are unaffected",
             "type": {
               "array": false,
@@ -542,7 +542,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "around",
+          "key": "around",
           "description": "get messages around this message ID",
           "type": {
             "array": false,
@@ -555,7 +555,7 @@
           "nullable": false
         },
         {
-          "name": "before",
+          "key": "before",
           "description": "get messages before this message ID",
           "type": {
             "array": false,
@@ -568,7 +568,7 @@
           "nullable": false
         },
         {
-          "name": "after",
+          "key": "after",
           "description": "get messages after this message ID",
           "type": {
             "array": false,
@@ -581,7 +581,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "max number of messages to return (1-100)",
           "type": {
             "array": false,
@@ -645,7 +645,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "content",
+          "key": "content",
           "description": "the message contents (up to 2000 characters)",
           "type": {
             "array": false,
@@ -658,7 +658,7 @@
           "nullable": false
         },
         {
-          "name": "tts",
+          "key": "tts",
           "description": "true if this is a TTS message",
           "type": {
             "array": false,
@@ -671,7 +671,7 @@
           "nullable": false
         },
         {
-          "name": "embeds",
+          "key": "embeds",
           "description": "embedded rich content (up to 6000 characters)",
           "type": {
             "array": true,
@@ -684,7 +684,7 @@
           "nullable": false
         },
         {
-          "name": "embed",
+          "key": "embed",
           "description": "embedded rich content, deprecated in favor of embeds",
           "type": {
             "array": false,
@@ -697,7 +697,7 @@
           "nullable": false
         },
         {
-          "name": "allowed_mentions",
+          "key": "allowed_mentions",
           "description": "allowed mentions for the message",
           "type": {
             "array": false,
@@ -710,7 +710,7 @@
           "nullable": false
         },
         {
-          "name": "message_reference",
+          "key": "message_reference",
           "description": "include to make your message a reply",
           "type": {
             "array": false,
@@ -723,7 +723,7 @@
           "nullable": false
         },
         {
-          "name": "components",
+          "key": "components",
           "description": "the components to include with the message",
           "type": {
             "array": true,
@@ -736,7 +736,7 @@
           "nullable": false
         },
         {
-          "name": "sticker_ids",
+          "key": "sticker_ids",
           "description": "IDs of up to 3 stickers in the server to send in the message",
           "type": {
             "array": true,
@@ -749,7 +749,7 @@
           "nullable": false
         },
         {
-          "name": "files",
+          "key": "files",
           "description": "the contents of the file being sent",
           "type": {
             "array": false,
@@ -762,7 +762,7 @@
           "nullable": false
         },
         {
-          "name": "payload_json",
+          "key": "payload_json",
           "description": "JSON encoded body of non-file params",
           "type": {
             "array": false,
@@ -775,7 +775,7 @@
           "nullable": false
         },
         {
-          "name": "attachments",
+          "key": "attachments",
           "description": "attachment objects with filename and description",
           "type": {
             "array": true,
@@ -788,7 +788,7 @@
           "nullable": false
         },
         {
-          "name": "flags",
+          "key": "flags",
           "description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
           "type": {
             "array": false,
@@ -936,7 +936,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "after",
+          "key": "after",
           "description": "get users after this user ID",
           "type": {
             "array": false,
@@ -949,7 +949,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "max number of users to return (1-100)",
           "type": {
             "array": false,
@@ -1038,7 +1038,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "content",
+          "key": "content",
           "description": "the message contents (up to 2000 characters)",
           "type": {
             "array": false,
@@ -1051,7 +1051,7 @@
           "nullable": false
         },
         {
-          "name": "embeds",
+          "key": "embeds",
           "description": "embedded rich content (up to 6000 characters)",
           "type": {
             "array": true,
@@ -1064,7 +1064,7 @@
           "nullable": false
         },
         {
-          "name": "embed",
+          "key": "embed",
           "description": "embedded rich content, deprecated in favor of embeds",
           "type": {
             "array": false,
@@ -1077,7 +1077,7 @@
           "nullable": false
         },
         {
-          "name": "flags",
+          "key": "flags",
           "description": "edit the flags of a message (only SUPPRESS_EMBEDS can currently be set/unset)",
           "type": {
             "array": false,
@@ -1090,7 +1090,7 @@
           "nullable": false
         },
         {
-          "name": "allowed_mentions",
+          "key": "allowed_mentions",
           "description": "allowed mentions for the message",
           "type": {
             "array": false,
@@ -1103,7 +1103,7 @@
           "nullable": false
         },
         {
-          "name": "components",
+          "key": "components",
           "description": "the components to include with the message",
           "type": {
             "array": true,
@@ -1116,7 +1116,7 @@
           "nullable": false
         },
         {
-          "name": "files",
+          "key": "files",
           "description": "the contents of the file being sent/edited",
           "type": {
             "array": false,
@@ -1129,7 +1129,7 @@
           "nullable": false
         },
         {
-          "name": "payload_json",
+          "key": "payload_json",
           "description": "JSON encoded body of non-file params (multipart/form-data only)",
           "type": {
             "array": false,
@@ -1142,7 +1142,7 @@
           "nullable": false
         },
         {
-          "name": "attachments",
+          "key": "attachments",
           "description": "attached files to keep and possible descriptions for new files",
           "type": {
             "array": true,
@@ -1197,7 +1197,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "messages",
+          "key": "messages",
           "description": " message ids to delete (2-100)",
           "type": {
             "array": true,
@@ -1237,7 +1237,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "allow",
+          "key": "allow",
           "description": "the bitwise value of all allowed permissions (default \"0\")",
           "type": {
             "array": false,
@@ -1250,7 +1250,7 @@
           "nullable": true
         },
         {
-          "name": "deny",
+          "key": "deny",
           "description": "the bitwise value of all disallowed permissions (default \"0\")",
           "type": {
             "array": false,
@@ -1263,7 +1263,7 @@
           "nullable": true
         },
         {
-          "name": "type",
+          "key": "type",
           "description": "0 for a role or 1 for a member",
           "type": {
             "array": false,
@@ -1328,7 +1328,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "max_age",
+          "key": "max_age",
           "description": "duration of invite in seconds before expiry, or 0 for never. between 0 and 604800 (7 days)",
           "type": {
             "array": false,
@@ -1341,7 +1341,7 @@
           "nullable": false
         },
         {
-          "name": "max_uses",
+          "key": "max_uses",
           "description": "max number of uses or 0 for unlimited. between 0 and 100",
           "type": {
             "array": false,
@@ -1354,7 +1354,7 @@
           "nullable": false
         },
         {
-          "name": "temporary",
+          "key": "temporary",
           "description": "whether this invite only grants temporary membership",
           "type": {
             "array": false,
@@ -1367,7 +1367,7 @@
           "nullable": false
         },
         {
-          "name": "unique",
+          "key": "unique",
           "description": "if true, don't try to reuse a similar invite (useful for creating many unique one time use invites)",
           "type": {
             "array": false,
@@ -1380,7 +1380,7 @@
           "nullable": false
         },
         {
-          "name": "target_type",
+          "key": "target_type",
           "description": "the type of target for this voice channel invite",
           "type": {
             "array": false,
@@ -1393,7 +1393,7 @@
           "nullable": false
         },
         {
-          "name": "target_user_id",
+          "key": "target_user_id",
           "description": "the id of the user whose stream to display for this invite, required if target_type is 1, the user must be streaming in the channel",
           "type": {
             "array": false,
@@ -1406,7 +1406,7 @@
           "nullable": false
         },
         {
-          "name": "target_application_id",
+          "key": "target_application_id",
           "description": "the id of the embedded application to open for this invite, required if target_type is 2, the application must have the EMBEDDED flag",
           "type": {
             "array": false,
@@ -1468,7 +1468,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "webhook_channel_id",
+          "key": "webhook_channel_id",
           "description": "id of target channel",
           "type": {
             "array": false,
@@ -1583,7 +1583,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "access_token",
+          "key": "access_token",
           "description": "access token of a user that has granted your app the gdm.join scope",
           "type": {
             "array": false,
@@ -1596,7 +1596,7 @@
           "nullable": false
         },
         {
-          "name": "nick",
+          "key": "nick",
           "description": "nickname of the user being added",
           "type": {
             "array": false,
@@ -1662,7 +1662,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "1-100 character channel name",
           "type": {
             "array": false,
@@ -1675,7 +1675,7 @@
           "nullable": false
         },
         {
-          "name": "auto_archive_duration",
+          "key": "auto_archive_duration",
           "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
           "type": {
             "array": false,
@@ -1688,7 +1688,7 @@
           "nullable": false
         },
         {
-          "name": "rate_limit_per_user",
+          "key": "rate_limit_per_user",
           "description": "amount of seconds a user has to wait before sending another message (0-21600)",
           "type": {
             "array": false,
@@ -1731,7 +1731,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "1-100 character channel name",
           "type": {
             "array": false,
@@ -1744,7 +1744,7 @@
           "nullable": false
         },
         {
-          "name": "auto_archive_duration",
+          "key": "auto_archive_duration",
           "description": "duration in minutes to automatically archive the thread after recent activity, can be set to: 60, 1440, 4320, 10080",
           "type": {
             "array": false,
@@ -1757,7 +1757,7 @@
           "nullable": false
         },
         {
-          "name": "type",
+          "key": "type",
           "description": "the type of thread to create",
           "type": {
             "array": false,
@@ -1770,7 +1770,7 @@
           "nullable": false
         },
         {
-          "name": "invitable",
+          "key": "invitable",
           "description": "whether non-moderators can add other non-moderators to a thread; only available when creating a private thread",
           "type": {
             "array": false,
@@ -1783,7 +1783,7 @@
           "nullable": false
         },
         {
-          "name": "rate_limit_per_user",
+          "key": "rate_limit_per_user",
           "description": "amount of seconds a user has to wait before sending another message (0-21600)",
           "type": {
             "array": false,
@@ -1957,7 +1957,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "before",
+          "key": "before",
           "description": "returns threads before this timestamp",
           "type": {
             "array": false,
@@ -1970,7 +1970,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "optional maximum number of threads to return",
           "type": {
             "array": false,
@@ -2012,7 +2012,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "before",
+          "key": "before",
           "description": "returns threads before this timestamp",
           "type": {
             "array": false,
@@ -2025,7 +2025,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "optional maximum number of threads to return",
           "type": {
             "array": false,
@@ -2067,7 +2067,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "before",
+          "key": "before",
           "description": "returns threads before this id",
           "type": {
             "array": false,
@@ -2080,7 +2080,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "optional maximum number of threads to return",
           "type": {
             "array": false,
@@ -2177,7 +2177,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the emoji",
           "type": {
             "array": false,
@@ -2190,7 +2190,7 @@
           "nullable": false
         },
         {
-          "name": "image",
+          "key": "image",
           "description": "the 128x128 emoji image",
           "type": {
             "array": false,
@@ -2203,7 +2203,7 @@
           "nullable": false
         },
         {
-          "name": "roles",
+          "key": "roles",
           "description": "roles allowed to use this emoji",
           "type": {
             "array": true,
@@ -2250,7 +2250,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the emoji",
           "type": {
             "array": false,
@@ -2263,7 +2263,7 @@
           "nullable": false
         },
         {
-          "name": "roles",
+          "key": "roles",
           "description": "roles allowed to use this emoji",
           "type": {
             "array": true,
@@ -2363,7 +2363,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the guild (2-100 characters)",
           "type": {
             "array": false,
@@ -2376,7 +2376,7 @@
           "nullable": false
         },
         {
-          "name": "region",
+          "key": "region",
           "description": "[voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id",
           "type": {
             "array": false,
@@ -2389,7 +2389,7 @@
           "nullable": true
         },
         {
-          "name": "icon",
+          "key": "icon",
           "description": "base64 128x128 image for the guild icon",
           "type": {
             "array": false,
@@ -2402,7 +2402,7 @@
           "nullable": false
         },
         {
-          "name": "verification_level",
+          "key": "verification_level",
           "description": "verification level",
           "type": {
             "array": false,
@@ -2415,7 +2415,7 @@
           "nullable": false
         },
         {
-          "name": "default_message_notifications",
+          "key": "default_message_notifications",
           "description": "default message notification level",
           "type": {
             "array": false,
@@ -2428,7 +2428,7 @@
           "nullable": false
         },
         {
-          "name": "explicit_content_filter",
+          "key": "explicit_content_filter",
           "description": "explicit content filter level",
           "type": {
             "array": false,
@@ -2441,7 +2441,7 @@
           "nullable": false
         },
         {
-          "name": "roles",
+          "key": "roles",
           "description": "new guild roles",
           "type": {
             "array": true,
@@ -2454,7 +2454,7 @@
           "nullable": false
         },
         {
-          "name": "channels",
+          "key": "channels",
           "description": "new guild's channels",
           "type": {
             "array": true,
@@ -2467,7 +2467,7 @@
           "nullable": false
         },
         {
-          "name": "afk_channel_id",
+          "key": "afk_channel_id",
           "description": "id for afk channel",
           "type": {
             "array": false,
@@ -2480,7 +2480,7 @@
           "nullable": false
         },
         {
-          "name": "afk_timeout",
+          "key": "afk_timeout",
           "description": "afk timeout in seconds",
           "type": {
             "array": false,
@@ -2493,7 +2493,7 @@
           "nullable": false
         },
         {
-          "name": "system_channel_id",
+          "key": "system_channel_id",
           "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
           "type": {
             "array": false,
@@ -2506,7 +2506,7 @@
           "nullable": false
         },
         {
-          "name": "system_channel_flags",
+          "key": "system_channel_flags",
           "description": "system channel flags",
           "type": {
             "array": false,
@@ -2548,7 +2548,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "with_counts",
+          "key": "with_counts",
           "description": "when true, will return approximate member and presence counts for the guild",
           "type": {
             "array": false,
@@ -2613,7 +2613,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "guild name",
           "type": {
             "array": false,
@@ -2626,7 +2626,7 @@
           "nullable": false
         },
         {
-          "name": "region",
+          "key": "region",
           "description": "guild [voice region](#DOCS_RESOURCES_VOICE/voice-region-object) id",
           "type": {
             "array": false,
@@ -2639,7 +2639,7 @@
           "nullable": true
         },
         {
-          "name": "verification_level",
+          "key": "verification_level",
           "description": "verification level",
           "type": {
             "array": false,
@@ -2652,7 +2652,7 @@
           "nullable": true
         },
         {
-          "name": "default_message_notifications",
+          "key": "default_message_notifications",
           "description": "default message notification level",
           "type": {
             "array": false,
@@ -2665,7 +2665,7 @@
           "nullable": true
         },
         {
-          "name": "explicit_content_filter",
+          "key": "explicit_content_filter",
           "description": "explicit content filter level",
           "type": {
             "array": false,
@@ -2678,7 +2678,7 @@
           "nullable": true
         },
         {
-          "name": "afk_channel_id",
+          "key": "afk_channel_id",
           "description": "id for afk channel",
           "type": {
             "array": false,
@@ -2691,7 +2691,7 @@
           "nullable": true
         },
         {
-          "name": "afk_timeout",
+          "key": "afk_timeout",
           "description": "afk timeout in seconds",
           "type": {
             "array": false,
@@ -2704,7 +2704,7 @@
           "nullable": false
         },
         {
-          "name": "icon",
+          "key": "icon",
           "description": "base64 1024x1024 png/jpeg/gif image for the guild icon (can be animated gif when the server has the ANIMATED_ICON feature)",
           "type": {
             "array": false,
@@ -2717,7 +2717,7 @@
           "nullable": true
         },
         {
-          "name": "owner_id",
+          "key": "owner_id",
           "description": "user id to transfer guild ownership to (must be owner)",
           "type": {
             "array": false,
@@ -2730,7 +2730,7 @@
           "nullable": false
         },
         {
-          "name": "splash",
+          "key": "splash",
           "description": "base64 16:9 png/jpeg image for the guild splash (when the server has the INVITE_SPLASH feature)",
           "type": {
             "array": false,
@@ -2743,7 +2743,7 @@
           "nullable": true
         },
         {
-          "name": "discovery_splash",
+          "key": "discovery_splash",
           "description": "base64 16:9 png/jpeg image for the guild discovery splash (when the server has the DISCOVERABLE feature)",
           "type": {
             "array": false,
@@ -2756,7 +2756,7 @@
           "nullable": true
         },
         {
-          "name": "banner",
+          "key": "banner",
           "description": "base64 16:9 png/jpeg image for the guild banner (when the server has the BANNER feature)",
           "type": {
             "array": false,
@@ -2769,7 +2769,7 @@
           "nullable": true
         },
         {
-          "name": "system_channel_id",
+          "key": "system_channel_id",
           "description": "the id of the channel where guild notices such as welcome messages and boost events are posted",
           "type": {
             "array": false,
@@ -2782,7 +2782,7 @@
           "nullable": true
         },
         {
-          "name": "system_channel_flags",
+          "key": "system_channel_flags",
           "description": "system channel flags",
           "type": {
             "array": false,
@@ -2795,7 +2795,7 @@
           "nullable": false
         },
         {
-          "name": "rules_channel_id",
+          "key": "rules_channel_id",
           "description": "the id of the channel where Community guilds display rules and/or guidelines",
           "type": {
             "array": false,
@@ -2808,7 +2808,7 @@
           "nullable": true
         },
         {
-          "name": "public_updates_channel_id",
+          "key": "public_updates_channel_id",
           "description": "the id of the channel where admins and moderators of Community guilds receive notices from Discord",
           "type": {
             "array": false,
@@ -2821,7 +2821,7 @@
           "nullable": true
         },
         {
-          "name": "preferred_locale",
+          "key": "preferred_locale",
           "description": "the preferred locale of a Community guild used in server discovery and notices from Discord; defaults to \"en-US",
           "type": {
             "array": false,
@@ -2834,7 +2834,7 @@
           "nullable": true
         },
         {
-          "name": "features",
+          "key": "features",
           "description": "enabled guild features",
           "type": {
             "array": true,
@@ -2847,7 +2847,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "the description for the guild, if the guild is discoverable",
           "type": {
             "array": false,
@@ -2860,7 +2860,7 @@
           "nullable": true
         },
         {
-          "name": "premium_progress_bar_enabled",
+          "key": "premium_progress_bar_enabled",
           "description": "whether the guild's boost progress bar should be enabled.",
           "type": {
             "array": false,
@@ -2940,7 +2940,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "channel name (1-100 characters)",
           "type": {
             "array": false,
@@ -2953,7 +2953,7 @@
           "nullable": false
         },
         {
-          "name": "type",
+          "key": "type",
           "description": "the type of channel",
           "type": {
             "array": false,
@@ -2966,7 +2966,7 @@
           "nullable": false
         },
         {
-          "name": "topic",
+          "key": "topic",
           "description": "channel topic (0-1024 characters)",
           "type": {
             "array": false,
@@ -2979,7 +2979,7 @@
           "nullable": false
         },
         {
-          "name": "bitrate",
+          "key": "bitrate",
           "description": "the bitrate (in bits) of the voice channel (voice only)",
           "type": {
             "array": false,
@@ -2992,7 +2992,7 @@
           "nullable": false
         },
         {
-          "name": "user_limit",
+          "key": "user_limit",
           "description": "the user limit of the voice channel (voice only)",
           "type": {
             "array": false,
@@ -3005,7 +3005,7 @@
           "nullable": false
         },
         {
-          "name": "rate_limit_per_user",
+          "key": "rate_limit_per_user",
           "description": "amount of seconds a user has to wait before sending another message (0-21600); bots, as well as users with the permission manage_messages or manage_channel, are unaffected",
           "type": {
             "array": false,
@@ -3018,7 +3018,7 @@
           "nullable": false
         },
         {
-          "name": "position",
+          "key": "position",
           "description": "sorting position of the channel",
           "type": {
             "array": false,
@@ -3031,7 +3031,7 @@
           "nullable": false
         },
         {
-          "name": "permission_overwrites",
+          "key": "permission_overwrites",
           "description": "the channel's permission overwrites",
           "type": {
             "array": true,
@@ -3044,7 +3044,7 @@
           "nullable": false
         },
         {
-          "name": "parent_id",
+          "key": "parent_id",
           "description": "id of the parent category for a channel",
           "type": {
             "array": false,
@@ -3057,7 +3057,7 @@
           "nullable": false
         },
         {
-          "name": "nsfw",
+          "key": "nsfw",
           "description": "whether the channel is nsfw",
           "type": {
             "array": false,
@@ -3093,7 +3093,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "id",
+          "key": "id",
           "description": "channel id",
           "type": {
             "array": false,
@@ -3106,7 +3106,7 @@
           "nullable": false
         },
         {
-          "name": "position",
+          "key": "position",
           "description": "sorting position of the channel",
           "type": {
             "array": false,
@@ -3119,7 +3119,7 @@
           "nullable": true
         },
         {
-          "name": "lock_permissions",
+          "key": "lock_permissions",
           "description": "syncs the permission overwrites with the new parent, if moving to a new category",
           "type": {
             "array": false,
@@ -3132,7 +3132,7 @@
           "nullable": true
         },
         {
-          "name": "parent_id",
+          "key": "parent_id",
           "description": "the new parent ID for the channel that is moved",
           "type": {
             "array": false,
@@ -3215,7 +3215,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "limit",
+          "key": "limit",
           "description": "max number of members to return (1-1000)",
           "type": {
             "array": false,
@@ -3228,7 +3228,7 @@
           "nullable": false
         },
         {
-          "name": "after",
+          "key": "after",
           "description": "the highest user id in the previous page",
           "type": {
             "array": false,
@@ -3269,7 +3269,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "query",
+          "key": "query",
           "description": "Query string to match username(s) and nickname(s) against.",
           "type": {
             "array": false,
@@ -3282,7 +3282,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "max number of members to return (1-1000)",
           "type": {
             "array": false,
@@ -3329,7 +3329,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "access_token",
+          "key": "access_token",
           "description": "an oauth2 access token granted with the guilds.join to the bot's application for the user you want to add to the guild",
           "type": {
             "array": false,
@@ -3342,7 +3342,7 @@
           "nullable": false
         },
         {
-          "name": "nick",
+          "key": "nick",
           "description": "value to set user's nickname to",
           "type": {
             "array": false,
@@ -3355,7 +3355,7 @@
           "nullable": false
         },
         {
-          "name": "roles",
+          "key": "roles",
           "description": " role ids the member is assigned",
           "type": {
             "array": true,
@@ -3368,7 +3368,7 @@
           "nullable": false
         },
         {
-          "name": "mute",
+          "key": "mute",
           "description": "whether the user is muted in voice channels",
           "type": {
             "array": false,
@@ -3381,7 +3381,7 @@
           "nullable": false
         },
         {
-          "name": "deaf",
+          "key": "deaf",
           "description": "whether the user is deafened in voice channels",
           "type": {
             "array": false,
@@ -3428,7 +3428,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "nick",
+          "key": "nick",
           "description": "value to set user's nickname to",
           "type": {
             "array": false,
@@ -3441,7 +3441,7 @@
           "nullable": false
         },
         {
-          "name": "roles",
+          "key": "roles",
           "description": " role ids the member is assigned",
           "type": {
             "array": true,
@@ -3454,7 +3454,7 @@
           "nullable": false
         },
         {
-          "name": "mute",
+          "key": "mute",
           "description": "whether the user is muted in voice channels. Will throw a 400 error if the user is not in a voice channel",
           "type": {
             "array": false,
@@ -3467,7 +3467,7 @@
           "nullable": false
         },
         {
-          "name": "deaf",
+          "key": "deaf",
           "description": "whether the user is deafened in voice channels. Will throw a 400 error if the user is not in a voice channel",
           "type": {
             "array": false,
@@ -3480,7 +3480,7 @@
           "nullable": false
         },
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "id of channel to move user to (if they are connected to voice)",
           "type": {
             "array": false,
@@ -3493,7 +3493,7 @@
           "nullable": false
         },
         {
-          "name": "communication_disabled_until",
+          "key": "communication_disabled_until",
           "description": "when the user's timeout will expire and the user will be able to communicate in the guild again (up to 28 days in the future), set to null to remove timeout. Will throw a 403 error if the user has the ADMINISTRATOR permission or is the owner of the guild",
           "type": {
             "array": false,
@@ -3529,7 +3529,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "nick",
+          "key": "nick",
           "description": "value to set user's nickname to",
           "type": {
             "array": false,
@@ -3565,7 +3565,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "nick",
+          "key": "nick",
           "description": "value to set user's nickname to",
           "type": {
             "array": false,
@@ -3718,7 +3718,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "delete_message_days",
+          "key": "delete_message_days",
           "description": "number of days to delete messages for (0-7)",
           "type": {
             "array": false,
@@ -3731,7 +3731,7 @@
           "nullable": false
         },
         {
-          "name": "reason",
+          "key": "reason",
           "description": "reason for the ban",
           "type": {
             "array": false,
@@ -3815,7 +3815,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the role",
           "type": {
             "array": false,
@@ -3828,7 +3828,7 @@
           "nullable": false
         },
         {
-          "name": "permissions",
+          "key": "permissions",
           "description": "bitwise value of the enabled/disabled permissions",
           "type": {
             "array": false,
@@ -3841,7 +3841,7 @@
           "nullable": false
         },
         {
-          "name": "color",
+          "key": "color",
           "description": "RGB color value",
           "type": {
             "array": false,
@@ -3854,7 +3854,7 @@
           "nullable": false
         },
         {
-          "name": "hoist",
+          "key": "hoist",
           "description": "whether the role should be displayed separately in the sidebar",
           "type": {
             "array": false,
@@ -3867,7 +3867,7 @@
           "nullable": false
         },
         {
-          "name": "icon",
+          "key": "icon",
           "description": "the role's icon image (if the guild has the ROLE_ICONS feature)",
           "type": {
             "array": false,
@@ -3880,7 +3880,7 @@
           "nullable": false
         },
         {
-          "name": "unicode_emoji",
+          "key": "unicode_emoji",
           "description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
           "type": {
             "array": false,
@@ -3893,7 +3893,7 @@
           "nullable": false
         },
         {
-          "name": "mentionable",
+          "key": "mentionable",
           "description": "whether the role should be mentionable",
           "type": {
             "array": false,
@@ -3936,7 +3936,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "id",
+          "key": "id",
           "description": "role",
           "type": {
             "array": false,
@@ -3949,7 +3949,7 @@
           "nullable": false
         },
         {
-          "name": "position",
+          "key": "position",
           "description": "sorting position of the role",
           "type": {
             "array": false,
@@ -3996,7 +3996,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the role",
           "type": {
             "array": false,
@@ -4009,7 +4009,7 @@
           "nullable": false
         },
         {
-          "name": "permissions",
+          "key": "permissions",
           "description": "bitwise value of the enabled/disabled permissions",
           "type": {
             "array": false,
@@ -4022,7 +4022,7 @@
           "nullable": false
         },
         {
-          "name": "color",
+          "key": "color",
           "description": "RGB color value",
           "type": {
             "array": false,
@@ -4035,7 +4035,7 @@
           "nullable": false
         },
         {
-          "name": "hoist",
+          "key": "hoist",
           "description": "whether the role should be displayed separately in the sidebar",
           "type": {
             "array": false,
@@ -4048,7 +4048,7 @@
           "nullable": false
         },
         {
-          "name": "icon",
+          "key": "icon",
           "description": "the role's icon image (if the guild has the ROLE_ICONS feature)",
           "type": {
             "array": false,
@@ -4061,7 +4061,7 @@
           "nullable": false
         },
         {
-          "name": "unicode_emoji",
+          "key": "unicode_emoji",
           "description": "the role's unicode emoji as a standard emoji (if the guild has the ROLE_ICONS feature)",
           "type": {
             "array": false,
@@ -4074,7 +4074,7 @@
           "nullable": false
         },
         {
-          "name": "mentionable",
+          "key": "mentionable",
           "description": "whether the role should be mentionable",
           "type": {
             "array": false,
@@ -4127,7 +4127,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "days",
+          "key": "days",
           "description": "number of days to count prune for (1-30)",
           "type": {
             "array": false,
@@ -4140,7 +4140,7 @@
           "nullable": false
         },
         {
-          "name": "include_roles",
+          "key": "include_roles",
           "description": "role(s) to include",
           "type": {
             "array": true,
@@ -4176,7 +4176,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "days",
+          "key": "days",
           "description": "number of days to prune (1-30)",
           "type": {
             "array": false,
@@ -4189,7 +4189,7 @@
           "nullable": false
         },
         {
-          "name": "compute_prune_count",
+          "key": "compute_prune_count",
           "description": "whether 'pruned' is returned, discouraged for large guilds",
           "type": {
             "array": false,
@@ -4202,7 +4202,7 @@
           "nullable": false
         },
         {
-          "name": "include_roles",
+          "key": "include_roles",
           "description": "role(s) to include",
           "type": {
             "array": true,
@@ -4215,7 +4215,7 @@
           "nullable": false
         },
         {
-          "name": "reason",
+          "key": "reason",
           "description": "reason for the prune",
           "type": {
             "array": false,
@@ -4424,7 +4424,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "style",
+          "key": "style",
           "description": "style of the widget image returned (see below)",
           "type": {
             "array": false,
@@ -4489,7 +4489,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "enabled",
+          "key": "enabled",
           "description": "whether the welcome screen is enabled",
           "type": {
             "array": false,
@@ -4502,7 +4502,7 @@
           "nullable": false
         },
         {
-          "name": "welcome_channels",
+          "key": "welcome_channels",
           "description": "channels linked in the welcome screen and their display options",
           "type": {
             "array": true,
@@ -4515,7 +4515,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "the server description to show in the welcome screen",
           "type": {
             "array": false,
@@ -4552,7 +4552,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "the id of the channel the user is currently in",
           "type": {
             "array": false,
@@ -4565,7 +4565,7 @@
           "nullable": false
         },
         {
-          "name": "suppress",
+          "key": "suppress",
           "description": "toggles the user's suppress state",
           "type": {
             "array": false,
@@ -4578,7 +4578,7 @@
           "nullable": false
         },
         {
-          "name": "request_to_speak_timestamp",
+          "key": "request_to_speak_timestamp",
           "description": "sets the user's request to speak",
           "type": {
             "array": false,
@@ -4619,7 +4619,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "the id of the channel the user is currently in",
           "type": {
             "array": false,
@@ -4632,7 +4632,7 @@
           "nullable": false
         },
         {
-          "name": "suppress",
+          "key": "suppress",
           "description": "toggles the user's suppress state",
           "type": {
             "array": false,
@@ -4684,7 +4684,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "with_user_count",
+          "key": "with_user_count",
           "description": "include number of users subscribed to each event",
           "type": {
             "array": false,
@@ -4727,7 +4727,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "the channel id of the scheduled event.",
           "type": {
             "array": false,
@@ -4740,7 +4740,7 @@
           "nullable": false
         },
         {
-          "name": "entity_metadata",
+          "key": "entity_metadata",
           "description": "the entity metadata of the scheduled event",
           "type": {
             "array": false,
@@ -4753,7 +4753,7 @@
           "nullable": false
         },
         {
-          "name": "name",
+          "key": "name",
           "description": "the name of the scheduled event",
           "type": {
             "array": false,
@@ -4766,7 +4766,7 @@
           "nullable": false
         },
         {
-          "name": "privacy_level",
+          "key": "privacy_level",
           "description": "the privacy level of the scheduled event",
           "type": {
             "array": false,
@@ -4779,7 +4779,7 @@
           "nullable": false
         },
         {
-          "name": "scheduled_start_time",
+          "key": "scheduled_start_time",
           "description": "the time to schedule the scheduled event",
           "type": {
             "array": false,
@@ -4792,7 +4792,7 @@
           "nullable": false
         },
         {
-          "name": "scheduled_end_time",
+          "key": "scheduled_end_time",
           "description": "the time when the scheduled event is scheduled to end",
           "type": {
             "array": false,
@@ -4805,7 +4805,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "the description of the scheduled event",
           "type": {
             "array": false,
@@ -4818,7 +4818,7 @@
           "nullable": false
         },
         {
-          "name": "entity_type",
+          "key": "entity_type",
           "description": "the entity type of the scheduled event",
           "type": {
             "array": false,
@@ -4831,7 +4831,7 @@
           "nullable": false
         },
         {
-          "name": "image",
+          "key": "image",
           "description": "the cover image of the scheduled event",
           "type": {
             "array": false,
@@ -4876,7 +4876,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "with_user_count",
+          "key": "with_user_count",
           "description": "include number of users subscribed to this event",
           "type": {
             "array": false,
@@ -4923,7 +4923,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "the channel id of the scheduled event, set to null if changing entity type to EXTERNAL",
           "type": {
             "array": false,
@@ -4936,7 +4936,7 @@
           "nullable": true
         },
         {
-          "name": "entity_metadata",
+          "key": "entity_metadata",
           "description": "the entity metadata of the scheduled event",
           "type": {
             "array": false,
@@ -4949,7 +4949,7 @@
           "nullable": false
         },
         {
-          "name": "name",
+          "key": "name",
           "description": "the name of the scheduled event",
           "type": {
             "array": false,
@@ -4962,7 +4962,7 @@
           "nullable": false
         },
         {
-          "name": "privacy_level",
+          "key": "privacy_level",
           "description": "the privacy level of the scheduled event",
           "type": {
             "array": false,
@@ -4975,7 +4975,7 @@
           "nullable": false
         },
         {
-          "name": "scheduled_start_time",
+          "key": "scheduled_start_time",
           "description": "the time to schedule the scheduled event",
           "type": {
             "array": false,
@@ -4988,7 +4988,7 @@
           "nullable": false
         },
         {
-          "name": "scheduled_end_time",
+          "key": "scheduled_end_time",
           "description": "the time when the scheduled event is scheduled to end",
           "type": {
             "array": false,
@@ -5001,7 +5001,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "the description of the scheduled event",
           "type": {
             "array": false,
@@ -5014,7 +5014,7 @@
           "nullable": false
         },
         {
-          "name": "entity_type",
+          "key": "entity_type",
           "description": "the entity type of the scheduled event",
           "type": {
             "array": false,
@@ -5027,7 +5027,7 @@
           "nullable": false
         },
         {
-          "name": "status",
+          "key": "status",
           "description": "the status of the scheduled event",
           "type": {
             "array": false,
@@ -5040,7 +5040,7 @@
           "nullable": false
         },
         {
-          "name": "image",
+          "key": "image",
           "description": "the cover image of the scheduled event",
           "type": {
             "array": false,
@@ -5120,7 +5120,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "limit",
+          "key": "limit",
           "description": "number of users to return (up to maximum 100)",
           "type": {
             "array": false,
@@ -5133,7 +5133,7 @@
           "nullable": false
         },
         {
-          "name": "with_member",
+          "key": "with_member",
           "description": "include guild member data if it exists",
           "type": {
             "array": false,
@@ -5146,7 +5146,7 @@
           "nullable": false
         },
         {
-          "name": "before",
+          "key": "before",
           "description": "consider only users before given user id",
           "type": {
             "array": false,
@@ -5159,7 +5159,7 @@
           "nullable": false
         },
         {
-          "name": "after",
+          "key": "after",
           "description": "consider only users after given user id",
           "type": {
             "array": false,
@@ -5228,7 +5228,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the guild (2-100 characters)",
           "type": {
             "array": false,
@@ -5241,7 +5241,7 @@
           "nullable": false
         },
         {
-          "name": "icon",
+          "key": "icon",
           "description": "base64 128x128 image for the guild icon",
           "type": {
             "array": false,
@@ -5306,7 +5306,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the template (1-100 characters)",
           "type": {
             "array": false,
@@ -5319,7 +5319,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "description for the template (0-120 characters)",
           "type": {
             "array": false,
@@ -5392,7 +5392,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the template (1-100 characters)",
           "type": {
             "array": false,
@@ -5405,7 +5405,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "description for the template (0-120 characters)",
           "type": {
             "array": false,
@@ -5483,7 +5483,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "with_counts",
+          "key": "with_counts",
           "description": "whether the invite should contain approximate member counts",
           "type": {
             "array": false,
@@ -5496,7 +5496,7 @@
           "nullable": false
         },
         {
-          "name": "with_expiration",
+          "key": "with_expiration",
           "description": "whether the invite should contain the expiration date",
           "type": {
             "array": false,
@@ -5509,7 +5509,7 @@
           "nullable": false
         },
         {
-          "name": "guild_scheduled_event_id",
+          "key": "guild_scheduled_event_id",
           "description": "the guild scheduled event to include with the invite",
           "type": {
             "array": false,
@@ -5569,7 +5569,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "The id of the Stage channel",
           "type": {
             "array": false,
@@ -5582,7 +5582,7 @@
           "nullable": false
         },
         {
-          "name": "topic",
+          "key": "topic",
           "description": "The topic of the Stage instance (1-120 characters)",
           "type": {
             "array": false,
@@ -5595,7 +5595,7 @@
           "nullable": false
         },
         {
-          "name": "privacy_level",
+          "key": "privacy_level",
           "description": "The privacy level of the Stage instance (default GUILD_ONLY)",
           "type": {
             "array": false,
@@ -5646,7 +5646,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "topic",
+          "key": "topic",
           "description": "The topic of the Stage instance (1-120 characters)",
           "type": {
             "array": false,
@@ -5659,7 +5659,7 @@
           "nullable": false
         },
         {
-          "name": "privacy_level",
+          "key": "privacy_level",
           "description": "The privacy level of the Stage instance",
           "type": {
             "array": false,
@@ -5736,7 +5736,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "sticker_packs",
+          "key": "sticker_packs",
           "type": {
             "array": true,
             "partial": false,
@@ -5826,7 +5826,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the sticker (2-30 characters)",
           "type": {
             "array": false,
@@ -5839,7 +5839,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "description of the sticker (empty or 2-100 characters)",
           "type": {
             "array": false,
@@ -5852,7 +5852,7 @@
           "nullable": false
         },
         {
-          "name": "tags",
+          "key": "tags",
           "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
           "type": {
             "array": false,
@@ -5865,7 +5865,7 @@
           "nullable": false
         },
         {
-          "name": "file",
+          "key": "file",
           "description": "the sticker file to upload, must be a PNG, APNG, or Lottie JSON file, max 500 KB",
           "type": {
             "array": false,
@@ -5912,7 +5912,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the sticker (2-30 characters)",
           "type": {
             "array": false,
@@ -5925,7 +5925,7 @@
           "nullable": false
         },
         {
-          "name": "description",
+          "key": "description",
           "description": "description of the sticker (2-100 characters)",
           "type": {
             "array": false,
@@ -5938,7 +5938,7 @@
           "nullable": true
         },
         {
-          "name": "tags",
+          "key": "tags",
           "description": "autocomplete/suggestion tags for the sticker (max 200 characters)",
           "type": {
             "array": false,
@@ -6044,7 +6044,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "username",
+          "key": "username",
           "description": "user's username, if changed may cause the user's discriminator to be randomized.",
           "type": {
             "array": false,
@@ -6057,7 +6057,7 @@
           "nullable": false
         },
         {
-          "name": "avatar",
+          "key": "avatar",
           "description": "if passed, modifies the user's avatar",
           "type": {
             "array": false,
@@ -6094,7 +6094,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "before",
+          "key": "before",
           "description": "get guilds before this guild ID",
           "type": {
             "array": false,
@@ -6107,7 +6107,7 @@
           "nullable": false
         },
         {
-          "name": "after",
+          "key": "after",
           "description": "get guilds after this guild ID",
           "type": {
             "array": false,
@@ -6120,7 +6120,7 @@
           "nullable": false
         },
         {
-          "name": "limit",
+          "key": "limit",
           "description": "max number of guilds to return (1-200)",
           "type": {
             "array": false,
@@ -6195,7 +6195,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "recipient_id",
+          "key": "recipient_id",
           "description": "the recipient to open a DM channel with",
           "type": {
             "array": false,
@@ -6233,7 +6233,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "access_tokens",
+          "key": "access_tokens",
           "description": "access tokens of users that have granted your app the gdm.join scope",
           "type": {
             "array": true,
@@ -6246,7 +6246,7 @@
           "nullable": false
         },
         {
-          "name": "nicks",
+          "key": "nicks",
           "description": "a dictionary of user ids to their respective nicknames",
           "type": {
             "array": false,
@@ -6336,7 +6336,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "name of the webhook (1-80 characters)",
           "type": {
             "array": false,
@@ -6349,7 +6349,7 @@
           "nullable": false
         },
         {
-          "name": "avatar",
+          "key": "avatar",
           "description": "image for the default webhook avatar",
           "type": {
             "array": false,
@@ -6477,7 +6477,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "name",
+          "key": "name",
           "description": "the default name of the webhook",
           "type": {
             "array": false,
@@ -6490,7 +6490,7 @@
           "nullable": false
         },
         {
-          "name": "avatar",
+          "key": "avatar",
           "description": "image for the default webhook avatar",
           "type": {
             "array": false,
@@ -6503,7 +6503,7 @@
           "nullable": true
         },
         {
-          "name": "channel_id",
+          "key": "channel_id",
           "description": "the new channel id this webhook should be moved to",
           "type": {
             "array": false,
@@ -6595,7 +6595,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "wait",
+          "key": "wait",
           "description": "waits for server confirmation of message send before response, and returns the created message body (defaults to false; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
@@ -6608,7 +6608,7 @@
           "nullable": false
         },
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "Send a message to the specified thread within a webhook's channel. The thread will automatically be unarchived.",
           "type": {
             "array": false,
@@ -6628,7 +6628,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "content",
+          "key": "content",
           "description": "the message contents (up to 2000 characters)",
           "type": {
             "array": false,
@@ -6641,7 +6641,7 @@
           "nullable": false
         },
         {
-          "name": "username",
+          "key": "username",
           "description": "override the default username of the webhook",
           "type": {
             "array": false,
@@ -6654,7 +6654,7 @@
           "nullable": false
         },
         {
-          "name": "avatar_url",
+          "key": "avatar_url",
           "description": "override the default avatar of the webhook",
           "type": {
             "array": false,
@@ -6667,7 +6667,7 @@
           "nullable": false
         },
         {
-          "name": "tts",
+          "key": "tts",
           "description": "true if this is a TTS message",
           "type": {
             "array": false,
@@ -6680,7 +6680,7 @@
           "nullable": false
         },
         {
-          "name": "embeds",
+          "key": "embeds",
           "description": "embedded rich content",
           "type": {
             "array": true,
@@ -6693,7 +6693,7 @@
           "nullable": false
         },
         {
-          "name": "allowed_mentions",
+          "key": "allowed_mentions",
           "description": "allowed mentions for the message",
           "type": {
             "array": false,
@@ -6706,7 +6706,7 @@
           "nullable": false
         },
         {
-          "name": "components",
+          "key": "components",
           "description": "the components to include with the message",
           "type": {
             "array": true,
@@ -6719,7 +6719,7 @@
           "nullable": false
         },
         {
-          "name": "files",
+          "key": "files",
           "description": "the contents of the file being sent",
           "type": {
             "array": false,
@@ -6732,7 +6732,7 @@
           "nullable": false
         },
         {
-          "name": "payload_json",
+          "key": "payload_json",
           "description": "JSON encoded body of non-file params",
           "type": {
             "array": false,
@@ -6745,7 +6745,7 @@
           "nullable": false
         },
         {
-          "name": "attachments",
+          "key": "attachments",
           "description": "attachment objects with filename and description",
           "type": {
             "array": true,
@@ -6758,7 +6758,7 @@
           "nullable": false
         },
         {
-          "name": "flags",
+          "key": "flags",
           "description": "message flags combined as a bitfield (only SUPPRESS_EMBEDS can be set)",
           "type": {
             "array": false,
@@ -6796,7 +6796,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "id of the thread to send the message in",
           "type": {
             "array": false,
@@ -6809,7 +6809,7 @@
           "nullable": false
         },
         {
-          "name": "wait",
+          "key": "wait",
           "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
@@ -6847,7 +6847,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "id of the thread to send the message in",
           "type": {
             "array": false,
@@ -6860,7 +6860,7 @@
           "nullable": false
         },
         {
-          "name": "wait",
+          "key": "wait",
           "description": "waits for server confirmation of message send before response (defaults to true; when false a message that is not saved does not return an error)",
           "type": {
             "array": false,
@@ -6902,7 +6902,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "id of the thread the message is in",
           "type": {
             "array": false,
@@ -6952,7 +6952,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "id of the thread the message is in",
           "type": {
             "array": false,
@@ -6972,7 +6972,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "content",
+          "key": "content",
           "description": "the message contents (up to 2000 characters)",
           "type": {
             "array": false,
@@ -6985,7 +6985,7 @@
           "nullable": false
         },
         {
-          "name": "embeds",
+          "key": "embeds",
           "description": "embedded rich content",
           "type": {
             "array": true,
@@ -6998,7 +6998,7 @@
           "nullable": false
         },
         {
-          "name": "allowed_mentions",
+          "key": "allowed_mentions",
           "description": "allowed mentions for the message",
           "type": {
             "array": false,
@@ -7011,7 +7011,7 @@
           "nullable": false
         },
         {
-          "name": "components",
+          "key": "components",
           "description": "the components to include with the message",
           "type": {
             "array": true,
@@ -7024,7 +7024,7 @@
           "nullable": false
         },
         {
-          "name": "files",
+          "key": "files",
           "description": "the contents of the file being sent/edited",
           "type": {
             "array": false,
@@ -7037,7 +7037,7 @@
           "nullable": false
         },
         {
-          "name": "payload_json",
+          "key": "payload_json",
           "description": "JSON encoded body of non-file params (multipart/form-data only)",
           "type": {
             "array": false,
@@ -7050,7 +7050,7 @@
           "nullable": false
         },
         {
-          "name": "attachments",
+          "key": "attachments",
           "description": "attached files to keep and possible descriptions for new files",
           "type": {
             "array": true,
@@ -7092,7 +7092,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "thread_id",
+          "key": "thread_id",
           "description": "id of the thread the message is in",
           "type": {
             "array": false,
@@ -7322,7 +7322,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "url",
+          "key": "url",
           "description": "The WSS URL that can be used for connecting to the gateway",
           "type": {
             "array": false,
@@ -7335,7 +7335,7 @@
           "nullable": false
         },
         {
-          "name": "shards",
+          "key": "shards",
           "description": "The recommended number of shards to use when connecting",
           "type": {
             "array": false,
@@ -7348,7 +7348,7 @@
           "nullable": false
         },
         {
-          "name": "session_start_limit",
+          "key": "session_start_limit",
           "description": "Information on the current session start limit",
           "type": {
             "array": false,
@@ -7423,7 +7423,7 @@
       "type": "structure",
       "properties": [
         {
-          "name": "application",
+          "key": "application",
           "description": "the current application",
           "type": {
             "array": false,
@@ -7436,7 +7436,7 @@
           "nullable": false
         },
         {
-          "name": "scopes",
+          "key": "scopes",
           "description": "the scopes the user has authorized the application for",
           "type": {
             "array": true,
@@ -7449,7 +7449,7 @@
           "nullable": false
         },
         {
-          "name": "expires",
+          "key": "expires",
           "description": "when the access token expires",
           "type": {
             "array": false,
@@ -7462,7 +7462,7 @@
           "nullable": false
         },
         {
-          "name": "user",
+          "key": "user",
           "description": "the user who has authorized, if the user has authorized with the identify scope",
           "type": {
             "array": false,

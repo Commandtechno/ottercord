@@ -1,2 +1,4 @@
-finish rewriting types
-change engines to be context based to remove overlapss
+decide between name and key
+structure properties > props to be consistent with params
+constant properties > values because brain
+fix https://discord.com/developers/docs/topics/gateway#request-guild-members-guild-request-members-structure user_ids registering as Array<snowflake> | Array<snowflake>

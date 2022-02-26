@@ -52,7 +52,7 @@ export function parseLink(link: string) {
 
 // type hierarchy: type field links, description field first token link, type field raw, description field links
 export function parseProperty(row: Row): Property {
-  let name = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
+  let key = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
   let description = row.description && trimText(flattenBlock(row.description));
 
   let array = false;
@@ -100,9 +100,9 @@ export function parseProperty(row: Row): Property {
   }
 
   // deprecated
-  if (isDeprecated(name)) {
+  if (isDeprecated(key)) {
     deprecated = true;
-    name = stripDeprecated(name);
+    key = stripDeprecated(key);
   }
 
   if (isDeprecated(row.type.text)) {
@@ -130,7 +130,7 @@ export function parseProperty(row: Row): Property {
   for (const token of row.type.tokens)
     if (token.type === "link")
       return {
-        name,
+        key,
         description,
 
         type: {
@@ -151,7 +151,7 @@ export function parseProperty(row: Row): Property {
     const [firstToken] = row.description.tokens;
     if (firstToken.type === "link")
       return {
-        name,
+        key,
         description,
 
         type: {
@@ -173,7 +173,7 @@ export function parseProperty(row: Row): Property {
     const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
     if (values.every(value => validTypes.has(value)))
       return {
-        name,
+        key,
         description,
 
         type: values.map(value => ({
@@ -193,7 +193,7 @@ export function parseProperty(row: Row): Property {
   // type field raw
   if (validTypes.has(value))
     return {
-      name,
+      key,
       description,
 
       type: {
@@ -214,7 +214,7 @@ export function parseProperty(row: Row): Property {
     for (const token of row.description.tokens)
       if (token.type === "link")
         return {
-          name,
+          key,
           description,
 
           type: {
@@ -233,7 +233,7 @@ export function parseProperty(row: Row): Property {
   // could not resolve type
   console.log(`Invalid type: ${row.type.text}`);
   return {
-    name,
+    key,
     description,
 
     type: {
