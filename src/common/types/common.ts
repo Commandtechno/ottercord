@@ -1,13 +1,19 @@
 import { marked } from "marked";
 
 export type Row = { [key: string]: marked.Tokens.TableCell };
+export type Tree = string[];
 
-export interface Meta {
+export interface Base {
+  tree: Tree;
+
   name: string;
   description?: string;
 }
 
-export interface Property extends Meta {
+export interface Property {
+  description?: string;
+
+  key: string;
   type: Type | Type[];
 
   optional: boolean;

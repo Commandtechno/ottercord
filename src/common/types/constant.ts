@@ -1,9 +1,12 @@
-import { Meta } from ".";
+import { Base } from ".";
 
-export interface Constant extends Meta {
+export interface Constant extends Base {
   properties: ConstantProperty[];
 }
 
-export interface ConstantProperty extends Meta {
+export interface ConstantProperty {
+  description?: string;
+
+  key: string;
   value: string | number;
 }

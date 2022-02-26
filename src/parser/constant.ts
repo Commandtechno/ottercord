@@ -1,9 +1,11 @@
 import { flattenBlock, formatTable, lastSplit, stripBrackets, stripPlural, trimText } from "./util";
 import { marked } from "marked";
 
-import { Constant, ConstantProperty } from "../common";
+import { Tree, Constant, ConstantProperty } from "../common";
 
 export default class implements Constant {
+  tree: Tree = [];
+
   name: string;
   description?: string;
 
@@ -35,35 +37,35 @@ export default class implements Constant {
 
       const table = formatTable(block);
       this.properties = table.map(row => {
-        let name: string;
+        let key: string;
         let description: string;
         let rawValue: string;
 
         /*
-        name
+        key
         */
 
-        // name can be name or field row
+        // key can be name or field row
         // primary key and next key as a fallback
-        if (!name && row.name) {
-          name = trimText(stripBrackets(flattenBlock(row.name)));
+        if (!key && row.name) {
+          key = trimText(stripBrackets(flattenBlock(row.name)));
           delete row.name;
         }
 
-        if (!name && row.field) {
-          name = trimText(stripBrackets(flattenBlock(row.field)));
+        if (!key && row.field) {
+          key = trimText(stripBrackets(flattenBlock(row.field)));
           delete row.field;
         }
 
-        if (!name && row[primaryKey]) {
-          name = trimText(stripBrackets(flattenBlock(row[primaryKey])));
+        if (!key && row[primaryKey]) {
+          key = trimText(stripBrackets(flattenBlock(row[primaryKey])));
           delete row[primaryKey];
         }
 
-        if (!name) {
+        if (!key) {
           const [firstKey] = Object.keys(row);
           if (firstKey) {
-            name = trimText(stripBrackets(flattenBlock(row[firstKey])));
+            key = trimText(stripBrackets(flattenBlock(row[firstKey])));
             delete row[firstKey];
           }
         }
@@ -115,7 +117,7 @@ export default class implements Constant {
 
         // some constants like features have the same value as name
         if (!rawValue) {
-          rawValue = name;
+          rawValue = key;
         }
 
         let value: string | number;
@@ -131,7 +133,7 @@ export default class implements Constant {
         else value = rawValue;
 
         return {
-          name: stripBrackets(name),
+          key,
           description,
 
           value

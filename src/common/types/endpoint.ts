@@ -1,6 +1,6 @@
-import { Meta, StructureType, Type } from ".";
+import { Base, StructureType, Type } from ".";
 
-export interface Endpoint extends Meta {
+export interface Endpoint extends Base {
   method: string;
   path: string;
   params: EndpointParam[];

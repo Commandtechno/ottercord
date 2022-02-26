@@ -1,3 +1,3 @@
-import { Meta, StructureType } from ".";
+import { Base, StructureType } from ".";
 
-export interface Structure extends Meta, StructureType {}
+export interface Structure extends Base, StructureType {}

@@ -1,46 +1,31 @@
-import { rm, mkdir, readdir, readFile, writeFile } from "fs/promises";
+import { rm, mkdir, readFile } from "fs/promises";
 import { existsSync } from "fs";
 import { resolve } from "path";
-import { execSync } from "child_process";
 
-import { OUTPUT_DIR } from "../common";
+import { Constant, Endpoint, Example, Structure } from "../common";
+
+import { JSON_OUTPUT_DIR, JS_OUTPUT_DIR } from "./constants";
 import { js } from ".";
 
 (async () => {
-  const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
-  const JS_OUTPUT_DIR = resolve(OUTPUT_DIR, "js");
-
   if (existsSync(JS_OUTPUT_DIR)) await rm(JS_OUTPUT_DIR, { recursive: true });
   await mkdir(JS_OUTPUT_DIR, { recursive: true });
 
-  let output = (await readFile(resolve(__dirname, "runtime.ts"), "utf-8")) + "\n\n";
-  let constants = [];
-  let endpoints = [];
-  let structures = [];
+  const constantsPath = resolve(JSON_OUTPUT_DIR, "constants.json");
+  const constants: Constant[] = JSON.parse(await readFile(constantsPath, "utf8"));
 
-  const folders = await readdir(JSON_OUTPUT_DIR);
-  for (const folder of folders) {
-    constants = [
-      ...constants,
-      ...JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "constants.json"), "utf8"))
-    ];
+  const endpointsPath = resolve(JSON_OUTPUT_DIR, "endpoints.json");
+  const endpoints: Endpoint[] = JSON.parse(await readFile(endpointsPath, "utf8"));
 
-    endpoints = [
-      ...endpoints,
-      JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "endpoints.json"), "utf8"))
-    ];
+  const examplesPath = resolve(JSON_OUTPUT_DIR, "examples.json");
+  const examples: Example[] = JSON.parse(await readFile(examplesPath, "utf8"));
 
-    structures = [
-      ...structures,
-      JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, folder, "structures.json"), "utf8"))
-    ];
-  }
+  const structuresPath = resolve(JSON_OUTPUT_DIR, "structures.json");
+  const structures: Structure[] = JSON.parse(await readFile(structuresPath, "utf8"));
 
-  output += await js(links, constants, endpoints, structures);
+  await js({ constants, endpoints, examples, structures });
 
-  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), output);
-
-  const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
+  // const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
   // spawn("node", [tsc, resolve(JS_OUTPUT_DIR, "index.ts"), "--declaration"], {
   //   stdio: "inherit"
   // });

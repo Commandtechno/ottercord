@@ -1,6 +1,6 @@
 import { marked } from "marked";
 
-import { Endpoint, EndpointParam, EndpointRequest, StructureType, Type } from "../common";
+import { Tree, StructureType, Type, Endpoint, EndpointParam, EndpointRequest } from "../common";
 import {
   trimText,
   flattenBlock,
@@ -14,6 +14,8 @@ import {
 } from "./util";
 
 export default class implements Endpoint {
+  tree: Tree = [];
+
   name: string;
   description?: string;
 

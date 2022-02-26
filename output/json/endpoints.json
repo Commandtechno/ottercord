@@ -1,5 +1,22 @@
 [
   {
+    "tree": [
+      "audit-logs-resource",
+      "audit-logs",
+      "audit-log-object",
+      "audit-log-object-audit-log-structure",
+      "audit-log-object-example-partial-integration-object",
+      "audit-log-entry-object",
+      "audit-log-entry-object-audit-log-entry-structure",
+      "audit-log-entry-object-audit-log-events",
+      "audit-log-entry-object-optional-audit-entry-info",
+      "audit-log-change-object",
+      "audit-log-change-object-audit-log-change-structure",
+      "audit-log-change-object-audit-log-change-key",
+      "audit-log-change-object-example-partial-role-object",
+      "get-guild-audit-log",
+      "get-guild-audit-log-query-string-params"
+    ],
     "name": "Get Guild Audit Log",
     "method": "GET",
     "path": "/guilds/{guild.id}/audit-logs",
@@ -76,6 +93,68 @@
     }
   },
   {
+    "tree": [
+      "channels-resource",
+      "channel-object",
+      "channel-object-channel-structure",
+      "channel-object-channel-types",
+      "channel-object-video-quality-modes",
+      "channel-object-example-guild-text-channel",
+      "channel-object-example-guild-news-channel",
+      "channel-object-example-guild-voice-channel",
+      "channel-object-example-dm-channel",
+      "channel-object-example-group-dm-channel",
+      "channel-object-example-channel-category",
+      "channel-object-example-store-channel",
+      "channel-object-example-thread-channel",
+      "message-object",
+      "message-object-message-structure",
+      "message-object-message-types",
+      "message-object-message-activity-structure",
+      "message-object-message-activity-types",
+      "message-object-message-flags",
+      "message-object-example-message",
+      "message-object-example-crossposted-message",
+      "message-reference-object",
+      "message-reference-object-message-reference-structure",
+      "message-types",
+      "message-types-crosspost-messages",
+      "message-types-channel-follow-add-messages",
+      "message-types-pin-messages",
+      "message-types-replies",
+      "message-types-thread-starter-messsage",
+      "followed-channel-object",
+      "followed-channel-object-followed-channel-structure",
+      "reaction-object",
+      "reaction-object-reaction-structure",
+      "overwrite-object",
+      "overwrite-object-overwrite-structure",
+      "thread-metadata-object",
+      "thread-metadata-object-thread-metadata-structure",
+      "thread-member-object",
+      "thread-member-object-thread-member-structure",
+      "embed-object",
+      "embed-object-embed-structure",
+      "embed-object-embed-types",
+      "embed-object-embed-thumbnail-structure",
+      "embed-object-embed-video-structure",
+      "embed-object-embed-image-structure",
+      "embed-object-embed-provider-structure",
+      "embed-object-embed-author-structure",
+      "embed-object-embed-footer-structure",
+      "embed-object-embed-field-structure",
+      "attachment-object",
+      "attachment-object-attachment-structure",
+      "channel-mention-object",
+      "channel-mention-object-channel-mention-structure",
+      "allowed-mentions-object",
+      "allowed-mentions-object-allowed-mention-types",
+      "allowed-mentions-object-allowed-mentions-structure",
+      "allowed-mentions-object-allowed-mentions-reference",
+      "embed-limits",
+      "embed-limits-limits",
+      "get-channel"
+    ],
     "name": "Get Channel",
     "method": "GET",
     "path": "/channels/{channel.id}",
@@ -92,13 +171,15 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    },
-    "tree": [
-      "embed-limits-limits",
-      "get-channel"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-channel",
+      "modify-channel-json-params-(group-dm)",
+      "modify-channel-json-params-(guild-channel)",
+      "modify-channel-json-params-(thread)"
+    ],
     "name": "Modify Channel",
     "method": "PATCH",
     "path": "/channels/{channel.id}",
@@ -411,15 +492,12 @@
           }
         ]
       }
-    ],
-    "tree": [
-      "modify-channel",
-      "modify-channel-json-params-(group-dm)",
-      "modify-channel-json-params-(guild-channel)",
-      "modify-channel-json-params-(thread)"
     ]
   },
   {
+    "tree": [
+      "delete/close-channel"
+    ],
     "name": "Delete/Close Channel",
     "method": "DELETE",
     "path": "/channels/{channel.id}",
@@ -436,12 +514,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    },
-    "tree": [
-      "delete/close-channel"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-channel-messages",
+      "get-channel-messages-query-string-params"
+    ],
     "name": "Get Channel Messages",
     "method": "GET",
     "path": "/channels/{channel.id}/messages",
@@ -515,13 +594,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-channel-messages",
-      "get-channel-messages-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-channel-message"
+    ],
     "name": "Get Channel Message",
     "method": "GET",
     "path": "/channels/{channel.id}/messages/{message.id}",
@@ -535,12 +613,15 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success.",
-    "tree": [
-      "get-channel-message"
-    ]
+    "description": "Returns a specific message in the channel. If operating on a guild channel, this endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Returns a message object on success."
   },
   {
+    "tree": [
+      "create-message",
+      "create-message-limitations",
+      "create-message-json/form-params",
+      "create-message-example-request-body-(application/json)"
+    ],
     "name": "Create Message",
     "method": "POST",
     "path": "/channels/{channel.id}/messages",
@@ -720,15 +801,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-message",
-      "create-message-limitations",
-      "create-message-json/form-params",
-      "create-message-example-request-body-(application/json)"
-    ]
+    }
   },
   {
+    "tree": [
+      "crosspost-message"
+    ],
     "name": "Crosspost Message",
     "method": "POST",
     "path": "/channels/{channel.id}/messages/{message.id}/crosspost",
@@ -749,12 +827,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "message-object"
-    },
-    "tree": [
-      "crosspost-message"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-reaction"
+    ],
     "name": "Create Reaction",
     "method": "PUT",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
@@ -772,12 +850,12 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": [
-      "create-reaction"
-    ]
+    "description": "Create a reaction for the message. This endpoint requires the 'READ_MESSAGE_HISTORY' permission to be present on the current user. Additionally, if nobody else has reacted to the message using this emoji, this endpoint requires the 'ADD_REACTIONS' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
+    "tree": [
+      "delete-own-reaction"
+    ],
     "name": "Delete Own Reaction",
     "method": "DELETE",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/@me",
@@ -795,12 +873,12 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": [
-      "delete-own-reaction"
-    ]
+    "description": "Delete a reaction the current user has made for the message. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
+    "tree": [
+      "delete-user-reaction"
+    ],
     "name": "Delete User Reaction",
     "method": "DELETE",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}/{user.id}",
@@ -822,12 +900,13 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": [
-      "delete-user-reaction"
-    ]
+    "description": "Deletes another user's reaction. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Returns a 204 empty response on success. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
+    "tree": [
+      "get-reactions",
+      "get-reactions-query-string-params"
+    ],
     "name": "Get Reactions",
     "method": "GET",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
@@ -883,13 +962,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-reactions",
-      "get-reactions-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-all-reactions"
+    ],
     "name": "Delete All Reactions",
     "method": "DELETE",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions",
@@ -903,12 +981,12 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event.",
-    "tree": [
-      "delete-all-reactions"
-    ]
+    "description": "Deletes all reactions on a message. This endpoint requires the 'MANAGE_MESSAGES' permission to be present on the current user. Fires a Message Reaction Remove All Gateway event."
   },
   {
+    "tree": [
+      "delete-all-reactions-for-emoji"
+    ],
     "name": "Delete All Reactions for Emoji",
     "method": "DELETE",
     "path": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
@@ -926,12 +1004,13 @@
         "link": "DOCS_RESOURCES_EMOJI/emoji-object"
       }
     ],
-    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id.",
-    "tree": [
-      "delete-all-reactions-for-emoji"
-    ]
+    "description": "Deletes all the reactions for a given emoji on a message. This endpoint requires the MANAGE_MESSAGES permission to be present on the current user. Fires a Message Reaction Remove Emoji Gateway event. The emoji must be URL Encoded or the request will fail with 10014: Unknown Emoji. To use custom emoji, you must encode it in the format name:id with the emoji name and emoji id."
   },
   {
+    "tree": [
+      "edit-message",
+      "edit-message-json/form-params"
+    ],
     "name": "Edit Message",
     "method": "PATCH",
     "path": "/channels/{channel.id}/messages/{message.id}",
@@ -1076,13 +1155,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "edit-message",
-      "edit-message-json/form-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-message"
+    ],
     "name": "Delete Message",
     "method": "DELETE",
     "path": "/channels/{channel.id}/messages/{message.id}",
@@ -1096,12 +1174,13 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event.",
-    "tree": [
-      "delete-message"
-    ]
+    "description": "Delete a message. If operating on a guild channel and trying to delete a message that was not sent by the current user, this endpoint requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success. Fires a Message Delete Gateway event."
   },
   {
+    "tree": [
+      "bulk-delete-messages",
+      "bulk-delete-messages-json-params"
+    ],
     "name": "Bulk Delete Messages",
     "method": "POST",
     "path": "/channels/{channel.id}/messages/bulk-delete",
@@ -1131,13 +1210,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "bulk-delete-messages",
-      "bulk-delete-messages-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "edit-channel-permissions",
+      "edit-channel-permissions-json-params"
+    ],
     "name": "Edit Channel Permissions",
     "method": "PUT",
     "path": "/channels/{channel.id}/permissions/{overwrite.id}",
@@ -1197,13 +1276,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "edit-channel-permissions",
-      "edit-channel-permissions-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-channel-invites"
+    ],
     "name": "Get Channel Invites",
     "method": "GET",
     "path": "/channels/{channel.id}/invites",
@@ -1220,12 +1298,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    },
-    "tree": [
-      "get-channel-invites"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-channel-invite",
+      "create-channel-invite-json-params"
+    ],
     "name": "Create Channel Invite",
     "method": "POST",
     "path": "/channels/{channel.id}/invites",
@@ -1340,13 +1419,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-channel-invite",
-      "create-channel-invite-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-channel-permission"
+    ],
     "name": "Delete Channel Permission",
     "method": "DELETE",
     "path": "/channels/{channel.id}/permissions/{overwrite.id}",
@@ -1360,12 +1438,13 @@
         "link": "DOCS_RESOURCES_CHANNEL/overwrite-object"
       }
     ],
-    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions",
-    "tree": [
-      "delete-channel-permission"
-    ]
+    "description": "Delete a channel permission overwrite for a user or role in a channel. Only usable for guild channels. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. For more information about permissions, see permissions"
   },
   {
+    "tree": [
+      "follow-news-channel",
+      "follow-news-channel-json-params"
+    ],
     "name": "Follow News Channel",
     "method": "POST",
     "path": "/channels/{channel.id}/followers",
@@ -1402,13 +1481,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "follow-news-channel",
-      "follow-news-channel-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "trigger-typing-indicator"
+    ],
     "name": "Trigger Typing Indicator",
     "method": "POST",
     "path": "/channels/{channel.id}/typing",
@@ -1418,12 +1496,12 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event.",
-    "tree": [
-      "trigger-typing-indicator"
-    ]
+    "description": "Post a typing indicator for the specified channel. Generally bots should not implement this route. However, if a bot is responding to a command and expects the computation to take a few seconds, this endpoint may be called to let the user know that the bot is processing their message. Returns a 204 empty response on success. Fires a Typing Start Gateway event."
   },
   {
+    "tree": [
+      "get-pinned-messages"
+    ],
     "name": "Get Pinned Messages",
     "method": "GET",
     "path": "/channels/{channel.id}/pins",
@@ -1440,12 +1518,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "message-object"
-    },
-    "tree": [
-      "get-pinned-messages"
-    ]
+    }
   },
   {
+    "tree": [
+      "pin-message"
+    ],
     "name": "Pin Message",
     "method": "PUT",
     "path": "/channels/{channel.id}/pins/{message.id}",
@@ -1459,12 +1537,12 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
-    "tree": [
-      "pin-message"
-    ]
+    "description": "Pin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
   },
   {
+    "tree": [
+      "unpin-message"
+    ],
     "name": "Unpin Message",
     "method": "DELETE",
     "path": "/channels/{channel.id}/pins/{message.id}",
@@ -1478,12 +1556,13 @@
         "link": "DOCS_RESOURCES_CHANNEL/message-object"
       }
     ],
-    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success.",
-    "tree": [
-      "unpin-message"
-    ]
+    "description": "Unpin a message in a channel. Requires the MANAGE_MESSAGES permission. Returns a 204 empty response on success."
   },
   {
+    "tree": [
+      "group-dm-add-recipient",
+      "group-dm-add-recipient-json-params"
+    ],
     "name": "Group DM Add Recipient",
     "method": "PUT",
     "path": "/channels/{channel.id}/recipients/{user.id}",
@@ -1530,13 +1609,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "group-dm-add-recipient",
-      "group-dm-add-recipient-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "group-dm-remove-recipient"
+    ],
     "name": "Group DM Remove Recipient",
     "method": "DELETE",
     "path": "/channels/{channel.id}/recipients/{user.id}",
@@ -1550,12 +1628,13 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes a recipient from a Group DM.",
-    "tree": [
-      "group-dm-remove-recipient"
-    ]
+    "description": "Removes a recipient from a Group DM."
   },
   {
+    "tree": [
+      "start-thread-with-message",
+      "start-thread-with-message-json-params"
+    ],
     "name": "Start Thread with Message",
     "method": "POST",
     "path": "/channels/{channel.id}/messages/{message.id}/threads",
@@ -1622,13 +1701,13 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "start-thread-with-message",
-      "start-thread-with-message-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "start-thread-without-message",
+      "start-thread-without-message-json-params"
+    ],
     "name": "Start Thread without Message",
     "method": "POST",
     "path": "/channels/{channel.id}/threads",
@@ -1717,13 +1796,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "start-thread-without-message",
-      "start-thread-without-message-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "join-thread"
+    ],
     "name": "Join Thread",
     "method": "PUT",
     "path": "/channels/{channel.id}/thread-members/@me",
@@ -1733,12 +1811,12 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": [
-      "join-thread"
-    ]
+    "description": "Adds the current user to a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
+    "tree": [
+      "add-thread-member"
+    ],
     "name": "Add Thread Member",
     "method": "PUT",
     "path": "/channels/{channel.id}/thread-members/{user.id}",
@@ -1752,12 +1830,12 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event.",
-    "tree": [
-      "add-thread-member"
-    ]
+    "description": "Adds another member to a thread. Requires the ability to send messages in the thread. Also requires the thread is not archived. Returns a 204 empty response if the member is successfully added or was already a member of the thread. Fires a Thread Members Update Gateway event."
   },
   {
+    "tree": [
+      "leave-thread"
+    ],
     "name": "Leave Thread",
     "method": "DELETE",
     "path": "/channels/{channel.id}/thread-members/@me",
@@ -1767,12 +1845,12 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": [
-      "leave-thread"
-    ]
+    "description": "Removes the current user from a thread. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
+    "tree": [
+      "remove-thread-member"
+    ],
     "name": "Remove Thread Member",
     "method": "DELETE",
     "path": "/channels/{channel.id}/thread-members/{user.id}",
@@ -1786,12 +1864,12 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event.",
-    "tree": [
-      "remove-thread-member"
-    ]
+    "description": "Removes another member from a thread. Requires the MANAGE_THREADS permission, or the creator of the thread if it is a GUILD_PRIVATE_THREAD. Also requires the thread is not archived. Returns a 204 empty response on success. Fires a Thread Members Update Gateway event."
   },
   {
+    "tree": [
+      "get-thread-member"
+    ],
     "name": "Get Thread Member",
     "method": "GET",
     "path": "/channels/{channel.id}/thread-members/{user.id}",
@@ -1812,12 +1890,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "thread-member-object"
-    },
-    "tree": [
-      "get-thread-member"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-thread-members"
+    ],
     "name": "List Thread Members",
     "method": "GET",
     "path": "/channels/{channel.id}/thread-members",
@@ -1834,12 +1912,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "thread-member-object"
-    },
-    "tree": [
-      "list-thread-members"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-active-threads",
+      "list-active-threads-response-body"
+    ],
     "name": "List Active Threads",
     "method": "GET",
     "path": "/channels/{channel.id}/threads/active",
@@ -1849,13 +1928,14 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id, in descending order.",
-    "tree": [
-      "list-active-threads",
-      "list-active-threads-response-body"
-    ]
+    "description": "Returns all active threads in the channel, including public and private threads. Threads are ordered by their id, in descending order."
   },
   {
+    "tree": [
+      "list-public-archived-threads",
+      "list-public-archived-threads-query-string-params",
+      "list-public-archived-threads-response-body"
+    ],
     "name": "List Public Archived Threads",
     "method": "GET",
     "path": "/channels/{channel.id}/threads/archived/public",
@@ -1903,14 +1983,14 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "list-public-archived-threads",
-      "list-public-archived-threads-query-string-params",
-      "list-public-archived-threads-response-body"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-private-archived-threads",
+      "list-private-archived-threads-query-string-params",
+      "list-private-archived-threads-response-body"
+    ],
     "name": "List Private Archived Threads",
     "method": "GET",
     "path": "/channels/{channel.id}/threads/archived/private",
@@ -1958,14 +2038,14 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "list-private-archived-threads",
-      "list-private-archived-threads-query-string-params",
-      "list-private-archived-threads-response-body"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-joined-private-archived-threads",
+      "list-joined-private-archived-threads-query-string-params",
+      "list-joined-private-archived-threads-response-body"
+    ],
     "name": "List Joined Private Archived Threads",
     "method": "GET",
     "path": "/channels/{channel.id}/users/@me/threads/archived/private",
@@ -2016,6 +2096,15 @@
     }
   },
   {
+    "tree": [
+      "emoji-resource",
+      "emoji-object",
+      "emoji-object-emoji-structure",
+      "emoji-object-emoji-example",
+      "emoji-object-gateway-reaction-standard-emoji-example",
+      "emoji-object-gateway-reaction-custom-emoji-examples",
+      "list-guild-emojis"
+    ],
     "name": "List Guild Emojis",
     "method": "GET",
     "path": "/guilds/{guild.id}/emojis",
@@ -2032,13 +2121,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "emoji-object"
-    },
-    "tree": [
-      "emoji-object-gateway-reaction-custom-emoji-examples",
-      "list-guild-emojis"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-emoji"
+    ],
     "name": "Get Guild Emoji",
     "method": "GET",
     "path": "/guilds/{guild.id}/emojis/{emoji.id}",
@@ -2059,12 +2147,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "emoji-object"
-    },
-    "tree": [
-      "get-guild-emoji"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-emoji",
+      "create-guild-emoji-json-params"
+    ],
     "name": "Create Guild Emoji",
     "method": "POST",
     "path": "/guilds/{guild.id}/emojis",
@@ -2127,13 +2216,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-emoji",
-      "create-guild-emoji-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-emoji",
+      "modify-guild-emoji-json-params"
+    ],
     "name": "Modify Guild Emoji",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/emojis/{emoji.id}",
@@ -2187,13 +2276,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-guild-emoji",
-      "modify-guild-emoji-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-emoji"
+    ],
     "name": "Delete Guild Emoji",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/emojis/{emoji.id}",
@@ -2210,6 +2298,53 @@
     "description": "Delete the given emoji. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success. Fires a Guild Emojis Update Gateway event."
   },
   {
+    "tree": [
+      "guild-resource",
+      "guild-object",
+      "guild-object-guild-structure",
+      "guild-object-default-message-notification-level",
+      "guild-object-explicit-content-filter-level",
+      "guild-object-mfa-level",
+      "guild-object-verification-level",
+      "guild-object-guild-nsfw-level",
+      "guild-object-premium-tier",
+      "guild-object-system-channel-flags",
+      "guild-object-guild-features",
+      "guild-object-example-guild",
+      "unavailable-guild-object",
+      "unavailable-guild-object-example-unavailable-guild",
+      "guild-preview-object",
+      "guild-preview-object-guild-preview-structure",
+      "guild-preview-object-example-guild-preview",
+      "guild-widget-settings-object",
+      "guild-widget-settings-object-guild-widget-settings-structure",
+      "guild-widget-settings-object-example-guild-widget-settings",
+      "get-guild-widget-object",
+      "get-guild-widget-object-get-guild-widget-structure",
+      "get-guild-widget-object-example-get-guild-widget",
+      "guild-member-object",
+      "guild-member-object-guild-member-structure",
+      "guild-member-object-example-guild-member",
+      "integration-object",
+      "integration-object-integration-structure",
+      "integration-object-integration-expire-behaviors",
+      "integration-account-object",
+      "integration-account-object-integration-account-structure",
+      "integration-application-object",
+      "integration-application-object-integration-application-structure",
+      "ban-object",
+      "ban-object-ban-structure",
+      "ban-object-example-ban",
+      "welcome-screen-object",
+      "welcome-screen-object-welcome-screen-structure",
+      "welcome-screen-object-welcome-screen-channel-structure",
+      "welcome-screen-object-example-welcome-screen",
+      "membership-screening-object",
+      "create-guild",
+      "create-guild-json-params",
+      "create-guild-example-partial-channel-object",
+      "create-guild-example-category-channel"
+    ],
     "name": "Create Guild",
     "method": "POST",
     "path": "/guilds",
@@ -2384,17 +2519,14 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "welcome-screen-object-example-welcome-screen",
-      "membership-screening-object",
-      "create-guild",
-      "create-guild-json-params",
-      "create-guild-example-partial-channel-object",
-      "create-guild-example-category-channel"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild",
+      "get-guild-query-string-params",
+      "get-guild-example-response"
+    ],
     "name": "Get Guild",
     "method": "GET",
     "path": "/guilds/{guild.id}",
@@ -2429,14 +2561,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-guild",
-      "get-guild-query-string-params",
-      "get-guild-example-response"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-preview"
+    ],
     "name": "Get Guild Preview",
     "method": "GET",
     "path": "/guilds/{guild.id}/preview",
@@ -2453,12 +2583,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-preview-object"
-    },
-    "tree": [
-      "get-guild-preview"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild",
+      "modify-guild-json-params"
+    ],
     "name": "Modify Guild",
     "method": "PATCH",
     "path": "/guilds/{guild.id}",
@@ -2742,13 +2873,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-guild",
-      "modify-guild-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild"
+    ],
     "name": "Delete Guild",
     "method": "DELETE",
     "path": "/guilds/{guild.id}",
@@ -2758,12 +2888,12 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event.",
-    "tree": [
-      "delete-guild"
-    ]
+    "description": "Delete a guild permanently. User must be owner. Returns 204 No Content on success. Fires a Guild Delete Gateway event."
   },
   {
+    "tree": [
+      "get-guild-channels"
+    ],
     "name": "Get Guild Channels",
     "method": "GET",
     "path": "/guilds/{guild.id}/channels",
@@ -2780,12 +2910,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "channel-object"
-    },
-    "tree": [
-      "get-guild-channels"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-channel",
+      "create-guild-channel-json-params"
+    ],
     "name": "Create Guild Channel",
     "method": "POST",
     "path": "/guilds/{guild.id}/channels",
@@ -2939,13 +3070,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-channel",
-      "create-guild-channel-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-channel-positions",
+      "modify-guild-channel-positions-json-params"
+    ],
     "name": "Modify Guild Channel Positions",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/channels",
@@ -3014,13 +3145,13 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-guild-channel-positions",
-      "modify-guild-channel-positions-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-active-threads",
+      "list-active-threads-response-body"
+    ],
     "name": "List Active Threads",
     "method": "GET",
     "path": "/guilds/{guild.id}/threads/active",
@@ -3030,13 +3161,12 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order.",
-    "tree": [
-      "list-active-threads",
-      "list-active-threads-response-body"
-    ]
+    "description": "Returns all active threads in the guild, including public and private threads. Threads are ordered by their id, in descending order."
   },
   {
+    "tree": [
+      "get-guild-member"
+    ],
     "name": "Get Guild Member",
     "method": "GET",
     "path": "/guilds/{guild.id}/members/{user.id}",
@@ -3057,12 +3187,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-member-object"
-    },
-    "tree": [
-      "get-guild-member"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-guild-members",
+      "list-guild-members-query-string-params"
+    ],
     "name": "List Guild Members",
     "method": "GET",
     "path": "/guilds/{guild.id}/members",
@@ -3110,13 +3241,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "list-guild-members",
-      "list-guild-members-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "search-guild-members",
+      "search-guild-members-query-string-params"
+    ],
     "name": "Search Guild Members",
     "method": "GET",
     "path": "/guilds/{guild.id}/members/search",
@@ -3164,13 +3295,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "search-guild-members",
-      "search-guild-members-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "add-guild-member",
+      "add-guild-member-json-params"
+    ],
     "name": "Add Guild Member",
     "method": "PUT",
     "path": "/guilds/{guild.id}/members/{user.id}",
@@ -3263,13 +3394,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "add-guild-member",
-      "add-guild-member-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-member",
+      "modify-guild-member-json-params"
+    ],
     "name": "Modify Guild Member",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/members/{user.id}",
@@ -3375,13 +3506,13 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-guild-member",
-      "modify-guild-member-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-current-member",
+      "modify-current-member-json-params"
+    ],
     "name": "Modify Current Member",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/members/@me",
@@ -3411,13 +3542,13 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-current-member",
-      "modify-current-member-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-current-user-nick",
+      "modify-current-user-nick-json-params"
+    ],
     "name": "Modify Current User Nick",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/members/@me/nick",
@@ -3447,13 +3578,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-current-user-nick",
-      "modify-current-user-nick-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "add-guild-member-role"
+    ],
     "name": "Add Guild Member Role",
     "method": "PUT",
     "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
@@ -3471,12 +3601,12 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-    "tree": [
-      "add-guild-member-role"
-    ]
+    "description": "Adds a role to a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
   },
   {
+    "tree": [
+      "remove-guild-member-role"
+    ],
     "name": "Remove Guild Member Role",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/members/{user.id}/roles/{role.id}",
@@ -3494,12 +3624,12 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event.",
-    "tree": [
-      "remove-guild-member-role"
-    ]
+    "description": "Removes a role from a guild member. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Member Update Gateway event."
   },
   {
+    "tree": [
+      "remove-guild-member"
+    ],
     "name": "Remove Guild Member",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/members/{user.id}",
@@ -3513,12 +3643,12 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event.",
-    "tree": [
-      "remove-guild-member"
-    ]
+    "description": "Remove a member from a guild. Requires KICK_MEMBERS permission. Returns a 204 empty response on success. Fires a Guild Member Remove Gateway event."
   },
   {
+    "tree": [
+      "get-guild-bans"
+    ],
     "name": "Get Guild Bans",
     "method": "GET",
     "path": "/guilds/{guild.id}/bans",
@@ -3535,12 +3665,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "ban-object"
-    },
-    "tree": [
-      "get-guild-bans"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-ban"
+    ],
     "name": "Get Guild Ban",
     "method": "GET",
     "path": "/guilds/{guild.id}/bans/{user.id}",
@@ -3561,12 +3691,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "ban-object"
-    },
-    "tree": [
-      "get-guild-ban"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-ban",
+      "create-guild-ban-json-params"
+    ],
     "name": "Create Guild Ban",
     "method": "PUT",
     "path": "/guilds/{guild.id}/bans/{user.id}",
@@ -3613,13 +3744,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-ban",
-      "create-guild-ban-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "remove-guild-ban"
+    ],
     "name": "Remove Guild Ban",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/bans/{user.id}",
@@ -3633,12 +3763,12 @@
         "link": "DOCS_RESOURCES_USER/user-object"
       }
     ],
-    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event.",
-    "tree": [
-      "remove-guild-ban"
-    ]
+    "description": "Remove the ban for a user. Requires the BAN_MEMBERS permissions. Returns a 204 empty response on success. Fires a Guild Ban Remove Gateway event."
   },
   {
+    "tree": [
+      "get-guild-roles"
+    ],
     "name": "Get Guild Roles",
     "method": "GET",
     "path": "/guilds/{guild.id}/roles",
@@ -3655,12 +3785,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "role-object"
-    },
-    "tree": [
-      "get-guild-roles"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-role",
+      "create-guild-role-json-params"
+    ],
     "name": "Create Guild Role",
     "method": "POST",
     "path": "/guilds/{guild.id}/roles",
@@ -3775,13 +3906,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-role",
-      "create-guild-role-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-role-positions",
+      "modify-guild-role-positions-json-params"
+    ],
     "name": "Modify Guild Role Positions",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/roles",
@@ -3831,13 +3962,13 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-guild-role-positions",
-      "modify-guild-role-positions-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-role",
+      "modify-guild-role-json-params"
+    ],
     "name": "Modify Guild Role",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/roles/{role.id}",
@@ -3956,13 +4087,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-guild-role",
-      "modify-guild-role-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-role"
+    ],
     "name": "Delete Guild Role",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/roles/{role.id}",
@@ -3976,12 +4106,13 @@
         "link": "DOCS_TOPICS_PERMISSIONS/role-object"
       }
     ],
-    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event.",
-    "tree": [
-      "delete-guild-role"
-    ]
+    "description": "Delete a guild role. Requires the MANAGE_ROLES permission. Returns a 204 empty response on success. Fires a Guild Role Delete Gateway event."
   },
   {
+    "tree": [
+      "get-guild-prune-count",
+      "get-guild-prune-count-query-string-params"
+    ],
     "name": "Get Guild Prune Count",
     "method": "GET",
     "path": "/guilds/{guild.id}/prune",
@@ -4022,13 +4153,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-guild-prune-count",
-      "get-guild-prune-count-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "begin-guild-prune",
+      "begin-guild-prune-json-params"
+    ],
     "name": "Begin Guild Prune",
     "method": "POST",
     "path": "/guilds/{guild.id}/prune",
@@ -4097,13 +4228,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "begin-guild-prune",
-      "begin-guild-prune-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-voice-regions"
+    ],
     "name": "Get Guild Voice Regions",
     "method": "GET",
     "path": "/guilds/{guild.id}/regions",
@@ -4120,12 +4250,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "voice-region-object"
-    },
-    "tree": [
-      "get-guild-voice-regions"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-invites"
+    ],
     "name": "Get Guild Invites",
     "method": "GET",
     "path": "/guilds/{guild.id}/invites",
@@ -4142,12 +4272,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    },
-    "tree": [
-      "get-guild-invites"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-integrations"
+    ],
     "name": "Get Guild Integrations",
     "method": "GET",
     "path": "/guilds/{guild.id}/integrations",
@@ -4164,12 +4294,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "integration-object"
-    },
-    "tree": [
-      "get-guild-integrations"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-integration"
+    ],
     "name": "Delete Guild Integration",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/integrations/{integration.id}",
@@ -4183,12 +4313,12 @@
         "link": "DOCS_RESOURCES_GUILD/integration-object"
       }
     ],
-    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event.",
-    "tree": [
-      "delete-guild-integration"
-    ]
+    "description": "Delete the attached integration object for the guild. Deletes any associated webhooks and kicks the associated bot if there is one. Requires the MANAGE_GUILD permission. Returns a 204 empty response on success. Fires a Guild Integrations Update Gateway event."
   },
   {
+    "tree": [
+      "get-guild-widget-settings"
+    ],
     "name": "Get Guild Widget Settings",
     "method": "GET",
     "path": "/guilds/{guild.id}/widget",
@@ -4205,12 +4335,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-widget-settings-object"
-    },
-    "tree": [
-      "get-guild-widget-settings"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-widget"
+    ],
     "name": "Modify Guild Widget",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/widget",
@@ -4227,12 +4357,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-widget-settings-object"
-    },
-    "tree": [
-      "modify-guild-widget"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-widget"
+    ],
     "name": "Get Guild Widget",
     "method": "GET",
     "path": "/guilds/{guild.id}/widget.json",
@@ -4249,12 +4379,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "get-guild-widget-object"
-    },
-    "tree": [
-      "get-guild-widget"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-vanity-url",
+      "get-guild-vanity-url-example-partial-invite-object"
+    ],
     "name": "Get Guild Vanity URL",
     "method": "GET",
     "path": "/guilds/{guild.id}/vanity-url",
@@ -4271,13 +4402,14 @@
       "deprecated": false,
       "type": "reference",
       "link": "invite-object"
-    },
-    "tree": [
-      "get-guild-vanity-url",
-      "get-guild-vanity-url-example-partial-invite-object"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-widget-image",
+      "get-guild-widget-image-query-string-params",
+      "get-guild-widget-image-widget-style-options"
+    ],
     "name": "Get Guild Widget Image",
     "method": "GET",
     "path": "/guilds/{guild.id}/widget.png",
@@ -4305,14 +4437,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-guild-widget-image",
-      "get-guild-widget-image-query-string-params",
-      "get-guild-widget-image-widget-style-options"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-welcome-screen"
+    ],
     "name": "Get Guild Welcome Screen",
     "method": "GET",
     "path": "/guilds/{guild.id}/welcome-screen",
@@ -4329,12 +4459,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "welcome-screen-object"
-    },
-    "tree": [
-      "get-guild-welcome-screen"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-welcome-screen",
+      "modify-guild-welcome-screen-json-params"
+    ],
     "name": "Modify Guild Welcome Screen",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/welcome-screen",
@@ -4397,13 +4528,14 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-guild-welcome-screen",
-      "modify-guild-welcome-screen-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-current-user-voice-state",
+      "modify-current-user-voice-state-json-params",
+      "modify-current-user-voice-state-caveats"
+    ],
     "name": "Modify Current User Voice State",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/voice-states/@me",
@@ -4459,14 +4591,14 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-current-user-voice-state",
-      "modify-current-user-voice-state-json-params",
-      "modify-current-user-voice-state-caveats"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-user-voice-state",
+      "modify-user-voice-state-json-params",
+      "modify-user-voice-state-caveats"
+    ],
     "name": "Modify User Voice State",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/voice-states/{user.id}",
@@ -4516,6 +4648,21 @@
     }
   },
   {
+    "tree": [
+      "guild-scheduled-event",
+      "guild-scheduled-event-object",
+      "guild-scheduled-event-object-guild-scheduled-event-structure",
+      "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+      "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+      "guild-scheduled-event-object-field-requirements-by-entity-type",
+      "guild-scheduled-event-object-guild-scheduled-event-status",
+      "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions",
+      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+      "guild-scheduled-event-user-object",
+      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
+      "list-scheduled-events-for-guild",
+      "list-scheduled-events-for-guild-query-string-params"
+    ],
     "name": "List Scheduled Events for Guild",
     "method": "GET",
     "path": "/guilds/{guild.id}/scheduled-events",
@@ -4550,14 +4697,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
-      "list-scheduled-events-for-guild",
-      "list-scheduled-events-for-guild-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-scheduled-event",
+      "create-guild-scheduled-event-json-params"
+    ],
     "name": "Create Guild Scheduled Event",
     "method": "POST",
     "path": "/guilds/{guild.id}/scheduled-events",
@@ -4698,13 +4844,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-scheduled-event",
-      "create-guild-scheduled-event-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-scheduled-event",
+      "get-guild-scheduled-event-query-string-params"
+    ],
     "name": "Get Guild Scheduled Event",
     "method": "GET",
     "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
@@ -4743,13 +4889,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-guild-scheduled-event",
-      "get-guild-scheduled-event-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-scheduled-event",
+      "modify-guild-scheduled-event-json-params"
+    ],
     "name": "Modify Guild Scheduled Event",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
@@ -4907,13 +5053,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-guild-scheduled-event",
-      "modify-guild-scheduled-event-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-scheduled-event"
+    ],
     "name": "Delete Guild Scheduled Event",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}",
@@ -4927,12 +5072,29 @@
         "link": "DOCS_RESOURCES_GUILD_SCHEDULED_EVENT/guild-scheduled-event-object"
       }
     ],
-    "description": "Delete a guild scheduled event. Returns a 204 on success.",
-    "tree": [
-      "delete-guild-scheduled-event"
-    ]
+    "description": "Delete a guild scheduled event. Returns a 204 on success."
   },
   {
+    "tree": [
+      "get-guild-scheduled-event-users",
+      "get-guild-scheduled-event-users-query-string-params",
+      "guild-scheduled-event-status-update-automation",
+      "an-active-scheduled-event-for-a-stage-channel-where-all-users-have-left-the-stage-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+      "an-active-scheduled-event-for-a-voice-channel-where-all-users-have-left-the-voice-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+      "an-external-event-will-automatically-begin-at-its-scheduled-start-time",
+      "an-external-event-will-automatically-end-at-its-scheduled-end-time",
+      "any-scheduled-event-which-has-not-begun-after-its-scheduled-start-time-will-be-automatically-cancelled-after-a-few-hours",
+      "guild-scheduled-event-permissions-requirements",
+      "permissions-to-create-an-event-with-entity_type:-stage_instance",
+      "write-permissions-(create-/-update)",
+      "read-permissions-(get)",
+      "permissions-to-create-an-event-with-entity_type:-voice",
+      "write-permissions-(create-/-update)",
+      "read-permissions-(get)",
+      "permissions-to-create-an-event-with-entity_type:-external",
+      "write-permissions-(create-/-update)",
+      "read-permissions-(get)"
+    ],
     "name": "Get Guild Scheduled Event Users",
     "method": "GET",
     "path": "/guilds/{guild.id}/scheduled-events/{guild_scheduled_event.id}/users",
@@ -5013,6 +5175,13 @@
     }
   },
   {
+    "tree": [
+      "guild-template-resource",
+      "guild-template-object",
+      "guild-template-object-guild-template-structure",
+      "guild-template-object-example-guild-template-object",
+      "get-guild-template"
+    ],
     "name": "Get Guild Template",
     "method": "GET",
     "path": "/guilds/templates/{template.code}",
@@ -5029,13 +5198,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    },
-    "tree": [
-      "guild-template-object-example-guild-template-object",
-      "get-guild-template"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-from-guild-template",
+      "create-guild-from-guild-template-json-params"
+    ],
     "name": "Create Guild from Guild Template",
     "method": "POST",
     "path": "/guilds/templates/{template.code}",
@@ -5085,13 +5254,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-from-guild-template",
-      "create-guild-from-guild-template-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-templates"
+    ],
     "name": "Get Guild Templates",
     "method": "GET",
     "path": "/guilds/{guild.id}/templates",
@@ -5108,12 +5276,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    },
-    "tree": [
-      "get-guild-templates"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-template",
+      "create-guild-template-json-params"
+    ],
     "name": "Create Guild Template",
     "method": "POST",
     "path": "/guilds/{guild.id}/templates",
@@ -5163,13 +5332,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "create-guild-template",
-      "create-guild-template-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "sync-guild-template"
+    ],
     "name": "Sync Guild Template",
     "method": "PUT",
     "path": "/guilds/{guild.id}/templates/{template.code}",
@@ -5190,12 +5358,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-template-object"
-    },
-    "tree": [
-      "sync-guild-template"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-template",
+      "modify-guild-template-json-params"
+    ],
     "name": "Modify Guild Template",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/templates/{template.code}",
@@ -5249,13 +5418,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-guild-template",
-      "modify-guild-template-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-template"
+    ],
     "name": "Delete Guild Template",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/templates/{template.code}",
@@ -5279,6 +5447,21 @@
     }
   },
   {
+    "tree": [
+      "invite-resource",
+      "invite-object",
+      "invite-object-invite-structure",
+      "invite-object-invite-target-types",
+      "invite-object-example-invite-object",
+      "invite-metadata-object",
+      "invite-metadata-object-invite-metadata-structure",
+      "invite-metadata-object-example-invite-metadata",
+      "invite-stage-instance-object",
+      "invite-stage-instance-object-invite-stage-instance-structure",
+      "invite-stage-instance-object-example-invite-stage-instance",
+      "get-invite",
+      "get-invite-query-string-params"
+    ],
     "name": "Get Invite",
     "method": "GET",
     "path": "/invites/{invite.code}",
@@ -5339,14 +5522,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "invite-stage-instance-object-example-invite-stage-instance",
-      "get-invite",
-      "get-invite-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-invite"
+    ],
     "name": "Delete Invite",
     "method": "DELETE",
     "path": "/invites/{invite.code}",
@@ -5366,6 +5547,17 @@
     }
   },
   {
+    "tree": [
+      "stage-instance-resource",
+      "stage-instance-object",
+      "stage-instance-object-stage-instance-structure",
+      "stage-instance-object-privacy-level",
+      "stage-instance-object-example-stage-instance",
+      "definitions",
+      "auto-closing",
+      "create-stage-instance",
+      "create-stage-instance-json-params"
+    ],
     "name": "Create Stage Instance",
     "method": "POST",
     "path": "/stage-instances",
@@ -5416,16 +5608,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "stage-instance-object-example-stage-instance",
-      "definitions",
-      "auto-closing",
-      "create-stage-instance",
-      "create-stage-instance-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-stage-instance"
+    ],
     "name": "Get Stage Instance",
     "method": "GET",
     "path": "/stage-instances/{channel.id}",
@@ -5435,12 +5623,13 @@
         "link": "DOCS_RESOURCES_CHANNEL/channel-object"
       }
     ],
-    "description": "Gets the stage instance associated with the Stage channel, if it exists.",
-    "tree": [
-      "get-stage-instance"
-    ]
+    "description": "Gets the stage instance associated with the Stage channel, if it exists."
   },
   {
+    "tree": [
+      "modify-stage-instance",
+      "modify-stage-instance-json-params"
+    ],
     "name": "Modify Stage Instance",
     "method": "PATCH",
     "path": "/stage-instances/{channel.id}",
@@ -5483,13 +5672,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-stage-instance",
-      "modify-stage-instance-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-stage-instance"
+    ],
     "name": "Delete Stage Instance",
     "method": "DELETE",
     "path": "/stage-instances/{channel.id}",
@@ -5502,6 +5690,20 @@
     "description": "Deletes the Stage instance."
   },
   {
+    "tree": [
+      "sticker-resource",
+      "sticker-object",
+      "sticker-object-sticker-structure",
+      "sticker-object-sticker-types",
+      "sticker-object-sticker-format-types",
+      "sticker-object-example-sticker",
+      "sticker-item-object",
+      "sticker-item-object-sticker-item-structure",
+      "sticker-pack-object",
+      "sticker-pack-object-sticker-pack-structure",
+      "sticker-pack-object-example-sticker-pack",
+      "get-sticker"
+    ],
     "name": "Get Sticker",
     "method": "GET",
     "path": "/stickers/{sticker.id}",
@@ -5518,13 +5720,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "sticker-object"
-    },
-    "tree": [
-      "sticker-pack-object-example-sticker-pack",
-      "get-sticker"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-nitro-sticker-packs",
+      "list-nitro-sticker-packs-response-structure"
+    ],
     "name": "List Nitro Sticker Packs",
     "method": "GET",
     "path": "/sticker-packs",
@@ -5546,13 +5748,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "list-nitro-sticker-packs",
-      "list-nitro-sticker-packs-response-structure"
-    ]
+    }
   },
   {
+    "tree": [
+      "list-guild-stickers"
+    ],
     "name": "List Guild Stickers",
     "method": "GET",
     "path": "/guilds/{guild.id}/stickers",
@@ -5569,12 +5770,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "sticker-object"
-    },
-    "tree": [
-      "list-guild-stickers"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-sticker"
+    ],
     "name": "Get Guild Sticker",
     "method": "GET",
     "path": "/guilds/{guild.id}/stickers/{sticker.id}",
@@ -5595,12 +5796,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "sticker-object"
-    },
-    "tree": [
-      "get-guild-sticker"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-guild-sticker",
+      "create-guild-sticker-form-params"
+    ],
     "name": "Create Guild Sticker",
     "method": "POST",
     "path": "/guilds/{guild.id}/stickers",
@@ -5676,13 +5878,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-guild-sticker",
-      "create-guild-sticker-form-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-guild-sticker",
+      "modify-guild-sticker-json-params"
+    ],
     "name": "Modify Guild Sticker",
     "method": "PATCH",
     "path": "/guilds/{guild.id}/stickers/{sticker.id}",
@@ -5749,13 +5951,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-guild-sticker",
-      "modify-guild-sticker-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-guild-sticker"
+    ],
     "name": "Delete Guild Sticker",
     "method": "DELETE",
     "path": "/guilds/{guild.id}/stickers/{sticker.id}",
@@ -5772,6 +5973,19 @@
     "description": "Delete the given sticker. Requires the MANAGE_EMOJIS_AND_STICKERS permission. Returns 204 No Content on success."
   },
   {
+    "tree": [
+      "users-resource",
+      "usernames-and-nicknames",
+      "user-object",
+      "user-object-user-structure",
+      "user-object-example-user",
+      "user-object-user-flags",
+      "user-object-premium-types",
+      "connection-object",
+      "connection-object-connection-structure",
+      "connection-object-visibility-types",
+      "get-current-user"
+    ],
     "name": "Get Current User",
     "method": "GET",
     "path": "/users/@me",
@@ -5783,13 +5997,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "user-object"
-    },
-    "tree": [
-      "connection-object-visibility-types",
-      "get-current-user"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-user"
+    ],
     "name": "Get User",
     "method": "GET",
     "path": "/users/{user.id}",
@@ -5806,12 +6019,13 @@
       "deprecated": false,
       "type": "reference",
       "link": "user-object"
-    },
-    "tree": [
-      "get-user"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-current-user",
+      "modify-current-user-json-params"
+    ],
     "name": "Modify Current User",
     "method": "PATCH",
     "path": "/users/@me",
@@ -5856,13 +6070,14 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "modify-current-user",
-      "modify-current-user-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-current-user-guilds",
+      "get-current-user-guilds-example-partial-guild",
+      "get-current-user-guilds-query-string-params"
+    ],
     "name": "Get Current User Guilds",
     "method": "GET",
     "path": "/users/@me/guilds",
@@ -5918,14 +6133,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-current-user-guilds",
-      "get-current-user-guilds-example-partial-guild",
-      "get-current-user-guilds-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-current-user-guild-member"
+    ],
     "name": "Get Current User Guild Member",
     "method": "GET",
     "path": "/users/@me/guilds/{guild.id}/member",
@@ -5942,12 +6155,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "guild-member-object"
-    },
-    "tree": [
-      "get-current-user-guild-member"
-    ]
+    }
   },
   {
+    "tree": [
+      "leave-guild"
+    ],
     "name": "Leave Guild",
     "method": "DELETE",
     "path": "/users/@me/guilds/{guild.id}",
@@ -5957,12 +6170,13 @@
         "link": "DOCS_RESOURCES_GUILD/guild-object"
       }
     ],
-    "description": "Leave a guild. Returns a 204 empty response on success.",
-    "tree": [
-      "leave-guild"
-    ]
+    "description": "Leave a guild. Returns a 204 empty response on success."
   },
   {
+    "tree": [
+      "create-dm",
+      "create-dm-json-params"
+    ],
     "name": "Create DM",
     "method": "POST",
     "path": "/users/@me/channels",
@@ -5994,13 +6208,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-dm",
-      "create-dm-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "create-group-dm",
+      "create-group-dm-json-params"
+    ],
     "name": "Create Group DM",
     "method": "POST",
     "path": "/users/@me/channels",
@@ -6045,13 +6259,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "create-group-dm",
-      "create-group-dm-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-user-connections"
+    ],
     "name": "Get User Connections",
     "method": "GET",
     "path": "/users/@me/connections",
@@ -6066,6 +6279,15 @@
     }
   },
   {
+    "tree": [
+      "voice-resource",
+      "voice-state-object",
+      "voice-state-object-voice-state-structure",
+      "voice-state-object-example-voice-state",
+      "voice-region-object",
+      "voice-region-object-voice-region-structure",
+      "list-voice-regions"
+    ],
     "name": "List Voice Regions",
     "method": "GET",
     "path": "/voice/regions",
@@ -6080,6 +6302,17 @@
     }
   },
   {
+    "tree": [
+      "webhook-resource",
+      "webhook-object",
+      "webhook-object-webhook-structure",
+      "webhook-object-webhook-types",
+      "webhook-object-example-incoming-webhook",
+      "webhook-object-example-channel-follower-webhook",
+      "webhook-object-example-application-webhook",
+      "create-webhook",
+      "create-webhook-json-params"
+    ],
     "name": "Create Webhook",
     "method": "POST",
     "path": "/channels/{channel.id}/webhooks",
@@ -6129,14 +6362,12 @@
           "nullable": true
         }
       ]
-    },
-    "tree": [
-      "webhook-object-example-application-webhook",
-      "create-webhook",
-      "create-webhook-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-channel-webhooks"
+    ],
     "name": "Get Channel Webhooks",
     "method": "GET",
     "path": "/channels/{channel.id}/webhooks",
@@ -6153,12 +6384,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    },
-    "tree": [
-      "get-channel-webhooks"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-guild-webhooks"
+    ],
     "name": "Get Guild Webhooks",
     "method": "GET",
     "path": "/guilds/{guild.id}/webhooks",
@@ -6175,12 +6406,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    },
-    "tree": [
-      "get-guild-webhooks"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-webhook"
+    ],
     "name": "Get Webhook",
     "method": "GET",
     "path": "/webhooks/{webhook.id}",
@@ -6197,12 +6428,12 @@
       "deprecated": false,
       "type": "reference",
       "link": "webhook-object"
-    },
-    "tree": [
-      "get-webhook"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-webhook-with-token"
+    ],
     "name": "Get Webhook with Token",
     "method": "GET",
     "path": "/webhooks/{webhook.id}/{webhook.token}",
@@ -6216,12 +6447,13 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object.",
-    "tree": [
-      "get-webhook-with-token"
-    ]
+    "description": "Same as above, except this call does not require authentication and returns no user in the webhook object."
   },
   {
+    "tree": [
+      "modify-webhook",
+      "modify-webhook-json-params"
+    ],
     "name": "Modify Webhook",
     "method": "PATCH",
     "path": "/webhooks/{webhook.id}",
@@ -6284,13 +6516,12 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "modify-webhook",
-      "modify-webhook-json-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "modify-webhook-with-token"
+    ],
     "name": "Modify Webhook with Token",
     "method": "PATCH",
     "path": "/webhooks/{webhook.id}/{webhook.token}",
@@ -6304,12 +6535,12 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object.",
-    "tree": [
-      "modify-webhook-with-token"
-    ]
+    "description": "Same as above, except this call does not require authentication, does not accept a channel_id parameter in the body, and does not return a user in the webhook object."
   },
   {
+    "tree": [
+      "delete-webhook"
+    ],
     "name": "Delete Webhook",
     "method": "DELETE",
     "path": "/webhooks/{webhook.id}",
@@ -6319,12 +6550,12 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success.",
-    "tree": [
-      "delete-webhook"
-    ]
+    "description": "Delete a webhook permanently. Requires the MANAGE_WEBHOOKS permission. Returns a 204 No Content response on success."
   },
   {
+    "tree": [
+      "delete-webhook-with-token"
+    ],
     "name": "Delete Webhook with Token",
     "method": "DELETE",
     "path": "/webhooks/{webhook.id}/{webhook.token}",
@@ -6338,12 +6569,14 @@
         "link": "DOCS_RESOURCES_WEBHOOK/webhook-object"
       }
     ],
-    "description": "Same as above, except this call does not require authentication.",
-    "tree": [
-      "delete-webhook-with-token"
-    ]
+    "description": "Same as above, except this call does not require authentication."
   },
   {
+    "tree": [
+      "execute-webhook",
+      "execute-webhook-query-string-params",
+      "execute-webhook-json/form-params"
+    ],
     "name": "Execute Webhook",
     "method": "POST",
     "path": "/webhooks/{webhook.id}/{webhook.token}",
@@ -6538,14 +6771,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "execute-webhook",
-      "execute-webhook-query-string-params",
-      "execute-webhook-json/form-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "execute-slack-compatible-webhook",
+      "execute-slack-compatible-webhook-query-string-params"
+    ],
     "name": "Execute Slack-Compatible Webhook",
     "method": "POST",
     "path": "/webhooks/{webhook.id}/{webhook.token}/slack",
@@ -6590,13 +6822,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "execute-slack-compatible-webhook",
-      "execute-slack-compatible-webhook-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "execute-github-compatible-webhook",
+      "execute-github-compatible-webhook-query-string-params"
+    ],
     "name": "Execute GitHub-Compatible Webhook",
     "method": "POST",
     "path": "/webhooks/{webhook.id}/{webhook.token}/github",
@@ -6641,13 +6873,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "execute-github-compatible-webhook",
-      "execute-github-compatible-webhook-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-webhook-message",
+      "get-webhook-message-query-string-params"
+    ],
     "name": "Get Webhook Message",
     "method": "GET",
     "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
@@ -6683,13 +6915,14 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "get-webhook-message",
-      "get-webhook-message-query-string-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "edit-webhook-message",
+      "edit-webhook-message-query-string-params",
+      "edit-webhook-message-json/form-params"
+    ],
     "name": "Edit Webhook Message",
     "method": "PATCH",
     "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
@@ -6830,14 +7063,13 @@
           "nullable": false
         }
       ]
-    },
-    "tree": [
-      "edit-webhook-message",
-      "edit-webhook-message-query-string-params",
-      "edit-webhook-message-json/form-params"
-    ]
+    }
   },
   {
+    "tree": [
+      "delete-webhook-message",
+      "delete-webhook-message-query-string-params"
+    ],
     "name": "Delete Webhook Message",
     "method": "DELETE",
     "path": "/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}",
@@ -6876,6 +7108,190 @@
     }
   },
   {
+    "tree": [
+      "gateways",
+      "gateways-gateway-versions",
+      "payloads",
+      "payloads-gateway-payload-structure",
+      "sending-payloads",
+      "sending-payloads-example-gateway-dispatch",
+      "receiving-payloads",
+      "encoding-and-compression",
+      "etf/json",
+      "etf/json-using-etf",
+      "payload-compression",
+      "transport-compression",
+      "transport-compression-transport-compression-example",
+      "connecting-to-the-gateway",
+      "connecting",
+      "connecting-gateway-url-query-string-params",
+      "connecting-example-gateway-hello",
+      "heartbeating",
+      "heartbeating-example-gateway-heartbeat-ack",
+      "identifying",
+      "identifying-example-gateway-identify",
+      "resuming",
+      "resuming-example-gateway-resume",
+      "disconnections",
+      "gateway-intents",
+      "list-of-intents",
+      "caveats",
+      "privileged-intents",
+      "rate-limiting",
+      "tracking-state",
+      "guild-availability",
+      "sharding",
+      "sharding-sharding-formula",
+      "sharding-max-concurrency",
+      "sharding-for-very-large-bots",
+      "commands-and-events",
+      "commands-and-events-gateway-commands",
+      "commands-and-events-gateway-events",
+      "event-names",
+      "identify",
+      "identify-identify-structure",
+      "identify-identify-connection-properties",
+      "identify-example-identify",
+      "resume",
+      "resume-resume-structure",
+      "resume-example-resume",
+      "heartbeat",
+      "heartbeat-example-heartbeat",
+      "request-guild-members",
+      "request-guild-members-guild-request-members-structure",
+      "request-guild-members-guild-request-members",
+      "update-voice-state",
+      "update-voice-state-gateway-voice-state-update-structure",
+      "update-voice-state-example-gateway-voice-state-update",
+      "update-presence",
+      "update-presence-gateway-presence-update-structure",
+      "update-presence-status-types",
+      "update-presence-example-gateway-presence-update",
+      "connecting-and-resuming",
+      "hello",
+      "hello-hello-structure",
+      "hello-example-hello",
+      "ready",
+      "ready-ready-event-fields",
+      "resumed",
+      "reconnect",
+      "reconnect-example-gateway-reconnect",
+      "invalid-session",
+      "invalid-session-example-gateway-invalid-session",
+      "channels",
+      "channel-create",
+      "channel-update",
+      "channel-delete",
+      "thread-create",
+      "thread-update",
+      "thread-delete",
+      "thread-list-sync",
+      "thread-list-sync-thread-list-sync-event-fields",
+      "thread-member-update",
+      "thread-member-update-thread-member-update-event-extra-fields",
+      "thread-members-update",
+      "thread-members-update-thread-members-update-event-fields",
+      "channel-pins-update",
+      "channel-pins-update-channel-pins-update-event-fields",
+      "guilds",
+      "guild-create",
+      "guild-update",
+      "guild-delete",
+      "guild-ban-add",
+      "guild-ban-add-guild-ban-add-event-fields",
+      "guild-ban-remove",
+      "guild-ban-remove-guild-ban-remove-event-fields",
+      "guild-emojis-update",
+      "guild-emojis-update-guild-emojis-update-event-fields",
+      "guild-stickers-update",
+      "guild-stickers-update-guild-stickers-update-event-fields",
+      "guild-integrations-update",
+      "guild-integrations-update-guild-integrations-update-event-fields",
+      "guild-member-add",
+      "guild-member-add-guild-member-add-extra-fields",
+      "guild-member-remove",
+      "guild-member-remove-guild-member-remove-event-fields",
+      "guild-member-update",
+      "guild-member-update-guild-member-update-event-fields",
+      "guild-members-chunk",
+      "guild-members-chunk-guild-members-chunk-event-fields",
+      "guild-role-create",
+      "guild-role-create-guild-role-create-event-fields",
+      "guild-role-update",
+      "guild-role-update-guild-role-update-event-fields",
+      "guild-role-delete",
+      "guild-role-delete-guild-role-delete-event-fields",
+      "guild-scheduled-event-create",
+      "guild-scheduled-event-update",
+      "guild-scheduled-event-delete",
+      "guild-scheduled-event-user-add",
+      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
+      "guild-scheduled-event-user-remove",
+      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
+      "integrations",
+      "integration-create",
+      "integration-create-integration-create-event-additional-fields",
+      "integration-update",
+      "integration-update-integration-update-event-additional-fields",
+      "integration-delete",
+      "integration-delete-integration-delete-event-fields",
+      "invites",
+      "invite-create",
+      "invite-create-invite-create-event-fields",
+      "invite-delete",
+      "invite-delete-invite-delete-event-fields",
+      "messages",
+      "message-create",
+      "message-update",
+      "message-delete",
+      "message-delete-message-delete-event-fields",
+      "message-delete-bulk",
+      "message-delete-bulk-message-delete-bulk-event-fields",
+      "message-reaction-add",
+      "message-reaction-add-message-reaction-add-event-fields",
+      "message-reaction-remove",
+      "message-reaction-remove-message-reaction-remove-event-fields",
+      "message-reaction-remove-all",
+      "message-reaction-remove-all-message-reaction-remove-all-event-fields",
+      "message-reaction-remove-emoji",
+      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
+      "presence",
+      "presence-update",
+      "presence-update-presence-update-event-fields",
+      "client-status-object",
+      "activity-object",
+      "activity-object-activity-structure",
+      "activity-object-activity-types",
+      "activity-object-activity-timestamps",
+      "activity-object-activity-emoji",
+      "activity-object-activity-party",
+      "activity-object-activity-assets",
+      "activity-object-activity-asset-image",
+      "activity-object-activity-secrets",
+      "activity-object-activity-flags",
+      "activity-object-activity-buttons",
+      "activity-object-example-activity",
+      "activity-object-example-activity-with-rich-presence",
+      "typing-start",
+      "typing-start-typing-start-event-fields",
+      "user-update",
+      "voice",
+      "voice-state-update",
+      "voice-server-update",
+      "voice-server-update-voice-server-update-event-fields",
+      "voice-server-update-example-voice-server-update-payload",
+      "webhooks",
+      "webhooks-update",
+      "webhooks-update-webhooks-update-event-fields",
+      "interactions",
+      "interaction-create",
+      "stage-instances",
+      "stage-instance-create",
+      "stage-instance-update",
+      "stage-instance-delete",
+      "get-gateway",
+      "get-gateway-example-response"
+    ],
     "name": "Get Gateway",
     "method": "GET",
     "path": "/gateway",
@@ -6887,20 +7303,16 @@
       "deprecated": false,
       "type": "reference",
       "link": "connecting"
-    },
-    "tree": [
-      "webhooks-update-webhooks-update-event-fields",
-      "interactions",
-      "interaction-create",
-      "stage-instances",
-      "stage-instance-create",
-      "stage-instance-update",
-      "stage-instance-delete",
-      "get-gateway",
-      "get-gateway-example-response"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-gateway-bot",
+      "get-gateway-bot-json-response",
+      "get-gateway-bot-example-response",
+      "session-start-limit-object",
+      "session-start-limit-object-session-start-limit-structure"
+    ],
     "name": "Get Gateway Bot",
     "method": "GET",
     "path": "/gateway/bot",
@@ -6952,6 +7364,37 @@
     }
   },
   {
+    "tree": [
+      "oauth2",
+      "shared-resources",
+      "shared-resources-oauth2-urls",
+      "shared-resources-oauth2-scopes",
+      "state-and-security",
+      "authorization-code-grant",
+      "authorization-code-grant-authorization-url-example",
+      "authorization-code-grant-redirect-url-example",
+      "authorization-code-grant-access-token-exchange-example",
+      "authorization-code-grant-access-token-response",
+      "authorization-code-grant-refresh-token-exchange-example",
+      "implicit-grant",
+      "implicit-grant-authorization-url-example",
+      "implicit-grant-redirect-url-example",
+      "client-credentials-grant",
+      "client-credentials-grant-client-credentials-token-request-example",
+      "client-credentials-grant-client-credentials-access-token-response",
+      "bots",
+      "bot-vs-user-accounts",
+      "bot-authorization-flow",
+      "bot-authorization-flow-bot-auth-parameters",
+      "bot-authorization-flow-url-example",
+      "advanced-bot-authorization",
+      "advanced-bot-authorization-extended-bot-authorization-access-token-example",
+      "two-factor-authentication-requirement",
+      "webhooks",
+      "webhooks-url-example",
+      "webhooks-webhook-token-response-example",
+      "get-current-bot-application-information"
+    ],
     "name": "Get Current Bot Application Information",
     "method": "GET",
     "path": "/oauth2/applications/@me",
@@ -6963,14 +7406,14 @@
       "deprecated": false,
       "type": "reference",
       "link": "application-object"
-    },
-    "tree": [
-      "webhooks-url-example",
-      "webhooks-webhook-token-response-example",
-      "get-current-bot-application-information"
-    ]
+    }
   },
   {
+    "tree": [
+      "get-current-authorization-information",
+      "get-current-authorization-information-response-structure",
+      "get-current-authorization-information-example-authorization-information"
+    ],
     "name": "Get Current Authorization Information",
     "method": "GET",
     "path": "/oauth2/@me",

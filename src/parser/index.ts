@@ -1,4 +1,4 @@
-import { DOCS_DIR } from "../common";
+import { DOCS_DIR, Tree } from "../common";
 
 import { readFile } from "fs/promises";
 import { resolve } from "path";
@@ -19,15 +19,57 @@ export async function parse(...pathSegments: string[]) {
   const structures: Structure[] = [];
   const constants: Constant[] = [];
 
-  let endpointTree: string[] = [];
-  let exampleTree: string[] = [];
-  let structureTree: string[] = [];
-  let constantTree: string[] = [];
+  let endpointTree: Tree = [];
+  let exampleTree: Tree = [];
+  let structureTree: Tree = [];
+  let constantTree: Tree = [];
 
   let endpoint: Endpoint;
   let example: Example;
   let structure: Structure;
   let constant: Constant;
+
+  function addEndpoint() {
+    if (endpoint?.ready) {
+      endpoint.tree = endpointTree;
+      endpoints.push(endpoint);
+
+      // note tree is unique per type so there wont be 2 endpoints with the same link in the tree but there might be a structure with the same link
+      // this is because there are a bunch of links and resolving them separately is a lot more accruate
+      endpointTree = [];
+      endpoint = undefined;
+    }
+  }
+
+  function addExample() {
+    if (example?.ready) {
+      example.tree = exampleTree;
+      examples.push(example);
+
+      exampleTree = [];
+      example = undefined;
+    }
+  }
+
+  function addStructure() {
+    if (structure?.ready) {
+      structure.tree = structureTree;
+      structures.push(structure);
+
+      structureTree = [];
+      structure = undefined;
+    }
+  }
+
+  function addConstant() {
+    if (constant?.ready) {
+      constant.tree = constantTree;
+      constants.push(constant);
+
+      constantTree = [];
+      constant = undefined;
+    }
+  }
 
   let parent = "";
   for (const block of page) {
@@ -40,160 +82,95 @@ export async function parse(...pathSegments: string[]) {
       } else link = parent + anchor;
     }
 
-    // temporary switch algorithm
-    try {
-      const newEndpoint = new Endpoint(block);
-      if (endpoint?.ready) {
-        endpoint.tree = endpointTree;
-        endpointTree = [];
-        exampleTree = [];
-        structureTree = [];
-        constantTree = [];
-
-        endpoints.push(endpoint);
-        endpoint = undefined;
+    function addLink() {
+      if (link) {
+        endpointTree.push(link);
+        exampleTree.push(link);
+        structureTree.push(link);
+        constantTree.push(link);
       }
+    }
 
+    // same rules goes for every engine im just lazy and dont want to copy them all
+    // creating a new endpoint will throw a string if it is invalid
+    try {
+      // basically if it can create a new endpoint, it is a new endpoint
+      const newEndpoint = new Endpoint(block);
+      // it will not get here if its not a valid endpoint
+      // if the last one is done, add it
+      addEndpoint();
+      // set the new endpoint
       endpoint = newEndpoint;
-    } catch (e) {
+    } catch (err) {
+      // if a string was not a thrown (an actual error)
+      if (typeof err !== "string") console.error(err);
+      // if one currently exists then process the next block
       if (endpoint) {
         endpoint.process(block);
+        // if its finished which means the next loop will be a new endpoint then skip the other ones
         if (endpoint.ready) {
-          if (link) {
-            endpointTree.push(link);
-            exampleTree.push(link);
-            structureTree.push(link);
-            constantTree.push(link);
-          }
-
+          // add the link to the trees before skipping the next ones
+          addLink();
           continue;
         }
       }
-
-      if (typeof e !== "string") console.log(e);
     }
 
     try {
       const newExample = new Example(block);
-      if (example?.ready) {
-        example.tree = exampleTree;
-        endpointTree = [];
-        exampleTree = [];
-        structureTree = [];
-        constantTree = [];
 
-        examples.push(example);
-        example = undefined;
-      }
-
+      addExample();
       example = newExample;
-    } catch (e) {
+    } catch (err) {
+      if (typeof err !== "string") console.error(err);
       if (example) {
         example.process(block);
         if (example.ready) {
-          if (link) {
-            endpointTree.push(link);
-            exampleTree.push(link);
-            structureTree.push(link);
-            constantTree.push(link);
-          }
-
+          addLink();
           continue;
         }
       }
-
-      if (typeof e !== "string") console.log(e);
     }
 
     try {
       const newStructure = new Structure(block);
-      if (structure?.ready) {
-        structure.tree = structureTree;
-        endpointTree = [];
-        exampleTree = [];
-        structureTree = [];
-        constantTree = [];
 
-        structures.push(structure);
-        structure = undefined;
-      }
-
+      addStructure();
       structure = newStructure;
-    } catch (e) {
+    } catch (err) {
+      if (typeof err !== "string") console.error(err);
       if (structure) {
         structure.process(block);
         if (structure.ready) {
-          // doesnt work, change
-          // example: role-object
-          if (link) {
-            endpointTree.push(link);
-            exampleTree.push(link);
-            structureTree.push(link);
-            constantTree.push(link);
-          }
-
+          addLink();
           continue;
         }
       }
-
-      if (typeof e !== "string") console.log(e);
     }
 
     try {
       const newConstant = new Constant(block);
-      if (constant?.ready) {
-        constant.tree = constantTree;
-        endpointTree = [];
-        exampleTree = [];
-        structureTree = [];
-        constantTree = [];
 
-        constants.push(constant);
-        constant = undefined;
-      }
-
+      addConstant();
       constant = newConstant;
-    } catch (e) {
+    } catch (err) {
+      if (typeof err !== "string") console.error(err);
       if (constant) {
         constant.process(block);
         if (constant.ready) {
-          if (link) {
-            endpointTree.push(link);
-            exampleTree.push(link);
-            structureTree.push(link);
-            constantTree.push(link);
-          }
-
+          addLink();
           continue;
         }
       }
-
-      if (typeof e !== "string") console.log(e);
     }
 
-    if (link) {
-      endpointTree.push(link);
-      exampleTree.push(link);
-      structureTree.push(link);
-      constantTree.push(link);
-    }
+    addLink();
   }
 
-  if (endpoint?.ready) {
-    endpoints.push(endpoint);
-  }
-
-  if (example?.ready) {
-    examples.push(example);
-  }
-
-  if (structure?.ready) {
-    structures.push(structure);
-  }
-
-  if (constant?.ready) {
-    constants.push(constant);
-  }
+  addEndpoint();
+  addExample();
+  addStructure();
+  addConstant();
 
   return { endpoints, examples, structures, constants };
 }

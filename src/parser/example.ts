@@ -1,12 +1,14 @@
-import { formatTable, parseProperty } from "./util";
 import { marked } from "marked";
 
-import { Property, Example } from "../common";
+import { Tree, Example } from "../common";
 
 export default class implements Example {
+  tree: Tree = [];
+
   name: string;
   description?: string;
 
+  language: string;
   content: string;
 
   get ready() {
@@ -24,11 +26,13 @@ export default class implements Example {
   process(block: marked.Token) {
     switch (block.type) {
       case "code":
-        try {
-          this.content = JSON.parse(block.text);
-        } catch {
-          // console.log(this.name, block.lang);
-        }
+        // try {
+        //   this.content = JSON.parse(block.text);
+        // } catch {
+        //   // console.log(this.name, block.lang);
+        // }
+        this.language = block.lang;
+        this.content = block.text;
     }
   }
 }

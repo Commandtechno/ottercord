@@ -1,9 +1,11 @@
 import { formatTable, parseProperty } from "./util";
 import { marked } from "marked";
 
-import { Property, Structure } from "../common";
+import { Property, Structure, Tree } from "../common";
 
 export default class implements Structure {
+  tree: Tree = [];
+
   name: string;
   description?: string;
 
