@@ -24,66 +24,49 @@ export async function parse(...pathSegments: string[]) {
   let structure: Structure;
   let constant: Constant;
 
-  let endpointTree: Tree = [];
-  let exampleTree: Tree = [];
-  let structureTree: Tree = [];
-  let constantTree: Tree = [];
+  let tree: Tree = [];
+  let parent = "";
 
   function addEndpoint() {
     if (endpoint?.ready) {
-      endpoint.tree = endpointTree;
-      endpoints.push(endpoint);
+      endpoint.tree = tree;
+      tree = [];
 
-      // note tree is unique per type so there wont be 2 endpoints with the same link in the tree but there might be a structure with the same link
-      // this is because there are a bunch of links and resolving them separately is a lot more accruate
-      endpointTree = [];
-      exampleTree = [];
-      structureTree = [];
-      constantTree = [];
+      endpoints.push(endpoint);
       endpoint = undefined;
     }
   }
 
   function addExample() {
     if (example?.ready) {
-      example.tree = exampleTree;
-      examples.push(example);
+      example.tree = tree;
+      tree = [];
 
-      endpointTree = [];
-      exampleTree = [];
-      structureTree = [];
-      constantTree = [];
+      examples.push(example);
       example = undefined;
     }
   }
 
   function addStructure() {
     if (structure?.ready) {
-      structure.tree = structureTree;
-      structures.push(structure);
+      structure.tree = tree;
+      tree = [];
 
-      endpointTree = [];
-      exampleTree = [];
-      structureTree = [];
-      constantTree = [];
+      structures.push(structure);
       structure = undefined;
     }
   }
 
   function addConstant() {
     if (constant?.ready) {
-      constant.tree = constantTree;
-      constants.push(constant);
+      constant.tree = tree;
+      tree = [];
 
-      endpointTree = [];
-      exampleTree = [];
-      structureTree = [];
-      constantTree = [];
+      constants.push(constant);
       constant = undefined;
     }
   }
 
-  let parent = "";
   for (const block of page) {
     let link: string;
     if (block.type === "heading") {
@@ -95,12 +78,7 @@ export async function parse(...pathSegments: string[]) {
     }
 
     function addLink() {
-      if (link) {
-        endpointTree.push(link);
-        exampleTree.push(link);
-        structureTree.push(link);
-        constantTree.push(link);
-      }
+      if (link) tree.push(link);
     }
 
     // same rules goes for every engine im just lazy and dont want to copy them all
@@ -110,6 +88,7 @@ export async function parse(...pathSegments: string[]) {
       const newEndpoint = new Endpoint(block);
       // it will not get here if its not a valid endpoint
       // if the last one is done, add it
+      addLink();
       addEndpoint();
       // set the new endpoint
       endpoint = newEndpoint;
@@ -131,7 +110,9 @@ export async function parse(...pathSegments: string[]) {
     try {
       const newExample = new Example(block);
 
+      // addLink();
       addExample();
+
       example = newExample;
     } catch (err) {
       if (typeof err !== "string") console.error(err);
@@ -147,7 +128,9 @@ export async function parse(...pathSegments: string[]) {
     try {
       const newStructure = new Structure(block);
 
+      // addLink();
       addStructure();
+
       structure = newStructure;
     } catch (err) {
       if (typeof err !== "string") console.error(err);
@@ -163,7 +146,9 @@ export async function parse(...pathSegments: string[]) {
     try {
       const newConstant = new Constant(block);
 
+      addLink();
       addConstant();
+
       constant = newConstant;
     } catch (err) {
       if (typeof err !== "string") console.error(err);

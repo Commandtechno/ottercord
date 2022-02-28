@@ -864,7 +864,6 @@
     "tree": [
       "integration-object-integration-expire-behaviors",
       "integration-account-object",
-      "integration-account-object",
       "integration-account-object-integration-account-structure"
     ],
     "name": "Integration Expire Behaviors",
@@ -1126,7 +1125,6 @@
     "tree": [
       "user-object-premium-types",
       "connection-object",
-      "connection-object",
       "connection-object-connection-structure"
     ],
     "name": "Premium Types",
@@ -1189,12 +1187,8 @@
   {
     "tree": [
       "certified-devices",
-      "certified-devices",
-      "how's-it-work?",
       "how's-it-work?",
       "connecting",
-      "connecting",
-      "connecting-query-string-params",
       "connecting-query-string-params",
       "connecting-http"
     ],
@@ -1238,26 +1232,15 @@
   {
     "tree": [
       "community-resources",
-      "community-resources",
-      "discord-developers",
       "discord-developers",
       "libraries",
-      "libraries",
-      "libraries-discord-libraries",
       "libraries-discord-libraries",
       "interactions",
-      "interactions",
-      "game-sdk-tools",
       "game-sdk-tools",
       "dispatch-tools",
-      "dispatch-tools",
-      "permission-calculators",
       "permission-calculators",
       "intent-calculators",
-      "intent-calculators",
       "embed-visualizer",
-      "embed-visualizer",
-      "api-types",
       "api-types"
     ],
     "name": "Discord Libraries",
@@ -1444,10 +1427,7 @@
   {
     "tree": [
       "gateways",
-      "gateways",
       "gateways-gateway-versions",
-      "gateways-gateway-versions",
-      "payloads",
       "payloads",
       "payloads-gateway-payload-structure"
     ],
@@ -1523,8 +1503,6 @@
     "tree": [
       "commands-and-events-gateway-events",
       "event-names",
-      "event-names",
-      "identify",
       "identify",
       "identify-identify-structure"
     ],
@@ -1955,10 +1933,7 @@
   {
     "tree": [
       "oauth2",
-      "oauth2",
       "shared-resources",
-      "shared-resources",
-      "shared-resources-oauth2-urls",
       "shared-resources-oauth2-urls",
       "shared-resources-oauth2-scopes"
     ],
@@ -1985,8 +1960,6 @@
     "tree": [
       "shared-resources-oauth2-scopes",
       "state-and-security",
-      "state-and-security",
-      "authorization-code-grant",
       "authorization-code-grant",
       "authorization-code-grant-authorization-url-example"
     ],
@@ -2152,10 +2125,7 @@
   {
     "tree": [
       "opcodes-and-status-codes",
-      "opcodes-and-status-codes",
       "gateway",
-      "gateway",
-      "gateway-gateway-opcodes",
       "gateway-gateway-opcodes",
       "gateway-gateway-close-event-codes"
     ],
@@ -2221,7 +2191,6 @@
   {
     "tree": [
       "gateway-gateway-close-event-codes",
-      "voice",
       "voice",
       "voice-voice-opcodes"
     ],
@@ -2368,7 +2337,6 @@
     "tree": [
       "voice-voice-close-event-codes",
       "http",
-      "http",
       "http-http-response-codes"
     ],
     "name": "Voice Close Event Codes",
@@ -2439,7 +2407,6 @@
   {
     "tree": [
       "http-http-response-codes",
-      "json",
       "json",
       "json-example-json-error-response"
     ],
@@ -2624,7 +2591,9 @@
     ]
   },
   {
-    "tree": [],
+    "tree": [
+      "role-object-role-structure"
+    ],
     "name": "Bitwise Permission Flags",
     "properties": [
       {
@@ -2838,12 +2807,8 @@
   {
     "tree": [
       "rpc",
-      "rpc",
-      "rpc-rpc-versions",
       "rpc-rpc-versions",
       "restrictions",
-      "restrictions",
-      "payloads",
       "payloads",
       "payloads-payload-structure"
     ],
@@ -2964,7 +2929,6 @@
   {
     "tree": [
       "commands-and-events-rpc-events",
-      "authorize",
       "authorize",
       "authorize-authorize-argument-structure"
     ],
@@ -3197,14 +3161,9 @@
   {
     "tree": [
       "voice",
-      "voice",
-      "voice-gateway-versioning",
       "voice-gateway-versioning",
       "voice-gateway-versioning-gateway-versions",
-      "voice-gateway-versioning-gateway-versions",
       "connecting-to-voice",
-      "connecting-to-voice",
-      "retrieving-voice-server-information",
       "retrieving-voice-server-information",
       "retrieving-voice-server-information-gateway-voice-state-update-example"
     ],

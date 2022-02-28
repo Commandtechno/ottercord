@@ -1,8 +1,7 @@
 [
   {
     "tree": [
-      "application-object-example-application-object",
-      "application-object-application-flags"
+      "application-object-example-application-object"
     ],
     "name": "Example Application Object",
     "language": "json",
@@ -11,9 +10,7 @@
   {
     "tree": [
       "audit-log-object-example-partial-integration-object",
-      "audit-log-entry-object",
-      "audit-log-entry-object",
-      "audit-log-entry-object-audit-log-entry-structure"
+      "audit-log-entry-object"
     ],
     "name": "Example Partial Integration Object",
     "language": "json",
@@ -27,8 +24,7 @@
   },
   {
     "tree": [
-      "channel-object-example-guild-text-channel",
-      "channel-object-example-guild-news-channel"
+      "channel-object-example-guild-text-channel"
     ],
     "name": "Example Guild Text Channel",
     "language": "json",
@@ -36,8 +32,7 @@
   },
   {
     "tree": [
-      "channel-object-example-guild-news-channel",
-      "channel-object-example-guild-voice-channel"
+      "channel-object-example-guild-news-channel"
     ],
     "name": "Example Guild News Channel",
     "language": "json",
@@ -45,8 +40,7 @@
   },
   {
     "tree": [
-      "channel-object-example-guild-voice-channel",
-      "channel-object-example-dm-channel"
+      "channel-object-example-guild-voice-channel"
     ],
     "name": "Example Guild Voice Channel",
     "language": "json",
@@ -54,8 +48,7 @@
   },
   {
     "tree": [
-      "channel-object-example-dm-channel",
-      "channel-object-example-group-dm-channel"
+      "channel-object-example-dm-channel"
     ],
     "name": "Example DM Channel",
     "language": "json",
@@ -63,8 +56,7 @@
   },
   {
     "tree": [
-      "channel-object-example-group-dm-channel",
-      "channel-object-example-channel-category"
+      "channel-object-example-group-dm-channel"
     ],
     "name": "Example Group DM Channel",
     "language": "json",
@@ -72,8 +64,7 @@
   },
   {
     "tree": [
-      "channel-object-example-channel-category",
-      "channel-object-example-store-channel"
+      "channel-object-example-channel-category"
     ],
     "name": "Example Channel Category",
     "language": "json",
@@ -81,8 +72,7 @@
   },
   {
     "tree": [
-      "channel-object-example-store-channel",
-      "channel-object-example-thread-channel"
+      "channel-object-example-store-channel"
     ],
     "name": "Example Store Channel",
     "language": "json",
@@ -91,9 +81,7 @@
   {
     "tree": [
       "channel-object-example-thread-channel",
-      "message-object",
-      "message-object",
-      "message-object-message-structure"
+      "message-object"
     ],
     "name": "Example Thread Channel",
     "language": "json",
@@ -101,8 +89,7 @@
   },
   {
     "tree": [
-      "message-object-example-message",
-      "message-object-example-crossposted-message"
+      "message-object-example-message"
     ],
     "name": "Example Message",
     "language": "json",
@@ -111,9 +98,7 @@
   {
     "tree": [
       "message-object-example-crossposted-message",
-      "message-reference-object",
-      "message-reference-object",
-      "message-reference-object-message-reference-structure"
+      "message-reference-object"
     ],
     "name": "Example Crossposted Message",
     "language": "json",
@@ -122,9 +107,7 @@
   {
     "tree": [
       "allowed-mentions-object-allowed-mentions-reference",
-      "embed-limits",
-      "embed-limits",
-      "embed-limits-limits"
+      "embed-limits"
     ],
     "name": "Allowed Mentions Reference",
     "language": "json",
@@ -132,8 +115,7 @@
   },
   {
     "tree": [
-      "emoji-object-emoji-example",
-      "emoji-object-gateway-reaction-standard-emoji-example"
+      "emoji-object-emoji-example"
     ],
     "name": "Emoji Example",
     "language": "json",
@@ -141,8 +123,7 @@
   },
   {
     "tree": [
-      "emoji-object-gateway-reaction-standard-emoji-example",
-      "emoji-object-gateway-reaction-custom-emoji-examples"
+      "emoji-object-gateway-reaction-standard-emoji-example"
     ],
     "name": "Gateway Reaction Standard Emoji Example",
     "language": "json",
@@ -157,9 +138,7 @@
   {
     "tree": [
       "guild-object-example-guild",
-      "unavailable-guild-object",
-      "unavailable-guild-object",
-      "unavailable-guild-object-example-unavailable-guild"
+      "unavailable-guild-object"
     ],
     "name": "Example Guild",
     "language": "json",
@@ -168,9 +147,7 @@
   {
     "tree": [
       "unavailable-guild-object-example-unavailable-guild",
-      "guild-preview-object",
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure"
+      "guild-preview-object"
     ],
     "name": "Example Unavailable Guild",
     "language": "json",
@@ -179,9 +156,7 @@
   {
     "tree": [
       "guild-preview-object-example-guild-preview",
-      "guild-widget-settings-object",
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure"
+      "guild-widget-settings-object"
     ],
     "name": "Example Guild Preview",
     "language": "json",
@@ -190,9 +165,7 @@
   {
     "tree": [
       "guild-widget-settings-object-example-guild-widget-settings",
-      "get-guild-widget-object",
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure"
+      "get-guild-widget-object"
     ],
     "name": "Example Guild Widget Settings",
     "language": "json",
@@ -201,9 +174,7 @@
   {
     "tree": [
       "get-guild-widget-object-example-get-guild-widget",
-      "guild-member-object",
-      "guild-member-object",
-      "guild-member-object-guild-member-structure"
+      "guild-member-object"
     ],
     "name": "Example Get Guild Widget",
     "language": "json",
@@ -212,9 +183,7 @@
   {
     "tree": [
       "guild-member-object-example-guild-member",
-      "integration-object",
-      "integration-object",
-      "integration-object-integration-structure"
+      "integration-object"
     ],
     "name": "Example Guild Member",
     "language": "json",
@@ -223,9 +192,7 @@
   {
     "tree": [
       "ban-object-example-ban",
-      "welcome-screen-object",
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure"
+      "welcome-screen-object"
     ],
     "name": "Example Ban",
     "language": "json",
@@ -246,9 +213,7 @@
   {
     "tree": [
       "invite-object-example-invite-object",
-      "invite-metadata-object",
-      "invite-metadata-object",
-      "invite-metadata-object-invite-metadata-structure"
+      "invite-metadata-object"
     ],
     "name": "Example Invite Object",
     "language": "json",
@@ -257,9 +222,7 @@
   {
     "tree": [
       "invite-metadata-object-example-invite-metadata",
-      "invite-stage-instance-object",
-      "invite-stage-instance-object",
-      "invite-stage-instance-object-invite-stage-instance-structure"
+      "invite-stage-instance-object"
     ],
     "name": "Example Invite Metadata",
     "language": "json",
@@ -280,9 +243,7 @@
   {
     "tree": [
       "sticker-object-example-sticker",
-      "sticker-item-object",
-      "sticker-item-object",
-      "sticker-item-object-sticker-item-structure"
+      "sticker-item-object"
     ],
     "name": "Example Sticker",
     "language": "json",
@@ -296,8 +257,7 @@
   },
   {
     "tree": [
-      "user-object-example-user",
-      "user-object-user-flags"
+      "user-object-example-user"
     ],
     "name": "Example User",
     "language": "json",
@@ -306,9 +266,7 @@
   {
     "tree": [
       "voice-state-object-example-voice-state",
-      "voice-region-object",
-      "voice-region-object",
-      "voice-region-object-voice-region-structure"
+      "voice-region-object"
     ],
     "name": "Example Voice State",
     "language": "json",
@@ -316,8 +274,7 @@
   },
   {
     "tree": [
-      "webhook-object-example-incoming-webhook",
-      "webhook-object-example-channel-follower-webhook"
+      "webhook-object-example-incoming-webhook"
     ],
     "name": "Example Incoming Webhook",
     "language": "json",
@@ -325,8 +282,7 @@
   },
   {
     "tree": [
-      "webhook-object-example-channel-follower-webhook",
-      "webhook-object-example-application-webhook"
+      "webhook-object-example-channel-follower-webhook"
     ],
     "name": "Example Channel Follower Webhook",
     "language": "json",
@@ -340,8 +296,7 @@
   },
   {
     "tree": [
-      "connecting-http",
-      "connecting-websocket"
+      "connecting-http"
     ],
     "name": "HTTP",
     "language": "",
@@ -350,9 +305,7 @@
   {
     "tree": [
       "connecting-websocket",
-      "getting-device-uuid",
-      "getting-device-uuid",
-      "getting-device-uuid-microphone-id-example"
+      "getting-device-uuid"
     ],
     "name": "WebSocket",
     "language": "",
@@ -360,8 +313,7 @@
   },
   {
     "tree": [
-      "getting-device-uuid-microphone-id-example",
-      "getting-device-uuid-speaker-id-example"
+      "getting-device-uuid-microphone-id-example"
     ],
     "name": "Microphone Id Example",
     "language": "cpp",
@@ -370,9 +322,7 @@
   {
     "tree": [
       "getting-device-uuid-speaker-id-example",
-      "http-example",
-      "http-example",
-      "http-example-http-request-example"
+      "http-example"
     ],
     "name": "Speaker Id Example",
     "language": "cpp",
@@ -380,8 +330,7 @@
   },
   {
     "tree": [
-      "http-example-http-request-example",
-      "http-example-http-response-example"
+      "http-example-http-request-example"
     ],
     "name": "HTTP Request Example",
     "language": "",
@@ -390,9 +339,7 @@
   {
     "tree": [
       "http-example-http-response-example",
-      "websocket-example",
-      "websocket-example",
-      "websocket-example-rpc-command-example"
+      "websocket-example"
     ],
     "name": "HTTP Response Example",
     "language": "json",
@@ -400,8 +347,7 @@
   },
   {
     "tree": [
-      "websocket-example-rpc-command-example",
-      "websocket-example-rpc-response-example"
+      "websocket-example-rpc-command-example"
     ],
     "name": "RPC Command Example",
     "language": "json",
@@ -410,9 +356,7 @@
   {
     "tree": [
       "websocket-example-rpc-response-example",
-      "models",
-      "models",
-      "models-device-object"
+      "models"
     ],
     "name": "RPC Response Example",
     "language": "json",
@@ -422,18 +366,11 @@
     "tree": [
       "sending-payloads-example-gateway-dispatch",
       "receiving-payloads",
-      "receiving-payloads",
-      "encoding-and-compression",
       "encoding-and-compression",
       "etf/json",
-      "etf/json",
-      "etf/json-using-etf",
       "etf/json-using-etf",
       "payload-compression",
-      "payload-compression",
-      "transport-compression",
-      "transport-compression",
-      "transport-compression-transport-compression-example"
+      "transport-compression"
     ],
     "name": "Example Gateway Dispatch",
     "language": "json",
@@ -443,10 +380,7 @@
     "tree": [
       "transport-compression-transport-compression-example",
       "connecting-to-the-gateway",
-      "connecting-to-the-gateway",
-      "connecting",
-      "connecting",
-      "connecting-gateway-url-query-string-params"
+      "connecting"
     ],
     "name": "Transport Compression Example",
     "language": "python",
@@ -455,9 +389,7 @@
   {
     "tree": [
       "connecting-example-gateway-hello",
-      "heartbeating",
-      "heartbeating",
-      "heartbeating-example-gateway-heartbeat-ack"
+      "heartbeating"
     ],
     "name": "Example Gateway Hello",
     "language": "json",
@@ -466,9 +398,7 @@
   {
     "tree": [
       "heartbeating-example-gateway-heartbeat-ack",
-      "identifying",
-      "identifying",
-      "identifying-example-gateway-identify"
+      "identifying"
     ],
     "name": "Example Gateway Heartbeat ACK",
     "language": "json",
@@ -477,9 +407,7 @@
   {
     "tree": [
       "identifying-example-gateway-identify",
-      "resuming",
-      "resuming",
-      "resuming-example-gateway-resume"
+      "resuming"
     ],
     "name": "Example Gateway Identify",
     "language": "json",
@@ -489,24 +417,14 @@
     "tree": [
       "resuming-example-gateway-resume",
       "disconnections",
-      "disconnections",
-      "gateway-intents",
       "gateway-intents",
       "list-of-intents",
-      "list-of-intents",
-      "caveats",
       "caveats",
       "privileged-intents",
-      "privileged-intents",
-      "rate-limiting",
       "rate-limiting",
       "tracking-state",
-      "tracking-state",
       "guild-availability",
-      "guild-availability",
-      "sharding",
-      "sharding",
-      "sharding-sharding-formula"
+      "sharding"
     ],
     "name": "Example Gateway Resume",
     "language": "",
@@ -514,8 +432,7 @@
   },
   {
     "tree": [
-      "sharding-sharding-formula",
-      "sharding-max-concurrency"
+      "sharding-sharding-formula"
     ],
     "name": "Sharding Formula",
     "language": "python",
@@ -525,10 +442,7 @@
     "tree": [
       "sharding-max-concurrency",
       "sharding-for-very-large-bots",
-      "sharding-for-very-large-bots",
-      "commands-and-events",
-      "commands-and-events",
-      "commands-and-events-gateway-commands"
+      "commands-and-events"
     ],
     "name": "Max Concurrency",
     "language": "",
@@ -537,9 +451,7 @@
   {
     "tree": [
       "identify-example-identify",
-      "resume",
-      "resume",
-      "resume-resume-structure"
+      "resume"
     ],
     "name": "Example Identify",
     "language": "json",
@@ -548,9 +460,7 @@
   {
     "tree": [
       "resume-example-resume",
-      "heartbeat",
-      "heartbeat",
-      "heartbeat-example-heartbeat"
+      "heartbeat"
     ],
     "name": "Example Resume",
     "language": "json",
@@ -559,9 +469,7 @@
   {
     "tree": [
       "heartbeat-example-heartbeat",
-      "request-guild-members",
-      "request-guild-members",
-      "request-guild-members-guild-request-members-structure"
+      "request-guild-members"
     ],
     "name": "Example Heartbeat",
     "language": "",
@@ -570,9 +478,7 @@
   {
     "tree": [
       "request-guild-members-guild-request-members",
-      "update-voice-state",
-      "update-voice-state",
-      "update-voice-state-gateway-voice-state-update-structure"
+      "update-voice-state"
     ],
     "name": "Guild Request Members",
     "language": "json",
@@ -581,9 +487,7 @@
   {
     "tree": [
       "update-voice-state-example-gateway-voice-state-update",
-      "update-presence",
-      "update-presence",
-      "update-presence-gateway-presence-update-structure"
+      "update-presence"
     ],
     "name": "Example Gateway Voice State Update",
     "language": "json",
@@ -593,10 +497,7 @@
     "tree": [
       "update-presence-example-gateway-presence-update",
       "connecting-and-resuming",
-      "connecting-and-resuming",
-      "hello",
-      "hello",
-      "hello-hello-structure"
+      "hello"
     ],
     "name": "Example Gateway Presence Update",
     "language": "json",
@@ -605,9 +506,7 @@
   {
     "tree": [
       "hello-example-hello",
-      "ready",
-      "ready",
-      "ready-ready-event-fields"
+      "ready"
     ],
     "name": "Example Hello",
     "language": "json",
@@ -616,9 +515,7 @@
   {
     "tree": [
       "reconnect-example-gateway-reconnect",
-      "invalid-session",
-      "invalid-session",
-      "invalid-session-example-gateway-invalid-session"
+      "invalid-session"
     ],
     "name": "Example Gateway Reconnect",
     "language": "json",
@@ -628,22 +525,13 @@
     "tree": [
       "invalid-session-example-gateway-invalid-session",
       "channels",
-      "channels",
-      "channel-create",
       "channel-create",
       "channel-update",
-      "channel-update",
-      "channel-delete",
       "channel-delete",
       "thread-create",
-      "thread-create",
-      "thread-update",
       "thread-update",
       "thread-delete",
-      "thread-delete",
-      "thread-list-sync",
-      "thread-list-sync",
-      "thread-list-sync-thread-list-sync-event-fields"
+      "thread-list-sync"
     ],
     "name": "Example Gateway Invalid Session",
     "language": "json",
@@ -651,8 +539,7 @@
   },
   {
     "tree": [
-      "activity-object-example-activity",
-      "activity-object-example-activity-with-rich-presence"
+      "activity-object-example-activity"
     ],
     "name": "Example Activity",
     "language": "json",
@@ -661,9 +548,7 @@
   {
     "tree": [
       "activity-object-example-activity-with-rich-presence",
-      "typing-start",
-      "typing-start",
-      "typing-start-typing-start-event-fields"
+      "typing-start"
     ],
     "name": "Example Activity with Rich Presence",
     "language": "json",
@@ -673,10 +558,7 @@
     "tree": [
       "voice-server-update-example-voice-server-update-payload",
       "webhooks",
-      "webhooks",
-      "webhooks-update",
-      "webhooks-update",
-      "webhooks-update-webhooks-update-event-fields"
+      "webhooks-update"
     ],
     "name": "Example Voice Server Update Payload",
     "language": "json",
@@ -684,8 +566,7 @@
   },
   {
     "tree": [
-      "authorization-code-grant-authorization-url-example",
-      "authorization-code-grant-redirect-url-example"
+      "authorization-code-grant-authorization-url-example"
     ],
     "name": "Authorization URL Example",
     "language": "",
@@ -693,8 +574,7 @@
   },
   {
     "tree": [
-      "authorization-code-grant-redirect-url-example",
-      "authorization-code-grant-access-token-exchange-example"
+      "authorization-code-grant-redirect-url-example"
     ],
     "name": "Redirect URL Example",
     "language": "",
@@ -702,8 +582,7 @@
   },
   {
     "tree": [
-      "authorization-code-grant-access-token-exchange-example",
-      "authorization-code-grant-access-token-response"
+      "authorization-code-grant-access-token-exchange-example"
     ],
     "name": "Access Token Exchange Example",
     "language": "python",
@@ -711,8 +590,7 @@
   },
   {
     "tree": [
-      "authorization-code-grant-access-token-response",
-      "authorization-code-grant-refresh-token-exchange-example"
+      "authorization-code-grant-access-token-response"
     ],
     "name": "Access Token Response",
     "language": "json",
@@ -721,9 +599,7 @@
   {
     "tree": [
       "authorization-code-grant-refresh-token-exchange-example",
-      "implicit-grant",
-      "implicit-grant",
-      "implicit-grant-authorization-url-example"
+      "implicit-grant"
     ],
     "name": "Refresh Token Exchange Example",
     "language": "python",
@@ -731,8 +607,7 @@
   },
   {
     "tree": [
-      "implicit-grant-authorization-url-example",
-      "implicit-grant-redirect-url-example"
+      "implicit-grant-authorization-url-example"
     ],
     "name": "Authorization URL Example",
     "language": "",
@@ -741,9 +616,7 @@
   {
     "tree": [
       "implicit-grant-redirect-url-example",
-      "client-credentials-grant",
-      "client-credentials-grant",
-      "client-credentials-grant-client-credentials-token-request-example"
+      "client-credentials-grant"
     ],
     "name": "Redirect URL Example",
     "language": "",
@@ -751,8 +624,7 @@
   },
   {
     "tree": [
-      "client-credentials-grant-client-credentials-token-request-example",
-      "client-credentials-grant-client-credentials-access-token-response"
+      "client-credentials-grant-client-credentials-token-request-example"
     ],
     "name": "Client Credentials Token Request Example",
     "language": "python",
@@ -762,12 +634,8 @@
     "tree": [
       "client-credentials-grant-client-credentials-access-token-response",
       "bots",
-      "bots",
       "bot-vs-user-accounts",
-      "bot-vs-user-accounts",
-      "bot-authorization-flow",
-      "bot-authorization-flow",
-      "bot-authorization-flow-bot-auth-parameters"
+      "bot-authorization-flow"
     ],
     "name": "Client Credentials Access Token Response",
     "language": "json",
@@ -776,9 +644,7 @@
   {
     "tree": [
       "bot-authorization-flow-url-example",
-      "advanced-bot-authorization",
-      "advanced-bot-authorization",
-      "advanced-bot-authorization-extended-bot-authorization-access-token-example"
+      "advanced-bot-authorization"
     ],
     "name": "URL Example",
     "language": "",
@@ -788,10 +654,7 @@
     "tree": [
       "advanced-bot-authorization-extended-bot-authorization-access-token-example",
       "two-factor-authentication-requirement",
-      "two-factor-authentication-requirement",
-      "webhooks",
-      "webhooks",
-      "webhooks-url-example"
+      "webhooks"
     ],
     "name": "Extended Bot Authorization Access Token Example",
     "language": "json",
@@ -799,8 +662,7 @@
   },
   {
     "tree": [
-      "webhooks-url-example",
-      "webhooks-webhook-token-response-example"
+      "webhooks-url-example"
     ],
     "name": "URL Example",
     "language": "",
@@ -815,9 +677,7 @@
   {
     "tree": [
       "json-example-json-error-response",
-      "rpc",
-      "rpc",
-      "rpc-rpc-error-codes"
+      "rpc"
     ],
     "name": "Example JSON Error Response",
     "language": "json",
@@ -826,22 +686,13 @@
   {
     "tree": [
       "permissions",
-      "permissions",
-      "permissions-bitwise-permission-flags",
       "permissions-bitwise-permission-flags",
       "permission-hierarchy",
-      "permission-hierarchy",
-      "permission-overwrites",
       "permission-overwrites",
       "implicit-permissions",
-      "implicit-permissions",
-      "inherited-permissions-(threads)",
       "inherited-permissions-(threads)",
       "permission-syncing",
-      "permission-syncing",
-      "role-object",
-      "role-object",
-      "role-object-role-structure"
+      "role-object"
     ],
     "name": "Bitwise Permission Flags",
     "language": "python",
@@ -850,7 +701,6 @@
   {
     "tree": [
       "role-object-example-role",
-      "permissions-for-timed-out-members",
       "permissions-for-timed-out-members"
     ],
     "name": "Example Role",
@@ -860,14 +710,9 @@
   {
     "tree": [
       "rate-limits",
-      "rate-limits",
-      "header-format",
       "header-format",
       "header-format-rate-limit-header-examples",
-      "header-format-rate-limit-header-examples",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
+      "exceeding-a-rate-limit"
     ],
     "name": "Rate Limit Header Examples",
     "language": "",
@@ -875,8 +720,7 @@
   },
   {
     "tree": [
-      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response",
-      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response"
+      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response"
     ],
     "name": "Example Exceeded User Rate Limit Response",
     "language": "",
@@ -884,8 +728,7 @@
   },
   {
     "tree": [
-      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response",
-      "exceeding-a-rate-limit-example-exceeded-global-rate-limit-response"
+      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response"
     ],
     "name": "Example Exceeded Resource Rate Limit Response",
     "language": "",
@@ -895,8 +738,6 @@
     "tree": [
       "exceeding-a-rate-limit-example-exceeded-global-rate-limit-response",
       "global-rate-limit",
-      "global-rate-limit",
-      "invalid-request-limit-aka-cloudflare-bans",
       "invalid-request-limit-aka-cloudflare-bans"
     ],
     "name": "Example Exceeded Global Rate Limit Response",
@@ -905,8 +746,7 @@
   },
   {
     "tree": [
-      "authenticating-rpc-authorize-example",
-      "authenticating-rpc-authenticate-example"
+      "authenticating-rpc-authorize-example"
     ],
     "name": "RPC Authorize Example",
     "language": "json",
@@ -915,9 +755,7 @@
   {
     "tree": [
       "authenticating-rpc-authenticate-example",
-      "commands-and-events",
-      "commands-and-events",
-      "commands-and-events-rpc-commands"
+      "commands-and-events"
     ],
     "name": "RPC Authenticate Example",
     "language": "json",
@@ -925,8 +763,7 @@
   },
   {
     "tree": [
-      "authorize-example-authorize-command-payload",
-      "authorize-example-authorize-response-payload"
+      "authorize-example-authorize-command-payload"
     ],
     "name": "Example Authorize Command Payload",
     "language": "json",
@@ -935,9 +772,7 @@
   {
     "tree": [
       "authorize-example-authorize-response-payload",
-      "authenticate",
-      "authenticate",
-      "authenticate-authenticate-argument-structure"
+      "authenticate"
     ],
     "name": "Example Authorize Response Payload",
     "language": "json",
@@ -945,8 +780,7 @@
   },
   {
     "tree": [
-      "authenticate-example-authenticate-command-payload",
-      "authenticate-example-authenticate-response-payload"
+      "authenticate-example-authenticate-command-payload"
     ],
     "name": "Example Authenticate Command Payload",
     "language": "json",
@@ -955,9 +789,7 @@
   {
     "tree": [
       "authenticate-example-authenticate-response-payload",
-      "get_guilds",
-      "get_guilds",
-      "get_guilds-get-guilds-response-structure"
+      "get_guilds"
     ],
     "name": "Example Authenticate Response Payload",
     "language": "json",
@@ -965,8 +797,7 @@
   },
   {
     "tree": [
-      "get_guilds-example-get-guilds-command-payload",
-      "get_guilds-example-get-guilds-response-payload"
+      "get_guilds-example-get-guilds-command-payload"
     ],
     "name": "Example Get Guilds Command Payload",
     "language": "json",
@@ -975,9 +806,7 @@
   {
     "tree": [
       "get_guilds-example-get-guilds-response-payload",
-      "get_guild",
-      "get_guild",
-      "get_guild-get-guild-argument-structure"
+      "get_guild"
     ],
     "name": "Example Get Guilds Response Payload",
     "language": "json",
@@ -985,8 +814,7 @@
   },
   {
     "tree": [
-      "get_guild-example-get-guild-command-payload",
-      "get_guild-example-get-guild-response-payload"
+      "get_guild-example-get-guild-command-payload"
     ],
     "name": "Example Get Guild Command Payload",
     "language": "json",
@@ -995,9 +823,7 @@
   {
     "tree": [
       "get_guild-example-get-guild-response-payload",
-      "get_channel",
-      "get_channel",
-      "get_channel-get-channel-argument-structure"
+      "get_channel"
     ],
     "name": "Example Get Guild Response Payload",
     "language": "json",
@@ -1005,8 +831,7 @@
   },
   {
     "tree": [
-      "get_channel-example-get-channel-command-payload",
-      "get_channel-example-get-channel-response-payload"
+      "get_channel-example-get-channel-command-payload"
     ],
     "name": "Example Get Channel Command Payload",
     "language": "json",
@@ -1015,9 +840,7 @@
   {
     "tree": [
       "get_channel-example-get-channel-response-payload",
-      "get_channels",
-      "get_channels",
-      "get_channels-get-channels-argument-structure"
+      "get_channels"
     ],
     "name": "Example Get Channel Response Payload",
     "language": "json",
@@ -1025,8 +848,7 @@
   },
   {
     "tree": [
-      "get_channels-example-get-channels-command-payload",
-      "get_channels-example-get-channels-response-payload"
+      "get_channels-example-get-channels-command-payload"
     ],
     "name": "Example Get Channels Command Payload",
     "language": "json",
@@ -1035,9 +857,7 @@
   {
     "tree": [
       "get_channels-example-get-channels-response-payload",
-      "set_user_voice_settings",
-      "set_user_voice_settings",
-      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure"
+      "set_user_voice_settings"
     ],
     "name": "Example Get Channels Response Payload",
     "language": "json",
@@ -1045,8 +865,7 @@
   },
   {
     "tree": [
-      "set_user_voice_settings-example-set-user-voice-settings-command-payload",
-      "set_user_voice_settings-example-set-user-voice-settings-response-payload"
+      "set_user_voice_settings-example-set-user-voice-settings-command-payload"
     ],
     "name": "Example Set User Voice Settings Command Payload",
     "language": "json",
@@ -1055,9 +874,7 @@
   {
     "tree": [
       "set_user_voice_settings-example-set-user-voice-settings-response-payload",
-      "select_voice_channel",
-      "select_voice_channel",
-      "select_voice_channel-select-voice-channel-argument-structure"
+      "select_voice_channel"
     ],
     "name": "Example Set User Voice Settings Response Payload",
     "language": "json",
@@ -1065,8 +882,7 @@
   },
   {
     "tree": [
-      "select_voice_channel-example-select-voice-channel-command-payload",
-      "select_voice_channel-example-select-voice-channel-response-payload"
+      "select_voice_channel-example-select-voice-channel-command-payload"
     ],
     "name": "Example Select Voice Channel Command Payload",
     "language": "json",
@@ -1076,10 +892,7 @@
     "tree": [
       "select_voice_channel-example-select-voice-channel-response-payload",
       "get_selected_voice_channel",
-      "get_selected_voice_channel",
-      "select_text_channel",
-      "select_text_channel",
-      "select_text_channel-select-text-channel-argument-structure"
+      "select_text_channel"
     ],
     "name": "Example Select Voice Channel Response Payload",
     "language": "json",
@@ -1088,9 +901,7 @@
   {
     "tree": [
       "get_voice_settings-example-get-voice-settings-response-payload",
-      "set_voice_settings",
-      "set_voice_settings",
-      "set_voice_settings-set-voice-settings-argument-and-response-structure"
+      "set_voice_settings"
     ],
     "name": "Example Get Voice Settings Response Payload",
     "language": "json",
@@ -1098,8 +909,7 @@
   },
   {
     "tree": [
-      "set_voice_settings-example-set-voice-settings-command-payload",
-      "set_voice_settings-example-set-voice-settings-response-payload"
+      "set_voice_settings-example-set-voice-settings-command-payload"
     ],
     "name": "Example Set Voice Settings Command Payload",
     "language": "json",
@@ -1108,9 +918,7 @@
   {
     "tree": [
       "set_voice_settings-example-set-voice-settings-response-payload",
-      "subscribe",
-      "subscribe",
-      "subscribe-subscribe-response-structure"
+      "subscribe"
     ],
     "name": "Example Set Voice Settings Response Payload",
     "language": "json",
@@ -1118,8 +926,7 @@
   },
   {
     "tree": [
-      "subscribe-example-subscribe-command-payload",
-      "subscribe-example-subscribe-response-payload"
+      "subscribe-example-subscribe-command-payload"
     ],
     "name": "Example Subscribe Command Payload",
     "language": "json",
@@ -1128,9 +935,7 @@
   {
     "tree": [
       "subscribe-example-subscribe-response-payload",
-      "unsubscribe",
-      "unsubscribe",
-      "unsubscribe-unsubscribe-response-structure"
+      "unsubscribe"
     ],
     "name": "Example Subscribe Response Payload",
     "language": "json",
@@ -1138,8 +943,7 @@
   },
   {
     "tree": [
-      "unsubscribe-example-unsubscribe-command-payload",
-      "unsubscribe-example-unsubscribe-response-payload"
+      "unsubscribe-example-unsubscribe-command-payload"
     ],
     "name": "Example Unsubscribe Command Payload",
     "language": "json",
@@ -1148,9 +952,7 @@
   {
     "tree": [
       "unsubscribe-example-unsubscribe-response-payload",
-      "set_certified_devices",
-      "set_certified_devices",
-      "set_certified_devices-set-certified-devices-argument-strucure"
+      "set_certified_devices"
     ],
     "name": "Example Unsubscribe Response Payload",
     "language": "json",
@@ -1158,8 +960,7 @@
   },
   {
     "tree": [
-      "set_certified_devices-example-set-certified-devices-command-payload",
-      "set_certified_devices-example-set-certified-devices-response-payload"
+      "set_certified_devices-example-set-certified-devices-command-payload"
     ],
     "name": "Example Set Certified Devices Command Payload",
     "language": "json",
@@ -1168,9 +969,7 @@
   {
     "tree": [
       "set_certified_devices-example-set-certified-devices-response-payload",
-      "set_activity",
-      "set_activity",
-      "set_activity-set-activity-argument-structure"
+      "set_activity"
     ],
     "name": "Example Set Certified Devices Response Payload",
     "language": "json",
@@ -1179,9 +978,7 @@
   {
     "tree": [
       "set_activity-example-set-activity-payload",
-      "send_activity_join_invite",
-      "send_activity_join_invite",
-      "send_activity_join_invite-send-activity-join-invite-argument-structure"
+      "send_activity_join_invite"
     ],
     "name": "Example Set Activity Payload",
     "language": "json",
@@ -1190,9 +987,7 @@
   {
     "tree": [
       "send_activity_join_invite-example-send-activity-join-invite-payload",
-      "close_activity_request",
-      "close_activity_request",
-      "close_activity_request-close-activity-request-argument-structure"
+      "close_activity_request"
     ],
     "name": "Example Send Activity Join Invite Payload",
     "language": "json",
@@ -1201,9 +996,7 @@
   {
     "tree": [
       "close_activity_request-example-close-activity-request-payload",
-      "ready",
-      "ready",
-      "ready-ready-dispatch-data-structure"
+      "ready"
     ],
     "name": "Example Close Activity Request Payload",
     "language": "json",
@@ -1212,9 +1005,7 @@
   {
     "tree": [
       "ready-example-ready-dispatch-payload",
-      "error",
-      "error",
-      "error-error-data-structure"
+      "error"
     ],
     "name": "Example Ready Dispatch Payload",
     "language": "json",
@@ -1223,9 +1014,7 @@
   {
     "tree": [
       "error-example-error-payload",
-      "guild_status",
-      "guild_status",
-      "guild_status-guild-status-argument-structure"
+      "guild_status"
     ],
     "name": "Example Error Payload",
     "language": "json",
@@ -1234,9 +1023,7 @@
   {
     "tree": [
       "guild_status-example-guild-status-dispatch-payload",
-      "guild_create",
-      "guild_create",
-      "guild_create-guild-create-dispatch-data-structure"
+      "guild_create"
     ],
     "name": "Example Guild Status Dispatch Payload",
     "language": "json",
@@ -1245,9 +1032,7 @@
   {
     "tree": [
       "guild_create-example-guild-create-dispatch-payload",
-      "channel_create",
-      "channel_create",
-      "channel_create-channel-create-dispatch-data-structure"
+      "channel_create"
     ],
     "name": "Example Guild Create Dispatch Payload",
     "language": "json",
@@ -1256,9 +1041,7 @@
   {
     "tree": [
       "channel_create-example-channel-create-dispatch-payload",
-      "voice_channel_select",
-      "voice_channel_select",
-      "voice_channel_select-voice-channel-select-dispatch-data-structure"
+      "voice_channel_select"
     ],
     "name": "Example Channel Create Dispatch Payload",
     "language": "json",
@@ -1267,9 +1050,7 @@
   {
     "tree": [
       "voice_channel_select-example-voice-channel-select-dispatch-payload",
-      "voice_settings_update",
-      "voice_settings_update",
-      "voice_settings_update-voice-settings-argument-structure"
+      "voice_settings_update"
     ],
     "name": "Example Voice Channel Select Dispatch Payload",
     "language": "json",
@@ -1279,10 +1060,7 @@
     "tree": [
       "voice_settings_update-voice-settings-argument-structure",
       "voice_settings_update-example-voice-settings-dispatch-payload",
-      "voice_settings_update-example-voice-settings-dispatch-payload",
-      "voice_state_create/voice_state_update/voice_state_delete",
-      "voice_state_create/voice_state_update/voice_state_delete",
-      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure"
+      "voice_state_create/voice_state_update/voice_state_delete"
     ],
     "name": "Example Voice Settings Dispatch Payload",
     "language": "json",
@@ -1291,9 +1069,7 @@
   {
     "tree": [
       "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload",
-      "voice_connection_status",
-      "voice_connection_status",
-      "voice_connection_status-voice-connection-status-dispatch-data-structure"
+      "voice_connection_status"
     ],
     "name": "Example Voice State Dispatch Payload",
     "language": "json",
@@ -1302,9 +1078,7 @@
   {
     "tree": [
       "voice_connection_status-example-voice-connection-status-dispatch-payload",
-      "message_create/message_update/message_delete",
-      "message_create/message_update/message_delete",
-      "message_create/message_update/message_delete-message-argument-structure"
+      "message_create/message_update/message_delete"
     ],
     "name": "Example Voice Connection Status Dispatch Payload",
     "language": "json",
@@ -1313,9 +1087,7 @@
   {
     "tree": [
       "message_create/message_update/message_delete-example-message-dispatch-payload",
-      "speaking_start/speaking_stop",
-      "speaking_start/speaking_stop",
-      "speaking_start/speaking_stop-speaking-argument-structure"
+      "speaking_start/speaking_stop"
     ],
     "name": "Example Message Dispatch Payload",
     "language": "json",
@@ -1324,9 +1096,7 @@
   {
     "tree": [
       "speaking_start/speaking_stop-example-speaking-dispatch-payload",
-      "notification_create",
-      "notification_create",
-      "notification_create-notification-create-dispatch-data-structure"
+      "notification_create"
     ],
     "name": "Example Speaking Dispatch Payload",
     "language": "json",
@@ -1335,9 +1105,7 @@
   {
     "tree": [
       "notification_create-example-notification-create-dispatch-payload",
-      "activity_join",
-      "activity_join",
-      "activity_join-activity-join-dispatch-data-structure"
+      "activity_join"
     ],
     "name": "Example Notification Create Dispatch Payload",
     "language": "json",
@@ -1346,9 +1114,7 @@
   {
     "tree": [
       "activity_join-example-activity-join-dispatch-payload",
-      "activity_spectate",
-      "activity_spectate",
-      "activity_spectate-activity-spectate-dispatch-data-structure"
+      "activity_spectate"
     ],
     "name": "Example Activity Join Dispatch Payload",
     "language": "json",
@@ -1357,9 +1123,7 @@
   {
     "tree": [
       "activity_spectate-example-activity-spectate-dispatch-payload",
-      "activity_join_request",
-      "activity_join_request",
-      "activity_join_request-activity-join-request-data-structure"
+      "activity_join_request"
     ],
     "name": "Example Activity Spectate Dispatch Payload",
     "language": "json",
@@ -1375,8 +1139,7 @@
   },
   {
     "tree": [
-      "retrieving-voice-server-information-gateway-voice-state-update-example",
-      "retrieving-voice-server-information-example-voice-server-update-payload"
+      "retrieving-voice-server-information-gateway-voice-state-update-example"
     ],
     "name": "Gateway Voice State Update Example",
     "language": "json",
@@ -1385,9 +1148,7 @@
   {
     "tree": [
       "retrieving-voice-server-information-example-voice-server-update-payload",
-      "establishing-a-voice-websocket-connection",
-      "establishing-a-voice-websocket-connection",
-      "establishing-a-voice-websocket-connection-example-voice-identify-payload"
+      "establishing-a-voice-websocket-connection"
     ],
     "name": "Example Voice Server Update Payload",
     "language": "json",
@@ -1395,8 +1156,7 @@
   },
   {
     "tree": [
-      "establishing-a-voice-websocket-connection-example-voice-identify-payload",
-      "establishing-a-voice-websocket-connection-example-voice-ready-payload"
+      "establishing-a-voice-websocket-connection-example-voice-identify-payload"
     ],
     "name": "Example Voice Identify Payload",
     "language": "json",
@@ -1405,9 +1165,7 @@
   {
     "tree": [
       "establishing-a-voice-websocket-connection-example-voice-ready-payload",
-      "heartbeating",
-      "heartbeating",
-      "heartbeating-example-hello-payload-below-v3"
+      "heartbeating"
     ],
     "name": "Example Voice Ready Payload",
     "language": "json",
@@ -1415,8 +1173,7 @@
   },
   {
     "tree": [
-      "heartbeating-example-hello-payload-below-v3",
-      "heartbeating-example-hello-payload-since-v3"
+      "heartbeating-example-hello-payload-below-v3"
     ],
     "name": "Example Hello Payload below V3",
     "language": "json",
@@ -1424,8 +1181,7 @@
   },
   {
     "tree": [
-      "heartbeating-example-hello-payload-since-v3",
-      "heartbeating-example-heartbeat-payload"
+      "heartbeating-example-hello-payload-since-v3"
     ],
     "name": "Example Hello Payload since V3",
     "language": "json",
@@ -1433,8 +1189,7 @@
   },
   {
     "tree": [
-      "heartbeating-example-heartbeat-payload",
-      "heartbeating-example-heartbeat-ack-payload"
+      "heartbeating-example-heartbeat-payload"
     ],
     "name": "Example Heartbeat Payload",
     "language": "json",
@@ -1443,9 +1198,7 @@
   {
     "tree": [
       "heartbeating-example-heartbeat-ack-payload",
-      "establishing-a-voice-udp-connection",
-      "establishing-a-voice-udp-connection",
-      "establishing-a-voice-udp-connection-example-select-protocol-payload"
+      "establishing-a-voice-udp-connection"
     ],
     "name": "Example Heartbeat ACK Payload",
     "language": "json",
@@ -1453,8 +1206,7 @@
   },
   {
     "tree": [
-      "establishing-a-voice-udp-connection-example-select-protocol-payload",
-      "establishing-a-voice-udp-connection-encryption-modes"
+      "establishing-a-voice-udp-connection-example-select-protocol-payload"
     ],
     "name": "Example Select Protocol Payload",
     "language": "json",
@@ -1463,9 +1215,7 @@
   {
     "tree": [
       "establishing-a-voice-udp-connection-example-session-description-payload",
-      "encrypting-and-sending-voice",
-      "encrypting-and-sending-voice",
-      "encrypting-and-sending-voice-voice-packet-structure"
+      "encrypting-and-sending-voice"
     ],
     "name": "Example Session Description Payload",
     "language": "json",
@@ -1475,10 +1225,7 @@
     "tree": [
       "speaking-example-speaking-payload",
       "voice-data-interpolation",
-      "voice-data-interpolation",
-      "resuming-voice-connection",
-      "resuming-voice-connection",
-      "resuming-voice-connection-example-resume-connection-payload"
+      "resuming-voice-connection"
     ],
     "name": "Example Speaking Payload",
     "language": "json",
@@ -1486,8 +1233,7 @@
   },
   {
     "tree": [
-      "resuming-voice-connection-example-resume-connection-payload",
-      "resuming-voice-connection-example-resumed-payload"
+      "resuming-voice-connection-example-resume-connection-payload"
     ],
     "name": "Example Resume Connection Payload",
     "language": "json",
@@ -1496,7 +1242,6 @@
   {
     "tree": [
       "resuming-voice-connection-example-resumed-payload",
-      "ip-discovery",
       "ip-discovery"
     ],
     "name": "Example Resumed Payload",
