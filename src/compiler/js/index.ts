@@ -13,6 +13,12 @@ import { Base } from "../base";
 import { camel, pascal } from "../util";
 
 export class JS extends Base {
+  constructor(init) {
+    super(init);
+    this.write(readFileSync(resolve(__dirname, "runtime.ts"), "utf-8"));
+    this.line();
+  }
+
   renderValueType(valueType: ValueType) {
     switch (valueType.value) {
       // special
@@ -89,8 +95,8 @@ export class JS extends Base {
 
   renderReferenceType(referenceType: ReferenceType) {
     const ref =
-      this.structures.find(s => s.tree.includes(referenceType.link)) ??
-      this.constants.find(c => c.tree.includes(referenceType.link));
+      this.constants.find(c => c.tree.includes(referenceType.link)) ??
+      this.structures.find(s => s.tree.includes(referenceType.link));
 
     if (!ref) {
       console.log("Could not find reference: " + referenceType.link);
@@ -147,18 +153,19 @@ export class JS extends Base {
 
     this.indent--;
     this.line("}");
+    this.line();
   }
 
   renderEndpoint(endpoint: Endpoint) {
     this.line(`export function ${this.getName(camel(endpoint.name))}(`);
 
-    let path = JSON.stringify(endpoint.path);
+    let path = "`" + endpoint.path + "`";
 
     // parameters
     this.indent++;
     for (const param of endpoint.params) {
       this.line(`${camel(param.name)}: string,`);
-      path = path.replace(`{${param.name}}`, `" + ${camel(param.name)} + "`);
+      path = path.replace(`{${param.name}}`, `\${encodeURIComponent(${camel(param.name)})}`);
     }
 
     if (endpoint.request) {
@@ -185,11 +192,12 @@ export class JS extends Base {
     this.line("method: " + JSON.stringify(endpoint.method) + ",");
     this.line("path: " + path + ",");
     if (endpoint.request) this.line("body: JSON.stringify(body),");
-    this.line('headers: { Authorization: "Bot BALLS" }');
+    this.line('headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }');
     this.indent--;
     this.line("})");
     this.indent--;
     this.line("}");
+    this.line();
   }
 
   renderStructure(structure: Structure) {
@@ -208,9 +216,6 @@ export class JS extends Base {
 
     this.indent--;
     this.line("}");
-  }
-
-  render() {
-    return readFileSync(resolve(__dirname, "runtime.ts"), "utf-8") + super.render();
+    this.line();
   }
 }

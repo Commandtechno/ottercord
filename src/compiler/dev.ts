@@ -27,9 +27,7 @@ import { JS } from "./js";
   for (const constant of constants) js.renderConstant(constant);
   for (const endpoint of endpoints) js.renderEndpoint(endpoint);
   for (const structure of structures) js.renderStructure(structure);
-
-  const code = js.render();
-  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), code);
+  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js.code);
 
   // const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
   // spawn("node", [tsc, resolve(JS_OUTPUT_DIR, "index.ts"), "--declaration"], {

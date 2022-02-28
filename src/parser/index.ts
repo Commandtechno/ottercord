@@ -19,15 +19,15 @@ export async function parse(...pathSegments: string[]) {
   const structures: Structure[] = [];
   const constants: Constant[] = [];
 
-  let endpointTree: Tree = [];
-  let exampleTree: Tree = [];
-  let structureTree: Tree = [];
-  let constantTree: Tree = [];
-
   let endpoint: Endpoint;
   let example: Example;
   let structure: Structure;
   let constant: Constant;
+
+  let endpointTree: Tree = [];
+  let exampleTree: Tree = [];
+  let structureTree: Tree = [];
+  let constantTree: Tree = [];
 
   function addEndpoint() {
     if (endpoint?.ready) {
@@ -37,6 +37,9 @@ export async function parse(...pathSegments: string[]) {
       // note tree is unique per type so there wont be 2 endpoints with the same link in the tree but there might be a structure with the same link
       // this is because there are a bunch of links and resolving them separately is a lot more accruate
       endpointTree = [];
+      exampleTree = [];
+      structureTree = [];
+      constantTree = [];
       endpoint = undefined;
     }
   }
@@ -46,7 +49,10 @@ export async function parse(...pathSegments: string[]) {
       example.tree = exampleTree;
       examples.push(example);
 
+      endpointTree = [];
       exampleTree = [];
+      structureTree = [];
+      constantTree = [];
       example = undefined;
     }
   }
@@ -56,7 +62,10 @@ export async function parse(...pathSegments: string[]) {
       structure.tree = structureTree;
       structures.push(structure);
 
+      endpointTree = [];
+      exampleTree = [];
       structureTree = [];
+      constantTree = [];
       structure = undefined;
     }
   }
@@ -66,6 +75,9 @@ export async function parse(...pathSegments: string[]) {
       constant.tree = constantTree;
       constants.push(constant);
 
+      endpointTree = [];
+      exampleTree = [];
+      structureTree = [];
       constantTree = [];
       constant = undefined;
     }

@@ -2,8 +2,12 @@
   {
     "tree": [
       "application-resource",
+      "application-resource",
       "application-object",
-      "application-object-application-structure"
+      "application-object",
+      "application-object-application-structure",
+      "application-object-application-structure",
+      "application-object-example-application-object"
     ],
     "name": "Application Structure",
     "properties": [
@@ -246,9 +250,14 @@
   {
     "tree": [
       "audit-logs-resource",
+      "audit-logs-resource",
+      "audit-logs",
       "audit-logs",
       "audit-log-object",
-      "audit-log-object-audit-log-structure"
+      "audit-log-object",
+      "audit-log-object-audit-log-structure",
+      "audit-log-object-audit-log-structure",
+      "audit-log-object-example-partial-integration-object"
     ],
     "name": "Audit Log Structure",
     "properties": [
@@ -334,9 +343,8 @@
   },
   {
     "tree": [
-      "audit-log-object-example-partial-integration-object",
-      "audit-log-entry-object",
-      "audit-log-entry-object-audit-log-entry-structure"
+      "audit-log-entry-object-audit-log-entry-structure",
+      "audit-log-entry-object-audit-log-events"
     ],
     "name": "Audit Log Entry Structure",
     "properties": [
@@ -435,9 +443,10 @@
   },
   {
     "tree": [
-      "audit-log-entry-object-audit-log-events",
       "audit-log-entry-object-optional-audit-entry-info",
-      "audit-log-change-object"
+      "audit-log-change-object",
+      "audit-log-change-object",
+      "audit-log-change-object-audit-log-change-structure"
     ],
     "name": "Optional Audit Entry Info",
     "properties": [
@@ -549,7 +558,8 @@
   },
   {
     "tree": [
-      "audit-log-change-object-audit-log-change-structure"
+      "audit-log-change-object-audit-log-change-structure",
+      "audit-log-change-object-audit-log-change-key"
     ],
     "name": "Audit Log Change Structure",
     "properties": [
@@ -596,7 +606,8 @@
   },
   {
     "tree": [
-      "audit-log-change-object-audit-log-change-key"
+      "audit-log-change-object-audit-log-change-key",
+      "audit-log-change-object-example-partial-role-object"
     ],
     "name": "Audit Log Change Key",
     "properties": [
@@ -1524,8 +1535,12 @@
   {
     "tree": [
       "channels-resource",
+      "channels-resource",
       "channel-object",
-      "channel-object-channel-structure"
+      "channel-object",
+      "channel-object-channel-structure",
+      "channel-object-channel-structure",
+      "channel-object-channel-types"
     ],
     "name": "Channel Structure",
     "properties": [
@@ -1871,18 +1886,8 @@
   },
   {
     "tree": [
-      "channel-object-channel-types",
-      "channel-object-video-quality-modes",
-      "channel-object-example-guild-text-channel",
-      "channel-object-example-guild-news-channel",
-      "channel-object-example-guild-voice-channel",
-      "channel-object-example-dm-channel",
-      "channel-object-example-group-dm-channel",
-      "channel-object-example-channel-category",
-      "channel-object-example-store-channel",
-      "channel-object-example-thread-channel",
-      "message-object",
-      "message-object-message-structure"
+      "message-object-message-structure",
+      "message-object-message-types"
     ],
     "name": "Message Structure",
     "properties": [
@@ -2302,8 +2307,8 @@
   },
   {
     "tree": [
-      "message-object-message-types",
-      "message-object-message-activity-structure"
+      "message-object-message-activity-structure",
+      "message-object-message-activity-types"
     ],
     "name": "Message Activity Structure",
     "properties": [
@@ -2337,13 +2342,10 @@
   },
   {
     "tree": [
-      "message-object-message-activity-types",
-      "message-object-message-flags",
-      "message-object-example-message",
-      "message-object-example-crossposted-message",
-      "message-reference-object",
       "message-reference-object-message-reference-structure",
-      "message-types"
+      "message-types",
+      "message-types",
+      "message-types-crosspost-messages"
     ],
     "name": "Message Reference Structure",
     "properties": [
@@ -2405,12 +2407,20 @@
     "tree": [
       "message-types-crosspost-messages",
       "message-types-channel-follow-add-messages",
+      "message-types-channel-follow-add-messages",
+      "message-types-pin-messages",
       "message-types-pin-messages",
       "message-types-replies",
+      "message-types-replies",
+      "message-types-thread-starter-messsage",
       "message-types-thread-starter-messsage",
       "followed-channel-object",
+      "followed-channel-object",
       "followed-channel-object-followed-channel-structure",
-      "reaction-object"
+      "followed-channel-object-followed-channel-structure",
+      "reaction-object",
+      "reaction-object",
+      "reaction-object-reaction-structure"
     ],
     "name": "Followed Channel Structure",
     "properties": [
@@ -2445,7 +2455,9 @@
   {
     "tree": [
       "reaction-object-reaction-structure",
-      "overwrite-object"
+      "overwrite-object",
+      "overwrite-object",
+      "overwrite-object-overwrite-structure"
     ],
     "name": "Reaction Structure",
     "properties": [
@@ -2493,7 +2505,9 @@
   {
     "tree": [
       "overwrite-object-overwrite-structure",
-      "thread-metadata-object"
+      "thread-metadata-object",
+      "thread-metadata-object",
+      "thread-metadata-object-thread-metadata-structure"
     ],
     "name": "Overwrite Structure",
     "properties": [
@@ -2554,7 +2568,9 @@
   {
     "tree": [
       "thread-metadata-object-thread-metadata-structure",
-      "thread-member-object"
+      "thread-member-object",
+      "thread-member-object",
+      "thread-member-object-thread-member-structure"
     ],
     "name": "Thread Metadata Structure",
     "properties": [
@@ -2641,7 +2657,9 @@
   {
     "tree": [
       "thread-member-object-thread-member-structure",
-      "embed-object"
+      "embed-object",
+      "embed-object",
+      "embed-object-embed-structure"
     ],
     "name": "Thread Member Structure",
     "properties": [
@@ -2701,7 +2719,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-structure"
+      "embed-object-embed-structure",
+      "embed-object-embed-types"
     ],
     "name": "Embed Structure",
     "properties": [
@@ -2878,8 +2897,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-types",
-      "embed-object-embed-thumbnail-structure"
+      "embed-object-embed-thumbnail-structure",
+      "embed-object-embed-video-structure"
     ],
     "name": "Embed Thumbnail Structure",
     "properties": [
@@ -2939,7 +2958,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-video-structure"
+      "embed-object-embed-video-structure",
+      "embed-object-embed-image-structure"
     ],
     "name": "Embed Video Structure",
     "properties": [
@@ -2999,7 +3019,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-image-structure"
+      "embed-object-embed-image-structure",
+      "embed-object-embed-provider-structure"
     ],
     "name": "Embed Image Structure",
     "properties": [
@@ -3059,7 +3080,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-provider-structure"
+      "embed-object-embed-provider-structure",
+      "embed-object-embed-author-structure"
     ],
     "name": "Embed Provider Structure",
     "properties": [
@@ -3093,7 +3115,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-author-structure"
+      "embed-object-embed-author-structure",
+      "embed-object-embed-footer-structure"
     ],
     "name": "Embed Author Structure",
     "properties": [
@@ -3153,7 +3176,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-footer-structure"
+      "embed-object-embed-footer-structure",
+      "embed-object-embed-field-structure"
     ],
     "name": "Embed Footer Structure",
     "properties": [
@@ -3201,7 +3225,9 @@
   {
     "tree": [
       "embed-object-embed-field-structure",
-      "attachment-object"
+      "attachment-object",
+      "attachment-object",
+      "attachment-object-attachment-structure"
     ],
     "name": "Embed Field Structure",
     "properties": [
@@ -3249,7 +3275,9 @@
   {
     "tree": [
       "attachment-object-attachment-structure",
-      "channel-mention-object"
+      "channel-mention-object",
+      "channel-mention-object",
+      "channel-mention-object-channel-mention-structure"
     ],
     "name": "Attachment Structure",
     "properties": [
@@ -3388,7 +3416,9 @@
   {
     "tree": [
       "channel-mention-object-channel-mention-structure",
-      "allowed-mentions-object"
+      "allowed-mentions-object",
+      "allowed-mentions-object",
+      "allowed-mentions-object-allowed-mention-types"
     ],
     "name": "Channel Mention Structure",
     "properties": [
@@ -3448,8 +3478,8 @@
   },
   {
     "tree": [
-      "allowed-mentions-object-allowed-mention-types",
-      "allowed-mentions-object-allowed-mentions-structure"
+      "allowed-mentions-object-allowed-mentions-structure",
+      "allowed-mentions-object-allowed-mentions-reference"
     ],
     "name": "Allowed Mentions Structure",
     "properties": [
@@ -3510,8 +3540,12 @@
   {
     "tree": [
       "emoji-resource",
+      "emoji-resource",
       "emoji-object",
-      "emoji-object-emoji-structure"
+      "emoji-object",
+      "emoji-object-emoji-structure",
+      "emoji-object-emoji-structure",
+      "emoji-object-emoji-example"
     ],
     "name": "Emoji Structure",
     "properties": [
@@ -3624,8 +3658,12 @@
   {
     "tree": [
       "guild-resource",
+      "guild-resource",
       "guild-object",
-      "guild-object-guild-structure"
+      "guild-object",
+      "guild-object-guild-structure",
+      "guild-object-guild-structure",
+      "guild-object-default-message-notification-level"
     ],
     "name": "Guild Structure",
     "properties": [
@@ -4309,19 +4347,8 @@
   },
   {
     "tree": [
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier",
-      "guild-object-system-channel-flags",
-      "guild-object-guild-features",
-      "guild-object-example-guild",
-      "unavailable-guild-object",
-      "unavailable-guild-object-example-unavailable-guild",
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure"
+      "guild-preview-object-guild-preview-structure",
+      "guild-preview-object-example-guild-preview"
     ],
     "name": "Guild Preview Structure",
     "properties": [
@@ -4472,9 +4499,8 @@
   },
   {
     "tree": [
-      "guild-preview-object-example-guild-preview",
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure"
+      "guild-widget-settings-object-guild-widget-settings-structure",
+      "guild-widget-settings-object-example-guild-widget-settings"
     ],
     "name": "Guild Widget Settings Structure",
     "properties": [
@@ -4508,9 +4534,8 @@
   },
   {
     "tree": [
-      "guild-widget-settings-object-example-guild-widget-settings",
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure"
+      "get-guild-widget-object-get-guild-widget-structure",
+      "get-guild-widget-object-example-get-guild-widget"
     ],
     "name": "Get Guild Widget Structure",
     "properties": [
@@ -4596,9 +4621,8 @@
   },
   {
     "tree": [
-      "get-guild-widget-object-example-get-guild-widget",
-      "guild-member-object",
-      "guild-member-object-guild-member-structure"
+      "guild-member-object-guild-member-structure",
+      "guild-member-object-example-guild-member"
     ],
     "name": "Guild Member Structure",
     "properties": [
@@ -4749,9 +4773,8 @@
   },
   {
     "tree": [
-      "guild-member-object-example-guild-member",
-      "integration-object",
-      "integration-object-integration-structure"
+      "integration-object-integration-structure",
+      "integration-object-integration-expire-behaviors"
     ],
     "name": "Integration Structure",
     "properties": [
@@ -4954,10 +4977,10 @@
   },
   {
     "tree": [
-      "integration-object-integration-expire-behaviors",
-      "integration-account-object",
       "integration-account-object-integration-account-structure",
-      "integration-application-object"
+      "integration-application-object",
+      "integration-application-object",
+      "integration-application-object-integration-application-structure"
     ],
     "name": "Integration Account Structure",
     "properties": [
@@ -4992,7 +5015,9 @@
   {
     "tree": [
       "integration-application-object-integration-application-structure",
-      "ban-object"
+      "ban-object",
+      "ban-object",
+      "ban-object-ban-structure"
     ],
     "name": "Integration Application Structure",
     "properties": [
@@ -5078,7 +5103,8 @@
   },
   {
     "tree": [
-      "ban-object-ban-structure"
+      "ban-object-ban-structure",
+      "ban-object-example-ban"
     ],
     "name": "Ban Structure",
     "properties": [
@@ -5112,9 +5138,8 @@
   },
   {
     "tree": [
-      "ban-object-example-ban",
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure"
+      "welcome-screen-object-welcome-screen-structure",
+      "welcome-screen-object-welcome-screen-channel-structure"
     ],
     "name": "Welcome Screen Structure",
     "properties": [
@@ -5148,7 +5173,8 @@
   },
   {
     "tree": [
-      "welcome-screen-object-welcome-screen-channel-structure"
+      "welcome-screen-object-welcome-screen-channel-structure",
+      "welcome-screen-object-example-welcome-screen"
     ],
     "name": "Welcome Screen Channel Structure",
     "properties": [
@@ -5209,8 +5235,12 @@
   {
     "tree": [
       "guild-scheduled-event",
+      "guild-scheduled-event",
       "guild-scheduled-event-object",
-      "guild-scheduled-event-object-guild-scheduled-event-structure"
+      "guild-scheduled-event-object",
+      "guild-scheduled-event-object-guild-scheduled-event-structure",
+      "guild-scheduled-event-object-guild-scheduled-event-structure",
+      "guild-scheduled-event-object-guild-scheduled-event-privacy-level"
     ],
     "name": "Guild Scheduled Event Structure",
     "properties": [
@@ -5426,13 +5456,12 @@
   },
   {
     "tree": [
-      "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
-      "guild-scheduled-event-object-guild-scheduled-event-entity-types",
-      "guild-scheduled-event-object-field-requirements-by-entity-type",
-      "guild-scheduled-event-object-guild-scheduled-event-status",
       "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions",
       "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
-      "guild-scheduled-event-user-object"
+      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
+      "guild-scheduled-event-user-object",
+      "guild-scheduled-event-user-object",
+      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure"
     ],
     "name": "Guild Scheduled Event Entity Metadata",
     "properties": [
@@ -5452,36 +5481,7 @@
     ]
   },
   {
-    "tree": [
-      "guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
-      "list-scheduled-events-for-guild",
-      "list-scheduled-events-for-guild-query-string-params",
-      "create-guild-scheduled-event",
-      "create-guild-scheduled-event-json-params",
-      "get-guild-scheduled-event",
-      "get-guild-scheduled-event-query-string-params",
-      "modify-guild-scheduled-event",
-      "modify-guild-scheduled-event-json-params",
-      "delete-guild-scheduled-event",
-      "get-guild-scheduled-event-users",
-      "get-guild-scheduled-event-users-query-string-params",
-      "guild-scheduled-event-status-update-automation",
-      "an-active-scheduled-event-for-a-stage-channel-where-all-users-have-left-the-stage-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
-      "an-active-scheduled-event-for-a-voice-channel-where-all-users-have-left-the-voice-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
-      "an-external-event-will-automatically-begin-at-its-scheduled-start-time",
-      "an-external-event-will-automatically-end-at-its-scheduled-end-time",
-      "any-scheduled-event-which-has-not-begun-after-its-scheduled-start-time-will-be-automatically-cancelled-after-a-few-hours",
-      "guild-scheduled-event-permissions-requirements",
-      "permissions-to-create-an-event-with-entity_type:-stage_instance",
-      "write-permissions-(create-/-update)",
-      "read-permissions-(get)",
-      "permissions-to-create-an-event-with-entity_type:-voice",
-      "write-permissions-(create-/-update)",
-      "read-permissions-(get)",
-      "permissions-to-create-an-event-with-entity_type:-external",
-      "write-permissions-(create-/-update)",
-      "read-permissions-(get)"
-    ],
+    "tree": [],
     "name": "Guild Scheduled Event User Structure",
     "properties": [
       {
@@ -5528,8 +5528,12 @@
   {
     "tree": [
       "guild-template-resource",
+      "guild-template-resource",
       "guild-template-object",
-      "guild-template-object-guild-template-structure"
+      "guild-template-object",
+      "guild-template-object-guild-template-structure",
+      "guild-template-object-guild-template-structure",
+      "guild-template-object-example-guild-template-object"
     ],
     "name": "Guild Template Structure",
     "properties": [
@@ -5681,8 +5685,12 @@
   {
     "tree": [
       "invite-resource",
+      "invite-resource",
       "invite-object",
-      "invite-object-invite-structure"
+      "invite-object",
+      "invite-object-invite-structure",
+      "invite-object-invite-structure",
+      "invite-object-invite-target-types"
     ],
     "name": "Invite Structure",
     "properties": [
@@ -5846,10 +5854,8 @@
   },
   {
     "tree": [
-      "invite-object-invite-target-types",
-      "invite-object-example-invite-object",
-      "invite-metadata-object",
-      "invite-metadata-object-invite-metadata-structure"
+      "invite-metadata-object-invite-metadata-structure",
+      "invite-metadata-object-example-invite-metadata"
     ],
     "name": "Invite Metadata Structure",
     "properties": [
@@ -5922,9 +5928,8 @@
   },
   {
     "tree": [
-      "invite-metadata-object-example-invite-metadata",
-      "invite-stage-instance-object",
-      "invite-stage-instance-object-invite-stage-instance-structure"
+      "invite-stage-instance-object-invite-stage-instance-structure",
+      "invite-stage-instance-object-example-invite-stage-instance"
     ],
     "name": "Invite Stage Instance Structure",
     "properties": [
@@ -5985,8 +5990,12 @@
   {
     "tree": [
       "stage-instance-resource",
+      "stage-instance-resource",
       "stage-instance-object",
-      "stage-instance-object-stage-instance-structure"
+      "stage-instance-object",
+      "stage-instance-object-stage-instance-structure",
+      "stage-instance-object-stage-instance-structure",
+      "stage-instance-object-privacy-level"
     ],
     "name": "Stage Instance Structure",
     "properties": [
@@ -6073,8 +6082,12 @@
   {
     "tree": [
       "sticker-resource",
+      "sticker-resource",
       "sticker-object",
-      "sticker-object-sticker-structure"
+      "sticker-object",
+      "sticker-object-sticker-structure",
+      "sticker-object-sticker-structure",
+      "sticker-object-sticker-types"
     ],
     "name": "Sticker Structure",
     "properties": [
@@ -6238,12 +6251,10 @@
   },
   {
     "tree": [
-      "sticker-object-sticker-types",
-      "sticker-object-sticker-format-types",
-      "sticker-object-example-sticker",
-      "sticker-item-object",
       "sticker-item-object-sticker-item-structure",
-      "sticker-pack-object"
+      "sticker-pack-object",
+      "sticker-pack-object",
+      "sticker-pack-object-sticker-pack-structure"
     ],
     "name": "Sticker Item Structure",
     "properties": [
@@ -6290,7 +6301,8 @@
   },
   {
     "tree": [
-      "sticker-pack-object-sticker-pack-structure"
+      "sticker-pack-object-sticker-pack-structure",
+      "sticker-pack-object-example-sticker-pack"
     ],
     "name": "Sticker Pack Structure",
     "properties": [
@@ -6390,9 +6402,14 @@
   {
     "tree": [
       "users-resource",
+      "users-resource",
+      "usernames-and-nicknames",
       "usernames-and-nicknames",
       "user-object",
-      "user-object-user-structure"
+      "user-object",
+      "user-object-user-structure",
+      "user-object-user-structure",
+      "user-object-example-user"
     ],
     "name": "User Structure",
     "properties": [
@@ -6595,11 +6612,8 @@
   },
   {
     "tree": [
-      "user-object-example-user",
-      "user-object-user-flags",
-      "user-object-premium-types",
-      "connection-object",
-      "connection-object-connection-structure"
+      "connection-object-connection-structure",
+      "connection-object-visibility-types"
     ],
     "name": "Connection Structure",
     "properties": [
@@ -6725,8 +6739,12 @@
   {
     "tree": [
       "voice-resource",
+      "voice-resource",
       "voice-state-object",
-      "voice-state-object-voice-state-structure"
+      "voice-state-object",
+      "voice-state-object-voice-state-structure",
+      "voice-state-object-voice-state-structure",
+      "voice-state-object-example-voice-state"
     ],
     "name": "Voice State Structure",
     "properties": [
@@ -6902,12 +6920,7 @@
     ]
   },
   {
-    "tree": [
-      "voice-state-object-example-voice-state",
-      "voice-region-object",
-      "voice-region-object-voice-region-structure",
-      "list-voice-regions"
-    ],
+    "tree": [],
     "name": "Voice Region Structure",
     "properties": [
       {
@@ -6980,8 +6993,12 @@
   {
     "tree": [
       "webhook-resource",
+      "webhook-resource",
       "webhook-object",
-      "webhook-object-webhook-structure"
+      "webhook-object",
+      "webhook-object-webhook-structure",
+      "webhook-object-webhook-structure",
+      "webhook-object-webhook-types"
     ],
     "name": "Webhook Structure",
     "properties": [
@@ -7145,23 +7162,8 @@
   },
   {
     "tree": [
-      "certified-devices",
-      "how's-it-work?",
-      "connecting",
-      "connecting-query-string-params",
-      "connecting-http",
-      "connecting-websocket",
-      "getting-device-uuid",
-      "getting-device-uuid-microphone-id-example",
-      "getting-device-uuid-speaker-id-example",
-      "http-example",
-      "http-example-http-request-example",
-      "http-example-http-response-example",
-      "websocket-example",
-      "websocket-example-rpc-command-example",
-      "websocket-example-rpc-response-example",
-      "models",
-      "models-device-object"
+      "models-device-object",
+      "models-vendor-object"
     ],
     "name": "Device Object",
     "properties": [
@@ -7286,7 +7288,8 @@
   },
   {
     "tree": [
-      "models-vendor-object"
+      "models-vendor-object",
+      "models-model-object"
     ],
     "name": "Vendor Object",
     "properties": [
@@ -7320,7 +7323,8 @@
   },
   {
     "tree": [
-      "models-model-object"
+      "models-model-object",
+      "models-device-type"
     ],
     "name": "Model Object",
     "properties": [
@@ -7354,11 +7358,10 @@
   },
   {
     "tree": [
-      "gateways",
-      "gateways-gateway-versions",
-      "payloads",
       "payloads-gateway-payload-structure",
-      "sending-payloads"
+      "sending-payloads",
+      "sending-payloads",
+      "sending-payloads-example-gateway-dispatch"
     ],
     "name": "Gateway Payload Structure",
     "properties": [
@@ -7418,17 +7421,8 @@
   },
   {
     "tree": [
-      "sending-payloads-example-gateway-dispatch",
-      "receiving-payloads",
-      "encoding-and-compression",
-      "etf/json",
-      "etf/json-using-etf",
-      "payload-compression",
-      "transport-compression",
-      "transport-compression-transport-compression-example",
-      "connecting-to-the-gateway",
-      "connecting",
-      "connecting-gateway-url-query-string-params"
+      "connecting-gateway-url-query-string-params",
+      "connecting-example-gateway-hello"
     ],
     "name": "Gateway URL Query String Params",
     "properties": [
@@ -7475,31 +7469,8 @@
   },
   {
     "tree": [
-      "connecting-example-gateway-hello",
-      "heartbeating",
-      "heartbeating-example-gateway-heartbeat-ack",
-      "identifying",
-      "identifying-example-gateway-identify",
-      "resuming",
-      "resuming-example-gateway-resume",
-      "disconnections",
-      "gateway-intents",
-      "list-of-intents",
-      "caveats",
-      "privileged-intents",
-      "rate-limiting",
-      "tracking-state",
-      "guild-availability",
-      "sharding",
-      "sharding-sharding-formula",
-      "sharding-max-concurrency",
-      "sharding-for-very-large-bots",
-      "commands-and-events",
-      "commands-and-events-gateway-commands",
-      "commands-and-events-gateway-events",
-      "event-names",
-      "identify",
-      "identify-identify-structure"
+      "identify-identify-structure",
+      "identify-identify-connection-properties"
     ],
     "name": "Identify Structure",
     "properties": [
@@ -7544,9 +7515,9 @@
       },
       {
         "key": "large_threshold",
-        "description": "value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member ",
+        "description": "value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member list",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -7598,7 +7569,8 @@
   },
   {
     "tree": [
-      "identify-identify-connection-properties"
+      "identify-identify-connection-properties",
+      "identify-example-identify"
     ],
     "name": "Identify Connection Properties",
     "properties": [
@@ -7645,9 +7617,8 @@
   },
   {
     "tree": [
-      "identify-example-identify",
-      "resume",
-      "resume-resume-structure"
+      "resume-resume-structure",
+      "resume-example-resume"
     ],
     "name": "Resume Structure",
     "properties": [
@@ -7694,11 +7665,8 @@
   },
   {
     "tree": [
-      "resume-example-resume",
-      "heartbeat",
-      "heartbeat-example-heartbeat",
-      "request-guild-members",
-      "request-guild-members-guild-request-members-structure"
+      "request-guild-members-guild-request-members-structure",
+      "request-guild-members-guild-request-members"
     ],
     "name": "Guild Request Members Structure",
     "properties": [
@@ -7793,9 +7761,8 @@
   },
   {
     "tree": [
-      "request-guild-members-guild-request-members",
-      "update-voice-state",
-      "update-voice-state-gateway-voice-state-update-structure"
+      "update-voice-state-gateway-voice-state-update-structure",
+      "update-voice-state-example-gateway-voice-state-update"
     ],
     "name": "Gateway Voice State Update Structure",
     "properties": [
@@ -7855,9 +7822,8 @@
   },
   {
     "tree": [
-      "update-voice-state-example-gateway-voice-state-update",
-      "update-presence",
-      "update-presence-gateway-presence-update-structure"
+      "update-presence-gateway-presence-update-structure",
+      "update-presence-status-types"
     ],
     "name": "Gateway Presence Update Structure",
     "properties": [
@@ -7917,11 +7883,8 @@
   },
   {
     "tree": [
-      "update-presence-status-types",
-      "update-presence-example-gateway-presence-update",
-      "connecting-and-resuming",
-      "hello",
-      "hello-hello-structure"
+      "hello-hello-structure",
+      "hello-example-hello"
     ],
     "name": "Hello Structure",
     "properties": [
@@ -7942,11 +7905,12 @@
   },
   {
     "tree": [
-      "hello-example-hello",
-      "ready",
       "ready-ready-event-fields",
       "resumed",
-      "reconnect"
+      "resumed",
+      "reconnect",
+      "reconnect",
+      "reconnect-example-gateway-reconnect"
     ],
     "name": "Ready Event Fields",
     "properties": [
@@ -8032,19 +7996,10 @@
   },
   {
     "tree": [
-      "reconnect-example-gateway-reconnect",
-      "invalid-session",
-      "invalid-session-example-gateway-invalid-session",
-      "channels",
-      "channel-create",
-      "channel-update",
-      "channel-delete",
-      "thread-create",
-      "thread-update",
-      "thread-delete",
-      "thread-list-sync",
       "thread-list-sync-thread-list-sync-event-fields",
-      "thread-member-update"
+      "thread-member-update",
+      "thread-member-update",
+      "thread-member-update-thread-member-update-event-extra-fields"
     ],
     "name": "Thread List Sync Event Fields",
     "properties": [
@@ -8063,7 +8018,7 @@
       },
       {
         "key": "channel_ids",
-        "description": "the parent channel ids whose threads are being synced.  If omitted, then threads were synced for the entire guild.  This  may contain channel_ids that have no active threads as well, so you know to clear that data.",
+        "description": "the parent channel ids whose threads are being synced. If omitted, then threads were synced for the entire guild. This array may contain channel_ids that have no active threads as well, so you know to clear that data.",
         "type": {
           "array": true,
           "partial": false,
@@ -8105,7 +8060,9 @@
   {
     "tree": [
       "thread-member-update-thread-member-update-event-extra-fields",
-      "thread-members-update"
+      "thread-members-update",
+      "thread-members-update",
+      "thread-members-update-thread-members-update-event-fields"
     ],
     "name": "Thread Member Update Event Extra Fields",
     "properties": [
@@ -8127,7 +8084,9 @@
   {
     "tree": [
       "thread-members-update-thread-members-update-event-fields",
-      "channel-pins-update"
+      "channel-pins-update",
+      "channel-pins-update",
+      "channel-pins-update-channel-pins-update-event-fields"
     ],
     "name": "Thread Members Update Event Fields",
     "properties": [
@@ -8202,10 +8161,16 @@
     "tree": [
       "channel-pins-update-channel-pins-update-event-fields",
       "guilds",
+      "guilds",
+      "guild-create",
       "guild-create",
       "guild-update",
+      "guild-update",
       "guild-delete",
-      "guild-ban-add"
+      "guild-delete",
+      "guild-ban-add",
+      "guild-ban-add",
+      "guild-ban-add-guild-ban-add-event-fields"
     ],
     "name": "Channel Pins Update Event Fields",
     "properties": [
@@ -8253,7 +8218,9 @@
   {
     "tree": [
       "guild-ban-add-guild-ban-add-event-fields",
-      "guild-ban-remove"
+      "guild-ban-remove",
+      "guild-ban-remove",
+      "guild-ban-remove-guild-ban-remove-event-fields"
     ],
     "name": "Guild Ban Add Event Fields",
     "properties": [
@@ -8288,7 +8255,9 @@
   {
     "tree": [
       "guild-ban-remove-guild-ban-remove-event-fields",
-      "guild-emojis-update"
+      "guild-emojis-update",
+      "guild-emojis-update",
+      "guild-emojis-update-guild-emojis-update-event-fields"
     ],
     "name": "Guild Ban Remove Event Fields",
     "properties": [
@@ -8323,7 +8292,9 @@
   {
     "tree": [
       "guild-emojis-update-guild-emojis-update-event-fields",
-      "guild-stickers-update"
+      "guild-stickers-update",
+      "guild-stickers-update",
+      "guild-stickers-update-guild-stickers-update-event-fields"
     ],
     "name": "Guild Emojis Update Event Fields",
     "properties": [
@@ -8358,7 +8329,9 @@
   {
     "tree": [
       "guild-stickers-update-guild-stickers-update-event-fields",
-      "guild-integrations-update"
+      "guild-integrations-update",
+      "guild-integrations-update",
+      "guild-integrations-update-guild-integrations-update-event-fields"
     ],
     "name": "Guild Stickers Update Event Fields",
     "properties": [
@@ -8393,7 +8366,9 @@
   {
     "tree": [
       "guild-integrations-update-guild-integrations-update-event-fields",
-      "guild-member-add"
+      "guild-member-add",
+      "guild-member-add",
+      "guild-member-add-guild-member-add-extra-fields"
     ],
     "name": "Guild Integrations Update Event Fields",
     "properties": [
@@ -8415,7 +8390,9 @@
   {
     "tree": [
       "guild-member-add-guild-member-add-extra-fields",
-      "guild-member-remove"
+      "guild-member-remove",
+      "guild-member-remove",
+      "guild-member-remove-guild-member-remove-event-fields"
     ],
     "name": "Guild Member Add Extra Fields",
     "properties": [
@@ -8437,7 +8414,9 @@
   {
     "tree": [
       "guild-member-remove-guild-member-remove-event-fields",
-      "guild-member-update"
+      "guild-member-update",
+      "guild-member-update",
+      "guild-member-update-guild-member-update-event-fields"
     ],
     "name": "Guild Member Remove Event Fields",
     "properties": [
@@ -8472,7 +8451,9 @@
   {
     "tree": [
       "guild-member-update-guild-member-update-event-fields",
-      "guild-members-chunk"
+      "guild-members-chunk",
+      "guild-members-chunk",
+      "guild-members-chunk-guild-members-chunk-event-fields"
     ],
     "name": "Guild Member Update Event Fields",
     "properties": [
@@ -8624,7 +8605,9 @@
   {
     "tree": [
       "guild-members-chunk-guild-members-chunk-event-fields",
-      "guild-role-create"
+      "guild-role-create",
+      "guild-role-create",
+      "guild-role-create-guild-role-create-event-fields"
     ],
     "name": "Guild Members Chunk Event Fields",
     "properties": [
@@ -8684,7 +8667,7 @@
         "key": "not_found",
         "description": "if passing an invalid id to REQUEST_GUILD_MEMBERS, it will be returned here",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -8724,7 +8707,9 @@
   {
     "tree": [
       "guild-role-create-guild-role-create-event-fields",
-      "guild-role-update"
+      "guild-role-update",
+      "guild-role-update",
+      "guild-role-update-guild-role-update-event-fields"
     ],
     "name": "Guild Role Create Event Fields",
     "properties": [
@@ -8759,7 +8744,9 @@
   {
     "tree": [
       "guild-role-update-guild-role-update-event-fields",
-      "guild-role-delete"
+      "guild-role-delete",
+      "guild-role-delete",
+      "guild-role-delete-guild-role-delete-event-fields"
     ],
     "name": "Guild Role Update Event Fields",
     "properties": [
@@ -8795,9 +8782,14 @@
     "tree": [
       "guild-role-delete-guild-role-delete-event-fields",
       "guild-scheduled-event-create",
+      "guild-scheduled-event-create",
+      "guild-scheduled-event-update",
       "guild-scheduled-event-update",
       "guild-scheduled-event-delete",
-      "guild-scheduled-event-user-add"
+      "guild-scheduled-event-delete",
+      "guild-scheduled-event-user-add",
+      "guild-scheduled-event-user-add",
+      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields"
     ],
     "name": "Guild Role Delete Event Fields",
     "properties": [
@@ -8832,7 +8824,9 @@
   {
     "tree": [
       "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
-      "guild-scheduled-event-user-remove"
+      "guild-scheduled-event-user-remove",
+      "guild-scheduled-event-user-remove",
+      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields"
     ],
     "name": "Guild Scheduled Event User Add Event Fields",
     "properties": [
@@ -8881,7 +8875,10 @@
     "tree": [
       "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
       "integrations",
-      "integration-create"
+      "integrations",
+      "integration-create",
+      "integration-create",
+      "integration-create-integration-create-event-additional-fields"
     ],
     "name": "Guild Scheduled Event User Remove Event Fields",
     "properties": [
@@ -8929,7 +8926,9 @@
   {
     "tree": [
       "integration-create-integration-create-event-additional-fields",
-      "integration-update"
+      "integration-update",
+      "integration-update",
+      "integration-update-integration-update-event-additional-fields"
     ],
     "name": "Integration Create Event Additional Fields",
     "properties": [
@@ -8951,7 +8950,9 @@
   {
     "tree": [
       "integration-update-integration-update-event-additional-fields",
-      "integration-delete"
+      "integration-delete",
+      "integration-delete",
+      "integration-delete-integration-delete-event-fields"
     ],
     "name": "Integration Update Event Additional Fields",
     "properties": [
@@ -8974,7 +8975,10 @@
     "tree": [
       "integration-delete-integration-delete-event-fields",
       "invites",
-      "invite-create"
+      "invites",
+      "invite-create",
+      "invite-create",
+      "invite-create-invite-create-event-fields"
     ],
     "name": "Integration Delete Event Fields",
     "properties": [
@@ -9022,7 +9026,9 @@
   {
     "tree": [
       "invite-create-invite-create-event-fields",
-      "invite-delete"
+      "invite-delete",
+      "invite-delete",
+      "invite-delete-invite-delete-event-fields"
     ],
     "name": "Invite Create Event Fields",
     "properties": [
@@ -9188,9 +9194,14 @@
     "tree": [
       "invite-delete-invite-delete-event-fields",
       "messages",
+      "messages",
+      "message-create",
       "message-create",
       "message-update",
-      "message-delete"
+      "message-update",
+      "message-delete",
+      "message-delete",
+      "message-delete-message-delete-event-fields"
     ],
     "name": "Invite Delete Event Fields",
     "properties": [
@@ -9238,7 +9249,9 @@
   {
     "tree": [
       "message-delete-message-delete-event-fields",
-      "message-delete-bulk"
+      "message-delete-bulk",
+      "message-delete-bulk",
+      "message-delete-bulk-message-delete-bulk-event-fields"
     ],
     "name": "Message Delete Event Fields",
     "properties": [
@@ -9286,7 +9299,9 @@
   {
     "tree": [
       "message-delete-bulk-message-delete-bulk-event-fields",
-      "message-reaction-add"
+      "message-reaction-add",
+      "message-reaction-add",
+      "message-reaction-add-message-reaction-add-event-fields"
     ],
     "name": "Message Delete Bulk Event Fields",
     "properties": [
@@ -9334,7 +9349,9 @@
   {
     "tree": [
       "message-reaction-add-message-reaction-add-event-fields",
-      "message-reaction-remove"
+      "message-reaction-remove",
+      "message-reaction-remove",
+      "message-reaction-remove-message-reaction-remove-event-fields"
     ],
     "name": "Message Reaction Add Event Fields",
     "properties": [
@@ -9421,7 +9438,9 @@
   {
     "tree": [
       "message-reaction-remove-message-reaction-remove-event-fields",
-      "message-reaction-remove-all"
+      "message-reaction-remove-all",
+      "message-reaction-remove-all",
+      "message-reaction-remove-all-message-reaction-remove-all-event-fields"
     ],
     "name": "Message Reaction Remove Event Fields",
     "properties": [
@@ -9495,7 +9514,9 @@
   {
     "tree": [
       "message-reaction-remove-all-message-reaction-remove-all-event-fields",
-      "message-reaction-remove-emoji"
+      "message-reaction-remove-emoji",
+      "message-reaction-remove-emoji",
+      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields"
     ],
     "name": "Message Reaction Remove All Event Fields",
     "properties": [
@@ -9544,7 +9565,10 @@
     "tree": [
       "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
       "presence",
-      "presence-update"
+      "presence",
+      "presence-update",
+      "presence-update",
+      "presence-update-presence-update-event-fields"
     ],
     "name": "Message Reaction Remove Emoji Event Fields",
     "properties": [
@@ -9606,7 +9630,10 @@
     "tree": [
       "presence-update-presence-update-event-fields",
       "client-status-object",
-      "activity-object"
+      "client-status-object",
+      "activity-object",
+      "activity-object",
+      "activity-object-activity-structure"
     ],
     "name": "Presence Update Event Fields",
     "properties": [
@@ -9653,7 +9680,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-structure"
+      "activity-object-activity-structure",
+      "activity-object-activity-types"
     ],
     "name": "Activity Structure",
     "properties": [
@@ -9856,8 +9884,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-types",
-      "activity-object-activity-timestamps"
+      "activity-object-activity-timestamps",
+      "activity-object-activity-emoji"
     ],
     "name": "Activity Timestamps",
     "properties": [
@@ -9891,7 +9919,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-emoji"
+      "activity-object-activity-emoji",
+      "activity-object-activity-party"
     ],
     "name": "Activity Emoji",
     "properties": [
@@ -9938,7 +9967,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-party"
+      "activity-object-activity-party",
+      "activity-object-activity-assets"
     ],
     "name": "Activity Party",
     "properties": [
@@ -9972,7 +10002,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-assets"
+      "activity-object-activity-assets",
+      "activity-object-activity-asset-image"
     ],
     "name": "Activity Assets",
     "properties": [
@@ -10032,8 +10063,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-asset-image",
-      "activity-object-activity-secrets"
+      "activity-object-activity-secrets",
+      "activity-object-activity-flags"
     ],
     "name": "Activity Secrets",
     "properties": [
@@ -10080,8 +10111,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-flags",
-      "activity-object-activity-buttons"
+      "activity-object-activity-buttons",
+      "activity-object-example-activity"
     ],
     "name": "Activity Buttons",
     "properties": [
@@ -10115,14 +10146,16 @@
   },
   {
     "tree": [
-      "activity-object-example-activity",
-      "activity-object-example-activity-with-rich-presence",
-      "typing-start",
       "typing-start-typing-start-event-fields",
       "user-update",
+      "user-update",
+      "voice",
       "voice",
       "voice-state-update",
-      "voice-server-update"
+      "voice-state-update",
+      "voice-server-update",
+      "voice-server-update",
+      "voice-server-update-voice-server-update-event-fields"
     ],
     "name": "Typing Start Event Fields",
     "properties": [
@@ -10195,7 +10228,8 @@
   },
   {
     "tree": [
-      "voice-server-update-voice-server-update-event-fields"
+      "voice-server-update-voice-server-update-event-fields",
+      "voice-server-update-example-voice-server-update-payload"
     ],
     "name": "Voice Server Update Event Fields",
     "properties": [
@@ -10241,25 +10275,7 @@
     ]
   },
   {
-    "tree": [
-      "voice-server-update-example-voice-server-update-payload",
-      "webhooks",
-      "webhooks-update",
-      "webhooks-update-webhooks-update-event-fields",
-      "interactions",
-      "interaction-create",
-      "stage-instances",
-      "stage-instance-create",
-      "stage-instance-update",
-      "stage-instance-delete",
-      "get-gateway",
-      "get-gateway-example-response",
-      "get-gateway-bot",
-      "get-gateway-bot-json-response",
-      "get-gateway-bot-example-response",
-      "session-start-limit-object",
-      "session-start-limit-object-session-start-limit-structure"
-    ],
+    "tree": [],
     "name": "Webhooks Update Event Fields",
     "properties": [
       {
@@ -10292,15 +10308,8 @@
   },
   {
     "tree": [
-      "permissions",
-      "permissions-bitwise-permission-flags",
-      "permission-hierarchy",
-      "permission-overwrites",
-      "implicit-permissions",
-      "inherited-permissions-(threads)",
-      "permission-syncing",
-      "role-object",
-      "role-object-role-structure"
+      "role-object-role-structure",
+      "role-object-role-tags-structure"
     ],
     "name": "Role Structure",
     "properties": [
@@ -10345,9 +10354,9 @@
       },
       {
         "key": "hoist",
-        "description": "if this role is pinned in the user ing",
+        "description": "if this role is pinned in the user listing",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -10451,7 +10460,8 @@
   },
   {
     "tree": [
-      "role-object-role-tags-structure"
+      "role-object-role-tags-structure",
+      "role-object-example-role"
     ],
     "name": "Role Tags Structure",
     "properties": [
@@ -10498,14 +10508,62 @@
   },
   {
     "tree": [
-      "rpc",
-      "rpc-rpc-versions",
-      "restrictions",
-      "payloads",
+      "exceeding-a-rate-limit-rate-limit-response-structure",
+      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response"
+    ],
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "key": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ]
+  },
+  {
+    "tree": [
       "payloads-payload-structure",
       "connecting",
+      "connecting",
       "rpc-server-ports",
-      "authenticating"
+      "rpc-server-ports",
+      "authenticating",
+      "authenticating",
+      "authenticating-rpc-authorize-example"
     ],
     "name": "Payload Structure",
     "properties": [
@@ -10578,13 +10636,8 @@
   },
   {
     "tree": [
-      "authenticating-rpc-authorize-example",
-      "authenticating-rpc-authenticate-example",
-      "commands-and-events",
-      "commands-and-events-rpc-commands",
-      "commands-and-events-rpc-events",
-      "authorize",
-      "authorize-authorize-argument-structure"
+      "authorize-authorize-argument-structure",
+      "authorize-authorize-response-structure"
     ],
     "name": "Authorize Argument Structure",
     "properties": [
@@ -10644,7 +10697,8 @@
   },
   {
     "tree": [
-      "authorize-authorize-response-structure"
+      "authorize-authorize-response-structure",
+      "authorize-example-authorize-command-payload"
     ],
     "name": "Authorize Response Structure",
     "properties": [
@@ -10665,10 +10719,8 @@
   },
   {
     "tree": [
-      "authorize-example-authorize-command-payload",
-      "authorize-example-authorize-response-payload",
-      "authenticate",
-      "authenticate-authenticate-argument-structure"
+      "authenticate-authenticate-argument-structure",
+      "authenticate-authenticate-response-structure"
     ],
     "name": "Authenticate Argument Structure",
     "properties": [
@@ -10689,7 +10741,8 @@
   },
   {
     "tree": [
-      "authenticate-authenticate-response-structure"
+      "authenticate-authenticate-response-structure",
+      "authenticate-oauth2-application-structure"
     ],
     "name": "Authenticate Response Structure",
     "properties": [
@@ -10749,7 +10802,8 @@
   },
   {
     "tree": [
-      "authenticate-oauth2-application-structure"
+      "authenticate-oauth2-application-structure",
+      "authenticate-example-authenticate-command-payload"
     ],
     "name": "OAuth2 Application Structure",
     "properties": [
@@ -10822,10 +10876,8 @@
   },
   {
     "tree": [
-      "authenticate-example-authenticate-command-payload",
-      "authenticate-example-authenticate-response-payload",
-      "get_guilds",
-      "get_guilds-get-guilds-response-structure"
+      "get_guilds-get-guilds-response-structure",
+      "get_guilds-example-get-guilds-command-payload"
     ],
     "name": "Get Guilds Response Structure",
     "properties": [
@@ -10846,10 +10898,8 @@
   },
   {
     "tree": [
-      "get_guilds-example-get-guilds-command-payload",
-      "get_guilds-example-get-guilds-response-payload",
-      "get_guild",
-      "get_guild-get-guild-argument-structure"
+      "get_guild-get-guild-argument-structure",
+      "get_guild-get-guild-response-structure"
     ],
     "name": "Get Guild Argument Structure",
     "properties": [
@@ -10883,7 +10933,8 @@
   },
   {
     "tree": [
-      "get_guild-get-guild-response-structure"
+      "get_guild-get-guild-response-structure",
+      "get_guild-example-get-guild-command-payload"
     ],
     "name": "Get Guild Response Structure",
     "properties": [
@@ -10928,7 +10979,7 @@
       },
       {
         "key": "members",
-        "description": "members of the guild (deprecated; always empty )",
+        "description": "members of the guild (deprecated; always empty array)",
         "type": {
           "array": true,
           "partial": false,
@@ -10943,10 +10994,8 @@
   },
   {
     "tree": [
-      "get_guild-example-get-guild-command-payload",
-      "get_guild-example-get-guild-response-payload",
-      "get_channel",
-      "get_channel-get-channel-argument-structure"
+      "get_channel-get-channel-argument-structure",
+      "get_channel-get-channel-response-structure"
     ],
     "name": "Get Channel Argument Structure",
     "properties": [
@@ -10967,7 +11016,8 @@
   },
   {
     "tree": [
-      "get_channel-get-channel-response-structure"
+      "get_channel-get-channel-response-structure",
+      "get_channel-example-get-channel-command-payload"
     ],
     "name": "Get Channel Response Structure",
     "properties": [
@@ -11064,9 +11114,9 @@
       },
       {
         "key": "position",
-        "description": "position of channel in channel ",
+        "description": "position of channel in channel list",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -11105,10 +11155,8 @@
   },
   {
     "tree": [
-      "get_channel-example-get-channel-command-payload",
-      "get_channel-example-get-channel-response-payload",
-      "get_channels",
-      "get_channels-get-channels-argument-structure"
+      "get_channels-get-channels-argument-structure",
+      "get_channels-get-channels-response-structure"
     ],
     "name": "Get Channels Argument Structure",
     "properties": [
@@ -11129,7 +11177,8 @@
   },
   {
     "tree": [
-      "get_channels-get-channels-response-structure"
+      "get_channels-get-channels-response-structure",
+      "get_channels-example-get-channels-command-payload"
     ],
     "name": "Get Channels Response Structure",
     "properties": [
@@ -11150,10 +11199,8 @@
   },
   {
     "tree": [
-      "get_channels-example-get-channels-command-payload",
-      "get_channels-example-get-channels-response-payload",
-      "set_user_voice_settings",
-      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure"
+      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure",
+      "set_user_voice_settings-pan-object"
     ],
     "name": "Set User Voice Settings Argument and Response Structure",
     "properties": [
@@ -11213,7 +11260,8 @@
   },
   {
     "tree": [
-      "set_user_voice_settings-pan-object"
+      "set_user_voice_settings-pan-object",
+      "set_user_voice_settings-example-set-user-voice-settings-command-payload"
     ],
     "name": "Pan Object",
     "properties": [
@@ -11247,10 +11295,8 @@
   },
   {
     "tree": [
-      "set_user_voice_settings-example-set-user-voice-settings-command-payload",
-      "set_user_voice_settings-example-set-user-voice-settings-response-payload",
-      "select_voice_channel",
-      "select_voice_channel-select-voice-channel-argument-structure"
+      "select_voice_channel-select-voice-channel-argument-structure",
+      "select_voice_channel-example-select-voice-channel-command-payload"
     ],
     "name": "Select Voice Channel Argument Structure",
     "properties": [
@@ -11297,12 +11343,10 @@
   },
   {
     "tree": [
-      "select_voice_channel-example-select-voice-channel-command-payload",
-      "select_voice_channel-example-select-voice-channel-response-payload",
-      "get_selected_voice_channel",
-      "select_text_channel",
       "select_text_channel-select-text-channel-argument-structure",
-      "get_voice_settings"
+      "get_voice_settings",
+      "get_voice_settings",
+      "get_voice_settings-get-voice-settings-response-structure"
     ],
     "name": "Select Text Channel Argument Structure",
     "properties": [
@@ -11336,7 +11380,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-get-voice-settings-response-structure"
+      "get_voice_settings-get-voice-settings-response-structure",
+      "get_voice_settings-voice-settings-input-object"
     ],
     "name": "Get Voice Settings Response Structure",
     "properties": [
@@ -11474,7 +11519,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-voice-settings-input-object"
+      "get_voice_settings-voice-settings-input-object",
+      "get_voice_settings-voice-settings-output-object"
     ],
     "name": "Voice Settings Input Object",
     "properties": [
@@ -11521,7 +11567,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-voice-settings-output-object"
+      "get_voice_settings-voice-settings-output-object",
+      "get_voice_settings-voice-settings-mode-object"
     ],
     "name": "Voice Settings Output Object",
     "properties": [
@@ -11568,7 +11615,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-voice-settings-mode-object"
+      "get_voice_settings-voice-settings-mode-object",
+      "get_voice_settings-shortcut-key-combo-object"
     ],
     "name": "Voice Settings Mode Object",
     "properties": [
@@ -11641,7 +11689,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-shortcut-key-combo-object"
+      "get_voice_settings-shortcut-key-combo-object",
+      "get_voice_settings-key-types"
     ],
     "name": "Shortcut Key Combo Object",
     "properties": [
@@ -11688,10 +11737,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-key-types",
-      "get_voice_settings-example-get-voice-settings-response-payload",
-      "set_voice_settings",
-      "set_voice_settings-set-voice-settings-argument-and-response-structure"
+      "set_voice_settings-set-voice-settings-argument-and-response-structure",
+      "set_voice_settings-example-set-voice-settings-command-payload"
     ],
     "name": "Set Voice Settings Argument and Response Structure",
     "properties": [
@@ -11829,10 +11876,8 @@
   },
   {
     "tree": [
-      "set_voice_settings-example-set-voice-settings-command-payload",
-      "set_voice_settings-example-set-voice-settings-response-payload",
-      "subscribe",
-      "subscribe-subscribe-response-structure"
+      "subscribe-subscribe-response-structure",
+      "subscribe-example-subscribe-command-payload"
     ],
     "name": "Subscribe Response Structure",
     "properties": [
@@ -11853,10 +11898,8 @@
   },
   {
     "tree": [
-      "subscribe-example-subscribe-command-payload",
-      "subscribe-example-subscribe-response-payload",
-      "unsubscribe",
-      "unsubscribe-unsubscribe-response-structure"
+      "unsubscribe-unsubscribe-response-structure",
+      "unsubscribe-example-unsubscribe-command-payload"
     ],
     "name": "Unsubscribe Response Structure",
     "properties": [
@@ -11877,10 +11920,8 @@
   },
   {
     "tree": [
-      "unsubscribe-example-unsubscribe-command-payload",
-      "unsubscribe-example-unsubscribe-response-payload",
-      "set_certified_devices",
-      "set_certified_devices-set-certified-devices-argument-strucure"
+      "set_certified_devices-set-certified-devices-argument-strucure",
+      "set_certified_devices-device-object"
     ],
     "name": "Set Certified Devices Argument Strucure",
     "properties": [
@@ -11901,7 +11942,8 @@
   },
   {
     "tree": [
-      "set_certified_devices-device-object"
+      "set_certified_devices-device-object",
+      "set_certified_devices-vendor-object"
     ],
     "name": "Device Object",
     "properties": [
@@ -12026,7 +12068,8 @@
   },
   {
     "tree": [
-      "set_certified_devices-vendor-object"
+      "set_certified_devices-vendor-object",
+      "set_certified_devices-model-object"
     ],
     "name": "Vendor Object",
     "properties": [
@@ -12060,7 +12103,8 @@
   },
   {
     "tree": [
-      "set_certified_devices-model-object"
+      "set_certified_devices-model-object",
+      "set_certified_devices-device-type"
     ],
     "name": "Model Object",
     "properties": [
@@ -12094,11 +12138,8 @@
   },
   {
     "tree": [
-      "set_certified_devices-device-type",
-      "set_certified_devices-example-set-certified-devices-command-payload",
-      "set_certified_devices-example-set-certified-devices-response-payload",
-      "set_activity",
-      "set_activity-set-activity-argument-structure"
+      "set_activity-set-activity-argument-structure",
+      "set_activity-example-set-activity-payload"
     ],
     "name": "Set Activity Argument Structure",
     "properties": [
@@ -12132,9 +12173,8 @@
   },
   {
     "tree": [
-      "set_activity-example-set-activity-payload",
-      "send_activity_join_invite",
-      "send_activity_join_invite-send-activity-join-invite-argument-structure"
+      "send_activity_join_invite-send-activity-join-invite-argument-structure",
+      "send_activity_join_invite-example-send-activity-join-invite-payload"
     ],
     "name": "Send Activity Join Invite Argument Structure",
     "properties": [
@@ -12155,9 +12195,8 @@
   },
   {
     "tree": [
-      "send_activity_join_invite-example-send-activity-join-invite-payload",
-      "close_activity_request",
-      "close_activity_request-close-activity-request-argument-structure"
+      "close_activity_request-close-activity-request-argument-structure",
+      "close_activity_request-example-close-activity-request-payload"
     ],
     "name": "Close Activity Request Argument Structure",
     "properties": [
@@ -12178,9 +12217,8 @@
   },
   {
     "tree": [
-      "close_activity_request-example-close-activity-request-payload",
-      "ready",
-      "ready-ready-dispatch-data-structure"
+      "ready-ready-dispatch-data-structure",
+      "ready-rpc-server-configuration-object"
     ],
     "name": "Ready Dispatch Data Structure",
     "properties": [
@@ -12227,7 +12265,8 @@
   },
   {
     "tree": [
-      "ready-rpc-server-configuration-object"
+      "ready-rpc-server-configuration-object",
+      "ready-example-ready-dispatch-payload"
     ],
     "name": "RPC Server Configuration Object",
     "properties": [
@@ -12274,9 +12313,8 @@
   },
   {
     "tree": [
-      "ready-example-ready-dispatch-payload",
-      "error",
-      "error-error-data-structure"
+      "error-error-data-structure",
+      "error-example-error-payload"
     ],
     "name": "Error Data Structure",
     "properties": [
@@ -12310,17 +12348,16 @@
   },
   {
     "tree": [
-      "error-example-error-payload",
-      "guild_status",
-      "guild_status-guild-status-argument-structure"
+      "guild_status-guild-status-argument-structure",
+      "guild_status-guild-status-dispatch-data-structure"
     ],
     "name": "Guild Status Argument Structure",
     "properties": [
       {
         "key": "guild_id",
-        "description": "id of guild to en to updates of",
+        "description": "id of guild to listen to updates of",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -12333,7 +12370,8 @@
   },
   {
     "tree": [
-      "guild_status-guild-status-dispatch-data-structure"
+      "guild_status-guild-status-dispatch-data-structure",
+      "guild_status-example-guild-status-dispatch-payload"
     ],
     "name": "Guild Status Dispatch Data Structure",
     "properties": [
@@ -12367,9 +12405,8 @@
   },
   {
     "tree": [
-      "guild_status-example-guild-status-dispatch-payload",
-      "guild_create",
-      "guild_create-guild-create-dispatch-data-structure"
+      "guild_create-guild-create-dispatch-data-structure",
+      "guild_create-example-guild-create-dispatch-payload"
     ],
     "name": "Guild Create Dispatch Data Structure",
     "properties": [
@@ -12403,9 +12440,8 @@
   },
   {
     "tree": [
-      "guild_create-example-guild-create-dispatch-payload",
-      "channel_create",
-      "channel_create-channel-create-dispatch-data-structure"
+      "channel_create-channel-create-dispatch-data-structure",
+      "channel_create-example-channel-create-dispatch-payload"
     ],
     "name": "Channel Create Dispatch Data Structure",
     "properties": [
@@ -12452,9 +12488,8 @@
   },
   {
     "tree": [
-      "channel_create-example-channel-create-dispatch-payload",
-      "voice_channel_select",
-      "voice_channel_select-voice-channel-select-dispatch-data-structure"
+      "voice_channel_select-voice-channel-select-dispatch-data-structure",
+      "voice_channel_select-example-voice-channel-select-dispatch-payload"
     ],
     "name": "Voice Channel Select Dispatch Data Structure",
     "properties": [
@@ -12488,20 +12523,16 @@
   },
   {
     "tree": [
-      "voice_channel_select-example-voice-channel-select-dispatch-payload",
-      "voice_settings_update",
-      "voice_settings_update-voice-settings-argument-structure",
-      "voice_settings_update-example-voice-settings-dispatch-payload",
-      "voice_state_create/voice_state_update/voice_state_delete",
-      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure"
+      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure",
+      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload"
     ],
     "name": "Voice State Argument Structure",
     "properties": [
       {
         "key": "channel_id",
-        "description": "id of channel to en to updates of",
+        "description": "id of channel to listen to updates of",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -12514,17 +12545,16 @@
   },
   {
     "tree": [
-      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload",
-      "voice_connection_status",
-      "voice_connection_status-voice-connection-status-dispatch-data-structure"
+      "voice_connection_status-voice-connection-status-dispatch-data-structure",
+      "voice_connection_status-voice-connection-states"
     ],
     "name": "Voice Connection Status Dispatch Data Structure",
     "properties": [
       {
         "key": "state",
-        "description": "one of the voice connection states ed below",
+        "description": "one of the voice connection states listed below",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -12589,18 +12619,16 @@
   },
   {
     "tree": [
-      "voice_connection_status-voice-connection-states",
-      "voice_connection_status-example-voice-connection-status-dispatch-payload",
-      "message_create/message_update/message_delete",
-      "message_create/message_update/message_delete-message-argument-structure"
+      "message_create/message_update/message_delete-message-argument-structure",
+      "message_create/message_update/message_delete-example-message-dispatch-payload"
     ],
     "name": "Message Argument Structure",
     "properties": [
       {
         "key": "channel_id",
-        "description": "id of channel to en to updates of",
+        "description": "id of channel to listen to updates of",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -12613,17 +12641,16 @@
   },
   {
     "tree": [
-      "message_create/message_update/message_delete-example-message-dispatch-payload",
-      "speaking_start/speaking_stop",
-      "speaking_start/speaking_stop-speaking-argument-structure"
+      "speaking_start/speaking_stop-speaking-argument-structure",
+      "speaking_start/speaking_stop-speaking-dispatch-data-structure"
     ],
     "name": "Speaking Argument Structure",
     "properties": [
       {
         "key": "channel_id",
-        "description": "id of channel to en to updates of",
+        "description": "id of channel to listen to updates of",
         "type": {
-          "array": true,
+          "array": false,
           "partial": false,
           "deprecated": false,
           "type": "value",
@@ -12636,7 +12663,8 @@
   },
   {
     "tree": [
-      "speaking_start/speaking_stop-speaking-dispatch-data-structure"
+      "speaking_start/speaking_stop-speaking-dispatch-data-structure",
+      "speaking_start/speaking_stop-example-speaking-dispatch-payload"
     ],
     "name": "Speaking Dispatch Data Structure",
     "properties": [
@@ -12657,9 +12685,8 @@
   },
   {
     "tree": [
-      "speaking_start/speaking_stop-example-speaking-dispatch-payload",
-      "notification_create",
-      "notification_create-notification-create-dispatch-data-structure"
+      "notification_create-notification-create-dispatch-data-structure",
+      "notification_create-example-notification-create-dispatch-payload"
     ],
     "name": "Notification Create Dispatch Data Structure",
     "properties": [
@@ -12732,9 +12759,8 @@
   },
   {
     "tree": [
-      "notification_create-example-notification-create-dispatch-payload",
-      "activity_join",
-      "activity_join-activity-join-dispatch-data-structure"
+      "activity_join-activity-join-dispatch-data-structure",
+      "activity_join-example-activity-join-dispatch-payload"
     ],
     "name": "Activity Join Dispatch Data Structure",
     "properties": [
@@ -12755,9 +12781,8 @@
   },
   {
     "tree": [
-      "activity_join-example-activity-join-dispatch-payload",
-      "activity_spectate",
-      "activity_spectate-activity-spectate-dispatch-data-structure"
+      "activity_spectate-activity-spectate-dispatch-data-structure",
+      "activity_spectate-example-activity-spectate-dispatch-payload"
     ],
     "name": "Activity Spectate Dispatch Data Structure",
     "properties": [
@@ -12778,9 +12803,8 @@
   },
   {
     "tree": [
-      "activity_spectate-example-activity-spectate-dispatch-payload",
-      "activity_join_request",
-      "activity_join_request-activity-join-request-data-structure"
+      "activity_join_request-activity-join-request-data-structure",
+      "activity_join_request-example-activity-join-request-dispatch-payload"
     ],
     "name": "Activity Join Request Data Structure",
     "properties": [
@@ -12801,64 +12825,21 @@
   },
   {
     "tree": [
-      "rate-limits",
-      "header-format",
-      "header-format-rate-limit-header-examples",
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
-    ],
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "key": "message",
-        "description": "A message saying you are being rate limited.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
-        },
-        "optional": false,
-        "nullable": false
-      }
-    ]
-  },
-  {
-    "tree": [
+      "teams",
       "teams",
       "what-do-they-do",
+      "what-do-they-do",
+      "how-do-i-make-one",
       "how-do-i-make-one",
       "apps-on-teams",
+      "apps-on-teams",
+      "what-next",
       "what-next",
       "data-models",
-      "data-models-team-object"
+      "data-models",
+      "data-models-team-object",
+      "data-models-team-object",
+      "data-models-team-member-object"
     ],
     "name": "Team Object",
     "properties": [
@@ -12931,7 +12912,8 @@
   },
   {
     "tree": [
-      "data-models-team-member-object"
+      "data-models-team-member-object",
+      "data-models-membership-state-enum"
     ],
     "name": "Team Member Object",
     "properties": [
@@ -12991,28 +12973,10 @@
   },
   {
     "tree": [
-      "voice",
-      "voice-gateway-versioning",
-      "voice-gateway-versioning-gateway-versions",
-      "connecting-to-voice",
-      "retrieving-voice-server-information",
-      "retrieving-voice-server-information-gateway-voice-state-update-example",
-      "retrieving-voice-server-information-example-voice-server-update-payload",
-      "establishing-a-voice-websocket-connection",
-      "establishing-a-voice-websocket-connection-example-voice-identify-payload",
-      "establishing-a-voice-websocket-connection-example-voice-ready-payload",
-      "heartbeating",
-      "heartbeating-example-hello-payload-below-v3",
-      "heartbeating-example-hello-payload-since-v3",
-      "heartbeating-example-heartbeat-payload",
-      "heartbeating-example-heartbeat-ack-payload",
-      "establishing-a-voice-udp-connection",
-      "establishing-a-voice-udp-connection-example-select-protocol-payload",
-      "establishing-a-voice-udp-connection-encryption-modes",
-      "establishing-a-voice-udp-connection-example-session-description-payload",
-      "encrypting-and-sending-voice",
       "encrypting-and-sending-voice-voice-packet-structure",
-      "speaking"
+      "speaking",
+      "speaking",
+      "speaking-example-speaking-payload"
     ],
     "name": "Voice Packet Structure",
     "properties": [

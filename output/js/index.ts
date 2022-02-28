@@ -27,7 +27,9 @@ function $({
     if (body) req.write(body);
     req.end();
   });
-}export enum ApplicationFlags {
+}
+
+export enum ApplicationFlags {
 	GatewayPresence = 4096,
 	GatewayPresenceLimited = 8192,
 	GatewayGuildMembers = 16384,
@@ -37,6 +39,7 @@ function $({
 	GatewayMessageContent = 262144,
 	GatewayMessageContentLimited = 524288,
 }
+
 export enum AuditLogEvents {
 	GuildUpdate = 1,
 	ChannelCreate = 10,
@@ -86,6 +89,7 @@ export enum AuditLogEvents {
 	ThreadUpdate = 111,
 	ThreadDelete = 112,
 }
+
 export enum ChannelTypes {
 	GuildText = 0,
 	Dm = 1,
@@ -99,10 +103,12 @@ export enum ChannelTypes {
 	GuildPrivateThread = 12,
 	GuildStageVoice = 13,
 }
+
 export enum VideoQualityModes {
 	Auto = 1,
 	Full = 2,
 }
+
 export enum MessageTypes {
 	Default = 0,
 	RecipientAdd = 1,
@@ -128,12 +134,14 @@ export enum MessageTypes {
 	GuildInviteReminder = 22,
 	ContextMenuCommand = 23,
 }
+
 export enum MessageActivityTypes {
 	Join = 1,
 	Spectate = 2,
 	Listen = 3,
 	JoinRequest = 5,
 }
+
 export enum MessageFlags {
 	Crossposted = 1,
 	IsCrosspost = 2,
@@ -145,6 +153,7 @@ export enum MessageFlags {
 	Loading = 128,
 	FailedToMentionSomeRolesInThread = 256,
 }
+
 export enum EmbedTypes {
 	Rich = "rich",
 	Image = "image",
@@ -153,24 +162,29 @@ export enum EmbedTypes {
 	Article = "article",
 	Link = "link",
 }
+
 export enum AllowedMentionTypes {
 	RoleMentions = "roles",
 	UserMentions = "users",
 	EveryoneMentions = "everyone",
 }
+
 export enum DefaultMessageNotificationLevel {
 	AllMessages = 0,
 	OnlyMentions = 1,
 }
+
 export enum ExplicitContentFilterLevel {
 	Disabled = 0,
 	MembersWithoutRoles = 1,
 	AllMembers = 2,
 }
+
 export enum MfaLevel {
 	None = 0,
 	Elevated = 1,
 }
+
 export enum VerificationLevel {
 	None = 0,
 	Low = 1,
@@ -178,24 +192,28 @@ export enum VerificationLevel {
 	High = 3,
 	VeryHigh = 4,
 }
+
 export enum GuildNsfwLevel {
 	Default = 0,
 	Explicit = 1,
 	Safe = 2,
 	AgeRestricted = 3,
 }
+
 export enum PremiumTier {
 	None = 0,
 	Tier1 = 1,
 	Tier2 = 2,
 	Tier3 = 3,
 }
+
 export enum SystemChannelFlags {
 	SuppressJoinNotifications = 1,
 	SuppressPremiumSubscriptions = 2,
 	SuppressGuildReminderNotifications = 4,
 	SuppressJoinNotificationReplies = 8,
 }
+
 export enum GuildFeatures {
 	AnimatedIcon = "ANIMATED_ICON",
 	Banner = "BANNER",
@@ -220,46 +238,56 @@ export enum GuildFeatures {
 	VipRegions = "VIP_REGIONS",
 	WelcomeScreenEnabled = "WELCOME_SCREEN_ENABLED",
 }
+
 export enum IntegrationExpireBehaviors {
 	RemoveRole = 0,
 	Kick = 1,
 }
+
 export enum GuildScheduledEventPrivacyLevel {
 	GuildOnly = 2,
 }
+
 export enum GuildScheduledEventEntityTypes {
 	StageInstance = 1,
 	Voice = 2,
 	External = 3,
 }
+
 export enum FieldRequirementsByEntityType {
 	StageInstance = "value",
 	Voice = "value",
 	External = "null",
 }
+
 export enum GuildScheduledEventStatus {
 	Scheduled = 1,
 	Active = 2,
 	Completed = 3,
 	Canceled = 4,
 }
+
 export enum InviteTargetTypes {
 	Stream = 1,
 	EmbeddedApplication = 2,
 }
+
 export enum PrivacyLevel {
 	Public = 1,
 	GuildOnly = 2,
 }
+
 export enum StickerTypes {
 	Standard = 1,
 	Guild = 2,
 }
+
 export enum StickerFormatTypes {
 	Png = 1,
 	Apng = 2,
 	Lottie = 3,
 }
+
 export enum UserFlags {
 	None = 0,
 	Staff = 1,
@@ -277,30 +305,36 @@ export enum UserFlags {
 	CertifiedModerator = 262144,
 	BotHttpInteractions = 524288,
 }
+
 export enum PremiumTypes {
 	None = 0,
 	NitroClassic = 1,
 	Nitro = 2,
 }
+
 export enum VisibilityTypes {
 	None = 0,
 	Everyone = 1,
 }
+
 export enum WebhookTypes {
 	Incoming = 1,
 	ChannelFollower = 2,
 	Application = 3,
 }
+
 export enum QueryStringParams {
 	V = 1,
 	ClientId = "your app's client id",
 	Encoding = "json",
 }
+
 export enum DeviceType {
 	AudioInput = "audioinput",
 	AudioOutput = "audiooutput",
 	VideoInput = "videoinput",
 }
+
 export enum DiscordLibraries {
 	Orca = "C",
 	DiscordNet = "C#",
@@ -347,6 +381,7 @@ export enum DiscordLibraries {
 	Droff = "TypeScript",
 	Harmony = "TypeScript",
 }
+
 export enum GatewayVersions {
 	$9 = "Available",
 	$8 = "Available",
@@ -355,6 +390,7 @@ export enum GatewayVersions {
 	$5 = "Discontinued",
 	$4 = "Discontinued",
 }
+
 export enum GatewayCommands {
 	Identify = "Identify",
 	Resume = "Resume",
@@ -363,6 +399,7 @@ export enum GatewayCommands {
 	UpdateVoiceState = "Update Voice State",
 	UpdatePresence = "Update Presence",
 }
+
 export enum GatewayEvents {
 	Hello = "Hello",
 	Ready = "Ready",
@@ -423,6 +460,7 @@ export enum GatewayEvents {
 	VoiceServerUpdate = "Voice Server Update",
 	WebhooksUpdate = "Webhooks Update",
 }
+
 export enum StatusTypes {
 	Online = "online",
 	Dnd = "dnd",
@@ -430,6 +468,7 @@ export enum StatusTypes {
 	Invisible = "invisible",
 	Offline = "offline",
 }
+
 export enum ActivityTypes {
 	Game = 0,
 	Streaming = 1,
@@ -438,10 +477,12 @@ export enum ActivityTypes {
 	Custom = 4,
 	Competing = 5,
 }
+
 export enum ActivityAssetImage {
 	ApplicationAsset = "{application_asset_id}",
 	MediaProxyImage = "mp:{image_id}",
 }
+
 export enum ActivityFlags {
 	Instance = 1,
 	Join = 2,
@@ -453,11 +494,13 @@ export enum ActivityFlags {
 	PartyPrivacyVoiceChannel = 128,
 	Embedded = 256,
 }
+
 export enum OAuth2UrLs {
 	HttpsDiscordComApiOauth2Authorize = "https://discord.com/api/oauth2/authorize",
 	HttpsDiscordComApiOauth2Token = "https://discord.com/api/oauth2/token",
 	HttpsDiscordComApiOauth2TokenRevoke = "https://discord.com/api/oauth2/token/revoke",
 }
+
 export enum OAuth2Scopes {
 	ActivitiesRead = "activities.read",
 	ActivitiesWrite = "activities.write",
@@ -484,6 +527,7 @@ export enum OAuth2Scopes {
 	RpcVoiceWrite = "rpc.voice.write",
 	WebhookIncoming = "webhook.incoming",
 }
+
 export enum BotAuthParameters {
 	ClientId = "client_id",
 	Scope = "scope",
@@ -491,6 +535,7 @@ export enum BotAuthParameters {
 	GuildId = "guild_id",
 	DisableGuildSelect = "disable_guild_select",
 }
+
 export enum GatewayOpcodes {
 	Dispatch = 0,
 	Heartbeat = 1,
@@ -504,6 +549,7 @@ export enum GatewayOpcodes {
 	Hello = 10,
 	HeartbeatAck = 11,
 }
+
 export enum GatewayCloseEventCodes {
 	$4000 = "Unknown error",
 	$4001 = "Unknown opcode",
@@ -520,6 +566,7 @@ export enum GatewayCloseEventCodes {
 	$4013 = "Invalid intent",
 	$4014 = "Disallowed intent",
 }
+
 export enum VoiceOpcodes {
 	Identify = 0,
 	SelectProtocol = 1,
@@ -533,6 +580,7 @@ export enum VoiceOpcodes {
 	Resumed = 9,
 	ClientDisconnect = 13,
 }
+
 export enum VoiceCloseEventCodes {
 	$4001 = "Unknown opcode",
 	$4002 = "Failed to decode payload",
@@ -547,6 +595,7 @@ export enum VoiceCloseEventCodes {
 	$4015 = "Voice server crashed",
 	$4016 = "Unknown encryption mode",
 }
+
 export enum HttpResponseCodes {
 	$200 = "The request completed successfully.",
 	$201 = "The entity was created successfully.",
@@ -561,156 +610,7 @@ export enum HttpResponseCodes {
 	$502 = "There was not a gateway available to process your request. Wait a bit and retry.",
 	"5Xx" = "The server had an error processing your request.",
 }
-export enum JsonErrorCodes {
-	$0 = "General error",
-	$10001 = "Unknown account",
-	$10002 = "Unknown application",
-	$10003 = "Unknown channel",
-	$10004 = "Unknown guild",
-	$10005 = "Unknown integration",
-	$10006 = "Unknown invite",
-	$10007 = "Unknown member",
-	$10008 = "Unknown message",
-	$10009 = "Unknown permission overwrite",
-	$10010 = "Unknown provider",
-	$10011 = "Unknown role",
-	$10012 = "Unknown token",
-	$10013 = "Unknown user",
-	$10014 = "Unknown emoji",
-	$10015 = "Unknown webhook",
-	$10016 = "Unknown webhook service",
-	$10020 = "Unknown session",
-	$10026 = "Unknown ban",
-	$10027 = "Unknown SKU",
-	$10028 = "Unknown Store Listing",
-	$10029 = "Unknown entitlement",
-	$10030 = "Unknown build",
-	$10031 = "Unknown lobby",
-	$10032 = "Unknown branch",
-	$10033 = "Unknown store directory layout",
-	$10036 = "Unknown redistributable",
-	$10038 = "Unknown gift code",
-	$10049 = "Unknown stream",
-	$10050 = "Unknown premium server subscribe cooldown",
-	$10057 = "Unknown guild template",
-	$10059 = "Unknown discoverable server category",
-	$10060 = "Unknown sticker",
-	$10062 = "Unknown interaction",
-	$10063 = "Unknown application command",
-	$10066 = "Unknown application command permissions",
-	$10067 = "Unknown Stage Instance",
-	$10068 = "Unknown Guild Member Verification Form",
-	$10069 = "Unknown Guild Welcome Screen",
-	$10070 = "Unknown Guild Scheduled Event",
-	$10071 = "Unknown Guild Scheduled Event User",
-	$20001 = "Bots cannot use this endpoint",
-	$20002 = "Only bots can use this endpoint",
-	$20009 = "Explicit content cannot be sent to the desired recipient",
-	$20012 = "You are not authorized to perform this action on this application",
-	$20016 = "This action cannot be performed due to slowmode rate limit",
-	$20018 = "Only the owner of this account can perform this action",
-	$20022 = "This message cannot be edited due to announcement rate limits",
-	$20028 = "The channel you are writing has hit the write rate limit",
-	$20029 = "The write action you are performing on the server has hit the write rate limit",
-	$20031 = "Your Stage topic, server name, server description, or channel names contain words that are not allowed",
-	$20035 = "Guild premium subscription level too low",
-	$30001 = "Maximum number of guilds reached",
-	$30002 = "Maximum number of friends reached",
-	$30003 = "Maximum number of pins reached for the channel",
-	$30004 = "Maximum number of recipients reached",
-	$30005 = "Maximum number of guild roles reached",
-	$30007 = "Maximum number of webhooks reached",
-	$30008 = "Maximum number of emojis reached",
-	$30010 = "Maximum number of reactions reached",
-	$30013 = "Maximum number of guild channels reached",
-	$30015 = "Maximum number of attachments in a message reached",
-	$30016 = "Maximum number of invites reached",
-	$30018 = "Maximum number of animated emojis reached",
-	$30019 = "Maximum number of server members reached",
-	$30030 = "Maximum number of server categories has been reached",
-	$30031 = "Guild already has a template",
-	$30033 = "Max number of thread participants has been reached",
-	$30035 = "Maximum number of bans for non-guild members have been exceeded",
-	$30037 = "Maximum number of bans fetches has been reached",
-	$30038 = "Maximum number of uncompleted guild scheduled events reached",
-	$30039 = "Maximum number of stickers reached",
-	$30040 = "Maximum number of prune requests has been reached. Try again later",
-	$30042 = "Maximum number of guild widget settings updates has been reached. Try again later",
-	$30046 = "Maximum number of edits to messages older than 1 hour reached. Try again later",
-	$40001 = "Unauthorized. Provide a valid token and try again",
-	$40002 = "You need to verify your account in order to perform this action",
-	$40003 = "You are opening direct messages too fast",
-	$40005 = "Request entity too large. Try sending something smaller in size",
-	$40006 = "This feature has been temporarily disabled server-side",
-	$40007 = "The user is banned from this guild",
-	$40032 = "Target user is not connected to voice",
-	$40033 = "This message has already been crossposted",
-	$40041 = "An application command with that name already exists",
-	$50001 = "Missing access",
-	$50002 = "Invalid account type",
-	$50003 = "Cannot execute action on a DM channel",
-	$50004 = "Guild widget disabled",
-	$50005 = "Cannot edit a message authored by another user",
-	$50006 = "Cannot send an empty message",
-	$50007 = "Cannot send messages to this user",
-	$50008 = "Cannot send messages in a voice channel",
-	$50009 = "Channel verification level is too high for you to gain access",
-	$50010 = "OAuth2 application does not have a bot",
-	$50011 = "OAuth2 application limit reached",
-	$50012 = "Invalid OAuth2 state",
-	$50013 = "You lack permissions to perform that action",
-	$50014 = "Invalid authentication token provided",
-	$50015 = "Note was too long",
-	$50016 = "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete",
-	$50019 = "A message can only be pinned to the channel it was sent in",
-	$50020 = "Invite code was either invalid or taken",
-	$50021 = "Cannot execute action on a system message",
-	$50024 = "Cannot execute action on this channel type",
-	$50025 = "Invalid OAuth2 access token provided",
-	$50026 = "Missing required OAuth2 scope",
-	$50027 = "Invalid webhook token provided",
-	$50028 = "Invalid role",
-	$50033 = "Invalid Recipient",
-	$50034 = "A message provided was too old to bulk delete",
-	$50035 = "Invalid form body, or invalid Content-Type provided",
-	$50036 = "An invite was accepted to a guild the application's bot is not in",
-	$50041 = "Invalid API version provided",
-	$50045 = "File uploaded exceeds the maximum size",
-	$50046 = "Invalid file uploaded",
-	$50054 = "Cannot self-redeem this gift",
-	$50055 = "Invalid Guild",
-	$50068 = "Invalid message type",
-	$50070 = "Payment source required to redeem gift",
-	$50074 = "Cannot delete a channel required for Community guilds",
-	$50081 = "Invalid sticker sent",
-	$50083 = "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread",
-	$50084 = "Invalid thread notification settings",
-	$50085 = "before value is earlier than the thread creation date",
-	$50086 = "Community server channels must be text channels",
-	$50095 = "This server is not available in your location",
-	$50097 = "This server needs monetization enabled in order to perform this action",
-	$50101 = "This server needs more boosts to perform this action",
-	$50109 = "The request body contains invalid JSON.",
-	$60003 = "Two factor is required for this operation",
-	$80004 = "No users with DiscordTag exist",
-	$90001 = "Reaction was blocked",
-	$130000 = "API resource is currently overloaded. Try again a little later",
-	$150006 = "The Stage is already open",
-	$160002 = "Cannot reply without permission to read message history",
-	$160004 = "A thread has already been created for this message",
-	$160005 = "Thread is locked",
-	$160006 = "Maximum number of active threads reached",
-	$160007 = "Maximum number of active announcement threads reached",
-	$170001 = "Invalid JSON for uploaded Lottie file",
-	$170002 = "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG",
-	$170003 = "Sticker maximum framerate exceeded",
-	$170004 = "Sticker frame count exceeds maximum of 1000 frames",
-	$170005 = "Lottie animation maximum dimensions exceeded",
-	$170006 = "Sticker frame rate is either too small or too large",
-	$170007 = "Sticker animation duration exceeds maximum of 5 seconds",
-	$180000 = "Cannot update a finished event",
-	$180002 = "Failed to create stage needed for stage event",
-}
+
 export enum RpcErrorCodes {
 	UnknownError = 1000,
 	InvalidPayload = 4000,
@@ -729,6 +629,7 @@ export enum RpcErrorCodes {
 	SelectVoiceForceRequired = 5003,
 	CaptureShortcutAlreadyListening = 5004,
 }
+
 export enum RpcCloseEventCodes {
 	InvalidClientId = 4000,
 	InvalidOrigin = 4001,
@@ -737,6 +638,7 @@ export enum RpcCloseEventCodes {
 	InvalidVersion = 4004,
 	InvalidEncoding = 4005,
 }
+
 export enum BitwisePermissionFlags {
 	CreateInstantInvite = 1,
 	KickMembers = 2,
@@ -780,9 +682,11 @@ export enum BitwisePermissionFlags {
 	StartEmbeddedActivities = 549755813888,
 	ModerateMembers = 1099511627776,
 }
+
 export enum RpcVersions {
 	$1 = "no",
 }
+
 export enum RpcCommands {
 	Dispatch = "DISPATCH",
 	Authorize = "AUTHORIZE",
@@ -804,6 +708,7 @@ export enum RpcCommands {
 	SendActivityJoinInvite = "SEND_ACTIVITY_JOIN_INVITE",
 	CloseActivityRequest = "CLOSE_ACTIVITY_REQUEST",
 }
+
 export enum RpcEvents {
 	Ready = "READY",
 	Error = "ERROR",
@@ -826,17 +731,20 @@ export enum RpcEvents {
 	ActivitySpectate = "ACTIVITY_SPECTATE",
 	ActivityJoinRequest = "ACTIVITY_JOIN_REQUEST",
 }
+
 export enum KeyTypes {
 	KeyboardKey = 0,
 	MouseButton = 1,
 	KeyboardModifierKey = 2,
 	GamepadButton = 3,
 }
+
 export enum DeviceType_ {
 	AudioInput = "audioinput",
 	AudioOutput = "audiooutput",
 	VideoInput = "videoinput",
 }
+
 export enum VoiceConnectionStates {
 	Disconnected = "DISCONNECTED",
 	AwaitingEndpoint = "AWAITING_ENDPOINT",
@@ -849,39 +757,45 @@ export enum VoiceConnectionStates {
 	NoRoute = "NO_ROUTE",
 	IceChecking = "ICE_CHECKING",
 }
+
 export enum MembershipStateEnum {
 	Invited = 1,
 	Accepted = 2,
 }
+
 export enum GatewayVersions_ {
 	$4 = "recommended",
 	$3 = "available",
 	$2 = "available",
 	$1 = "default",
 }
+
 export enum EncryptionModes {
 	Normal = "xsalsa20_poly1305",
 	Suffix = "xsalsa20_poly1305_suffix",
 	Lite = "xsalsa20_poly1305_lite",
 }
+
 export function getGuildAuditLog(
 	guildId: string,
 ): Promise<AuditLogStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/audit-logs",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/audit-logs`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getChannel(
 	channelId: string,
 ): Promise<ChannelStructure> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyChannel(
 	channelId: string,
 	body: {
@@ -890,7 +804,7 @@ export function modifyChannel(
 	} | {
 		name: string,
 		type: number,
-		position: Array<number> | null,
+		position: number | null,
 		topic: string | null,
 		nsfw: boolean | null,
 		rate_limit_per_user: number | null,
@@ -912,39 +826,43 @@ export function modifyChannel(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "PATCH",
-		path: "/channels/" + channelId + "",
+		path: `/channels/${encodeURIComponent(channelId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteCloseChannel(
 	channelId: string,
 ): Promise<ChannelStructure> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getChannelMessages(
 	channelId: string,
-): Promise<Array<MessageStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/messages",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getChannelMessage(
 	channelId: string,
 	messageId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/messages/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createMessage(
 	channelId: string,
 	body: {
@@ -959,26 +877,28 @@ export function createMessage(
 		files?: any,
 		payload_json?: string,
 		attachments?: Array<Partial<EmbedFieldStructure>>,
-		flags?: MessageReferenceStructure,
+		flags?: MessageActivityTypes,
 	}, 
-): Promise<MessageStructure> {
+): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/messages",
+		path: `/channels/${encodeURIComponent(channelId)}/messages`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function crosspostMessage(
 	channelId: string,
 	messageId: string,
-): Promise<MessageStructure> {
+): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/crosspost",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/crosspost`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createReaction(
 	channelId: string,
 	messageId: string,
@@ -986,10 +906,11 @@ export function createReaction(
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions/" + emoji + "/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteOwnReaction(
 	channelId: string,
 	messageId: string,
@@ -997,10 +918,11 @@ export function deleteOwnReaction(
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions/" + emoji + "/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteUserReaction(
 	channelId: string,
 	messageId: string,
@@ -1009,10 +931,11 @@ export function deleteUserReaction(
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions/" + emoji + "/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getReactions(
 	channelId: string,
 	messageId: string,
@@ -1020,20 +943,22 @@ export function getReactions(
 ): Promise<Array<UserStructure>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions/" + emoji + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteAllReactions(
 	channelId: string,
 	messageId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteAllReactionsForEmoji(
 	channelId: string,
 	messageId: string,
@@ -1041,10 +966,11 @@ export function deleteAllReactionsForEmoji(
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/reactions/" + emoji + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function editMessage(
 	channelId: string,
 	messageId: string,
@@ -1059,24 +985,26 @@ export function editMessage(
 		payload_json: string,
 		attachments: Array<EmbedFieldStructure>,
 	}, 
-): Promise<MessageStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/channels/" + channelId + "/messages/" + messageId + "",
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteMessage(
 	channelId: string,
 	messageId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/messages/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function bulkDeleteMessages(
 	channelId: string,
 	body: {
@@ -1085,11 +1013,12 @@ export function bulkDeleteMessages(
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/messages/bulk-delete",
+		path: `/channels/${encodeURIComponent(channelId)}/messages/bulk-delete`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function editChannelPermissions(
 	channelId: string,
 	overwriteId: string,
@@ -1101,20 +1030,22 @@ export function editChannelPermissions(
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/permissions/" + overwriteId + "",
+		path: `/channels/${encodeURIComponent(channelId)}/permissions/${encodeURIComponent(overwriteId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getChannelInvites(
 	channelId: string,
 ): Promise<Array<InviteStructure>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/invites",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/invites`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createChannelInvite(
 	channelId: string,
 	body: {
@@ -1129,21 +1060,23 @@ export function createChannelInvite(
 ): Promise<InviteStructure> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/invites",
+		path: `/channels/${encodeURIComponent(channelId)}/invites`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteChannelPermission(
 	channelId: string,
 	overwriteId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/permissions/" + overwriteId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/permissions/${encodeURIComponent(overwriteId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function followNewsChannel(
 	channelId: string,
 	body: {
@@ -1152,49 +1085,54 @@ export function followNewsChannel(
 ): Promise<FollowedChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/followers",
+		path: `/channels/${encodeURIComponent(channelId)}/followers`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function triggerTypingIndicator(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/typing",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/typing`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getPinnedMessages(
 	channelId: string,
-): Promise<Array<MessageStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/pins",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/pins`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function pinMessage(
 	channelId: string,
 	messageId: string,
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/pins/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/pins/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function unpinMessage(
 	channelId: string,
 	messageId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/pins/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/pins/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function groupDmAddRecipient(
 	channelId: string,
 	userId: string,
@@ -1205,21 +1143,23 @@ export function groupDmAddRecipient(
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/recipients/" + userId + "",
+		path: `/channels/${encodeURIComponent(channelId)}/recipients/${encodeURIComponent(userId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function groupDmRemoveRecipient(
 	channelId: string,
 	userId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/recipients/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/recipients/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function startThreadWithMessage(
 	channelId: string,
 	messageId: string,
@@ -1231,11 +1171,12 @@ export function startThreadWithMessage(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/messages/" + messageId + "/threads",
+		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/threads`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function startThreadWithoutMessage(
 	channelId: string,
 	body: {
@@ -1248,123 +1189,136 @@ export function startThreadWithoutMessage(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/threads",
+		path: `/channels/${encodeURIComponent(channelId)}/threads`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function joinThread(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/thread-members/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function addThreadMember(
 	channelId: string,
 	userId: string,
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/channels/" + channelId + "/thread-members/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function leaveThread(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/thread-members/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function removeThreadMember(
 	channelId: string,
 	userId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/channels/" + channelId + "/thread-members/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getThreadMember(
 	channelId: string,
 	userId: string,
 ): Promise<ThreadMetadataStructure> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/thread-members/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listThreadMembers(
 	channelId: string,
 ): Promise<Array<ThreadMetadataStructure>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/thread-members",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/thread-members`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listActiveThreads(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/threads/active",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/threads/active`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listPublicArchivedThreads(
 	channelId: string,
-): Promise<MessageStructure> {
+): Promise<ChannelTypes> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/threads/archived/public",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/threads/archived/public`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listPrivateArchivedThreads(
 	channelId: string,
-): Promise<MessageStructure> {
+): Promise<ChannelTypes> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/threads/archived/private",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/threads/archived/private`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listJoinedPrivateArchivedThreads(
 	channelId: string,
-): Promise<MessageStructure> {
+): Promise<ChannelTypes> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/users/@me/threads/archived/private",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/users/@me/threads/archived/private`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listGuildEmojis(
 	guildId: string,
 ): Promise<Array<EmojiStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/emojis",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildEmoji(
 	guildId: string,
 	emojiId: string,
 ): Promise<EmojiStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildEmoji(
 	guildId: string,
 	body: {
@@ -1375,11 +1329,12 @@ export function createGuildEmoji(
 ): Promise<EmojiStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/emojis",
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildEmoji(
 	guildId: string,
 	emojiId: string,
@@ -1390,70 +1345,75 @@ export function modifyGuildEmoji(
 ): Promise<EmojiStructure> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildEmoji(
 	guildId: string,
 	emojiId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/emojis/" + emojiId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuild(
 	body: {
 		name: string,
-		region?: VoiceRegionStructure | null,
+		region?: any | null,
 		icon?: any,
-		verification_level?: GuildPreviewStructure,
+		verification_level?: MfaLevel,
 		default_message_notifications?: number,
-		explicit_content_filter?: GuildPreviewStructure,
-		roles?: Array<RoleStructure>,
+		explicit_content_filter?: DefaultMessageNotificationLevel,
+		roles?: Array<any>,
 		channels?: Array<Partial<ChannelStructure>>,
 		afk_channel_id?: string | bigint,
 		afk_timeout?: number,
 		system_channel_id?: string | bigint,
-		system_channel_flags?: GuildPreviewStructure,
+		system_channel_flags?: PremiumTier,
 	}, 
 ): Promise<GuildStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds",
+		path: `/guilds`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuild(
 	guildId: string,
 ): Promise<GuildStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildPreview(
 	guildId: string,
-): Promise<GuildPreviewStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/preview",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/preview`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuild(
 	guildId: string,
 	body: {
 		name: string,
 		region: string | null,
-		verification_level: GuildPreviewStructure | null,
+		verification_level: MfaLevel | null,
 		default_message_notifications: number | null,
-		explicit_content_filter: GuildPreviewStructure | null,
+		explicit_content_filter: DefaultMessageNotificationLevel | null,
 		afk_channel_id: string | bigint | null,
 		afk_timeout: number,
 		icon: any | null,
@@ -1462,40 +1422,43 @@ export function modifyGuild(
 		discovery_splash: any | null,
 		banner: any | null,
 		system_channel_id: string | bigint | null,
-		system_channel_flags: GuildPreviewStructure,
+		system_channel_flags: PremiumTier,
 		rules_channel_id: string | bigint | null,
 		public_updates_channel_id: string | bigint | null,
 		preferred_locale: string | null,
-		features: Array<GuildPreviewStructure>,
+		features: Array<SystemChannelFlags>,
 		description: string | null,
 		premium_progress_bar_enabled: boolean,
 	}, 
 ): Promise<GuildStructure> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuild(
 	guildId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildChannels(
 	guildId: string,
 ): Promise<Array<ChannelStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/channels",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/channels`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildChannel(
 	guildId: string,
 	body: {
@@ -1513,11 +1476,12 @@ export function createGuildChannel(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/channels",
+		path: `/guilds/${encodeURIComponent(guildId)}/channels`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildChannelPositions(
 	guildId: string,
 	body: {
@@ -1529,48 +1493,53 @@ export function modifyGuildChannelPositions(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/channels",
+		path: `/guilds/${encodeURIComponent(guildId)}/channels`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listActiveThreads_(
 	guildId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/threads/active",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/threads/active`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildMember(
 	guildId: string,
 	userId: string,
-): Promise<GuildMemberStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/members/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listGuildMembers(
 	guildId: string,
-): Promise<Array<GuildMemberStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/members",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function searchGuildMembers(
 	guildId: string,
-): Promise<Array<GuildMemberStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/members/search",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members/search`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function addGuildMember(
 	guildId: string,
 	userId: string,
@@ -1581,14 +1550,15 @@ export function addGuildMember(
 		mute: boolean,
 		deaf: boolean,
 	}, 
-): Promise<GuildMemberStructure> {
+): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/guilds/" + guildId + "/members/" + userId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildMember(
 	guildId: string,
 	userId: string,
@@ -1600,14 +1570,15 @@ export function modifyGuildMember(
 		channel_id: string | bigint,
 		communication_disabled_until: Date | null,
 	}, 
-): Promise<GuildMemberStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/members/" + userId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyCurrentMember(
 	guildId: string,
 	body: {
@@ -1616,11 +1587,12 @@ export function modifyCurrentMember(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/members/@me",
+		path: `/guilds/${encodeURIComponent(guildId)}/members/@me`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyCurrentUserNick(
 	guildId: string,
 	body: {
@@ -1629,11 +1601,12 @@ export function modifyCurrentUserNick(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/members/@me/nick",
+		path: `/guilds/${encodeURIComponent(guildId)}/members/@me/nick`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function addGuildMemberRole(
 	guildId: string,
 	userId: string,
@@ -1641,10 +1614,11 @@ export function addGuildMemberRole(
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}/roles/${encodeURIComponent(roleId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function removeGuildMemberRole(
 	guildId: string,
 	userId: string,
@@ -1652,39 +1626,43 @@ export function removeGuildMemberRole(
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/members/" + userId + "/roles/" + roleId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}/roles/${encodeURIComponent(roleId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function removeGuildMember(
 	guildId: string,
 	userId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/members/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/members/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildBans(
 	guildId: string,
 ): Promise<Array<IntegrationApplicationStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/bans",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/bans`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildBan(
 	guildId: string,
 	userId: string,
 ): Promise<IntegrationApplicationStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/bans/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/bans/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildBan(
 	guildId: string,
 	userId: string,
@@ -1695,30 +1673,33 @@ export function createGuildBan(
 ): Promise<any> {
 	return $({
 		method: "PUT",
-		path: "/guilds/" + guildId + "/bans/" + userId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/bans/${encodeURIComponent(userId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function removeGuildBan(
 	guildId: string,
 	userId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/bans/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/bans/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildRoles(
 	guildId: string,
-): Promise<Array<RoleStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/roles",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildRole(
 	guildId: string,
 	body: {
@@ -1730,28 +1711,30 @@ export function createGuildRole(
 		unicode_emoji: string,
 		mentionable: boolean,
 	}, 
-): Promise<RoleStructure> {
+): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/roles",
+		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildRolePositions(
 	guildId: string,
 	body: {
 		id: string | bigint,
 		position?: number | null,
 	}, 
-): Promise<Array<RoleStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/roles",
+		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildRole(
 	guildId: string,
 	roleId: string,
@@ -1764,33 +1747,36 @@ export function modifyGuildRole(
 		unicode_emoji: string,
 		mentionable: boolean,
 	}, 
-): Promise<RoleStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/roles/" + roleId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/roles/${encodeURIComponent(roleId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildRole(
 	guildId: string,
 	roleId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/roles/" + roleId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/roles/${encodeURIComponent(roleId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildPruneCount(
 	guildId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/prune",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/prune`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function beginGuildPrune(
 	guildId: string,
 	body: {
@@ -1802,117 +1788,129 @@ export function beginGuildPrune(
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/prune",
+		path: `/guilds/${encodeURIComponent(guildId)}/prune`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildVoiceRegions(
 	guildId: string,
-): Promise<Array<VoiceRegionStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/regions",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/regions`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildInvites(
 	guildId: string,
 ): Promise<Array<InviteStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/invites",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/invites`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildIntegrations(
 	guildId: string,
-): Promise<Array<IntegrationStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/integrations",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/integrations`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildIntegration(
 	guildId: string,
 	integrationId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/integrations/" + integrationId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/integrations/${encodeURIComponent(integrationId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildWidgetSettings(
 	guildId: string,
-): Promise<GuildWidgetSettingsStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/widget",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/widget`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildWidget(
 	guildId: string,
-): Promise<GuildWidgetSettingsStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/widget",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/widget`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildWidget(
 	guildId: string,
-): Promise<GetGuildWidgetStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/widget.json",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/widget.json`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildVanityUrl(
 	guildId: string,
 ): Promise<Partial<InviteStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/vanity-url",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/vanity-url`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildWidgetImage(
 	guildId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/widget.png",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/widget.png`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildWelcomeScreen(
 	guildId: string,
-): Promise<WelcomeScreenStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/welcome-screen",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/welcome-screen`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildWelcomeScreen(
 	guildId: string,
 	body: {
 		enabled: boolean,
-		welcome_channels: Array<WelcomeScreenChannelStructure>,
+		welcome_channels: Array<WelcomeScreenStructure>,
 		description: string,
 	}, 
-): Promise<WelcomeScreenStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/welcome-screen",
+		path: `/guilds/${encodeURIComponent(guildId)}/welcome-screen`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyCurrentUserVoiceState(
 	guildId: string,
 	body: {
@@ -1923,11 +1921,12 @@ export function modifyCurrentUserVoiceState(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/voice-states/@me",
+		path: `/guilds/${encodeURIComponent(guildId)}/voice-states/@me`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyUserVoiceState(
 	guildId: string,
 	userId: string,
@@ -1938,51 +1937,55 @@ export function modifyUserVoiceState(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/voice-states/" + userId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/voice-states/${encodeURIComponent(userId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listScheduledEventsForGuild(
 	guildId: string,
 ): Promise<Array<GuildScheduledEventStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/scheduled-events",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildScheduledEvent(
 	guildId: string,
 	body: {
 		channel_id: string | bigint,
 		entity_metadata?: GuildScheduledEventEntityMetadata,
 		name: string,
-		privacy_level: GuildScheduledEventEntityMetadata,
+		privacy_level: GuildScheduledEventPrivacyLevel,
 		scheduled_start_time: Date,
 		scheduled_end_time?: Date,
 		description?: string,
-		entity_type: GuildScheduledEventEntityMetadata,
+		entity_type: GuildScheduledEventPrivacyLevel,
 		image?: any,
 	}, 
 ): Promise<GuildScheduledEventStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/scheduled-events",
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildScheduledEvent(
 	guildId: string,
 	guildScheduledEventId: string,
 ): Promise<GuildScheduledEventStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildScheduledEvent(
 	guildId: string,
 	guildScheduledEventId: string,
@@ -1990,51 +1993,55 @@ export function modifyGuildScheduledEvent(
 		channel_id: string | bigint | null,
 		entity_metadata?: GuildScheduledEventEntityMetadata,
 		name?: string,
-		privacy_level?: GuildScheduledEventEntityMetadata,
+		privacy_level?: GuildScheduledEventPrivacyLevel,
 		scheduled_start_time?: Date,
 		scheduled_end_time: Date,
 		description?: string,
-		entity_type: GuildScheduledEventEntityMetadata,
-		status?: GuildScheduledEventEntityMetadata,
+		entity_type: GuildScheduledEventPrivacyLevel,
+		status?: FieldRequirementsByEntityType,
 		image?: any,
 	}, 
 ): Promise<GuildScheduledEventStructure> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildScheduledEvent(
 	guildId: string,
 	guildScheduledEventId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildScheduledEventUsers(
 	guildId: string,
 	guildScheduledEventId: string,
 ): Promise<Array<GuildScheduledEventEntityMetadata>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/scheduled-events/" + guildScheduledEventId + "/users",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}/users`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildTemplate(
 	templateCode: string,
 ): Promise<GuildTemplateStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/templates/" + templateCode + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/templates/${encodeURIComponent(templateCode)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildFromGuildTemplate(
 	templateCode: string,
 	body: {
@@ -2044,20 +2051,22 @@ export function createGuildFromGuildTemplate(
 ): Promise<GuildStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/templates/" + templateCode + "",
+		path: `/guilds/templates/${encodeURIComponent(templateCode)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildTemplates(
 	guildId: string,
 ): Promise<Array<GuildTemplateStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/templates",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/templates`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildTemplate(
 	guildId: string,
 	body: {
@@ -2067,21 +2076,23 @@ export function createGuildTemplate(
 ): Promise<GuildTemplateStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/templates",
+		path: `/guilds/${encodeURIComponent(guildId)}/templates`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function syncGuildTemplate(
 	guildId: string,
 	templateCode: string,
 ): Promise<GuildTemplateStructure> {
 	return $({
 		method: "PUT",
-		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildTemplate(
 	guildId: string,
 	templateCode: string,
@@ -2092,39 +2103,43 @@ export function modifyGuildTemplate(
 ): Promise<GuildTemplateStructure> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildTemplate(
 	guildId: string,
 	templateCode: string,
 ): Promise<GuildTemplateStructure> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/templates/" + templateCode + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getInvite(
 	inviteCode: string,
 ): Promise<InviteStructure> {
 	return $({
 		method: "GET",
-		path: "/invites/" + inviteCode + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/invites/${encodeURIComponent(inviteCode)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteInvite(
 	inviteCode: string,
 ): Promise<InviteStructure> {
 	return $({
 		method: "DELETE",
-		path: "/invites/" + inviteCode + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/invites/${encodeURIComponent(inviteCode)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createStageInstance(
 	body: {
 		channel_id: string | bigint,
@@ -2134,20 +2149,22 @@ export function createStageInstance(
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/stage-instances",
+		path: `/stage-instances`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getStageInstance(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/stage-instances/" + channelId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/stage-instances/${encodeURIComponent(channelId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyStageInstance(
 	channelId: string,
 	body: {
@@ -2157,58 +2174,64 @@ export function modifyStageInstance(
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/stage-instances/" + channelId + "",
+		path: `/stage-instances/${encodeURIComponent(channelId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteStageInstance(
 	channelId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/stage-instances/" + channelId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/stage-instances/${encodeURIComponent(channelId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getSticker(
 	stickerId: string,
 ): Promise<StickerStructure> {
 	return $({
 		method: "GET",
-		path: "/stickers/" + stickerId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/stickers/${encodeURIComponent(stickerId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listNitroStickerPacks(
 ): Promise<{
 		sticker_packs: Array<StickerItemStructure>,
 	}> {
 	return $({
 		method: "GET",
-		path: "/sticker-packs",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/sticker-packs`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listGuildStickers(
 	guildId: string,
 ): Promise<Array<StickerStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/stickers",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildSticker(
 	guildId: string,
 	stickerId: string,
 ): Promise<StickerStructure> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGuildSticker(
 	guildId: string,
 	body: {
@@ -2220,11 +2243,12 @@ export function createGuildSticker(
 ): Promise<StickerStructure> {
 	return $({
 		method: "POST",
-		path: "/guilds/" + guildId + "/stickers",
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyGuildSticker(
 	guildId: string,
 	stickerId: string,
@@ -2236,38 +2260,42 @@ export function modifyGuildSticker(
 ): Promise<StickerStructure> {
 	return $({
 		method: "PATCH",
-		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteGuildSticker(
 	guildId: string,
 	stickerId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/guilds/" + guildId + "/stickers/" + stickerId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getCurrentUser(
 ): Promise<UserStructure> {
 	return $({
 		method: "GET",
-		path: "/users/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getUser(
 	userId: string,
 ): Promise<UserStructure> {
 	return $({
 		method: "GET",
-		path: "/users/" + userId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/${encodeURIComponent(userId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyCurrentUser(
 	body: {
 		username: string,
@@ -2276,37 +2304,41 @@ export function modifyCurrentUser(
 ): Promise<UserStructure> {
 	return $({
 		method: "PATCH",
-		path: "/users/@me",
+		path: `/users/@me`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getCurrentUserGuilds(
 ): Promise<Array<Partial<GuildStructure>>> {
 	return $({
 		method: "GET",
-		path: "/users/@me/guilds",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/@me/guilds`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getCurrentUserGuildMember(
 	guildId: string,
-): Promise<GuildMemberStructure> {
+): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/users/@me/guilds/" + guildId + "/member",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/@me/guilds/${encodeURIComponent(guildId)}/member`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function leaveGuild(
 	guildId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/users/@me/guilds/" + guildId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/@me/guilds/${encodeURIComponent(guildId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createDm(
 	body: {
 		recipient_id: string | bigint,
@@ -2314,11 +2346,12 @@ export function createDm(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/users/@me/channels",
+		path: `/users/@me/channels`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createGroupDm(
 	body: {
 		access_tokens: Array<string>,
@@ -2327,27 +2360,30 @@ export function createGroupDm(
 ): Promise<ChannelStructure> {
 	return $({
 		method: "POST",
-		path: "/users/@me/channels",
+		path: `/users/@me/channels`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getUserConnections(
-): Promise<Array<ConnectionStructure>> {
+): Promise<Array<PremiumTypes>> {
 	return $({
 		method: "GET",
-		path: "/users/@me/connections",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/users/@me/connections`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function listVoiceRegions(
-): Promise<Array<VoiceRegionStructure>> {
+): Promise<Array<any>> {
 	return $({
 		method: "GET",
-		path: "/voice/regions",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/voice/regions`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function createWebhook(
 	channelId: string,
 	body: {
@@ -2357,48 +2393,53 @@ export function createWebhook(
 ): Promise<WebhookStructure> {
 	return $({
 		method: "POST",
-		path: "/channels/" + channelId + "/webhooks",
+		path: `/channels/${encodeURIComponent(channelId)}/webhooks`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getChannelWebhooks(
 	channelId: string,
 ): Promise<Array<WebhookStructure>> {
 	return $({
 		method: "GET",
-		path: "/channels/" + channelId + "/webhooks",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/channels/${encodeURIComponent(channelId)}/webhooks`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGuildWebhooks(
 	guildId: string,
 ): Promise<Array<WebhookStructure>> {
 	return $({
 		method: "GET",
-		path: "/guilds/" + guildId + "/webhooks",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/guilds/${encodeURIComponent(guildId)}/webhooks`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getWebhook(
 	webhookId: string,
 ): Promise<WebhookStructure> {
 	return $({
 		method: "GET",
-		path: "/webhooks/" + webhookId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getWebhookWithToken(
 	webhookId: string,
 	webhookToken: string,
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyWebhook(
 	webhookId: string,
 	body: {
@@ -2409,40 +2450,44 @@ export function modifyWebhook(
 ): Promise<WebhookStructure> {
 	return $({
 		method: "PATCH",
-		path: "/webhooks/" + webhookId + "",
+		path: `/webhooks/${encodeURIComponent(webhookId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function modifyWebhookWithToken(
 	webhookId: string,
 	webhookToken: string,
 ): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteWebhook(
 	webhookId: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/webhooks/" + webhookId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteWebhookWithToken(
 	webhookId: string,
 	webhookToken: string,
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function executeWebhook(
 	webhookId: string,
 	webhookToken: string,
@@ -2457,36 +2502,39 @@ export function executeWebhook(
 		files?: any,
 		payload_json?: string,
 		attachments?: Array<Partial<EmbedFieldStructure>>,
-		flags?: MessageReferenceStructure,
+		flags?: MessageActivityTypes,
 	}, 
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "",
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function executeSlackCompatibleWebhook(
 	webhookId: string,
 	webhookToken: string,
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "/slack",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/slack`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function executeGitHubCompatibleWebhook(
 	webhookId: string,
 	webhookToken: string,
 ): Promise<any> {
 	return $({
 		method: "POST",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "/github",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/github`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getWebhookMessage(
 	webhookId: string,
 	webhookToken: string,
@@ -2494,10 +2542,11 @@ export function getWebhookMessage(
 ): Promise<any> {
 	return $({
 		method: "GET",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/messages/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function editWebhookMessage(
 	webhookId: string,
 	webhookToken: string,
@@ -2511,14 +2560,15 @@ export function editWebhookMessage(
 		payload_json: string,
 		attachments: Array<Partial<EmbedFieldStructure>>,
 	}, 
-): Promise<MessageStructure> {
+): Promise<any> {
 	return $({
 		method: "PATCH",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/messages/${encodeURIComponent(messageId)}`,
 		body: JSON.stringify(body),
-		headers: { Authorization: "Bot BALLS" }
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function deleteWebhookMessage(
 	webhookId: string,
 	webhookToken: string,
@@ -2526,38 +2576,42 @@ export function deleteWebhookMessage(
 ): Promise<any> {
 	return $({
 		method: "DELETE",
-		path: "/webhooks/" + webhookId + "/" + webhookToken + "/messages/" + messageId + "",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/messages/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGateway(
-): Promise<DeviceObject> {
+): Promise<QueryStringParams> {
 	return $({
 		method: "GET",
-		path: "/gateway",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/gateway`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getGatewayBot(
 ): Promise<{
 		url: string,
 		shards: number,
-		session_start_limit: WebhooksUpdateEventFields,
+		session_start_limit: any,
 	}> {
 	return $({
 		method: "GET",
-		path: "/gateway/bot",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/gateway/bot`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getCurrentBotApplicationInformation(
 ): Promise<ApplicationStructure> {
 	return $({
 		method: "GET",
-		path: "/oauth2/applications/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/oauth2/applications/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export function getCurrentAuthorizationInformation(
 ): Promise<{
 		application: Partial<ApplicationStructure>,
@@ -2567,10 +2621,11 @@ export function getCurrentAuthorizationInformation(
 	}> {
 	return $({
 		method: "GET",
-		path: "/oauth2/@me",
-		headers: { Authorization: "Bot BALLS" }
+		path: `/oauth2/@me`,
+		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
 }
+
 export interface ApplicationStructure {
 	"id": string | bigint,
 	"name": string,
@@ -2591,23 +2646,26 @@ export interface ApplicationStructure {
 	"cover_image": string,
 	"flags": number,
 }
+
 export interface AuditLogStructure {
-	"audit_log_entries": Array<AuditLogEntryStructure>,
+	"audit_log_entries": Array<any>,
 	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
-	"integrations": Array<Partial<IntegrationStructure>>,
+	"integrations": Array<Partial<any>>,
 	"threads": Array<ChannelStructure>,
 	"users": Array<UserStructure>,
 	"webhooks": Array<WebhookStructure>,
 }
+
 export interface AuditLogEntryStructure {
 	"target_id": string,
 	"changes": Array<OptionalAuditEntryInfo>,
 	"user_id": string | bigint,
 	"id": string | bigint,
-	"action_type": OptionalAuditEntryInfo,
-	"options": OptionalAuditEntryInfo,
+	"action_type": AuditLogEvents,
+	"options": AuditLogEvents,
 	"reason": string,
 }
+
 export interface OptionalAuditEntryInfo {
 	"channel_id": string | bigint,
 	"count": string,
@@ -2618,11 +2676,13 @@ export interface OptionalAuditEntryInfo {
 	"role_name": string,
 	"type": string,
 }
+
 export interface AuditLogChangeStructure {
-	"new_value": AuditLogChangeKey,
-	"old_value": AuditLogChangeKey,
+	"new_value": AuditLogChangeStructure,
+	"old_value": AuditLogChangeStructure,
 	"key": string,
 }
+
 export interface AuditLogChangeKey {
 	"afk_channel_id": string | bigint,
 	"afk_timeout": number,
@@ -2650,7 +2710,7 @@ export interface AuditLogChangeKey {
 	"expire_behavior": number,
 	"expire_grace_period": number,
 	"explicit_content_filter": number,
-	"format_type": StickerItemStructure,
+	"format_type": StickerTypes,
 	"guild_id": string | bigint,
 	"hoist": boolean,
 	"icon_hash": string,
@@ -2669,7 +2729,7 @@ export interface AuditLogChangeKey {
 	"nsfw": boolean,
 	"owner_id": string | bigint,
 	"permission_overwrites": Array<ReactionStructure>,
-	"permissions": RoleStructure,
+	"permissions": any,
 	"position": number,
 	"preferred_locale": string,
 	"privacy_level": PrivacyLevel,
@@ -2679,7 +2739,7 @@ export interface AuditLogChangeKey {
 	"region": string,
 	"rules_channel_id": string | bigint,
 	"splash_hash": string,
-	"status": GuildScheduledEventEntityMetadata,
+	"status": FieldRequirementsByEntityType,
 	"system_channel_id": string | bigint,
 	"tags": string,
 	"temporary": boolean,
@@ -2692,9 +2752,10 @@ export interface AuditLogChangeKey {
 	"verification_level": number,
 	"widget_channel_id": string | bigint,
 	"widget_enabled": boolean,
-	"$add": Array<Partial<RoleStructure>>,
-	"$remove": Array<Partial<RoleStructure>>,
+	"$add": Array<Partial<any>>,
+	"$remove": Array<Partial<any>>,
 }
+
 export interface ChannelStructure {
 	"id": string | bigint,
 	"type": number,
@@ -2714,7 +2775,7 @@ export interface ChannelStructure {
 	"application_id": string | bigint,
 	"parent_id": string | bigint,
 	"last_pin_timestamp": Date,
-	"rtc_region": VoiceRegionStructure,
+	"rtc_region": any,
 	"video_quality_mode": number,
 	"message_count": number,
 	"member_count": number,
@@ -2723,19 +2784,20 @@ export interface ChannelStructure {
 	"default_auto_archive_duration": number,
 	"permissions": string,
 }
+
 export interface MessageStructure {
 	"id": string | bigint,
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 	"author": UserStructure,
-	"member": Partial<GuildMemberStructure>,
+	"member": Partial<any>,
 	"content": string,
 	"timestamp": Date,
 	"edited_timestamp": Date,
 	"tts": boolean,
 	"mention_everyone": boolean,
 	"mentions": Array<Partial<UserStructure>>,
-	"mention_roles": Array<RoleStructure>,
+	"mention_roles": Array<any>,
 	"mention_channels": Array<AttachmentStructure>,
 	"attachments": Array<EmbedFieldStructure>,
 	"embeds": Array<ThreadMemberStructure>,
@@ -2743,44 +2805,50 @@ export interface MessageStructure {
 	"nonce": number | string,
 	"pinned": boolean,
 	"webhook_id": string | bigint,
-	"type": MessageActivityStructure,
-	"activity": MessageActivityStructure,
+	"type": MessageTypes,
+	"activity": MessageTypes,
 	"application": Partial<ApplicationStructure>,
 	"application_id": string | bigint,
 	"message_reference": MessageReferenceStructure,
-	"flags": MessageReferenceStructure,
-	"referenced_message": MessageStructure,
+	"flags": MessageActivityTypes,
+	"referenced_message": any,
 	"interaction": any,
 	"thread": ChannelStructure,
 	"components": Array<any>,
-	"sticker_items": Array<StickerItemStructure>,
+	"sticker_items": Array<any>,
 	"stickers": Array<StickerStructure>,
 }
+
 export interface MessageActivityStructure {
-	"type": MessageReferenceStructure,
+	"type": MessageActivityTypes,
 	"party_id": string,
 }
+
 export interface MessageReferenceStructure {
 	"message_id": string | bigint,
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 	"fail_if_not_exists": boolean,
 }
+
 export interface FollowedChannelStructure {
 	"channel_id": string | bigint,
 	"webhook_id": string | bigint,
 }
+
 export interface ReactionStructure {
 	"count": number,
 	"me": boolean,
 	"emoji": Partial<EmojiStructure>,
 }
+
 export interface OverwriteStructure {
 	"id": string | bigint,
 	"type": number,
 	"allow": string,
 	"deny": string,
 }
+
 export interface ThreadMetadataStructure {
 	"archived": boolean,
 	"auto_archive_duration": number,
@@ -2789,65 +2857,75 @@ export interface ThreadMetadataStructure {
 	"invitable": boolean,
 	"create_timestamp": Date,
 }
+
 export interface ThreadMemberStructure {
 	"id": string | bigint,
 	"user_id": string | bigint,
 	"join_timestamp": Date,
 	"flags": number,
 }
+
 export interface EmbedStructure {
 	"title": string,
-	"type": EmbedThumbnailStructure,
+	"type": EmbedTypes,
 	"description": string,
 	"url": string,
 	"timestamp": Date,
 	"color": number,
-	"footer": EmbedFooterStructure,
-	"image": EmbedImageStructure,
-	"thumbnail": EmbedThumbnailStructure,
-	"video": EmbedVideoStructure,
-	"provider": EmbedProviderStructure,
-	"author": EmbedAuthorStructure,
-	"fields": Array<EmbedFieldStructure>,
+	"footer": EmbedAuthorStructure,
+	"image": EmbedVideoStructure,
+	"thumbnail": EmbedTypes,
+	"video": EmbedThumbnailStructure,
+	"provider": EmbedImageStructure,
+	"author": EmbedProviderStructure,
+	"fields": Array<EmbedFooterStructure>,
 }
+
 export interface EmbedThumbnailStructure {
 	"url": string,
 	"proxy_url": string,
 	"height": number,
 	"width": number,
 }
+
 export interface EmbedVideoStructure {
 	"url": string,
 	"proxy_url": string,
 	"height": number,
 	"width": number,
 }
+
 export interface EmbedImageStructure {
 	"url": string,
 	"proxy_url": string,
 	"height": number,
 	"width": number,
 }
+
 export interface EmbedProviderStructure {
 	"name": string,
 	"url": string,
 }
+
 export interface EmbedAuthorStructure {
 	"name": string,
 	"url": string,
 	"icon_url": string,
 	"proxy_icon_url": string,
 }
+
 export interface EmbedFooterStructure {
 	"text": string,
 	"icon_url": string,
 	"proxy_icon_url": string,
 }
+
 export interface EmbedFieldStructure {
 	"name": string,
 	"value": string,
 	"inline": boolean,
 }
+
 export interface AttachmentStructure {
 	"id": string | bigint,
 	"filename": string,
@@ -2860,28 +2938,32 @@ export interface AttachmentStructure {
 	"width": number,
 	"ephemeral": boolean,
 }
+
 export interface ChannelMentionStructure {
 	"id": string | bigint,
 	"guild_id": string | bigint,
 	"type": number,
 	"name": string,
 }
+
 export interface AllowedMentionsStructure {
-	"parse": Array<AllowedMentionsStructure>,
+	"parse": Array<AllowedMentionTypes>,
 	"roles": Array<string | bigint>,
 	"users": Array<string | bigint>,
 	"replied_user": boolean,
 }
+
 export interface EmojiStructure {
 	"id": any,
 	"name": string,
-	"roles": Array<RoleStructure>,
+	"roles": Array<any>,
 	"user": UserStructure,
 	"require_colons": boolean,
 	"managed": boolean,
 	"animated": boolean,
 	"available": boolean,
 }
+
 export interface GuildStructure {
 	"id": string | bigint,
 	"name": string,
@@ -2892,28 +2974,28 @@ export interface GuildStructure {
 	"owner": boolean,
 	"owner_id": string | bigint,
 	"permissions": string,
-	"region": VoiceRegionStructure,
+	"region": any,
 	"afk_channel_id": string | bigint,
 	"afk_timeout": number,
 	"widget_enabled": boolean,
 	"widget_channel_id": string | bigint,
-	"verification_level": GuildPreviewStructure,
+	"verification_level": MfaLevel,
 	"default_message_notifications": number,
-	"explicit_content_filter": GuildPreviewStructure,
-	"roles": Array<RoleStructure>,
+	"explicit_content_filter": DefaultMessageNotificationLevel,
+	"roles": Array<any>,
 	"emojis": Array<EmojiStructure>,
-	"features": Array<GuildPreviewStructure>,
+	"features": Array<SystemChannelFlags>,
 	"mfa_level": number,
 	"application_id": string | bigint,
 	"system_channel_id": string | bigint,
-	"system_channel_flags": GuildPreviewStructure,
+	"system_channel_flags": PremiumTier,
 	"rules_channel_id": string | bigint,
 	"joined_at": Date,
 	"large": boolean,
 	"unavailable": boolean,
 	"member_count": number,
 	"voice_states": Array<Partial<VoiceStateStructure>>,
-	"members": Array<GuildMemberStructure>,
+	"members": Array<any>,
 	"channels": Array<ChannelStructure>,
 	"threads": Array<ChannelStructure>,
 	"presences": Array<Partial<MessageReactionRemoveEmojiEventFields>>,
@@ -2922,20 +3004,21 @@ export interface GuildStructure {
 	"vanity_url_code": string,
 	"description": string,
 	"banner": any,
-	"premium_tier": GuildPreviewStructure,
+	"premium_tier": GuildNsfwLevel,
 	"premium_subscription_count": number,
 	"preferred_locale": string,
 	"public_updates_channel_id": string | bigint,
 	"max_video_channel_users": number,
 	"approximate_member_count": number,
 	"approximate_presence_count": number,
-	"welcome_screen": WelcomeScreenStructure,
-	"nsfw_level": GuildPreviewStructure,
+	"welcome_screen": any,
+	"nsfw_level": VerificationLevel,
 	"stage_instances": Array<StageInstanceStructure>,
 	"stickers": Array<StickerStructure>,
 	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
 	"premium_progress_bar_enabled": boolean,
 }
+
 export interface GuildPreviewStructure {
 	"id": string | bigint,
 	"name": string,
@@ -2943,16 +3026,18 @@ export interface GuildPreviewStructure {
 	"splash": any,
 	"discovery_splash": any,
 	"emojis": Array<EmojiStructure>,
-	"features": Array<GuildPreviewStructure>,
+	"features": Array<SystemChannelFlags>,
 	"approximate_member_count": number,
 	"approximate_presence_count": number,
 	"description": string,
 	"stickers": Array<StickerStructure>,
 }
+
 export interface GuildWidgetSettingsStructure {
 	"enabled": boolean,
 	"channel_id": string | bigint,
 }
+
 export interface GetGuildWidgetStructure {
 	"id": string | bigint,
 	"name": string,
@@ -2961,6 +3046,7 @@ export interface GetGuildWidgetStructure {
 	"members": Array<Partial<UserStructure>>,
 	"presence_count": number,
 }
+
 export interface GuildMemberStructure {
 	"user": UserStructure,
 	"nick": string,
@@ -2974,6 +3060,7 @@ export interface GuildMemberStructure {
 	"permissions": string,
 	"communication_disabled_until": Date,
 }
+
 export interface IntegrationStructure {
 	"id": string | bigint,
 	"name": string,
@@ -2982,19 +3069,21 @@ export interface IntegrationStructure {
 	"syncing": boolean,
 	"role_id": string | bigint,
 	"enable_emoticons": boolean,
-	"expire_behavior": IntegrationAccountStructure,
+	"expire_behavior": IntegrationExpireBehaviors,
 	"expire_grace_period": number,
 	"user": UserStructure,
-	"account": IntegrationAccountStructure,
+	"account": IntegrationExpireBehaviors,
 	"synced_at": Date,
 	"subscriber_count": number,
 	"revoked": boolean,
 	"application": IntegrationAccountStructure,
 }
+
 export interface IntegrationAccountStructure {
 	"id": string,
 	"name": string,
 }
+
 export interface IntegrationApplicationStructure {
 	"id": string | bigint,
 	"name": string,
@@ -3003,20 +3092,24 @@ export interface IntegrationApplicationStructure {
 	"summary": string,
 	"bot": UserStructure,
 }
+
 export interface BanStructure {
 	"reason": string,
 	"user": UserStructure,
 }
+
 export interface WelcomeScreenStructure {
 	"description": string,
-	"welcome_channels": Array<WelcomeScreenChannelStructure>,
+	"welcome_channels": Array<WelcomeScreenStructure>,
 }
+
 export interface WelcomeScreenChannelStructure {
 	"channel_id": string | bigint,
 	"description": string,
 	"emoji_id": string | bigint,
 	"emoji_name": string,
 }
+
 export interface GuildScheduledEventStructure {
 	"id": string | bigint,
 	"guild_id": string | bigint,
@@ -3026,23 +3119,26 @@ export interface GuildScheduledEventStructure {
 	"description": string,
 	"scheduled_start_time": Date,
 	"scheduled_end_time": Date,
-	"privacy_level": GuildScheduledEventEntityMetadata,
-	"status": GuildScheduledEventEntityMetadata,
-	"entity_type": GuildScheduledEventEntityMetadata,
+	"privacy_level": GuildScheduledEventPrivacyLevel,
+	"status": FieldRequirementsByEntityType,
+	"entity_type": GuildScheduledEventPrivacyLevel,
 	"entity_id": string | bigint,
 	"entity_metadata": GuildScheduledEventEntityMetadata,
 	"creator": UserStructure,
 	"user_count": number,
 	"image": string,
 }
+
 export interface GuildScheduledEventEntityMetadata {
 	"location": string,
 }
+
 export interface GuildScheduledEventUserStructure {
 	"guild_scheduled_event_id": string | bigint,
 	"user": UserStructure,
-	"member": GuildMemberStructure,
+	"member": any,
 }
+
 export interface GuildTemplateStructure {
 	"code": string,
 	"name": string,
@@ -3056,6 +3152,7 @@ export interface GuildTemplateStructure {
 	"serialized_source_guild": Partial<GuildStructure>,
 	"is_dirty": boolean,
 }
+
 export interface InviteStructure {
 	"code": string,
 	"guild": Partial<GuildStructure>,
@@ -3067,9 +3164,10 @@ export interface InviteStructure {
 	"approximate_presence_count": number,
 	"approximate_member_count": number,
 	"expires_at": Date,
-	"stage_instance": InviteStageInstanceStructure,
+	"stage_instance": any,
 	"guild_scheduled_event": GuildScheduledEventStructure,
 }
+
 export interface InviteMetadataStructure {
 	"uses": number,
 	"max_uses": number,
@@ -3077,12 +3175,14 @@ export interface InviteMetadataStructure {
 	"temporary": boolean,
 	"created_at": Date,
 }
+
 export interface InviteStageInstanceStructure {
-	"members": Array<Partial<GuildMemberStructure>>,
+	"members": Array<Partial<any>>,
 	"participant_count": number,
 	"speaker_count": number,
 	"topic": string,
 }
+
 export interface StageInstanceStructure {
 	"id": string | bigint,
 	"guild_id": string | bigint,
@@ -3091,6 +3191,7 @@ export interface StageInstanceStructure {
 	"privacy_level": number,
 	"discoverable_disabled": boolean,
 }
+
 export interface StickerStructure {
 	"id": any,
 	"pack_id": string | bigint,
@@ -3098,18 +3199,20 @@ export interface StickerStructure {
 	"description": string,
 	"tags": string,
 	"asset": string,
-	"type": StickerItemStructure,
-	"format_type": StickerItemStructure,
+	"type": StickerTypes,
+	"format_type": StickerTypes,
 	"available": boolean,
 	"guild_id": string | bigint,
 	"user": UserStructure,
 	"sort_value": number,
 }
+
 export interface StickerItemStructure {
 	"id": string | bigint,
 	"name": string,
-	"format_type": StickerItemStructure,
+	"format_type": StickerTypes,
 }
+
 export interface StickerPackStructure {
 	"id": string | bigint,
 	"stickers": Array<StickerStructure>,
@@ -3119,6 +3222,7 @@ export interface StickerPackStructure {
 	"description": string,
 	"banner_asset_id": string | bigint,
 }
+
 export interface UserStructure {
 	"id": string | bigint,
 	"username": string,
@@ -3136,22 +3240,24 @@ export interface UserStructure {
 	"premium_type": number,
 	"public_flags": number,
 }
+
 export interface ConnectionStructure {
 	"id": string,
 	"name": string,
 	"type": string,
 	"revoked": boolean,
-	"integrations": Array<Partial<IntegrationStructure>>,
+	"integrations": Array<Partial<any>>,
 	"verified": boolean,
 	"friend_sync": boolean,
 	"show_activity": boolean,
-	"visibility": VisibilityTypes,
+	"visibility": ConnectionStructure,
 }
+
 export interface VoiceStateStructure {
 	"guild_id": string | bigint,
 	"channel_id": string | bigint,
 	"user_id": string | bigint,
-	"member": GuildMemberStructure,
+	"member": any,
 	"session_id": string,
 	"deaf": boolean,
 	"mute": boolean,
@@ -3162,6 +3268,7 @@ export interface VoiceStateStructure {
 	"suppress": boolean,
 	"request_to_speak_timestamp": Date,
 }
+
 export interface VoiceRegionStructure {
 	"id": string,
 	"name": string,
@@ -3169,6 +3276,7 @@ export interface VoiceRegionStructure {
 	"deprecated": boolean,
 	"custom": boolean,
 }
+
 export interface WebhookStructure {
 	"id": string | bigint,
 	"type": number,
@@ -3183,55 +3291,64 @@ export interface WebhookStructure {
 	"source_channel": Partial<ChannelStructure>,
 	"url": string,
 }
+
 export interface DeviceObject {
 	"type": DeviceType,
 	"id": string,
-	"vendor": VendorObject,
-	"model": ModelObject,
+	"vendor": DeviceObject,
+	"model": VendorObject,
 	"related": Array<string>,
 	"echo_cancellation": boolean,
 	"noise_suppression": boolean,
 	"automatic_gain_control": boolean,
 	"hardware_mute": boolean,
 }
+
 export interface VendorObject {
 	"name": string,
 	"url": string,
 }
+
 export interface ModelObject {
 	"name": string,
 	"url": string,
 }
+
 export interface GatewayPayloadStructure {
 	"op": GatewayOpcodes,
 	"d": object,
 	"s": number,
 	"t": string,
 }
+
 export interface GatewayUrlQueryStringParams {
 	"v": number,
 	"encoding": string,
 	"compress": string,
 }
+
 export interface IdentifyStructure {
 	"token": string,
-	"properties": IdentifyConnectionProperties,
+	"properties": IdentifyStructure,
 	"compress": boolean,
-	"large_threshold": Array<number>,
+	"large_threshold": number,
 	"shard": Array<number>,
-	"presence": GatewayPresenceUpdateStructure,
+	"presence": any,
 	"intents": number,
 }
+
 export interface IdentifyConnectionProperties {
 	"$os": string,
 	"$browser": string,
 	"$device": string,
 }
+
 export interface ResumeStructure {
 	"token": string,
 	"session_id": string,
 	"seq": number,
 }
+
 export interface GuildRequestMembersStructure {
 	"guild_id": string | bigint,
 	"query": string,
@@ -3240,38 +3357,45 @@ export interface GuildRequestMembersStructure {
 	"user_ids": Array<string | bigint> | Array<string | bigint>,
 	"nonce": string,
 }
+
 export interface GatewayVoiceStateUpdateStructure {
 	"guild_id": string | bigint,
 	"channel_id": string | bigint,
 	"self_mute": boolean,
 	"self_deaf": boolean,
 }
+
 export interface GatewayPresenceUpdateStructure {
 	"since": number,
 	"activities": Array<PresenceUpdateEventFields>,
 	"status": string,
 	"afk": boolean,
 }
+
 export interface HelloStructure {
 	"heartbeat_interval": number,
 }
+
 export interface ReadyEventFields {
-	"v": GatewayPayloadStructure,
+	"v": GatewayVersions,
 	"user": UserStructure,
-	"guilds": Array<GuildPreviewStructure>,
+	"guilds": Array<any>,
 	"session_id": string,
 	"shard": Array<number>,
 	"application": Partial<ApplicationStructure>,
 }
+
 export interface ThreadListSyncEventFields {
 	"guild_id": string | bigint,
 	"channel_ids": Array<string | bigint>,
 	"threads": Array<ChannelStructure>,
 	"members": Array<ThreadMetadataStructure>,
 }
+
 export interface ThreadMemberUpdateEventExtraFields {
 	"guild_id": string | bigint,
 }
+
 export interface ThreadMembersUpdateEventFields {
 	"id": string | bigint,
 	"guild_id": string | bigint,
@@ -3279,37 +3403,46 @@ export interface ThreadMembersUpdateEventFields {
 	"added_members": Array<ThreadMetadataStructure>,
 	"removed_member_ids": Array<string | bigint>,
 }
+
 export interface ChannelPinsUpdateEventFields {
 	"guild_id": string | bigint,
 	"channel_id": string | bigint,
 	"last_pin_timestamp": Date,
 }
+
 export interface GuildBanAddEventFields {
 	"guild_id": string | bigint,
 	"user": UserStructure,
 }
+
 export interface GuildBanRemoveEventFields {
 	"guild_id": string | bigint,
 	"user": UserStructure,
 }
+
 export interface GuildEmojisUpdateEventFields {
 	"guild_id": string | bigint,
 	"emojis": Array<EmojiStructure>,
 }
+
 export interface GuildStickersUpdateEventFields {
 	"guild_id": string | bigint,
 	"stickers": Array<StickerStructure>,
 }
+
 export interface GuildIntegrationsUpdateEventFields {
 	"guild_id": string | bigint,
 }
+
 export interface GuildMemberAddExtraFields {
 	"guild_id": string | bigint,
 }
+
 export interface GuildMemberRemoveEventFields {
 	"guild_id": string | bigint,
 	"user": UserStructure,
 }
+
 export interface GuildMemberUpdateEventFields {
 	"guild_id": string | bigint,
 	"roles": Array<string | bigint>,
@@ -3323,48 +3456,58 @@ export interface GuildMemberUpdateEventFields {
 	"pending": boolean,
 	"communication_disabled_until": Date,
 }
+
 export interface GuildMembersChunkEventFields {
 	"guild_id": string | bigint,
-	"members": Array<GuildMemberStructure>,
+	"members": Array<any>,
 	"chunk_index": number,
 	"chunk_count": number,
-	"not_found": Array<any>,
+	"not_found": any,
 	"presences": Array<MessageReactionRemoveEmojiEventFields>,
 	"nonce": string,
 }
+
 export interface GuildRoleCreateEventFields {
 	"guild_id": string | bigint,
-	"role": RoleStructure,
+	"role": any,
 }
+
 export interface GuildRoleUpdateEventFields {
 	"guild_id": string | bigint,
-	"role": RoleStructure,
+	"role": any,
 }
+
 export interface GuildRoleDeleteEventFields {
 	"guild_id": string | bigint,
 	"role_id": string | bigint,
 }
+
 export interface GuildScheduledEventUserAddEventFields {
 	"guild_scheduled_event_id": string | bigint,
 	"user_id": string | bigint,
 	"guild_id": string | bigint,
 }
+
 export interface GuildScheduledEventUserRemoveEventFields {
 	"guild_scheduled_event_id": string | bigint,
 	"user_id": string | bigint,
 	"guild_id": string | bigint,
 }
+
 export interface IntegrationCreateEventAdditionalFields {
 	"guild_id": string | bigint,
 }
+
 export interface IntegrationUpdateEventAdditionalFields {
 	"guild_id": string | bigint,
 }
+
 export interface IntegrationDeleteEventFields {
 	"id": string | bigint,
 	"guild_id": string | bigint,
 	"application_id": string | bigint,
 }
+
 export interface InviteCreateEventFields {
 	"channel_id": string | bigint,
 	"code": string,
@@ -3379,29 +3522,34 @@ export interface InviteCreateEventFields {
 	"temporary": boolean,
 	"uses": number,
 }
+
 export interface InviteDeleteEventFields {
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 	"code": string,
 }
+
 export interface MessageDeleteEventFields {
 	"id": string | bigint,
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 }
+
 export interface MessageDeleteBulkEventFields {
 	"ids": Array<string | bigint>,
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 }
+
 export interface MessageReactionAddEventFields {
 	"user_id": string | bigint,
 	"channel_id": string | bigint,
 	"message_id": string | bigint,
 	"guild_id": string | bigint,
-	"member": GuildMemberStructure,
+	"member": any,
 	"emoji": Partial<EmojiStructure>,
 }
+
 export interface MessageReactionRemoveEventFields {
 	"user_id": string | bigint,
 	"channel_id": string | bigint,
@@ -3409,126 +3557,153 @@ export interface MessageReactionRemoveEventFields {
 	"guild_id": string | bigint,
 	"emoji": Partial<EmojiStructure>,
 }
+
 export interface MessageReactionRemoveAllEventFields {
 	"channel_id": string | bigint,
 	"message_id": string | bigint,
 	"guild_id": string | bigint,
 }
+
 export interface MessageReactionRemoveEmojiEventFields {
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 	"message_id": string | bigint,
 	"emoji": Partial<EmojiStructure>,
 }
+
 export interface PresenceUpdateEventFields {
 	"desktop": string,
 	"mobile": string,
 	"web": string,
 }
+
 export interface ActivityStructure {
 	"name": string,
-	"type": ActivityTimestamps,
+	"type": ActivityTypes,
 	"url": string,
 	"created_at": number,
-	"timestamps": ActivityTimestamps,
+	"timestamps": ActivityTypes,
 	"application_id": string | bigint,
 	"details": string,
 	"state": string,
-	"emoji": ActivityEmoji,
-	"party": ActivityParty,
-	"assets": ActivityAssets,
-	"secrets": ActivitySecrets,
+	"emoji": ActivityTimestamps,
+	"party": ActivityEmoji,
+	"assets": ActivityParty,
+	"secrets": ActivityAssetImage,
 	"instance": boolean,
-	"flags": ActivityButtons,
-	"buttons": Array<ActivityButtons>,
+	"flags": ActivityFlags,
+	"buttons": Array<ActivityFlags>,
 }
+
 export interface ActivityTimestamps {
 	"start": number,
 	"end": number,
 }
+
 export interface ActivityEmoji {
 	"name": string,
 	"id": string | bigint,
 	"animated": boolean,
 }
+
 export interface ActivityParty {
 	"id": string,
 	"size": Array<number>,
 }
+
 export interface ActivityAssets {
 	"large_image": string,
 	"large_text": string,
 	"small_image": string,
 	"small_text": string,
 }
+
 export interface ActivitySecrets {
 	"join": string,
 	"spectate": string,
 	"match": string,
 }
+
 export interface ActivityButtons {
 	"label": string,
 	"url": string,
 }
+
 export interface TypingStartEventFields {
 	"channel_id": string | bigint,
 	"guild_id": string | bigint,
 	"user_id": string | bigint,
 	"timestamp": number,
-	"member": GuildMemberStructure,
+	"member": any,
 }
+
 export interface VoiceServerUpdateEventFields {
 	"token": string,
 	"guild_id": string | bigint,
 	"endpoint": string,
 }
+
 export interface WebhooksUpdateEventFields {
 	"guild_id": string | bigint,
 	"channel_id": string | bigint,
 }
+
 export interface RoleStructure {
 	"id": string | bigint,
 	"name": string,
 	"color": number,
-	"hoist": Array<boolean>,
+	"hoist": boolean,
 	"icon": string,
 	"unicode_emoji": string,
 	"position": number,
 	"permissions": string,
 	"managed": boolean,
 	"mentionable": boolean,
-	"tags": RoleTagsStructure,
+	"tags": RoleStructure,
 }
+
 export interface RoleTagsStructure {
 	"bot_id": string | bigint,
 	"integration_id": string | bigint,
 	"premium_subscriber": null,
 }
+
+export interface RateLimitResponseStructure {
+	"message": string,
+	"retry_after": number,
+	"global": boolean,
+}
+
 export interface PayloadStructure {
-	"cmd": AuthorizeArgumentStructure,
+	"cmd": RpcCommands,
 	"nonce": string,
-	"evt": AuthorizeArgumentStructure,
+	"evt": RpcCommands,
 	"data": object,
 	"args": object,
 }
+
 export interface AuthorizeArgumentStructure {
-	"scopes": Array<OAuth2Scopes>,
+	"scopes": Array<OAuth2UrLs>,
 	"client_id": string,
 	"rpc_token": string,
 	"username": string,
 }
+
 export interface AuthorizeResponseStructure {
 	"code": string,
 }
+
 export interface AuthenticateArgumentStructure {
 	"access_token": string,
 }
+
 export interface AuthenticateResponseStructure {
 	"user": Partial<UserStructure>,
-	"scopes": Array<OAuth2Scopes>,
+	"scopes": Array<OAuth2UrLs>,
 	"expires": Date,
-	"application": OAuth2ApplicationStructure,
+	"application": AuthenticateResponseStructure,
 }
+
 export interface OAuth2ApplicationStructure {
 	"description": string,
 	"icon": string,
@@ -3536,22 +3711,27 @@ export interface OAuth2ApplicationStructure {
 	"rpc_origins": Array<string>,
 	"name": string,
 }
+
 export interface GetGuildsResponseStructure {
 	"guilds": Array<Partial<GuildStructure>>,
 }
+
 export interface GetGuildArgumentStructure {
 	"guild_id": string,
 	"timeout": number,
 }
+
 export interface GetGuildResponseStructure {
 	"id": string,
 	"name": string,
 	"icon_url": string,
-	"members": Array<GuildMemberStructure>,
+	"members": Array<any>,
 }
+
 export interface GetChannelArgumentStructure {
 	"channel_id": string,
 }
+
 export interface GetChannelResponseStructure {
 	"id": string,
 	"guild_id": string,
@@ -3560,35 +3740,42 @@ export interface GetChannelResponseStructure {
 	"topic": string,
 	"bitrate": number,
 	"user_limit": number,
-	"position": Array<number>,
+	"position": number,
 	"voice_states": Array<VoiceStateStructure>,
-	"messages": Array<MessageStructure>,
+	"messages": Array<any>,
 }
+
 export interface GetChannelsArgumentStructure {
 	"guild_id": string,
 }
+
 export interface GetChannelsResponseStructure {
 	"channels": Array<Partial<ChannelStructure>>,
 }
+
 export interface SetUserVoiceSettingsArgumentAndResponseStructure {
 	"user_id": string,
 	"pan": any,
 	"volume": number,
 	"mute": boolean,
 }
+
 export interface PanObject {
 	"left": number,
 	"right": number,
 }
+
 export interface SelectVoiceChannelArgumentStructure {
 	"channel_id": string,
 	"timeout": number,
 	"force": boolean,
 }
+
 export interface SelectTextChannelArgumentStructure {
 	"channel_id": string,
 	"timeout": number,
 }
+
 export interface GetVoiceSettingsResponseStructure {
 	"input": any,
 	"output": any,
@@ -3601,16 +3788,19 @@ export interface GetVoiceSettingsResponseStructure {
 	"deaf": boolean,
 	"mute": boolean,
 }
+
 export interface VoiceSettingsInputObject {
 	"device_id": string,
 	"volume": number,
 	"available_devices": Array<object>,
 }
+
 export interface VoiceSettingsOutputObject {
 	"device_id": string,
 	"volume": number,
 	"available_devices": Array<object>,
 }
+
 export interface VoiceSettingsModeObject {
 	"type": string,
 	"auto_threshold": boolean,
@@ -3618,11 +3808,13 @@ export interface VoiceSettingsModeObject {
 	"shortcut": any,
 	"delay": number,
 }
+
 export interface ShortcutKeyComboObject {
 	"type": number,
 	"code": number,
 	"name": string,
 }
+
 export interface SetVoiceSettingsArgumentAndResponseStructure {
 	"input": any,
 	"output": any,
@@ -3635,15 +3827,19 @@ export interface SetVoiceSettingsArgumentAndResponseStructure {
 	"deaf": boolean,
 	"mute": boolean,
 }
+
 export interface SubscribeResponseStructure {
 	"evt": string,
 }
+
 export interface UnsubscribeResponseStructure {
 	"evt": string,
 }
+
 export interface SetCertifiedDevicesArgumentStrucure {
 	"devices": Array<any>,
 }
+
 export interface DeviceObject_ {
 	"type": any,
 	"id": string,
@@ -3655,111 +3851,131 @@ export interface DeviceObject_ {
 	"automatic_gain_control": boolean,
 	"hardware_mute": boolean,
 }
+
 export interface VendorObject_ {
 	"name": string,
 	"url": string,
 }
+
 export interface ModelObject_ {
 	"name": string,
 	"url": string,
 }
+
 export interface SetActivityArgumentStructure {
 	"pid": number,
 	"activity": PresenceUpdateEventFields,
 }
+
 export interface SendActivityJoinInviteArgumentStructure {
 	"user_id": string | bigint,
 }
+
 export interface CloseActivityRequestArgumentStructure {
 	"user_id": string | bigint,
 }
+
 export interface ReadyDispatchDataStructure {
 	"v": number,
-	"config": RpcServerConfigurationObject,
+	"config": ReadyDispatchDataStructure,
 	"user": Partial<UserStructure>,
 }
+
 export interface RpcServerConfigurationObject {
 	"cdn_host": string,
 	"api_endpoint": string,
 	"environment": string,
 }
+
 export interface ErrorDataStructure {
 	"code": number,
 	"message": string,
 }
+
 export interface GuildStatusArgumentStructure {
-	"guild_id": Array<string>,
+	"guild_id": string,
 }
+
 export interface GuildStatusDispatchDataStructure {
 	"guild": Partial<GuildStructure>,
 	"online": number,
 }
+
 export interface GuildCreateDispatchDataStructure {
 	"id": string,
 	"name": string,
 }
+
 export interface ChannelCreateDispatchDataStructure {
 	"id": string,
 	"name": string,
 	"type": number,
 }
+
 export interface VoiceChannelSelectDispatchDataStructure {
 	"channel_id": string,
 	"guild_id": string,
 }
+
 export interface VoiceStateArgumentStructure {
-	"channel_id": Array<string>,
+	"channel_id": string,
 }
+
 export interface VoiceConnectionStatusDispatchDataStructure {
-	"state": Array<string>,
+	"state": string,
 	"hostname": string,
 	"pings": Array<number>,
 	"average_ping": number,
 	"last_ping": number,
 }
+
 export interface MessageArgumentStructure {
-	"channel_id": Array<string>,
+	"channel_id": string,
 }
+
 export interface SpeakingArgumentStructure {
-	"channel_id": Array<string>,
+	"channel_id": string,
 }
+
 export interface SpeakingDispatchDataStructure {
 	"user_id": string,
 }
+
 export interface NotificationCreateDispatchDataStructure {
 	"channel_id": string,
-	"message": MessageStructure,
+	"message": any,
 	"icon_url": string,
 	"title": string,
 	"body": string,
 }
+
 export interface ActivityJoinDispatchDataStructure {
 	"secret": string,
 }
+
 export interface ActivitySpectateDispatchDataStructure {
 	"secret": string,
 }
+
 export interface ActivityJoinRequestDataStructure {
 	"user": Partial<UserStructure>,
 }
-export interface RateLimitResponseStructure {
-	"message": string,
-	"retry_after": number,
-	"global": boolean,
-}
+
 export interface TeamObject {
 	"icon": string,
 	"id": string | bigint,
-	"members": Array<TeamMemberObject>,
+	"members": Array<TeamObject>,
 	"name": string,
 	"owner_user_id": string | bigint,
 }
+
 export interface TeamMemberObject {
 	"membership_state": number,
 	"permissions": Array<string>,
 	"team_id": string | bigint,
 	"user": Partial<UserStructure>,
 }
+
 export interface VoicePacketStructure {
 	"Version + Flags": any,
 	"Payload Type": any,

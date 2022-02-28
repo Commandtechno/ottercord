@@ -1,20 +1,10 @@
 [
   {
     "tree": [
-      "audit-logs-resource",
-      "audit-logs",
-      "audit-log-object",
-      "audit-log-object-audit-log-structure",
-      "audit-log-object-example-partial-integration-object",
-      "audit-log-entry-object",
-      "audit-log-entry-object-audit-log-entry-structure",
-      "audit-log-entry-object-audit-log-events",
-      "audit-log-entry-object-optional-audit-entry-info",
-      "audit-log-change-object",
-      "audit-log-change-object-audit-log-change-structure",
-      "audit-log-change-object-audit-log-change-key",
       "audit-log-change-object-example-partial-role-object",
       "get-guild-audit-log",
+      "get-guild-audit-log",
+      "get-guild-audit-log-query-string-params",
       "get-guild-audit-log-query-string-params"
     ],
     "name": "Get Guild Audit Log",
@@ -94,66 +84,10 @@
   },
   {
     "tree": [
-      "channels-resource",
-      "channel-object",
-      "channel-object-channel-structure",
-      "channel-object-channel-types",
-      "channel-object-video-quality-modes",
-      "channel-object-example-guild-text-channel",
-      "channel-object-example-guild-news-channel",
-      "channel-object-example-guild-voice-channel",
-      "channel-object-example-dm-channel",
-      "channel-object-example-group-dm-channel",
-      "channel-object-example-channel-category",
-      "channel-object-example-store-channel",
-      "channel-object-example-thread-channel",
-      "message-object",
-      "message-object-message-structure",
-      "message-object-message-types",
-      "message-object-message-activity-structure",
-      "message-object-message-activity-types",
-      "message-object-message-flags",
-      "message-object-example-message",
-      "message-object-example-crossposted-message",
-      "message-reference-object",
-      "message-reference-object-message-reference-structure",
-      "message-types",
-      "message-types-crosspost-messages",
-      "message-types-channel-follow-add-messages",
-      "message-types-pin-messages",
-      "message-types-replies",
-      "message-types-thread-starter-messsage",
-      "followed-channel-object",
-      "followed-channel-object-followed-channel-structure",
-      "reaction-object",
-      "reaction-object-reaction-structure",
-      "overwrite-object",
-      "overwrite-object-overwrite-structure",
-      "thread-metadata-object",
-      "thread-metadata-object-thread-metadata-structure",
-      "thread-member-object",
-      "thread-member-object-thread-member-structure",
-      "embed-object",
-      "embed-object-embed-structure",
-      "embed-object-embed-types",
-      "embed-object-embed-thumbnail-structure",
-      "embed-object-embed-video-structure",
-      "embed-object-embed-image-structure",
-      "embed-object-embed-provider-structure",
-      "embed-object-embed-author-structure",
-      "embed-object-embed-footer-structure",
-      "embed-object-embed-field-structure",
-      "attachment-object",
-      "attachment-object-attachment-structure",
-      "channel-mention-object",
-      "channel-mention-object-channel-mention-structure",
-      "allowed-mentions-object",
-      "allowed-mentions-object-allowed-mention-types",
-      "allowed-mentions-object-allowed-mentions-structure",
-      "allowed-mentions-object-allowed-mentions-reference",
-      "embed-limits",
       "embed-limits-limits",
-      "get-channel"
+      "get-channel",
+      "get-channel",
+      "modify-channel"
     ],
     "name": "Get Channel",
     "method": "GET",
@@ -177,8 +111,12 @@
     "tree": [
       "modify-channel",
       "modify-channel-json-params-(group-dm)",
+      "modify-channel-json-params-(group-dm)",
       "modify-channel-json-params-(guild-channel)",
-      "modify-channel-json-params-(thread)"
+      "modify-channel-json-params-(guild-channel)",
+      "modify-channel-json-params-(thread)",
+      "modify-channel-json-params-(thread)",
+      "delete/close-channel"
     ],
     "name": "Modify Channel",
     "method": "PATCH",
@@ -264,9 +202,9 @@
           },
           {
             "key": "position",
-            "description": "the position of the channel in the left-hand ing",
+            "description": "the position of the channel in the left-hand listing",
             "type": {
-              "array": true,
+              "array": false,
               "partial": false,
               "deprecated": false,
               "type": "value",
@@ -496,7 +434,8 @@
   },
   {
     "tree": [
-      "delete/close-channel"
+      "delete/close-channel",
+      "get-channel-messages"
     ],
     "name": "Delete/Close Channel",
     "method": "DELETE",
@@ -519,7 +458,9 @@
   {
     "tree": [
       "get-channel-messages",
-      "get-channel-messages-query-string-params"
+      "get-channel-messages-query-string-params",
+      "get-channel-messages-query-string-params",
+      "get-channel-message"
     ],
     "name": "Get Channel Messages",
     "method": "GET",
@@ -598,7 +539,8 @@
   },
   {
     "tree": [
-      "get-channel-message"
+      "get-channel-message",
+      "create-message"
     ],
     "name": "Get Channel Message",
     "method": "GET",
@@ -619,8 +561,12 @@
     "tree": [
       "create-message",
       "create-message-limitations",
+      "create-message-limitations",
       "create-message-json/form-params",
-      "create-message-example-request-body-(application/json)"
+      "create-message-json/form-params",
+      "create-message-example-request-body-(application/json)",
+      "create-message-example-request-body-(application/json)",
+      "crosspost-message"
     ],
     "name": "Create Message",
     "method": "POST",
@@ -805,7 +751,8 @@
   },
   {
     "tree": [
-      "crosspost-message"
+      "crosspost-message",
+      "create-reaction"
     ],
     "name": "Crosspost Message",
     "method": "POST",
@@ -831,7 +778,8 @@
   },
   {
     "tree": [
-      "create-reaction"
+      "create-reaction",
+      "delete-own-reaction"
     ],
     "name": "Create Reaction",
     "method": "PUT",
@@ -854,7 +802,8 @@
   },
   {
     "tree": [
-      "delete-own-reaction"
+      "delete-own-reaction",
+      "delete-user-reaction"
     ],
     "name": "Delete Own Reaction",
     "method": "DELETE",
@@ -877,7 +826,8 @@
   },
   {
     "tree": [
-      "delete-user-reaction"
+      "delete-user-reaction",
+      "get-reactions"
     ],
     "name": "Delete User Reaction",
     "method": "DELETE",
@@ -905,7 +855,9 @@
   {
     "tree": [
       "get-reactions",
-      "get-reactions-query-string-params"
+      "get-reactions-query-string-params",
+      "get-reactions-query-string-params",
+      "delete-all-reactions"
     ],
     "name": "Get Reactions",
     "method": "GET",
@@ -966,7 +918,8 @@
   },
   {
     "tree": [
-      "delete-all-reactions"
+      "delete-all-reactions",
+      "delete-all-reactions-for-emoji"
     ],
     "name": "Delete All Reactions",
     "method": "DELETE",
@@ -985,7 +938,8 @@
   },
   {
     "tree": [
-      "delete-all-reactions-for-emoji"
+      "delete-all-reactions-for-emoji",
+      "edit-message"
     ],
     "name": "Delete All Reactions for Emoji",
     "method": "DELETE",
@@ -1009,7 +963,9 @@
   {
     "tree": [
       "edit-message",
-      "edit-message-json/form-params"
+      "edit-message-json/form-params",
+      "edit-message-json/form-params",
+      "delete-message"
     ],
     "name": "Edit Message",
     "method": "PATCH",
@@ -1159,7 +1115,8 @@
   },
   {
     "tree": [
-      "delete-message"
+      "delete-message",
+      "bulk-delete-messages"
     ],
     "name": "Delete Message",
     "method": "DELETE",
@@ -1179,7 +1136,9 @@
   {
     "tree": [
       "bulk-delete-messages",
-      "bulk-delete-messages-json-params"
+      "bulk-delete-messages-json-params",
+      "bulk-delete-messages-json-params",
+      "edit-channel-permissions"
     ],
     "name": "Bulk Delete Messages",
     "method": "POST",
@@ -1215,7 +1174,9 @@
   {
     "tree": [
       "edit-channel-permissions",
-      "edit-channel-permissions-json-params"
+      "edit-channel-permissions-json-params",
+      "edit-channel-permissions-json-params",
+      "get-channel-invites"
     ],
     "name": "Edit Channel Permissions",
     "method": "PUT",
@@ -1280,7 +1241,8 @@
   },
   {
     "tree": [
-      "get-channel-invites"
+      "get-channel-invites",
+      "create-channel-invite"
     ],
     "name": "Get Channel Invites",
     "method": "GET",
@@ -1303,7 +1265,9 @@
   {
     "tree": [
       "create-channel-invite",
-      "create-channel-invite-json-params"
+      "create-channel-invite-json-params",
+      "create-channel-invite-json-params",
+      "delete-channel-permission"
     ],
     "name": "Create Channel Invite",
     "method": "POST",
@@ -1423,7 +1387,8 @@
   },
   {
     "tree": [
-      "delete-channel-permission"
+      "delete-channel-permission",
+      "follow-news-channel"
     ],
     "name": "Delete Channel Permission",
     "method": "DELETE",
@@ -1443,7 +1408,9 @@
   {
     "tree": [
       "follow-news-channel",
-      "follow-news-channel-json-params"
+      "follow-news-channel-json-params",
+      "follow-news-channel-json-params",
+      "trigger-typing-indicator"
     ],
     "name": "Follow News Channel",
     "method": "POST",
@@ -1485,7 +1452,8 @@
   },
   {
     "tree": [
-      "trigger-typing-indicator"
+      "trigger-typing-indicator",
+      "get-pinned-messages"
     ],
     "name": "Trigger Typing Indicator",
     "method": "POST",
@@ -1500,7 +1468,8 @@
   },
   {
     "tree": [
-      "get-pinned-messages"
+      "get-pinned-messages",
+      "pin-message"
     ],
     "name": "Get Pinned Messages",
     "method": "GET",
@@ -1522,7 +1491,8 @@
   },
   {
     "tree": [
-      "pin-message"
+      "pin-message",
+      "unpin-message"
     ],
     "name": "Pin Message",
     "method": "PUT",
@@ -1541,7 +1511,8 @@
   },
   {
     "tree": [
-      "unpin-message"
+      "unpin-message",
+      "group-dm-add-recipient"
     ],
     "name": "Unpin Message",
     "method": "DELETE",
@@ -1561,7 +1532,9 @@
   {
     "tree": [
       "group-dm-add-recipient",
-      "group-dm-add-recipient-json-params"
+      "group-dm-add-recipient-json-params",
+      "group-dm-add-recipient-json-params",
+      "group-dm-remove-recipient"
     ],
     "name": "Group DM Add Recipient",
     "method": "PUT",
@@ -1613,7 +1586,8 @@
   },
   {
     "tree": [
-      "group-dm-remove-recipient"
+      "group-dm-remove-recipient",
+      "start-thread-with-message"
     ],
     "name": "Group DM Remove Recipient",
     "method": "DELETE",
@@ -1633,7 +1607,9 @@
   {
     "tree": [
       "start-thread-with-message",
-      "start-thread-with-message-json-params"
+      "start-thread-with-message-json-params",
+      "start-thread-with-message-json-params",
+      "start-thread-without-message"
     ],
     "name": "Start Thread with Message",
     "method": "POST",
@@ -1706,7 +1682,9 @@
   {
     "tree": [
       "start-thread-without-message",
-      "start-thread-without-message-json-params"
+      "start-thread-without-message-json-params",
+      "start-thread-without-message-json-params",
+      "join-thread"
     ],
     "name": "Start Thread without Message",
     "method": "POST",
@@ -1800,7 +1778,8 @@
   },
   {
     "tree": [
-      "join-thread"
+      "join-thread",
+      "add-thread-member"
     ],
     "name": "Join Thread",
     "method": "PUT",
@@ -1815,7 +1794,8 @@
   },
   {
     "tree": [
-      "add-thread-member"
+      "add-thread-member",
+      "leave-thread"
     ],
     "name": "Add Thread Member",
     "method": "PUT",
@@ -1834,7 +1814,8 @@
   },
   {
     "tree": [
-      "leave-thread"
+      "leave-thread",
+      "remove-thread-member"
     ],
     "name": "Leave Thread",
     "method": "DELETE",
@@ -1849,7 +1830,8 @@
   },
   {
     "tree": [
-      "remove-thread-member"
+      "remove-thread-member",
+      "get-thread-member"
     ],
     "name": "Remove Thread Member",
     "method": "DELETE",
@@ -1868,7 +1850,8 @@
   },
   {
     "tree": [
-      "get-thread-member"
+      "get-thread-member",
+      "list-thread-members"
     ],
     "name": "Get Thread Member",
     "method": "GET",
@@ -1894,7 +1877,8 @@
   },
   {
     "tree": [
-      "list-thread-members"
+      "list-thread-members",
+      "list-active-threads"
     ],
     "name": "List Thread Members",
     "method": "GET",
@@ -1917,7 +1901,9 @@
   {
     "tree": [
       "list-active-threads",
-      "list-active-threads-response-body"
+      "list-active-threads-response-body",
+      "list-active-threads-response-body",
+      "list-public-archived-threads"
     ],
     "name": "List Active Threads",
     "method": "GET",
@@ -1934,7 +1920,10 @@
     "tree": [
       "list-public-archived-threads",
       "list-public-archived-threads-query-string-params",
-      "list-public-archived-threads-response-body"
+      "list-public-archived-threads-query-string-params",
+      "list-public-archived-threads-response-body",
+      "list-public-archived-threads-response-body",
+      "list-private-archived-threads"
     ],
     "name": "List Public Archived Threads",
     "method": "GET",
@@ -1989,7 +1978,10 @@
     "tree": [
       "list-private-archived-threads",
       "list-private-archived-threads-query-string-params",
-      "list-private-archived-threads-response-body"
+      "list-private-archived-threads-query-string-params",
+      "list-private-archived-threads-response-body",
+      "list-private-archived-threads-response-body",
+      "list-joined-private-archived-threads"
     ],
     "name": "List Private Archived Threads",
     "method": "GET",
@@ -2044,6 +2036,8 @@
     "tree": [
       "list-joined-private-archived-threads",
       "list-joined-private-archived-threads-query-string-params",
+      "list-joined-private-archived-threads-query-string-params",
+      "list-joined-private-archived-threads-response-body",
       "list-joined-private-archived-threads-response-body"
     ],
     "name": "List Joined Private Archived Threads",
@@ -2097,13 +2091,10 @@
   },
   {
     "tree": [
-      "emoji-resource",
-      "emoji-object",
-      "emoji-object-emoji-structure",
-      "emoji-object-emoji-example",
-      "emoji-object-gateway-reaction-standard-emoji-example",
       "emoji-object-gateway-reaction-custom-emoji-examples",
-      "list-guild-emojis"
+      "list-guild-emojis",
+      "list-guild-emojis",
+      "get-guild-emoji"
     ],
     "name": "List Guild Emojis",
     "method": "GET",
@@ -2125,7 +2116,8 @@
   },
   {
     "tree": [
-      "get-guild-emoji"
+      "get-guild-emoji",
+      "create-guild-emoji"
     ],
     "name": "Get Guild Emoji",
     "method": "GET",
@@ -2152,7 +2144,9 @@
   {
     "tree": [
       "create-guild-emoji",
-      "create-guild-emoji-json-params"
+      "create-guild-emoji-json-params",
+      "create-guild-emoji-json-params",
+      "modify-guild-emoji"
     ],
     "name": "Create Guild Emoji",
     "method": "POST",
@@ -2221,7 +2215,9 @@
   {
     "tree": [
       "modify-guild-emoji",
-      "modify-guild-emoji-json-params"
+      "modify-guild-emoji-json-params",
+      "modify-guild-emoji-json-params",
+      "delete-guild-emoji"
     ],
     "name": "Modify Guild Emoji",
     "method": "PATCH",
@@ -2299,51 +2295,18 @@
   },
   {
     "tree": [
-      "guild-resource",
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier",
-      "guild-object-system-channel-flags",
-      "guild-object-guild-features",
-      "guild-object-example-guild",
-      "unavailable-guild-object",
-      "unavailable-guild-object-example-unavailable-guild",
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure",
-      "guild-preview-object-example-guild-preview",
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure",
-      "guild-widget-settings-object-example-guild-widget-settings",
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure",
-      "get-guild-widget-object-example-get-guild-widget",
-      "guild-member-object",
-      "guild-member-object-guild-member-structure",
-      "guild-member-object-example-guild-member",
-      "integration-object",
-      "integration-object-integration-structure",
-      "integration-object-integration-expire-behaviors",
-      "integration-account-object",
-      "integration-account-object-integration-account-structure",
-      "integration-application-object",
-      "integration-application-object-integration-application-structure",
-      "ban-object",
-      "ban-object-ban-structure",
-      "ban-object-example-ban",
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure",
-      "welcome-screen-object-welcome-screen-channel-structure",
       "welcome-screen-object-example-welcome-screen",
       "membership-screening-object",
+      "membership-screening-object",
+      "create-guild",
       "create-guild",
       "create-guild-json-params",
+      "create-guild-json-params",
       "create-guild-example-partial-channel-object",
-      "create-guild-example-category-channel"
+      "create-guild-example-partial-channel-object",
+      "create-guild-example-category-channel",
+      "create-guild-example-category-channel",
+      "get-guild"
     ],
     "name": "Create Guild",
     "method": "POST",
@@ -2525,7 +2488,10 @@
     "tree": [
       "get-guild",
       "get-guild-query-string-params",
-      "get-guild-example-response"
+      "get-guild-query-string-params",
+      "get-guild-example-response",
+      "get-guild-example-response",
+      "get-guild-preview"
     ],
     "name": "Get Guild",
     "method": "GET",
@@ -2565,7 +2531,8 @@
   },
   {
     "tree": [
-      "get-guild-preview"
+      "get-guild-preview",
+      "modify-guild"
     ],
     "name": "Get Guild Preview",
     "method": "GET",
@@ -2588,7 +2555,9 @@
   {
     "tree": [
       "modify-guild",
-      "modify-guild-json-params"
+      "modify-guild-json-params",
+      "modify-guild-json-params",
+      "delete-guild"
     ],
     "name": "Modify Guild",
     "method": "PATCH",
@@ -2877,7 +2846,8 @@
   },
   {
     "tree": [
-      "delete-guild"
+      "delete-guild",
+      "get-guild-channels"
     ],
     "name": "Delete Guild",
     "method": "DELETE",
@@ -2892,7 +2862,8 @@
   },
   {
     "tree": [
-      "get-guild-channels"
+      "get-guild-channels",
+      "create-guild-channel"
     ],
     "name": "Get Guild Channels",
     "method": "GET",
@@ -2915,7 +2886,9 @@
   {
     "tree": [
       "create-guild-channel",
-      "create-guild-channel-json-params"
+      "create-guild-channel-json-params",
+      "create-guild-channel-json-params",
+      "modify-guild-channel-positions"
     ],
     "name": "Create Guild Channel",
     "method": "POST",
@@ -3075,7 +3048,9 @@
   {
     "tree": [
       "modify-guild-channel-positions",
-      "modify-guild-channel-positions-json-params"
+      "modify-guild-channel-positions-json-params",
+      "modify-guild-channel-positions-json-params",
+      "list-active-threads"
     ],
     "name": "Modify Guild Channel Positions",
     "method": "PATCH",
@@ -3150,7 +3125,9 @@
   {
     "tree": [
       "list-active-threads",
-      "list-active-threads-response-body"
+      "list-active-threads-response-body",
+      "list-active-threads-response-body",
+      "get-guild-member"
     ],
     "name": "List Active Threads",
     "method": "GET",
@@ -3165,7 +3142,8 @@
   },
   {
     "tree": [
-      "get-guild-member"
+      "get-guild-member",
+      "list-guild-members"
     ],
     "name": "Get Guild Member",
     "method": "GET",
@@ -3192,7 +3170,9 @@
   {
     "tree": [
       "list-guild-members",
-      "list-guild-members-query-string-params"
+      "list-guild-members-query-string-params",
+      "list-guild-members-query-string-params",
+      "search-guild-members"
     ],
     "name": "List Guild Members",
     "method": "GET",
@@ -3246,7 +3226,9 @@
   {
     "tree": [
       "search-guild-members",
-      "search-guild-members-query-string-params"
+      "search-guild-members-query-string-params",
+      "search-guild-members-query-string-params",
+      "add-guild-member"
     ],
     "name": "Search Guild Members",
     "method": "GET",
@@ -3300,7 +3282,9 @@
   {
     "tree": [
       "add-guild-member",
-      "add-guild-member-json-params"
+      "add-guild-member-json-params",
+      "add-guild-member-json-params",
+      "modify-guild-member"
     ],
     "name": "Add Guild Member",
     "method": "PUT",
@@ -3399,7 +3383,9 @@
   {
     "tree": [
       "modify-guild-member",
-      "modify-guild-member-json-params"
+      "modify-guild-member-json-params",
+      "modify-guild-member-json-params",
+      "modify-current-member"
     ],
     "name": "Modify Guild Member",
     "method": "PATCH",
@@ -3511,7 +3497,9 @@
   {
     "tree": [
       "modify-current-member",
-      "modify-current-member-json-params"
+      "modify-current-member-json-params",
+      "modify-current-member-json-params",
+      "modify-current-user-nick"
     ],
     "name": "Modify Current Member",
     "method": "PATCH",
@@ -3547,7 +3535,9 @@
   {
     "tree": [
       "modify-current-user-nick",
-      "modify-current-user-nick-json-params"
+      "modify-current-user-nick-json-params",
+      "modify-current-user-nick-json-params",
+      "add-guild-member-role"
     ],
     "name": "Modify Current User Nick",
     "method": "PATCH",
@@ -3582,7 +3572,8 @@
   },
   {
     "tree": [
-      "add-guild-member-role"
+      "add-guild-member-role",
+      "remove-guild-member-role"
     ],
     "name": "Add Guild Member Role",
     "method": "PUT",
@@ -3605,7 +3596,8 @@
   },
   {
     "tree": [
-      "remove-guild-member-role"
+      "remove-guild-member-role",
+      "remove-guild-member"
     ],
     "name": "Remove Guild Member Role",
     "method": "DELETE",
@@ -3628,7 +3620,8 @@
   },
   {
     "tree": [
-      "remove-guild-member"
+      "remove-guild-member",
+      "get-guild-bans"
     ],
     "name": "Remove Guild Member",
     "method": "DELETE",
@@ -3647,7 +3640,8 @@
   },
   {
     "tree": [
-      "get-guild-bans"
+      "get-guild-bans",
+      "get-guild-ban"
     ],
     "name": "Get Guild Bans",
     "method": "GET",
@@ -3669,7 +3663,8 @@
   },
   {
     "tree": [
-      "get-guild-ban"
+      "get-guild-ban",
+      "create-guild-ban"
     ],
     "name": "Get Guild Ban",
     "method": "GET",
@@ -3696,7 +3691,9 @@
   {
     "tree": [
       "create-guild-ban",
-      "create-guild-ban-json-params"
+      "create-guild-ban-json-params",
+      "create-guild-ban-json-params",
+      "remove-guild-ban"
     ],
     "name": "Create Guild Ban",
     "method": "PUT",
@@ -3748,7 +3745,8 @@
   },
   {
     "tree": [
-      "remove-guild-ban"
+      "remove-guild-ban",
+      "get-guild-roles"
     ],
     "name": "Remove Guild Ban",
     "method": "DELETE",
@@ -3767,7 +3765,8 @@
   },
   {
     "tree": [
-      "get-guild-roles"
+      "get-guild-roles",
+      "create-guild-role"
     ],
     "name": "Get Guild Roles",
     "method": "GET",
@@ -3790,7 +3789,9 @@
   {
     "tree": [
       "create-guild-role",
-      "create-guild-role-json-params"
+      "create-guild-role-json-params",
+      "create-guild-role-json-params",
+      "modify-guild-role-positions"
     ],
     "name": "Create Guild Role",
     "method": "POST",
@@ -3911,7 +3912,9 @@
   {
     "tree": [
       "modify-guild-role-positions",
-      "modify-guild-role-positions-json-params"
+      "modify-guild-role-positions-json-params",
+      "modify-guild-role-positions-json-params",
+      "modify-guild-role"
     ],
     "name": "Modify Guild Role Positions",
     "method": "PATCH",
@@ -3967,7 +3970,9 @@
   {
     "tree": [
       "modify-guild-role",
-      "modify-guild-role-json-params"
+      "modify-guild-role-json-params",
+      "modify-guild-role-json-params",
+      "delete-guild-role"
     ],
     "name": "Modify Guild Role",
     "method": "PATCH",
@@ -4091,7 +4096,8 @@
   },
   {
     "tree": [
-      "delete-guild-role"
+      "delete-guild-role",
+      "get-guild-prune-count"
     ],
     "name": "Delete Guild Role",
     "method": "DELETE",
@@ -4111,7 +4117,9 @@
   {
     "tree": [
       "get-guild-prune-count",
-      "get-guild-prune-count-query-string-params"
+      "get-guild-prune-count-query-string-params",
+      "get-guild-prune-count-query-string-params",
+      "begin-guild-prune"
     ],
     "name": "Get Guild Prune Count",
     "method": "GET",
@@ -4158,7 +4166,9 @@
   {
     "tree": [
       "begin-guild-prune",
-      "begin-guild-prune-json-params"
+      "begin-guild-prune-json-params",
+      "begin-guild-prune-json-params",
+      "get-guild-voice-regions"
     ],
     "name": "Begin Guild Prune",
     "method": "POST",
@@ -4232,7 +4242,8 @@
   },
   {
     "tree": [
-      "get-guild-voice-regions"
+      "get-guild-voice-regions",
+      "get-guild-invites"
     ],
     "name": "Get Guild Voice Regions",
     "method": "GET",
@@ -4254,7 +4265,8 @@
   },
   {
     "tree": [
-      "get-guild-invites"
+      "get-guild-invites",
+      "get-guild-integrations"
     ],
     "name": "Get Guild Invites",
     "method": "GET",
@@ -4276,7 +4288,8 @@
   },
   {
     "tree": [
-      "get-guild-integrations"
+      "get-guild-integrations",
+      "delete-guild-integration"
     ],
     "name": "Get Guild Integrations",
     "method": "GET",
@@ -4298,7 +4311,8 @@
   },
   {
     "tree": [
-      "delete-guild-integration"
+      "delete-guild-integration",
+      "get-guild-widget-settings"
     ],
     "name": "Delete Guild Integration",
     "method": "DELETE",
@@ -4317,7 +4331,8 @@
   },
   {
     "tree": [
-      "get-guild-widget-settings"
+      "get-guild-widget-settings",
+      "modify-guild-widget"
     ],
     "name": "Get Guild Widget Settings",
     "method": "GET",
@@ -4339,7 +4354,8 @@
   },
   {
     "tree": [
-      "modify-guild-widget"
+      "modify-guild-widget",
+      "get-guild-widget"
     ],
     "name": "Modify Guild Widget",
     "method": "PATCH",
@@ -4361,7 +4377,8 @@
   },
   {
     "tree": [
-      "get-guild-widget"
+      "get-guild-widget",
+      "get-guild-vanity-url"
     ],
     "name": "Get Guild Widget",
     "method": "GET",
@@ -4384,7 +4401,9 @@
   {
     "tree": [
       "get-guild-vanity-url",
-      "get-guild-vanity-url-example-partial-invite-object"
+      "get-guild-vanity-url-example-partial-invite-object",
+      "get-guild-vanity-url-example-partial-invite-object",
+      "get-guild-widget-image"
     ],
     "name": "Get Guild Vanity URL",
     "method": "GET",
@@ -4408,7 +4427,10 @@
     "tree": [
       "get-guild-widget-image",
       "get-guild-widget-image-query-string-params",
-      "get-guild-widget-image-widget-style-options"
+      "get-guild-widget-image-query-string-params",
+      "get-guild-widget-image-widget-style-options",
+      "get-guild-widget-image-widget-style-options",
+      "get-guild-welcome-screen"
     ],
     "name": "Get Guild Widget Image",
     "method": "GET",
@@ -4441,7 +4463,8 @@
   },
   {
     "tree": [
-      "get-guild-welcome-screen"
+      "get-guild-welcome-screen",
+      "modify-guild-welcome-screen"
     ],
     "name": "Get Guild Welcome Screen",
     "method": "GET",
@@ -4464,7 +4487,9 @@
   {
     "tree": [
       "modify-guild-welcome-screen",
-      "modify-guild-welcome-screen-json-params"
+      "modify-guild-welcome-screen-json-params",
+      "modify-guild-welcome-screen-json-params",
+      "modify-current-user-voice-state"
     ],
     "name": "Modify Guild Welcome Screen",
     "method": "PATCH",
@@ -4534,7 +4559,10 @@
     "tree": [
       "modify-current-user-voice-state",
       "modify-current-user-voice-state-json-params",
-      "modify-current-user-voice-state-caveats"
+      "modify-current-user-voice-state-json-params",
+      "modify-current-user-voice-state-caveats",
+      "modify-current-user-voice-state-caveats",
+      "modify-user-voice-state"
     ],
     "name": "Modify Current User Voice State",
     "method": "PATCH",
@@ -4597,6 +4625,8 @@
     "tree": [
       "modify-user-voice-state",
       "modify-user-voice-state-json-params",
+      "modify-user-voice-state-json-params",
+      "modify-user-voice-state-caveats",
       "modify-user-voice-state-caveats"
     ],
     "name": "Modify User Voice State",
@@ -4649,19 +4679,12 @@
   },
   {
     "tree": [
-      "guild-scheduled-event",
-      "guild-scheduled-event-object",
-      "guild-scheduled-event-object-guild-scheduled-event-structure",
-      "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
-      "guild-scheduled-event-object-guild-scheduled-event-entity-types",
-      "guild-scheduled-event-object-field-requirements-by-entity-type",
-      "guild-scheduled-event-object-guild-scheduled-event-status",
-      "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions",
-      "guild-scheduled-event-object-guild-scheduled-event-entity-metadata",
-      "guild-scheduled-event-user-object",
       "guild-scheduled-event-user-object-guild-scheduled-event-user-structure",
       "list-scheduled-events-for-guild",
-      "list-scheduled-events-for-guild-query-string-params"
+      "list-scheduled-events-for-guild",
+      "list-scheduled-events-for-guild-query-string-params",
+      "list-scheduled-events-for-guild-query-string-params",
+      "create-guild-scheduled-event"
     ],
     "name": "List Scheduled Events for Guild",
     "method": "GET",
@@ -4702,7 +4725,9 @@
   {
     "tree": [
       "create-guild-scheduled-event",
-      "create-guild-scheduled-event-json-params"
+      "create-guild-scheduled-event-json-params",
+      "create-guild-scheduled-event-json-params",
+      "get-guild-scheduled-event"
     ],
     "name": "Create Guild Scheduled Event",
     "method": "POST",
@@ -4849,7 +4874,9 @@
   {
     "tree": [
       "get-guild-scheduled-event",
-      "get-guild-scheduled-event-query-string-params"
+      "get-guild-scheduled-event-query-string-params",
+      "get-guild-scheduled-event-query-string-params",
+      "modify-guild-scheduled-event"
     ],
     "name": "Get Guild Scheduled Event",
     "method": "GET",
@@ -4894,7 +4921,9 @@
   {
     "tree": [
       "modify-guild-scheduled-event",
-      "modify-guild-scheduled-event-json-params"
+      "modify-guild-scheduled-event-json-params",
+      "modify-guild-scheduled-event-json-params",
+      "delete-guild-scheduled-event"
     ],
     "name": "Modify Guild Scheduled Event",
     "method": "PATCH",
@@ -5057,7 +5086,8 @@
   },
   {
     "tree": [
-      "delete-guild-scheduled-event"
+      "delete-guild-scheduled-event",
+      "get-guild-scheduled-event-users"
     ],
     "name": "Delete Guild Scheduled Event",
     "method": "DELETE",
@@ -5078,21 +5108,38 @@
     "tree": [
       "get-guild-scheduled-event-users",
       "get-guild-scheduled-event-users-query-string-params",
+      "get-guild-scheduled-event-users-query-string-params",
+      "guild-scheduled-event-status-update-automation",
       "guild-scheduled-event-status-update-automation",
       "an-active-scheduled-event-for-a-stage-channel-where-all-users-have-left-the-stage-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+      "an-active-scheduled-event-for-a-stage-channel-where-all-users-have-left-the-stage-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
+      "an-active-scheduled-event-for-a-voice-channel-where-all-users-have-left-the-voice-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
       "an-active-scheduled-event-for-a-voice-channel-where-all-users-have-left-the-voice-channel-will-automatically-end-a-few-minutes-after-the-last-user-leaves-the-channel",
       "an-external-event-will-automatically-begin-at-its-scheduled-start-time",
+      "an-external-event-will-automatically-begin-at-its-scheduled-start-time",
+      "an-external-event-will-automatically-end-at-its-scheduled-end-time",
       "an-external-event-will-automatically-end-at-its-scheduled-end-time",
       "any-scheduled-event-which-has-not-begun-after-its-scheduled-start-time-will-be-automatically-cancelled-after-a-few-hours",
+      "any-scheduled-event-which-has-not-begun-after-its-scheduled-start-time-will-be-automatically-cancelled-after-a-few-hours",
+      "guild-scheduled-event-permissions-requirements",
       "guild-scheduled-event-permissions-requirements",
       "permissions-to-create-an-event-with-entity_type:-stage_instance",
+      "permissions-to-create-an-event-with-entity_type:-stage_instance",
       "write-permissions-(create-/-update)",
+      "write-permissions-(create-/-update)",
+      "read-permissions-(get)",
       "read-permissions-(get)",
       "permissions-to-create-an-event-with-entity_type:-voice",
+      "permissions-to-create-an-event-with-entity_type:-voice",
+      "write-permissions-(create-/-update)",
       "write-permissions-(create-/-update)",
       "read-permissions-(get)",
+      "read-permissions-(get)",
+      "permissions-to-create-an-event-with-entity_type:-external",
       "permissions-to-create-an-event-with-entity_type:-external",
       "write-permissions-(create-/-update)",
+      "write-permissions-(create-/-update)",
+      "read-permissions-(get)",
       "read-permissions-(get)"
     ],
     "name": "Get Guild Scheduled Event Users",
@@ -5176,11 +5223,10 @@
   },
   {
     "tree": [
-      "guild-template-resource",
-      "guild-template-object",
-      "guild-template-object-guild-template-structure",
       "guild-template-object-example-guild-template-object",
-      "get-guild-template"
+      "get-guild-template",
+      "get-guild-template",
+      "create-guild-from-guild-template"
     ],
     "name": "Get Guild Template",
     "method": "GET",
@@ -5203,7 +5249,9 @@
   {
     "tree": [
       "create-guild-from-guild-template",
-      "create-guild-from-guild-template-json-params"
+      "create-guild-from-guild-template-json-params",
+      "create-guild-from-guild-template-json-params",
+      "get-guild-templates"
     ],
     "name": "Create Guild from Guild Template",
     "method": "POST",
@@ -5258,7 +5306,8 @@
   },
   {
     "tree": [
-      "get-guild-templates"
+      "get-guild-templates",
+      "create-guild-template"
     ],
     "name": "Get Guild Templates",
     "method": "GET",
@@ -5281,7 +5330,9 @@
   {
     "tree": [
       "create-guild-template",
-      "create-guild-template-json-params"
+      "create-guild-template-json-params",
+      "create-guild-template-json-params",
+      "sync-guild-template"
     ],
     "name": "Create Guild Template",
     "method": "POST",
@@ -5336,7 +5387,8 @@
   },
   {
     "tree": [
-      "sync-guild-template"
+      "sync-guild-template",
+      "modify-guild-template"
     ],
     "name": "Sync Guild Template",
     "method": "PUT",
@@ -5363,7 +5415,9 @@
   {
     "tree": [
       "modify-guild-template",
-      "modify-guild-template-json-params"
+      "modify-guild-template-json-params",
+      "modify-guild-template-json-params",
+      "delete-guild-template"
     ],
     "name": "Modify Guild Template",
     "method": "PATCH",
@@ -5448,19 +5502,12 @@
   },
   {
     "tree": [
-      "invite-resource",
-      "invite-object",
-      "invite-object-invite-structure",
-      "invite-object-invite-target-types",
-      "invite-object-example-invite-object",
-      "invite-metadata-object",
-      "invite-metadata-object-invite-metadata-structure",
-      "invite-metadata-object-example-invite-metadata",
-      "invite-stage-instance-object",
-      "invite-stage-instance-object-invite-stage-instance-structure",
       "invite-stage-instance-object-example-invite-stage-instance",
       "get-invite",
-      "get-invite-query-string-params"
+      "get-invite",
+      "get-invite-query-string-params",
+      "get-invite-query-string-params",
+      "delete-invite"
     ],
     "name": "Get Invite",
     "method": "GET",
@@ -5548,15 +5595,16 @@
   },
   {
     "tree": [
-      "stage-instance-resource",
-      "stage-instance-object",
-      "stage-instance-object-stage-instance-structure",
-      "stage-instance-object-privacy-level",
       "stage-instance-object-example-stage-instance",
       "definitions",
+      "definitions",
+      "auto-closing",
       "auto-closing",
       "create-stage-instance",
-      "create-stage-instance-json-params"
+      "create-stage-instance",
+      "create-stage-instance-json-params",
+      "create-stage-instance-json-params",
+      "get-stage-instance"
     ],
     "name": "Create Stage Instance",
     "method": "POST",
@@ -5612,7 +5660,8 @@
   },
   {
     "tree": [
-      "get-stage-instance"
+      "get-stage-instance",
+      "modify-stage-instance"
     ],
     "name": "Get Stage Instance",
     "method": "GET",
@@ -5628,7 +5677,9 @@
   {
     "tree": [
       "modify-stage-instance",
-      "modify-stage-instance-json-params"
+      "modify-stage-instance-json-params",
+      "modify-stage-instance-json-params",
+      "delete-stage-instance"
     ],
     "name": "Modify Stage Instance",
     "method": "PATCH",
@@ -5691,18 +5742,10 @@
   },
   {
     "tree": [
-      "sticker-resource",
-      "sticker-object",
-      "sticker-object-sticker-structure",
-      "sticker-object-sticker-types",
-      "sticker-object-sticker-format-types",
-      "sticker-object-example-sticker",
-      "sticker-item-object",
-      "sticker-item-object-sticker-item-structure",
-      "sticker-pack-object",
-      "sticker-pack-object-sticker-pack-structure",
       "sticker-pack-object-example-sticker-pack",
-      "get-sticker"
+      "get-sticker",
+      "get-sticker",
+      "list-nitro-sticker-packs"
     ],
     "name": "Get Sticker",
     "method": "GET",
@@ -5725,7 +5768,9 @@
   {
     "tree": [
       "list-nitro-sticker-packs",
-      "list-nitro-sticker-packs-response-structure"
+      "list-nitro-sticker-packs-response-structure",
+      "list-nitro-sticker-packs-response-structure",
+      "list-guild-stickers"
     ],
     "name": "List Nitro Sticker Packs",
     "method": "GET",
@@ -5752,7 +5797,8 @@
   },
   {
     "tree": [
-      "list-guild-stickers"
+      "list-guild-stickers",
+      "get-guild-sticker"
     ],
     "name": "List Guild Stickers",
     "method": "GET",
@@ -5774,7 +5820,8 @@
   },
   {
     "tree": [
-      "get-guild-sticker"
+      "get-guild-sticker",
+      "create-guild-sticker"
     ],
     "name": "Get Guild Sticker",
     "method": "GET",
@@ -5801,7 +5848,9 @@
   {
     "tree": [
       "create-guild-sticker",
-      "create-guild-sticker-form-params"
+      "create-guild-sticker-form-params",
+      "create-guild-sticker-form-params",
+      "modify-guild-sticker"
     ],
     "name": "Create Guild Sticker",
     "method": "POST",
@@ -5883,7 +5932,9 @@
   {
     "tree": [
       "modify-guild-sticker",
-      "modify-guild-sticker-json-params"
+      "modify-guild-sticker-json-params",
+      "modify-guild-sticker-json-params",
+      "delete-guild-sticker"
     ],
     "name": "Modify Guild Sticker",
     "method": "PATCH",
@@ -5974,17 +6025,10 @@
   },
   {
     "tree": [
-      "users-resource",
-      "usernames-and-nicknames",
-      "user-object",
-      "user-object-user-structure",
-      "user-object-example-user",
-      "user-object-user-flags",
-      "user-object-premium-types",
-      "connection-object",
-      "connection-object-connection-structure",
       "connection-object-visibility-types",
-      "get-current-user"
+      "get-current-user",
+      "get-current-user",
+      "get-user"
     ],
     "name": "Get Current User",
     "method": "GET",
@@ -6001,7 +6045,8 @@
   },
   {
     "tree": [
-      "get-user"
+      "get-user",
+      "modify-current-user"
     ],
     "name": "Get User",
     "method": "GET",
@@ -6024,7 +6069,9 @@
   {
     "tree": [
       "modify-current-user",
-      "modify-current-user-json-params"
+      "modify-current-user-json-params",
+      "modify-current-user-json-params",
+      "get-current-user-guilds"
     ],
     "name": "Modify Current User",
     "method": "PATCH",
@@ -6076,7 +6123,10 @@
     "tree": [
       "get-current-user-guilds",
       "get-current-user-guilds-example-partial-guild",
-      "get-current-user-guilds-query-string-params"
+      "get-current-user-guilds-example-partial-guild",
+      "get-current-user-guilds-query-string-params",
+      "get-current-user-guilds-query-string-params",
+      "get-current-user-guild-member"
     ],
     "name": "Get Current User Guilds",
     "method": "GET",
@@ -6137,7 +6187,8 @@
   },
   {
     "tree": [
-      "get-current-user-guild-member"
+      "get-current-user-guild-member",
+      "leave-guild"
     ],
     "name": "Get Current User Guild Member",
     "method": "GET",
@@ -6159,7 +6210,8 @@
   },
   {
     "tree": [
-      "leave-guild"
+      "leave-guild",
+      "create-dm"
     ],
     "name": "Leave Guild",
     "method": "DELETE",
@@ -6175,7 +6227,9 @@
   {
     "tree": [
       "create-dm",
-      "create-dm-json-params"
+      "create-dm-json-params",
+      "create-dm-json-params",
+      "create-group-dm"
     ],
     "name": "Create DM",
     "method": "POST",
@@ -6213,7 +6267,9 @@
   {
     "tree": [
       "create-group-dm",
-      "create-group-dm-json-params"
+      "create-group-dm-json-params",
+      "create-group-dm-json-params",
+      "get-user-connections"
     ],
     "name": "Create Group DM",
     "method": "POST",
@@ -6280,12 +6336,8 @@
   },
   {
     "tree": [
-      "voice-resource",
-      "voice-state-object",
-      "voice-state-object-voice-state-structure",
-      "voice-state-object-example-voice-state",
-      "voice-region-object",
       "voice-region-object-voice-region-structure",
+      "list-voice-regions",
       "list-voice-regions"
     ],
     "name": "List Voice Regions",
@@ -6303,15 +6355,12 @@
   },
   {
     "tree": [
-      "webhook-resource",
-      "webhook-object",
-      "webhook-object-webhook-structure",
-      "webhook-object-webhook-types",
-      "webhook-object-example-incoming-webhook",
-      "webhook-object-example-channel-follower-webhook",
       "webhook-object-example-application-webhook",
       "create-webhook",
-      "create-webhook-json-params"
+      "create-webhook",
+      "create-webhook-json-params",
+      "create-webhook-json-params",
+      "get-channel-webhooks"
     ],
     "name": "Create Webhook",
     "method": "POST",
@@ -6366,7 +6415,8 @@
   },
   {
     "tree": [
-      "get-channel-webhooks"
+      "get-channel-webhooks",
+      "get-guild-webhooks"
     ],
     "name": "Get Channel Webhooks",
     "method": "GET",
@@ -6388,7 +6438,8 @@
   },
   {
     "tree": [
-      "get-guild-webhooks"
+      "get-guild-webhooks",
+      "get-webhook"
     ],
     "name": "Get Guild Webhooks",
     "method": "GET",
@@ -6410,7 +6461,8 @@
   },
   {
     "tree": [
-      "get-webhook"
+      "get-webhook",
+      "get-webhook-with-token"
     ],
     "name": "Get Webhook",
     "method": "GET",
@@ -6432,7 +6484,8 @@
   },
   {
     "tree": [
-      "get-webhook-with-token"
+      "get-webhook-with-token",
+      "modify-webhook"
     ],
     "name": "Get Webhook with Token",
     "method": "GET",
@@ -6452,7 +6505,9 @@
   {
     "tree": [
       "modify-webhook",
-      "modify-webhook-json-params"
+      "modify-webhook-json-params",
+      "modify-webhook-json-params",
+      "modify-webhook-with-token"
     ],
     "name": "Modify Webhook",
     "method": "PATCH",
@@ -6520,7 +6575,8 @@
   },
   {
     "tree": [
-      "modify-webhook-with-token"
+      "modify-webhook-with-token",
+      "delete-webhook"
     ],
     "name": "Modify Webhook with Token",
     "method": "PATCH",
@@ -6539,7 +6595,8 @@
   },
   {
     "tree": [
-      "delete-webhook"
+      "delete-webhook",
+      "delete-webhook-with-token"
     ],
     "name": "Delete Webhook",
     "method": "DELETE",
@@ -6554,7 +6611,8 @@
   },
   {
     "tree": [
-      "delete-webhook-with-token"
+      "delete-webhook-with-token",
+      "execute-webhook"
     ],
     "name": "Delete Webhook with Token",
     "method": "DELETE",
@@ -6575,7 +6633,10 @@
     "tree": [
       "execute-webhook",
       "execute-webhook-query-string-params",
-      "execute-webhook-json/form-params"
+      "execute-webhook-query-string-params",
+      "execute-webhook-json/form-params",
+      "execute-webhook-json/form-params",
+      "execute-slack-compatible-webhook"
     ],
     "name": "Execute Webhook",
     "method": "POST",
@@ -6776,7 +6837,9 @@
   {
     "tree": [
       "execute-slack-compatible-webhook",
-      "execute-slack-compatible-webhook-query-string-params"
+      "execute-slack-compatible-webhook-query-string-params",
+      "execute-slack-compatible-webhook-query-string-params",
+      "execute-github-compatible-webhook"
     ],
     "name": "Execute Slack-Compatible Webhook",
     "method": "POST",
@@ -6827,7 +6890,9 @@
   {
     "tree": [
       "execute-github-compatible-webhook",
-      "execute-github-compatible-webhook-query-string-params"
+      "execute-github-compatible-webhook-query-string-params",
+      "execute-github-compatible-webhook-query-string-params",
+      "get-webhook-message"
     ],
     "name": "Execute GitHub-Compatible Webhook",
     "method": "POST",
@@ -6878,7 +6943,9 @@
   {
     "tree": [
       "get-webhook-message",
-      "get-webhook-message-query-string-params"
+      "get-webhook-message-query-string-params",
+      "get-webhook-message-query-string-params",
+      "edit-webhook-message"
     ],
     "name": "Get Webhook Message",
     "method": "GET",
@@ -6921,7 +6988,10 @@
     "tree": [
       "edit-webhook-message",
       "edit-webhook-message-query-string-params",
-      "edit-webhook-message-json/form-params"
+      "edit-webhook-message-query-string-params",
+      "edit-webhook-message-json/form-params",
+      "edit-webhook-message-json/form-params",
+      "delete-webhook-message"
     ],
     "name": "Edit Webhook Message",
     "method": "PATCH",
@@ -7068,6 +7138,7 @@
   {
     "tree": [
       "delete-webhook-message",
+      "delete-webhook-message-query-string-params",
       "delete-webhook-message-query-string-params"
     ],
     "name": "Delete Webhook Message",
@@ -7109,188 +7180,24 @@
   },
   {
     "tree": [
-      "gateways",
-      "gateways-gateway-versions",
-      "payloads",
-      "payloads-gateway-payload-structure",
-      "sending-payloads",
-      "sending-payloads-example-gateway-dispatch",
-      "receiving-payloads",
-      "encoding-and-compression",
-      "etf/json",
-      "etf/json-using-etf",
-      "payload-compression",
-      "transport-compression",
-      "transport-compression-transport-compression-example",
-      "connecting-to-the-gateway",
-      "connecting",
-      "connecting-gateway-url-query-string-params",
-      "connecting-example-gateway-hello",
-      "heartbeating",
-      "heartbeating-example-gateway-heartbeat-ack",
-      "identifying",
-      "identifying-example-gateway-identify",
-      "resuming",
-      "resuming-example-gateway-resume",
-      "disconnections",
-      "gateway-intents",
-      "list-of-intents",
-      "caveats",
-      "privileged-intents",
-      "rate-limiting",
-      "tracking-state",
-      "guild-availability",
-      "sharding",
-      "sharding-sharding-formula",
-      "sharding-max-concurrency",
-      "sharding-for-very-large-bots",
-      "commands-and-events",
-      "commands-and-events-gateway-commands",
-      "commands-and-events-gateway-events",
-      "event-names",
-      "identify",
-      "identify-identify-structure",
-      "identify-identify-connection-properties",
-      "identify-example-identify",
-      "resume",
-      "resume-resume-structure",
-      "resume-example-resume",
-      "heartbeat",
-      "heartbeat-example-heartbeat",
-      "request-guild-members",
-      "request-guild-members-guild-request-members-structure",
-      "request-guild-members-guild-request-members",
-      "update-voice-state",
-      "update-voice-state-gateway-voice-state-update-structure",
-      "update-voice-state-example-gateway-voice-state-update",
-      "update-presence",
-      "update-presence-gateway-presence-update-structure",
-      "update-presence-status-types",
-      "update-presence-example-gateway-presence-update",
-      "connecting-and-resuming",
-      "hello",
-      "hello-hello-structure",
-      "hello-example-hello",
-      "ready",
-      "ready-ready-event-fields",
-      "resumed",
-      "reconnect",
-      "reconnect-example-gateway-reconnect",
-      "invalid-session",
-      "invalid-session-example-gateway-invalid-session",
-      "channels",
-      "channel-create",
-      "channel-update",
-      "channel-delete",
-      "thread-create",
-      "thread-update",
-      "thread-delete",
-      "thread-list-sync",
-      "thread-list-sync-thread-list-sync-event-fields",
-      "thread-member-update",
-      "thread-member-update-thread-member-update-event-extra-fields",
-      "thread-members-update",
-      "thread-members-update-thread-members-update-event-fields",
-      "channel-pins-update",
-      "channel-pins-update-channel-pins-update-event-fields",
-      "guilds",
-      "guild-create",
-      "guild-update",
-      "guild-delete",
-      "guild-ban-add",
-      "guild-ban-add-guild-ban-add-event-fields",
-      "guild-ban-remove",
-      "guild-ban-remove-guild-ban-remove-event-fields",
-      "guild-emojis-update",
-      "guild-emojis-update-guild-emojis-update-event-fields",
-      "guild-stickers-update",
-      "guild-stickers-update-guild-stickers-update-event-fields",
-      "guild-integrations-update",
-      "guild-integrations-update-guild-integrations-update-event-fields",
-      "guild-member-add",
-      "guild-member-add-guild-member-add-extra-fields",
-      "guild-member-remove",
-      "guild-member-remove-guild-member-remove-event-fields",
-      "guild-member-update",
-      "guild-member-update-guild-member-update-event-fields",
-      "guild-members-chunk",
-      "guild-members-chunk-guild-members-chunk-event-fields",
-      "guild-role-create",
-      "guild-role-create-guild-role-create-event-fields",
-      "guild-role-update",
-      "guild-role-update-guild-role-update-event-fields",
-      "guild-role-delete",
-      "guild-role-delete-guild-role-delete-event-fields",
-      "guild-scheduled-event-create",
-      "guild-scheduled-event-update",
-      "guild-scheduled-event-delete",
-      "guild-scheduled-event-user-add",
-      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
-      "guild-scheduled-event-user-remove",
-      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
-      "integrations",
-      "integration-create",
-      "integration-create-integration-create-event-additional-fields",
-      "integration-update",
-      "integration-update-integration-update-event-additional-fields",
-      "integration-delete",
-      "integration-delete-integration-delete-event-fields",
-      "invites",
-      "invite-create",
-      "invite-create-invite-create-event-fields",
-      "invite-delete",
-      "invite-delete-invite-delete-event-fields",
-      "messages",
-      "message-create",
-      "message-update",
-      "message-delete",
-      "message-delete-message-delete-event-fields",
-      "message-delete-bulk",
-      "message-delete-bulk-message-delete-bulk-event-fields",
-      "message-reaction-add",
-      "message-reaction-add-message-reaction-add-event-fields",
-      "message-reaction-remove",
-      "message-reaction-remove-message-reaction-remove-event-fields",
-      "message-reaction-remove-all",
-      "message-reaction-remove-all-message-reaction-remove-all-event-fields",
-      "message-reaction-remove-emoji",
-      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
-      "presence",
-      "presence-update",
-      "presence-update-presence-update-event-fields",
-      "client-status-object",
-      "activity-object",
-      "activity-object-activity-structure",
-      "activity-object-activity-types",
-      "activity-object-activity-timestamps",
-      "activity-object-activity-emoji",
-      "activity-object-activity-party",
-      "activity-object-activity-assets",
-      "activity-object-activity-asset-image",
-      "activity-object-activity-secrets",
-      "activity-object-activity-flags",
-      "activity-object-activity-buttons",
-      "activity-object-example-activity",
-      "activity-object-example-activity-with-rich-presence",
-      "typing-start",
-      "typing-start-typing-start-event-fields",
-      "user-update",
-      "voice",
-      "voice-state-update",
-      "voice-server-update",
-      "voice-server-update-voice-server-update-event-fields",
-      "voice-server-update-example-voice-server-update-payload",
-      "webhooks",
-      "webhooks-update",
       "webhooks-update-webhooks-update-event-fields",
       "interactions",
+      "interactions",
+      "interaction-create",
       "interaction-create",
       "stage-instances",
+      "stage-instances",
+      "stage-instance-create",
       "stage-instance-create",
       "stage-instance-update",
+      "stage-instance-update",
+      "stage-instance-delete",
       "stage-instance-delete",
       "get-gateway",
-      "get-gateway-example-response"
+      "get-gateway",
+      "get-gateway-example-response",
+      "get-gateway-example-response",
+      "get-gateway-bot"
     ],
     "name": "Get Gateway",
     "method": "GET",
@@ -7309,8 +7216,12 @@
     "tree": [
       "get-gateway-bot",
       "get-gateway-bot-json-response",
+      "get-gateway-bot-json-response",
+      "get-gateway-bot-example-response",
       "get-gateway-bot-example-response",
       "session-start-limit-object",
+      "session-start-limit-object",
+      "session-start-limit-object-session-start-limit-structure",
       "session-start-limit-object-session-start-limit-structure"
     ],
     "name": "Get Gateway Bot",
@@ -7365,35 +7276,10 @@
   },
   {
     "tree": [
-      "oauth2",
-      "shared-resources",
-      "shared-resources-oauth2-urls",
-      "shared-resources-oauth2-scopes",
-      "state-and-security",
-      "authorization-code-grant",
-      "authorization-code-grant-authorization-url-example",
-      "authorization-code-grant-redirect-url-example",
-      "authorization-code-grant-access-token-exchange-example",
-      "authorization-code-grant-access-token-response",
-      "authorization-code-grant-refresh-token-exchange-example",
-      "implicit-grant",
-      "implicit-grant-authorization-url-example",
-      "implicit-grant-redirect-url-example",
-      "client-credentials-grant",
-      "client-credentials-grant-client-credentials-token-request-example",
-      "client-credentials-grant-client-credentials-access-token-response",
-      "bots",
-      "bot-vs-user-accounts",
-      "bot-authorization-flow",
-      "bot-authorization-flow-bot-auth-parameters",
-      "bot-authorization-flow-url-example",
-      "advanced-bot-authorization",
-      "advanced-bot-authorization-extended-bot-authorization-access-token-example",
-      "two-factor-authentication-requirement",
-      "webhooks",
-      "webhooks-url-example",
       "webhooks-webhook-token-response-example",
-      "get-current-bot-application-information"
+      "get-current-bot-application-information",
+      "get-current-bot-application-information",
+      "get-current-authorization-information"
     ],
     "name": "Get Current Bot Application Information",
     "method": "GET",
@@ -7412,6 +7298,8 @@
     "tree": [
       "get-current-authorization-information",
       "get-current-authorization-information-response-structure",
+      "get-current-authorization-information-response-structure",
+      "get-current-authorization-information-example-authorization-information",
       "get-current-authorization-information-example-authorization-information"
     ],
     "name": "Get Current Authorization Information",

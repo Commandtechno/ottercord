@@ -1,10 +1,6 @@
 [
   {
     "tree": [
-      "application-resource",
-      "application-object",
-      "application-object-application-structure",
-      "application-object-example-application-object",
       "application-object-application-flags"
     ],
     "name": "Application Flags",
@@ -45,14 +41,8 @@
   },
   {
     "tree": [
-      "audit-logs-resource",
-      "audit-logs",
-      "audit-log-object",
-      "audit-log-object-audit-log-structure",
-      "audit-log-object-example-partial-integration-object",
-      "audit-log-entry-object",
-      "audit-log-entry-object-audit-log-entry-structure",
-      "audit-log-entry-object-audit-log-events"
+      "audit-log-entry-object-audit-log-events",
+      "audit-log-entry-object-optional-audit-entry-info"
     ],
     "name": "Audit Log Events",
     "properties": [
@@ -248,10 +238,8 @@
   },
   {
     "tree": [
-      "channels-resource",
-      "channel-object",
-      "channel-object-channel-structure",
-      "channel-object-channel-types"
+      "channel-object-channel-types",
+      "channel-object-video-quality-modes"
     ],
     "name": "Channel Types",
     "properties": [
@@ -314,7 +302,8 @@
   },
   {
     "tree": [
-      "channel-object-video-quality-modes"
+      "channel-object-video-quality-modes",
+      "channel-object-example-guild-text-channel"
     ],
     "name": "Video Quality Modes",
     "properties": [
@@ -332,17 +321,8 @@
   },
   {
     "tree": [
-      "channel-object-example-guild-text-channel",
-      "channel-object-example-guild-news-channel",
-      "channel-object-example-guild-voice-channel",
-      "channel-object-example-dm-channel",
-      "channel-object-example-group-dm-channel",
-      "channel-object-example-channel-category",
-      "channel-object-example-store-channel",
-      "channel-object-example-thread-channel",
-      "message-object",
-      "message-object-message-structure",
-      "message-object-message-types"
+      "message-object-message-types",
+      "message-object-message-activity-structure"
     ],
     "name": "Message Types",
     "properties": [
@@ -442,8 +422,8 @@
   },
   {
     "tree": [
-      "message-object-message-activity-structure",
-      "message-object-message-activity-types"
+      "message-object-message-activity-types",
+      "message-object-message-flags"
     ],
     "name": "Message Activity Types",
     "properties": [
@@ -467,7 +447,8 @@
   },
   {
     "tree": [
-      "message-object-message-flags"
+      "message-object-message-flags",
+      "message-object-example-message"
     ],
     "name": "Message Flags",
     "properties": [
@@ -520,29 +501,8 @@
   },
   {
     "tree": [
-      "message-object-example-message",
-      "message-object-example-crossposted-message",
-      "message-reference-object",
-      "message-reference-object-message-reference-structure",
-      "message-types",
-      "message-types-crosspost-messages",
-      "message-types-channel-follow-add-messages",
-      "message-types-pin-messages",
-      "message-types-replies",
-      "message-types-thread-starter-messsage",
-      "followed-channel-object",
-      "followed-channel-object-followed-channel-structure",
-      "reaction-object",
-      "reaction-object-reaction-structure",
-      "overwrite-object",
-      "overwrite-object-overwrite-structure",
-      "thread-metadata-object",
-      "thread-metadata-object-thread-metadata-structure",
-      "thread-member-object",
-      "thread-member-object-thread-member-structure",
-      "embed-object",
-      "embed-object-embed-structure",
-      "embed-object-embed-types"
+      "embed-object-embed-types",
+      "embed-object-embed-thumbnail-structure"
     ],
     "name": "Embed Types",
     "properties": [
@@ -580,19 +540,8 @@
   },
   {
     "tree": [
-      "embed-object-embed-thumbnail-structure",
-      "embed-object-embed-video-structure",
-      "embed-object-embed-image-structure",
-      "embed-object-embed-provider-structure",
-      "embed-object-embed-author-structure",
-      "embed-object-embed-footer-structure",
-      "embed-object-embed-field-structure",
-      "attachment-object",
-      "attachment-object-attachment-structure",
-      "channel-mention-object",
-      "channel-mention-object-channel-mention-structure",
-      "allowed-mentions-object",
-      "allowed-mentions-object-allowed-mention-types"
+      "allowed-mentions-object-allowed-mention-types",
+      "allowed-mentions-object-allowed-mentions-structure"
     ],
     "name": "Allowed Mention Types",
     "properties": [
@@ -615,10 +564,8 @@
   },
   {
     "tree": [
-      "guild-resource",
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level"
+      "guild-object-default-message-notification-level",
+      "guild-object-explicit-content-filter-level"
     ],
     "name": "Default Message Notification Level",
     "properties": [
@@ -636,7 +583,8 @@
   },
   {
     "tree": [
-      "guild-object-explicit-content-filter-level"
+      "guild-object-explicit-content-filter-level",
+      "guild-object-mfa-level"
     ],
     "name": "Explicit Content Filter Level",
     "properties": [
@@ -659,7 +607,8 @@
   },
   {
     "tree": [
-      "guild-object-mfa-level"
+      "guild-object-mfa-level",
+      "guild-object-verification-level"
     ],
     "name": "MFA Level",
     "properties": [
@@ -677,7 +626,8 @@
   },
   {
     "tree": [
-      "guild-object-verification-level"
+      "guild-object-verification-level",
+      "guild-object-guild-nsfw-level"
     ],
     "name": "Verification Level",
     "properties": [
@@ -710,7 +660,8 @@
   },
   {
     "tree": [
-      "guild-object-guild-nsfw-level"
+      "guild-object-guild-nsfw-level",
+      "guild-object-premium-tier"
     ],
     "name": "Guild NSFW Level",
     "properties": [
@@ -734,7 +685,8 @@
   },
   {
     "tree": [
-      "guild-object-premium-tier"
+      "guild-object-premium-tier",
+      "guild-object-system-channel-flags"
     ],
     "name": "Premium Tier",
     "properties": [
@@ -762,7 +714,8 @@
   },
   {
     "tree": [
-      "guild-object-system-channel-flags"
+      "guild-object-system-channel-flags",
+      "guild-object-guild-features"
     ],
     "name": "System Channel Flags",
     "properties": [
@@ -790,7 +743,8 @@
   },
   {
     "tree": [
-      "guild-object-guild-features"
+      "guild-object-guild-features",
+      "guild-object-example-guild"
     ],
     "name": "Guild Features",
     "properties": [
@@ -908,25 +862,10 @@
   },
   {
     "tree": [
-      "guild-object-example-guild",
-      "unavailable-guild-object",
-      "unavailable-guild-object-example-unavailable-guild",
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure",
-      "guild-preview-object-example-guild-preview",
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure",
-      "guild-widget-settings-object-example-guild-widget-settings",
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure",
-      "get-guild-widget-object-example-get-guild-widget",
-      "guild-member-object",
-      "guild-member-object-guild-member-structure",
-      "guild-member-object-example-guild-member",
-      "integration-object",
-      "integration-object-integration-structure",
       "integration-object-integration-expire-behaviors",
-      "integration-account-object"
+      "integration-account-object",
+      "integration-account-object",
+      "integration-account-object-integration-account-structure"
     ],
     "name": "Integration Expire Behaviors",
     "properties": [
@@ -942,10 +881,8 @@
   },
   {
     "tree": [
-      "guild-scheduled-event",
-      "guild-scheduled-event-object",
-      "guild-scheduled-event-object-guild-scheduled-event-structure",
-      "guild-scheduled-event-object-guild-scheduled-event-privacy-level"
+      "guild-scheduled-event-object-guild-scheduled-event-privacy-level",
+      "guild-scheduled-event-object-guild-scheduled-event-entity-types"
     ],
     "name": "Guild Scheduled Event Privacy Level",
     "properties": [
@@ -958,7 +895,8 @@
   },
   {
     "tree": [
-      "guild-scheduled-event-object-guild-scheduled-event-entity-types"
+      "guild-scheduled-event-object-guild-scheduled-event-entity-types",
+      "guild-scheduled-event-object-field-requirements-by-entity-type"
     ],
     "name": "Guild Scheduled Event Entity Types",
     "properties": [
@@ -978,7 +916,8 @@
   },
   {
     "tree": [
-      "guild-scheduled-event-object-field-requirements-by-entity-type"
+      "guild-scheduled-event-object-field-requirements-by-entity-type",
+      "guild-scheduled-event-object-guild-scheduled-event-status"
     ],
     "name": "Field Requirements By Entity Type",
     "properties": [
@@ -999,7 +938,8 @@
   },
   {
     "tree": [
-      "guild-scheduled-event-object-guild-scheduled-event-status"
+      "guild-scheduled-event-object-guild-scheduled-event-status",
+      "guild-scheduled-event-object-valid-guild-scheduled-event-status-transitions"
     ],
     "name": "Guild Scheduled Event Status",
     "properties": [
@@ -1024,10 +964,8 @@
   },
   {
     "tree": [
-      "invite-resource",
-      "invite-object",
-      "invite-object-invite-structure",
-      "invite-object-invite-target-types"
+      "invite-object-invite-target-types",
+      "invite-object-example-invite-object"
     ],
     "name": "Invite Target Types",
     "properties": [
@@ -1043,10 +981,8 @@
   },
   {
     "tree": [
-      "stage-instance-resource",
-      "stage-instance-object",
-      "stage-instance-object-stage-instance-structure",
-      "stage-instance-object-privacy-level"
+      "stage-instance-object-privacy-level",
+      "stage-instance-object-example-stage-instance"
     ],
     "name": "Privacy Level",
     "properties": [
@@ -1064,10 +1000,8 @@
   },
   {
     "tree": [
-      "sticker-resource",
-      "sticker-object",
-      "sticker-object-sticker-structure",
-      "sticker-object-sticker-types"
+      "sticker-object-sticker-types",
+      "sticker-object-sticker-format-types"
     ],
     "name": "Sticker Types",
     "properties": [
@@ -1085,7 +1019,8 @@
   },
   {
     "tree": [
-      "sticker-object-sticker-format-types"
+      "sticker-object-sticker-format-types",
+      "sticker-object-example-sticker"
     ],
     "name": "Sticker Format Types",
     "properties": [
@@ -1105,12 +1040,8 @@
   },
   {
     "tree": [
-      "users-resource",
-      "usernames-and-nicknames",
-      "user-object",
-      "user-object-user-structure",
-      "user-object-example-user",
-      "user-object-user-flags"
+      "user-object-user-flags",
+      "user-object-premium-types"
     ],
     "name": "User Flags",
     "properties": [
@@ -1194,7 +1125,9 @@
   {
     "tree": [
       "user-object-premium-types",
-      "connection-object"
+      "connection-object",
+      "connection-object",
+      "connection-object-connection-structure"
     ],
     "name": "Premium Types",
     "properties": [
@@ -1214,24 +1147,7 @@
     "description": "The connection object that the user has attached."
   },
   {
-    "tree": [
-      "connection-object-connection-structure",
-      "connection-object-visibility-types",
-      "get-current-user",
-      "get-user",
-      "modify-current-user",
-      "modify-current-user-json-params",
-      "get-current-user-guilds",
-      "get-current-user-guilds-example-partial-guild",
-      "get-current-user-guilds-query-string-params",
-      "get-current-user-guild-member",
-      "leave-guild",
-      "create-dm",
-      "create-dm-json-params",
-      "create-group-dm",
-      "create-group-dm-json-params",
-      "get-user-connections"
-    ],
+    "tree": [],
     "name": "Visibility Types",
     "properties": [
       {
@@ -1248,10 +1164,8 @@
   },
   {
     "tree": [
-      "webhook-resource",
-      "webhook-object",
-      "webhook-object-webhook-structure",
-      "webhook-object-webhook-types"
+      "webhook-object-webhook-types",
+      "webhook-object-example-incoming-webhook"
     ],
     "name": "Webhook Types",
     "properties": [
@@ -1275,9 +1189,14 @@
   {
     "tree": [
       "certified-devices",
+      "certified-devices",
+      "how's-it-work?",
       "how's-it-work?",
       "connecting",
-      "connecting-query-string-params"
+      "connecting",
+      "connecting-query-string-params",
+      "connecting-query-string-params",
+      "connecting-http"
     ],
     "name": "Query String Params",
     "properties": [
@@ -1298,21 +1217,6 @@
   },
   {
     "tree": [
-      "connecting-http",
-      "connecting-websocket",
-      "getting-device-uuid",
-      "getting-device-uuid-microphone-id-example",
-      "getting-device-uuid-speaker-id-example",
-      "http-example",
-      "http-example-http-request-example",
-      "http-example-http-response-example",
-      "websocket-example",
-      "websocket-example-rpc-command-example",
-      "websocket-example-rpc-response-example",
-      "models",
-      "models-device-object",
-      "models-vendor-object",
-      "models-model-object",
       "models-device-type"
     ],
     "name": "Device Type",
@@ -1334,15 +1238,26 @@
   {
     "tree": [
       "community-resources",
+      "community-resources",
+      "discord-developers",
       "discord-developers",
       "libraries",
+      "libraries",
+      "libraries-discord-libraries",
       "libraries-discord-libraries",
       "interactions",
+      "interactions",
+      "game-sdk-tools",
       "game-sdk-tools",
       "dispatch-tools",
+      "dispatch-tools",
+      "permission-calculators",
       "permission-calculators",
       "intent-calculators",
+      "intent-calculators",
       "embed-visualizer",
+      "embed-visualizer",
+      "api-types",
       "api-types"
     ],
     "name": "Discord Libraries",
@@ -1529,8 +1444,12 @@
   {
     "tree": [
       "gateways",
+      "gateways",
       "gateways-gateway-versions",
-      "payloads"
+      "gateways-gateway-versions",
+      "payloads",
+      "payloads",
+      "payloads-gateway-payload-structure"
     ],
     "name": "Gateway Versions",
     "properties": [
@@ -1562,40 +1481,8 @@
   },
   {
     "tree": [
-      "payloads-gateway-payload-structure",
-      "sending-payloads",
-      "sending-payloads-example-gateway-dispatch",
-      "receiving-payloads",
-      "encoding-and-compression",
-      "etf/json",
-      "etf/json-using-etf",
-      "payload-compression",
-      "transport-compression",
-      "transport-compression-transport-compression-example",
-      "connecting-to-the-gateway",
-      "connecting",
-      "connecting-gateway-url-query-string-params",
-      "connecting-example-gateway-hello",
-      "heartbeating",
-      "heartbeating-example-gateway-heartbeat-ack",
-      "identifying",
-      "identifying-example-gateway-identify",
-      "resuming",
-      "resuming-example-gateway-resume",
-      "disconnections",
-      "gateway-intents",
-      "list-of-intents",
-      "caveats",
-      "privileged-intents",
-      "rate-limiting",
-      "tracking-state",
-      "guild-availability",
-      "sharding",
-      "sharding-sharding-formula",
-      "sharding-max-concurrency",
-      "sharding-for-very-large-bots",
-      "commands-and-events",
-      "commands-and-events-gateway-commands"
+      "commands-and-events-gateway-commands",
+      "commands-and-events-gateway-events"
     ],
     "name": "Gateway Commands",
     "properties": [
@@ -1636,7 +1523,10 @@
     "tree": [
       "commands-and-events-gateway-events",
       "event-names",
-      "identify"
+      "event-names",
+      "identify",
+      "identify",
+      "identify-identify-structure"
     ],
     "name": "Gateway Events",
     "properties": [
@@ -1935,23 +1825,8 @@
   },
   {
     "tree": [
-      "identify-identify-structure",
-      "identify-identify-connection-properties",
-      "identify-example-identify",
-      "resume",
-      "resume-resume-structure",
-      "resume-example-resume",
-      "heartbeat",
-      "heartbeat-example-heartbeat",
-      "request-guild-members",
-      "request-guild-members-guild-request-members-structure",
-      "request-guild-members-guild-request-members",
-      "update-voice-state",
-      "update-voice-state-gateway-voice-state-update-structure",
-      "update-voice-state-example-gateway-voice-state-update",
-      "update-presence",
-      "update-presence-gateway-presence-update-structure",
-      "update-presence-status-types"
+      "update-presence-status-types",
+      "update-presence-example-gateway-presence-update"
     ],
     "name": "Status Types",
     "properties": [
@@ -1984,102 +1859,8 @@
   },
   {
     "tree": [
-      "update-presence-example-gateway-presence-update",
-      "connecting-and-resuming",
-      "hello",
-      "hello-hello-structure",
-      "hello-example-hello",
-      "ready",
-      "ready-ready-event-fields",
-      "resumed",
-      "reconnect",
-      "reconnect-example-gateway-reconnect",
-      "invalid-session",
-      "invalid-session-example-gateway-invalid-session",
-      "channels",
-      "channel-create",
-      "channel-update",
-      "channel-delete",
-      "thread-create",
-      "thread-update",
-      "thread-delete",
-      "thread-list-sync",
-      "thread-list-sync-thread-list-sync-event-fields",
-      "thread-member-update",
-      "thread-member-update-thread-member-update-event-extra-fields",
-      "thread-members-update",
-      "thread-members-update-thread-members-update-event-fields",
-      "channel-pins-update",
-      "channel-pins-update-channel-pins-update-event-fields",
-      "guilds",
-      "guild-create",
-      "guild-update",
-      "guild-delete",
-      "guild-ban-add",
-      "guild-ban-add-guild-ban-add-event-fields",
-      "guild-ban-remove",
-      "guild-ban-remove-guild-ban-remove-event-fields",
-      "guild-emojis-update",
-      "guild-emojis-update-guild-emojis-update-event-fields",
-      "guild-stickers-update",
-      "guild-stickers-update-guild-stickers-update-event-fields",
-      "guild-integrations-update",
-      "guild-integrations-update-guild-integrations-update-event-fields",
-      "guild-member-add",
-      "guild-member-add-guild-member-add-extra-fields",
-      "guild-member-remove",
-      "guild-member-remove-guild-member-remove-event-fields",
-      "guild-member-update",
-      "guild-member-update-guild-member-update-event-fields",
-      "guild-members-chunk",
-      "guild-members-chunk-guild-members-chunk-event-fields",
-      "guild-role-create",
-      "guild-role-create-guild-role-create-event-fields",
-      "guild-role-update",
-      "guild-role-update-guild-role-update-event-fields",
-      "guild-role-delete",
-      "guild-role-delete-guild-role-delete-event-fields",
-      "guild-scheduled-event-create",
-      "guild-scheduled-event-update",
-      "guild-scheduled-event-delete",
-      "guild-scheduled-event-user-add",
-      "guild-scheduled-event-user-add-guild-scheduled-event-user-add-event-fields",
-      "guild-scheduled-event-user-remove",
-      "guild-scheduled-event-user-remove-guild-scheduled-event-user-remove-event-fields",
-      "integrations",
-      "integration-create",
-      "integration-create-integration-create-event-additional-fields",
-      "integration-update",
-      "integration-update-integration-update-event-additional-fields",
-      "integration-delete",
-      "integration-delete-integration-delete-event-fields",
-      "invites",
-      "invite-create",
-      "invite-create-invite-create-event-fields",
-      "invite-delete",
-      "invite-delete-invite-delete-event-fields",
-      "messages",
-      "message-create",
-      "message-update",
-      "message-delete",
-      "message-delete-message-delete-event-fields",
-      "message-delete-bulk",
-      "message-delete-bulk-message-delete-bulk-event-fields",
-      "message-reaction-add",
-      "message-reaction-add-message-reaction-add-event-fields",
-      "message-reaction-remove",
-      "message-reaction-remove-message-reaction-remove-event-fields",
-      "message-reaction-remove-all",
-      "message-reaction-remove-all-message-reaction-remove-all-event-fields",
-      "message-reaction-remove-emoji",
-      "message-reaction-remove-emoji-message-reaction-remove-emoji-event-fields",
-      "presence",
-      "presence-update",
-      "presence-update-presence-update-event-fields",
-      "client-status-object",
-      "activity-object",
-      "activity-object-activity-structure",
-      "activity-object-activity-types"
+      "activity-object-activity-types",
+      "activity-object-activity-timestamps"
     ],
     "name": "Activity Types",
     "properties": [
@@ -2111,11 +1892,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-timestamps",
-      "activity-object-activity-emoji",
-      "activity-object-activity-party",
-      "activity-object-activity-assets",
-      "activity-object-activity-asset-image"
+      "activity-object-activity-asset-image",
+      "activity-object-activity-secrets"
     ],
     "name": "Activity Asset Image",
     "properties": [
@@ -2131,8 +1909,8 @@
   },
   {
     "tree": [
-      "activity-object-activity-secrets",
-      "activity-object-activity-flags"
+      "activity-object-activity-flags",
+      "activity-object-activity-buttons"
     ],
     "name": "Activity Flags",
     "properties": [
@@ -2177,8 +1955,12 @@
   {
     "tree": [
       "oauth2",
+      "oauth2",
       "shared-resources",
-      "shared-resources-oauth2-urls"
+      "shared-resources",
+      "shared-resources-oauth2-urls",
+      "shared-resources-oauth2-urls",
+      "shared-resources-oauth2-scopes"
     ],
     "name": "OAuth2 URLs",
     "properties": [
@@ -2203,7 +1985,10 @@
     "tree": [
       "shared-resources-oauth2-scopes",
       "state-and-security",
-      "authorization-code-grant"
+      "state-and-security",
+      "authorization-code-grant",
+      "authorization-code-grant",
+      "authorization-code-grant-authorization-url-example"
     ],
     "name": "OAuth2 Scopes",
     "properties": [
@@ -2332,21 +2117,8 @@
   },
   {
     "tree": [
-      "authorization-code-grant-authorization-url-example",
-      "authorization-code-grant-redirect-url-example",
-      "authorization-code-grant-access-token-exchange-example",
-      "authorization-code-grant-access-token-response",
-      "authorization-code-grant-refresh-token-exchange-example",
-      "implicit-grant",
-      "implicit-grant-authorization-url-example",
-      "implicit-grant-redirect-url-example",
-      "client-credentials-grant",
-      "client-credentials-grant-client-credentials-token-request-example",
-      "client-credentials-grant-client-credentials-access-token-response",
-      "bots",
-      "bot-vs-user-accounts",
-      "bot-authorization-flow",
-      "bot-authorization-flow-bot-auth-parameters"
+      "bot-authorization-flow-bot-auth-parameters",
+      "bot-authorization-flow-url-example"
     ],
     "name": "Bot Auth Parameters",
     "properties": [
@@ -2380,8 +2152,12 @@
   {
     "tree": [
       "opcodes-and-status-codes",
+      "opcodes-and-status-codes",
       "gateway",
-      "gateway-gateway-opcodes"
+      "gateway",
+      "gateway-gateway-opcodes",
+      "gateway-gateway-opcodes",
+      "gateway-gateway-close-event-codes"
     ],
     "name": "Gateway Opcodes",
     "properties": [
@@ -2445,7 +2221,9 @@
   {
     "tree": [
       "gateway-gateway-close-event-codes",
-      "voice"
+      "voice",
+      "voice",
+      "voice-voice-opcodes"
     ],
     "name": "Gateway Close Event Codes",
     "properties": [
@@ -2524,7 +2302,8 @@
   },
   {
     "tree": [
-      "voice-voice-opcodes"
+      "voice-voice-opcodes",
+      "voice-voice-close-event-codes"
     ],
     "name": "Voice Opcodes",
     "properties": [
@@ -2588,7 +2367,9 @@
   {
     "tree": [
       "voice-voice-close-event-codes",
-      "http"
+      "http",
+      "http",
+      "http-http-response-codes"
     ],
     "name": "Voice Close Event Codes",
     "properties": [
@@ -2658,7 +2439,9 @@
   {
     "tree": [
       "http-http-response-codes",
-      "json"
+      "json",
+      "json",
+      "json-example-json-error-response"
     ],
     "name": "HTTP Response Codes",
     "properties": [
@@ -2715,609 +2498,8 @@
   },
   {
     "tree": [
-      "json-json-error-codes"
-    ],
-    "name": "JSON Error Codes",
-    "properties": [
-      {
-        "key": "0",
-        "value": "General error"
-      },
-      {
-        "key": "10001",
-        "value": "Unknown account"
-      },
-      {
-        "key": "10002",
-        "value": "Unknown application"
-      },
-      {
-        "key": "10003",
-        "value": "Unknown channel"
-      },
-      {
-        "key": "10004",
-        "value": "Unknown guild"
-      },
-      {
-        "key": "10005",
-        "value": "Unknown integration"
-      },
-      {
-        "key": "10006",
-        "value": "Unknown invite"
-      },
-      {
-        "key": "10007",
-        "value": "Unknown member"
-      },
-      {
-        "key": "10008",
-        "value": "Unknown message"
-      },
-      {
-        "key": "10009",
-        "value": "Unknown permission overwrite"
-      },
-      {
-        "key": "10010",
-        "value": "Unknown provider"
-      },
-      {
-        "key": "10011",
-        "value": "Unknown role"
-      },
-      {
-        "key": "10012",
-        "value": "Unknown token"
-      },
-      {
-        "key": "10013",
-        "value": "Unknown user"
-      },
-      {
-        "key": "10014",
-        "value": "Unknown emoji"
-      },
-      {
-        "key": "10015",
-        "value": "Unknown webhook"
-      },
-      {
-        "key": "10016",
-        "value": "Unknown webhook service"
-      },
-      {
-        "key": "10020",
-        "value": "Unknown session"
-      },
-      {
-        "key": "10026",
-        "value": "Unknown ban"
-      },
-      {
-        "key": "10027",
-        "value": "Unknown SKU"
-      },
-      {
-        "key": "10028",
-        "value": "Unknown Store Listing"
-      },
-      {
-        "key": "10029",
-        "value": "Unknown entitlement"
-      },
-      {
-        "key": "10030",
-        "value": "Unknown build"
-      },
-      {
-        "key": "10031",
-        "value": "Unknown lobby"
-      },
-      {
-        "key": "10032",
-        "value": "Unknown branch"
-      },
-      {
-        "key": "10033",
-        "value": "Unknown store directory layout"
-      },
-      {
-        "key": "10036",
-        "value": "Unknown redistributable"
-      },
-      {
-        "key": "10038",
-        "value": "Unknown gift code"
-      },
-      {
-        "key": "10049",
-        "value": "Unknown stream"
-      },
-      {
-        "key": "10050",
-        "value": "Unknown premium server subscribe cooldown"
-      },
-      {
-        "key": "10057",
-        "value": "Unknown guild template"
-      },
-      {
-        "key": "10059",
-        "value": "Unknown discoverable server category"
-      },
-      {
-        "key": "10060",
-        "value": "Unknown sticker"
-      },
-      {
-        "key": "10062",
-        "value": "Unknown interaction"
-      },
-      {
-        "key": "10063",
-        "value": "Unknown application command"
-      },
-      {
-        "key": "10066",
-        "value": "Unknown application command permissions"
-      },
-      {
-        "key": "10067",
-        "value": "Unknown Stage Instance"
-      },
-      {
-        "key": "10068",
-        "value": "Unknown Guild Member Verification Form"
-      },
-      {
-        "key": "10069",
-        "value": "Unknown Guild Welcome Screen"
-      },
-      {
-        "key": "10070",
-        "value": "Unknown Guild Scheduled Event"
-      },
-      {
-        "key": "10071",
-        "value": "Unknown Guild Scheduled Event User"
-      },
-      {
-        "key": "20001",
-        "value": "Bots cannot use this endpoint"
-      },
-      {
-        "key": "20002",
-        "value": "Only bots can use this endpoint"
-      },
-      {
-        "key": "20009",
-        "value": "Explicit content cannot be sent to the desired recipient"
-      },
-      {
-        "key": "20012",
-        "value": "You are not authorized to perform this action on this application"
-      },
-      {
-        "key": "20016",
-        "value": "This action cannot be performed due to slowmode rate limit"
-      },
-      {
-        "key": "20018",
-        "value": "Only the owner of this account can perform this action"
-      },
-      {
-        "key": "20022",
-        "value": "This message cannot be edited due to announcement rate limits"
-      },
-      {
-        "key": "20028",
-        "value": "The channel you are writing has hit the write rate limit"
-      },
-      {
-        "key": "20029",
-        "value": "The write action you are performing on the server has hit the write rate limit"
-      },
-      {
-        "key": "20031",
-        "value": "Your Stage topic, server name, server description, or channel names contain words that are not allowed"
-      },
-      {
-        "key": "20035",
-        "value": "Guild premium subscription level too low"
-      },
-      {
-        "key": "30001",
-        "value": "Maximum number of guilds reached"
-      },
-      {
-        "key": "30002",
-        "value": "Maximum number of friends reached"
-      },
-      {
-        "key": "30003",
-        "value": "Maximum number of pins reached for the channel"
-      },
-      {
-        "key": "30004",
-        "value": "Maximum number of recipients reached"
-      },
-      {
-        "key": "30005",
-        "value": "Maximum number of guild roles reached"
-      },
-      {
-        "key": "30007",
-        "value": "Maximum number of webhooks reached"
-      },
-      {
-        "key": "30008",
-        "value": "Maximum number of emojis reached"
-      },
-      {
-        "key": "30010",
-        "value": "Maximum number of reactions reached"
-      },
-      {
-        "key": "30013",
-        "value": "Maximum number of guild channels reached"
-      },
-      {
-        "key": "30015",
-        "value": "Maximum number of attachments in a message reached"
-      },
-      {
-        "key": "30016",
-        "value": "Maximum number of invites reached"
-      },
-      {
-        "key": "30018",
-        "value": "Maximum number of animated emojis reached"
-      },
-      {
-        "key": "30019",
-        "value": "Maximum number of server members reached"
-      },
-      {
-        "key": "30030",
-        "value": "Maximum number of server categories has been reached"
-      },
-      {
-        "key": "30031",
-        "value": "Guild already has a template"
-      },
-      {
-        "key": "30033",
-        "value": "Max number of thread participants has been reached"
-      },
-      {
-        "key": "30035",
-        "value": "Maximum number of bans for non-guild members have been exceeded"
-      },
-      {
-        "key": "30037",
-        "value": "Maximum number of bans fetches has been reached"
-      },
-      {
-        "key": "30038",
-        "value": "Maximum number of uncompleted guild scheduled events reached"
-      },
-      {
-        "key": "30039",
-        "value": "Maximum number of stickers reached"
-      },
-      {
-        "key": "30040",
-        "value": "Maximum number of prune requests has been reached. Try again later"
-      },
-      {
-        "key": "30042",
-        "value": "Maximum number of guild widget settings updates has been reached. Try again later"
-      },
-      {
-        "key": "30046",
-        "value": "Maximum number of edits to messages older than 1 hour reached. Try again later"
-      },
-      {
-        "key": "40001",
-        "value": "Unauthorized. Provide a valid token and try again"
-      },
-      {
-        "key": "40002",
-        "value": "You need to verify your account in order to perform this action"
-      },
-      {
-        "key": "40003",
-        "value": "You are opening direct messages too fast"
-      },
-      {
-        "key": "40005",
-        "value": "Request entity too large. Try sending something smaller in size"
-      },
-      {
-        "key": "40006",
-        "value": "This feature has been temporarily disabled server-side"
-      },
-      {
-        "key": "40007",
-        "value": "The user is banned from this guild"
-      },
-      {
-        "key": "40032",
-        "value": "Target user is not connected to voice"
-      },
-      {
-        "key": "40033",
-        "value": "This message has already been crossposted"
-      },
-      {
-        "key": "40041",
-        "value": "An application command with that name already exists"
-      },
-      {
-        "key": "50001",
-        "value": "Missing access"
-      },
-      {
-        "key": "50002",
-        "value": "Invalid account type"
-      },
-      {
-        "key": "50003",
-        "value": "Cannot execute action on a DM channel"
-      },
-      {
-        "key": "50004",
-        "value": "Guild widget disabled"
-      },
-      {
-        "key": "50005",
-        "value": "Cannot edit a message authored by another user"
-      },
-      {
-        "key": "50006",
-        "value": "Cannot send an empty message"
-      },
-      {
-        "key": "50007",
-        "value": "Cannot send messages to this user"
-      },
-      {
-        "key": "50008",
-        "value": "Cannot send messages in a voice channel"
-      },
-      {
-        "key": "50009",
-        "value": "Channel verification level is too high for you to gain access"
-      },
-      {
-        "key": "50010",
-        "value": "OAuth2 application does not have a bot"
-      },
-      {
-        "key": "50011",
-        "value": "OAuth2 application limit reached"
-      },
-      {
-        "key": "50012",
-        "value": "Invalid OAuth2 state"
-      },
-      {
-        "key": "50013",
-        "value": "You lack permissions to perform that action"
-      },
-      {
-        "key": "50014",
-        "value": "Invalid authentication token provided"
-      },
-      {
-        "key": "50015",
-        "value": "Note was too long"
-      },
-      {
-        "key": "50016",
-        "value": "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete"
-      },
-      {
-        "key": "50019",
-        "value": "A message can only be pinned to the channel it was sent in"
-      },
-      {
-        "key": "50020",
-        "value": "Invite code was either invalid or taken"
-      },
-      {
-        "key": "50021",
-        "value": "Cannot execute action on a system message"
-      },
-      {
-        "key": "50024",
-        "value": "Cannot execute action on this channel type"
-      },
-      {
-        "key": "50025",
-        "value": "Invalid OAuth2 access token provided"
-      },
-      {
-        "key": "50026",
-        "value": "Missing required OAuth2 scope"
-      },
-      {
-        "key": "50027",
-        "value": "Invalid webhook token provided"
-      },
-      {
-        "key": "50028",
-        "value": "Invalid role"
-      },
-      {
-        "key": "50033",
-        "value": "Invalid Recipient"
-      },
-      {
-        "key": "50034",
-        "value": "A message provided was too old to bulk delete"
-      },
-      {
-        "key": "50035",
-        "value": "Invalid form body, or invalid Content-Type provided"
-      },
-      {
-        "key": "50036",
-        "value": "An invite was accepted to a guild the application's bot is not in"
-      },
-      {
-        "key": "50041",
-        "value": "Invalid API version provided"
-      },
-      {
-        "key": "50045",
-        "value": "File uploaded exceeds the maximum size"
-      },
-      {
-        "key": "50046",
-        "value": "Invalid file uploaded"
-      },
-      {
-        "key": "50054",
-        "value": "Cannot self-redeem this gift"
-      },
-      {
-        "key": "50055",
-        "value": "Invalid Guild"
-      },
-      {
-        "key": "50068",
-        "value": "Invalid message type"
-      },
-      {
-        "key": "50070",
-        "value": "Payment source required to redeem gift"
-      },
-      {
-        "key": "50074",
-        "value": "Cannot delete a channel required for Community guilds"
-      },
-      {
-        "key": "50081",
-        "value": "Invalid sticker sent"
-      },
-      {
-        "key": "50083",
-        "value": "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread"
-      },
-      {
-        "key": "50084",
-        "value": "Invalid thread notification settings"
-      },
-      {
-        "key": "50085",
-        "value": "before value is earlier than the thread creation date"
-      },
-      {
-        "key": "50086",
-        "value": "Community server channels must be text channels"
-      },
-      {
-        "key": "50095",
-        "value": "This server is not available in your location"
-      },
-      {
-        "key": "50097",
-        "value": "This server needs monetization enabled in order to perform this action"
-      },
-      {
-        "key": "50101",
-        "value": "This server needs more boosts to perform this action"
-      },
-      {
-        "key": "50109",
-        "value": "The request body contains invalid JSON."
-      },
-      {
-        "key": "60003",
-        "value": "Two factor is required for this operation"
-      },
-      {
-        "key": "80004",
-        "value": "No users with DiscordTag exist"
-      },
-      {
-        "key": "90001",
-        "value": "Reaction was blocked"
-      },
-      {
-        "key": "130000",
-        "value": "API resource is currently overloaded. Try again a little later"
-      },
-      {
-        "key": "150006",
-        "value": "The Stage is already open"
-      },
-      {
-        "key": "160002",
-        "value": "Cannot reply without permission to read message history"
-      },
-      {
-        "key": "160004",
-        "value": "A thread has already been created for this message"
-      },
-      {
-        "key": "160005",
-        "value": "Thread is locked"
-      },
-      {
-        "key": "160006",
-        "value": "Maximum number of active threads reached"
-      },
-      {
-        "key": "160007",
-        "value": "Maximum number of active announcement threads reached"
-      },
-      {
-        "key": "170001",
-        "value": "Invalid JSON for uploaded Lottie file"
-      },
-      {
-        "key": "170002",
-        "value": "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG"
-      },
-      {
-        "key": "170003",
-        "value": "Sticker maximum framerate exceeded"
-      },
-      {
-        "key": "170004",
-        "value": "Sticker frame count exceeds maximum of 1000 frames"
-      },
-      {
-        "key": "170005",
-        "value": "Lottie animation maximum dimensions exceeded"
-      },
-      {
-        "key": "170006",
-        "value": "Sticker frame rate is either too small or too large"
-      },
-      {
-        "key": "170007",
-        "value": "Sticker animation duration exceeds maximum of 5 seconds"
-      },
-      {
-        "key": "180000",
-        "value": "Cannot update a finished event"
-      },
-      {
-        "key": "180002",
-        "value": "Failed to create stage needed for stage event"
-      }
-    ]
-  },
-  {
-    "tree": [
-      "json-example-json-error-response",
-      "rpc",
-      "rpc-rpc-error-codes"
+      "rpc-rpc-error-codes",
+      "rpc-rpc-close-event-codes"
     ],
     "name": "RPC Error Codes",
     "properties": [
@@ -3442,16 +2624,7 @@
     ]
   },
   {
-    "tree": [
-      "permissions",
-      "permissions-bitwise-permission-flags",
-      "permission-hierarchy",
-      "permission-overwrites",
-      "implicit-permissions",
-      "inherited-permissions-(threads)",
-      "permission-syncing",
-      "role-object"
-    ],
+    "tree": [],
     "name": "Bitwise Permission Flags",
     "properties": [
       {
@@ -3665,9 +2838,14 @@
   {
     "tree": [
       "rpc",
+      "rpc",
+      "rpc-rpc-versions",
       "rpc-rpc-versions",
       "restrictions",
-      "payloads"
+      "restrictions",
+      "payloads",
+      "payloads",
+      "payloads-payload-structure"
     ],
     "name": "RPC Versions",
     "properties": [
@@ -3680,14 +2858,8 @@
   },
   {
     "tree": [
-      "payloads-payload-structure",
-      "connecting",
-      "rpc-server-ports",
-      "authenticating",
-      "authenticating-rpc-authorize-example",
-      "authenticating-rpc-authenticate-example",
-      "commands-and-events",
-      "commands-and-events-rpc-commands"
+      "commands-and-events-rpc-commands",
+      "commands-and-events-rpc-events"
     ],
     "name": "RPC Commands",
     "properties": [
@@ -3792,7 +2964,9 @@
   {
     "tree": [
       "commands-and-events-rpc-events",
-      "authorize"
+      "authorize",
+      "authorize",
+      "authorize-authorize-argument-structure"
     ],
     "name": "RPC Events",
     "properties": [
@@ -3901,54 +3075,8 @@
   },
   {
     "tree": [
-      "authorize-authorize-argument-structure",
-      "authorize-authorize-response-structure",
-      "authorize-example-authorize-command-payload",
-      "authorize-example-authorize-response-payload",
-      "authenticate",
-      "authenticate-authenticate-argument-structure",
-      "authenticate-authenticate-response-structure",
-      "authenticate-oauth2-application-structure",
-      "authenticate-example-authenticate-command-payload",
-      "authenticate-example-authenticate-response-payload",
-      "get_guilds",
-      "get_guilds-get-guilds-response-structure",
-      "get_guilds-example-get-guilds-command-payload",
-      "get_guilds-example-get-guilds-response-payload",
-      "get_guild",
-      "get_guild-get-guild-argument-structure",
-      "get_guild-get-guild-response-structure",
-      "get_guild-example-get-guild-command-payload",
-      "get_guild-example-get-guild-response-payload",
-      "get_channel",
-      "get_channel-get-channel-argument-structure",
-      "get_channel-get-channel-response-structure",
-      "get_channel-example-get-channel-command-payload",
-      "get_channel-example-get-channel-response-payload",
-      "get_channels",
-      "get_channels-get-channels-argument-structure",
-      "get_channels-get-channels-response-structure",
-      "get_channels-example-get-channels-command-payload",
-      "get_channels-example-get-channels-response-payload",
-      "set_user_voice_settings",
-      "set_user_voice_settings-set-user-voice-settings-argument-and-response-structure",
-      "set_user_voice_settings-pan-object",
-      "set_user_voice_settings-example-set-user-voice-settings-command-payload",
-      "set_user_voice_settings-example-set-user-voice-settings-response-payload",
-      "select_voice_channel",
-      "select_voice_channel-select-voice-channel-argument-structure",
-      "select_voice_channel-example-select-voice-channel-command-payload",
-      "select_voice_channel-example-select-voice-channel-response-payload",
-      "get_selected_voice_channel",
-      "select_text_channel",
-      "select_text_channel-select-text-channel-argument-structure",
-      "get_voice_settings",
-      "get_voice_settings-get-voice-settings-response-structure",
-      "get_voice_settings-voice-settings-input-object",
-      "get_voice_settings-voice-settings-output-object",
-      "get_voice_settings-voice-settings-mode-object",
-      "get_voice_settings-shortcut-key-combo-object",
-      "get_voice_settings-key-types"
+      "get_voice_settings-key-types",
+      "get_voice_settings-example-get-voice-settings-response-payload"
     ],
     "name": "Key Types",
     "properties": [
@@ -3972,25 +3100,8 @@
   },
   {
     "tree": [
-      "get_voice_settings-example-get-voice-settings-response-payload",
-      "set_voice_settings",
-      "set_voice_settings-set-voice-settings-argument-and-response-structure",
-      "set_voice_settings-example-set-voice-settings-command-payload",
-      "set_voice_settings-example-set-voice-settings-response-payload",
-      "subscribe",
-      "subscribe-subscribe-response-structure",
-      "subscribe-example-subscribe-command-payload",
-      "subscribe-example-subscribe-response-payload",
-      "unsubscribe",
-      "unsubscribe-unsubscribe-response-structure",
-      "unsubscribe-example-unsubscribe-command-payload",
-      "unsubscribe-example-unsubscribe-response-payload",
-      "set_certified_devices",
-      "set_certified_devices-set-certified-devices-argument-strucure",
-      "set_certified_devices-device-object",
-      "set_certified_devices-vendor-object",
-      "set_certified_devices-model-object",
-      "set_certified_devices-device-type"
+      "set_certified_devices-device-type",
+      "set_certified_devices-example-set-certified-devices-command-payload"
     ],
     "name": "Device Type",
     "properties": [
@@ -4010,46 +3121,8 @@
   },
   {
     "tree": [
-      "set_certified_devices-example-set-certified-devices-command-payload",
-      "set_certified_devices-example-set-certified-devices-response-payload",
-      "set_activity",
-      "set_activity-set-activity-argument-structure",
-      "set_activity-example-set-activity-payload",
-      "send_activity_join_invite",
-      "send_activity_join_invite-send-activity-join-invite-argument-structure",
-      "send_activity_join_invite-example-send-activity-join-invite-payload",
-      "close_activity_request",
-      "close_activity_request-close-activity-request-argument-structure",
-      "close_activity_request-example-close-activity-request-payload",
-      "ready",
-      "ready-ready-dispatch-data-structure",
-      "ready-rpc-server-configuration-object",
-      "ready-example-ready-dispatch-payload",
-      "error",
-      "error-error-data-structure",
-      "error-example-error-payload",
-      "guild_status",
-      "guild_status-guild-status-argument-structure",
-      "guild_status-guild-status-dispatch-data-structure",
-      "guild_status-example-guild-status-dispatch-payload",
-      "guild_create",
-      "guild_create-guild-create-dispatch-data-structure",
-      "guild_create-example-guild-create-dispatch-payload",
-      "channel_create",
-      "channel_create-channel-create-dispatch-data-structure",
-      "channel_create-example-channel-create-dispatch-payload",
-      "voice_channel_select",
-      "voice_channel_select-voice-channel-select-dispatch-data-structure",
-      "voice_channel_select-example-voice-channel-select-dispatch-payload",
-      "voice_settings_update",
-      "voice_settings_update-voice-settings-argument-structure",
-      "voice_settings_update-example-voice-settings-dispatch-payload",
-      "voice_state_create/voice_state_update/voice_state_delete",
-      "voice_state_create/voice_state_update/voice_state_delete-voice-state-argument-structure",
-      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload",
-      "voice_connection_status",
-      "voice_connection_status-voice-connection-status-dispatch-data-structure",
-      "voice_connection_status-voice-connection-states"
+      "voice_connection_status-voice-connection-states",
+      "voice_connection_status-example-voice-connection-status-dispatch-payload"
     ],
     "name": "Voice Connection States",
     "properties": [
@@ -4107,14 +3180,6 @@
   },
   {
     "tree": [
-      "teams",
-      "what-do-they-do",
-      "how-do-i-make-one",
-      "apps-on-teams",
-      "what-next",
-      "data-models",
-      "data-models-team-object",
-      "data-models-team-member-object",
       "data-models-membership-state-enum"
     ],
     "name": "Membership State Enum",
@@ -4132,10 +3197,16 @@
   {
     "tree": [
       "voice",
+      "voice",
+      "voice-gateway-versioning",
       "voice-gateway-versioning",
       "voice-gateway-versioning-gateway-versions",
+      "voice-gateway-versioning-gateway-versions",
       "connecting-to-voice",
-      "retrieving-voice-server-information"
+      "connecting-to-voice",
+      "retrieving-voice-server-information",
+      "retrieving-voice-server-information",
+      "retrieving-voice-server-information-gateway-voice-state-update-example"
     ],
     "name": "Gateway Versions",
     "properties": [
@@ -4160,19 +3231,8 @@
   },
   {
     "tree": [
-      "retrieving-voice-server-information-gateway-voice-state-update-example",
-      "retrieving-voice-server-information-example-voice-server-update-payload",
-      "establishing-a-voice-websocket-connection",
-      "establishing-a-voice-websocket-connection-example-voice-identify-payload",
-      "establishing-a-voice-websocket-connection-example-voice-ready-payload",
-      "heartbeating",
-      "heartbeating-example-hello-payload-below-v3",
-      "heartbeating-example-hello-payload-since-v3",
-      "heartbeating-example-heartbeat-payload",
-      "heartbeating-example-heartbeat-ack-payload",
-      "establishing-a-voice-udp-connection",
-      "establishing-a-voice-udp-connection-example-select-protocol-payload",
-      "establishing-a-voice-udp-connection-encryption-modes"
+      "establishing-a-voice-udp-connection-encryption-modes",
+      "establishing-a-voice-udp-connection-example-session-description-payload"
     ],
     "name": "Encryption Modes",
     "properties": [

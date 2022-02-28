@@ -3,7 +3,7 @@ export function isPartial(text: string) {
 }
 
 export function isArray(text: string) {
-  return text.toLowerCase().includes("array") || text.toLowerCase().includes("list");
+  return text.toLowerCase().includes("array of") || text.toLowerCase().includes("list of");
 }
 
 export function isDeprecated(text: string) {

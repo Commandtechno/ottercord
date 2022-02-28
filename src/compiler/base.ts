@@ -55,8 +55,4 @@ export class Base {
       this.write(str);
     }
   }
-
-  render() {
-    return this.code.trim();
-  }
 }
