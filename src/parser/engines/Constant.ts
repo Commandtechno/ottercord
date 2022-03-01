@@ -1,9 +1,18 @@
-import { flattenBlock, formatTable, lastSplit, stripBrackets, stripPlural, trimText } from "./util";
 import { marked } from "marked";
 
-import { Tree, Constant, ConstantProperty } from "../common";
+import {
+  flattenBlock,
+  formatTable,
+  lastSplit,
+  stripBrackets,
+  stripPlural,
+  trimText
+} from "../util";
 
-export default class implements Constant {
+import { Tree, Constant, ConstantProperty } from "../../common";
+import { Action } from "../types";
+
+export class ConstantEngine implements Constant {
   tree: Tree = [];
 
   name: string;
@@ -11,8 +20,8 @@ export default class implements Constant {
 
   properties: ConstantProperty[];
 
-  get ready() {
-    return this.properties.length > 0;
+  get action(): Action {
+    return this.properties.length ? Action.Save : Action.Next;
   }
 
   constructor(block: marked.Token) {
@@ -26,7 +35,7 @@ export default class implements Constant {
 
   // todo make better lol
   process(block: marked.Token) {
-    if (block.type === "paragraph" && this.ready) {
+    if (block.type === "paragraph") {
       this.description = trimText(flattenBlock(block));
     }
 

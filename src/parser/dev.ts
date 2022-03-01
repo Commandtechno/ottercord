@@ -5,9 +5,15 @@ import { basename, resolve } from "path";
 import { existsSync } from "fs";
 import { parse } from ".";
 
+function replacer(key, value) {
+  if (key.startsWith("_")) return undefined;
+  return value;
+}
+
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
-  if (existsSync(JSON_OUTPUT_DIR)) await rm(JSON_OUTPUT_DIR, { recursive: true });
+  if (existsSync(JSON_OUTPUT_DIR))
+    await rm(JSON_OUTPUT_DIR, { recursive: true });
   await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
   const endpoints = [];
@@ -19,8 +25,8 @@ import { parse } from ".";
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
+      if (file !== "Guild.md") continue;
       const name = basename(file, ".md");
-
       console.time(name);
 
       const {
@@ -39,8 +45,20 @@ import { parse } from ".";
     }
   }
 
-  await writeFile(resolve(JSON_OUTPUT_DIR, "endpoints.json"), JSON.stringify(endpoints, null, 2));
-  await writeFile(resolve(JSON_OUTPUT_DIR, "examples.json"), JSON.stringify(examples, null, 2));
-  await writeFile(resolve(JSON_OUTPUT_DIR, "structures.json"), JSON.stringify(structures, null, 2));
-  await writeFile(resolve(JSON_OUTPUT_DIR, "constants.json"), JSON.stringify(constants, null, 2));
+  await writeFile(
+    resolve(JSON_OUTPUT_DIR, "endpoints.json"),
+    JSON.stringify(endpoints, replacer, 2)
+  );
+  await writeFile(
+    resolve(JSON_OUTPUT_DIR, "examples.json"),
+    JSON.stringify(examples, replacer, 2)
+  );
+  await writeFile(
+    resolve(JSON_OUTPUT_DIR, "structures.json"),
+    JSON.stringify(structures, replacer, 2)
+  );
+  await writeFile(
+    resolve(JSON_OUTPUT_DIR, "constants.json"),
+    JSON.stringify(constants, replacer, 2)
+  );
 })();

@@ -1,6 +1,5 @@
 import { marked } from "marked";
 
-import { Tree, StructureType, Type, Endpoint, EndpointParam, EndpointRequest } from "../common";
 import {
   trimText,
   flattenBlock,
@@ -11,9 +10,20 @@ import {
   parseProperty,
   stripBrackets,
   parseLink
-} from "./util";
+} from "../util";
 
-export default class implements Endpoint {
+import {
+  Tree,
+  StructureType,
+  Type,
+  Endpoint,
+  EndpointParam,
+  EndpointRequest
+} from "../../common";
+
+import { Action } from "../types";
+
+export class EndpointEngine implements Endpoint {
   tree: Tree = [];
 
   name: string;
@@ -40,8 +50,8 @@ export default class implements Endpoint {
     form: false
   };
 
-  get ready() {
-    return true;
+  get action(): Action {
+    return Action.Next;
   }
 
   constructor(block: marked.Token) {
