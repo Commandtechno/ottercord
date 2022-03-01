@@ -1,6 +1,6 @@
 import { marked } from "marked";
 
-import { Action } from "./types";
+import { Status } from "./types";
 import { Tree } from "../common";
 
 import {
@@ -25,40 +25,49 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
     this.engine = engine;
   }
 
-  process(block: marked.Token, tree: Tree, callback?: () => void) {
-    console.log(this.engine.name);
+  process(
+    block: marked.Token,
+    tree: Tree,
+    clearTree: () => void,
+    callback?: () => void
+  ) {
     try {
       // im not sure why this is needed but these type things are interesting
       let next = new this.engine(block) as InstanceType<T>;
-      if (this.current) this.push(this.current);
+      if (this.current)
+        if (
+          this.current.status === Status.Ready ||
+          this.current.status === Status.Completed
+        ) {
+          this.current.tree = [...tree];
+          clearTree();
 
-      next.tree = [...tree];
+          this.push(this.current);
+        }
+
       this.current = next;
     } catch (err) {
       if (typeof err !== "string") {
         // an actual error
         console.error(err);
-      }
-
-      if (!this.current) {
-        if (callback) callback();
         return;
       }
 
-      this.current.process(block);
-      switch (this.current.action) {
-        case Action.Next:
-          if (callback) callback();
-          break;
+      if (this.current) {
+        this.current.process(block);
+        if (this.current.status === Status.Completed) {
+          this.current.tree = [...tree];
+          clearTree();
 
-        case Action.Save:
           this.push(this.current);
           this.current = undefined;
-          break;
-
-        case Action.Block:
-          break;
+          return;
+        } else if (this.current.status === Status.Ready) {
+          return;
+        }
       }
     }
+
+    if (callback) callback();
   }
 }

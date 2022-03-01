@@ -10,7 +10,7 @@ import {
 } from "../util";
 
 import { Tree, Constant, ConstantProperty } from "../../common";
-import { Action } from "../types";
+import { Status } from "../types";
 
 export class ConstantEngine implements Constant {
   tree: Tree = [];
@@ -20,8 +20,8 @@ export class ConstantEngine implements Constant {
 
   properties: ConstantProperty[];
 
-  get action(): Action {
-    return this.properties.length ? Action.Save : Action.Next;
+  get status(): Status {
+    return this.properties.length ? Status.Completed : Status.None;
   }
 
   constructor(block: marked.Token) {

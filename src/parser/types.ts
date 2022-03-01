@@ -1,5 +1,5 @@
-export enum Action {
-  Next,
-  Save,
-  Block
+export enum Status {
+  None,
+  Ready,
+  Completed
 }

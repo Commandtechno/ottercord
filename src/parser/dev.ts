@@ -5,11 +5,6 @@ import { basename, resolve } from "path";
 import { existsSync } from "fs";
 import { parse } from ".";
 
-function replacer(key, value) {
-  if (key.startsWith("_")) return undefined;
-  return value;
-}
-
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
   if (existsSync(JSON_OUTPUT_DIR))
@@ -25,7 +20,7 @@ function replacer(key, value) {
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
-      if (file !== "Guild.md") continue;
+      // if (file !== "Guild.md") continue;
       const name = basename(file, ".md");
       console.time(name);
 
@@ -47,18 +42,21 @@ function replacer(key, value) {
 
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "endpoints.json"),
-    JSON.stringify(endpoints, replacer, 2)
+    JSON.stringify(endpoints, null, 2)
   );
+
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "examples.json"),
-    JSON.stringify(examples, replacer, 2)
+    JSON.stringify(examples, null, 2)
   );
+
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "structures.json"),
-    JSON.stringify(structures, replacer, 2)
+    JSON.stringify(structures, null, 2)
   );
+
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "constants.json"),
-    JSON.stringify(constants, replacer, 2)
+    JSON.stringify(constants, null, 2)
   );
 })();

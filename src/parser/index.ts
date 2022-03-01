@@ -2,15 +2,14 @@ import { readFile } from "fs/promises";
 import { resolve } from "path";
 import { marked } from "marked";
 
-import { DOCS_DIR, Tree } from "../common";
-import { Action } from "./types";
-
 import {
   EndpointEngine,
   ExampleEngine,
   StructureEngine,
   ConstantEngine
 } from "./engines";
+
+import { DOCS_DIR, Tree } from "../common";
 import { Handler } from "./handler";
 
 export async function parse(...pathSegments: string[]) {
@@ -26,7 +25,12 @@ export async function parse(...pathSegments: string[]) {
   let parent = "";
   let tree: Tree = [];
 
+  function clearLinks() {
+    tree = [];
+  }
+
   for (const block of page) {
+    let link: string;
     if (block.type === "heading") {
       const anchor = block.text
         .split("%", 1)[0]
@@ -36,20 +40,22 @@ export async function parse(...pathSegments: string[]) {
 
       if (block.depth < 5) {
         parent = anchor + "-";
-        tree = [anchor];
+        link = anchor;
       } else {
-        tree.push(parent + anchor);
+        link = parent + anchor;
       }
     }
 
     // temp
-    endpoints.process(block, tree, () => {
-      examples.process(block, tree, () => {
-        structures.process(block, tree, () => {
-          constants.process(block, tree);
-        });
-      });
-    });
+    endpoints.process(block, tree, clearLinks, () =>
+      examples.process(block, tree, clearLinks, () =>
+        structures.process(block, tree, clearLinks, () =>
+          constants.process(block, tree, clearLinks)
+        )
+      )
+    );
+
+    if (link) tree.push(link);
   }
 
   return { endpoints, examples, structures, constants };

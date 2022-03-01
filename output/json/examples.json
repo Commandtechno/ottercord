@@ -1,115 +1,142 @@
 [
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure"
+      "application-object-example-application-object"
     ],
-    "name": "Guild Structure"
+    "name": "Example Application Object",
+    "language": "json",
+    "content": "{\n  \"bot_public\": true,\n  \"bot_require_code_grant\": false,\n  \"cover_image\": \"31deabb7e45b6c8ecfef77d2f99c81a5\",\n  \"description\": \"Test\",\n  \"guild_id\": \"290926798626357260\",\n  \"icon\": null,\n  \"id\": \"172150183260323840\",\n  \"name\": \"Baba O-Riley\",\n  \"owner\": {\n    \"avatar\": null,\n    \"discriminator\": \"1738\",\n    \"flags\": 1024,\n    \"id\": \"172150183260323840\",\n    \"username\": \"i own a bot\"\n  },\n  \"primary_sku_id\": \"172150183260323840\",\n  \"slug\": \"test\",\n  \"summary\": \"This is a game\",\n  \"team\": {\n    \"icon\": \"dd9b7dcfdf5351b9c3de0fe167bacbe1\",\n    \"id\": \"531992624043786253\",\n    \"members\": [\n      {\n        \"membership_state\": 2,\n        \"permissions\": [\"*\"],\n        \"team_id\": \"531992624043786253\",\n        \"user\": {\n          \"avatar\": \"d9e261cd35999608eb7e3de1fae3688b\",\n          \"discriminator\": \"0001\",\n          \"id\": \"511972282709709995\",\n          \"username\": \"Mr Owner\"\n        }\n      }\n    ]\n  },\n  \"verify_key\": \"1e0a356058d627ca38a5c8c9648818061d49e49bd9da9e3ab17d98ad4d6bg2u8\"\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level"
+      "audit-log-object-example-partial-integration-object"
     ],
-    "name": "Default Message Notification Level"
+    "name": "Example Partial Integration Object",
+    "language": "json",
+    "content": "{\n  \"id\": \"33590653072239123\",\n  \"name\": \"A Name\",\n  \"type\": \"twitch\",\n  \"account\": {\n    \"name\": \"twitchusername\",\n    \"id\": \"1234567\"\n  }\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level"
+      "audit-log-change-object-example-partial-role-object"
     ],
-    "name": "Explicit Content Filter Level"
+    "name": "Example Partial Role Object",
+    "language": "json",
+    "content": "{\n  \"name\": \"I am a role\",\n  \"id\": 584120723283509258\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level"
+      "channel-object-example-guild-text-channel"
     ],
-    "name": "MFA Level"
+    "name": "Example Guild Text Channel",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983423143937\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"general\",\n  \"type\": 0,\n  \"position\": 6,\n  \"permission_overwrites\": [],\n  \"rate_limit_per_user\": 2,\n  \"nsfw\": true,\n  \"topic\": \"24/7 chat about how to gank Mike #2\",\n  \"last_message_id\": \"155117677105512449\",\n  \"parent_id\": \"399942396007890945\",\n  \"default_auto_archive_duration\": 60\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level"
+      "channel-object-example-guild-news-channel"
     ],
-    "name": "Verification Level"
+    "name": "Example Guild News Channel",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983423143937\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"important-news\",\n  \"type\": 5,\n  \"position\": 6,\n  \"permission_overwrites\": [],\n  \"nsfw\": true,\n  \"topic\": \"Rumors about Half Life 3\",\n  \"last_message_id\": \"155117677105512449\",\n  \"parent_id\": \"399942396007890945\",\n  \"default_auto_archive_duration\": 60\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level"
+      "channel-object-example-guild-voice-channel"
     ],
-    "name": "Guild NSFW Level"
+    "name": "Example Guild Voice Channel",
+    "language": "json",
+    "content": "{\n  \"id\": \"155101607195836416\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"ROCKET CHEESE\",\n  \"type\": 2,\n  \"nsfw\": false,\n  \"position\": 5,\n  \"permission_overwrites\": [],\n  \"bitrate\": 64000,\n  \"user_limit\": 0,\n  \"parent_id\": null,\n  \"rtc_region\": null\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier"
+      "channel-object-example-dm-channel"
     ],
-    "name": "Premium Tier"
+    "name": "Example DM Channel",
+    "language": "json",
+    "content": "{\n  \"last_message_id\": \"3343820033257021450\",\n  \"type\": 1,\n  \"id\": \"319674150115610528\",\n  \"recipients\": [\n    {\n      \"username\": \"test\",\n      \"discriminator\": \"9999\",\n      \"id\": \"82198898841029460\",\n      \"avatar\": \"33ecab261d4681afa4d85a04691c4a01\"\n    }\n  ]\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier",
-      "guild-object-system-channel-flags"
+      "channel-object-example-group-dm-channel"
     ],
-    "name": "System Channel Flags"
+    "name": "Example Group DM Channel",
+    "language": "json",
+    "content": "{\n  \"name\": \"Some test channel\",\n  \"icon\": null,\n  \"recipients\": [\n    {\n      \"username\": \"test\",\n      \"discriminator\": \"9999\",\n      \"id\": \"82198898841029460\",\n      \"avatar\": \"33ecab261d4681afa4d85a04691c4a01\"\n    },\n    {\n      \"username\": \"test2\",\n      \"discriminator\": \"9999\",\n      \"id\": \"82198810841029460\",\n      \"avatar\": \"33ecab261d4681afa4d85a10691c4a01\"\n    }\n  ],\n  \"last_message_id\": \"3343820033257021450\",\n  \"type\": 3,\n  \"id\": \"319674150115710528\",\n  \"owner_id\": \"82198810841029460\"\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier",
-      "guild-object-system-channel-flags",
-      "guild-object-guild-features"
+      "channel-object-example-channel-category"
     ],
-    "name": "Guild Features"
+    "name": "Example Channel Category",
+    "language": "json",
+    "content": "{\n  \"permission_overwrites\": [],\n  \"name\": \"Test\",\n  \"parent_id\": null,\n  \"nsfw\": false,\n  \"position\": 0,\n  \"guild_id\": \"290926798629997250\",\n  \"type\": 4,\n  \"id\": \"399942396007890945\"\n}"
   },
   {
     "tree": [
-      "guild-object",
-      "guild-object-guild-structure",
-      "guild-object-default-message-notification-level",
-      "guild-object-explicit-content-filter-level",
-      "guild-object-mfa-level",
-      "guild-object-verification-level",
-      "guild-object-guild-nsfw-level",
-      "guild-object-premium-tier",
-      "guild-object-system-channel-flags",
-      "guild-object-guild-features",
+      "channel-object-example-store-channel"
+    ],
+    "name": "Example Store Channel",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983423143937\",\n  \"guild_id\": \"41771983423143937\",\n  \"name\": \"buy dota-2\",\n  \"type\": 6,\n  \"position\": 0,\n  \"permission_overwrites\": [],\n  \"nsfw\": false,\n  \"parent_id\": null\n}"
+  },
+  {
+    "tree": [
+      "channel-object-example-thread-channel"
+    ],
+    "name": "Example Thread Channel",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983423143937\",\n  \"guild_id\": \"41771983423143937\",\n  \"parent_id\": \"41771983423143937\",\n  \"owner_id\": \"41771983423143937\",\n  \"name\": \"don't buy dota-2\",\n  \"type\": 11,\n  \"last_message_id\": \"155117677105512449\",\n  \"message_count\": 1,\n  \"member_count\": 5,\n  \"rate_limit_per_user\": 2,\n  \"thread_metadata\": {\n    \"archived\": false,\n    \"auto_archive_duration\": 1440,\n    \"archive_timestamp\": \"2021-04-12T23:40:39.855793+00:00\",\n    \"locked\": false\n  }\n}"
+  },
+  {
+    "tree": [
+      "message-object-example-message"
+    ],
+    "name": "Example Message",
+    "language": "json",
+    "content": "{\n  \"reactions\": [\n    {\n      \"count\": 1,\n      \"me\": false,\n      \"emoji\": {\n        \"id\": null,\n        \"name\": \"🔥\"\n      }\n    }\n  ],\n  \"attachments\": [],\n  \"tts\": false,\n  \"embeds\": [],\n  \"timestamp\": \"2017-07-11T17:27:07.299000+00:00\",\n  \"mention_everyone\": false,\n  \"id\": \"334385199974967042\",\n  \"pinned\": false,\n  \"edited_timestamp\": null,\n  \"author\": {\n    \"username\": \"Mason\",\n    \"discriminator\": \"9999\",\n    \"id\": \"53908099506183680\",\n    \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\"\n  },\n  \"mention_roles\": [],\n  \"content\": \"Supa Hot\",\n  \"channel_id\": \"290926798999357250\",\n  \"mentions\": [],\n  \"type\": 0\n}"
+  },
+  {
+    "tree": [
+      "message-object-example-crossposted-message"
+    ],
+    "name": "Example Crossposted Message",
+    "language": "json",
+    "content": "{\n  \"reactions\": [\n    {\n      \"count\": 1,\n      \"me\": false,\n      \"emoji\": {\n        \"id\": null,\n        \"name\": \"🔥\"\n      }\n    }\n  ],\n  \"attachments\": [],\n  \"tts\": false,\n  \"embeds\": [],\n  \"timestamp\": \"2017-07-11T17:27:07.299000+00:00\",\n  \"mention_everyone\": false,\n  \"id\": \"334385199974967042\",\n  \"pinned\": false,\n  \"edited_timestamp\": null,\n  \"author\": {\n    \"username\": \"Mason\",\n    \"discriminator\": \"9999\",\n    \"id\": \"53908099506183680\",\n    \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\"\n  },\n  \"mention_roles\": [],\n  \"mention_channels\": [\n    {\n      \"id\": \"278325129692446722\",\n      \"guild_id\": \"278325129692446720\",\n      \"name\": \"big-news\",\n      \"type\": 5\n    }\n  ],\n  \"content\": \"Big news! In this <#278325129692446722> channel!\",\n  \"channel_id\": \"290926798999357250\",\n  \"mentions\": [],\n  \"type\": 0,\n  \"flags\": 2,\n  \"message_reference\": {\n    \"channel_id\": \"278325129692446722\",\n    \"guild_id\": \"278325129692446720\",\n    \"message_id\": \"306588351130107906\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "allowed-mentions-object-allowed-mentions-reference"
+    ],
+    "name": "Allowed Mentions Reference",
+    "language": "json",
+    "content": "{\n  \"content\": \"@here Hi there from <@123>, cc <@&124>\"\n}"
+  },
+  {
+    "tree": [
+      "emoji-object-emoji-example"
+    ],
+    "name": "Emoji Example",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983429993937\",\n  \"name\": \"LUL\",\n  \"roles\": [\"41771983429993000\", \"41771983429993111\"],\n  \"user\": {\n    \"username\": \"Luigi\",\n    \"discriminator\": \"0002\",\n    \"id\": \"96008815106887111\",\n    \"avatar\": \"5500909a3274e1812beb4e8de6631111\",\n    \"public_flags\": 131328\n  },\n  \"require_colons\": true,\n  \"managed\": false,\n  \"animated\": false\n}"
+  },
+  {
+    "tree": [
+      "emoji-object-gateway-reaction-standard-emoji-example"
+    ],
+    "name": "Gateway Reaction Standard Emoji Example",
+    "language": "json",
+    "content": "{\n  \"id\": null,\n  \"name\": \"🔥\"\n}"
+  },
+  {
+    "tree": [
+      "emoji-object-gateway-reaction-custom-emoji-examples"
+    ],
+    "name": "Gateway Reaction Custom Emoji Examples",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983429993937\",\n  \"name\": \"LUL\",\n  \"animated\": true\n}"
+  },
+  {
+    "tree": [
       "guild-object-example-guild"
     ],
     "name": "Example Guild",
@@ -127,15 +154,6 @@
   },
   {
     "tree": [
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure"
-    ],
-    "name": "Guild Preview Structure"
-  },
-  {
-    "tree": [
-      "guild-preview-object",
-      "guild-preview-object-guild-preview-structure",
       "guild-preview-object-example-guild-preview"
     ],
     "name": "Example Guild Preview",
@@ -144,15 +162,6 @@
   },
   {
     "tree": [
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure"
-    ],
-    "name": "Guild Widget Settings Structure"
-  },
-  {
-    "tree": [
-      "guild-widget-settings-object",
-      "guild-widget-settings-object-guild-widget-settings-structure",
       "guild-widget-settings-object-example-guild-widget-settings"
     ],
     "name": "Example Guild Widget Settings",
@@ -161,15 +170,6 @@
   },
   {
     "tree": [
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure"
-    ],
-    "name": "Get Guild Widget Structure"
-  },
-  {
-    "tree": [
-      "get-guild-widget-object",
-      "get-guild-widget-object-get-guild-widget-structure",
       "get-guild-widget-object-example-get-guild-widget"
     ],
     "name": "Example Get Guild Widget",
@@ -178,15 +178,6 @@
   },
   {
     "tree": [
-      "guild-member-object",
-      "guild-member-object-guild-member-structure"
-    ],
-    "name": "Guild Member Structure"
-  },
-  {
-    "tree": [
-      "guild-member-object",
-      "guild-member-object-guild-member-structure",
       "guild-member-object-example-guild-member"
     ],
     "name": "Example Guild Member",
@@ -195,44 +186,6 @@
   },
   {
     "tree": [
-      "integration-object",
-      "integration-object-integration-structure"
-    ],
-    "name": "Integration Structure"
-  },
-  {
-    "tree": [
-      "integration-object",
-      "integration-object-integration-structure",
-      "integration-object-integration-expire-behaviors"
-    ],
-    "name": "Integration Expire Behaviors"
-  },
-  {
-    "tree": [
-      "integration-account-object",
-      "integration-account-object-integration-account-structure"
-    ],
-    "name": "Integration Account Structure"
-  },
-  {
-    "tree": [
-      "integration-application-object",
-      "integration-application-object-integration-application-structure"
-    ],
-    "name": "Integration Application Structure"
-  },
-  {
-    "tree": [
-      "ban-object",
-      "ban-object-ban-structure"
-    ],
-    "name": "Ban Structure"
-  },
-  {
-    "tree": [
-      "ban-object",
-      "ban-object-ban-structure",
       "ban-object-example-ban"
     ],
     "name": "Example Ban",
@@ -241,24 +194,6 @@
   },
   {
     "tree": [
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure"
-    ],
-    "name": "Welcome Screen Structure"
-  },
-  {
-    "tree": [
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure",
-      "welcome-screen-object-welcome-screen-channel-structure"
-    ],
-    "name": "Welcome Screen Channel Structure"
-  },
-  {
-    "tree": [
-      "welcome-screen-object",
-      "welcome-screen-object-welcome-screen-structure",
-      "welcome-screen-object-welcome-screen-channel-structure",
       "welcome-screen-object-example-welcome-screen"
     ],
     "name": "Example Welcome Screen",
@@ -267,212 +202,995 @@
   },
   {
     "tree": [
-      "create-guild",
-      "create-guild-json-params"
+      "guild-template-object-example-guild-template-object"
     ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "create-guild",
-      "create-guild-json-params",
-      "create-guild-example-partial-channel-object"
-    ],
-    "name": "Example Partial Channel Object",
+    "name": "Example Guild Template Object",
     "language": "json",
-    "content": "{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0\n}"
+    "content": "{\n  \"code\": \"hgM48av5Q69A\",\n  \"name\": \"Friends & Family\",\n  \"description\": \"\",\n  \"usage_count\": 49605,\n  \"creator_id\": \"132837293881950208\",\n  \"creator\": {\n    \"id\": \"132837293881950208\",\n    \"username\": \"hoges\",\n    \"avatar\": \"79b0d9f8c340f2d43e1f78b09f175b62\",\n    \"discriminator\": \"0001\",\n    \"public_flags\": 129\n  },\n  \"created_at\": \"2020-04-02T21:10:38+00:00\",\n  \"updated_at\": \"2020-05-01T17:57:38+00:00\",\n  \"source_guild_id\": \"678070694164299796\",\n  \"serialized_source_guild\": {\n    \"name\": \"Friends & Family\",\n    \"description\": null,\n    \"region\": \"us-west\",\n    \"verification_level\": 0,\n    \"default_message_notifications\": 0,\n    \"explicit_content_filter\": 0,\n    \"preferred_locale\": \"en-US\",\n    \"afk_timeout\": 300,\n    \"roles\": [\n      {\n        \"id\": 0,\n        \"name\": \"@everyone\",\n        \"permissions\": 104324689,\n        \"color\": 0,\n        \"hoist\": false,\n        \"mentionable\": false\n      }\n    ],\n    \"channels\": [\n      {\n        \"name\": \"Text Channels\",\n        \"position\": 1,\n        \"topic\": null,\n        \"bitrate\": 64000,\n        \"user_limit\": 0,\n        \"nsfw\": false,\n        \"rate_limit_per_user\": 0,\n        \"parent_id\": null,\n        \"permission_overwrites\": [],\n        \"id\": 1,\n        \"type\": 4\n      },\n      {\n        \"name\": \"general\",\n        \"position\": 1,\n        \"topic\": null,\n        \"bitrate\": 64000,\n        \"user_limit\": 0,\n        \"nsfw\": false,\n        \"rate_limit_per_user\": 0,\n        \"parent_id\": 1,\n        \"permission_overwrites\": [],\n        \"id\": 2,\n        \"type\": 0\n      }\n    ],\n    \"afk_channel_id\": null,\n    \"system_channel_id\": 2,\n    \"system_channel_flags\": 0,\n    \"icon_hash\": null\n  },\n  \"is_dirty\": null\n}"
   },
   {
     "tree": [
-      "create-guild",
-      "create-guild-json-params",
-      "create-guild-example-partial-channel-object",
-      "create-guild-example-category-channel"
+      "invite-object-example-invite-object"
     ],
-    "name": "Example Category Channel",
+    "name": "Example Invite Object",
     "language": "json",
-    "content": "{\n  \"name\": \"my-category\",\n  \"type\": 4,\n  \"id\": 1\n}\n{\n  \"name\": \"naming-things-is-hard\",\n  \"type\": 0,\n  \"id\": 2,\n  \"parent_id\": 1\n}"
+    "content": "{\n  \"code\": \"0vCdhLbwjZZTWZLD\",\n  \"guild\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"CS:GO Fraggers Only\",\n    \"splash\": null,\n    \"banner\": null,\n    \"description\": \"Very good description\",\n    \"icon\": null,\n    \"features\": [\"NEWS\", \"DISCOVERABLE\"],\n    \"verification_level\": 2,\n    \"vanity_url_code\": null,\n    \"nsfw_level\": 0\n  },\n  \"channel\": {\n    \"id\": \"165176875973476352\",\n    \"name\": \"illuminati\",\n    \"type\": 0\n  },\n  \"inviter\": {\n    \"id\": \"115590097100865541\",\n    \"username\": \"speed\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"7653\",\n    \"public_flags\": 131328\n  },\n  \"target_type\": 1,\n  \"target_user\": {\n    \"id\": \"165176875973476352\",\n    \"username\": \"bob\",\n    \"avatar\": \"deadbeef\",\n    \"discriminator\": \"1234\",\n    \"public_flags\": 64\n  }\n}"
   },
   {
     "tree": [
-      "get-guild",
-      "get-guild-query-string-params"
+      "invite-metadata-object-example-invite-metadata"
     ],
-    "name": "Query String Params"
-  },
-  {
-    "tree": [
-      "get-guild",
-      "get-guild-query-string-params",
-      "get-guild-example-response"
-    ],
-    "name": "Example Response",
+    "name": "Example Invite Metadata",
     "language": "json",
-    "content": "{\n  \"id\": \"2909267986263572999\",\n  \"name\": \"Mason's Test Server\",\n  \"icon\": \"389030ec9db118cb5b85a732333b7c98\",\n  \"description\": null,\n  \"splash\": \"75610b05a0dd09ec2c3c7df9f6975ea0\",\n  \"discovery_splash\": null,\n  \"approximate_member_count\": 2,\n  \"approximate_presence_count\": 2,\n  \"features\": [\n    \"INVITE_SPLASH\",\n    \"VANITY_URL\",\n    \"COMMERCE\",\n    \"BANNER\",\n    \"NEWS\",\n    \"VERIFIED\",\n    \"VIP_REGIONS\"\n  ],\n  \"emojis\": [\n    {\n      \"name\": \"ultrafastparrot\",\n      \"roles\": [],\n      \"id\": \"393564762228785161\",\n      \"require_colons\": true,\n      \"managed\": false,\n      \"animated\": true,\n      \"available\": true\n    }\n  ],\n  \"banner\": \"5c3cb8d1bc159937fffe7e641ec96ca7\",\n  \"owner_id\": \"53908232506183680\",\n  \"application_id\": null,\n  \"region\": null,\n  \"afk_channel_id\": null,\n  \"afk_timeout\": 300,\n  \"system_channel_id\": null,\n  \"widget_enabled\": true,\n  \"widget_channel_id\": \"639513352485470208\",\n  \"verification_level\": 0,\n  \"roles\": [\n    {\n      \"id\": \"2909267986263572999\",\n      \"name\": \"@everyone\",\n      \"permissions\": \"49794752\",\n      \"position\": 0,\n      \"color\": 0,\n      \"hoist\": false,\n      \"managed\": false,\n      \"mentionable\": false\n    }\n  ],\n  \"default_message_notifications\": 1,\n  \"mfa_level\": 0,\n  \"explicit_content_filter\": 0,\n  \"max_presences\": null,\n  \"max_members\": 250000,\n  \"max_video_channel_users\": 25,\n  \"vanity_url_code\": \"no\",\n  \"premium_tier\": 0,\n  \"premium_subscription_count\": 0,\n  \"system_channel_flags\": 0,\n  \"preferred_locale\": \"en-US\",\n  \"rules_channel_id\": null,\n  \"public_updates_channel_id\": null\n}"
+    "content": "{\n  \"uses\": 0,\n  \"max_uses\": 0,\n  \"max_age\": 0,\n  \"temporary\": false,\n  \"created_at\": \"2016-03-31T19:15:39.954000+00:00\"\n}"
   },
   {
     "tree": [
-      "modify-guild",
-      "modify-guild-json-params"
+      "invite-stage-instance-object-example-invite-stage-instance"
     ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "create-guild-channel",
-      "create-guild-channel-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-guild-channel-positions",
-      "modify-guild-channel-positions-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "list-active-threads",
-      "list-active-threads-response-body"
-    ],
-    "name": "Response Body"
-  },
-  {
-    "tree": [
-      "list-guild-members",
-      "list-guild-members-query-string-params"
-    ],
-    "name": "Query String Params"
-  },
-  {
-    "tree": [
-      "search-guild-members",
-      "search-guild-members-query-string-params"
-    ],
-    "name": "Query String Params"
-  },
-  {
-    "tree": [
-      "add-guild-member",
-      "add-guild-member-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-guild-member",
-      "modify-guild-member-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-current-member",
-      "modify-current-member-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-current-user-nick",
-      "modify-current-user-nick-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "create-guild-ban",
-      "create-guild-ban-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "create-guild-role",
-      "create-guild-role-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-guild-role-positions",
-      "modify-guild-role-positions-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "modify-guild-role",
-      "modify-guild-role-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "get-guild-prune-count",
-      "get-guild-prune-count-query-string-params"
-    ],
-    "name": "Query String Params"
-  },
-  {
-    "tree": [
-      "begin-guild-prune",
-      "begin-guild-prune-json-params"
-    ],
-    "name": "JSON Params"
-  },
-  {
-    "tree": [
-      "get-guild-vanity-url",
-      "get-guild-vanity-url-example-partial-invite-object"
-    ],
-    "name": "Example Partial Invite Object",
+    "name": "Example Invite Stage Instance",
     "language": "json",
-    "content": "{\n  \"code\": \"abc\",\n  \"uses\": 12\n}"
+    "content": "{\n  \"topic\": \"The debate is over: diet is better than regular\",\n  \"participant_count\": 200,\n  \"speaker_count\": 5 ,\n  \"members\": [\n    {\n      \"roles\": [],\n      \"nick\": \"NOT API SUPPORT\",\n      \"avatar\": null,\n      \"premium_since\": null,\n      \"joined_at\": \"2015-04-26T06:26:56.936000+00:00\",\n      \"pending\": false,\n      \"user\": {}\n    }\n  ]\n}"
   },
   {
     "tree": [
-      "get-guild-widget-image",
-      "get-guild-widget-image-query-string-params"
+      "stage-instance-object-example-stage-instance"
     ],
-    "name": "Query String Params"
+    "name": "Example Stage Instance",
+    "language": "json",
+    "content": "{\n  \"id\": \"840647391636226060\",\n  \"guild_id\": \"197038439483310086\",\n  \"channel_id\": \"733488538393510049\",\n  \"topic\": \"Testing Testing, 123\",\n  \"privacy_level\": 1,\n  \"discoverable_disabled\": false\n}"
   },
   {
     "tree": [
-      "get-guild-widget-image",
-      "get-guild-widget-image-query-string-params",
-      "get-guild-widget-image-widget-style-options"
+      "sticker-object-example-sticker"
     ],
-    "name": "Widget Style Options"
+    "name": "Example Sticker",
+    "language": "json",
+    "content": "{\n  \"id\": \"749054660769218631\",\n  \"name\": \"Wave\",\n  \"tags\": \"wumpus, hello, sup, hi, oi, heyo, heya, yo, greetings, greet, welcome, wave, :wave, :hello, :hi, :hey, hey, \\ud83d\\udc4b, \\ud83d\\udc4b\\ud83c\\udffb, \\ud83d\\udc4b\\ud83c\\udffc, \\ud83d\\udc4b\\ud83c\\udffd, \\ud83d\\udc4b\\ud83c\\udffe, \\ud83d\\udc4b\\ud83c\\udfff, goodbye, bye, see ya, later, laterz, cya\",\n  \"type\": 1,\n  \"format_type\": 3,\n  \"description\": \"Wumpus waves hello\",\n  \"asset\": \"\",\n  \"pack_id\": \"847199849233514549\",\n  \"sort_value\": 12\n}"
   },
   {
     "tree": [
-      "modify-guild-welcome-screen",
-      "modify-guild-welcome-screen-json-params"
+      "sticker-pack-object-example-sticker-pack"
     ],
-    "name": "JSON Params"
+    "name": "Example Sticker Pack",
+    "language": "json",
+    "content": "{\n  \"id\": \"847199849233514549\",\n  \"stickers\": [],\n  \"name\": \"Wumpus Beyond\",\n  \"sku_id\": \"847199849233514547\",\n  \"cover_sticker_id\": \"749053689419006003\",\n  \"description\": \"Say hello to Wumpus!\",\n  \"banner_asset_id\": \"761773777976819732\"\n}"
   },
   {
     "tree": [
-      "modify-current-user-voice-state",
-      "modify-current-user-voice-state-json-params"
+      "user-object-example-user"
     ],
-    "name": "JSON Params"
+    "name": "Example User",
+    "language": "json",
+    "content": "{\n  \"id\": \"80351110224678912\",\n  \"username\": \"Nelly\",\n  \"discriminator\": \"1337\",\n  \"avatar\": \"8342729096ea3675442027381ff50dfe\",\n  \"verified\": true,\n  \"email\": \"nelly@discord.com\",\n  \"flags\": 64,\n  \"banner\": \"06c16474723fe537c283b8efa61a30c8\",\n  \"accent_color\": 16711680,\n  \"premium_type\": 1,\n  \"public_flags\": 64\n}"
   },
   {
     "tree": [
-      "modify-current-user-voice-state",
-      "modify-current-user-voice-state-json-params",
-      "modify-current-user-voice-state-caveats"
+      "voice-state-object-example-voice-state"
     ],
-    "name": "Caveats"
+    "name": "Example Voice State",
+    "language": "json",
+    "content": "{\n  \"channel_id\": \"157733188964188161\",\n  \"user_id\": \"80351110224678912\",\n  \"session_id\": \"90326bd25d71d39b9ef95b299e3872ff\",\n  \"deaf\": false,\n  \"mute\": false,\n  \"self_deaf\": false,\n  \"self_mute\": true,\n  \"suppress\": false,\n  \"request_to_speak_timestamp\": \"2021-03-31T18:45:31.297561+00:00\"\n}"
   },
   {
     "tree": [
-      "modify-user-voice-state",
-      "modify-user-voice-state-json-params"
+      "webhook-object-example-incoming-webhook"
     ],
-    "name": "JSON Params"
+    "name": "Example Incoming Webhook",
+    "language": "json",
+    "content": "{\n  \"name\": \"test webhook\",\n  \"type\": 1,\n  \"channel_id\": \"199737254929760256\",\n  \"token\": \"3d89bb7572e0fb30d8128367b3b1b44fecd1726de135cbe28a41f8b2f777c372ba2939e72279b94526ff5d1bd4358d65cf11\",\n  \"avatar\": null,\n  \"guild_id\": \"199737254929760256\",\n  \"id\": \"223704706495545344\",\n  \"application_id\": null,\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}"
+  },
+  {
+    "tree": [
+      "webhook-object-example-channel-follower-webhook"
+    ],
+    "name": "Example Channel Follower Webhook",
+    "language": "json",
+    "content": "{\n  \"type\": 2,\n  \"id\": \"752831914402115456\",\n  \"name\": \"Guildy name\",\n  \"avatar\": \"bb71f469c158984e265093a81b3397fb\",\n  \"channel_id\": \"561885260615255432\",\n  \"guild_id\": \"56188498421443265\",\n  \"application_id\": null,\n  \"source_guild\": {\n    \"id\": \"56188498421476534\",\n    \"name\": \"Guildy name\",\n    \"icon\": \"bb71f469c158984e265093a81b3397fb\"\n  },\n  \"source_channel\": {\n    \"id\": \"5618852344134324\",\n    \"name\": \"announcements\"\n  },\n  \"user\": {\n    \"username\": \"test\",\n    \"discriminator\": \"7479\",\n    \"id\": \"190320984123768832\",\n    \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n    \"public_flags\": 131328\n  }\n}"
+  },
+  {
+    "tree": [
+      "webhook-object-example-application-webhook"
+    ],
+    "name": "Example Application Webhook",
+    "language": "json",
+    "content": "{\n  \"type\": 3,\n  \"id\": \"658822586720976555\",\n  \"name\": \"Clyde\",\n  \"avatar\": \"689161dc90ac261d00f1608694ac6bfd\",\n  \"channel_id\": null,\n  \"guild_id\": null,\n  \"application_id\": \"658822586720976555\"\n}"
+  },
+  {
+    "tree": [
+      "connecting-http"
+    ],
+    "name": "HTTP",
+    "language": "",
+    "content": "http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "tree": [
+      "connecting-websocket"
+    ],
+    "name": "WebSocket",
+    "language": "",
+    "content": "ws://127.0.0.1:PORT?v=1&client_id=YOUR_CLIENT_ID&encoding=json"
+  },
+  {
+    "tree": [
+      "getting-device-uuid",
+      "getting-device-uuid-microphone-id-example"
+    ],
+    "name": "Microphone Id Example",
+    "language": "cpp",
+    "content": "id = waveInMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);"
+  },
+  {
+    "tree": [
+      "getting-device-uuid-speaker-id-example"
+    ],
+    "name": "Speaker Id Example",
+    "language": "cpp",
+    "content": "id = waveOutMessage((HWAVEIN)IntToPtr(index),\n                      DRV_QUERYFUNCTIONINSTANCEID,\n                      (DWORD_PTR)pstrEndpointId,\n                      cbEndpointId);"
+  },
+  {
+    "tree": [
+      "http-example",
+      "http-example-http-request-example"
+    ],
+    "name": "HTTP Request Example",
+    "language": "",
+    "content": "curl -X POST -H 'Content-Type: application/json' -d '\n{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}\n' http://127.0.0.1:PORT/rpc?v=1&client_id=YOUR_CLIENT_ID"
+  },
+  {
+    "tree": [
+      "http-example-http-response-example"
+    ],
+    "name": "HTTP Response Example",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null,\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\"\n}"
+  },
+  {
+    "tree": [
+      "websocket-example",
+      "websocket-example-rpc-command-example"
+    ],
+    "name": "RPC Command Example",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"{0.0.1.00000000}.{6cff2b76-44a8-46b9-b528-262ad8609d9f}\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}"
+  },
+  {
+    "tree": [
+      "websocket-example-rpc-response-example"
+    ],
+    "name": "RPC Response Example",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null\n}"
+  },
+  {
+    "tree": [
+      "sending-payloads",
+      "sending-payloads-example-gateway-dispatch"
+    ],
+    "name": "Example Gateway Dispatch",
+    "language": "json",
+    "content": "{\n  \"op\": 0,\n  \"d\": {},\n  \"s\": 42,\n  \"t\": \"GATEWAY_EVENT_NAME\"\n}"
+  },
+  {
+    "tree": [
+      "receiving-payloads",
+      "encoding-and-compression",
+      "etf/json",
+      "etf/json-using-etf",
+      "payload-compression",
+      "transport-compression",
+      "transport-compression-transport-compression-example"
+    ],
+    "name": "Transport Compression Example",
+    "language": "python",
+    "content": "# Z_SYNC_FLUSH suffix\nZLIB_SUFFIX = b'\\x00\\x00\\xff\\xff'\n# initialize a buffer to store chunks\nbuffer = bytearray()\n# create a zlib inflation context to run chunks through\ninflator = zlib.decompressobj()\n\n# ...\ndef on_websocket_message(msg):\n  # always push the message data to your cache\n  buffer.extend(msg)\n\n  # check if the last four bytes are equal to ZLIB_SUFFIX\n  if len(msg) < 4 or msg[-4:] != ZLIB_SUFFIX:\n    return\n\n  # if the message *does* end with ZLIB_SUFFIX,\n  # get the full message by decompressing the buffers\n  # NOTE: the message is utf-8 encoded.\n  msg = inflator.decompress(buffer)\n  buffer = bytearray()\n\n  # here you can treat `msg` as either JSON or ETF encoded,\n  # depending on your `encoding` param"
+  },
+  {
+    "tree": [
+      "connecting-example-gateway-hello"
+    ],
+    "name": "Example Gateway Hello",
+    "language": "json",
+    "content": "{\n  \"op\": 10,\n  \"d\": {\n    \"heartbeat_interval\": 45000\n  }\n}"
+  },
+  {
+    "tree": [
+      "heartbeating",
+      "heartbeating-example-gateway-heartbeat-ack"
+    ],
+    "name": "Example Gateway Heartbeat ACK",
+    "language": "json",
+    "content": "{\n  \"op\": 11\n}"
+  },
+  {
+    "tree": [
+      "identifying",
+      "identifying-example-gateway-identify"
+    ],
+    "name": "Example Gateway Identify",
+    "language": "json",
+    "content": "{\n  \"op\": 2,\n  \"d\": {\n    \"token\": \"my_token\",\n    \"intents\": 513,\n    \"properties\": {\n      \"$os\": \"linux\",\n      \"$browser\": \"my_library\",\n      \"$device\": \"my_library\"\n    }\n  }\n}"
+  },
+  {
+    "tree": [
+      "resuming",
+      "resuming-example-gateway-resume"
+    ],
+    "name": "Example Gateway Resume",
+    "language": "json",
+    "content": "{\n  \"op\": 6,\n  \"d\": {\n    \"token\": \"my_token\",\n    \"session_id\": \"session_id_i_stored\",\n    \"seq\": 1337\n  }\n}"
+  },
+  {
+    "tree": [
+      "disconnections",
+      "gateway-intents",
+      "list-of-intents",
+      "caveats",
+      "privileged-intents",
+      "rate-limiting",
+      "tracking-state",
+      "guild-availability",
+      "sharding",
+      "sharding-sharding-formula"
+    ],
+    "name": "Sharding Formula",
+    "language": "python",
+    "content": "shard_id = (guild_id >> 22) % num_shards"
+  },
+  {
+    "tree": [
+      "sharding-max-concurrency"
+    ],
+    "name": "Max Concurrency",
+    "language": "",
+    "content": "rate_limit_key = shard_id % max_concurrency"
+  },
+  {
+    "tree": [
+      "identify-example-identify"
+    ],
+    "name": "Example Identify",
+    "language": "json",
+    "content": "{\n  \"op\": 2,\n  \"d\": {\n    \"token\": \"my_token\",\n    \"properties\": {\n      \"$os\": \"linux\",\n      \"$browser\": \"disco\",\n      \"$device\": \"disco\"\n    },\n    \"compress\": true,\n    \"large_threshold\": 250,\n    \"shard\": [0, 1],\n    \"presence\": {\n      \"activities\": [{\n        \"name\": \"Cards Against Humanity\",\n        \"type\": 0\n      }],\n      \"status\": \"dnd\",\n      \"since\": 91879201,\n      \"afk\": false\n    },\n    // This intent represents 1 << 0 for GUILDS, 1 << 1 for GUILD_MEMBERS, and 1 << 2 for GUILD_BANS\n    // This connection will only receive the events defined in those three intents\n    \"intents\": 7\n  }\n}"
+  },
+  {
+    "tree": [
+      "resume-example-resume"
+    ],
+    "name": "Example Resume",
+    "language": "json",
+    "content": "{\n  \"op\": 6,\n  \"d\": {\n    \"token\": \"randomstring\",\n    \"session_id\": \"evenmorerandomstring\",\n    \"seq\": 1337\n  }\n}"
+  },
+  {
+    "tree": [
+      "heartbeat",
+      "heartbeat-example-heartbeat"
+    ],
+    "name": "Example Heartbeat",
+    "language": "",
+    "content": "{\n    \"op\": 1,\n    \"d\": 251\n}"
+  },
+  {
+    "tree": [
+      "request-guild-members-guild-request-members"
+    ],
+    "name": "Guild Request Members",
+    "language": "json",
+    "content": "{\n  \"op\": 8,\n  \"d\": {\n    \"guild_id\": \"41771983444115456\",\n    \"query\": \"\",\n    \"limit\": 0\n  }\n}"
+  },
+  {
+    "tree": [
+      "update-voice-state-example-gateway-voice-state-update"
+    ],
+    "name": "Example Gateway Voice State Update",
+    "language": "json",
+    "content": "{\n  \"op\": 4,\n  \"d\": {\n    \"guild_id\": \"41771983423143937\",\n    \"channel_id\": \"127121515262115840\",\n    \"self_mute\": false,\n    \"self_deaf\": false\n  }\n}"
+  },
+  {
+    "tree": [
+      "update-presence-example-gateway-presence-update"
+    ],
+    "name": "Example Gateway Presence Update",
+    "language": "json",
+    "content": "{\n  \"op\": 3,\n  \"d\": {\n    \"since\": 91879201,\n    \"activities\": [{\n      \"name\": \"Save the Oxford Comma\",\n      \"type\": 0\n    }],\n    \"status\": \"online\",\n    \"afk\": false\n  }\n}"
+  },
+  {
+    "tree": [
+      "hello-example-hello"
+    ],
+    "name": "Example Hello",
+    "language": "json",
+    "content": "{\n  \"op\": 10,\n  \"d\": {\n    \"heartbeat_interval\": 45000\n  }\n}"
+  },
+  {
+    "tree": [
+      "resumed",
+      "reconnect",
+      "reconnect-example-gateway-reconnect"
+    ],
+    "name": "Example Gateway Reconnect",
+    "language": "json",
+    "content": "{\n  \"op\": 7,\n  \"d\": null\n}"
+  },
+  {
+    "tree": [
+      "invalid-session",
+      "invalid-session-example-gateway-invalid-session"
+    ],
+    "name": "Example Gateway Invalid Session",
+    "language": "json",
+    "content": "{\n  \"op\": 9,\n  \"d\": false\n}"
+  },
+  {
+    "tree": [
+      "activity-object-example-activity"
+    ],
+    "name": "Example Activity",
+    "language": "json",
+    "content": "{\n  \"details\": \"24H RL Stream for Charity\",\n  \"state\": \"Rocket League\",\n  \"name\": \"Twitch\",\n  \"type\": 1,\n  \"url\": \"https://www.twitch.tv/discord\"\n}"
+  },
+  {
+    "tree": [
+      "activity-object-example-activity-with-rich-presence"
+    ],
+    "name": "Example Activity with Rich Presence",
+    "language": "json",
+    "content": "{\n  \"name\": \"Rocket League\",\n  \"type\": 0,\n  \"application_id\": \"379286085710381999\",\n  \"state\": \"In a Match\",\n  \"details\": \"Ranked Duos: 2-1\",\n  \"timestamps\": {\n    \"start\": 15112000660000\n  },\n  \"party\": {\n    \"id\": \"9dd6594e-81b3-49f6-a6b5-a679e6a060d3\",\n    \"size\": [2, 2]\n  },\n  \"assets\": {\n    \"large_image\": \"351371005538729000\",\n    \"large_text\": \"DFH Stadium\",\n    \"small_image\": \"351371005538729111\",\n    \"small_text\": \"Silver III\"\n  },\n  \"secrets\": {\n    \"join\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\",\n    \"spectate\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\",\n    \"match\": \"4b2fdce12f639de8bfa7e3591b71a0d679d7c93f\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "voice-server-update-example-voice-server-update-payload"
+    ],
+    "name": "Example Voice Server Update Payload",
+    "language": "json",
+    "content": "{\n  \"token\": \"my_token\",\n  \"guild_id\": \"41771983423143937\",\n  \"endpoint\": \"smart.loyal.discord.gg\"\n}"
+  },
+  {
+    "tree": [
+      "state-and-security",
+      "authorization-code-grant",
+      "authorization-code-grant-authorization-url-example"
+    ],
+    "name": "Authorization URL Example",
+    "language": "",
+    "content": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=identify%20guilds.join&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website&prompt=consent"
+  },
+  {
+    "tree": [
+      "authorization-code-grant-redirect-url-example"
+    ],
+    "name": "Redirect URL Example",
+    "language": "",
+    "content": "https://nicememe.website/?code=NhhvTDYsFcdgNLnnLijcl7Ku7bEEeee&state=15773059ghq9183habn"
+  },
+  {
+    "tree": [
+      "authorization-code-grant-access-token-exchange-example"
+    ],
+    "name": "Access Token Exchange Example",
+    "language": "python",
+    "content": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v8'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef exchange_code(code):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'authorization_code',\n    'code': code,\n    'redirect_uri': REDIRECT_URI\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()"
+  },
+  {
+    "tree": [
+      "authorization-code-grant-access-token-response"
+    ],
+    "name": "Access Token Response",
+    "language": "json",
+    "content": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"D43f5y0ahjqew82jZ4NViEr2YafMKhue\",\n  \"scope\": \"identify\"\n}"
+  },
+  {
+    "tree": [
+      "authorization-code-grant-refresh-token-exchange-example"
+    ],
+    "name": "Refresh Token Exchange Example",
+    "language": "python",
+    "content": "import requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v8'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\nREDIRECT_URI = 'https://nicememe.website'\n\ndef refresh_token(refresh_token):\n  data = {\n    'client_id': CLIENT_ID,\n    'client_secret': CLIENT_SECRET,\n    'grant_type': 'refresh_token',\n    'refresh_token': refresh_token\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)\n  r.raise_for_status()\n  return r.json()"
+  },
+  {
+    "tree": [
+      "implicit-grant",
+      "implicit-grant-authorization-url-example"
+    ],
+    "name": "Authorization URL Example",
+    "language": "",
+    "content": "https://discord.com/api/oauth2/authorize?response_type=token&client_id=290926444748734499&state=15773059ghq9183habn&scope=identify"
+  },
+  {
+    "tree": [
+      "implicit-grant-redirect-url-example"
+    ],
+    "name": "Redirect URL Example",
+    "language": "",
+    "content": "https://findingfakeurlsisprettyhard.tv/#access_token=RTfP0OK99U3kbRtHOoKLmJbOn45PjL&token_type=Bearer&expires_in=604800&scope=identify&state=15773059ghq9183habn"
+  },
+  {
+    "tree": [
+      "client-credentials-grant",
+      "client-credentials-grant-client-credentials-token-request-example"
+    ],
+    "name": "Client Credentials Token Request Example",
+    "language": "python",
+    "content": "import base64\nimport requests\n\nAPI_ENDPOINT = 'https://discord.com/api/v8'\nCLIENT_ID = '332269999912132097'\nCLIENT_SECRET = '937it3ow87i4ery69876wqire'\n\ndef get_token():\n  data = {\n    'grant_type': 'client_credentials',\n    'scope': 'identify connections'\n  }\n  headers = {\n    'Content-Type': 'application/x-www-form-urlencoded'\n  }\n  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers, auth=(CLIENT_ID, CLIENT_SECRET))\n  r.raise_for_status()\n  return r.json()"
+  },
+  {
+    "tree": [
+      "client-credentials-grant-client-credentials-access-token-response"
+    ],
+    "name": "Client Credentials Access Token Response",
+    "language": "json",
+    "content": "{\n  \"access_token\": \"6qrZcUqja7812RVdnEKjpzOL4CvHBFG\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 604800,\n  \"scope\": \"identify connections\"\n}"
+  },
+  {
+    "tree": [
+      "bot-authorization-flow-url-example"
+    ],
+    "name": "URL Example",
+    "language": "",
+    "content": "https://discord.com/api/oauth2/authorize?client_id=157730590492196864&scope=bot&permissions=1"
+  },
+  {
+    "tree": [
+      "advanced-bot-authorization",
+      "advanced-bot-authorization-extended-bot-authorization-access-token-example"
+    ],
+    "name": "Extended Bot Authorization Access Token Example",
+    "language": "json",
+    "content": "{\n  \"token_type\": \"Bearer\",\n  \"guild\": {\n    \"mfa_level\": 0,\n    \"emojis\": [],\n    \"application_id\": null,\n    \"name\": \"SomeTest\",\n    \"roles\": [\n      {\n        \"hoist\": false,\n        \"name\": \"@everyone\",\n        \"mentionable\": false,\n        \"color\": 0,\n        \"position\": 0,\n        \"id\": \"290926798626357250\",\n        \"managed\": false,\n        \"permissions\": 49794241,\n        \"permissions_new\": \"49794241\"\n      }\n    ],\n    \"afk_timeout\": 300,\n    \"system_channel_id\": null,\n    \"widget_channel_id\": null,\n    \"region\": \"us-east\",\n    \"default_message_notifications\": 1,\n    \"explicit_content_filter\": 0,\n    \"splash\": null,\n    \"features\": [],\n    \"afk_channel_id\": null,\n    \"widget_enabled\": false,\n    \"verification_level\": 0,\n    \"owner_id\": \"53908232999183680\",\n    \"id\": \"2909267986347357250\",\n    \"icon\": null,\n    \"description\": null,\n    \"public_updates_channel_id\": null,\n    \"rules_channel_id\": null,\n    \"max_members\": 100000,\n    \"vanity_url_code\": null,\n    \"premium_subscription_count\": 0,\n    \"premium_tier\": 0,\n    \"preferred_locale\": \"en-US\",\n    \"system_channel_flags\": 0,\n    \"banner\": null,\n    \"max_presences\": null,\n    \"discovery_splash\": null,\n    \"max_video_channel_users\": 25\n  },\n  \"access_token\": \"zMndOe7jFLXGawdlxMOdNvXjjOce5X\",\n  \"scope\": \"bot\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"mgp8qnvBwJcmadwgCYKyYD5CAzGAX4\"\n}"
+  },
+  {
+    "tree": [
+      "two-factor-authentication-requirement",
+      "webhooks",
+      "webhooks-url-example"
+    ],
+    "name": "URL Example",
+    "language": "",
+    "content": "https://discord.com/api/oauth2/authorize?response_type=code&client_id=157730590492196864&scope=webhook.incoming&state=15773059ghq9183habn&redirect_uri=https%3A%2F%2Fnicememe.website"
+  },
+  {
+    "tree": [
+      "webhooks-webhook-token-response-example"
+    ],
+    "name": "Webhook Token Response Example",
+    "language": "json",
+    "content": "{\n  \"token_type\": \"Bearer\",\n  \"access_token\": \"GNaVzEtATqdh173tNHEXY9ZYAuhiYxvy\",\n  \"scope\": \"webhook.incoming\",\n  \"expires_in\": 604800,\n  \"refresh_token\": \"PvPL7ELyMDc1836457XCDh1Y8jPbRm\",\n  \"webhook\": {\n    \"application_id\": \"310954232226357250\",\n    \"name\": \"testwebhook\",\n    \"url\": \"https://discord.com/api/webhooks/347114750880120863/kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"channel_id\": \"345626669224982402\",\n    \"token\": \"kKDdjXa1g9tKNs0-_yOwLyALC9gydEWP6gr9sHabuK1vuofjhQDDnlOclJeRIvYK-pj_\",\n    \"type\": 1,\n    \"avatar\": null,\n    \"guild_id\": \"290926792226357250\",\n    \"id\": \"347114750880120863\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "json",
+      "json-example-json-error-response"
+    ],
+    "name": "Example JSON Error Response",
+    "language": "json",
+    "content": "{\n  \"message\": \"Invalid authentication token\",\n  \"code\": 50014\n}"
+  },
+  {
+    "tree": [
+      "permission-hierarchy",
+      "permission-overwrites"
+    ],
+    "name": "Bitwise Permission Flags",
+    "language": "python",
+    "content": "def compute_base_permissions(member, guild):\n    if guild.is_owner(member):\n        return ALL\n\n    role_everyone = guild.get_role(guild.id)  # get @everyone role\n    permissions = role_everyone.permissions\n\n    for role in member.roles:\n        permissions |= role.permissions\n\n    if permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    return permissions\n\ndef compute_overwrites(base_permissions, member, channel):\n    # ADMINISTRATOR overrides any potential permission overwrites, so there is nothing to do here.\n    if base_permissions & ADMINISTRATOR == ADMINISTRATOR:\n        return ALL\n\n    permissions = base_permissions\n    overwrite_everyone = overwrites.get(channel.guild_id)  # Find (@everyone) role overwrite and apply it.\n    if overwrite_everyone:\n        permissions &= ~overwrite_everyone.deny\n        permissions |= overwrite_everyone.allow\n\n    # Apply role specific overwrites.\n    overwrites = channel.permission_overwrites\n    allow = NONE\n    deny = NONE\n    for role_id in member.roles:\n        overwrite_role = overwrites.get(role_id)\n        if overwrite_role:\n            allow |= overwrite_role.allow\n            deny |= overwrite_role.deny\n\n    permissions &= ~deny\n    permissions |= allow\n\n    # Apply member specific overwrite if it exist.\n    overwrite_member = overwrites.get(member.user_id)\n    if overwrite_member:\n        permissions &= ~overwrite_member.deny\n        permissions |= overwrite_member.allow\n\n    return permissions\n\ndef compute_permissions(member, channel):\n    base_permissions = compute_base_permissions(member, channel.guild)\n    return compute_overwrites(base_permissions, member, channel)"
+  },
+  {
+    "tree": [
+      "role-object-example-role"
+    ],
+    "name": "Example Role",
+    "language": "json",
+    "content": "{\n  \"id\": \"41771983423143936\",\n  \"name\": \"WE DEM BOYZZ!!!!!!\",\n  \"color\": 3447003,\n  \"hoist\": true,\n  \"icon\": \"cf3ced8600b777c9486c6d8d84fb4327\",\n  \"unicode_emoji\": null,\n  \"position\": 1,\n  \"permissions\": \"66321471\",\n  \"managed\": false,\n  \"mentionable\": false\n}"
+  },
+  {
+    "tree": [
+      "rate-limits",
+      "header-format",
+      "header-format-rate-limit-header-examples"
+    ],
+    "name": "Rate Limit Header Examples",
+    "language": "",
+    "content": "X-RateLimit-Limit: 5\nX-RateLimit-Remaining: 0\nX-RateLimit-Reset: 1470173023\nX-RateLimit-Reset-After: 1\nX-RateLimit-Bucket: abcd1234"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response"
+    ],
+    "name": "Example Exceeded User Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 0\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: user\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": false\n}"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response"
+    ],
+    "name": "Example Exceeded Resource Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 9\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: shared\n{\n  \"message\": \"The resource is being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": false\n}"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-global-rate-limit-response"
+    ],
+    "name": "Example Exceeded Global Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Global: true\n< X-RateLimit-Scope: global\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": true\n}"
+  },
+  {
+    "tree": [
+      "connecting",
+      "rpc-server-ports",
+      "authenticating",
+      "authenticating-rpc-authorize-example"
+    ],
+    "name": "RPC Authorize Example",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\",\n  \"args\": {\n    \"client_id\": \"192741864418312192\",\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"cmd\": \"AUTHORIZE\"\n}"
+  },
+  {
+    "tree": [
+      "authenticating-rpc-authenticate-example"
+    ],
+    "name": "RPC Authenticate Example",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\",\n  \"args\": {\n    \"access_token\": \"CZhtkLDpNYXgPH9Ml6shqh2OwykChw\"\n  },\n  \"cmd\": \"AUTHENTICATE\"\n}"
+  },
+  {
+    "tree": [
+      "authorize-example-authorize-command-payload"
+    ],
+    "name": "Example Authorize Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\",\n  \"args\": {\n    \"client_id\": \"192741864418312192\",\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"cmd\": \"AUTHORIZE\"\n}"
+  },
+  {
+    "tree": [
+      "authorize-example-authorize-response-payload"
+    ],
+    "name": "Example Authorize Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"AUTHORIZE\",\n  \"data\": {\n    \"code\": \"O62Q9JzFe8BEOUzIfsAndOjNd2V4sJ\"\n  },\n  \"nonce\": \"f48f6176-4afb-4c03-b1b8-d960861f5216\"\n}"
+  },
+  {
+    "tree": [
+      "authenticate-example-authenticate-command-payload"
+    ],
+    "name": "Example Authenticate Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\",\n  \"args\": {\n    \"access_token\": \"CZhtkLDpNYXgPH9Ml6shqh2OwykChw\"\n  },\n  \"cmd\": \"AUTHENTICATE\"\n}"
+  },
+  {
+    "tree": [
+      "authenticate-example-authenticate-response-payload"
+    ],
+    "name": "Example Authenticate Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"AUTHENTICATE\",\n  \"data\": {\n    \"application\": {\n      \"description\": \"test app description\",\n      \"icon\": \"d6b51c21c48482d5b64aa4832d92fe14\",\n      \"id\": \"192741864418312192\",\n      \"rpc_origins\": [\"http://localhost:3344\"],\n      \"name\": \"test app\"\n    },\n    \"expires\": \"2017-06-29T19:09:52.361000+00:00\",\n    \"user\": {\n      \"username\": \"test user\",\n      \"discriminator\": \"7479\",\n      \"id\": \"190320984123768832\",\n      \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\"\n    },\n    \"scopes\": [\"rpc\", \"identify\"]\n  },\n  \"nonce\": \"5bb10a43-1fdc-4391-9512-0c8f4aa203d4\"\n}"
+  },
+  {
+    "tree": [
+      "get_guilds-example-get-guilds-command-payload"
+    ],
+    "name": "Example Get Guilds Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"e16fcbed-8bfa-4fd4-ba09-73b72e809833\",\n  \"args\": {},\n  \"cmd\": \"GET_GUILDS\"\n}"
+  },
+  {
+    "tree": [
+      "get_guilds-example-get-guilds-response-payload"
+    ],
+    "name": "Example Get Guilds Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"GET_GUILDS\",\n  \"data\": {\n    \"guilds\": [\n      {\n        \"id\": \"199737254929760256\",\n        \"name\": \"test\"\n      }\n    ]\n  },\n  \"nonce\": \"e16fcbed-8bfa-4fd4-ba09-73b72e809833\"\n}"
+  },
+  {
+    "tree": [
+      "get_guild-example-get-guild-command-payload"
+    ],
+    "name": "Example Get Guild Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"9524922c-3d32-413a-bdaa-0804f4332588\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"cmd\": \"GET_GUILD\"\n}"
+  },
+  {
+    "tree": [
+      "get_guild-example-get-guild-response-payload"
+    ],
+    "name": "Example Get Guild Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"GET_GUILD\",\n  \"data\": {\n    \"id\": \"199737254929760256\",\n    \"name\": \"test\",\n    \"icon_url\": null,\n    \"members\": []\n  },\n  \"nonce\": \"9524922c-3d32-413a-bdaa-0804f4332588\"\n}"
+  },
+  {
+    "tree": [
+      "get_channel-example-get-channel-command-payload"
+    ],
+    "name": "Example Get Channel Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"f682697e-d257-4a17-ac0a-7e4b84e66663\",\n  \"args\": {\n    \"channel_id\": \"199737254929760257\"\n  },\n  \"cmd\": \"GET_CHANNEL\"\n}"
+  },
+  {
+    "tree": [
+      "get_channel-example-get-channel-response-payload"
+    ],
+    "name": "Example Get Channel Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"GET_CHANNEL\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 2,\n    \"bitrate\": 64000,\n    \"user_limit\": 0,\n    \"guild_id\": \"199737254929760256\",\n    \"position\": 0,\n    \"voice_states\": [\n      {\n        \"voice_state\": {\n          \"mute\": false,\n          \"deaf\": false,\n          \"self_mute\": false,\n          \"self_deaf\": false,\n          \"suppress\": false\n        },\n        \"user\": {\n          \"id\": \"190320984123768832\",\n          \"username\": \"test 2\",\n          \"discriminator\": \"7479\",\n          \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n          \"bot\": false\n        },\n        \"nick\": \"test user 2\",\n        \"volume\": 110,\n        \"mute\": false,\n        \"pan\": {\n          \"left\": 1.0,\n          \"right\": 1.0\n        }\n      }\n    ]\n  },\n  \"nonce\": \"f682697e-d257-4a17-ac0a-7e4b84e66663\"\n}"
+  },
+  {
+    "tree": [
+      "get_channels-example-get-channels-command-payload"
+    ],
+    "name": "Example Get Channels Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"0dee7bd4-8f62-4ecc-9e0f-1b1839a4fa93\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"cmd\": \"GET_CHANNELS\"\n}"
+  },
+  {
+    "tree": [
+      "get_channels-example-get-channels-response-payload"
+    ],
+    "name": "Example Get Channels Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"GET_CHANNELS\",\n  \"data\": {\n    \"channels\": [\n      {\n        \"id\": \"199737254929760256\",\n        \"name\": \"general\",\n        \"type\": 0\n      },\n      {\n        \"id\": \"199737254929760257\",\n        \"name\": \"General\",\n        \"type\": 2\n      }\n    ]\n  },\n  \"nonce\": \"0dee7bd4-8f62-4ecc-9e0f-1b1839a4fa93\"\n}"
+  },
+  {
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-command-payload"
+    ],
+    "name": "Example Set User Voice Settings Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"eafc8152-2248-4478-9827-8457b7900cb4\",\n  \"args\": {\n    \"user_id\": \"192731515703001088\",\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    },\n    \"volume\": 120,\n    \"mute\": false\n  },\n  \"cmd\": \"SET_USER_VOICE_SETTINGS\"\n}"
+  },
+  {
+    "tree": [
+      "set_user_voice_settings-example-set-user-voice-settings-response-payload"
+    ],
+    "name": "Example Set User Voice Settings Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SET_USER_VOICE_SETTINGS\",\n  \"data\": {\n    \"user_id\": \"192731515703001088\",\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    },\n    \"volume\": 120,\n    \"mute\": false\n  },\n  \"nonce\": \"eafc8152-2248-4478-9827-8457b7900cb4\"\n}"
+  },
+  {
+    "tree": [
+      "select_voice_channel-example-select-voice-channel-command-payload"
+    ],
+    "name": "Example Select Voice Channel Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"5d9df76d-6408-46a1-9368-33dca74fa423\",\n  \"args\": {\n    \"channel_id\": \"199737254929760257\"\n  },\n  \"cmd\": \"SELECT_VOICE_CHANNEL\"\n}"
+  },
+  {
+    "tree": [
+      "select_voice_channel-example-select-voice-channel-response-payload"
+    ],
+    "name": "Example Select Voice Channel Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SELECT_VOICE_CHANNEL\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 2,\n    \"bitrate\": 64000,\n    \"user_limit\": 0,\n    \"guild_id\": \"199737254929760256\",\n    \"position\": 0,\n    \"voice_states\": [\n      {\n        \"voice_state\": {\n          \"mute\": false,\n          \"deaf\": false,\n          \"self_mute\": false,\n          \"self_deaf\": false,\n          \"suppress\": false\n        },\n        \"user\": {\n          \"id\": \"190320984123768832\",\n          \"username\": \"test 2\",\n          \"discriminator\": \"7479\",\n          \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n          \"bot\": false\n        },\n        \"nick\": \"test user 2\",\n        \"mute\": false,\n        \"volume\": 110,\n        \"pan\": {\n          \"left\": 1.0,\n          \"right\": 1.0\n        }\n      }\n    ]\n  },\n  \"nonce\": \"5d9df76d-6408-46a1-9368-33dca74fa423\"\n}"
+  },
+  {
+    "tree": [
+      "get_voice_settings-example-get-voice-settings-response-payload"
+    ],
+    "name": "Example Get Voice Settings Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"GET_VOICE_SETTINGS\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 49.803921580314636\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false,\n    \"deaf\": false,\n    \"mute\": false\n  },\n  \"nonce\": \"fa07c532-bb03-4f75-8b9a-397f5109afb6\"\n}"
+  },
+  {
+    "tree": [
+      "set_voice_settings-example-set-voice-settings-command-payload"
+    ],
+    "name": "Example Set Voice Settings Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"3d64ed55-ef6e-4bd5-99c9-677533babc22\",\n  \"args\": {\n    \"input\": {\n      \"volume\": 90.5\n    }\n  },\n  \"cmd\": \"SET_VOICE_SETTINGS\"\n}"
+  },
+  {
+    "tree": [
+      "set_voice_settings-example-set-voice-settings-response-payload"
+    ],
+    "name": "Example Set Voice Settings Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SET_VOICE_SETTINGS\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 90.5\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false,\n    \"deaf\": false,\n    \"mute\": false\n  },\n  \"nonce\": \"3d64ed55-ef6e-4bd5-99c9-677533babc22\"\n}"
+  },
+  {
+    "tree": [
+      "subscribe-example-subscribe-command-payload"
+    ],
+    "name": "Example Subscribe Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"be9a6de3-31d0-4767-a8e9-4818c5690015\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"GUILD_STATUS\",\n  \"cmd\": \"SUBSCRIBE\"\n}"
+  },
+  {
+    "tree": [
+      "subscribe-example-subscribe-response-payload"
+    ],
+    "name": "Example Subscribe Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SUBSCRIBE\",\n  \"data\": {\n    \"evt\": \"GUILD_STATUS\"\n  },\n  \"nonce\": \"be9a6de3-31d0-4767-a8e9-4818c5690015\"\n}"
+  },
+  {
+    "tree": [
+      "unsubscribe-example-unsubscribe-command-payload"
+    ],
+    "name": "Example Unsubscribe Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898aad24f55b\",\n  \"args\": {\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"GUILD_STATUS\",\n  \"cmd\": \"UNSUBSCRIBE\"\n}"
+  },
+  {
+    "tree": [
+      "unsubscribe-example-unsubscribe-response-payload"
+    ],
+    "name": "Example Unsubscribe Response Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"UNSUBSCRIBE\",\n  \"data\": {\n    \"evt\": \"GUILD_STATUS\"\n  },\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898aad24f55b\"\n}"
+  },
+  {
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-command-payload"
+    ],
+    "name": "Example Set Certified Devices Command Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"args\": {\n    \"devices\": [\n      {\n        \"type\": \"audioinput\",\n        \"id\": \"aafc2003-da0e-42a3-b982-6a17a2812510\",\n        \"vendor\": {\n          \"name\": \"SteelSeries\",\n          \"url\": \"https://steelseries.com\"\n        },\n        \"model\": {\n          \"name\": \"Arctis 7\",\n          \"url\": \"https://steelseries.com/gaming-headsets/arctis-7\"\n        },\n        \"related\": [\"aafc2003-da0e-42a3-b982-6a17a2819999\"],\n        \"echo_cancellation\": true,\n        \"noise_suppression\": true,\n        \"automatic_gain_control\": true,\n        \"hardware_mute\": false\n      }\n    ]\n  }\n}"
+  },
+  {
+    "tree": [
+      "set_certified_devices-example-set-certified-devices-response-payload"
+    ],
+    "name": "Example Set Certified Devices Response Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"9b4e9711-97f3-4f35-b047-32c82a51978e\",\n  \"cmd\": \"SET_CERTIFIED_DEVICES\",\n  \"data\": null,\n  \"evt\": null\n}"
+  },
+  {
+    "tree": [
+      "set_activity-example-set-activity-payload"
+    ],
+    "name": "Example Set Activity Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"SET_ACTIVITY\",\n  \"args\": {\n    \"pid\": 9999,\n    \"activity\": {\n      \"state\": \"In a Group\",\n      \"details\": \"Competitive | In a Match\",\n      \"timestamps\": {\n        \"start\": time(nullptr),\n        \"end\": time(nullptr) + (60 * 5 + 23)\n      },\n      \"assets\": {\n        \"large_image\": \"numbani_map\",\n        \"large_text\": \"Numbani\",\n        \"small_image\": \"pharah_profile\",\n        \"small_text\": \"Pharah\"\n      },\n      \"party\": {\n        \"id\": GameEngine.GetPartyId(),\n        \"size\": [3, 6]\n      },\n      \"secrets\": {\n        \"join\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\",\n        \"spectate\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\",\n        \"match\": \"4b2fdce12f639de8bfa7e3591b71a0d679d7c93f\"\n      },\n      \"instance\": true\n    }\n  },\n  \"nonce\": \"647d814a-4cf8-4fbb-948f-898abd24f55b\"\n}"
+  },
+  {
+    "tree": [
+      "send_activity_join_invite-example-send-activity-join-invite-payload"
+    ],
+    "name": "Example Send Activity Join Invite Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"5dc0c062-98c6-47a0-8922-15aerg126\",\n  \"cmd\": \"SEND_ACTIVITY_JOIN_INVITE\",\n  \"args\": {\n    \"user_id\": \"53908232506183680\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "close_activity_request-example-close-activity-request-payload"
+    ],
+    "name": "Example Close Activity Request Payload",
+    "language": "json",
+    "content": "{\n  \"nonce\": \"5dc0c062-98c6-47a0-8922-15aerg126\",\n  \"cmd\": \"CLOSE_ACTIVITY_REQUEST\",\n  \"args\": {\n    \"user_id\": \"53908232506183680\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "ready-example-ready-dispatch-payload"
+    ],
+    "name": "Example Ready Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"v\": 1,\n    \"config\": {\n      \"cdn_host\": \"cdn.discordapp.com\",\n      \"api_endpoint\": \"//discord.com/api\",\n      \"environment\": \"production\"\n    },\n    \"user\": {\n      \"id\": \"53908232506183680\",\n      \"username\": \"Mason\",\n      \"discriminator\": \"1337\",\n      \"avatar\": null\n    }\n  },\n  \"evt\": \"READY\"\n}"
+  },
+  {
+    "tree": [
+      "error-example-error-payload"
+    ],
+    "name": "Example Error Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"AUTHORIZE\",\n  \"data\": {\n    \"code\": 4007,\n    \"message\": \"No client id provided\"\n  },\n  \"evt\": \"ERROR\",\n  \"nonce\": \"5102b6f0-c769-4f37-8cca-25fb0ab22628\"\n}"
+  },
+  {
+    "tree": [
+      "guild_status-example-guild-status-dispatch-payload"
+    ],
+    "name": "Example Guild Status Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"guild\": {\n      \"id\": \"199737254929760256\",\n      \"name\": \"test\",\n      \"icon_url\": null\n    },\n    \"online\": 0\n  },\n  \"evt\": \"GUILD_STATUS\"\n}"
+  },
+  {
+    "tree": [
+      "guild_create-example-guild-create-dispatch-payload"
+    ],
+    "name": "Example Guild Create Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"id\": \"199737254929767562\",\n    \"name\": \"Test Server\"\n  },\n  \"evt\": \"GUILD_CREATE\"\n}"
+  },
+  {
+    "tree": [
+      "channel_create-example-channel-create-dispatch-payload"
+    ],
+    "name": "Example Channel Create Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"id\": \"199737254929760257\",\n    \"name\": \"General\",\n    \"type\": 0\n  },\n  \"evt\": \"CHANNEL_CREATE\"\n}"
+  },
+  {
+    "tree": [
+      "voice_channel_select-example-voice-channel-select-dispatch-payload"
+    ],
+    "name": "Example Voice Channel Select Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760257\",\n    \"guild_id\": \"199737254929760256\"\n  },\n  \"evt\": \"VOICE_CHANNEL_SELECT\"\n}"
+  },
+  {
+    "tree": [
+      "voice_settings_update",
+      "voice_settings_update-voice-settings-argument-structure",
+      "voice_settings_update-example-voice-settings-dispatch-payload"
+    ],
+    "name": "Example Voice Settings Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"input\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Microphone\",\n          \"name\": \"Built-in Microphone\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 49.803921580314636\n    },\n    \"output\": {\n      \"available_devices\": [\n        {\n          \"id\": \"default\",\n          \"name\": \"Default\"\n        },\n        {\n          \"id\": \"Built-in Output\",\n          \"name\": \"Built-in Output\"\n        }\n      ],\n      \"device_id\": \"default\",\n      \"volume\": 93.00000071525574\n    },\n    \"mode\": {\n      \"type\": \"VOICE_ACTIVITY\",\n      \"auto_threshold\": true,\n      \"threshold\": -46.92622950819673,\n      \"shortcut\": [{ \"type\": 0, \"code\": 12, \"name\": \"i\" }],\n      \"delay\": 98.36065573770492\n    },\n    \"automatic_gain_control\": false,\n    \"echo_cancellation\": false,\n    \"noise_suppression\": false,\n    \"qos\": false,\n    \"silence_warning\": false\n  },\n  \"evt\": \"VOICE_SETTINGS_UPDATE\"\n}"
+  },
+  {
+    "tree": [
+      "voice_state_create/voice_state_update/voice_state_delete-example-voice-state-dispatch-payload"
+    ],
+    "name": "Example Voice State Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"evt\": \"VOICE_STATE_CREATE\",\n  \"data\": {\n    \"voice_state\": {\n      \"mute\": false,\n      \"deaf\": false,\n      \"self_mute\": false,\n      \"self_deaf\": false,\n      \"suppress\": false\n    },\n    \"user\": {\n      \"id\": \"190320984123768832\",\n      \"username\": \"test 2\",\n      \"discriminator\": \"7479\",\n      \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n      \"bot\": false\n    },\n    \"nick\": \"test user 2\",\n    \"volume\": 110,\n    \"mute\": false,\n    \"pan\": {\n      \"left\": 1.0,\n      \"right\": 1.0\n    }\n  }\n}"
+  },
+  {
+    "tree": [
+      "voice_connection_status-example-voice-connection-status-dispatch-payload"
+    ],
+    "name": "Example Voice Connection Status Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"evt\": \"VOICE_CONNECTION_STATUS\",\n  \"data\": {\n    \"state\": \"VOICE_CONNECTED\",\n    \"hostname\": \"some-server.discord.gg\",\n    \"pings\": [20, 13.37],\n    \"average_ping\": 13.37,\n    \"last_ping\": 20\n  }\n}"
+  },
+  {
+    "tree": [
+      "message_create/message_update/message_delete-example-message-dispatch-payload"
+    ],
+    "name": "Example Message Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760256\",\n    \"message\": {\n      \"id\": \"199743874640379904\",\n      \"blocked\": false,\n      \"content\": \"test\",\n      \"content_parsed\": [\n        {\n          \"content\": \"test\",\n          \"type\": \"text\"\n        }\n      ],\n      \"author_color\": \"#ffffff\",\n      \"edited_timestamp\": null,\n      \"timestamp\": \"2016-07-05T04:30:50.776Z\",\n      \"tts\": false,\n      \"mentions\": [],\n      \"mention_roles\": [],\n      \"mention_everyone\": false,\n      \"embeds\": [],\n      \"attachments\": [],\n      \"type\": 0,\n      \"pinned\": false,\n      \"author\": {\n        \"id\": \"190320984123768832\",\n        \"username\": \"test user 2\",\n        \"discriminator\": \"7479\",\n        \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n        \"bot\": false\n      }\n    }\n  },\n  \"evt\": \"MESSAGE_CREATE\"\n}"
+  },
+  {
+    "tree": [
+      "speaking_start/speaking_stop-example-speaking-dispatch-payload"
+    ],
+    "name": "Example Speaking Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"user_id\": \"190320984123768832\"\n  },\n  \"evt\": \"SPEAKING_STOP\"\n}"
+  },
+  {
+    "tree": [
+      "notification_create-example-notification-create-dispatch-payload"
+    ],
+    "name": "Example Notification Create Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"channel_id\": \"199737254929760256\",\n    \"message\": {\n      \"id\": \"199743874640379904\",\n      \"blocked\": false,\n      \"content\": \"test\",\n      \"content_parsed\": [\n        {\n          \"content\": \"test\",\n          \"type\": \"text\"\n        }\n      ],\n      \"author_color\": \"#ffffff\",\n      \"edited_timestamp\": null,\n      \"timestamp\": \"2016-07-05T04:30:50.776Z\",\n      \"tts\": false,\n      \"mentions\": [],\n      \"mention_roles\": [],\n      \"mention_everyone\": false,\n      \"embeds\": [],\n      \"attachments\": [],\n      \"type\": 0,\n      \"pinned\": false,\n      \"author\": {\n        \"id\": \"190320984123768832\",\n        \"username\": \"test user 2\",\n        \"discriminator\": \"7479\",\n        \"avatar\": \"b004ec1740a63ca06ae2e14c5cee11f3\",\n        \"bot\": false\n      }\n    },\n    \"icon_url\": \"https://cdn.discordapp.com/avatars/155607406007681024/8ab559b8286e48270c04471ae382cd9d.jpg\",\n    \"title\": \"test_user (#general)\",\n    \"body\": \"test message\"\n  },\n  \"evt\": \"NOTIFICATION_CREATE\"\n}"
+  },
+  {
+    "tree": [
+      "activity_join-example-activity-join-dispatch-payload"
+    ],
+    "name": "Example Activity Join Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"secret\": \"025ed05c71f639de8bfaa0d679d7c94b2fdce12f\"\n  },\n  \"evt\": \"ACTIVITY_JOIN\"\n}"
+  },
+  {
+    "tree": [
+      "activity_spectate-example-activity-spectate-dispatch-payload"
+    ],
+    "name": "Example Activity Spectate Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"secret\": \"e7eb30d2ee025ed05c71ea495f770b76454ee4e0\"\n  },\n  \"evt\": \"ACTIVITY_SPECTATE\"\n}"
+  },
+  {
+    "tree": [
+      "activity_join_request-example-activity-join-request-dispatch-payload"
+    ],
+    "name": "Example Activity Join Request Dispatch Payload",
+    "language": "json",
+    "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"53908232506183680\",\n      \"username\": \"Mason\",\n      \"discriminator\": \"1337\",\n      \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\"\n    }\n  },\n  \"evt\": \"ACTIVITY_JOIN_REQUEST\"\n}"
+  },
+  {
+    "tree": [
+      "connecting-to-voice",
+      "retrieving-voice-server-information",
+      "retrieving-voice-server-information-gateway-voice-state-update-example"
+    ],
+    "name": "Gateway Voice State Update Example",
+    "language": "json",
+    "content": "{\n  \"op\": 4,\n  \"d\": {\n    \"guild_id\": \"41771983423143937\",\n    \"channel_id\": \"127121515262115840\",\n    \"self_mute\": false,\n    \"self_deaf\": false\n  }\n}"
+  },
+  {
+    "tree": [
+      "retrieving-voice-server-information-example-voice-server-update-payload"
+    ],
+    "name": "Example Voice Server Update Payload",
+    "language": "json",
+    "content": "{\n  \"t\": \"VOICE_SERVER_UPDATE\",\n  \"s\": 2,\n  \"op\": 0,\n  \"d\": {\n    \"token\": \"my_token\",\n    \"guild_id\": \"41771983423143937\",\n    \"endpoint\": \"smart.loyal.discord.gg\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "establishing-a-voice-websocket-connection",
+      "establishing-a-voice-websocket-connection-example-voice-identify-payload"
+    ],
+    "name": "Example Voice Identify Payload",
+    "language": "json",
+    "content": "{\n  \"op\": 0,\n  \"d\": {\n    \"server_id\": \"41771983423143937\",\n    \"user_id\": \"104694319306248192\",\n    \"session_id\": \"my_session_id\",\n    \"token\": \"my_token\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "establishing-a-voice-websocket-connection-example-voice-ready-payload"
+    ],
+    "name": "Example Voice Ready Payload",
+    "language": "json",
+    "content": "{\n    \"op\": 2,\n    \"d\": {\n        \"ssrc\": 1,\n        \"ip\": \"127.0.0.1\",\n        \"port\": 1234,\n        \"modes\": [\"xsalsa20_poly1305\", \"xsalsa20_poly1305_suffix\", \"xsalsa20_poly1305_lite\"],\n        \"heartbeat_interval\": 1\n    }\n}"
+  },
+  {
+    "tree": [
+      "heartbeating",
+      "heartbeating-example-hello-payload-below-v3"
+    ],
+    "name": "Example Hello Payload below V3",
+    "language": "json",
+    "content": "{\n  \"heartbeat_interval\": 41250\n}"
+  },
+  {
+    "tree": [
+      "heartbeating-example-hello-payload-since-v3"
+    ],
+    "name": "Example Hello Payload since V3",
+    "language": "json",
+    "content": "{\n  \"op\": 8,\n  \"d\": {\n    \"heartbeat_interval\": 41250\n  }\n}"
+  },
+  {
+    "tree": [
+      "heartbeating-example-heartbeat-payload"
+    ],
+    "name": "Example Heartbeat Payload",
+    "language": "json",
+    "content": "{\n  \"op\": 3,\n  \"d\": 1501184119561\n}"
+  },
+  {
+    "tree": [
+      "heartbeating-example-heartbeat-ack-payload"
+    ],
+    "name": "Example Heartbeat ACK Payload",
+    "language": "json",
+    "content": "{\n  \"op\": 6,\n  \"d\": 1501184119561\n}"
+  },
+  {
+    "tree": [
+      "establishing-a-voice-udp-connection",
+      "establishing-a-voice-udp-connection-example-select-protocol-payload"
+    ],
+    "name": "Example Select Protocol Payload",
+    "language": "json",
+    "content": "{\n    \"op\": 1,\n    \"d\": {\n        \"protocol\": \"udp\",\n        \"data\": {\n            \"address\": \"127.0.0.1\",\n            \"port\": 1337,\n            \"mode\": \"xsalsa20_poly1305_lite\"\n        }\n    }\n}"
+  },
+  {
+    "tree": [
+      "establishing-a-voice-udp-connection-example-session-description-payload"
+    ],
+    "name": "Example Session Description Payload",
+    "language": "json",
+    "content": "{\n    \"op\": 4,\n    \"d\": {\n        \"mode\": \"xsalsa20_poly1305_lite\",\n        \"secret_key\": [ ...251, 100, 11...]\n    }\n}"
+  },
+  {
+    "tree": [
+      "speaking-example-speaking-payload"
+    ],
+    "name": "Example Speaking Payload",
+    "language": "json",
+    "content": "{\n    \"op\": 5,\n    \"d\": {\n        \"speaking\": 5,\n        \"delay\": 0,\n        \"ssrc\": 1\n    }\n}"
+  },
+  {
+    "tree": [
+      "voice-data-interpolation",
+      "resuming-voice-connection",
+      "resuming-voice-connection-example-resume-connection-payload"
+    ],
+    "name": "Example Resume Connection Payload",
+    "language": "json",
+    "content": "{\n  \"op\": 7,\n  \"d\": {\n    \"server_id\": \"41771983423143937\",\n    \"session_id\": \"my_session_id\",\n    \"token\": \"my_token\"\n  }\n}"
+  },
+  {
+    "tree": [
+      "resuming-voice-connection-example-resumed-payload"
+    ],
+    "name": "Example Resumed Payload",
+    "language": "json",
+    "content": "{\n  \"op\": 9,\n  \"d\": null\n}"
   }
 ]

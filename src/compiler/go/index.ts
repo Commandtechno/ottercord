@@ -14,10 +14,10 @@ import {
 import { camel, pascal } from "../util";
 import { Base } from "../base";
 
-export class JS extends Base {
+export class GO extends Base {
   constructor(init) {
     super(init);
-    this.write(readFileSync(resolve(__dirname, "runtime.ts"), "utf-8"));
+    this.write(readFileSync(resolve(__dirname, "runtime.go"), "utf-8"));
     this.line();
   }
 
@@ -25,11 +25,11 @@ export class JS extends Base {
     switch (valueType.value) {
       // special
       case "binary":
-        this.write("Buffer");
+        this.write("[]byte");
         break;
 
       case "snowflake":
-        this.write("string | bigint");
+        this.write("string");
         break;
 
       case "file contents":
@@ -38,7 +38,13 @@ export class JS extends Base {
 
       // basic
       case "any":
+        this.write("interface{}");
+        break;
+
       case "null":
+        this.write("interface{}");
+        break;
+
       case "string":
         this.write(valueType.value);
         break;
@@ -46,31 +52,34 @@ export class JS extends Base {
       // booleans
       case "bool":
       case "boolean":
-        this.write("boolean");
+        this.write("bool");
         break;
 
       // numbers
       case "int":
       case "integer":
+        this.write("int");
+        break;
+
       case "float":
       case "number":
-        this.write("number");
+        this.write("float64");
         break;
 
       case "bigint":
-        this.write("bigint");
+        this.write("int");
         break;
 
       // objects
       case "dict":
       case "mixed":
       case "object":
-        this.write("object");
+        this.write("map[string]interface{}");
         break;
 
       case "date":
       case "ISO8601 timestamp":
-        this.write("Date");
+        this.write("time.Time");
         break;
 
       default:
@@ -79,16 +88,14 @@ export class JS extends Base {
   }
 
   renderStructureType(structureType: StructureType) {
-    this.write("{");
+    this.write("struct {");
     this.indent++;
 
     for (const prop of structureType.properties) {
-      this.line(`${prop.key}`);
-      if (prop.optional) this.write("?");
-      this.write(": ");
+      this.line(`${pascal(prop.key)} `);
       this.renderType(prop.type);
-      if (prop.nullable) this.write(" | null");
-      this.write(",");
+      this.write(" `json:" + JSON.stringify(prop.key) + "`");
+      // if (prop.nullable) this.write(" | null");
     }
 
     this.indent--;
@@ -96,129 +103,122 @@ export class JS extends Base {
   }
 
   renderReferenceType(referenceType: ReferenceType) {
-    const ref =
-      this.constants.find(c => c.tree.includes(referenceType.link)) ??
-      this.structures.find(s => s.tree.includes(referenceType.link));
+    const ref = this.structures.find(s => s.tree.includes(referenceType.link));
 
     if (!ref) {
       console.log("Could not find reference: " + referenceType.link);
-      this.write("any");
+      this.write("interface{}");
     } else {
-      this.write(pascal(ref.name));
+      this.write("*" + pascal(ref.name));
     }
   }
 
   renderType(type: Type | Type[]) {
     if (Array.isArray(type)) {
-      this.renderType(type.shift());
-      for (const t of type) {
-        this.write(" | ");
-        this.renderType(t);
-      }
+      this.write("interface{}");
     } else {
-      if (type.array) this.write("Array<");
-      if (type.partial) this.write("Partial<");
+      if (type.array) this.write("[]");
 
       if (type.type === "value") this.renderValueType(type);
       else if (type.type === "structure") this.renderStructureType(type);
       else if (type.type === "reference") this.renderReferenceType(type);
-
-      if (type.array) this.write(">");
-      if (type.partial) this.write(">");
     }
   }
 
   renderDoc(doc: { [key: string]: string }) {
-    this.line(`/**`);
+    this.write(`// `);
     this.indent++;
 
     for (const key in doc) this.write(` * ${key}: ${doc[key]}`);
 
     this.indent--;
-    this.line(` */`);
+    this.line();
   }
 
   renderConstant(constant: Constant) {
-    this.line(`export enum ${this.getName(pascal(constant.name))} {`);
+    this.line(`const (`);
     this.indent++;
 
     for (const prop of constant.properties) {
-      const key = /^\d+$/.test(prop.key)
-        ? "$" + prop.key
-        : /^\d/.test(prop.key)
-        ? JSON.stringify(pascal(prop.key))
-        : pascal(prop.key);
-
+      const key = this.getName(pascal(constant.name) + pascal(prop.key));
       const value = JSON.stringify(prop.value);
-      this.line(`${key} = ${value},`);
+      this.line(`${key} = ${value}`);
     }
 
     this.indent--;
-    this.line("}");
+    this.line(")");
     this.line();
   }
 
   renderEndpoint(endpoint: Endpoint) {
-    this.line(`export function ${this.getName(camel(endpoint.name))}(`);
+    let requestType: string;
+    if (endpoint.request) {
+      requestType = this.getName(pascal(endpoint.name) + "Body");
+      this.line(`type ${requestType} `);
+      this.renderType(endpoint.request);
+      this.line();
+    }
 
-    let path = "`" + endpoint.path + "`";
+    this.line(`func ${this.getName(pascal(endpoint.name))}(`);
+    let path = '"' + endpoint.path + '"';
 
     // parameters
     this.indent++;
     for (const param of endpoint.params) {
-      this.line(`${camel(param.name)}: string,`);
+      this.line(`${camel(param.name)} string,`);
       path = path.replace(
         `{${param.name}}`,
-        `\${encodeURIComponent(${camel(param.name)})}`
+        `" + url.PathEscape(${camel(param.name)}) + "`
       );
     }
 
-    if (endpoint.request) {
-      this.line(`body: `);
-      this.renderType(endpoint.request);
-      this.write(", ");
-    }
+    if (endpoint.request) this.line(`body ${requestType},`);
+
     this.indent--;
 
     // return type
-    this.line("): Promise<");
+    this.line(") ");
     if (endpoint.response) {
       this.indent++;
       this.renderType(endpoint.response);
       this.indent--;
-    } else this.write("any");
-    this.write(">");
+    } else this.write("interface{}");
 
     // function body
     this.write(" {");
     this.indent++;
-    this.line(`return fetch({`);
+    if (endpoint.request) this.line(`rawBody, _ := json.Marshal(body)`);
+    this.line(`res := fetch(Request{`);
     this.indent++;
-    this.line("method: " + JSON.stringify(endpoint.method) + ",");
-    this.line("path: " + path + ",");
-    if (endpoint.request) this.line("body: JSON.stringify(body),");
-    this.line(
-      'headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }'
-    );
+    this.line("Method: " + JSON.stringify(endpoint.method) + ",");
+    this.line("Path: " + path + ",");
+    if (endpoint.request) this.line("Body: rawBody,");
+    this.line('Headers: map[string]string{ "Authorization": "Bot BALLS" },');
     this.indent--;
     this.line("})");
+
+    if (endpoint.response) {
+      this.line(`var balls `);
+      this.renderType(endpoint.response);
+      this.line("json.NewDecoder(res.Body).Decode(&balls)");
+      this.line("return balls");
+    } else {
+      this.line("return res");
+    }
+
     this.indent--;
     this.line("}");
     this.line();
   }
 
   renderStructure(structure: Structure) {
-    this.line(`export interface ${this.getName(pascal(structure.name))} {`);
+    this.line(`type ${this.getName(pascal(structure.name))} struct {`);
     this.indent++;
 
     for (const prop of structure.properties) {
-      this.line();
-      this.tab();
-
-      this.write(JSON.stringify(prop.key));
-      this.write(": ");
+      this.line(`${pascal(prop.key)} `);
       this.renderType(prop.type);
-      this.write(",");
+      this.write(" `json:" + JSON.stringify(prop.key) + "`");
     }
 
     this.indent--;

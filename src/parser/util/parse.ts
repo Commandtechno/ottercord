@@ -63,7 +63,11 @@ export function parseProperty(row: Row): Property {
   let nullable = false;
 
   // optional
-  if (row.required && row.required?.text !== "Yes" && row.required?.text !== "true") {
+  if (
+    row.required &&
+    row.required?.text !== "Yes" &&
+    row.required?.text !== "true"
+  ) {
     optional = true;
   }
 
@@ -146,31 +150,32 @@ export function parseProperty(row: Row): Property {
         nullable
       };
 
-  // description field first token link
-  if (row.description) {
-    const [firstToken] = row.description.tokens;
-    if (firstToken.type === "link")
-      return {
-        key,
-        description,
+  // description field links
+  if (row.description)
+    for (const token of row.description.tokens)
+      if (token.type === "link")
+        return {
+          key,
+          description,
 
-        type: {
-          array,
-          partial,
-          deprecated,
+          type: {
+            array,
+            partial,
+            deprecated,
 
-          type: "reference",
-          link: parseLink(firstToken.href)
-        },
+            type: "reference",
+            link: parseLink(token.href)
+          },
 
-        optional,
-        nullable
-      };
-  }
+          optional,
+          nullable
+        };
 
   const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
   if (value.includes("or") || value.includes(",")) {
-    const values = value.split(/or|,/).map(value => stripPlural(trimText(value)));
+    const values = value
+      .split(/or|,/)
+      .map(value => stripPlural(trimText(value)));
     if (values.every(value => validTypes.has(value)))
       return {
         key,
@@ -208,27 +213,6 @@ export function parseProperty(row: Row): Property {
       optional,
       nullable
     };
-
-  // description field links
-  if (row.description)
-    for (const token of row.description.tokens)
-      if (token.type === "link")
-        return {
-          key,
-          description,
-
-          type: {
-            array,
-            partial,
-            deprecated,
-
-            type: "reference",
-            link: parseLink(token.href)
-          },
-
-          optional,
-          nullable
-        };
 
   // could not resolve type
   console.log(`Invalid type: ${row.type.text}`);

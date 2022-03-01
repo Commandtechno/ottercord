@@ -1,7 +1,7 @@
 import { marked } from "marked";
 
 import { Tree, Example } from "../../common";
-import { Action } from "../types";
+import { Status } from "../types";
 
 export class ExampleEngine implements Example {
   tree: Tree = [];
@@ -12,8 +12,8 @@ export class ExampleEngine implements Example {
   language: string;
   content: string;
 
-  get action(): Action {
-    return this.content ? Action.Save : Action.Next;
+  get status(): Status {
+    return this.content ? Status.Completed : Status.None;
   }
 
   constructor(block: marked.Token) {

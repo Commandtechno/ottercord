@@ -21,7 +21,7 @@ import {
   EndpointRequest
 } from "../../common";
 
-import { Action } from "../types";
+import { Status } from "../types";
 
 export class EndpointEngine implements Endpoint {
   tree: Tree = [];
@@ -50,8 +50,8 @@ export class EndpointEngine implements Endpoint {
     form: false
   };
 
-  get action(): Action {
-    return Action.Next;
+  get status(): Status {
+    return Status.Ready;
   }
 
   constructor(block: marked.Token) {

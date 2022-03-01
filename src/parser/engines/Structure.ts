@@ -2,7 +2,7 @@ import { marked } from "marked";
 
 import { formatTable, parseProperty } from "../util";
 import { Property, Structure, Tree } from "../../common";
-import { Action } from "../types";
+import { Status } from "../types";
 
 export class StructureEngine implements Structure {
   tree: Tree = [];
@@ -13,8 +13,8 @@ export class StructureEngine implements Structure {
   type: "structure";
   properties: Property[];
 
-  get action(): Action {
-    return this.properties.length ? Action.Save : Action.Next;
+  get status(): Status {
+    return this.properties.length ? Status.Completed : Status.None;
   }
 
   constructor(block: marked.Token) {
