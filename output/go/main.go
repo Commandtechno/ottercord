@@ -629,6 +629,159 @@ const (
 )
 
 const (
+	JsonErrorCodes0 = "General error"
+	JsonErrorCodes10001 = "Unknown account"
+	JsonErrorCodes10002 = "Unknown application"
+	JsonErrorCodes10003 = "Unknown channel"
+	JsonErrorCodes10004 = "Unknown guild"
+	JsonErrorCodes10005 = "Unknown integration"
+	JsonErrorCodes10006 = "Unknown invite"
+	JsonErrorCodes10007 = "Unknown member"
+	JsonErrorCodes10008 = "Unknown message"
+	JsonErrorCodes10009 = "Unknown permission overwrite"
+	JsonErrorCodes10010 = "Unknown provider"
+	JsonErrorCodes10011 = "Unknown role"
+	JsonErrorCodes10012 = "Unknown token"
+	JsonErrorCodes10013 = "Unknown user"
+	JsonErrorCodes10014 = "Unknown emoji"
+	JsonErrorCodes10015 = "Unknown webhook"
+	JsonErrorCodes10016 = "Unknown webhook service"
+	JsonErrorCodes10020 = "Unknown session"
+	JsonErrorCodes10026 = "Unknown ban"
+	JsonErrorCodes10027 = "Unknown SKU"
+	JsonErrorCodes10028 = "Unknown Store Listing"
+	JsonErrorCodes10029 = "Unknown entitlement"
+	JsonErrorCodes10030 = "Unknown build"
+	JsonErrorCodes10031 = "Unknown lobby"
+	JsonErrorCodes10032 = "Unknown branch"
+	JsonErrorCodes10033 = "Unknown store directory layout"
+	JsonErrorCodes10036 = "Unknown redistributable"
+	JsonErrorCodes10038 = "Unknown gift code"
+	JsonErrorCodes10049 = "Unknown stream"
+	JsonErrorCodes10050 = "Unknown premium server subscribe cooldown"
+	JsonErrorCodes10057 = "Unknown guild template"
+	JsonErrorCodes10059 = "Unknown discoverable server category"
+	JsonErrorCodes10060 = "Unknown sticker"
+	JsonErrorCodes10062 = "Unknown interaction"
+	JsonErrorCodes10063 = "Unknown application command"
+	JsonErrorCodes10066 = "Unknown application command permissions"
+	JsonErrorCodes10067 = "Unknown Stage Instance"
+	JsonErrorCodes10068 = "Unknown Guild Member Verification Form"
+	JsonErrorCodes10069 = "Unknown Guild Welcome Screen"
+	JsonErrorCodes10070 = "Unknown Guild Scheduled Event"
+	JsonErrorCodes10071 = "Unknown Guild Scheduled Event User"
+	JsonErrorCodes20001 = "Bots cannot use this endpoint"
+	JsonErrorCodes20002 = "Only bots can use this endpoint"
+	JsonErrorCodes20009 = "Explicit content cannot be sent to the desired recipient"
+	JsonErrorCodes20012 = "You are not authorized to perform this action on this application"
+	JsonErrorCodes20016 = "This action cannot be performed due to slowmode rate limit"
+	JsonErrorCodes20018 = "Only the owner of this account can perform this action"
+	JsonErrorCodes20022 = "This message cannot be edited due to announcement rate limits"
+	JsonErrorCodes20028 = "The channel you are writing has hit the write rate limit"
+	JsonErrorCodes20029 = "The write action you are performing on the server has hit the write rate limit"
+	JsonErrorCodes20031 = "Your Stage topic, server name, server description, or channel names contain words that are not allowed"
+	JsonErrorCodes20035 = "Guild premium subscription level too low"
+	JsonErrorCodes30001 = "Maximum number of guilds reached"
+	JsonErrorCodes30002 = "Maximum number of friends reached"
+	JsonErrorCodes30003 = "Maximum number of pins reached for the channel"
+	JsonErrorCodes30004 = "Maximum number of recipients reached"
+	JsonErrorCodes30005 = "Maximum number of guild roles reached"
+	JsonErrorCodes30007 = "Maximum number of webhooks reached"
+	JsonErrorCodes30008 = "Maximum number of emojis reached"
+	JsonErrorCodes30010 = "Maximum number of reactions reached"
+	JsonErrorCodes30013 = "Maximum number of guild channels reached"
+	JsonErrorCodes30015 = "Maximum number of attachments in a message reached"
+	JsonErrorCodes30016 = "Maximum number of invites reached"
+	JsonErrorCodes30018 = "Maximum number of animated emojis reached"
+	JsonErrorCodes30019 = "Maximum number of server members reached"
+	JsonErrorCodes30030 = "Maximum number of server categories has been reached"
+	JsonErrorCodes30031 = "Guild already has a template"
+	JsonErrorCodes30033 = "Max number of thread participants has been reached"
+	JsonErrorCodes30035 = "Maximum number of bans for non-guild members have been exceeded"
+	JsonErrorCodes30037 = "Maximum number of bans fetches has been reached"
+	JsonErrorCodes30038 = "Maximum number of uncompleted guild scheduled events reached"
+	JsonErrorCodes30039 = "Maximum number of stickers reached"
+	JsonErrorCodes30040 = "Maximum number of prune requests has been reached. Try again later"
+	JsonErrorCodes30042 = "Maximum number of guild widget settings updates has been reached. Try again later"
+	JsonErrorCodes30046 = "Maximum number of edits to messages older than 1 hour reached. Try again later"
+	JsonErrorCodes40001 = "Unauthorized. Provide a valid token and try again"
+	JsonErrorCodes40002 = "You need to verify your account in order to perform this action"
+	JsonErrorCodes40003 = "You are opening direct messages too fast"
+	JsonErrorCodes40004 = "Send messages has been temporarily disabled"
+	JsonErrorCodes40005 = "Request entity too large. Try sending something smaller in size"
+	JsonErrorCodes40006 = "This feature has been temporarily disabled server-side"
+	JsonErrorCodes40007 = "The user is banned from this guild"
+	JsonErrorCodes40032 = "Target user is not connected to voice"
+	JsonErrorCodes40033 = "This message has already been crossposted"
+	JsonErrorCodes40041 = "An application command with that name already exists"
+	JsonErrorCodes40060 = "Interaction has already been acknowledged"
+	JsonErrorCodes50001 = "Missing access"
+	JsonErrorCodes50002 = "Invalid account type"
+	JsonErrorCodes50003 = "Cannot execute action on a DM channel"
+	JsonErrorCodes50004 = "Guild widget disabled"
+	JsonErrorCodes50005 = "Cannot edit a message authored by another user"
+	JsonErrorCodes50006 = "Cannot send an empty message"
+	JsonErrorCodes50007 = "Cannot send messages to this user"
+	JsonErrorCodes50008 = "Cannot send messages in a voice channel"
+	JsonErrorCodes50009 = "Channel verification level is too high for you to gain access"
+	JsonErrorCodes50010 = "OAuth2 application does not have a bot"
+	JsonErrorCodes50011 = "OAuth2 application limit reached"
+	JsonErrorCodes50012 = "Invalid OAuth2 state"
+	JsonErrorCodes50013 = "You lack permissions to perform that action"
+	JsonErrorCodes50014 = "Invalid authentication token provided"
+	JsonErrorCodes50015 = "Note was too long"
+	JsonErrorCodes50016 = "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete"
+	JsonErrorCodes50019 = "A message can only be pinned to the channel it was sent in"
+	JsonErrorCodes50020 = "Invite code was either invalid or taken"
+	JsonErrorCodes50021 = "Cannot execute action on a system message"
+	JsonErrorCodes50024 = "Cannot execute action on this channel type"
+	JsonErrorCodes50025 = "Invalid OAuth2 access token provided"
+	JsonErrorCodes50026 = "Missing required OAuth2 scope"
+	JsonErrorCodes50027 = "Invalid webhook token provided"
+	JsonErrorCodes50028 = "Invalid role"
+	JsonErrorCodes50033 = "Invalid Recipient"
+	JsonErrorCodes50034 = "A message provided was too old to bulk delete"
+	JsonErrorCodes50035 = "Invalid form body, or invalid Content-Type provided"
+	JsonErrorCodes50036 = "An invite was accepted to a guild the application's bot is not in"
+	JsonErrorCodes50041 = "Invalid API version provided"
+	JsonErrorCodes50045 = "File uploaded exceeds the maximum size"
+	JsonErrorCodes50046 = "Invalid file uploaded"
+	JsonErrorCodes50054 = "Cannot self-redeem this gift"
+	JsonErrorCodes50055 = "Invalid Guild"
+	JsonErrorCodes50068 = "Invalid message type"
+	JsonErrorCodes50070 = "Payment source required to redeem gift"
+	JsonErrorCodes50074 = "Cannot delete a channel required for Community guilds"
+	JsonErrorCodes50081 = "Invalid sticker sent"
+	JsonErrorCodes50083 = "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread"
+	JsonErrorCodes50084 = "Invalid thread notification settings"
+	JsonErrorCodes50085 = "before value is earlier than the thread creation date"
+	JsonErrorCodes50086 = "Community server channels must be text channels"
+	JsonErrorCodes50095 = "This server is not available in your location"
+	JsonErrorCodes50097 = "This server needs monetization enabled in order to perform this action"
+	JsonErrorCodes50101 = "This server needs more boosts to perform this action"
+	JsonErrorCodes50109 = "The request body contains invalid JSON."
+	JsonErrorCodes60003 = "Two factor is required for this operation"
+	JsonErrorCodes80004 = "No users with DiscordTag exist"
+	JsonErrorCodes90001 = "Reaction was blocked"
+	JsonErrorCodes130000 = "API resource is currently overloaded. Try again a little later"
+	JsonErrorCodes150006 = "The Stage is already open"
+	JsonErrorCodes160002 = "Cannot reply without permission to read message history"
+	JsonErrorCodes160004 = "A thread has already been created for this message"
+	JsonErrorCodes160005 = "Thread is locked"
+	JsonErrorCodes160006 = "Maximum number of active threads reached"
+	JsonErrorCodes160007 = "Maximum number of active announcement threads reached"
+	JsonErrorCodes170001 = "Invalid JSON for uploaded Lottie file"
+	JsonErrorCodes170002 = "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG"
+	JsonErrorCodes170003 = "Sticker maximum framerate exceeded"
+	JsonErrorCodes170004 = "Sticker frame count exceeds maximum of 1000 frames"
+	JsonErrorCodes170005 = "Lottie animation maximum dimensions exceeded"
+	JsonErrorCodes170006 = "Sticker frame rate is either too small or too large"
+	JsonErrorCodes170007 = "Sticker animation duration exceeds maximum of 5 seconds"
+	JsonErrorCodes180000 = "Cannot update a finished event"
+	JsonErrorCodes180002 = "Failed to create stage needed for stage event"
+)
+
+const (
 	RpcErrorCodesUnknownError = 1000
 	RpcErrorCodesInvalidPayload = 4000
 	RpcErrorCodesInvalidCommand = 4002
@@ -696,7 +849,7 @@ const (
 	BitwisePermissionFlagsCreatePrivateThreads = 68719476736
 	BitwisePermissionFlagsUseExternalStickers = 137438953472
 	BitwisePermissionFlagsSendMessagesInThreads = 274877906944
-	BitwisePermissionFlagsStartEmbeddedActivities = 549755813888
+	BitwisePermissionFlagsUseEmbeddedActivities = 549755813888
 	BitwisePermissionFlagsModerateMembers = 1099511627776
 )
 
@@ -3940,12 +4093,6 @@ type RoleTagsStructure struct {
 	PremiumSubscriber interface{} `json:"premium_subscriber"`
 }
 
-type RateLimitResponseStructure struct {
-	Message string `json:"message"`
-	RetryAfter float64 `json:"retry_after"`
-	Global bool `json:"global"`
-}
-
 type PayloadStructure struct {
 	Cmd interface{} `json:"cmd"`
 	Nonce string `json:"nonce"`
@@ -4231,6 +4378,12 @@ type ActivitySpectateDispatchDataStructure struct {
 
 type ActivityJoinRequestDataStructure struct {
 	User *UserStructure `json:"user"`
+}
+
+type RateLimitResponseStructure struct {
+	Message string `json:"message"`
+	RetryAfter float64 `json:"retry_after"`
+	Global bool `json:"global"`
 }
 
 type TeamObject struct {

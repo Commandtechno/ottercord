@@ -1862,7 +1862,7 @@
         "value": "mp:{image_id}"
       }
     ],
-    "description": "Activity asset images are arbitrary strings which usually contain snowflake IDs or prefixed image IDs. Treat data within this field carefully, as it is user-specifiable and not sanitized."
+    "description": "To use an external image via media proxy, specify the URL as the field's value when sending. You will only receive the mp: prefix via the gateway."
   },
   {
     "tree": [
@@ -2433,6 +2433,615 @@
   },
   {
     "tree": [
+      "json",
+      "json-json-error-codes"
+    ],
+    "name": "JSON Error Codes",
+    "properties": [
+      {
+        "key": "0",
+        "value": "General error"
+      },
+      {
+        "key": "10001",
+        "value": "Unknown account"
+      },
+      {
+        "key": "10002",
+        "value": "Unknown application"
+      },
+      {
+        "key": "10003",
+        "value": "Unknown channel"
+      },
+      {
+        "key": "10004",
+        "value": "Unknown guild"
+      },
+      {
+        "key": "10005",
+        "value": "Unknown integration"
+      },
+      {
+        "key": "10006",
+        "value": "Unknown invite"
+      },
+      {
+        "key": "10007",
+        "value": "Unknown member"
+      },
+      {
+        "key": "10008",
+        "value": "Unknown message"
+      },
+      {
+        "key": "10009",
+        "value": "Unknown permission overwrite"
+      },
+      {
+        "key": "10010",
+        "value": "Unknown provider"
+      },
+      {
+        "key": "10011",
+        "value": "Unknown role"
+      },
+      {
+        "key": "10012",
+        "value": "Unknown token"
+      },
+      {
+        "key": "10013",
+        "value": "Unknown user"
+      },
+      {
+        "key": "10014",
+        "value": "Unknown emoji"
+      },
+      {
+        "key": "10015",
+        "value": "Unknown webhook"
+      },
+      {
+        "key": "10016",
+        "value": "Unknown webhook service"
+      },
+      {
+        "key": "10020",
+        "value": "Unknown session"
+      },
+      {
+        "key": "10026",
+        "value": "Unknown ban"
+      },
+      {
+        "key": "10027",
+        "value": "Unknown SKU"
+      },
+      {
+        "key": "10028",
+        "value": "Unknown Store Listing"
+      },
+      {
+        "key": "10029",
+        "value": "Unknown entitlement"
+      },
+      {
+        "key": "10030",
+        "value": "Unknown build"
+      },
+      {
+        "key": "10031",
+        "value": "Unknown lobby"
+      },
+      {
+        "key": "10032",
+        "value": "Unknown branch"
+      },
+      {
+        "key": "10033",
+        "value": "Unknown store directory layout"
+      },
+      {
+        "key": "10036",
+        "value": "Unknown redistributable"
+      },
+      {
+        "key": "10038",
+        "value": "Unknown gift code"
+      },
+      {
+        "key": "10049",
+        "value": "Unknown stream"
+      },
+      {
+        "key": "10050",
+        "value": "Unknown premium server subscribe cooldown"
+      },
+      {
+        "key": "10057",
+        "value": "Unknown guild template"
+      },
+      {
+        "key": "10059",
+        "value": "Unknown discoverable server category"
+      },
+      {
+        "key": "10060",
+        "value": "Unknown sticker"
+      },
+      {
+        "key": "10062",
+        "value": "Unknown interaction"
+      },
+      {
+        "key": "10063",
+        "value": "Unknown application command"
+      },
+      {
+        "key": "10066",
+        "value": "Unknown application command permissions"
+      },
+      {
+        "key": "10067",
+        "value": "Unknown Stage Instance"
+      },
+      {
+        "key": "10068",
+        "value": "Unknown Guild Member Verification Form"
+      },
+      {
+        "key": "10069",
+        "value": "Unknown Guild Welcome Screen"
+      },
+      {
+        "key": "10070",
+        "value": "Unknown Guild Scheduled Event"
+      },
+      {
+        "key": "10071",
+        "value": "Unknown Guild Scheduled Event User"
+      },
+      {
+        "key": "20001",
+        "value": "Bots cannot use this endpoint"
+      },
+      {
+        "key": "20002",
+        "value": "Only bots can use this endpoint"
+      },
+      {
+        "key": "20009",
+        "value": "Explicit content cannot be sent to the desired recipient"
+      },
+      {
+        "key": "20012",
+        "value": "You are not authorized to perform this action on this application"
+      },
+      {
+        "key": "20016",
+        "value": "This action cannot be performed due to slowmode rate limit"
+      },
+      {
+        "key": "20018",
+        "value": "Only the owner of this account can perform this action"
+      },
+      {
+        "key": "20022",
+        "value": "This message cannot be edited due to announcement rate limits"
+      },
+      {
+        "key": "20028",
+        "value": "The channel you are writing has hit the write rate limit"
+      },
+      {
+        "key": "20029",
+        "value": "The write action you are performing on the server has hit the write rate limit"
+      },
+      {
+        "key": "20031",
+        "value": "Your Stage topic, server name, server description, or channel names contain words that are not allowed"
+      },
+      {
+        "key": "20035",
+        "value": "Guild premium subscription level too low"
+      },
+      {
+        "key": "30001",
+        "value": "Maximum number of guilds reached"
+      },
+      {
+        "key": "30002",
+        "value": "Maximum number of friends reached"
+      },
+      {
+        "key": "30003",
+        "value": "Maximum number of pins reached for the channel"
+      },
+      {
+        "key": "30004",
+        "value": "Maximum number of recipients reached"
+      },
+      {
+        "key": "30005",
+        "value": "Maximum number of guild roles reached"
+      },
+      {
+        "key": "30007",
+        "value": "Maximum number of webhooks reached"
+      },
+      {
+        "key": "30008",
+        "value": "Maximum number of emojis reached"
+      },
+      {
+        "key": "30010",
+        "value": "Maximum number of reactions reached"
+      },
+      {
+        "key": "30013",
+        "value": "Maximum number of guild channels reached"
+      },
+      {
+        "key": "30015",
+        "value": "Maximum number of attachments in a message reached"
+      },
+      {
+        "key": "30016",
+        "value": "Maximum number of invites reached"
+      },
+      {
+        "key": "30018",
+        "value": "Maximum number of animated emojis reached"
+      },
+      {
+        "key": "30019",
+        "value": "Maximum number of server members reached"
+      },
+      {
+        "key": "30030",
+        "value": "Maximum number of server categories has been reached"
+      },
+      {
+        "key": "30031",
+        "value": "Guild already has a template"
+      },
+      {
+        "key": "30033",
+        "value": "Max number of thread participants has been reached"
+      },
+      {
+        "key": "30035",
+        "value": "Maximum number of bans for non-guild members have been exceeded"
+      },
+      {
+        "key": "30037",
+        "value": "Maximum number of bans fetches has been reached"
+      },
+      {
+        "key": "30038",
+        "value": "Maximum number of uncompleted guild scheduled events reached"
+      },
+      {
+        "key": "30039",
+        "value": "Maximum number of stickers reached"
+      },
+      {
+        "key": "30040",
+        "value": "Maximum number of prune requests has been reached. Try again later"
+      },
+      {
+        "key": "30042",
+        "value": "Maximum number of guild widget settings updates has been reached. Try again later"
+      },
+      {
+        "key": "30046",
+        "value": "Maximum number of edits to messages older than 1 hour reached. Try again later"
+      },
+      {
+        "key": "40001",
+        "value": "Unauthorized. Provide a valid token and try again"
+      },
+      {
+        "key": "40002",
+        "value": "You need to verify your account in order to perform this action"
+      },
+      {
+        "key": "40003",
+        "value": "You are opening direct messages too fast"
+      },
+      {
+        "key": "40004",
+        "value": "Send messages has been temporarily disabled"
+      },
+      {
+        "key": "40005",
+        "value": "Request entity too large. Try sending something smaller in size"
+      },
+      {
+        "key": "40006",
+        "value": "This feature has been temporarily disabled server-side"
+      },
+      {
+        "key": "40007",
+        "value": "The user is banned from this guild"
+      },
+      {
+        "key": "40032",
+        "value": "Target user is not connected to voice"
+      },
+      {
+        "key": "40033",
+        "value": "This message has already been crossposted"
+      },
+      {
+        "key": "40041",
+        "value": "An application command with that name already exists"
+      },
+      {
+        "key": "40060",
+        "value": "Interaction has already been acknowledged"
+      },
+      {
+        "key": "50001",
+        "value": "Missing access"
+      },
+      {
+        "key": "50002",
+        "value": "Invalid account type"
+      },
+      {
+        "key": "50003",
+        "value": "Cannot execute action on a DM channel"
+      },
+      {
+        "key": "50004",
+        "value": "Guild widget disabled"
+      },
+      {
+        "key": "50005",
+        "value": "Cannot edit a message authored by another user"
+      },
+      {
+        "key": "50006",
+        "value": "Cannot send an empty message"
+      },
+      {
+        "key": "50007",
+        "value": "Cannot send messages to this user"
+      },
+      {
+        "key": "50008",
+        "value": "Cannot send messages in a voice channel"
+      },
+      {
+        "key": "50009",
+        "value": "Channel verification level is too high for you to gain access"
+      },
+      {
+        "key": "50010",
+        "value": "OAuth2 application does not have a bot"
+      },
+      {
+        "key": "50011",
+        "value": "OAuth2 application limit reached"
+      },
+      {
+        "key": "50012",
+        "value": "Invalid OAuth2 state"
+      },
+      {
+        "key": "50013",
+        "value": "You lack permissions to perform that action"
+      },
+      {
+        "key": "50014",
+        "value": "Invalid authentication token provided"
+      },
+      {
+        "key": "50015",
+        "value": "Note was too long"
+      },
+      {
+        "key": "50016",
+        "value": "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete"
+      },
+      {
+        "key": "50019",
+        "value": "A message can only be pinned to the channel it was sent in"
+      },
+      {
+        "key": "50020",
+        "value": "Invite code was either invalid or taken"
+      },
+      {
+        "key": "50021",
+        "value": "Cannot execute action on a system message"
+      },
+      {
+        "key": "50024",
+        "value": "Cannot execute action on this channel type"
+      },
+      {
+        "key": "50025",
+        "value": "Invalid OAuth2 access token provided"
+      },
+      {
+        "key": "50026",
+        "value": "Missing required OAuth2 scope"
+      },
+      {
+        "key": "50027",
+        "value": "Invalid webhook token provided"
+      },
+      {
+        "key": "50028",
+        "value": "Invalid role"
+      },
+      {
+        "key": "50033",
+        "value": "Invalid Recipient"
+      },
+      {
+        "key": "50034",
+        "value": "A message provided was too old to bulk delete"
+      },
+      {
+        "key": "50035",
+        "value": "Invalid form body, or invalid Content-Type provided"
+      },
+      {
+        "key": "50036",
+        "value": "An invite was accepted to a guild the application's bot is not in"
+      },
+      {
+        "key": "50041",
+        "value": "Invalid API version provided"
+      },
+      {
+        "key": "50045",
+        "value": "File uploaded exceeds the maximum size"
+      },
+      {
+        "key": "50046",
+        "value": "Invalid file uploaded"
+      },
+      {
+        "key": "50054",
+        "value": "Cannot self-redeem this gift"
+      },
+      {
+        "key": "50055",
+        "value": "Invalid Guild"
+      },
+      {
+        "key": "50068",
+        "value": "Invalid message type"
+      },
+      {
+        "key": "50070",
+        "value": "Payment source required to redeem gift"
+      },
+      {
+        "key": "50074",
+        "value": "Cannot delete a channel required for Community guilds"
+      },
+      {
+        "key": "50081",
+        "value": "Invalid sticker sent"
+      },
+      {
+        "key": "50083",
+        "value": "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread"
+      },
+      {
+        "key": "50084",
+        "value": "Invalid thread notification settings"
+      },
+      {
+        "key": "50085",
+        "value": "before value is earlier than the thread creation date"
+      },
+      {
+        "key": "50086",
+        "value": "Community server channels must be text channels"
+      },
+      {
+        "key": "50095",
+        "value": "This server is not available in your location"
+      },
+      {
+        "key": "50097",
+        "value": "This server needs monetization enabled in order to perform this action"
+      },
+      {
+        "key": "50101",
+        "value": "This server needs more boosts to perform this action"
+      },
+      {
+        "key": "50109",
+        "value": "The request body contains invalid JSON."
+      },
+      {
+        "key": "60003",
+        "value": "Two factor is required for this operation"
+      },
+      {
+        "key": "80004",
+        "value": "No users with DiscordTag exist"
+      },
+      {
+        "key": "90001",
+        "value": "Reaction was blocked"
+      },
+      {
+        "key": "130000",
+        "value": "API resource is currently overloaded. Try again a little later"
+      },
+      {
+        "key": "150006",
+        "value": "The Stage is already open"
+      },
+      {
+        "key": "160002",
+        "value": "Cannot reply without permission to read message history"
+      },
+      {
+        "key": "160004",
+        "value": "A thread has already been created for this message"
+      },
+      {
+        "key": "160005",
+        "value": "Thread is locked"
+      },
+      {
+        "key": "160006",
+        "value": "Maximum number of active threads reached"
+      },
+      {
+        "key": "160007",
+        "value": "Maximum number of active announcement threads reached"
+      },
+      {
+        "key": "170001",
+        "value": "Invalid JSON for uploaded Lottie file"
+      },
+      {
+        "key": "170002",
+        "value": "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG"
+      },
+      {
+        "key": "170003",
+        "value": "Sticker maximum framerate exceeded"
+      },
+      {
+        "key": "170004",
+        "value": "Sticker frame count exceeds maximum of 1000 frames"
+      },
+      {
+        "key": "170005",
+        "value": "Lottie animation maximum dimensions exceeded"
+      },
+      {
+        "key": "170006",
+        "value": "Sticker frame rate is either too small or too large"
+      },
+      {
+        "key": "170007",
+        "value": "Sticker animation duration exceeds maximum of 5 seconds"
+      },
+      {
+        "key": "180000",
+        "value": "Cannot update a finished event"
+      },
+      {
+        "key": "180002",
+        "value": "Failed to create stage needed for stage event"
+      }
+    ]
+  },
+  {
+    "tree": [
       "rpc",
       "rpc-rpc-error-codes"
     ],
@@ -2617,7 +3226,7 @@
       },
       {
         "key": "VIEW_CHANNEL",
-        "description": "Allows guild members to view a channel, which includes reading messages in text channels",
+        "description": "Allows guild members to view a channel, which includes reading messages in text channels and joining voice channels",
         "value": 1024
       },
       {
@@ -2761,8 +3370,8 @@
         "value": 274877906944
       },
       {
-        "key": "START_EMBEDDED_ACTIVITIES",
-        "description": "Allows for launching activities (applications with the EMBEDDED flag) in a voice channel",
+        "key": "USE_EMBEDDED_ACTIVITIES",
+        "description": "Allows for using Activities (applications with the EMBEDDED flag) in a voice channel",
         "value": 549755813888
       },
       {

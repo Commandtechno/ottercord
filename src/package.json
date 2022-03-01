@@ -3,7 +3,7 @@
     "parse": "ts-node --transpile-only parser/dev",
     "compile": "ts-node --transpile-only compiler/dev",
     "balls": "npm run parse && npm run compile",
-    "test": "ts-node --transpile-only test"
+    "update": "cd .. && cd output && git pull"
   },
   "devDependencies": {
     "@types/he": "^1.1.2",

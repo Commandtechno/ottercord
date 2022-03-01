@@ -2616,7 +2616,7 @@
           "value": "ISO8601 timestamp"
         },
         "optional": true,
-        "nullable": false
+        "nullable": true
       }
     ]
   },
@@ -5750,11 +5750,11 @@
       },
       {
         "key": "stage_instance",
-        "description": "stage instance data if there is a public Stage instance in the Stage channel this invite is for",
+        "description": "stage instance data if there is a [public Stage instance](#DOCS_RESOURCES_STAGE_INSTANCE) in the Stage channel this invite is for",
         "type": {
           "array": false,
           "partial": false,
-          "deprecated": false,
+          "deprecated": true,
           "type": "reference",
           "link": "invite-stage-instance-object"
         },
@@ -10359,54 +10359,6 @@
   },
   {
     "tree": [
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
-    ],
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "key": "message",
-        "description": "A message saying you are being rate limited.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        },
-        "optional": false,
-        "nullable": false
-      },
-      {
-        "key": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
-        },
-        "optional": false,
-        "nullable": false
-      }
-    ]
-  },
-  {
-    "tree": [
       "restrictions",
       "payloads",
       "payloads-payload-structure"
@@ -12645,6 +12597,54 @@
           "deprecated": false,
           "type": "reference",
           "link": "user-object"
+        },
+        "optional": false,
+        "nullable": false
+      }
+    ]
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit",
+      "exceeding-a-rate-limit-rate-limit-response-structure"
+    ],
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "key": "message",
+        "description": "A message saying you are being rate limited.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        },
+        "optional": false,
+        "nullable": false
+      },
+      {
+        "key": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
         },
         "optional": false,
         "nullable": false
