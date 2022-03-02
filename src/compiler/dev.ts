@@ -41,14 +41,14 @@ import { GO } from "./go";
     go.renderConstant(constant);
   }
 
-  for (const endpoint of endpoints) {
-    js.renderEndpoint(endpoint);
-    go.renderEndpoint(endpoint);
-  }
-
   for (const structure of structures) {
     js.renderStructure(structure);
     go.renderStructure(structure);
+  }
+
+  for (const endpoint of endpoints) {
+    js.renderEndpoint(endpoint);
+    go.renderEndpoint(endpoint);
   }
 
   await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js.code);

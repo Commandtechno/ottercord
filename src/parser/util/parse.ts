@@ -1,11 +1,11 @@
-import { Row, Property } from "../../common";
+import { Row, Property, ValueType, BaseType } from "../../common";
 import {
   cutText,
   trimText,
   flattenBlock,
   isArray,
-  isDeprecated,
   isPartial,
+  isDeprecated,
   lastSplit,
   stripArray,
   stripBrackets,
@@ -14,50 +14,15 @@ import {
   stripPlural
 } from ".";
 
-export const validTypes = new Set([
-  // special
-  "binary",
-  "snowflake",
-  "file contents",
-
-  // basic
-  "null",
-  "string",
-
-  // booleans
-  "bool",
-  "boolean",
-
-  // numbers
-  "int",
-  "integer",
-  "float",
-  "number",
-  "bigint",
-
-  // objects
-  "dict",
-  "mixed",
-  "object",
-
-  // dates
-  "date",
-  "ISO8601 timestamp"
-]);
-
 export function parseLink(link: string) {
   const [, anchor] = lastSplit(link.slice(1), "/");
   return anchor;
 }
 
-// type hierarchy: type field links, description field first token link, type field raw, description field links
 export function parseProperty(row: Row): Property {
   let key = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
+  let type = stripBrackets(cutText(row.type.text));
   let description = row.description && trimText(flattenBlock(row.description));
-
-  let array = false;
-  let partial = false;
-  let deprecated = false;
 
   let optional = false;
   let nullable = false;
@@ -92,15 +57,30 @@ export function parseProperty(row: Row): Property {
     row.type.text = row.type.text.slice(0, -1);
   }
 
+  let array = false;
+  let partial = false;
+  let deprecated = false;
+
+  // array
+  if (isArray(row.type.text)) {
+    array = true;
+    row.type.text = stripArray(row.type.text);
+  }
+
+  if (description && isArray(description)) {
+    array = true;
+    description = stripArray(description);
+  }
+
   // partial
   if (isPartial(row.type.text)) {
     partial = true;
     row.type.text = stripPartial(row.type.text);
   }
 
-  if (row.description && isPartial(row.description.text)) {
+  if (description && isPartial(description)) {
     partial = true;
-    row.description.text = stripPartial(row.description.text);
+    row.description.text = stripPartial(description);
   }
 
   // deprecated
@@ -114,20 +94,43 @@ export function parseProperty(row: Row): Property {
     row.type.text = stripDeprecated(row.type.text);
   }
 
-  if (description && isDeprecated(row.description.text)) {
+  if (description && isDeprecated(description)) {
     deprecated = true;
-    description = stripDeprecated(row.description.text);
+    description = stripDeprecated(description);
   }
 
-  // array
-  if (isArray(row.type.text)) {
-    array = true;
-    row.type.text = stripArray(row.type.text);
-  }
+  if (type.includes("or") || type.includes(",")) {
+    const types = type.split(/(or|,)/);
+    const valueTypes: ValueType[] = [];
 
-  if (description && isArray(row.description.text)) {
-    array = true;
-    description = stripArray(row.description.text);
+    for (const type of types) {
+      const valueType = parseValueType(type);
+      if (!valueType) continue;
+      if (
+        valueTypes.some(
+          _ =>
+            _.array === valueType.array &&
+            _.partial === valueType.partial &&
+            _.deprecated === valueType.deprecated &&
+            _.type === valueType.type &&
+            _.value === valueType.value
+        )
+      )
+        continue;
+
+      valueTypes.push(valueType);
+    }
+
+    if (valueTypes.length)
+      return {
+        key,
+        description,
+
+        optional,
+        nullable,
+
+        type: valueTypes
+      };
   }
 
   // type field links
@@ -171,49 +174,6 @@ export function parseProperty(row: Row): Property {
           nullable
         };
 
-  const value = stripPlural(trimText(stripBrackets(cutText(row.type.text))));
-  if (value.includes("or") || value.includes(",")) {
-    const values = value
-      .split(/or|,/)
-      .map(value => stripPlural(trimText(value)));
-    if (values.every(value => validTypes.has(value)))
-      return {
-        key,
-        description,
-
-        type: values.map(value => ({
-          array,
-          partial,
-          deprecated,
-
-          type: "value",
-          value
-        })),
-
-        optional,
-        nullable
-      };
-  }
-
-  // type field raw
-  if (validTypes.has(value))
-    return {
-      key,
-      description,
-
-      type: {
-        array,
-        partial,
-        deprecated,
-
-        type: "value",
-        value
-      },
-
-      optional,
-      nullable
-    };
-
   // could not resolve type
   console.log(`Invalid type: ${row.type.text}`);
   return {
@@ -232,4 +192,91 @@ export function parseProperty(row: Row): Property {
     optional,
     nullable
   };
+}
+
+export function parseValueType(type: string): ValueType {
+  let array = false;
+  let partial = false;
+  let deprecated = false;
+
+  // array
+  if (isArray(type)) {
+    array = true;
+    type = stripArray(type);
+  }
+
+  // partial
+  if (isPartial(type)) {
+    partial = true;
+    type = stripPartial(type);
+  }
+
+  // deprecated
+  if (isDeprecated(type)) {
+    deprecated = true;
+    type = stripDeprecated(type);
+  }
+
+  let value: ValueType["value"];
+  switch (stripPlural(trimText(type))) {
+    case "binary":
+      value = "binary";
+      break;
+
+    case "snowflake":
+      value = "snowflake";
+      break;
+
+    case "file contents":
+      value = "file";
+      break;
+
+    case "null":
+      value = "null";
+      break;
+
+    case "string":
+      value = "string";
+      break;
+
+    case "bool":
+    case "boolean":
+      value = "boolean";
+      break;
+
+    case "int":
+    case "integer":
+    case "number":
+      value = "integer";
+      break;
+
+    case "float":
+      value = "float";
+      break;
+
+    case "bigint":
+      value = "bigint";
+      break;
+
+    case "dict":
+    case "object":
+    case "mixed":
+      value = "object";
+      break;
+
+    // case "date":
+    case "ISO8601 timestamp":
+      value = "timestamp";
+      break;
+  }
+
+  if (value)
+    return {
+      array,
+      partial,
+      deprecated,
+
+      type: "value",
+      value
+    };
 }

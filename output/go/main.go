@@ -960,6 +960,1367 @@ const (
 	ExampleResumedPayloadPort = 2
 )
 
+type ApplicationStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Icon interface{} `json:"icon"`
+	Description string `json:"description"`
+	RpcOrigins []string `json:"rpc_origins"`
+	BotPublic bool `json:"bot_public"`
+	BotRequireCodeGrant bool `json:"bot_require_code_grant"`
+	TermsOfServiceUrl string `json:"terms_of_service_url"`
+	PrivacyPolicyUrl string `json:"privacy_policy_url"`
+	Owner *UserStructure `json:"owner"`
+	Summary string `json:"summary"`
+	VerifyKey interface{} `json:"verify_key"`
+	Team []*TeamObject `json:"team"`
+	GuildId string `json:"guild_id"`
+	PrimarySkuId string `json:"primary_sku_id"`
+	Slug string `json:"slug"`
+	CoverImage interface{} `json:"cover_image"`
+	Flags interface{} `json:"flags"`
+}
+
+type AuditLogStructure struct {
+	AuditLogEntries []*AuditLogEntryStructure `json:"audit_log_entries"`
+	GuildScheduledEvents []*GuildScheduledEventStructure `json:"guild_scheduled_events"`
+	Integrations []*IntegrationStructure `json:"integrations"`
+	Threads []*ChannelStructure `json:"threads"`
+	Users []*UserStructure `json:"users"`
+	Webhooks []*WebhookStructure `json:"webhooks"`
+}
+
+type AuditLogEntryStructure struct {
+	TargetId string `json:"target_id"`
+	Changes []*AuditLogChangeStructure `json:"changes"`
+	UserId string `json:"user_id"`
+	Id string `json:"id"`
+	ActionType interface{} `json:"action_type"`
+	Options *OptionalAuditEntryInfo `json:"options"`
+	Reason string `json:"reason"`
+}
+
+type OptionalAuditEntryInfo struct {
+	ChannelId string `json:"channel_id"`
+	Count string `json:"count"`
+	DeleteMemberDays string `json:"delete_member_days"`
+	Id string `json:"id"`
+	MembersRemoved string `json:"members_removed"`
+	MessageId string `json:"message_id"`
+	RoleName string `json:"role_name"`
+	Type string `json:"type"`
+}
+
+type AuditLogChangeStructure struct {
+	NewValue *AuditLogChangeKey `json:"new_value"`
+	OldValue *AuditLogChangeKey `json:"old_value"`
+	Key *AuditLogChangeKey `json:"key"`
+}
+
+type AuditLogChangeKey struct {
+	AfkChannelId string `json:"afk_channel_id"`
+	AfkTimeout int `json:"afk_timeout"`
+	Allow string `json:"allow"`
+	ApplicationId string `json:"application_id"`
+	Archived bool `json:"archived"`
+	Asset string `json:"asset"`
+	AutoArchiveDuration int `json:"auto_archive_duration"`
+	Available bool `json:"available"`
+	AvatarHash string `json:"avatar_hash"`
+	BannerHash string `json:"banner_hash"`
+	Bitrate int `json:"bitrate"`
+	ChannelId string `json:"channel_id"`
+	Code string `json:"code"`
+	Color int `json:"color"`
+	CommunicationDisabledUntil time.Time `json:"communication_disabled_until"`
+	Deaf bool `json:"deaf"`
+	DefaultAutoArchiveDuration int `json:"default_auto_archive_duration"`
+	DefaultMessageNotifications interface{} `json:"default_message_notifications"`
+	Deny string `json:"deny"`
+	Description string `json:"description"`
+	DiscoverySplashHash string `json:"discovery_splash_hash"`
+	EnableEmoticons bool `json:"enable_emoticons"`
+	EntityType int `json:"entity_type"`
+	ExpireBehavior int `json:"expire_behavior"`
+	ExpireGracePeriod int `json:"expire_grace_period"`
+	ExplicitContentFilter interface{} `json:"explicit_content_filter"`
+	FormatType interface{} `json:"format_type"`
+	GuildId string `json:"guild_id"`
+	Hoist bool `json:"hoist"`
+	IconHash string `json:"icon_hash"`
+	Id string `json:"id"`
+	Invitable bool `json:"invitable"`
+	InviterId string `json:"inviter_id"`
+	Location string `json:"location"`
+	Locked bool `json:"locked"`
+	MaxAge int `json:"max_age"`
+	MaxUses int `json:"max_uses"`
+	Mentionable bool `json:"mentionable"`
+	MfaLevel int `json:"mfa_level"`
+	Mute bool `json:"mute"`
+	Name string `json:"name"`
+	Nick string `json:"nick"`
+	Nsfw bool `json:"nsfw"`
+	OwnerId string `json:"owner_id"`
+	PermissionOverwrites []*OverwriteStructure `json:"permission_overwrites"`
+	Permissions interface{} `json:"permissions"`
+	Position int `json:"position"`
+	PreferredLocale string `json:"preferred_locale"`
+	PrivacyLevel interface{} `json:"privacy_level"`
+	PruneDeleteDays int `json:"prune_delete_days"`
+	PublicUpdatesChannelId string `json:"public_updates_channel_id"`
+	RateLimitPerUser int `json:"rate_limit_per_user"`
+	Region string `json:"region"`
+	RulesChannelId string `json:"rules_channel_id"`
+	SplashHash string `json:"splash_hash"`
+	Status interface{} `json:"status"`
+	SystemChannelId string `json:"system_channel_id"`
+	Tags string `json:"tags"`
+	Temporary bool `json:"temporary"`
+	Topic string `json:"topic"`
+	Type interface{} `json:"type"`
+	UnicodeEmoji string `json:"unicode_emoji"`
+	UserLimit int `json:"user_limit"`
+	Uses int `json:"uses"`
+	VanityUrlCode string `json:"vanity_url_code"`
+	VerificationLevel int `json:"verification_level"`
+	WidgetChannelId string `json:"widget_channel_id"`
+	WidgetEnabled bool `json:"widget_enabled"`
+	Add []*RoleStructure `json:"$add"`
+	Remove []*RoleStructure `json:"$remove"`
+}
+
+type ChannelStructure struct {
+	Id string `json:"id"`
+	Type interface{} `json:"type"`
+	GuildId string `json:"guild_id"`
+	Position int `json:"position"`
+	PermissionOverwrites []*OverwriteStructure `json:"permission_overwrites"`
+	Name string `json:"name"`
+	Topic string `json:"topic"`
+	Nsfw bool `json:"nsfw"`
+	LastMessageId string `json:"last_message_id"`
+	Bitrate int `json:"bitrate"`
+	UserLimit int `json:"user_limit"`
+	RateLimitPerUser int `json:"rate_limit_per_user"`
+	Recipients []*UserStructure `json:"recipients"`
+	Icon string `json:"icon"`
+	OwnerId string `json:"owner_id"`
+	ApplicationId string `json:"application_id"`
+	ParentId string `json:"parent_id"`
+	LastPinTimestamp time.Time `json:"last_pin_timestamp"`
+	RtcRegion *VoiceRegionStructure `json:"rtc_region"`
+	VideoQualityMode interface{} `json:"video_quality_mode"`
+	MessageCount int `json:"message_count"`
+	MemberCount int `json:"member_count"`
+	ThreadMetadata *ThreadMetadataStructure `json:"thread_metadata"`
+	Member *ThreadMemberStructure `json:"member"`
+	DefaultAutoArchiveDuration int `json:"default_auto_archive_duration"`
+	Permissions string `json:"permissions"`
+}
+
+type MessageStructure struct {
+	Id string `json:"id"`
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+	Author *UserStructure `json:"author"`
+	Member *GuildMemberStructure `json:"member"`
+	Content string `json:"content"`
+	Timestamp time.Time `json:"timestamp"`
+	EditedTimestamp time.Time `json:"edited_timestamp"`
+	Tts bool `json:"tts"`
+	MentionEveryone bool `json:"mention_everyone"`
+	Mentions []*UserStructure `json:"mentions"`
+	MentionRoles []*RoleStructure `json:"mention_roles"`
+	MentionChannels []*ChannelMentionStructure `json:"mention_channels"`
+	Attachments []*AttachmentStructure `json:"attachments"`
+	Embeds []*EmbedStructure `json:"embeds"`
+	Reactions []*ReactionStructure `json:"reactions"`
+	Nonce interface{} `json:"nonce"`
+	Pinned bool `json:"pinned"`
+	WebhookId string `json:"webhook_id"`
+	Type interface{} `json:"type"`
+	Activity *MessageActivityStructure `json:"activity"`
+	Application *ApplicationStructure `json:"application"`
+	ApplicationId interface{} `json:"application_id"`
+	MessageReference *MessageReferenceStructure `json:"message_reference"`
+	Flags interface{} `json:"flags"`
+	ReferencedMessage *MessageStructure `json:"referenced_message"`
+	Interaction interface{} `json:"interaction"`
+	Thread *ChannelStructure `json:"thread"`
+	Components []interface{} `json:"components"`
+	StickerItems []*StickerItemStructure `json:"sticker_items"`
+	Stickers []*StickerStructure `json:"stickers"`
+}
+
+type MessageActivityStructure struct {
+	Type interface{} `json:"type"`
+	PartyId interface{} `json:"party_id"`
+}
+
+type MessageReferenceStructure struct {
+	MessageId string `json:"message_id"`
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+	FailIfNotExists bool `json:"fail_if_not_exists"`
+}
+
+type FollowedChannelStructure struct {
+	ChannelId string `json:"channel_id"`
+	WebhookId string `json:"webhook_id"`
+}
+
+type ReactionStructure struct {
+	Count int `json:"count"`
+	Me bool `json:"me"`
+	Emoji *EmojiStructure `json:"emoji"`
+}
+
+type OverwriteStructure struct {
+	Id string `json:"id"`
+	Type int `json:"type"`
+	Allow string `json:"allow"`
+	Deny string `json:"deny"`
+}
+
+type ThreadMetadataStructure struct {
+	Archived bool `json:"archived"`
+	AutoArchiveDuration int `json:"auto_archive_duration"`
+	ArchiveTimestamp time.Time `json:"archive_timestamp"`
+	Locked bool `json:"locked"`
+	Invitable bool `json:"invitable"`
+	CreateTimestamp time.Time `json:"create_timestamp"`
+}
+
+type ThreadMemberStructure struct {
+	Id string `json:"id"`
+	UserId string `json:"user_id"`
+	JoinTimestamp time.Time `json:"join_timestamp"`
+	Flags int `json:"flags"`
+}
+
+type EmbedStructure struct {
+	Title string `json:"title"`
+	Type interface{} `json:"type"`
+	Description string `json:"description"`
+	Url string `json:"url"`
+	Timestamp time.Time `json:"timestamp"`
+	Color int `json:"color"`
+	Footer *EmbedFooterStructure `json:"footer"`
+	Image *EmbedImageStructure `json:"image"`
+	Thumbnail *EmbedThumbnailStructure `json:"thumbnail"`
+	Video *EmbedVideoStructure `json:"video"`
+	Provider *EmbedProviderStructure `json:"provider"`
+	Author *EmbedAuthorStructure `json:"author"`
+	Fields []*EmbedFieldStructure `json:"fields"`
+}
+
+type EmbedThumbnailStructure struct {
+	Url string `json:"url"`
+	ProxyUrl string `json:"proxy_url"`
+	Height int `json:"height"`
+	Width int `json:"width"`
+}
+
+type EmbedVideoStructure struct {
+	Url string `json:"url"`
+	ProxyUrl string `json:"proxy_url"`
+	Height int `json:"height"`
+	Width int `json:"width"`
+}
+
+type EmbedImageStructure struct {
+	Url string `json:"url"`
+	ProxyUrl string `json:"proxy_url"`
+	Height int `json:"height"`
+	Width int `json:"width"`
+}
+
+type EmbedProviderStructure struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+}
+
+type EmbedAuthorStructure struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+	IconUrl string `json:"icon_url"`
+	ProxyIconUrl string `json:"proxy_icon_url"`
+}
+
+type EmbedFooterStructure struct {
+	Text string `json:"text"`
+	IconUrl string `json:"icon_url"`
+	ProxyIconUrl string `json:"proxy_icon_url"`
+}
+
+type EmbedFieldStructure struct {
+	Name string `json:"name"`
+	Value string `json:"value"`
+	Inline bool `json:"inline"`
+}
+
+type AttachmentStructure struct {
+	Id string `json:"id"`
+	Filename string `json:"filename"`
+	Description string `json:"description"`
+	ContentType interface{} `json:"content_type"`
+	Size int `json:"size"`
+	Url string `json:"url"`
+	ProxyUrl string `json:"proxy_url"`
+	Height int `json:"height"`
+	Width int `json:"width"`
+	Ephemeral bool `json:"ephemeral"`
+}
+
+type ChannelMentionStructure struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	Type interface{} `json:"type"`
+	Name string `json:"name"`
+}
+
+type AllowedMentionsStructure struct {
+	Parse []interface{} `json:"parse"`
+	Roles []string `json:"roles"`
+	Users []string `json:"users"`
+	RepliedUser bool `json:"replied_user"`
+}
+
+type EmojiStructure struct {
+	Id interface{} `json:"id"`
+	Name string `json:"name"`
+	Roles []*RoleStructure `json:"roles"`
+	User *UserStructure `json:"user"`
+	RequireColons bool `json:"require_colons"`
+	Managed bool `json:"managed"`
+	Animated bool `json:"animated"`
+	Available bool `json:"available"`
+}
+
+type GuildStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Icon interface{} `json:"icon"`
+	IconHash interface{} `json:"icon_hash"`
+	Splash interface{} `json:"splash"`
+	DiscoverySplash interface{} `json:"discovery_splash"`
+	Owner interface{} `json:"owner"`
+	OwnerId string `json:"owner_id"`
+	Permissions interface{} `json:"permissions"`
+	Region *VoiceRegionStructure `json:"region"`
+	AfkChannelId string `json:"afk_channel_id"`
+	AfkTimeout int `json:"afk_timeout"`
+	WidgetEnabled bool `json:"widget_enabled"`
+	WidgetChannelId string `json:"widget_channel_id"`
+	VerificationLevel interface{} `json:"verification_level"`
+	DefaultMessageNotifications interface{} `json:"default_message_notifications"`
+	ExplicitContentFilter interface{} `json:"explicit_content_filter"`
+	Roles []*RoleStructure `json:"roles"`
+	Emojis []*EmojiStructure `json:"emojis"`
+	Features []interface{} `json:"features"`
+	MfaLevel interface{} `json:"mfa_level"`
+	ApplicationId string `json:"application_id"`
+	SystemChannelId string `json:"system_channel_id"`
+	SystemChannelFlags interface{} `json:"system_channel_flags"`
+	RulesChannelId string `json:"rules_channel_id"`
+	JoinedAt time.Time `json:"joined_at"`
+	Large bool `json:"large"`
+	Unavailable bool `json:"unavailable"`
+	MemberCount int `json:"member_count"`
+	VoiceStates []*VoiceStateStructure `json:"voice_states"`
+	Members []*GuildMemberStructure `json:"members"`
+	Channels []*ChannelStructure `json:"channels"`
+	Threads []*ChannelStructure `json:"threads"`
+	Presences []*PresenceUpdateEventFields `json:"presences"`
+	MaxPresences int `json:"max_presences"`
+	MaxMembers int `json:"max_members"`
+	VanityUrlCode string `json:"vanity_url_code"`
+	Description string `json:"description"`
+	Banner interface{} `json:"banner"`
+	PremiumTier interface{} `json:"premium_tier"`
+	PremiumSubscriptionCount int `json:"premium_subscription_count"`
+	PreferredLocale interface{} `json:"preferred_locale"`
+	PublicUpdatesChannelId string `json:"public_updates_channel_id"`
+	MaxVideoChannelUsers int `json:"max_video_channel_users"`
+	ApproximateMemberCount int `json:"approximate_member_count"`
+	ApproximatePresenceCount int `json:"approximate_presence_count"`
+	WelcomeScreen *WelcomeScreenStructure `json:"welcome_screen"`
+	NsfwLevel interface{} `json:"nsfw_level"`
+	StageInstances []*StageInstanceStructure `json:"stage_instances"`
+	Stickers []*StickerStructure `json:"stickers"`
+	GuildScheduledEvents []*GuildScheduledEventStructure `json:"guild_scheduled_events"`
+	PremiumProgressBarEnabled bool `json:"premium_progress_bar_enabled"`
+}
+
+type GuildPreviewStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Icon interface{} `json:"icon"`
+	Splash interface{} `json:"splash"`
+	DiscoverySplash interface{} `json:"discovery_splash"`
+	Emojis []*EmojiStructure `json:"emojis"`
+	Features []interface{} `json:"features"`
+	ApproximateMemberCount int `json:"approximate_member_count"`
+	ApproximatePresenceCount int `json:"approximate_presence_count"`
+	Description string `json:"description"`
+	Stickers []*StickerStructure `json:"stickers"`
+}
+
+type GuildWidgetSettingsStructure struct {
+	Enabled bool `json:"enabled"`
+	ChannelId string `json:"channel_id"`
+}
+
+type GetGuildWidgetStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	InstantInvite string `json:"instant_invite"`
+	Channels []*ChannelStructure `json:"channels"`
+	Members []*UserStructure `json:"members"`
+	PresenceCount int `json:"presence_count"`
+}
+
+type GuildMemberStructure struct {
+	User *UserStructure `json:"user"`
+	Nick string `json:"nick"`
+	Avatar interface{} `json:"avatar"`
+	Roles []*RoleStructure `json:"roles"`
+	JoinedAt time.Time `json:"joined_at"`
+	PremiumSince interface{} `json:"premium_since"`
+	Deaf bool `json:"deaf"`
+	Mute bool `json:"mute"`
+	Pending interface{} `json:"pending"`
+	Permissions string `json:"permissions"`
+	CommunicationDisabledUntil interface{} `json:"communication_disabled_until"`
+}
+
+type IntegrationStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Type string `json:"type"`
+	Enabled bool `json:"enabled"`
+	Syncing bool `json:"syncing"`
+	RoleId string `json:"role_id"`
+	EnableEmoticons bool `json:"enable_emoticons"`
+	ExpireBehavior interface{} `json:"expire_behavior"`
+	ExpireGracePeriod int `json:"expire_grace_period"`
+	User *UserStructure `json:"user"`
+	Account *IntegrationAccountStructure `json:"account"`
+	SyncedAt time.Time `json:"synced_at"`
+	SubscriberCount int `json:"subscriber_count"`
+	Revoked bool `json:"revoked"`
+	Application *IntegrationApplicationStructure `json:"application"`
+}
+
+type IntegrationAccountStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+}
+
+type IntegrationApplicationStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Icon interface{} `json:"icon"`
+	Description string `json:"description"`
+	Summary string `json:"summary"`
+	Bot *UserStructure `json:"bot"`
+}
+
+type BanStructure struct {
+	Reason string `json:"reason"`
+	User *UserStructure `json:"user"`
+}
+
+type WelcomeScreenStructure struct {
+	Description string `json:"description"`
+	WelcomeChannels []*WelcomeScreenChannelStructure `json:"welcome_channels"`
+}
+
+type WelcomeScreenChannelStructure struct {
+	ChannelId string `json:"channel_id"`
+	Description string `json:"description"`
+	EmojiId interface{} `json:"emoji_id"`
+	EmojiName string `json:"emoji_name"`
+}
+
+type GuildScheduledEventStructure struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	ChannelId interface{} `json:"channel_id"`
+	CreatorId string `json:"creator_id"`
+	Name string `json:"name"`
+	Description string `json:"description"`
+	ScheduledStartTime time.Time `json:"scheduled_start_time"`
+	ScheduledEndTime time.Time `json:"scheduled_end_time"`
+	PrivacyLevel interface{} `json:"privacy_level"`
+	Status interface{} `json:"status"`
+	EntityType interface{} `json:"entity_type"`
+	EntityId string `json:"entity_id"`
+	EntityMetadata *GuildScheduledEventEntityMetadata `json:"entity_metadata"`
+	Creator *UserStructure `json:"creator"`
+	UserCount int `json:"user_count"`
+	Image interface{} `json:"image"`
+}
+
+type GuildScheduledEventEntityMetadata struct {
+	Location string `json:"location"`
+}
+
+type GuildScheduledEventUserStructure struct {
+	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
+	User *UserStructure `json:"user"`
+	Member *GuildMemberStructure `json:"member"`
+}
+
+type GuildTemplateStructure struct {
+	Code string `json:"code"`
+	Name string `json:"name"`
+	Description string `json:"description"`
+	UsageCount int `json:"usage_count"`
+	CreatorId string `json:"creator_id"`
+	Creator *UserStructure `json:"creator"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	SourceGuildId string `json:"source_guild_id"`
+	SerializedSourceGuild *GuildStructure `json:"serialized_source_guild"`
+	IsDirty bool `json:"is_dirty"`
+}
+
+type InviteStructure struct {
+	Code string `json:"code"`
+	Guild *GuildStructure `json:"guild"`
+	Channel *ChannelStructure `json:"channel"`
+	Inviter *UserStructure `json:"inviter"`
+	TargetType interface{} `json:"target_type"`
+	TargetUser *UserStructure `json:"target_user"`
+	TargetApplication *ApplicationStructure `json:"target_application"`
+	ApproximatePresenceCount int `json:"approximate_presence_count"`
+	ApproximateMemberCount int `json:"approximate_member_count"`
+	ExpiresAt time.Time `json:"expires_at"`
+	StageInstance *InviteStageInstanceStructure `json:"stage_instance"`
+	GuildScheduledEvent *GuildScheduledEventStructure `json:"guild_scheduled_event"`
+}
+
+type InviteMetadataStructure struct {
+	Uses int `json:"uses"`
+	MaxUses int `json:"max_uses"`
+	MaxAge int `json:"max_age"`
+	Temporary bool `json:"temporary"`
+	CreatedAt time.Time `json:"created_at"`
+}
+
+type InviteStageInstanceStructure struct {
+	Members []*GuildMemberStructure `json:"members"`
+	ParticipantCount int `json:"participant_count"`
+	SpeakerCount int `json:"speaker_count"`
+	Topic string `json:"topic"`
+}
+
+type StageInstanceStructure struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+	Topic string `json:"topic"`
+	PrivacyLevel interface{} `json:"privacy_level"`
+	DiscoverableDisabled bool `json:"discoverable_disabled"`
+}
+
+type StickerStructure struct {
+	Id interface{} `json:"id"`
+	PackId string `json:"pack_id"`
+	Name string `json:"name"`
+	Description string `json:"description"`
+	Tags string `json:"tags"`
+	Asset string `json:"asset"`
+	Type interface{} `json:"type"`
+	FormatType interface{} `json:"format_type"`
+	Available bool `json:"available"`
+	GuildId string `json:"guild_id"`
+	User *UserStructure `json:"user"`
+	SortValue int `json:"sort_value"`
+}
+
+type StickerItemStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	FormatType interface{} `json:"format_type"`
+}
+
+type StickerPackStructure struct {
+	Id string `json:"id"`
+	Stickers []*StickerStructure `json:"stickers"`
+	Name string `json:"name"`
+	SkuId string `json:"sku_id"`
+	CoverStickerId string `json:"cover_sticker_id"`
+	Description string `json:"description"`
+	BannerAssetId interface{} `json:"banner_asset_id"`
+}
+
+type UserStructure struct {
+	Id string `json:"id"`
+	Username string `json:"username"`
+	Discriminator string `json:"discriminator"`
+	Avatar interface{} `json:"avatar"`
+	Bot bool `json:"bot"`
+	System bool `json:"system"`
+	MfaEnabled bool `json:"mfa_enabled"`
+	Banner interface{} `json:"banner"`
+	AccentColor int `json:"accent_color"`
+	Locale interface{} `json:"locale"`
+	Verified bool `json:"verified"`
+	Email string `json:"email"`
+	Flags interface{} `json:"flags"`
+	PremiumType interface{} `json:"premium_type"`
+	PublicFlags interface{} `json:"public_flags"`
+}
+
+type ConnectionStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Type string `json:"type"`
+	Revoked bool `json:"revoked"`
+	Integrations []*IntegrationStructure `json:"integrations"`
+	Verified bool `json:"verified"`
+	FriendSync bool `json:"friend_sync"`
+	ShowActivity bool `json:"show_activity"`
+	Visibility interface{} `json:"visibility"`
+}
+
+type VoiceStateStructure struct {
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+	UserId string `json:"user_id"`
+	Member *GuildMemberStructure `json:"member"`
+	SessionId string `json:"session_id"`
+	Deaf bool `json:"deaf"`
+	Mute bool `json:"mute"`
+	SelfDeaf bool `json:"self_deaf"`
+	SelfMute bool `json:"self_mute"`
+	SelfStream bool `json:"self_stream"`
+	SelfVideo bool `json:"self_video"`
+	Suppress bool `json:"suppress"`
+	RequestToSpeakTimestamp time.Time `json:"request_to_speak_timestamp"`
+}
+
+type VoiceRegionStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Optimal bool `json:"optimal"`
+	Deprecated bool `json:"deprecated"`
+	Custom bool `json:"custom"`
+}
+
+type WebhookStructure struct {
+	Id string `json:"id"`
+	Type interface{} `json:"type"`
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+	User *UserStructure `json:"user"`
+	Name string `json:"name"`
+	Avatar interface{} `json:"avatar"`
+	Token string `json:"token"`
+	ApplicationId string `json:"application_id"`
+	SourceGuild *GuildStructure `json:"source_guild"`
+	SourceChannel *ChannelStructure `json:"source_channel"`
+	Url *WebhooksUpdateEventFields `json:"url"`
+}
+
+type DeviceObject struct {
+	Type interface{} `json:"type"`
+	Id string `json:"id"`
+	Vendor *VendorObject `json:"vendor"`
+	Model *ModelObject `json:"model"`
+	Related []string `json:"related"`
+	EchoCancellation bool `json:"echo_cancellation"`
+	NoiseSuppression bool `json:"noise_suppression"`
+	AutomaticGainControl bool `json:"automatic_gain_control"`
+	HardwareMute bool `json:"hardware_mute"`
+}
+
+type VendorObject struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+}
+
+type ModelObject struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+}
+
+type GatewayPayloadStructure struct {
+	Op interface{} `json:"op"`
+	D map[string]interface{} `json:"d"`
+	S int `json:"s"`
+	T string `json:"t"`
+}
+
+type GatewayUrlQueryStringParams struct {
+	V int `json:"v"`
+	Encoding string `json:"encoding"`
+	Compress string `json:"compress"`
+}
+
+type IdentifyStructure struct {
+	Token string `json:"token"`
+	Properties *IdentifyConnectionProperties `json:"properties"`
+	Compress bool `json:"compress"`
+	LargeThreshold int `json:"large_threshold"`
+	Shard []interface{} `json:"shard"`
+	Presence *GatewayPresenceUpdateStructure `json:"presence"`
+	Intents interface{} `json:"intents"`
+}
+
+type IdentifyConnectionProperties struct {
+	Os string `json:"$os"`
+	Browser string `json:"$browser"`
+	Device string `json:"$device"`
+}
+
+type ResumeStructure struct {
+	Token string `json:"token"`
+	SessionId string `json:"session_id"`
+	Seq int `json:"seq"`
+}
+
+type GuildRequestMembersStructure struct {
+	GuildId string `json:"guild_id"`
+	Query string `json:"query"`
+	Limit int `json:"limit"`
+	Presences bool `json:"presences"`
+	UserIds interface{} `json:"user_ids"`
+	Nonce *GuildMembersChunkEventFields `json:"nonce"`
+}
+
+type GatewayVoiceStateUpdateStructure struct {
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+	SelfMute bool `json:"self_mute"`
+	SelfDeaf bool `json:"self_deaf"`
+}
+
+type GatewayPresenceUpdateStructure struct {
+	Since int `json:"since"`
+	Activities []*ActivityStructure `json:"activities"`
+	Status interface{} `json:"status"`
+	Afk bool `json:"afk"`
+}
+
+type HelloStructure struct {
+	HeartbeatInterval int `json:"heartbeat_interval"`
+}
+
+type ReadyEventFields struct {
+	V interface{} `json:"v"`
+	User *UserStructure `json:"user"`
+	Guilds []interface{} `json:"guilds"`
+	SessionId string `json:"session_id"`
+	Shard []interface{} `json:"shard"`
+	Application *ApplicationStructure `json:"application"`
+}
+
+type ThreadListSyncEventFields struct {
+	GuildId string `json:"guild_id"`
+	ChannelIds []string `json:"channel_ids"`
+	Threads []*ChannelStructure `json:"threads"`
+	Members []*ThreadMemberStructure `json:"members"`
+}
+
+type ThreadMemberUpdateEventExtraFields struct {
+	GuildId string `json:"guild_id"`
+}
+
+type ThreadMembersUpdateEventFields struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	MemberCount int `json:"member_count"`
+	AddedMembers []*ThreadMemberStructure `json:"added_members"`
+	RemovedMemberIds []string `json:"removed_member_ids"`
+}
+
+type ChannelPinsUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+	LastPinTimestamp time.Time `json:"last_pin_timestamp"`
+}
+
+type GuildBanAddEventFields struct {
+	GuildId string `json:"guild_id"`
+	User *UserStructure `json:"user"`
+}
+
+type GuildBanRemoveEventFields struct {
+	GuildId string `json:"guild_id"`
+	User *UserStructure `json:"user"`
+}
+
+type GuildEmojisUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	Emojis []*EmojiStructure `json:"emojis"`
+}
+
+type GuildStickersUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	Stickers []*StickerStructure `json:"stickers"`
+}
+
+type GuildIntegrationsUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+}
+
+type GuildMemberAddExtraFields struct {
+	GuildId string `json:"guild_id"`
+}
+
+type GuildMemberRemoveEventFields struct {
+	GuildId string `json:"guild_id"`
+	User *UserStructure `json:"user"`
+}
+
+type GuildMemberUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	Roles []string `json:"roles"`
+	User *UserStructure `json:"user"`
+	Nick string `json:"nick"`
+	Avatar interface{} `json:"avatar"`
+	JoinedAt time.Time `json:"joined_at"`
+	PremiumSince interface{} `json:"premium_since"`
+	Deaf bool `json:"deaf"`
+	Mute bool `json:"mute"`
+	Pending interface{} `json:"pending"`
+	CommunicationDisabledUntil interface{} `json:"communication_disabled_until"`
+}
+
+type GuildMembersChunkEventFields struct {
+	GuildId string `json:"guild_id"`
+	Members []*GuildMemberStructure `json:"members"`
+	ChunkIndex int `json:"chunk_index"`
+	ChunkCount int `json:"chunk_count"`
+	NotFound interface{} `json:"not_found"`
+	Presences []*PresenceUpdateEventFields `json:"presences"`
+	Nonce *GuildRequestMembersStructure `json:"nonce"`
+}
+
+type GuildRoleCreateEventFields struct {
+	GuildId string `json:"guild_id"`
+	Role *RoleStructure `json:"role"`
+}
+
+type GuildRoleUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	Role *RoleStructure `json:"role"`
+}
+
+type GuildRoleDeleteEventFields struct {
+	GuildId string `json:"guild_id"`
+	RoleId string `json:"role_id"`
+}
+
+type GuildScheduledEventUserAddEventFields struct {
+	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
+	UserId string `json:"user_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type GuildScheduledEventUserRemoveEventFields struct {
+	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
+	UserId string `json:"user_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type IntegrationCreateEventAdditionalFields struct {
+	GuildId string `json:"guild_id"`
+}
+
+type IntegrationUpdateEventAdditionalFields struct {
+	GuildId string `json:"guild_id"`
+}
+
+type IntegrationDeleteEventFields struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	ApplicationId string `json:"application_id"`
+}
+
+type InviteCreateEventFields struct {
+	ChannelId string `json:"channel_id"`
+	Code *InviteStructure `json:"code"`
+	CreatedAt time.Time `json:"created_at"`
+	GuildId string `json:"guild_id"`
+	Inviter *UserStructure `json:"inviter"`
+	MaxAge int `json:"max_age"`
+	MaxUses int `json:"max_uses"`
+	TargetType interface{} `json:"target_type"`
+	TargetUser *UserStructure `json:"target_user"`
+	TargetApplication *ApplicationStructure `json:"target_application"`
+	Temporary bool `json:"temporary"`
+	Uses int `json:"uses"`
+}
+
+type InviteDeleteEventFields struct {
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+	Code *InviteStructure `json:"code"`
+}
+
+type MessageDeleteEventFields struct {
+	Id string `json:"id"`
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type MessageDeleteBulkEventFields struct {
+	Ids []string `json:"ids"`
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type MessageReactionAddEventFields struct {
+	UserId string `json:"user_id"`
+	ChannelId string `json:"channel_id"`
+	MessageId string `json:"message_id"`
+	GuildId string `json:"guild_id"`
+	Member *GuildMemberStructure `json:"member"`
+	Emoji *EmojiStructure `json:"emoji"`
+}
+
+type MessageReactionRemoveEventFields struct {
+	UserId string `json:"user_id"`
+	ChannelId string `json:"channel_id"`
+	MessageId string `json:"message_id"`
+	GuildId string `json:"guild_id"`
+	Emoji *EmojiStructure `json:"emoji"`
+}
+
+type MessageReactionRemoveAllEventFields struct {
+	ChannelId string `json:"channel_id"`
+	MessageId string `json:"message_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type MessageReactionRemoveEmojiEventFields struct {
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+	MessageId string `json:"message_id"`
+	Emoji *EmojiStructure `json:"emoji"`
+}
+
+type PresenceUpdateEventFields struct {
+	User *UserStructure `json:"user"`
+	GuildId string `json:"guild_id"`
+	Status string `json:"status"`
+	Activities []*ActivityStructure `json:"activities"`
+	ClientStatus interface{} `json:"client_status"`
+}
+
+type ActivityStructure struct {
+	Name string `json:"name"`
+	Type interface{} `json:"type"`
+	Url string `json:"url"`
+	CreatedAt int `json:"created_at"`
+	Timestamps *ActivityTimestamps `json:"timestamps"`
+	ApplicationId string `json:"application_id"`
+	Details string `json:"details"`
+	State string `json:"state"`
+	Emoji *ActivityEmoji `json:"emoji"`
+	Party *ActivityParty `json:"party"`
+	Assets *ActivityAssets `json:"assets"`
+	Secrets *ActivitySecrets `json:"secrets"`
+	Instance bool `json:"instance"`
+	Flags interface{} `json:"flags"`
+	Buttons []*ActivityButtons `json:"buttons"`
+}
+
+type ActivityTimestamps struct {
+	Start int `json:"start"`
+	End int `json:"end"`
+}
+
+type ActivityEmoji struct {
+	Name string `json:"name"`
+	Id string `json:"id"`
+	Animated bool `json:"animated"`
+}
+
+type ActivityParty struct {
+	Id string `json:"id"`
+	Size []int `json:"size"`
+}
+
+type ActivityAssets struct {
+	LargeImage interface{} `json:"large_image"`
+	LargeText string `json:"large_text"`
+	SmallImage interface{} `json:"small_image"`
+	SmallText string `json:"small_text"`
+}
+
+type ActivitySecrets struct {
+	Join string `json:"join"`
+	Spectate string `json:"spectate"`
+	Match string `json:"match"`
+}
+
+type ActivityButtons struct {
+	Label string `json:"label"`
+	Url string `json:"url"`
+}
+
+type TypingStartEventFields struct {
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+	UserId string `json:"user_id"`
+	Timestamp int `json:"timestamp"`
+	Member *GuildMemberStructure `json:"member"`
+}
+
+type VoiceServerUpdateEventFields struct {
+	Token string `json:"token"`
+	GuildId string `json:"guild_id"`
+	Endpoint string `json:"endpoint"`
+}
+
+type WebhooksUpdateEventFields struct {
+	GuildId string `json:"guild_id"`
+	ChannelId string `json:"channel_id"`
+}
+
+type RoleStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Color int `json:"color"`
+	Hoist bool `json:"hoist"`
+	Icon interface{} `json:"icon"`
+	UnicodeEmoji string `json:"unicode_emoji"`
+	Position int `json:"position"`
+	Permissions string `json:"permissions"`
+	Managed bool `json:"managed"`
+	Mentionable bool `json:"mentionable"`
+	Tags *RoleTagsStructure `json:"tags"`
+}
+
+type RoleTagsStructure struct {
+	BotId string `json:"bot_id"`
+	IntegrationId string `json:"integration_id"`
+	PremiumSubscriber interface{} `json:"premium_subscriber"`
+}
+
+type PayloadStructure struct {
+	Cmd interface{} `json:"cmd"`
+	Nonce string `json:"nonce"`
+	Evt interface{} `json:"evt"`
+	Data map[string]interface{} `json:"data"`
+	Args map[string]interface{} `json:"args"`
+}
+
+type AuthorizeArgumentStructure struct {
+	Scopes []interface{} `json:"scopes"`
+	ClientId string `json:"client_id"`
+	RpcToken string `json:"rpc_token"`
+	Username string `json:"username"`
+}
+
+type AuthorizeResponseStructure struct {
+	Code string `json:"code"`
+}
+
+type AuthenticateArgumentStructure struct {
+	AccessToken string `json:"access_token"`
+}
+
+type AuthenticateResponseStructure struct {
+	User *UserStructure `json:"user"`
+	Scopes []interface{} `json:"scopes"`
+	Expires time.Time `json:"expires"`
+	Application *OAuth2ApplicationStructure `json:"application"`
+}
+
+type OAuth2ApplicationStructure struct {
+	Description string `json:"description"`
+	Icon string `json:"icon"`
+	Id string `json:"id"`
+	RpcOrigins []string `json:"rpc_origins"`
+	Name string `json:"name"`
+}
+
+type GetGuildsResponseStructure struct {
+	Guilds []*GuildStructure `json:"guilds"`
+}
+
+type GetGuildArgumentStructure struct {
+	GuildId string `json:"guild_id"`
+	Timeout int `json:"timeout"`
+}
+
+type GetGuildResponseStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	IconUrl string `json:"icon_url"`
+	Members []*GuildMemberStructure `json:"members"`
+}
+
+type GetChannelArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+}
+
+type GetChannelResponseStructure struct {
+	Id string `json:"id"`
+	GuildId string `json:"guild_id"`
+	Name string `json:"name"`
+	Type int `json:"type"`
+	Topic string `json:"topic"`
+	Bitrate int `json:"bitrate"`
+	UserLimit int `json:"user_limit"`
+	Position int `json:"position"`
+	VoiceStates []*VoiceStateStructure `json:"voice_states"`
+	Messages []*MessageStructure `json:"messages"`
+}
+
+type GetChannelsArgumentStructure struct {
+	GuildId string `json:"guild_id"`
+}
+
+type GetChannelsResponseStructure struct {
+	Channels []*ChannelStructure `json:"channels"`
+}
+
+type SetUserVoiceSettingsArgumentAndResponseStructure struct {
+	UserId string `json:"user_id"`
+	Pan interface{} `json:"pan"`
+	Volume int `json:"volume"`
+	Mute bool `json:"mute"`
+}
+
+type PanObject struct {
+	Left float64 `json:"left"`
+	Right float64 `json:"right"`
+}
+
+type SelectVoiceChannelArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+	Timeout int `json:"timeout"`
+	Force bool `json:"force"`
+}
+
+type SelectTextChannelArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+	Timeout int `json:"timeout"`
+}
+
+type GetVoiceSettingsResponseStructure struct {
+	Input interface{} `json:"input"`
+	Output interface{} `json:"output"`
+	Mode interface{} `json:"mode"`
+	AutomaticGainControl bool `json:"automatic_gain_control"`
+	EchoCancellation bool `json:"echo_cancellation"`
+	NoiseSuppression bool `json:"noise_suppression"`
+	Qos bool `json:"qos"`
+	SilenceWarning bool `json:"silence_warning"`
+	Deaf bool `json:"deaf"`
+	Mute bool `json:"mute"`
+}
+
+type VoiceSettingsInputObject struct {
+	DeviceId string `json:"device_id"`
+	Volume float64 `json:"volume"`
+	AvailableDevices []map[string]interface{} `json:"available_devices"`
+}
+
+type VoiceSettingsOutputObject struct {
+	DeviceId string `json:"device_id"`
+	Volume float64 `json:"volume"`
+	AvailableDevices []map[string]interface{} `json:"available_devices"`
+}
+
+type VoiceSettingsModeObject struct {
+	Type string `json:"type"`
+	AutoThreshold bool `json:"auto_threshold"`
+	Threshold float64 `json:"threshold"`
+	Shortcut interface{} `json:"shortcut"`
+	Delay float64 `json:"delay"`
+}
+
+type ShortcutKeyComboObject struct {
+	Type interface{} `json:"type"`
+	Code int `json:"code"`
+	Name string `json:"name"`
+}
+
+type SetVoiceSettingsArgumentAndResponseStructure struct {
+	Input interface{} `json:"input"`
+	Output interface{} `json:"output"`
+	Mode interface{} `json:"mode"`
+	AutomaticGainControl bool `json:"automatic_gain_control"`
+	EchoCancellation bool `json:"echo_cancellation"`
+	NoiseSuppression bool `json:"noise_suppression"`
+	Qos bool `json:"qos"`
+	SilenceWarning bool `json:"silence_warning"`
+	Deaf bool `json:"deaf"`
+	Mute bool `json:"mute"`
+}
+
+type SubscribeResponseStructure struct {
+	Evt string `json:"evt"`
+}
+
+type UnsubscribeResponseStructure struct {
+	Evt string `json:"evt"`
+}
+
+type SetCertifiedDevicesArgumentStrucure struct {
+	Devices []interface{} `json:"devices"`
+}
+
+type DeviceObject_ struct {
+	Type interface{} `json:"type"`
+	Id string `json:"id"`
+	Vendor interface{} `json:"vendor"`
+	Model interface{} `json:"model"`
+	Related []string `json:"related"`
+	EchoCancellation bool `json:"echo_cancellation"`
+	NoiseSuppression bool `json:"noise_suppression"`
+	AutomaticGainControl bool `json:"automatic_gain_control"`
+	HardwareMute bool `json:"hardware_mute"`
+}
+
+type VendorObject_ struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+}
+
+type ModelObject_ struct {
+	Name string `json:"name"`
+	Url string `json:"url"`
+}
+
+type SetActivityArgumentStructure struct {
+	Pid int `json:"pid"`
+	Activity *ActivityStructure `json:"activity"`
+}
+
+type SendActivityJoinInviteArgumentStructure struct {
+	UserId string `json:"user_id"`
+}
+
+type CloseActivityRequestArgumentStructure struct {
+	UserId string `json:"user_id"`
+}
+
+type ReadyDispatchDataStructure struct {
+	V int `json:"v"`
+	Config *RpcServerConfigurationObject `json:"config"`
+	User *UserStructure `json:"user"`
+}
+
+type RpcServerConfigurationObject struct {
+	CdnHost string `json:"cdn_host"`
+	ApiEndpoint string `json:"api_endpoint"`
+	Environment string `json:"environment"`
+}
+
+type ErrorDataStructure struct {
+	Code int `json:"code"`
+	Message string `json:"message"`
+}
+
+type GuildStatusArgumentStructure struct {
+	GuildId string `json:"guild_id"`
+}
+
+type GuildStatusDispatchDataStructure struct {
+	Guild *GuildStructure `json:"guild"`
+	Online int `json:"online"`
+}
+
+type GuildCreateDispatchDataStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+}
+
+type ChannelCreateDispatchDataStructure struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Type int `json:"type"`
+}
+
+type VoiceChannelSelectDispatchDataStructure struct {
+	ChannelId string `json:"channel_id"`
+	GuildId string `json:"guild_id"`
+}
+
+type VoiceStateArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+}
+
+type VoiceConnectionStatusDispatchDataStructure struct {
+	State string `json:"state"`
+	Hostname string `json:"hostname"`
+	Pings []int `json:"pings"`
+	AveragePing int `json:"average_ping"`
+	LastPing int `json:"last_ping"`
+}
+
+type MessageArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+}
+
+type SpeakingArgumentStructure struct {
+	ChannelId string `json:"channel_id"`
+}
+
+type SpeakingDispatchDataStructure struct {
+	UserId string `json:"user_id"`
+}
+
+type NotificationCreateDispatchDataStructure struct {
+	ChannelId string `json:"channel_id"`
+	Message *MessageStructure `json:"message"`
+	IconUrl string `json:"icon_url"`
+	Title string `json:"title"`
+	Body string `json:"body"`
+}
+
+type ActivityJoinDispatchDataStructure struct {
+	Secret interface{} `json:"secret"`
+}
+
+type ActivitySpectateDispatchDataStructure struct {
+	Secret interface{} `json:"secret"`
+}
+
+type ActivityJoinRequestDataStructure struct {
+	User *UserStructure `json:"user"`
+}
+
+type RateLimitResponseStructure struct {
+	Message string `json:"message"`
+	RetryAfter float64 `json:"retry_after"`
+	Global bool `json:"global"`
+}
+
+type TeamObject struct {
+	Icon string `json:"icon"`
+	Id string `json:"id"`
+	Members []*TeamMemberObject `json:"members"`
+	Name string `json:"name"`
+	OwnerUserId string `json:"owner_user_id"`
+}
+
+type TeamMemberObject struct {
+	MembershipState interface{} `json:"membership_state"`
+	Permissions []string `json:"permissions"`
+	TeamId string `json:"team_id"`
+	User *UserStructure `json:"user"`
+}
+
+type VoicePacketStructure struct {
+	VersionFlags interface{} `json:"Version + Flags"`
+	PayloadType interface{} `json:"Payload Type"`
+	Sequence interface{} `json:"Sequence"`
+	Timestamp interface{} `json:"Timestamp"`
+	Ssrc interface{} `json:"SSRC"`
+	EncryptedAudio interface{} `json:"Encrypted audio"`
+}
+
 func GetChannel(
 	channelId string,
 ) *ChannelStructure {
@@ -3047,1365 +4408,4 @@ func GetCurrentBotApplicationInformation(
 	var balls *ApplicationStructure
 	json.NewDecoder(res.Body).Decode(&balls)
 	return balls
-}
-
-type ApplicationStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Icon interface{} `json:"icon"`
-	Description string `json:"description"`
-	RpcOrigins []string `json:"rpc_origins"`
-	BotPublic bool `json:"bot_public"`
-	BotRequireCodeGrant bool `json:"bot_require_code_grant"`
-	TermsOfServiceUrl string `json:"terms_of_service_url"`
-	PrivacyPolicyUrl string `json:"privacy_policy_url"`
-	Owner *UserStructure `json:"owner"`
-	Summary string `json:"summary"`
-	VerifyKey interface{} `json:"verify_key"`
-	Team []*TeamObject `json:"team"`
-	GuildId string `json:"guild_id"`
-	PrimarySkuId string `json:"primary_sku_id"`
-	Slug string `json:"slug"`
-	CoverImage interface{} `json:"cover_image"`
-	Flags interface{} `json:"flags"`
-}
-
-type AuditLogStructure struct {
-	AuditLogEntries []*AuditLogEntryStructure `json:"audit_log_entries"`
-	GuildScheduledEvents []*GuildScheduledEventStructure `json:"guild_scheduled_events"`
-	Integrations []*IntegrationStructure `json:"integrations"`
-	Threads []*ChannelStructure `json:"threads"`
-	Users []*UserStructure `json:"users"`
-	Webhooks []*WebhookStructure `json:"webhooks"`
-}
-
-type AuditLogEntryStructure struct {
-	TargetId string `json:"target_id"`
-	Changes []*AuditLogChangeStructure `json:"changes"`
-	UserId string `json:"user_id"`
-	Id string `json:"id"`
-	ActionType interface{} `json:"action_type"`
-	Options *OptionalAuditEntryInfo `json:"options"`
-	Reason string `json:"reason"`
-}
-
-type OptionalAuditEntryInfo struct {
-	ChannelId string `json:"channel_id"`
-	Count string `json:"count"`
-	DeleteMemberDays string `json:"delete_member_days"`
-	Id string `json:"id"`
-	MembersRemoved string `json:"members_removed"`
-	MessageId string `json:"message_id"`
-	RoleName string `json:"role_name"`
-	Type string `json:"type"`
-}
-
-type AuditLogChangeStructure struct {
-	NewValue *AuditLogChangeKey `json:"new_value"`
-	OldValue *AuditLogChangeKey `json:"old_value"`
-	Key *AuditLogChangeKey `json:"key"`
-}
-
-type AuditLogChangeKey struct {
-	AfkChannelId string `json:"afk_channel_id"`
-	AfkTimeout int `json:"afk_timeout"`
-	Allow string `json:"allow"`
-	ApplicationId string `json:"application_id"`
-	Archived bool `json:"archived"`
-	Asset string `json:"asset"`
-	AutoArchiveDuration int `json:"auto_archive_duration"`
-	Available bool `json:"available"`
-	AvatarHash string `json:"avatar_hash"`
-	BannerHash string `json:"banner_hash"`
-	Bitrate int `json:"bitrate"`
-	ChannelId string `json:"channel_id"`
-	Code string `json:"code"`
-	Color int `json:"color"`
-	CommunicationDisabledUntil time.Time `json:"communication_disabled_until"`
-	Deaf bool `json:"deaf"`
-	DefaultAutoArchiveDuration int `json:"default_auto_archive_duration"`
-	DefaultMessageNotifications interface{} `json:"default_message_notifications"`
-	Deny string `json:"deny"`
-	Description string `json:"description"`
-	DiscoverySplashHash string `json:"discovery_splash_hash"`
-	EnableEmoticons bool `json:"enable_emoticons"`
-	EntityType int `json:"entity_type"`
-	ExpireBehavior int `json:"expire_behavior"`
-	ExpireGracePeriod int `json:"expire_grace_period"`
-	ExplicitContentFilter interface{} `json:"explicit_content_filter"`
-	FormatType interface{} `json:"format_type"`
-	GuildId string `json:"guild_id"`
-	Hoist bool `json:"hoist"`
-	IconHash string `json:"icon_hash"`
-	Id string `json:"id"`
-	Invitable bool `json:"invitable"`
-	InviterId string `json:"inviter_id"`
-	Location string `json:"location"`
-	Locked bool `json:"locked"`
-	MaxAge int `json:"max_age"`
-	MaxUses int `json:"max_uses"`
-	Mentionable bool `json:"mentionable"`
-	MfaLevel int `json:"mfa_level"`
-	Mute bool `json:"mute"`
-	Name string `json:"name"`
-	Nick string `json:"nick"`
-	Nsfw bool `json:"nsfw"`
-	OwnerId string `json:"owner_id"`
-	PermissionOverwrites []*OverwriteStructure `json:"permission_overwrites"`
-	Permissions interface{} `json:"permissions"`
-	Position int `json:"position"`
-	PreferredLocale string `json:"preferred_locale"`
-	PrivacyLevel interface{} `json:"privacy_level"`
-	PruneDeleteDays int `json:"prune_delete_days"`
-	PublicUpdatesChannelId string `json:"public_updates_channel_id"`
-	RateLimitPerUser int `json:"rate_limit_per_user"`
-	Region string `json:"region"`
-	RulesChannelId string `json:"rules_channel_id"`
-	SplashHash string `json:"splash_hash"`
-	Status interface{} `json:"status"`
-	SystemChannelId string `json:"system_channel_id"`
-	Tags string `json:"tags"`
-	Temporary bool `json:"temporary"`
-	Topic string `json:"topic"`
-	Type interface{} `json:"type"`
-	UnicodeEmoji string `json:"unicode_emoji"`
-	UserLimit int `json:"user_limit"`
-	Uses int `json:"uses"`
-	VanityUrlCode string `json:"vanity_url_code"`
-	VerificationLevel int `json:"verification_level"`
-	WidgetChannelId string `json:"widget_channel_id"`
-	WidgetEnabled bool `json:"widget_enabled"`
-	Add []*RoleStructure `json:"$add"`
-	Remove []*RoleStructure `json:"$remove"`
-}
-
-type ChannelStructure struct {
-	Id string `json:"id"`
-	Type interface{} `json:"type"`
-	GuildId string `json:"guild_id"`
-	Position int `json:"position"`
-	PermissionOverwrites []*OverwriteStructure `json:"permission_overwrites"`
-	Name string `json:"name"`
-	Topic string `json:"topic"`
-	Nsfw bool `json:"nsfw"`
-	LastMessageId string `json:"last_message_id"`
-	Bitrate int `json:"bitrate"`
-	UserLimit int `json:"user_limit"`
-	RateLimitPerUser int `json:"rate_limit_per_user"`
-	Recipients []*UserStructure `json:"recipients"`
-	Icon string `json:"icon"`
-	OwnerId string `json:"owner_id"`
-	ApplicationId string `json:"application_id"`
-	ParentId string `json:"parent_id"`
-	LastPinTimestamp time.Time `json:"last_pin_timestamp"`
-	RtcRegion *VoiceRegionStructure `json:"rtc_region"`
-	VideoQualityMode interface{} `json:"video_quality_mode"`
-	MessageCount int `json:"message_count"`
-	MemberCount int `json:"member_count"`
-	ThreadMetadata *ThreadMetadataStructure `json:"thread_metadata"`
-	Member *ThreadMemberStructure `json:"member"`
-	DefaultAutoArchiveDuration int `json:"default_auto_archive_duration"`
-	Permissions string `json:"permissions"`
-}
-
-type MessageStructure struct {
-	Id string `json:"id"`
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-	Author *UserStructure `json:"author"`
-	Member *GuildMemberStructure `json:"member"`
-	Content string `json:"content"`
-	Timestamp time.Time `json:"timestamp"`
-	EditedTimestamp time.Time `json:"edited_timestamp"`
-	Tts bool `json:"tts"`
-	MentionEveryone bool `json:"mention_everyone"`
-	Mentions []*UserStructure `json:"mentions"`
-	MentionRoles []*RoleStructure `json:"mention_roles"`
-	MentionChannels []*ChannelMentionStructure `json:"mention_channels"`
-	Attachments []*AttachmentStructure `json:"attachments"`
-	Embeds []*EmbedStructure `json:"embeds"`
-	Reactions []*ReactionStructure `json:"reactions"`
-	Nonce interface{} `json:"nonce"`
-	Pinned bool `json:"pinned"`
-	WebhookId string `json:"webhook_id"`
-	Type interface{} `json:"type"`
-	Activity *MessageActivityStructure `json:"activity"`
-	Application *ApplicationStructure `json:"application"`
-	ApplicationId interface{} `json:"application_id"`
-	MessageReference *MessageReferenceStructure `json:"message_reference"`
-	Flags interface{} `json:"flags"`
-	ReferencedMessage *MessageStructure `json:"referenced_message"`
-	Interaction interface{} `json:"interaction"`
-	Thread *ChannelStructure `json:"thread"`
-	Components []interface{} `json:"components"`
-	StickerItems []*StickerItemStructure `json:"sticker_items"`
-	Stickers []*StickerStructure `json:"stickers"`
-}
-
-type MessageActivityStructure struct {
-	Type interface{} `json:"type"`
-	PartyId interface{} `json:"party_id"`
-}
-
-type MessageReferenceStructure struct {
-	MessageId string `json:"message_id"`
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-	FailIfNotExists bool `json:"fail_if_not_exists"`
-}
-
-type FollowedChannelStructure struct {
-	ChannelId string `json:"channel_id"`
-	WebhookId string `json:"webhook_id"`
-}
-
-type ReactionStructure struct {
-	Count int `json:"count"`
-	Me bool `json:"me"`
-	Emoji *EmojiStructure `json:"emoji"`
-}
-
-type OverwriteStructure struct {
-	Id string `json:"id"`
-	Type int `json:"type"`
-	Allow string `json:"allow"`
-	Deny string `json:"deny"`
-}
-
-type ThreadMetadataStructure struct {
-	Archived bool `json:"archived"`
-	AutoArchiveDuration int `json:"auto_archive_duration"`
-	ArchiveTimestamp time.Time `json:"archive_timestamp"`
-	Locked bool `json:"locked"`
-	Invitable bool `json:"invitable"`
-	CreateTimestamp time.Time `json:"create_timestamp"`
-}
-
-type ThreadMemberStructure struct {
-	Id string `json:"id"`
-	UserId string `json:"user_id"`
-	JoinTimestamp time.Time `json:"join_timestamp"`
-	Flags int `json:"flags"`
-}
-
-type EmbedStructure struct {
-	Title string `json:"title"`
-	Type interface{} `json:"type"`
-	Description string `json:"description"`
-	Url string `json:"url"`
-	Timestamp time.Time `json:"timestamp"`
-	Color int `json:"color"`
-	Footer *EmbedFooterStructure `json:"footer"`
-	Image *EmbedImageStructure `json:"image"`
-	Thumbnail *EmbedThumbnailStructure `json:"thumbnail"`
-	Video *EmbedVideoStructure `json:"video"`
-	Provider *EmbedProviderStructure `json:"provider"`
-	Author *EmbedAuthorStructure `json:"author"`
-	Fields []*EmbedFieldStructure `json:"fields"`
-}
-
-type EmbedThumbnailStructure struct {
-	Url string `json:"url"`
-	ProxyUrl string `json:"proxy_url"`
-	Height int `json:"height"`
-	Width int `json:"width"`
-}
-
-type EmbedVideoStructure struct {
-	Url string `json:"url"`
-	ProxyUrl string `json:"proxy_url"`
-	Height int `json:"height"`
-	Width int `json:"width"`
-}
-
-type EmbedImageStructure struct {
-	Url string `json:"url"`
-	ProxyUrl string `json:"proxy_url"`
-	Height int `json:"height"`
-	Width int `json:"width"`
-}
-
-type EmbedProviderStructure struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-}
-
-type EmbedAuthorStructure struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-	IconUrl string `json:"icon_url"`
-	ProxyIconUrl string `json:"proxy_icon_url"`
-}
-
-type EmbedFooterStructure struct {
-	Text string `json:"text"`
-	IconUrl string `json:"icon_url"`
-	ProxyIconUrl string `json:"proxy_icon_url"`
-}
-
-type EmbedFieldStructure struct {
-	Name string `json:"name"`
-	Value string `json:"value"`
-	Inline bool `json:"inline"`
-}
-
-type AttachmentStructure struct {
-	Id string `json:"id"`
-	Filename string `json:"filename"`
-	Description string `json:"description"`
-	ContentType interface{} `json:"content_type"`
-	Size int `json:"size"`
-	Url string `json:"url"`
-	ProxyUrl string `json:"proxy_url"`
-	Height int `json:"height"`
-	Width int `json:"width"`
-	Ephemeral bool `json:"ephemeral"`
-}
-
-type ChannelMentionStructure struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	Type interface{} `json:"type"`
-	Name string `json:"name"`
-}
-
-type AllowedMentionsStructure struct {
-	Parse []interface{} `json:"parse"`
-	Roles []string `json:"roles"`
-	Users []string `json:"users"`
-	RepliedUser bool `json:"replied_user"`
-}
-
-type EmojiStructure struct {
-	Id interface{} `json:"id"`
-	Name string `json:"name"`
-	Roles []*RoleStructure `json:"roles"`
-	User *UserStructure `json:"user"`
-	RequireColons bool `json:"require_colons"`
-	Managed bool `json:"managed"`
-	Animated bool `json:"animated"`
-	Available bool `json:"available"`
-}
-
-type GuildStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Icon interface{} `json:"icon"`
-	IconHash interface{} `json:"icon_hash"`
-	Splash interface{} `json:"splash"`
-	DiscoverySplash interface{} `json:"discovery_splash"`
-	Owner interface{} `json:"owner"`
-	OwnerId string `json:"owner_id"`
-	Permissions interface{} `json:"permissions"`
-	Region *VoiceRegionStructure `json:"region"`
-	AfkChannelId string `json:"afk_channel_id"`
-	AfkTimeout int `json:"afk_timeout"`
-	WidgetEnabled bool `json:"widget_enabled"`
-	WidgetChannelId string `json:"widget_channel_id"`
-	VerificationLevel interface{} `json:"verification_level"`
-	DefaultMessageNotifications interface{} `json:"default_message_notifications"`
-	ExplicitContentFilter interface{} `json:"explicit_content_filter"`
-	Roles []*RoleStructure `json:"roles"`
-	Emojis []*EmojiStructure `json:"emojis"`
-	Features []interface{} `json:"features"`
-	MfaLevel interface{} `json:"mfa_level"`
-	ApplicationId string `json:"application_id"`
-	SystemChannelId string `json:"system_channel_id"`
-	SystemChannelFlags interface{} `json:"system_channel_flags"`
-	RulesChannelId string `json:"rules_channel_id"`
-	JoinedAt time.Time `json:"joined_at"`
-	Large bool `json:"large"`
-	Unavailable bool `json:"unavailable"`
-	MemberCount int `json:"member_count"`
-	VoiceStates []*VoiceStateStructure `json:"voice_states"`
-	Members []*GuildMemberStructure `json:"members"`
-	Channels []*ChannelStructure `json:"channels"`
-	Threads []*ChannelStructure `json:"threads"`
-	Presences []*PresenceUpdateEventFields `json:"presences"`
-	MaxPresences int `json:"max_presences"`
-	MaxMembers int `json:"max_members"`
-	VanityUrlCode string `json:"vanity_url_code"`
-	Description string `json:"description"`
-	Banner interface{} `json:"banner"`
-	PremiumTier interface{} `json:"premium_tier"`
-	PremiumSubscriptionCount int `json:"premium_subscription_count"`
-	PreferredLocale interface{} `json:"preferred_locale"`
-	PublicUpdatesChannelId string `json:"public_updates_channel_id"`
-	MaxVideoChannelUsers int `json:"max_video_channel_users"`
-	ApproximateMemberCount int `json:"approximate_member_count"`
-	ApproximatePresenceCount int `json:"approximate_presence_count"`
-	WelcomeScreen *WelcomeScreenStructure `json:"welcome_screen"`
-	NsfwLevel interface{} `json:"nsfw_level"`
-	StageInstances []*StageInstanceStructure `json:"stage_instances"`
-	Stickers []*StickerStructure `json:"stickers"`
-	GuildScheduledEvents []*GuildScheduledEventStructure `json:"guild_scheduled_events"`
-	PremiumProgressBarEnabled bool `json:"premium_progress_bar_enabled"`
-}
-
-type GuildPreviewStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Icon interface{} `json:"icon"`
-	Splash interface{} `json:"splash"`
-	DiscoverySplash interface{} `json:"discovery_splash"`
-	Emojis []*EmojiStructure `json:"emojis"`
-	Features []interface{} `json:"features"`
-	ApproximateMemberCount int `json:"approximate_member_count"`
-	ApproximatePresenceCount int `json:"approximate_presence_count"`
-	Description string `json:"description"`
-	Stickers []*StickerStructure `json:"stickers"`
-}
-
-type GuildWidgetSettingsStructure struct {
-	Enabled bool `json:"enabled"`
-	ChannelId string `json:"channel_id"`
-}
-
-type GetGuildWidgetStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	InstantInvite string `json:"instant_invite"`
-	Channels []*ChannelStructure `json:"channels"`
-	Members []*UserStructure `json:"members"`
-	PresenceCount int `json:"presence_count"`
-}
-
-type GuildMemberStructure struct {
-	User *UserStructure `json:"user"`
-	Nick string `json:"nick"`
-	Avatar interface{} `json:"avatar"`
-	Roles []*RoleStructure `json:"roles"`
-	JoinedAt time.Time `json:"joined_at"`
-	PremiumSince interface{} `json:"premium_since"`
-	Deaf bool `json:"deaf"`
-	Mute bool `json:"mute"`
-	Pending interface{} `json:"pending"`
-	Permissions string `json:"permissions"`
-	CommunicationDisabledUntil interface{} `json:"communication_disabled_until"`
-}
-
-type IntegrationStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Type string `json:"type"`
-	Enabled bool `json:"enabled"`
-	Syncing bool `json:"syncing"`
-	RoleId string `json:"role_id"`
-	EnableEmoticons bool `json:"enable_emoticons"`
-	ExpireBehavior interface{} `json:"expire_behavior"`
-	ExpireGracePeriod int `json:"expire_grace_period"`
-	User *UserStructure `json:"user"`
-	Account *IntegrationAccountStructure `json:"account"`
-	SyncedAt time.Time `json:"synced_at"`
-	SubscriberCount int `json:"subscriber_count"`
-	Revoked bool `json:"revoked"`
-	Application *IntegrationApplicationStructure `json:"application"`
-}
-
-type IntegrationAccountStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-}
-
-type IntegrationApplicationStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Icon interface{} `json:"icon"`
-	Description string `json:"description"`
-	Summary string `json:"summary"`
-	Bot *UserStructure `json:"bot"`
-}
-
-type BanStructure struct {
-	Reason string `json:"reason"`
-	User *UserStructure `json:"user"`
-}
-
-type WelcomeScreenStructure struct {
-	Description string `json:"description"`
-	WelcomeChannels []*WelcomeScreenChannelStructure `json:"welcome_channels"`
-}
-
-type WelcomeScreenChannelStructure struct {
-	ChannelId string `json:"channel_id"`
-	Description string `json:"description"`
-	EmojiId interface{} `json:"emoji_id"`
-	EmojiName string `json:"emoji_name"`
-}
-
-type GuildScheduledEventStructure struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	ChannelId interface{} `json:"channel_id"`
-	CreatorId string `json:"creator_id"`
-	Name string `json:"name"`
-	Description string `json:"description"`
-	ScheduledStartTime time.Time `json:"scheduled_start_time"`
-	ScheduledEndTime time.Time `json:"scheduled_end_time"`
-	PrivacyLevel interface{} `json:"privacy_level"`
-	Status interface{} `json:"status"`
-	EntityType interface{} `json:"entity_type"`
-	EntityId string `json:"entity_id"`
-	EntityMetadata *GuildScheduledEventEntityMetadata `json:"entity_metadata"`
-	Creator *UserStructure `json:"creator"`
-	UserCount int `json:"user_count"`
-	Image interface{} `json:"image"`
-}
-
-type GuildScheduledEventEntityMetadata struct {
-	Location string `json:"location"`
-}
-
-type GuildScheduledEventUserStructure struct {
-	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
-	User *UserStructure `json:"user"`
-	Member *GuildMemberStructure `json:"member"`
-}
-
-type GuildTemplateStructure struct {
-	Code string `json:"code"`
-	Name string `json:"name"`
-	Description string `json:"description"`
-	UsageCount int `json:"usage_count"`
-	CreatorId string `json:"creator_id"`
-	Creator *UserStructure `json:"creator"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
-	SourceGuildId string `json:"source_guild_id"`
-	SerializedSourceGuild *GuildStructure `json:"serialized_source_guild"`
-	IsDirty bool `json:"is_dirty"`
-}
-
-type InviteStructure struct {
-	Code string `json:"code"`
-	Guild *GuildStructure `json:"guild"`
-	Channel *ChannelStructure `json:"channel"`
-	Inviter *UserStructure `json:"inviter"`
-	TargetType interface{} `json:"target_type"`
-	TargetUser *UserStructure `json:"target_user"`
-	TargetApplication *ApplicationStructure `json:"target_application"`
-	ApproximatePresenceCount int `json:"approximate_presence_count"`
-	ApproximateMemberCount int `json:"approximate_member_count"`
-	ExpiresAt time.Time `json:"expires_at"`
-	StageInstance *InviteStageInstanceStructure `json:"stage_instance"`
-	GuildScheduledEvent *GuildScheduledEventStructure `json:"guild_scheduled_event"`
-}
-
-type InviteMetadataStructure struct {
-	Uses int `json:"uses"`
-	MaxUses int `json:"max_uses"`
-	MaxAge int `json:"max_age"`
-	Temporary bool `json:"temporary"`
-	CreatedAt time.Time `json:"created_at"`
-}
-
-type InviteStageInstanceStructure struct {
-	Members []*GuildMemberStructure `json:"members"`
-	ParticipantCount int `json:"participant_count"`
-	SpeakerCount int `json:"speaker_count"`
-	Topic string `json:"topic"`
-}
-
-type StageInstanceStructure struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-	Topic string `json:"topic"`
-	PrivacyLevel interface{} `json:"privacy_level"`
-	DiscoverableDisabled bool `json:"discoverable_disabled"`
-}
-
-type StickerStructure struct {
-	Id interface{} `json:"id"`
-	PackId string `json:"pack_id"`
-	Name string `json:"name"`
-	Description string `json:"description"`
-	Tags string `json:"tags"`
-	Asset string `json:"asset"`
-	Type interface{} `json:"type"`
-	FormatType interface{} `json:"format_type"`
-	Available bool `json:"available"`
-	GuildId string `json:"guild_id"`
-	User *UserStructure `json:"user"`
-	SortValue int `json:"sort_value"`
-}
-
-type StickerItemStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	FormatType interface{} `json:"format_type"`
-}
-
-type StickerPackStructure struct {
-	Id string `json:"id"`
-	Stickers []*StickerStructure `json:"stickers"`
-	Name string `json:"name"`
-	SkuId string `json:"sku_id"`
-	CoverStickerId string `json:"cover_sticker_id"`
-	Description string `json:"description"`
-	BannerAssetId interface{} `json:"banner_asset_id"`
-}
-
-type UserStructure struct {
-	Id string `json:"id"`
-	Username string `json:"username"`
-	Discriminator string `json:"discriminator"`
-	Avatar interface{} `json:"avatar"`
-	Bot bool `json:"bot"`
-	System bool `json:"system"`
-	MfaEnabled bool `json:"mfa_enabled"`
-	Banner interface{} `json:"banner"`
-	AccentColor int `json:"accent_color"`
-	Locale interface{} `json:"locale"`
-	Verified bool `json:"verified"`
-	Email string `json:"email"`
-	Flags interface{} `json:"flags"`
-	PremiumType interface{} `json:"premium_type"`
-	PublicFlags interface{} `json:"public_flags"`
-}
-
-type ConnectionStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Type string `json:"type"`
-	Revoked bool `json:"revoked"`
-	Integrations []*IntegrationStructure `json:"integrations"`
-	Verified bool `json:"verified"`
-	FriendSync bool `json:"friend_sync"`
-	ShowActivity bool `json:"show_activity"`
-	Visibility interface{} `json:"visibility"`
-}
-
-type VoiceStateStructure struct {
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-	UserId string `json:"user_id"`
-	Member *GuildMemberStructure `json:"member"`
-	SessionId string `json:"session_id"`
-	Deaf bool `json:"deaf"`
-	Mute bool `json:"mute"`
-	SelfDeaf bool `json:"self_deaf"`
-	SelfMute bool `json:"self_mute"`
-	SelfStream bool `json:"self_stream"`
-	SelfVideo bool `json:"self_video"`
-	Suppress bool `json:"suppress"`
-	RequestToSpeakTimestamp time.Time `json:"request_to_speak_timestamp"`
-}
-
-type VoiceRegionStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Optimal bool `json:"optimal"`
-	Deprecated bool `json:"deprecated"`
-	Custom bool `json:"custom"`
-}
-
-type WebhookStructure struct {
-	Id string `json:"id"`
-	Type interface{} `json:"type"`
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-	User *UserStructure `json:"user"`
-	Name string `json:"name"`
-	Avatar interface{} `json:"avatar"`
-	Token string `json:"token"`
-	ApplicationId string `json:"application_id"`
-	SourceGuild *GuildStructure `json:"source_guild"`
-	SourceChannel *ChannelStructure `json:"source_channel"`
-	Url *WebhooksUpdateEventFields `json:"url"`
-}
-
-type DeviceObject struct {
-	Type interface{} `json:"type"`
-	Id string `json:"id"`
-	Vendor *VendorObject `json:"vendor"`
-	Model *ModelObject `json:"model"`
-	Related []string `json:"related"`
-	EchoCancellation bool `json:"echo_cancellation"`
-	NoiseSuppression bool `json:"noise_suppression"`
-	AutomaticGainControl bool `json:"automatic_gain_control"`
-	HardwareMute bool `json:"hardware_mute"`
-}
-
-type VendorObject struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-}
-
-type ModelObject struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-}
-
-type GatewayPayloadStructure struct {
-	Op interface{} `json:"op"`
-	D map[string]interface{} `json:"d"`
-	S int `json:"s"`
-	T string `json:"t"`
-}
-
-type GatewayUrlQueryStringParams struct {
-	V int `json:"v"`
-	Encoding string `json:"encoding"`
-	Compress string `json:"compress"`
-}
-
-type IdentifyStructure struct {
-	Token string `json:"token"`
-	Properties *IdentifyConnectionProperties `json:"properties"`
-	Compress bool `json:"compress"`
-	LargeThreshold int `json:"large_threshold"`
-	Shard []interface{} `json:"shard"`
-	Presence *GatewayPresenceUpdateStructure `json:"presence"`
-	Intents interface{} `json:"intents"`
-}
-
-type IdentifyConnectionProperties struct {
-	Os string `json:"$os"`
-	Browser string `json:"$browser"`
-	Device string `json:"$device"`
-}
-
-type ResumeStructure struct {
-	Token string `json:"token"`
-	SessionId string `json:"session_id"`
-	Seq int `json:"seq"`
-}
-
-type GuildRequestMembersStructure struct {
-	GuildId string `json:"guild_id"`
-	Query string `json:"query"`
-	Limit int `json:"limit"`
-	Presences bool `json:"presences"`
-	UserIds interface{} `json:"user_ids"`
-	Nonce *GuildMembersChunkEventFields `json:"nonce"`
-}
-
-type GatewayVoiceStateUpdateStructure struct {
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-	SelfMute bool `json:"self_mute"`
-	SelfDeaf bool `json:"self_deaf"`
-}
-
-type GatewayPresenceUpdateStructure struct {
-	Since int `json:"since"`
-	Activities []*ActivityStructure `json:"activities"`
-	Status interface{} `json:"status"`
-	Afk bool `json:"afk"`
-}
-
-type HelloStructure struct {
-	HeartbeatInterval int `json:"heartbeat_interval"`
-}
-
-type ReadyEventFields struct {
-	V interface{} `json:"v"`
-	User *UserStructure `json:"user"`
-	Guilds []interface{} `json:"guilds"`
-	SessionId string `json:"session_id"`
-	Shard []interface{} `json:"shard"`
-	Application *ApplicationStructure `json:"application"`
-}
-
-type ThreadListSyncEventFields struct {
-	GuildId string `json:"guild_id"`
-	ChannelIds []string `json:"channel_ids"`
-	Threads []*ChannelStructure `json:"threads"`
-	Members []*ThreadMemberStructure `json:"members"`
-}
-
-type ThreadMemberUpdateEventExtraFields struct {
-	GuildId string `json:"guild_id"`
-}
-
-type ThreadMembersUpdateEventFields struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	MemberCount int `json:"member_count"`
-	AddedMembers []*ThreadMemberStructure `json:"added_members"`
-	RemovedMemberIds []string `json:"removed_member_ids"`
-}
-
-type ChannelPinsUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-	LastPinTimestamp time.Time `json:"last_pin_timestamp"`
-}
-
-type GuildBanAddEventFields struct {
-	GuildId string `json:"guild_id"`
-	User *UserStructure `json:"user"`
-}
-
-type GuildBanRemoveEventFields struct {
-	GuildId string `json:"guild_id"`
-	User *UserStructure `json:"user"`
-}
-
-type GuildEmojisUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	Emojis []*EmojiStructure `json:"emojis"`
-}
-
-type GuildStickersUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	Stickers []*StickerStructure `json:"stickers"`
-}
-
-type GuildIntegrationsUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-}
-
-type GuildMemberAddExtraFields struct {
-	GuildId string `json:"guild_id"`
-}
-
-type GuildMemberRemoveEventFields struct {
-	GuildId string `json:"guild_id"`
-	User *UserStructure `json:"user"`
-}
-
-type GuildMemberUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	Roles []string `json:"roles"`
-	User *UserStructure `json:"user"`
-	Nick string `json:"nick"`
-	Avatar interface{} `json:"avatar"`
-	JoinedAt time.Time `json:"joined_at"`
-	PremiumSince interface{} `json:"premium_since"`
-	Deaf bool `json:"deaf"`
-	Mute bool `json:"mute"`
-	Pending interface{} `json:"pending"`
-	CommunicationDisabledUntil interface{} `json:"communication_disabled_until"`
-}
-
-type GuildMembersChunkEventFields struct {
-	GuildId string `json:"guild_id"`
-	Members []*GuildMemberStructure `json:"members"`
-	ChunkIndex int `json:"chunk_index"`
-	ChunkCount int `json:"chunk_count"`
-	NotFound interface{} `json:"not_found"`
-	Presences []*PresenceUpdateEventFields `json:"presences"`
-	Nonce *GuildRequestMembersStructure `json:"nonce"`
-}
-
-type GuildRoleCreateEventFields struct {
-	GuildId string `json:"guild_id"`
-	Role *RoleStructure `json:"role"`
-}
-
-type GuildRoleUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	Role *RoleStructure `json:"role"`
-}
-
-type GuildRoleDeleteEventFields struct {
-	GuildId string `json:"guild_id"`
-	RoleId string `json:"role_id"`
-}
-
-type GuildScheduledEventUserAddEventFields struct {
-	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
-	UserId string `json:"user_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type GuildScheduledEventUserRemoveEventFields struct {
-	GuildScheduledEventId string `json:"guild_scheduled_event_id"`
-	UserId string `json:"user_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type IntegrationCreateEventAdditionalFields struct {
-	GuildId string `json:"guild_id"`
-}
-
-type IntegrationUpdateEventAdditionalFields struct {
-	GuildId string `json:"guild_id"`
-}
-
-type IntegrationDeleteEventFields struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	ApplicationId string `json:"application_id"`
-}
-
-type InviteCreateEventFields struct {
-	ChannelId string `json:"channel_id"`
-	Code *InviteStructure `json:"code"`
-	CreatedAt time.Time `json:"created_at"`
-	GuildId string `json:"guild_id"`
-	Inviter *UserStructure `json:"inviter"`
-	MaxAge int `json:"max_age"`
-	MaxUses int `json:"max_uses"`
-	TargetType interface{} `json:"target_type"`
-	TargetUser *UserStructure `json:"target_user"`
-	TargetApplication *ApplicationStructure `json:"target_application"`
-	Temporary bool `json:"temporary"`
-	Uses int `json:"uses"`
-}
-
-type InviteDeleteEventFields struct {
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-	Code *InviteStructure `json:"code"`
-}
-
-type MessageDeleteEventFields struct {
-	Id string `json:"id"`
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type MessageDeleteBulkEventFields struct {
-	Ids []string `json:"ids"`
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type MessageReactionAddEventFields struct {
-	UserId string `json:"user_id"`
-	ChannelId string `json:"channel_id"`
-	MessageId string `json:"message_id"`
-	GuildId string `json:"guild_id"`
-	Member *GuildMemberStructure `json:"member"`
-	Emoji *EmojiStructure `json:"emoji"`
-}
-
-type MessageReactionRemoveEventFields struct {
-	UserId string `json:"user_id"`
-	ChannelId string `json:"channel_id"`
-	MessageId string `json:"message_id"`
-	GuildId string `json:"guild_id"`
-	Emoji *EmojiStructure `json:"emoji"`
-}
-
-type MessageReactionRemoveAllEventFields struct {
-	ChannelId string `json:"channel_id"`
-	MessageId string `json:"message_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type MessageReactionRemoveEmojiEventFields struct {
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-	MessageId string `json:"message_id"`
-	Emoji *EmojiStructure `json:"emoji"`
-}
-
-type PresenceUpdateEventFields struct {
-	User *UserStructure `json:"user"`
-	GuildId string `json:"guild_id"`
-	Status string `json:"status"`
-	Activities []*ActivityStructure `json:"activities"`
-	ClientStatus interface{} `json:"client_status"`
-}
-
-type ActivityStructure struct {
-	Name string `json:"name"`
-	Type interface{} `json:"type"`
-	Url string `json:"url"`
-	CreatedAt int `json:"created_at"`
-	Timestamps *ActivityTimestamps `json:"timestamps"`
-	ApplicationId string `json:"application_id"`
-	Details string `json:"details"`
-	State string `json:"state"`
-	Emoji *ActivityEmoji `json:"emoji"`
-	Party *ActivityParty `json:"party"`
-	Assets *ActivityAssets `json:"assets"`
-	Secrets *ActivitySecrets `json:"secrets"`
-	Instance bool `json:"instance"`
-	Flags interface{} `json:"flags"`
-	Buttons []*ActivityButtons `json:"buttons"`
-}
-
-type ActivityTimestamps struct {
-	Start int `json:"start"`
-	End int `json:"end"`
-}
-
-type ActivityEmoji struct {
-	Name string `json:"name"`
-	Id string `json:"id"`
-	Animated bool `json:"animated"`
-}
-
-type ActivityParty struct {
-	Id string `json:"id"`
-	Size []int `json:"size"`
-}
-
-type ActivityAssets struct {
-	LargeImage interface{} `json:"large_image"`
-	LargeText string `json:"large_text"`
-	SmallImage interface{} `json:"small_image"`
-	SmallText string `json:"small_text"`
-}
-
-type ActivitySecrets struct {
-	Join string `json:"join"`
-	Spectate string `json:"spectate"`
-	Match string `json:"match"`
-}
-
-type ActivityButtons struct {
-	Label string `json:"label"`
-	Url string `json:"url"`
-}
-
-type TypingStartEventFields struct {
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-	UserId string `json:"user_id"`
-	Timestamp int `json:"timestamp"`
-	Member *GuildMemberStructure `json:"member"`
-}
-
-type VoiceServerUpdateEventFields struct {
-	Token string `json:"token"`
-	GuildId string `json:"guild_id"`
-	Endpoint string `json:"endpoint"`
-}
-
-type WebhooksUpdateEventFields struct {
-	GuildId string `json:"guild_id"`
-	ChannelId string `json:"channel_id"`
-}
-
-type RoleStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Color int `json:"color"`
-	Hoist bool `json:"hoist"`
-	Icon interface{} `json:"icon"`
-	UnicodeEmoji string `json:"unicode_emoji"`
-	Position int `json:"position"`
-	Permissions string `json:"permissions"`
-	Managed bool `json:"managed"`
-	Mentionable bool `json:"mentionable"`
-	Tags *RoleTagsStructure `json:"tags"`
-}
-
-type RoleTagsStructure struct {
-	BotId string `json:"bot_id"`
-	IntegrationId string `json:"integration_id"`
-	PremiumSubscriber interface{} `json:"premium_subscriber"`
-}
-
-type PayloadStructure struct {
-	Cmd interface{} `json:"cmd"`
-	Nonce string `json:"nonce"`
-	Evt interface{} `json:"evt"`
-	Data map[string]interface{} `json:"data"`
-	Args map[string]interface{} `json:"args"`
-}
-
-type AuthorizeArgumentStructure struct {
-	Scopes []interface{} `json:"scopes"`
-	ClientId string `json:"client_id"`
-	RpcToken string `json:"rpc_token"`
-	Username string `json:"username"`
-}
-
-type AuthorizeResponseStructure struct {
-	Code string `json:"code"`
-}
-
-type AuthenticateArgumentStructure struct {
-	AccessToken string `json:"access_token"`
-}
-
-type AuthenticateResponseStructure struct {
-	User *UserStructure `json:"user"`
-	Scopes []interface{} `json:"scopes"`
-	Expires time.Time `json:"expires"`
-	Application *OAuth2ApplicationStructure `json:"application"`
-}
-
-type OAuth2ApplicationStructure struct {
-	Description string `json:"description"`
-	Icon string `json:"icon"`
-	Id string `json:"id"`
-	RpcOrigins []string `json:"rpc_origins"`
-	Name string `json:"name"`
-}
-
-type GetGuildsResponseStructure struct {
-	Guilds []*GuildStructure `json:"guilds"`
-}
-
-type GetGuildArgumentStructure struct {
-	GuildId string `json:"guild_id"`
-	Timeout int `json:"timeout"`
-}
-
-type GetGuildResponseStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	IconUrl string `json:"icon_url"`
-	Members []*GuildMemberStructure `json:"members"`
-}
-
-type GetChannelArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-}
-
-type GetChannelResponseStructure struct {
-	Id string `json:"id"`
-	GuildId string `json:"guild_id"`
-	Name string `json:"name"`
-	Type int `json:"type"`
-	Topic string `json:"topic"`
-	Bitrate int `json:"bitrate"`
-	UserLimit int `json:"user_limit"`
-	Position int `json:"position"`
-	VoiceStates []*VoiceStateStructure `json:"voice_states"`
-	Messages []*MessageStructure `json:"messages"`
-}
-
-type GetChannelsArgumentStructure struct {
-	GuildId string `json:"guild_id"`
-}
-
-type GetChannelsResponseStructure struct {
-	Channels []*ChannelStructure `json:"channels"`
-}
-
-type SetUserVoiceSettingsArgumentAndResponseStructure struct {
-	UserId string `json:"user_id"`
-	Pan interface{} `json:"pan"`
-	Volume int `json:"volume"`
-	Mute bool `json:"mute"`
-}
-
-type PanObject struct {
-	Left float64 `json:"left"`
-	Right float64 `json:"right"`
-}
-
-type SelectVoiceChannelArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-	Timeout int `json:"timeout"`
-	Force bool `json:"force"`
-}
-
-type SelectTextChannelArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-	Timeout int `json:"timeout"`
-}
-
-type GetVoiceSettingsResponseStructure struct {
-	Input interface{} `json:"input"`
-	Output interface{} `json:"output"`
-	Mode interface{} `json:"mode"`
-	AutomaticGainControl bool `json:"automatic_gain_control"`
-	EchoCancellation bool `json:"echo_cancellation"`
-	NoiseSuppression bool `json:"noise_suppression"`
-	Qos bool `json:"qos"`
-	SilenceWarning bool `json:"silence_warning"`
-	Deaf bool `json:"deaf"`
-	Mute bool `json:"mute"`
-}
-
-type VoiceSettingsInputObject struct {
-	DeviceId string `json:"device_id"`
-	Volume float64 `json:"volume"`
-	AvailableDevices []map[string]interface{} `json:"available_devices"`
-}
-
-type VoiceSettingsOutputObject struct {
-	DeviceId string `json:"device_id"`
-	Volume float64 `json:"volume"`
-	AvailableDevices []map[string]interface{} `json:"available_devices"`
-}
-
-type VoiceSettingsModeObject struct {
-	Type string `json:"type"`
-	AutoThreshold bool `json:"auto_threshold"`
-	Threshold float64 `json:"threshold"`
-	Shortcut interface{} `json:"shortcut"`
-	Delay float64 `json:"delay"`
-}
-
-type ShortcutKeyComboObject struct {
-	Type interface{} `json:"type"`
-	Code int `json:"code"`
-	Name string `json:"name"`
-}
-
-type SetVoiceSettingsArgumentAndResponseStructure struct {
-	Input interface{} `json:"input"`
-	Output interface{} `json:"output"`
-	Mode interface{} `json:"mode"`
-	AutomaticGainControl bool `json:"automatic_gain_control"`
-	EchoCancellation bool `json:"echo_cancellation"`
-	NoiseSuppression bool `json:"noise_suppression"`
-	Qos bool `json:"qos"`
-	SilenceWarning bool `json:"silence_warning"`
-	Deaf bool `json:"deaf"`
-	Mute bool `json:"mute"`
-}
-
-type SubscribeResponseStructure struct {
-	Evt string `json:"evt"`
-}
-
-type UnsubscribeResponseStructure struct {
-	Evt string `json:"evt"`
-}
-
-type SetCertifiedDevicesArgumentStrucure struct {
-	Devices []interface{} `json:"devices"`
-}
-
-type DeviceObject_ struct {
-	Type interface{} `json:"type"`
-	Id string `json:"id"`
-	Vendor interface{} `json:"vendor"`
-	Model interface{} `json:"model"`
-	Related []string `json:"related"`
-	EchoCancellation bool `json:"echo_cancellation"`
-	NoiseSuppression bool `json:"noise_suppression"`
-	AutomaticGainControl bool `json:"automatic_gain_control"`
-	HardwareMute bool `json:"hardware_mute"`
-}
-
-type VendorObject_ struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-}
-
-type ModelObject_ struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
-}
-
-type SetActivityArgumentStructure struct {
-	Pid int `json:"pid"`
-	Activity *ActivityStructure `json:"activity"`
-}
-
-type SendActivityJoinInviteArgumentStructure struct {
-	UserId string `json:"user_id"`
-}
-
-type CloseActivityRequestArgumentStructure struct {
-	UserId string `json:"user_id"`
-}
-
-type ReadyDispatchDataStructure struct {
-	V int `json:"v"`
-	Config *RpcServerConfigurationObject `json:"config"`
-	User *UserStructure `json:"user"`
-}
-
-type RpcServerConfigurationObject struct {
-	CdnHost string `json:"cdn_host"`
-	ApiEndpoint string `json:"api_endpoint"`
-	Environment string `json:"environment"`
-}
-
-type ErrorDataStructure struct {
-	Code int `json:"code"`
-	Message string `json:"message"`
-}
-
-type GuildStatusArgumentStructure struct {
-	GuildId string `json:"guild_id"`
-}
-
-type GuildStatusDispatchDataStructure struct {
-	Guild *GuildStructure `json:"guild"`
-	Online int `json:"online"`
-}
-
-type GuildCreateDispatchDataStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-}
-
-type ChannelCreateDispatchDataStructure struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Type int `json:"type"`
-}
-
-type VoiceChannelSelectDispatchDataStructure struct {
-	ChannelId string `json:"channel_id"`
-	GuildId string `json:"guild_id"`
-}
-
-type VoiceStateArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-}
-
-type VoiceConnectionStatusDispatchDataStructure struct {
-	State string `json:"state"`
-	Hostname string `json:"hostname"`
-	Pings []int `json:"pings"`
-	AveragePing int `json:"average_ping"`
-	LastPing int `json:"last_ping"`
-}
-
-type MessageArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-}
-
-type SpeakingArgumentStructure struct {
-	ChannelId string `json:"channel_id"`
-}
-
-type SpeakingDispatchDataStructure struct {
-	UserId string `json:"user_id"`
-}
-
-type NotificationCreateDispatchDataStructure struct {
-	ChannelId string `json:"channel_id"`
-	Message *MessageStructure `json:"message"`
-	IconUrl string `json:"icon_url"`
-	Title string `json:"title"`
-	Body string `json:"body"`
-}
-
-type ActivityJoinDispatchDataStructure struct {
-	Secret interface{} `json:"secret"`
-}
-
-type ActivitySpectateDispatchDataStructure struct {
-	Secret interface{} `json:"secret"`
-}
-
-type ActivityJoinRequestDataStructure struct {
-	User *UserStructure `json:"user"`
-}
-
-type RateLimitResponseStructure struct {
-	Message string `json:"message"`
-	RetryAfter float64 `json:"retry_after"`
-	Global bool `json:"global"`
-}
-
-type TeamObject struct {
-	Icon string `json:"icon"`
-	Id string `json:"id"`
-	Members []*TeamMemberObject `json:"members"`
-	Name string `json:"name"`
-	OwnerUserId string `json:"owner_user_id"`
-}
-
-type TeamMemberObject struct {
-	MembershipState interface{} `json:"membership_state"`
-	Permissions []string `json:"permissions"`
-	TeamId string `json:"team_id"`
-	User *UserStructure `json:"user"`
-}
-
-type VoicePacketStructure struct {
-	VersionFlags interface{} `json:"Version + Flags"`
-	PayloadType interface{} `json:"Payload Type"`
-	Sequence interface{} `json:"Sequence"`
-	Timestamp interface{} `json:"Timestamp"`
-	Ssrc interface{} `json:"SSRC"`
-	EncryptedAudio interface{} `json:"Encrypted audio"`
 }

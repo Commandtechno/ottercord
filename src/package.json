@@ -2,8 +2,8 @@
   "scripts": {
     "parse": "ts-node --transpile-only parser/dev",
     "compile": "ts-node --transpile-only compiler/dev",
-    "balls": "npm run parse && npm run compile",
-    "update": "cd .. && cd output && git pull"
+    "update": "cd .. && cd output && git pull",
+    "all": "npm run update && npm run parse && npm run compile"
   },
   "devDependencies": {
     "@types/he": "^1.1.2",

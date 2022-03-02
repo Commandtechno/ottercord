@@ -954,6 +954,1367 @@ export enum ExampleResumedPayload {
 	Port = 2,
 }
 
+export interface ApplicationStructure {
+	"id": string | bigint,
+	"name": string,
+	"icon": any,
+	"description": string,
+	"rpc_origins": Array<string>,
+	"bot_public": boolean,
+	"bot_require_code_grant": boolean,
+	"terms_of_service_url": string,
+	"privacy_policy_url": string,
+	"owner": Partial<UserStructure>,
+	"summary": string,
+	"verify_key": any,
+	"team": Array<TeamObject>,
+	"guild_id": string | bigint,
+	"primary_sku_id": string | bigint,
+	"slug": string,
+	"cover_image": any,
+	"flags": ApplicationFlags,
+}
+
+export interface AuditLogStructure {
+	"audit_log_entries": Array<AuditLogEntryStructure>,
+	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
+	"integrations": Array<Partial<IntegrationStructure>>,
+	"threads": Array<ChannelStructure>,
+	"users": Array<UserStructure>,
+	"webhooks": Array<WebhookStructure>,
+}
+
+export interface AuditLogEntryStructure {
+	"target_id": string,
+	"changes": Array<AuditLogChangeStructure>,
+	"user_id": string | bigint,
+	"id": string | bigint,
+	"action_type": AuditLogEvents,
+	"options": OptionalAuditEntryInfo,
+	"reason": string,
+}
+
+export interface OptionalAuditEntryInfo {
+	"channel_id": string | bigint,
+	"count": string,
+	"delete_member_days": string,
+	"id": string | bigint,
+	"members_removed": string,
+	"message_id": string | bigint,
+	"role_name": string,
+	"type": string,
+}
+
+export interface AuditLogChangeStructure {
+	"new_value": AuditLogChangeKey,
+	"old_value": AuditLogChangeKey,
+	"key": AuditLogChangeKey,
+}
+
+export interface AuditLogChangeKey {
+	"afk_channel_id": string | bigint,
+	"afk_timeout": number,
+	"allow": string,
+	"application_id": string | bigint,
+	"archived": boolean,
+	"asset": string,
+	"auto_archive_duration": number,
+	"available": boolean,
+	"avatar_hash": string,
+	"banner_hash": string,
+	"bitrate": number,
+	"channel_id": string | bigint,
+	"code": string,
+	"color": number,
+	"communication_disabled_until": Date,
+	"deaf": boolean,
+	"default_auto_archive_duration": number,
+	"default_message_notifications": DefaultMessageNotificationLevel,
+	"deny": string,
+	"description": string,
+	"discovery_splash_hash": string,
+	"enable_emoticons": boolean,
+	"entity_type": number,
+	"expire_behavior": number,
+	"expire_grace_period": number,
+	"explicit_content_filter": ExplicitContentFilterLevel,
+	"format_type": StickerFormatTypes,
+	"guild_id": string | bigint,
+	"hoist": boolean,
+	"icon_hash": string,
+	"id": string | bigint,
+	"invitable": boolean,
+	"inviter_id": string | bigint,
+	"location": string,
+	"locked": boolean,
+	"max_age": number,
+	"max_uses": number,
+	"mentionable": boolean,
+	"mfa_level": number,
+	"mute": boolean,
+	"name": string,
+	"nick": string,
+	"nsfw": boolean,
+	"owner_id": string | bigint,
+	"permission_overwrites": Array<OverwriteStructure>,
+	"permissions": BitwisePermissionFlags,
+	"position": number,
+	"preferred_locale": string,
+	"privacy_level": PrivacyLevel,
+	"prune_delete_days": number,
+	"public_updates_channel_id": string | bigint,
+	"rate_limit_per_user": number,
+	"region": string,
+	"rules_channel_id": string | bigint,
+	"splash_hash": string,
+	"status": GuildScheduledEventStatus,
+	"system_channel_id": string | bigint,
+	"tags": string,
+	"temporary": boolean,
+	"topic": string,
+	"type": number | string,
+	"unicode_emoji": string,
+	"user_limit": number,
+	"uses": number,
+	"vanity_url_code": string,
+	"verification_level": number,
+	"widget_channel_id": string | bigint,
+	"widget_enabled": boolean,
+	"$add": Array<Partial<RoleStructure>>,
+	"$remove": Array<Partial<RoleStructure>>,
+}
+
+export interface ChannelStructure {
+	"id": string | bigint,
+	"type": ChannelTypes,
+	"guild_id": string | bigint,
+	"position": number,
+	"permission_overwrites": Array<OverwriteStructure>,
+	"name": string,
+	"topic": string,
+	"nsfw": boolean,
+	"last_message_id": string | bigint,
+	"bitrate": number,
+	"user_limit": number,
+	"rate_limit_per_user": number,
+	"recipients": Array<UserStructure>,
+	"icon": string,
+	"owner_id": string | bigint,
+	"application_id": string | bigint,
+	"parent_id": string | bigint,
+	"last_pin_timestamp": Date,
+	"rtc_region": VoiceRegionStructure,
+	"video_quality_mode": VideoQualityModes,
+	"message_count": number,
+	"member_count": number,
+	"thread_metadata": ThreadMetadataStructure,
+	"member": ThreadMemberStructure,
+	"default_auto_archive_duration": number,
+	"permissions": string,
+}
+
+export interface MessageStructure {
+	"id": string | bigint,
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+	"author": UserStructure,
+	"member": Partial<GuildMemberStructure>,
+	"content": string,
+	"timestamp": Date,
+	"edited_timestamp": Date,
+	"tts": boolean,
+	"mention_everyone": boolean,
+	"mentions": Array<Partial<UserStructure>>,
+	"mention_roles": Array<RoleStructure>,
+	"mention_channels": Array<ChannelMentionStructure>,
+	"attachments": Array<AttachmentStructure>,
+	"embeds": Array<EmbedStructure>,
+	"reactions": Array<ReactionStructure>,
+	"nonce": number | string,
+	"pinned": boolean,
+	"webhook_id": string | bigint,
+	"type": MessageTypes,
+	"activity": MessageActivityStructure,
+	"application": Partial<ApplicationStructure>,
+	"application_id": any,
+	"message_reference": MessageReferenceStructure,
+	"flags": MessageFlags,
+	"referenced_message": MessageStructure,
+	"interaction": any,
+	"thread": ChannelStructure,
+	"components": Array<any>,
+	"sticker_items": Array<StickerItemStructure>,
+	"stickers": Array<StickerStructure>,
+}
+
+export interface MessageActivityStructure {
+	"type": MessageActivityTypes,
+	"party_id": any,
+}
+
+export interface MessageReferenceStructure {
+	"message_id": string | bigint,
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+	"fail_if_not_exists": boolean,
+}
+
+export interface FollowedChannelStructure {
+	"channel_id": string | bigint,
+	"webhook_id": string | bigint,
+}
+
+export interface ReactionStructure {
+	"count": number,
+	"me": boolean,
+	"emoji": Partial<EmojiStructure>,
+}
+
+export interface OverwriteStructure {
+	"id": string | bigint,
+	"type": number,
+	"allow": string,
+	"deny": string,
+}
+
+export interface ThreadMetadataStructure {
+	"archived": boolean,
+	"auto_archive_duration": number,
+	"archive_timestamp": Date,
+	"locked": boolean,
+	"invitable": boolean,
+	"create_timestamp": Date,
+}
+
+export interface ThreadMemberStructure {
+	"id": string | bigint,
+	"user_id": string | bigint,
+	"join_timestamp": Date,
+	"flags": number,
+}
+
+export interface EmbedStructure {
+	"title": string,
+	"type": EmbedTypes,
+	"description": string,
+	"url": string,
+	"timestamp": Date,
+	"color": number,
+	"footer": EmbedFooterStructure,
+	"image": EmbedImageStructure,
+	"thumbnail": EmbedThumbnailStructure,
+	"video": EmbedVideoStructure,
+	"provider": EmbedProviderStructure,
+	"author": EmbedAuthorStructure,
+	"fields": Array<EmbedFieldStructure>,
+}
+
+export interface EmbedThumbnailStructure {
+	"url": string,
+	"proxy_url": string,
+	"height": number,
+	"width": number,
+}
+
+export interface EmbedVideoStructure {
+	"url": string,
+	"proxy_url": string,
+	"height": number,
+	"width": number,
+}
+
+export interface EmbedImageStructure {
+	"url": string,
+	"proxy_url": string,
+	"height": number,
+	"width": number,
+}
+
+export interface EmbedProviderStructure {
+	"name": string,
+	"url": string,
+}
+
+export interface EmbedAuthorStructure {
+	"name": string,
+	"url": string,
+	"icon_url": string,
+	"proxy_icon_url": string,
+}
+
+export interface EmbedFooterStructure {
+	"text": string,
+	"icon_url": string,
+	"proxy_icon_url": string,
+}
+
+export interface EmbedFieldStructure {
+	"name": string,
+	"value": string,
+	"inline": boolean,
+}
+
+export interface AttachmentStructure {
+	"id": string | bigint,
+	"filename": string,
+	"description": string,
+	"content_type": any,
+	"size": number,
+	"url": string,
+	"proxy_url": string,
+	"height": number,
+	"width": number,
+	"ephemeral": boolean,
+}
+
+export interface ChannelMentionStructure {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"type": ChannelTypes,
+	"name": string,
+}
+
+export interface AllowedMentionsStructure {
+	"parse": Array<AllowedMentionTypes>,
+	"roles": Array<string | bigint>,
+	"users": Array<string | bigint>,
+	"replied_user": boolean,
+}
+
+export interface EmojiStructure {
+	"id": any,
+	"name": string,
+	"roles": Array<RoleStructure>,
+	"user": UserStructure,
+	"require_colons": boolean,
+	"managed": boolean,
+	"animated": boolean,
+	"available": boolean,
+}
+
+export interface GuildStructure {
+	"id": string | bigint,
+	"name": string,
+	"icon": any,
+	"icon_hash": any,
+	"splash": any,
+	"discovery_splash": any,
+	"owner": any,
+	"owner_id": string | bigint,
+	"permissions": any,
+	"region": VoiceRegionStructure,
+	"afk_channel_id": string | bigint,
+	"afk_timeout": number,
+	"widget_enabled": boolean,
+	"widget_channel_id": string | bigint,
+	"verification_level": VerificationLevel,
+	"default_message_notifications": DefaultMessageNotificationLevel,
+	"explicit_content_filter": ExplicitContentFilterLevel,
+	"roles": Array<RoleStructure>,
+	"emojis": Array<EmojiStructure>,
+	"features": Array<GuildFeatures>,
+	"mfa_level": MfaLevel,
+	"application_id": string | bigint,
+	"system_channel_id": string | bigint,
+	"system_channel_flags": SystemChannelFlags,
+	"rules_channel_id": string | bigint,
+	"joined_at": Date,
+	"large": boolean,
+	"unavailable": boolean,
+	"member_count": number,
+	"voice_states": Array<Partial<VoiceStateStructure>>,
+	"members": Array<GuildMemberStructure>,
+	"channels": Array<ChannelStructure>,
+	"threads": Array<ChannelStructure>,
+	"presences": Array<Partial<PresenceUpdateEventFields>>,
+	"max_presences": number,
+	"max_members": number,
+	"vanity_url_code": string,
+	"description": string,
+	"banner": any,
+	"premium_tier": PremiumTier,
+	"premium_subscription_count": number,
+	"preferred_locale": any,
+	"public_updates_channel_id": string | bigint,
+	"max_video_channel_users": number,
+	"approximate_member_count": number,
+	"approximate_presence_count": number,
+	"welcome_screen": WelcomeScreenStructure,
+	"nsfw_level": GuildNsfwLevel,
+	"stage_instances": Array<StageInstanceStructure>,
+	"stickers": Array<StickerStructure>,
+	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
+	"premium_progress_bar_enabled": boolean,
+}
+
+export interface GuildPreviewStructure {
+	"id": string | bigint,
+	"name": string,
+	"icon": any,
+	"splash": any,
+	"discovery_splash": any,
+	"emojis": Array<EmojiStructure>,
+	"features": Array<GuildFeatures>,
+	"approximate_member_count": number,
+	"approximate_presence_count": number,
+	"description": string,
+	"stickers": Array<StickerStructure>,
+}
+
+export interface GuildWidgetSettingsStructure {
+	"enabled": boolean,
+	"channel_id": string | bigint,
+}
+
+export interface GetGuildWidgetStructure {
+	"id": string | bigint,
+	"name": string,
+	"instant_invite": string,
+	"channels": Array<Partial<ChannelStructure>>,
+	"members": Array<Partial<UserStructure>>,
+	"presence_count": number,
+}
+
+export interface GuildMemberStructure {
+	"user": UserStructure,
+	"nick": string,
+	"avatar": any,
+	"roles": Array<RoleStructure>,
+	"joined_at": Date,
+	"premium_since": any,
+	"deaf": boolean,
+	"mute": boolean,
+	"pending": any,
+	"permissions": string,
+	"communication_disabled_until": any,
+}
+
+export interface IntegrationStructure {
+	"id": string | bigint,
+	"name": string,
+	"type": string,
+	"enabled": boolean,
+	"syncing": boolean,
+	"role_id": string | bigint,
+	"enable_emoticons": boolean,
+	"expire_behavior": IntegrationExpireBehaviors,
+	"expire_grace_period": number,
+	"user": UserStructure,
+	"account": IntegrationAccountStructure,
+	"synced_at": Date,
+	"subscriber_count": number,
+	"revoked": boolean,
+	"application": IntegrationApplicationStructure,
+}
+
+export interface IntegrationAccountStructure {
+	"id": string,
+	"name": string,
+}
+
+export interface IntegrationApplicationStructure {
+	"id": string | bigint,
+	"name": string,
+	"icon": any,
+	"description": string,
+	"summary": string,
+	"bot": UserStructure,
+}
+
+export interface BanStructure {
+	"reason": string,
+	"user": UserStructure,
+}
+
+export interface WelcomeScreenStructure {
+	"description": string,
+	"welcome_channels": Array<WelcomeScreenChannelStructure>,
+}
+
+export interface WelcomeScreenChannelStructure {
+	"channel_id": string | bigint,
+	"description": string,
+	"emoji_id": any,
+	"emoji_name": string,
+}
+
+export interface GuildScheduledEventStructure {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"channel_id": GuildScheduledEventEntityTypes,
+	"creator_id": string | bigint,
+	"name": string,
+	"description": string,
+	"scheduled_start_time": Date,
+	"scheduled_end_time": Date,
+	"privacy_level": GuildScheduledEventPrivacyLevel,
+	"status": GuildScheduledEventStatus,
+	"entity_type": GuildScheduledEventEntityTypes,
+	"entity_id": string | bigint,
+	"entity_metadata": GuildScheduledEventEntityMetadata,
+	"creator": UserStructure,
+	"user_count": number,
+	"image": any,
+}
+
+export interface GuildScheduledEventEntityMetadata {
+	"location": string,
+}
+
+export interface GuildScheduledEventUserStructure {
+	"guild_scheduled_event_id": string | bigint,
+	"user": UserStructure,
+	"member": GuildMemberStructure,
+}
+
+export interface GuildTemplateStructure {
+	"code": string,
+	"name": string,
+	"description": string,
+	"usage_count": number,
+	"creator_id": string | bigint,
+	"creator": UserStructure,
+	"created_at": Date,
+	"updated_at": Date,
+	"source_guild_id": string | bigint,
+	"serialized_source_guild": Partial<GuildStructure>,
+	"is_dirty": boolean,
+}
+
+export interface InviteStructure {
+	"code": string,
+	"guild": Partial<GuildStructure>,
+	"channel": Partial<ChannelStructure>,
+	"inviter": UserStructure,
+	"target_type": InviteTargetTypes,
+	"target_user": UserStructure,
+	"target_application": Partial<ApplicationStructure>,
+	"approximate_presence_count": number,
+	"approximate_member_count": number,
+	"expires_at": Date,
+	"stage_instance": InviteStageInstanceStructure,
+	"guild_scheduled_event": GuildScheduledEventStructure,
+}
+
+export interface InviteMetadataStructure {
+	"uses": number,
+	"max_uses": number,
+	"max_age": number,
+	"temporary": boolean,
+	"created_at": Date,
+}
+
+export interface InviteStageInstanceStructure {
+	"members": Array<Partial<GuildMemberStructure>>,
+	"participant_count": number,
+	"speaker_count": number,
+	"topic": string,
+}
+
+export interface StageInstanceStructure {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+	"topic": string,
+	"privacy_level": PrivacyLevel,
+	"discoverable_disabled": boolean,
+}
+
+export interface StickerStructure {
+	"id": any,
+	"pack_id": string | bigint,
+	"name": string,
+	"description": string,
+	"tags": string,
+	"asset": string,
+	"type": StickerTypes,
+	"format_type": StickerFormatTypes,
+	"available": boolean,
+	"guild_id": string | bigint,
+	"user": UserStructure,
+	"sort_value": number,
+}
+
+export interface StickerItemStructure {
+	"id": string | bigint,
+	"name": string,
+	"format_type": StickerFormatTypes,
+}
+
+export interface StickerPackStructure {
+	"id": string | bigint,
+	"stickers": Array<StickerStructure>,
+	"name": string,
+	"sku_id": string | bigint,
+	"cover_sticker_id": string | bigint,
+	"description": string,
+	"banner_asset_id": any,
+}
+
+export interface UserStructure {
+	"id": string | bigint,
+	"username": string,
+	"discriminator": string,
+	"avatar": any,
+	"bot": boolean,
+	"system": boolean,
+	"mfa_enabled": boolean,
+	"banner": any,
+	"accent_color": number,
+	"locale": any,
+	"verified": boolean,
+	"email": string,
+	"flags": UserFlags,
+	"premium_type": PremiumTypes,
+	"public_flags": UserFlags,
+}
+
+export interface ConnectionStructure {
+	"id": string,
+	"name": string,
+	"type": string,
+	"revoked": boolean,
+	"integrations": Array<Partial<IntegrationStructure>>,
+	"verified": boolean,
+	"friend_sync": boolean,
+	"show_activity": boolean,
+	"visibility": VisibilityTypes,
+}
+
+export interface VoiceStateStructure {
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+	"user_id": string | bigint,
+	"member": GuildMemberStructure,
+	"session_id": string,
+	"deaf": boolean,
+	"mute": boolean,
+	"self_deaf": boolean,
+	"self_mute": boolean,
+	"self_stream": boolean,
+	"self_video": boolean,
+	"suppress": boolean,
+	"request_to_speak_timestamp": Date,
+}
+
+export interface VoiceRegionStructure {
+	"id": string,
+	"name": string,
+	"optimal": boolean,
+	"deprecated": boolean,
+	"custom": boolean,
+}
+
+export interface WebhookStructure {
+	"id": string | bigint,
+	"type": WebhookTypes,
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+	"user": UserStructure,
+	"name": string,
+	"avatar": any,
+	"token": string,
+	"application_id": string | bigint,
+	"source_guild": Partial<GuildStructure>,
+	"source_channel": Partial<ChannelStructure>,
+	"url": WebhooksUpdateEventFields,
+}
+
+export interface DeviceObject {
+	"type": DeviceType,
+	"id": string,
+	"vendor": VendorObject,
+	"model": ModelObject,
+	"related": Array<string>,
+	"echo_cancellation": boolean,
+	"noise_suppression": boolean,
+	"automatic_gain_control": boolean,
+	"hardware_mute": boolean,
+}
+
+export interface VendorObject {
+	"name": string,
+	"url": string,
+}
+
+export interface ModelObject {
+	"name": string,
+	"url": string,
+}
+
+export interface GatewayPayloadStructure {
+	"op": GatewayOpcodes,
+	"d": object,
+	"s": number,
+	"t": string,
+}
+
+export interface GatewayUrlQueryStringParams {
+	"v": number,
+	"encoding": string,
+	"compress": string,
+}
+
+export interface IdentifyStructure {
+	"token": string,
+	"properties": IdentifyConnectionProperties,
+	"compress": boolean,
+	"large_threshold": number,
+	"shard": Array<any>,
+	"presence": GatewayPresenceUpdateStructure,
+	"intents": any,
+}
+
+export interface IdentifyConnectionProperties {
+	"$os": string,
+	"$browser": string,
+	"$device": string,
+}
+
+export interface ResumeStructure {
+	"token": string,
+	"session_id": string,
+	"seq": number,
+}
+
+export interface GuildRequestMembersStructure {
+	"guild_id": string | bigint,
+	"query": string,
+	"limit": number,
+	"presences": boolean,
+	"user_ids": Array<string | bigint> | Array<string | bigint>,
+	"nonce": GuildMembersChunkEventFields,
+}
+
+export interface GatewayVoiceStateUpdateStructure {
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+	"self_mute": boolean,
+	"self_deaf": boolean,
+}
+
+export interface GatewayPresenceUpdateStructure {
+	"since": number,
+	"activities": Array<ActivityStructure>,
+	"status": StatusTypes,
+	"afk": boolean,
+}
+
+export interface HelloStructure {
+	"heartbeat_interval": number,
+}
+
+export interface ReadyEventFields {
+	"v": GatewayVersions,
+	"user": UserStructure,
+	"guilds": Array<any>,
+	"session_id": string,
+	"shard": Array<any>,
+	"application": Partial<ApplicationStructure>,
+}
+
+export interface ThreadListSyncEventFields {
+	"guild_id": string | bigint,
+	"channel_ids": Array<string | bigint>,
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
+}
+
+export interface ThreadMemberUpdateEventExtraFields {
+	"guild_id": string | bigint,
+}
+
+export interface ThreadMembersUpdateEventFields {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"member_count": number,
+	"added_members": Array<ThreadMemberStructure>,
+	"removed_member_ids": Array<string | bigint>,
+}
+
+export interface ChannelPinsUpdateEventFields {
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+	"last_pin_timestamp": Date,
+}
+
+export interface GuildBanAddEventFields {
+	"guild_id": string | bigint,
+	"user": UserStructure,
+}
+
+export interface GuildBanRemoveEventFields {
+	"guild_id": string | bigint,
+	"user": UserStructure,
+}
+
+export interface GuildEmojisUpdateEventFields {
+	"guild_id": string | bigint,
+	"emojis": Array<EmojiStructure>,
+}
+
+export interface GuildStickersUpdateEventFields {
+	"guild_id": string | bigint,
+	"stickers": Array<StickerStructure>,
+}
+
+export interface GuildIntegrationsUpdateEventFields {
+	"guild_id": string | bigint,
+}
+
+export interface GuildMemberAddExtraFields {
+	"guild_id": string | bigint,
+}
+
+export interface GuildMemberRemoveEventFields {
+	"guild_id": string | bigint,
+	"user": UserStructure,
+}
+
+export interface GuildMemberUpdateEventFields {
+	"guild_id": string | bigint,
+	"roles": Array<string | bigint>,
+	"user": UserStructure,
+	"nick": string,
+	"avatar": any,
+	"joined_at": Date,
+	"premium_since": any,
+	"deaf": boolean,
+	"mute": boolean,
+	"pending": any,
+	"communication_disabled_until": any,
+}
+
+export interface GuildMembersChunkEventFields {
+	"guild_id": string | bigint,
+	"members": Array<GuildMemberStructure>,
+	"chunk_index": number,
+	"chunk_count": number,
+	"not_found": any,
+	"presences": Array<PresenceUpdateEventFields>,
+	"nonce": GuildRequestMembersStructure,
+}
+
+export interface GuildRoleCreateEventFields {
+	"guild_id": string | bigint,
+	"role": RoleStructure,
+}
+
+export interface GuildRoleUpdateEventFields {
+	"guild_id": string | bigint,
+	"role": RoleStructure,
+}
+
+export interface GuildRoleDeleteEventFields {
+	"guild_id": string | bigint,
+	"role_id": string | bigint,
+}
+
+export interface GuildScheduledEventUserAddEventFields {
+	"guild_scheduled_event_id": string | bigint,
+	"user_id": string | bigint,
+	"guild_id": string | bigint,
+}
+
+export interface GuildScheduledEventUserRemoveEventFields {
+	"guild_scheduled_event_id": string | bigint,
+	"user_id": string | bigint,
+	"guild_id": string | bigint,
+}
+
+export interface IntegrationCreateEventAdditionalFields {
+	"guild_id": string | bigint,
+}
+
+export interface IntegrationUpdateEventAdditionalFields {
+	"guild_id": string | bigint,
+}
+
+export interface IntegrationDeleteEventFields {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"application_id": string | bigint,
+}
+
+export interface InviteCreateEventFields {
+	"channel_id": string | bigint,
+	"code": InviteStructure,
+	"created_at": Date,
+	"guild_id": string | bigint,
+	"inviter": UserStructure,
+	"max_age": number,
+	"max_uses": number,
+	"target_type": InviteTargetTypes,
+	"target_user": UserStructure,
+	"target_application": Partial<ApplicationStructure>,
+	"temporary": boolean,
+	"uses": number,
+}
+
+export interface InviteDeleteEventFields {
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+	"code": InviteStructure,
+}
+
+export interface MessageDeleteEventFields {
+	"id": string | bigint,
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+}
+
+export interface MessageDeleteBulkEventFields {
+	"ids": Array<string | bigint>,
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+}
+
+export interface MessageReactionAddEventFields {
+	"user_id": string | bigint,
+	"channel_id": string | bigint,
+	"message_id": string | bigint,
+	"guild_id": string | bigint,
+	"member": GuildMemberStructure,
+	"emoji": Partial<EmojiStructure>,
+}
+
+export interface MessageReactionRemoveEventFields {
+	"user_id": string | bigint,
+	"channel_id": string | bigint,
+	"message_id": string | bigint,
+	"guild_id": string | bigint,
+	"emoji": Partial<EmojiStructure>,
+}
+
+export interface MessageReactionRemoveAllEventFields {
+	"channel_id": string | bigint,
+	"message_id": string | bigint,
+	"guild_id": string | bigint,
+}
+
+export interface MessageReactionRemoveEmojiEventFields {
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+	"message_id": string | bigint,
+	"emoji": Partial<EmojiStructure>,
+}
+
+export interface PresenceUpdateEventFields_ {
+	"user": UserStructure,
+	"guild_id": string | bigint,
+	"status": string,
+	"activities": Array<ActivityStructure>,
+	"client_status": PresenceUpdateEventFields,
+}
+
+export interface ActivityStructure {
+	"name": string,
+	"type": ActivityTypes,
+	"url": string,
+	"created_at": number,
+	"timestamps": ActivityTimestamps,
+	"application_id": string | bigint,
+	"details": string,
+	"state": string,
+	"emoji": ActivityEmoji,
+	"party": ActivityParty,
+	"assets": ActivityAssets,
+	"secrets": ActivitySecrets,
+	"instance": boolean,
+	"flags": ActivityFlags,
+	"buttons": Array<ActivityButtons>,
+}
+
+export interface ActivityTimestamps {
+	"start": number,
+	"end": number,
+}
+
+export interface ActivityEmoji {
+	"name": string,
+	"id": string | bigint,
+	"animated": boolean,
+}
+
+export interface ActivityParty {
+	"id": string,
+	"size": Array<number>,
+}
+
+export interface ActivityAssets {
+	"large_image": ActivityAssetImage,
+	"large_text": string,
+	"small_image": ActivityAssetImage,
+	"small_text": string,
+}
+
+export interface ActivitySecrets {
+	"join": string,
+	"spectate": string,
+	"match": string,
+}
+
+export interface ActivityButtons {
+	"label": string,
+	"url": string,
+}
+
+export interface TypingStartEventFields {
+	"channel_id": string | bigint,
+	"guild_id": string | bigint,
+	"user_id": string | bigint,
+	"timestamp": number,
+	"member": GuildMemberStructure,
+}
+
+export interface VoiceServerUpdateEventFields {
+	"token": string,
+	"guild_id": string | bigint,
+	"endpoint": string,
+}
+
+export interface WebhooksUpdateEventFields {
+	"guild_id": string | bigint,
+	"channel_id": string | bigint,
+}
+
+export interface RoleStructure {
+	"id": string | bigint,
+	"name": string,
+	"color": number,
+	"hoist": boolean,
+	"icon": any,
+	"unicode_emoji": string,
+	"position": number,
+	"permissions": string,
+	"managed": boolean,
+	"mentionable": boolean,
+	"tags": RoleTagsStructure,
+}
+
+export interface RoleTagsStructure {
+	"bot_id": string | bigint,
+	"integration_id": string | bigint,
+	"premium_subscriber": null,
+}
+
+export interface PayloadStructure {
+	"cmd": RpcCommands,
+	"nonce": string,
+	"evt": RpcEvents,
+	"data": object,
+	"args": object,
+}
+
+export interface AuthorizeArgumentStructure {
+	"scopes": Array<OAuth2Scopes>,
+	"client_id": string,
+	"rpc_token": string,
+	"username": string,
+}
+
+export interface AuthorizeResponseStructure {
+	"code": string,
+}
+
+export interface AuthenticateArgumentStructure {
+	"access_token": string,
+}
+
+export interface AuthenticateResponseStructure {
+	"user": Partial<UserStructure>,
+	"scopes": Array<OAuth2Scopes>,
+	"expires": Date,
+	"application": OAuth2ApplicationStructure,
+}
+
+export interface OAuth2ApplicationStructure {
+	"description": string,
+	"icon": string,
+	"id": string | bigint,
+	"rpc_origins": Array<string>,
+	"name": string,
+}
+
+export interface GetGuildsResponseStructure {
+	"guilds": Array<Partial<GuildStructure>>,
+}
+
+export interface GetGuildArgumentStructure {
+	"guild_id": string,
+	"timeout": number,
+}
+
+export interface GetGuildResponseStructure {
+	"id": string,
+	"name": string,
+	"icon_url": string,
+	"members": Array<GuildMemberStructure>,
+}
+
+export interface GetChannelArgumentStructure {
+	"channel_id": string,
+}
+
+export interface GetChannelResponseStructure {
+	"id": string,
+	"guild_id": string,
+	"name": string,
+	"type": number,
+	"topic": string,
+	"bitrate": number,
+	"user_limit": number,
+	"position": number,
+	"voice_states": Array<VoiceStateStructure>,
+	"messages": Array<MessageStructure>,
+}
+
+export interface GetChannelsArgumentStructure {
+	"guild_id": string,
+}
+
+export interface GetChannelsResponseStructure {
+	"channels": Array<Partial<ChannelStructure>>,
+}
+
+export interface SetUserVoiceSettingsArgumentAndResponseStructure {
+	"user_id": string,
+	"pan": any,
+	"volume": number,
+	"mute": boolean,
+}
+
+export interface PanObject {
+	"left": number,
+	"right": number,
+}
+
+export interface SelectVoiceChannelArgumentStructure {
+	"channel_id": string,
+	"timeout": number,
+	"force": boolean,
+}
+
+export interface SelectTextChannelArgumentStructure {
+	"channel_id": string,
+	"timeout": number,
+}
+
+export interface GetVoiceSettingsResponseStructure {
+	"input": any,
+	"output": any,
+	"mode": any,
+	"automatic_gain_control": boolean,
+	"echo_cancellation": boolean,
+	"noise_suppression": boolean,
+	"qos": boolean,
+	"silence_warning": boolean,
+	"deaf": boolean,
+	"mute": boolean,
+}
+
+export interface VoiceSettingsInputObject {
+	"device_id": string,
+	"volume": number,
+	"available_devices": Array<object>,
+}
+
+export interface VoiceSettingsOutputObject {
+	"device_id": string,
+	"volume": number,
+	"available_devices": Array<object>,
+}
+
+export interface VoiceSettingsModeObject {
+	"type": string,
+	"auto_threshold": boolean,
+	"threshold": number,
+	"shortcut": any,
+	"delay": number,
+}
+
+export interface ShortcutKeyComboObject {
+	"type": any,
+	"code": number,
+	"name": string,
+}
+
+export interface SetVoiceSettingsArgumentAndResponseStructure {
+	"input": any,
+	"output": any,
+	"mode": any,
+	"automatic_gain_control": boolean,
+	"echo_cancellation": boolean,
+	"noise_suppression": boolean,
+	"qos": boolean,
+	"silence_warning": boolean,
+	"deaf": boolean,
+	"mute": boolean,
+}
+
+export interface SubscribeResponseStructure {
+	"evt": string,
+}
+
+export interface UnsubscribeResponseStructure {
+	"evt": string,
+}
+
+export interface SetCertifiedDevicesArgumentStrucure {
+	"devices": Array<any>,
+}
+
+export interface DeviceObject_ {
+	"type": any,
+	"id": string,
+	"vendor": any,
+	"model": any,
+	"related": Array<string>,
+	"echo_cancellation": boolean,
+	"noise_suppression": boolean,
+	"automatic_gain_control": boolean,
+	"hardware_mute": boolean,
+}
+
+export interface VendorObject_ {
+	"name": string,
+	"url": string,
+}
+
+export interface ModelObject_ {
+	"name": string,
+	"url": string,
+}
+
+export interface SetActivityArgumentStructure {
+	"pid": number,
+	"activity": ActivityStructure,
+}
+
+export interface SendActivityJoinInviteArgumentStructure {
+	"user_id": string | bigint,
+}
+
+export interface CloseActivityRequestArgumentStructure {
+	"user_id": string | bigint,
+}
+
+export interface ReadyDispatchDataStructure {
+	"v": number,
+	"config": RpcServerConfigurationObject,
+	"user": Partial<UserStructure>,
+}
+
+export interface RpcServerConfigurationObject {
+	"cdn_host": string,
+	"api_endpoint": string,
+	"environment": string,
+}
+
+export interface ErrorDataStructure {
+	"code": number,
+	"message": string,
+}
+
+export interface GuildStatusArgumentStructure {
+	"guild_id": string,
+}
+
+export interface GuildStatusDispatchDataStructure {
+	"guild": Partial<GuildStructure>,
+	"online": number,
+}
+
+export interface GuildCreateDispatchDataStructure {
+	"id": string,
+	"name": string,
+}
+
+export interface ChannelCreateDispatchDataStructure {
+	"id": string,
+	"name": string,
+	"type": number,
+}
+
+export interface VoiceChannelSelectDispatchDataStructure {
+	"channel_id": string,
+	"guild_id": string,
+}
+
+export interface VoiceStateArgumentStructure {
+	"channel_id": string,
+}
+
+export interface VoiceConnectionStatusDispatchDataStructure {
+	"state": string,
+	"hostname": string,
+	"pings": Array<number>,
+	"average_ping": number,
+	"last_ping": number,
+}
+
+export interface MessageArgumentStructure {
+	"channel_id": string,
+}
+
+export interface SpeakingArgumentStructure {
+	"channel_id": string,
+}
+
+export interface SpeakingDispatchDataStructure {
+	"user_id": string,
+}
+
+export interface NotificationCreateDispatchDataStructure {
+	"channel_id": string,
+	"message": MessageStructure,
+	"icon_url": string,
+	"title": string,
+	"body": string,
+}
+
+export interface ActivityJoinDispatchDataStructure {
+	"secret": any,
+}
+
+export interface ActivitySpectateDispatchDataStructure {
+	"secret": any,
+}
+
+export interface ActivityJoinRequestDataStructure {
+	"user": Partial<UserStructure>,
+}
+
+export interface RateLimitResponseStructure {
+	"message": string,
+	"retry_after": number,
+	"global": boolean,
+}
+
+export interface TeamObject {
+	"icon": string,
+	"id": string | bigint,
+	"members": Array<TeamMemberObject>,
+	"name": string,
+	"owner_user_id": string | bigint,
+}
+
+export interface TeamMemberObject {
+	"membership_state": MembershipStateEnum,
+	"permissions": Array<string>,
+	"team_id": string | bigint,
+	"user": Partial<UserStructure>,
+}
+
+export interface VoicePacketStructure_ {
+	"Version + Flags": any,
+	"Payload Type": any,
+	"Sequence": any,
+	"Timestamp": any,
+	"SSRC": any,
+	"Encrypted audio": any,
+}
+
 export function getChannel(
 	channelId: string,
 ): Promise<ChannelStructure> {
@@ -2645,1365 +4006,4 @@ export function getCurrentBotApplicationInformation(
 		path: `/oauth2/applications/@me`,
 		headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }
 	})
-}
-
-export interface ApplicationStructure {
-	"id": string | bigint,
-	"name": string,
-	"icon": any,
-	"description": string,
-	"rpc_origins": Array<string>,
-	"bot_public": boolean,
-	"bot_require_code_grant": boolean,
-	"terms_of_service_url": string,
-	"privacy_policy_url": string,
-	"owner": Partial<UserStructure>,
-	"summary": string,
-	"verify_key": any,
-	"team": Array<TeamObject>,
-	"guild_id": string | bigint,
-	"primary_sku_id": string | bigint,
-	"slug": string,
-	"cover_image": any,
-	"flags": ApplicationFlags,
-}
-
-export interface AuditLogStructure {
-	"audit_log_entries": Array<AuditLogEntryStructure>,
-	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
-	"integrations": Array<Partial<IntegrationStructure>>,
-	"threads": Array<ChannelStructure>,
-	"users": Array<UserStructure>,
-	"webhooks": Array<WebhookStructure>,
-}
-
-export interface AuditLogEntryStructure {
-	"target_id": string,
-	"changes": Array<AuditLogChangeStructure>,
-	"user_id": string | bigint,
-	"id": string | bigint,
-	"action_type": AuditLogEvents,
-	"options": OptionalAuditEntryInfo,
-	"reason": string,
-}
-
-export interface OptionalAuditEntryInfo {
-	"channel_id": string | bigint,
-	"count": string,
-	"delete_member_days": string,
-	"id": string | bigint,
-	"members_removed": string,
-	"message_id": string | bigint,
-	"role_name": string,
-	"type": string,
-}
-
-export interface AuditLogChangeStructure {
-	"new_value": AuditLogChangeKey,
-	"old_value": AuditLogChangeKey,
-	"key": AuditLogChangeKey,
-}
-
-export interface AuditLogChangeKey {
-	"afk_channel_id": string | bigint,
-	"afk_timeout": number,
-	"allow": string,
-	"application_id": string | bigint,
-	"archived": boolean,
-	"asset": string,
-	"auto_archive_duration": number,
-	"available": boolean,
-	"avatar_hash": string,
-	"banner_hash": string,
-	"bitrate": number,
-	"channel_id": string | bigint,
-	"code": string,
-	"color": number,
-	"communication_disabled_until": Date,
-	"deaf": boolean,
-	"default_auto_archive_duration": number,
-	"default_message_notifications": DefaultMessageNotificationLevel,
-	"deny": string,
-	"description": string,
-	"discovery_splash_hash": string,
-	"enable_emoticons": boolean,
-	"entity_type": number,
-	"expire_behavior": number,
-	"expire_grace_period": number,
-	"explicit_content_filter": ExplicitContentFilterLevel,
-	"format_type": StickerFormatTypes,
-	"guild_id": string | bigint,
-	"hoist": boolean,
-	"icon_hash": string,
-	"id": string | bigint,
-	"invitable": boolean,
-	"inviter_id": string | bigint,
-	"location": string,
-	"locked": boolean,
-	"max_age": number,
-	"max_uses": number,
-	"mentionable": boolean,
-	"mfa_level": number,
-	"mute": boolean,
-	"name": string,
-	"nick": string,
-	"nsfw": boolean,
-	"owner_id": string | bigint,
-	"permission_overwrites": Array<OverwriteStructure>,
-	"permissions": BitwisePermissionFlags,
-	"position": number,
-	"preferred_locale": string,
-	"privacy_level": PrivacyLevel,
-	"prune_delete_days": number,
-	"public_updates_channel_id": string | bigint,
-	"rate_limit_per_user": number,
-	"region": string,
-	"rules_channel_id": string | bigint,
-	"splash_hash": string,
-	"status": GuildScheduledEventStatus,
-	"system_channel_id": string | bigint,
-	"tags": string,
-	"temporary": boolean,
-	"topic": string,
-	"type": number | string,
-	"unicode_emoji": string,
-	"user_limit": number,
-	"uses": number,
-	"vanity_url_code": string,
-	"verification_level": number,
-	"widget_channel_id": string | bigint,
-	"widget_enabled": boolean,
-	"$add": Array<Partial<RoleStructure>>,
-	"$remove": Array<Partial<RoleStructure>>,
-}
-
-export interface ChannelStructure {
-	"id": string | bigint,
-	"type": ChannelTypes,
-	"guild_id": string | bigint,
-	"position": number,
-	"permission_overwrites": Array<OverwriteStructure>,
-	"name": string,
-	"topic": string,
-	"nsfw": boolean,
-	"last_message_id": string | bigint,
-	"bitrate": number,
-	"user_limit": number,
-	"rate_limit_per_user": number,
-	"recipients": Array<UserStructure>,
-	"icon": string,
-	"owner_id": string | bigint,
-	"application_id": string | bigint,
-	"parent_id": string | bigint,
-	"last_pin_timestamp": Date,
-	"rtc_region": VoiceRegionStructure,
-	"video_quality_mode": VideoQualityModes,
-	"message_count": number,
-	"member_count": number,
-	"thread_metadata": ThreadMetadataStructure,
-	"member": ThreadMemberStructure,
-	"default_auto_archive_duration": number,
-	"permissions": string,
-}
-
-export interface MessageStructure {
-	"id": string | bigint,
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-	"author": UserStructure,
-	"member": Partial<GuildMemberStructure>,
-	"content": string,
-	"timestamp": Date,
-	"edited_timestamp": Date,
-	"tts": boolean,
-	"mention_everyone": boolean,
-	"mentions": Array<Partial<UserStructure>>,
-	"mention_roles": Array<RoleStructure>,
-	"mention_channels": Array<ChannelMentionStructure>,
-	"attachments": Array<AttachmentStructure>,
-	"embeds": Array<EmbedStructure>,
-	"reactions": Array<ReactionStructure>,
-	"nonce": number | string,
-	"pinned": boolean,
-	"webhook_id": string | bigint,
-	"type": MessageTypes,
-	"activity": MessageActivityStructure,
-	"application": Partial<ApplicationStructure>,
-	"application_id": any,
-	"message_reference": MessageReferenceStructure,
-	"flags": MessageFlags,
-	"referenced_message": MessageStructure,
-	"interaction": any,
-	"thread": ChannelStructure,
-	"components": Array<any>,
-	"sticker_items": Array<StickerItemStructure>,
-	"stickers": Array<StickerStructure>,
-}
-
-export interface MessageActivityStructure {
-	"type": MessageActivityTypes,
-	"party_id": any,
-}
-
-export interface MessageReferenceStructure {
-	"message_id": string | bigint,
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-	"fail_if_not_exists": boolean,
-}
-
-export interface FollowedChannelStructure {
-	"channel_id": string | bigint,
-	"webhook_id": string | bigint,
-}
-
-export interface ReactionStructure {
-	"count": number,
-	"me": boolean,
-	"emoji": Partial<EmojiStructure>,
-}
-
-export interface OverwriteStructure {
-	"id": string | bigint,
-	"type": number,
-	"allow": string,
-	"deny": string,
-}
-
-export interface ThreadMetadataStructure {
-	"archived": boolean,
-	"auto_archive_duration": number,
-	"archive_timestamp": Date,
-	"locked": boolean,
-	"invitable": boolean,
-	"create_timestamp": Date,
-}
-
-export interface ThreadMemberStructure {
-	"id": string | bigint,
-	"user_id": string | bigint,
-	"join_timestamp": Date,
-	"flags": number,
-}
-
-export interface EmbedStructure {
-	"title": string,
-	"type": EmbedTypes,
-	"description": string,
-	"url": string,
-	"timestamp": Date,
-	"color": number,
-	"footer": EmbedFooterStructure,
-	"image": EmbedImageStructure,
-	"thumbnail": EmbedThumbnailStructure,
-	"video": EmbedVideoStructure,
-	"provider": EmbedProviderStructure,
-	"author": EmbedAuthorStructure,
-	"fields": Array<EmbedFieldStructure>,
-}
-
-export interface EmbedThumbnailStructure {
-	"url": string,
-	"proxy_url": string,
-	"height": number,
-	"width": number,
-}
-
-export interface EmbedVideoStructure {
-	"url": string,
-	"proxy_url": string,
-	"height": number,
-	"width": number,
-}
-
-export interface EmbedImageStructure {
-	"url": string,
-	"proxy_url": string,
-	"height": number,
-	"width": number,
-}
-
-export interface EmbedProviderStructure {
-	"name": string,
-	"url": string,
-}
-
-export interface EmbedAuthorStructure {
-	"name": string,
-	"url": string,
-	"icon_url": string,
-	"proxy_icon_url": string,
-}
-
-export interface EmbedFooterStructure {
-	"text": string,
-	"icon_url": string,
-	"proxy_icon_url": string,
-}
-
-export interface EmbedFieldStructure {
-	"name": string,
-	"value": string,
-	"inline": boolean,
-}
-
-export interface AttachmentStructure {
-	"id": string | bigint,
-	"filename": string,
-	"description": string,
-	"content_type": any,
-	"size": number,
-	"url": string,
-	"proxy_url": string,
-	"height": number,
-	"width": number,
-	"ephemeral": boolean,
-}
-
-export interface ChannelMentionStructure {
-	"id": string | bigint,
-	"guild_id": string | bigint,
-	"type": ChannelTypes,
-	"name": string,
-}
-
-export interface AllowedMentionsStructure {
-	"parse": Array<AllowedMentionTypes>,
-	"roles": Array<string | bigint>,
-	"users": Array<string | bigint>,
-	"replied_user": boolean,
-}
-
-export interface EmojiStructure {
-	"id": any,
-	"name": string,
-	"roles": Array<RoleStructure>,
-	"user": UserStructure,
-	"require_colons": boolean,
-	"managed": boolean,
-	"animated": boolean,
-	"available": boolean,
-}
-
-export interface GuildStructure {
-	"id": string | bigint,
-	"name": string,
-	"icon": any,
-	"icon_hash": any,
-	"splash": any,
-	"discovery_splash": any,
-	"owner": any,
-	"owner_id": string | bigint,
-	"permissions": any,
-	"region": VoiceRegionStructure,
-	"afk_channel_id": string | bigint,
-	"afk_timeout": number,
-	"widget_enabled": boolean,
-	"widget_channel_id": string | bigint,
-	"verification_level": VerificationLevel,
-	"default_message_notifications": DefaultMessageNotificationLevel,
-	"explicit_content_filter": ExplicitContentFilterLevel,
-	"roles": Array<RoleStructure>,
-	"emojis": Array<EmojiStructure>,
-	"features": Array<GuildFeatures>,
-	"mfa_level": MfaLevel,
-	"application_id": string | bigint,
-	"system_channel_id": string | bigint,
-	"system_channel_flags": SystemChannelFlags,
-	"rules_channel_id": string | bigint,
-	"joined_at": Date,
-	"large": boolean,
-	"unavailable": boolean,
-	"member_count": number,
-	"voice_states": Array<Partial<VoiceStateStructure>>,
-	"members": Array<GuildMemberStructure>,
-	"channels": Array<ChannelStructure>,
-	"threads": Array<ChannelStructure>,
-	"presences": Array<Partial<PresenceUpdateEventFields>>,
-	"max_presences": number,
-	"max_members": number,
-	"vanity_url_code": string,
-	"description": string,
-	"banner": any,
-	"premium_tier": PremiumTier,
-	"premium_subscription_count": number,
-	"preferred_locale": any,
-	"public_updates_channel_id": string | bigint,
-	"max_video_channel_users": number,
-	"approximate_member_count": number,
-	"approximate_presence_count": number,
-	"welcome_screen": WelcomeScreenStructure,
-	"nsfw_level": GuildNsfwLevel,
-	"stage_instances": Array<StageInstanceStructure>,
-	"stickers": Array<StickerStructure>,
-	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
-	"premium_progress_bar_enabled": boolean,
-}
-
-export interface GuildPreviewStructure {
-	"id": string | bigint,
-	"name": string,
-	"icon": any,
-	"splash": any,
-	"discovery_splash": any,
-	"emojis": Array<EmojiStructure>,
-	"features": Array<GuildFeatures>,
-	"approximate_member_count": number,
-	"approximate_presence_count": number,
-	"description": string,
-	"stickers": Array<StickerStructure>,
-}
-
-export interface GuildWidgetSettingsStructure {
-	"enabled": boolean,
-	"channel_id": string | bigint,
-}
-
-export interface GetGuildWidgetStructure {
-	"id": string | bigint,
-	"name": string,
-	"instant_invite": string,
-	"channels": Array<Partial<ChannelStructure>>,
-	"members": Array<Partial<UserStructure>>,
-	"presence_count": number,
-}
-
-export interface GuildMemberStructure {
-	"user": UserStructure,
-	"nick": string,
-	"avatar": any,
-	"roles": Array<RoleStructure>,
-	"joined_at": Date,
-	"premium_since": any,
-	"deaf": boolean,
-	"mute": boolean,
-	"pending": any,
-	"permissions": string,
-	"communication_disabled_until": any,
-}
-
-export interface IntegrationStructure {
-	"id": string | bigint,
-	"name": string,
-	"type": string,
-	"enabled": boolean,
-	"syncing": boolean,
-	"role_id": string | bigint,
-	"enable_emoticons": boolean,
-	"expire_behavior": IntegrationExpireBehaviors,
-	"expire_grace_period": number,
-	"user": UserStructure,
-	"account": IntegrationAccountStructure,
-	"synced_at": Date,
-	"subscriber_count": number,
-	"revoked": boolean,
-	"application": IntegrationApplicationStructure,
-}
-
-export interface IntegrationAccountStructure {
-	"id": string,
-	"name": string,
-}
-
-export interface IntegrationApplicationStructure {
-	"id": string | bigint,
-	"name": string,
-	"icon": any,
-	"description": string,
-	"summary": string,
-	"bot": UserStructure,
-}
-
-export interface BanStructure {
-	"reason": string,
-	"user": UserStructure,
-}
-
-export interface WelcomeScreenStructure {
-	"description": string,
-	"welcome_channels": Array<WelcomeScreenChannelStructure>,
-}
-
-export interface WelcomeScreenChannelStructure {
-	"channel_id": string | bigint,
-	"description": string,
-	"emoji_id": any,
-	"emoji_name": string,
-}
-
-export interface GuildScheduledEventStructure {
-	"id": string | bigint,
-	"guild_id": string | bigint,
-	"channel_id": GuildScheduledEventEntityTypes,
-	"creator_id": string | bigint,
-	"name": string,
-	"description": string,
-	"scheduled_start_time": Date,
-	"scheduled_end_time": Date,
-	"privacy_level": GuildScheduledEventPrivacyLevel,
-	"status": GuildScheduledEventStatus,
-	"entity_type": GuildScheduledEventEntityTypes,
-	"entity_id": string | bigint,
-	"entity_metadata": GuildScheduledEventEntityMetadata,
-	"creator": UserStructure,
-	"user_count": number,
-	"image": any,
-}
-
-export interface GuildScheduledEventEntityMetadata {
-	"location": string,
-}
-
-export interface GuildScheduledEventUserStructure {
-	"guild_scheduled_event_id": string | bigint,
-	"user": UserStructure,
-	"member": GuildMemberStructure,
-}
-
-export interface GuildTemplateStructure {
-	"code": string,
-	"name": string,
-	"description": string,
-	"usage_count": number,
-	"creator_id": string | bigint,
-	"creator": UserStructure,
-	"created_at": Date,
-	"updated_at": Date,
-	"source_guild_id": string | bigint,
-	"serialized_source_guild": Partial<GuildStructure>,
-	"is_dirty": boolean,
-}
-
-export interface InviteStructure {
-	"code": string,
-	"guild": Partial<GuildStructure>,
-	"channel": Partial<ChannelStructure>,
-	"inviter": UserStructure,
-	"target_type": InviteTargetTypes,
-	"target_user": UserStructure,
-	"target_application": Partial<ApplicationStructure>,
-	"approximate_presence_count": number,
-	"approximate_member_count": number,
-	"expires_at": Date,
-	"stage_instance": InviteStageInstanceStructure,
-	"guild_scheduled_event": GuildScheduledEventStructure,
-}
-
-export interface InviteMetadataStructure {
-	"uses": number,
-	"max_uses": number,
-	"max_age": number,
-	"temporary": boolean,
-	"created_at": Date,
-}
-
-export interface InviteStageInstanceStructure {
-	"members": Array<Partial<GuildMemberStructure>>,
-	"participant_count": number,
-	"speaker_count": number,
-	"topic": string,
-}
-
-export interface StageInstanceStructure {
-	"id": string | bigint,
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-	"topic": string,
-	"privacy_level": PrivacyLevel,
-	"discoverable_disabled": boolean,
-}
-
-export interface StickerStructure {
-	"id": any,
-	"pack_id": string | bigint,
-	"name": string,
-	"description": string,
-	"tags": string,
-	"asset": string,
-	"type": StickerTypes,
-	"format_type": StickerFormatTypes,
-	"available": boolean,
-	"guild_id": string | bigint,
-	"user": UserStructure,
-	"sort_value": number,
-}
-
-export interface StickerItemStructure {
-	"id": string | bigint,
-	"name": string,
-	"format_type": StickerFormatTypes,
-}
-
-export interface StickerPackStructure {
-	"id": string | bigint,
-	"stickers": Array<StickerStructure>,
-	"name": string,
-	"sku_id": string | bigint,
-	"cover_sticker_id": string | bigint,
-	"description": string,
-	"banner_asset_id": any,
-}
-
-export interface UserStructure {
-	"id": string | bigint,
-	"username": string,
-	"discriminator": string,
-	"avatar": any,
-	"bot": boolean,
-	"system": boolean,
-	"mfa_enabled": boolean,
-	"banner": any,
-	"accent_color": number,
-	"locale": any,
-	"verified": boolean,
-	"email": string,
-	"flags": UserFlags,
-	"premium_type": PremiumTypes,
-	"public_flags": UserFlags,
-}
-
-export interface ConnectionStructure {
-	"id": string,
-	"name": string,
-	"type": string,
-	"revoked": boolean,
-	"integrations": Array<Partial<IntegrationStructure>>,
-	"verified": boolean,
-	"friend_sync": boolean,
-	"show_activity": boolean,
-	"visibility": VisibilityTypes,
-}
-
-export interface VoiceStateStructure {
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-	"user_id": string | bigint,
-	"member": GuildMemberStructure,
-	"session_id": string,
-	"deaf": boolean,
-	"mute": boolean,
-	"self_deaf": boolean,
-	"self_mute": boolean,
-	"self_stream": boolean,
-	"self_video": boolean,
-	"suppress": boolean,
-	"request_to_speak_timestamp": Date,
-}
-
-export interface VoiceRegionStructure {
-	"id": string,
-	"name": string,
-	"optimal": boolean,
-	"deprecated": boolean,
-	"custom": boolean,
-}
-
-export interface WebhookStructure {
-	"id": string | bigint,
-	"type": WebhookTypes,
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-	"user": UserStructure,
-	"name": string,
-	"avatar": any,
-	"token": string,
-	"application_id": string | bigint,
-	"source_guild": Partial<GuildStructure>,
-	"source_channel": Partial<ChannelStructure>,
-	"url": WebhooksUpdateEventFields,
-}
-
-export interface DeviceObject {
-	"type": DeviceType,
-	"id": string,
-	"vendor": VendorObject,
-	"model": ModelObject,
-	"related": Array<string>,
-	"echo_cancellation": boolean,
-	"noise_suppression": boolean,
-	"automatic_gain_control": boolean,
-	"hardware_mute": boolean,
-}
-
-export interface VendorObject {
-	"name": string,
-	"url": string,
-}
-
-export interface ModelObject {
-	"name": string,
-	"url": string,
-}
-
-export interface GatewayPayloadStructure {
-	"op": GatewayOpcodes,
-	"d": object,
-	"s": number,
-	"t": string,
-}
-
-export interface GatewayUrlQueryStringParams {
-	"v": number,
-	"encoding": string,
-	"compress": string,
-}
-
-export interface IdentifyStructure {
-	"token": string,
-	"properties": IdentifyConnectionProperties,
-	"compress": boolean,
-	"large_threshold": number,
-	"shard": Array<any>,
-	"presence": GatewayPresenceUpdateStructure,
-	"intents": any,
-}
-
-export interface IdentifyConnectionProperties {
-	"$os": string,
-	"$browser": string,
-	"$device": string,
-}
-
-export interface ResumeStructure {
-	"token": string,
-	"session_id": string,
-	"seq": number,
-}
-
-export interface GuildRequestMembersStructure {
-	"guild_id": string | bigint,
-	"query": string,
-	"limit": number,
-	"presences": boolean,
-	"user_ids": Array<string | bigint> | Array<string | bigint>,
-	"nonce": GuildMembersChunkEventFields,
-}
-
-export interface GatewayVoiceStateUpdateStructure {
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-	"self_mute": boolean,
-	"self_deaf": boolean,
-}
-
-export interface GatewayPresenceUpdateStructure {
-	"since": number,
-	"activities": Array<ActivityStructure>,
-	"status": StatusTypes,
-	"afk": boolean,
-}
-
-export interface HelloStructure {
-	"heartbeat_interval": number,
-}
-
-export interface ReadyEventFields {
-	"v": GatewayVersions,
-	"user": UserStructure,
-	"guilds": Array<any>,
-	"session_id": string,
-	"shard": Array<any>,
-	"application": Partial<ApplicationStructure>,
-}
-
-export interface ThreadListSyncEventFields {
-	"guild_id": string | bigint,
-	"channel_ids": Array<string | bigint>,
-	"threads": Array<ChannelStructure>,
-	"members": Array<ThreadMemberStructure>,
-}
-
-export interface ThreadMemberUpdateEventExtraFields {
-	"guild_id": string | bigint,
-}
-
-export interface ThreadMembersUpdateEventFields {
-	"id": string | bigint,
-	"guild_id": string | bigint,
-	"member_count": number,
-	"added_members": Array<ThreadMemberStructure>,
-	"removed_member_ids": Array<string | bigint>,
-}
-
-export interface ChannelPinsUpdateEventFields {
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-	"last_pin_timestamp": Date,
-}
-
-export interface GuildBanAddEventFields {
-	"guild_id": string | bigint,
-	"user": UserStructure,
-}
-
-export interface GuildBanRemoveEventFields {
-	"guild_id": string | bigint,
-	"user": UserStructure,
-}
-
-export interface GuildEmojisUpdateEventFields {
-	"guild_id": string | bigint,
-	"emojis": Array<EmojiStructure>,
-}
-
-export interface GuildStickersUpdateEventFields {
-	"guild_id": string | bigint,
-	"stickers": Array<StickerStructure>,
-}
-
-export interface GuildIntegrationsUpdateEventFields {
-	"guild_id": string | bigint,
-}
-
-export interface GuildMemberAddExtraFields {
-	"guild_id": string | bigint,
-}
-
-export interface GuildMemberRemoveEventFields {
-	"guild_id": string | bigint,
-	"user": UserStructure,
-}
-
-export interface GuildMemberUpdateEventFields {
-	"guild_id": string | bigint,
-	"roles": Array<string | bigint>,
-	"user": UserStructure,
-	"nick": string,
-	"avatar": any,
-	"joined_at": Date,
-	"premium_since": any,
-	"deaf": boolean,
-	"mute": boolean,
-	"pending": any,
-	"communication_disabled_until": any,
-}
-
-export interface GuildMembersChunkEventFields {
-	"guild_id": string | bigint,
-	"members": Array<GuildMemberStructure>,
-	"chunk_index": number,
-	"chunk_count": number,
-	"not_found": any,
-	"presences": Array<PresenceUpdateEventFields>,
-	"nonce": GuildRequestMembersStructure,
-}
-
-export interface GuildRoleCreateEventFields {
-	"guild_id": string | bigint,
-	"role": RoleStructure,
-}
-
-export interface GuildRoleUpdateEventFields {
-	"guild_id": string | bigint,
-	"role": RoleStructure,
-}
-
-export interface GuildRoleDeleteEventFields {
-	"guild_id": string | bigint,
-	"role_id": string | bigint,
-}
-
-export interface GuildScheduledEventUserAddEventFields {
-	"guild_scheduled_event_id": string | bigint,
-	"user_id": string | bigint,
-	"guild_id": string | bigint,
-}
-
-export interface GuildScheduledEventUserRemoveEventFields {
-	"guild_scheduled_event_id": string | bigint,
-	"user_id": string | bigint,
-	"guild_id": string | bigint,
-}
-
-export interface IntegrationCreateEventAdditionalFields {
-	"guild_id": string | bigint,
-}
-
-export interface IntegrationUpdateEventAdditionalFields {
-	"guild_id": string | bigint,
-}
-
-export interface IntegrationDeleteEventFields {
-	"id": string | bigint,
-	"guild_id": string | bigint,
-	"application_id": string | bigint,
-}
-
-export interface InviteCreateEventFields {
-	"channel_id": string | bigint,
-	"code": InviteStructure,
-	"created_at": Date,
-	"guild_id": string | bigint,
-	"inviter": UserStructure,
-	"max_age": number,
-	"max_uses": number,
-	"target_type": InviteTargetTypes,
-	"target_user": UserStructure,
-	"target_application": Partial<ApplicationStructure>,
-	"temporary": boolean,
-	"uses": number,
-}
-
-export interface InviteDeleteEventFields {
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-	"code": InviteStructure,
-}
-
-export interface MessageDeleteEventFields {
-	"id": string | bigint,
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-}
-
-export interface MessageDeleteBulkEventFields {
-	"ids": Array<string | bigint>,
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-}
-
-export interface MessageReactionAddEventFields {
-	"user_id": string | bigint,
-	"channel_id": string | bigint,
-	"message_id": string | bigint,
-	"guild_id": string | bigint,
-	"member": GuildMemberStructure,
-	"emoji": Partial<EmojiStructure>,
-}
-
-export interface MessageReactionRemoveEventFields {
-	"user_id": string | bigint,
-	"channel_id": string | bigint,
-	"message_id": string | bigint,
-	"guild_id": string | bigint,
-	"emoji": Partial<EmojiStructure>,
-}
-
-export interface MessageReactionRemoveAllEventFields {
-	"channel_id": string | bigint,
-	"message_id": string | bigint,
-	"guild_id": string | bigint,
-}
-
-export interface MessageReactionRemoveEmojiEventFields {
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-	"message_id": string | bigint,
-	"emoji": Partial<EmojiStructure>,
-}
-
-export interface PresenceUpdateEventFields_ {
-	"user": UserStructure,
-	"guild_id": string | bigint,
-	"status": string,
-	"activities": Array<ActivityStructure>,
-	"client_status": PresenceUpdateEventFields,
-}
-
-export interface ActivityStructure {
-	"name": string,
-	"type": ActivityTypes,
-	"url": string,
-	"created_at": number,
-	"timestamps": ActivityTimestamps,
-	"application_id": string | bigint,
-	"details": string,
-	"state": string,
-	"emoji": ActivityEmoji,
-	"party": ActivityParty,
-	"assets": ActivityAssets,
-	"secrets": ActivitySecrets,
-	"instance": boolean,
-	"flags": ActivityFlags,
-	"buttons": Array<ActivityButtons>,
-}
-
-export interface ActivityTimestamps {
-	"start": number,
-	"end": number,
-}
-
-export interface ActivityEmoji {
-	"name": string,
-	"id": string | bigint,
-	"animated": boolean,
-}
-
-export interface ActivityParty {
-	"id": string,
-	"size": Array<number>,
-}
-
-export interface ActivityAssets {
-	"large_image": ActivityAssetImage,
-	"large_text": string,
-	"small_image": ActivityAssetImage,
-	"small_text": string,
-}
-
-export interface ActivitySecrets {
-	"join": string,
-	"spectate": string,
-	"match": string,
-}
-
-export interface ActivityButtons {
-	"label": string,
-	"url": string,
-}
-
-export interface TypingStartEventFields {
-	"channel_id": string | bigint,
-	"guild_id": string | bigint,
-	"user_id": string | bigint,
-	"timestamp": number,
-	"member": GuildMemberStructure,
-}
-
-export interface VoiceServerUpdateEventFields {
-	"token": string,
-	"guild_id": string | bigint,
-	"endpoint": string,
-}
-
-export interface WebhooksUpdateEventFields {
-	"guild_id": string | bigint,
-	"channel_id": string | bigint,
-}
-
-export interface RoleStructure {
-	"id": string | bigint,
-	"name": string,
-	"color": number,
-	"hoist": boolean,
-	"icon": any,
-	"unicode_emoji": string,
-	"position": number,
-	"permissions": string,
-	"managed": boolean,
-	"mentionable": boolean,
-	"tags": RoleTagsStructure,
-}
-
-export interface RoleTagsStructure {
-	"bot_id": string | bigint,
-	"integration_id": string | bigint,
-	"premium_subscriber": null,
-}
-
-export interface PayloadStructure {
-	"cmd": RpcCommands,
-	"nonce": string,
-	"evt": RpcEvents,
-	"data": object,
-	"args": object,
-}
-
-export interface AuthorizeArgumentStructure {
-	"scopes": Array<OAuth2Scopes>,
-	"client_id": string,
-	"rpc_token": string,
-	"username": string,
-}
-
-export interface AuthorizeResponseStructure {
-	"code": string,
-}
-
-export interface AuthenticateArgumentStructure {
-	"access_token": string,
-}
-
-export interface AuthenticateResponseStructure {
-	"user": Partial<UserStructure>,
-	"scopes": Array<OAuth2Scopes>,
-	"expires": Date,
-	"application": OAuth2ApplicationStructure,
-}
-
-export interface OAuth2ApplicationStructure {
-	"description": string,
-	"icon": string,
-	"id": string | bigint,
-	"rpc_origins": Array<string>,
-	"name": string,
-}
-
-export interface GetGuildsResponseStructure {
-	"guilds": Array<Partial<GuildStructure>>,
-}
-
-export interface GetGuildArgumentStructure {
-	"guild_id": string,
-	"timeout": number,
-}
-
-export interface GetGuildResponseStructure {
-	"id": string,
-	"name": string,
-	"icon_url": string,
-	"members": Array<GuildMemberStructure>,
-}
-
-export interface GetChannelArgumentStructure {
-	"channel_id": string,
-}
-
-export interface GetChannelResponseStructure {
-	"id": string,
-	"guild_id": string,
-	"name": string,
-	"type": number,
-	"topic": string,
-	"bitrate": number,
-	"user_limit": number,
-	"position": number,
-	"voice_states": Array<VoiceStateStructure>,
-	"messages": Array<MessageStructure>,
-}
-
-export interface GetChannelsArgumentStructure {
-	"guild_id": string,
-}
-
-export interface GetChannelsResponseStructure {
-	"channels": Array<Partial<ChannelStructure>>,
-}
-
-export interface SetUserVoiceSettingsArgumentAndResponseStructure {
-	"user_id": string,
-	"pan": any,
-	"volume": number,
-	"mute": boolean,
-}
-
-export interface PanObject {
-	"left": number,
-	"right": number,
-}
-
-export interface SelectVoiceChannelArgumentStructure {
-	"channel_id": string,
-	"timeout": number,
-	"force": boolean,
-}
-
-export interface SelectTextChannelArgumentStructure {
-	"channel_id": string,
-	"timeout": number,
-}
-
-export interface GetVoiceSettingsResponseStructure {
-	"input": any,
-	"output": any,
-	"mode": any,
-	"automatic_gain_control": boolean,
-	"echo_cancellation": boolean,
-	"noise_suppression": boolean,
-	"qos": boolean,
-	"silence_warning": boolean,
-	"deaf": boolean,
-	"mute": boolean,
-}
-
-export interface VoiceSettingsInputObject {
-	"device_id": string,
-	"volume": number,
-	"available_devices": Array<object>,
-}
-
-export interface VoiceSettingsOutputObject {
-	"device_id": string,
-	"volume": number,
-	"available_devices": Array<object>,
-}
-
-export interface VoiceSettingsModeObject {
-	"type": string,
-	"auto_threshold": boolean,
-	"threshold": number,
-	"shortcut": any,
-	"delay": number,
-}
-
-export interface ShortcutKeyComboObject {
-	"type": any,
-	"code": number,
-	"name": string,
-}
-
-export interface SetVoiceSettingsArgumentAndResponseStructure {
-	"input": any,
-	"output": any,
-	"mode": any,
-	"automatic_gain_control": boolean,
-	"echo_cancellation": boolean,
-	"noise_suppression": boolean,
-	"qos": boolean,
-	"silence_warning": boolean,
-	"deaf": boolean,
-	"mute": boolean,
-}
-
-export interface SubscribeResponseStructure {
-	"evt": string,
-}
-
-export interface UnsubscribeResponseStructure {
-	"evt": string,
-}
-
-export interface SetCertifiedDevicesArgumentStrucure {
-	"devices": Array<any>,
-}
-
-export interface DeviceObject_ {
-	"type": any,
-	"id": string,
-	"vendor": any,
-	"model": any,
-	"related": Array<string>,
-	"echo_cancellation": boolean,
-	"noise_suppression": boolean,
-	"automatic_gain_control": boolean,
-	"hardware_mute": boolean,
-}
-
-export interface VendorObject_ {
-	"name": string,
-	"url": string,
-}
-
-export interface ModelObject_ {
-	"name": string,
-	"url": string,
-}
-
-export interface SetActivityArgumentStructure {
-	"pid": number,
-	"activity": ActivityStructure,
-}
-
-export interface SendActivityJoinInviteArgumentStructure {
-	"user_id": string | bigint,
-}
-
-export interface CloseActivityRequestArgumentStructure {
-	"user_id": string | bigint,
-}
-
-export interface ReadyDispatchDataStructure {
-	"v": number,
-	"config": RpcServerConfigurationObject,
-	"user": Partial<UserStructure>,
-}
-
-export interface RpcServerConfigurationObject {
-	"cdn_host": string,
-	"api_endpoint": string,
-	"environment": string,
-}
-
-export interface ErrorDataStructure {
-	"code": number,
-	"message": string,
-}
-
-export interface GuildStatusArgumentStructure {
-	"guild_id": string,
-}
-
-export interface GuildStatusDispatchDataStructure {
-	"guild": Partial<GuildStructure>,
-	"online": number,
-}
-
-export interface GuildCreateDispatchDataStructure {
-	"id": string,
-	"name": string,
-}
-
-export interface ChannelCreateDispatchDataStructure {
-	"id": string,
-	"name": string,
-	"type": number,
-}
-
-export interface VoiceChannelSelectDispatchDataStructure {
-	"channel_id": string,
-	"guild_id": string,
-}
-
-export interface VoiceStateArgumentStructure {
-	"channel_id": string,
-}
-
-export interface VoiceConnectionStatusDispatchDataStructure {
-	"state": string,
-	"hostname": string,
-	"pings": Array<number>,
-	"average_ping": number,
-	"last_ping": number,
-}
-
-export interface MessageArgumentStructure {
-	"channel_id": string,
-}
-
-export interface SpeakingArgumentStructure {
-	"channel_id": string,
-}
-
-export interface SpeakingDispatchDataStructure {
-	"user_id": string,
-}
-
-export interface NotificationCreateDispatchDataStructure {
-	"channel_id": string,
-	"message": MessageStructure,
-	"icon_url": string,
-	"title": string,
-	"body": string,
-}
-
-export interface ActivityJoinDispatchDataStructure {
-	"secret": any,
-}
-
-export interface ActivitySpectateDispatchDataStructure {
-	"secret": any,
-}
-
-export interface ActivityJoinRequestDataStructure {
-	"user": Partial<UserStructure>,
-}
-
-export interface RateLimitResponseStructure {
-	"message": string,
-	"retry_after": number,
-	"global": boolean,
-}
-
-export interface TeamObject {
-	"icon": string,
-	"id": string | bigint,
-	"members": Array<TeamMemberObject>,
-	"name": string,
-	"owner_user_id": string | bigint,
-}
-
-export interface TeamMemberObject {
-	"membership_state": MembershipStateEnum,
-	"permissions": Array<string>,
-	"team_id": string | bigint,
-	"user": Partial<UserStructure>,
-}
-
-export interface VoicePacketStructure_ {
-	"Version + Flags": any,
-	"Payload Type": any,
-	"Sequence": any,
-	"Timestamp": any,
-	"SSRC": any,
-	"Encrypted audio": any,
 }
