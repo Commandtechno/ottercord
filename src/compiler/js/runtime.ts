@@ -1,5 +1,11 @@
 import { request } from "https";
 
+type JSON<T> =
+  | T
+  | { toJSON(): JSON<T> }
+  | (T extends object ? { [K in keyof T]: JSON<T[K]> } : never)
+  | (T extends Array<any> ? Array<JSON<T[number]>> : never);
+
 function fetch({
   method,
   path,

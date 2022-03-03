@@ -3,9 +3,14 @@ export function isPartial(text: string) {
 }
 
 export function isArray(text: string) {
-  return text.toLowerCase().includes("array of") || text.toLowerCase().includes("list of");
+  return (
+    text.toLowerCase().includes("array") || text.toLowerCase().includes("list")
+  );
 }
 
 export function isDeprecated(text: string) {
-  return text.toLowerCase().includes("(deprecated)") || text.toLowerCase().includes("*deprecated*");
+  return (
+    text.toLowerCase().includes("(deprecated)") ||
+    text.toLowerCase().includes("*deprecated*")
+  );
 }

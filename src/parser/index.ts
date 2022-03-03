@@ -3,6 +3,19 @@ import { resolve } from "path";
 import { marked } from "marked";
 
 import {
+  // info
+  blue,
+  // error
+  red,
+  // warn
+  yellow
+} from "chalk";
+
+console.info = (...args) => console.log(blue(...args));
+console.error = (...args) => console.log(red(...args));
+console.warn = (...args) => console.log(yellow(...args));
+
+import {
   EndpointEngine,
   ExampleEngine,
   StructureEngine,
@@ -36,7 +49,7 @@ export async function parse(...pathSegments: string[]) {
         .split("%", 1)[0]
         .trim()
         .toLowerCase()
-        .replace(/\s+/g, "-");
+        .replace(/[^\w]+/g, "-");
 
       if (block.depth < 5) {
         parent = anchor + "-";

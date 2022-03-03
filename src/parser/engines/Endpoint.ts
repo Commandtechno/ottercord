@@ -38,14 +38,8 @@ export class EndpointEngine implements Endpoint {
   response?: Type;
 
   #context: "none" | "query" | "request" | "response" = "none";
-  #state: {
-    optional: boolean;
-    nullable: boolean;
-    json: boolean;
-    form: boolean;
-  } = {
-    optional: false,
-    nullable: false,
+  #state = {
+    partial: false,
     json: false,
     form: false
   };
@@ -100,14 +94,16 @@ export class EndpointEngine implements Endpoint {
   processNone(block: marked.Token) {
     switch (block.type) {
       case "blockquote":
-        if (block.text.includes("optional")) this.#state.optional = true;
-        if (block.text.includes("nullable")) this.#state.nullable = true;
+        if (block.text.includes("optional")) this.#state.partial = true;
+        if (block.text.includes("nullable")) this.#state.partial = true;
         break;
 
       case "paragraph":
         this.description ??= trimText(flattenBlock(block));
 
-        if (block.text.includes("optional")) this.#state.optional = true;
+        if (block.text.includes("optional")) this.#state.partial = true;
+        if (block.text.includes("nullable")) this.#state.partial = true;
+
         if (!this.response) {
           let afterReturn = false;
           let beforeDot = true;
@@ -187,14 +183,6 @@ export class EndpointEngine implements Endpoint {
             this.#state.json = true;
             this.#state.form = true;
             break;
-
-          // default:
-          //   try {
-          //     new EndpointEngine(block);
-          //     return true;
-          //   } catch {
-          //     break;
-          //   }
         }
         break;
     }
@@ -215,12 +203,15 @@ export class EndpointEngine implements Endpoint {
   processRequest(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
-
       if (this.request) {
         if (Array.isArray(this.request)) {
           this.request.push({
             json: this.#state.json,
             form: this.#state.form,
+            partial: this.#state.partial,
+
+            array: false,
+            deprecated: false,
 
             type: "structure",
             properties: table.map(parseProperty)
@@ -231,6 +222,10 @@ export class EndpointEngine implements Endpoint {
             {
               json: this.#state.json,
               form: this.#state.form,
+              partial: this.#state.partial,
+
+              array: false,
+              deprecated: false,
 
               type: "structure",
               properties: table.map(parseProperty)
@@ -241,6 +236,10 @@ export class EndpointEngine implements Endpoint {
         this.request = {
           json: this.#state.json,
           form: this.#state.form,
+          partial: this.#state.partial,
+
+          array: false,
+          deprecated: false,
 
           type: "structure",
           properties: table.map(parseProperty)

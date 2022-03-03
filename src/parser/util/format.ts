@@ -10,15 +10,15 @@ export function cutText(text: string) {
 // normalize whitespace
 export function trimText(text: string) {
   return text
-    .replace(/^[\s\\\?*"]+/, "")
-    .replace(/[\s\\\?*"]+$/, "")
+    .replace(/^[\s\\*"]+/, "")
+    .replace(/[\s\\*"]+$/, "")
     .replace(/\s+/g, " ");
 }
 
-// token doesnt contain tokens so just any for now
-export function flattenBlock(block: any): string {
-  // @ts-ignore
-  return block.tokens.map(token => decode(token.text)).join("");
+export function flattenBlock(block: { tokens: marked.Token[] }): string {
+  return block.tokens
+    .map(token => ("text" in token ? decode(token.text) : ""))
+    .join("");
 }
 
 // turns a table headings and rows into an object

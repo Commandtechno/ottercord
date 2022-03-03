@@ -1,12 +1,8 @@
 import * as pluralize from "pluralize";
 
-// remove s from the end of a string
-// export function stripPlural(text: string) {
-//   return text.replace(/s$/, "");
-// }
+// fixes data > datum
+pluralize.addSingularRule(/data$/, "data");
 
-// testing using a library because plurals are a lot more complicated than i thought
-// example: libraries > library
 export function stripPlural(text: string) {
   return pluralize.singular(text);
 }

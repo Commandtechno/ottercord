@@ -29,19 +29,22 @@ export interface BaseType {
 export interface ValueType extends BaseType {
   type: "value";
   value:
-    | "any"
-    | "binary"
-    | "snowflake"
-    | "file"
     | "null"
     | "string"
-    | "boolean"
-    | "integer"
     | "float"
+    | "integer"
     | "bigint"
+    | "boolean"
     | "object"
+
+    // special types
     | "date"
-    | "timestamp";
+    | "binary"
+    | "file"
+    | "snowflake"
+
+    // fallback
+    | "any";
 }
 
 export interface ReferenceType extends BaseType {

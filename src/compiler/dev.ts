@@ -34,25 +34,25 @@ import { GO } from "./go";
   );
 
   const js = new JS({ constants, endpoints, examples, structures });
-  const go = new GO({ constants, endpoints, examples, structures });
+  // const go = new GO({ constants, endpoints, examples, structures });
 
   for (const constant of constants) {
     js.renderConstant(constant);
-    go.renderConstant(constant);
+    // go.renderConstant(constant);
   }
 
   for (const structure of structures) {
     js.renderStructure(structure);
-    go.renderStructure(structure);
+    // go.renderStructure(structure);
   }
 
   for (const endpoint of endpoints) {
     js.renderEndpoint(endpoint);
-    go.renderEndpoint(endpoint);
+    // go.renderEndpoint(endpoint);
   }
 
   await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js.code);
-  await writeFile(resolve(GO_OUTPUT_DIR, "main.go"), go.code);
+  // await writeFile(resolve(GO_OUTPUT_DIR, "main.go"), go.code);
 
   // const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
   // spawn("node", [tsc, resolve(JS_OUTPUT_DIR, "index.ts"), "--declaration"], {

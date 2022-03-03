@@ -1,4 +1,4 @@
-import { Row, Property, ValueType, BaseType } from "../../common";
+import { Row, Property, ValueType } from "../../common";
 import {
   cutText,
   trimText,
@@ -21,7 +21,7 @@ export function parseLink(link: string) {
 
 export function parseProperty(row: Row): Property {
   let key = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
-  let type = stripBrackets(cutText(row.type.text));
+  let type = cutText(flattenBlock(row.type));
   let description = row.description && trimText(flattenBlock(row.description));
 
   let optional = false;
@@ -32,73 +32,31 @@ export function parseProperty(row: Row): Property {
     row.required &&
     row.required?.text !== "Yes" &&
     row.required?.text !== "true"
-  ) {
+  )
     optional = true;
+
+  if (key.startsWith("?")) {
+    optional = true;
+    key = key.slice(1);
   }
 
-  if (row.field?.text.startsWith("?")) {
+  if (key.endsWith("?")) {
     optional = true;
-    row.field.text = row.field.text.slice(1);
-  }
-
-  if (row.field?.text.endsWith("?")) {
-    optional = true;
-    row.field.text = row.field.text.slice(0, -1);
+    key = key.slice(0, -1);
   }
 
   // nullable
-  if (row.type.text.startsWith("?")) {
+  if (type.startsWith("?")) {
     nullable = true;
-    row.type.text = row.type.text.slice(1);
+    type = type.slice(1);
   }
 
-  if (row.type.text.endsWith("?")) {
+  if (type.endsWith("?")) {
     nullable = true;
-    row.type.text = row.type.text.slice(0, -1);
+    type = type.slice(0, -1);
   }
 
-  let array = false;
-  let partial = false;
-  let deprecated = false;
-
-  // array
-  if (isArray(row.type.text)) {
-    array = true;
-    row.type.text = stripArray(row.type.text);
-  }
-
-  if (description && isArray(description)) {
-    array = true;
-    description = stripArray(description);
-  }
-
-  // partial
-  if (isPartial(row.type.text)) {
-    partial = true;
-    row.type.text = stripPartial(row.type.text);
-  }
-
-  if (description && isPartial(description)) {
-    partial = true;
-    row.description.text = stripPartial(description);
-  }
-
-  // deprecated
-  if (isDeprecated(key)) {
-    deprecated = true;
-    key = stripDeprecated(key);
-  }
-
-  if (isDeprecated(row.type.text)) {
-    deprecated = true;
-    row.type.text = stripDeprecated(row.type.text);
-  }
-
-  if (description && isDeprecated(description)) {
-    deprecated = true;
-    description = stripDeprecated(description);
-  }
-
+  // union type
   if (type.includes("or") || type.includes(",")) {
     const types = type.split(/(or|,)/);
     const valueTypes: ValueType[] = [];
@@ -133,12 +91,57 @@ export function parseProperty(row: Row): Property {
       };
   }
 
+  let array = false;
+  let partial = false;
+  let deprecated = false;
+
+  // array
+  if (isArray(type)) {
+    array = true;
+    type = stripArray(type);
+  }
+
+  if (description && isArray(description)) {
+    array = true;
+    description = stripArray(description);
+  }
+
+  // partial
+  if (isPartial(type)) {
+    partial = true;
+    type = stripPartial(type);
+  }
+
+  if (description && isPartial(description)) {
+    partial = true;
+    description = stripPartial(description);
+  }
+
+  // deprecated
+  if (isDeprecated(key)) {
+    deprecated = true;
+    key = stripDeprecated(key);
+  }
+
+  if (isDeprecated(type)) {
+    deprecated = true;
+    type = stripDeprecated(type);
+  }
+
+  if (description && isDeprecated(description)) {
+    deprecated = true;
+    description = stripDeprecated(description);
+  }
+
   // type field links
   for (const token of row.type.tokens)
     if (token.type === "link")
       return {
         key,
         description,
+
+        optional,
+        nullable,
 
         type: {
           array,
@@ -147,10 +150,7 @@ export function parseProperty(row: Row): Property {
 
           type: "reference",
           link: parseLink(token.href)
-        },
-
-        optional,
-        nullable
+        }
       };
 
   // description field links
@@ -161,6 +161,9 @@ export function parseProperty(row: Row): Property {
           key,
           description,
 
+          optional,
+          nullable,
+
           type: {
             array,
             partial,
@@ -168,17 +171,33 @@ export function parseProperty(row: Row): Property {
 
             type: "reference",
             link: parseLink(token.href)
-          },
-
-          optional,
-          nullable
+          }
         };
 
+  const valueType = parseValueType(type);
+  if (valueType)
+    return {
+      key,
+      description,
+
+      optional,
+      nullable,
+
+      type: valueType
+    };
+
   // could not resolve type
-  console.log(`Invalid type: ${row.type.text}`);
+  console.warn(
+    `Invalid type: ${row.type.text} (${stripPlural(
+      trimText(stripBrackets(type.toLowerCase()))
+    )})`
+  );
   return {
     key,
     description,
+
+    optional,
+    nullable,
 
     type: {
       array,
@@ -187,10 +206,7 @@ export function parseProperty(row: Row): Property {
 
       type: "value",
       value: "any"
-    },
-
-    optional,
-    nullable
+    }
   };
 }
 
@@ -218,19 +234,7 @@ export function parseValueType(type: string): ValueType {
   }
 
   let value: ValueType["value"];
-  switch (stripPlural(trimText(type))) {
-    case "binary":
-      value = "binary";
-      break;
-
-    case "snowflake":
-      value = "snowflake";
-      break;
-
-    case "file contents":
-      value = "file";
-      break;
-
+  switch (stripPlural(trimText(stripBrackets(type.toLowerCase())))) {
     case "null":
       value = "null";
       break;
@@ -239,23 +243,25 @@ export function parseValueType(type: string): ValueType {
       value = "string";
       break;
 
-    case "bool":
-    case "boolean":
-      value = "boolean";
+    case "float":
+      value = "float";
       break;
 
     case "int":
     case "integer":
     case "number":
+    case "unsigned short":
+    case "unsigned integer":
       value = "integer";
-      break;
-
-    case "float":
-      value = "float";
       break;
 
     case "bigint":
       value = "bigint";
+      break;
+
+    case "bool":
+    case "boolean":
+      value = "boolean";
       break;
 
     case "dict":
@@ -264,9 +270,27 @@ export function parseValueType(type: string): ValueType {
       value = "object";
       break;
 
-    // case "date":
-    case "ISO8601 timestamp":
-      value = "timestamp";
+    // special types
+    case "date":
+    case "iso8601 timestamp":
+      value = "date";
+      break;
+
+    case "binary data":
+    case "binary":
+      value = "binary";
+      break;
+
+    case "file content":
+      value = "file";
+      break;
+
+    case "snowflake":
+      value = "snowflake";
+      break;
+
+    case "":
+      value = "any";
       break;
   }
 

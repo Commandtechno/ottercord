@@ -23,37 +23,16 @@ export class JS extends Base {
 
   renderValueType(valueType: ValueType) {
     switch (valueType.value) {
-      // special
-      case "binary":
-        this.write("Buffer");
-        break;
-
-      case "snowflake":
-        this.write("string | bigint");
-        break;
-
-      case "file contents":
-        this.write(JSON.stringify("balls"));
-        break;
-
-      // basic
-      case "any":
       case "null":
+        this.write("null");
+        break;
+
       case "string":
-        this.write(valueType.value);
+        this.write("string");
         break;
 
-      // booleans
-      case "bool":
-      case "boolean":
-        this.write("boolean");
-        break;
-
-      // numbers
-      case "int":
-      case "integer":
       case "float":
-      case "number":
+      case "integer":
         this.write("number");
         break;
 
@@ -61,16 +40,32 @@ export class JS extends Base {
         this.write("bigint");
         break;
 
-      // objects
-      case "dict":
-      case "mixed":
+      case "boolean":
+        this.write("boolean");
+        break;
+
       case "object":
         this.write("object");
         break;
 
       case "date":
-      case "ISO8601 timestamp":
         this.write("Date");
+        break;
+
+      case "binary":
+        this.write("Buffer");
+        break;
+
+      case "file":
+        this.write(JSON.stringify("balls"));
+        break;
+
+      case "snowflake":
+        this.write("string | bigint");
+        break;
+
+      case "any":
+        this.write("any");
         break;
 
       default:
@@ -96,16 +91,27 @@ export class JS extends Base {
   }
 
   renderReferenceType(referenceType: ReferenceType) {
-    const ref =
-      this.constants.find(c => c.tree.includes(referenceType.link)) ??
-      this.structures.find(s => s.tree.includes(referenceType.link));
+    const constant = this.constants.find(c =>
+      c.tree.includes(referenceType.link)
+    );
 
-    if (!ref) {
-      console.log("Could not find reference: " + referenceType.link);
-      this.write("any");
-    } else {
-      this.write(pascal(ref.name));
-    }
+    if (constant)
+      return this.write(
+        "typeof " +
+          pascal(constant.name) +
+          "[keyof typeof " +
+          pascal(constant.name) +
+          "]"
+      );
+
+    const structure = this.structures.find(s =>
+      s.tree.includes(referenceType.link)
+    );
+
+    if (structure) return this.write(pascal(structure.name));
+
+    console.log("Could not find reference: " + referenceType.link);
+    this.write("any");
   }
 
   renderType(type: Type | Type[]) {
@@ -139,7 +145,7 @@ export class JS extends Base {
   }
 
   renderConstant(constant: Constant) {
-    this.line(`export enum ${this.getName(pascal(constant.name))} {`);
+    this.line(`export const ${this.getName(pascal(constant.name))} = {`);
     this.indent++;
 
     for (const prop of constant.properties) {
@@ -150,11 +156,11 @@ export class JS extends Base {
         : pascal(prop.key);
 
       const value = JSON.stringify(prop.value);
-      this.line(`${key} = ${value},`);
+      this.line(`${key}: ${value},`);
     }
 
     this.indent--;
-    this.line("}");
+    this.line("} as const");
     this.line();
   }
 
@@ -174,9 +180,9 @@ export class JS extends Base {
     }
 
     if (endpoint.request) {
-      this.line(`body: `);
+      this.line(`body: JSON<`);
       this.renderType(endpoint.request);
-      this.write(", ");
+      this.write(">, ");
     }
     this.indent--;
 
@@ -216,8 +222,10 @@ export class JS extends Base {
       this.tab();
 
       this.write(JSON.stringify(prop.key));
+      if (prop.optional) this.write("?");
       this.write(": ");
       this.renderType(prop.type);
+      if (prop.nullable) this.write(" | null");
       this.write(",");
     }
 
