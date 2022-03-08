@@ -121,17 +121,17 @@
   },
   {
     "tree": [
-      "emoji-object-gateway-reaction-standard-emoji-example"
+      "emoji-object-standard-emoji-example"
     ],
-    "name": "Gateway Reaction Standard Emoji Example",
+    "name": "Standard Emoji Example",
     "language": "json",
     "content": "{\n  \"id\": null,\n  \"name\": \"🔥\"\n}"
   },
   {
     "tree": [
-      "emoji-object-gateway-reaction-custom-emoji-examples"
+      "emoji-object-custom-emoji-examples"
     ],
-    "name": "Gateway Reaction Custom Emoji Examples",
+    "name": "Custom Emoji Examples",
     "language": "json",
     "content": "{\n  \"id\": \"41771983429993937\",\n  \"name\": \"LUL\",\n  \"animated\": true\n}"
   },
@@ -659,7 +659,6 @@
   },
   {
     "tree": [
-      "json",
       "json-example-json-error-response"
     ],
     "name": "Example JSON Error Response",
@@ -682,40 +681,6 @@
     "name": "Example Role",
     "language": "json",
     "content": "{\n  \"id\": \"41771983423143936\",\n  \"name\": \"WE DEM BOYZZ!!!!!!\",\n  \"color\": 3447003,\n  \"hoist\": true,\n  \"icon\": \"cf3ced8600b777c9486c6d8d84fb4327\",\n  \"unicode_emoji\": null,\n  \"position\": 1,\n  \"permissions\": \"66321471\",\n  \"managed\": false,\n  \"mentionable\": false\n}"
-  },
-  {
-    "tree": [
-      "rate-limits",
-      "header-format",
-      "header-format-rate-limit-header-examples"
-    ],
-    "name": "Rate Limit Header Examples",
-    "language": "",
-    "content": "X-RateLimit-Limit: 5\nX-RateLimit-Remaining: 0\nX-RateLimit-Reset: 1470173023\nX-RateLimit-Reset-After: 1\nX-RateLimit-Bucket: abcd1234"
-  },
-  {
-    "tree": [
-      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response"
-    ],
-    "name": "Example Exceeded User Rate Limit Response",
-    "language": "",
-    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 0\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: user\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": false\n}"
-  },
-  {
-    "tree": [
-      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response"
-    ],
-    "name": "Example Exceeded Resource Rate Limit Response",
-    "language": "",
-    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 9\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: shared\n{\n  \"message\": \"The resource is being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": false\n}"
-  },
-  {
-    "tree": [
-      "exceeding-a-rate-limit-example-exceeded-global-rate-limit-response"
-    ],
-    "name": "Example Exceeded Global Rate Limit Response",
-    "language": "",
-    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Global: true\n< X-RateLimit-Scope: global\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": true\n}"
   },
   {
     "tree": [
@@ -1081,6 +1046,40 @@
     "name": "Example Activity Join Request Dispatch Payload",
     "language": "json",
     "content": "{\n  \"cmd\": \"DISPATCH\",\n  \"data\": {\n    \"user\": {\n      \"id\": \"53908232506183680\",\n      \"username\": \"Mason\",\n      \"discriminator\": \"1337\",\n      \"avatar\": \"a_bab14f271d565501444b2ca3be944b25\"\n    }\n  },\n  \"evt\": \"ACTIVITY_JOIN_REQUEST\"\n}"
+  },
+  {
+    "tree": [
+      "rate-limits",
+      "header-format",
+      "header-format-rate-limit-header-examples"
+    ],
+    "name": "Rate Limit Header Examples",
+    "language": "",
+    "content": "X-RateLimit-Limit: 5\nX-RateLimit-Remaining: 0\nX-RateLimit-Reset: 1470173023\nX-RateLimit-Reset-After: 1\nX-RateLimit-Bucket: abcd1234"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-user-rate-limit-response"
+    ],
+    "name": "Example Exceeded User Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 0\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: user\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": false\n}"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-resource-rate-limit-response"
+    ],
+    "name": "Example Exceeded Resource Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 1337\n< X-RateLimit-Limit: 10\n< X-RateLimit-Remaining: 9\n< X-RateLimit-Reset: 1470173023.123\n< X-RateLimit-Reset-After: 64.57\n< X-RateLimit-Bucket: abcd1234\n< X-RateLimit-Scope: shared\n{\n  \"message\": \"The resource is being rate limited.\",\n  \"retry_after\": 1336.57,\n  \"global\": false\n}"
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit-example-exceeded-global-rate-limit-response"
+    ],
+    "name": "Example Exceeded Global Rate Limit Response",
+    "language": "",
+    "content": "< HTTP/1.1 429 TOO MANY REQUESTS\n< Content-Type: application/json\n< Retry-After: 65\n< X-RateLimit-Global: true\n< X-RateLimit-Scope: global\n{\n  \"message\": \"You are being rate limited.\",\n  \"retry_after\": 64.57,\n  \"global\": true\n}"
   },
   {
     "tree": [

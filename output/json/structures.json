@@ -2609,7 +2609,7 @@
         "key": "create_timestamp",
         "description": "timestamp when the thread was created; only populated for threads created after 2022-01-09",
         "optional": true,
-        "nullable": false,
+        "nullable": true,
         "type": {
           "array": false,
           "partial": false,
@@ -5223,7 +5223,7 @@
       {
         "key": "creator_id",
         "description": "the id of the user that created the scheduled event",
-        "optional": false,
+        "optional": true,
         "nullable": true,
         "type": {
           "array": false,
@@ -5760,7 +5760,7 @@
         "type": {
           "array": false,
           "partial": false,
-          "deprecated": false,
+          "deprecated": true,
           "type": "reference",
           "link": "invite-stage-instance-object"
         }
@@ -9542,6 +9542,53 @@
   },
   {
     "tree": [
+      "client-status-object"
+    ],
+    "name": "Client Status Object",
+    "properties": [
+      {
+        "key": "desktop",
+        "description": "the user's status set for an active desktop (Windows, Linux, Mac) application session",
+        "optional": true,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        }
+      },
+      {
+        "key": "mobile",
+        "description": "the user's status set for an active mobile (iOS, Android) application session",
+        "optional": true,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        }
+      },
+      {
+        "key": "web",
+        "description": "the user's status set for an active web (browser, bot account) application session",
+        "optional": true,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        }
+      }
+    ]
+  },
+  {
+    "tree": [
       "activity-object",
       "activity-object-activity-structure"
     ],
@@ -10359,54 +10406,6 @@
           "deprecated": false,
           "type": "value",
           "value": "null"
-        }
-      }
-    ]
-  },
-  {
-    "tree": [
-      "exceeding-a-rate-limit",
-      "exceeding-a-rate-limit-rate-limit-response-structure"
-    ],
-    "name": "Rate Limit Response Structure",
-    "properties": [
-      {
-        "key": "message",
-        "description": "A message saying you are being rate limited.",
-        "optional": false,
-        "nullable": false,
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "string"
-        }
-      },
-      {
-        "key": "retry_after",
-        "description": "The number of seconds to wait before submitting another request.",
-        "optional": false,
-        "nullable": false,
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "float"
-        }
-      },
-      {
-        "key": "global",
-        "description": "A value indicating if you are being globally rate limited or not",
-        "optional": false,
-        "nullable": false,
-        "type": {
-          "array": false,
-          "partial": false,
-          "deprecated": false,
-          "type": "value",
-          "value": "boolean"
         }
       }
     ]
@@ -12655,6 +12654,54 @@
           "deprecated": false,
           "type": "reference",
           "link": "user-object"
+        }
+      }
+    ]
+  },
+  {
+    "tree": [
+      "exceeding-a-rate-limit",
+      "exceeding-a-rate-limit-rate-limit-response-structure"
+    ],
+    "name": "Rate Limit Response Structure",
+    "properties": [
+      {
+        "key": "message",
+        "description": "A message saying you are being rate limited.",
+        "optional": false,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "string"
+        }
+      },
+      {
+        "key": "retry_after",
+        "description": "The number of seconds to wait before submitting another request.",
+        "optional": false,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "float"
+        }
+      },
+      {
+        "key": "global",
+        "description": "A value indicating if you are being globally rate limited or not",
+        "optional": false,
+        "nullable": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "deprecated": false,
+          "type": "value",
+          "value": "boolean"
         }
       }
     ]

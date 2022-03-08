@@ -9,11 +9,11 @@ import { JS } from "./js";
 import { GO } from "./go";
 
 (async () => {
-  if (existsSync(JS_OUTPUT_DIR)) await rm(JS_OUTPUT_DIR, { recursive: true });
-  await mkdir(JS_OUTPUT_DIR, { recursive: true });
+  // if (existsSync(JS_OUTPUT_DIR)) await rm(JS_OUTPUT_DIR, { recursive: true });
+  // await mkdir(JS_OUTPUT_DIR, { recursive: true });
 
-  if (existsSync(GO_OUTPUT_DIR)) await rm(GO_OUTPUT_DIR, { recursive: true });
-  await mkdir(GO_OUTPUT_DIR, { recursive: true });
+  // if (existsSync(GO_OUTPUT_DIR)) await rm(GO_OUTPUT_DIR, { recursive: true });
+  // await mkdir(GO_OUTPUT_DIR, { recursive: true });
 
   const constantsPath = resolve(JSON_OUTPUT_DIR, "constants.json");
   const constants: Constant[] = JSON.parse(

@@ -49,7 +49,7 @@ export class JS extends Base {
         break;
 
       case "date":
-        this.write("Date");
+        this.write("string");
         break;
 
       case "binary":
@@ -203,9 +203,9 @@ export class JS extends Base {
     this.line("method: " + JSON.stringify(endpoint.method) + ",");
     this.line("path: " + path + ",");
     if (endpoint.request) this.line("body: JSON.stringify(body),");
-    this.line(
-      'headers: { Authorization: "Bot " + process.env.DISCORD_BOT_TOKEN }'
-    );
+    this.line("headers: { ");
+    if (endpoint.request) this.write("'Content-Type': 'application/json', ");
+    this.write('Authorization: "Bot " + token }');
     this.indent--;
     this.line("})");
     this.indent--;

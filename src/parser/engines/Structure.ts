@@ -18,7 +18,7 @@ export class StructureEngine implements Structure {
   }
 
   constructor(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 5) {
+    if (block.type === "heading" && block.depth > 3) {
       this.name = block.text;
       this.properties = [];
     } else {

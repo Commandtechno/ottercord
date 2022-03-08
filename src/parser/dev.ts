@@ -7,9 +7,9 @@ import { parse } from ".";
 
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
-  if (existsSync(JSON_OUTPUT_DIR))
-    await rm(JSON_OUTPUT_DIR, { recursive: true });
-  await mkdir(JSON_OUTPUT_DIR, { recursive: true });
+  // if (existsSync(JSON_OUTPUT_DIR))
+  // await rm(JSON_OUTPUT_DIR, { recursive: true });
+  // await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
   const endpoints = [];
   const examples = [];

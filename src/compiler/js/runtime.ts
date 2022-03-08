@@ -6,7 +6,13 @@ type JSON<T> =
   | (T extends object ? { [K in keyof T]: JSON<T[K]> } : never)
   | (T extends Array<any> ? Array<JSON<T[number]>> : never);
 
-function fetch({
+export let token: string;
+
+export function setToken(newToken: string) {
+  token = newToken;
+}
+
+export function fetch({
   method,
   path,
   body,
