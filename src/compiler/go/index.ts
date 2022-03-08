@@ -23,63 +23,52 @@ export class GO extends Base {
 
   renderValueType(valueType: ValueType) {
     switch (valueType.value) {
-      // special
-      case "binary":
-        this.write("[]byte");
-        break;
-
-      case "snowflake":
-        this.write("string");
-        break;
-
-      case "file contents":
-        this.write(JSON.stringify("balls"));
-        break;
-
-      // basic
-      case "any":
-        this.write("interface{}");
-        break;
-
       case "null":
-        this.write("interface{}");
+        this.write("nil");
         break;
 
       case "string":
-        this.write(valueType.value);
-        break;
-
-      // booleans
-      case "bool":
-      case "boolean":
-        this.write("bool");
-        break;
-
-      // numbers
-      case "int":
-      case "integer":
-        this.write("int");
+        this.write("string");
         break;
 
       case "float":
-      case "number":
         this.write("float64");
+        break;
+
+      case "integer":
+        this.write("int");
         break;
 
       case "bigint":
         this.write("int");
         break;
 
-      // objects
-      case "dict":
-      case "mixed":
+      case "boolean":
+        this.write("bool");
+        break;
+
       case "object":
         this.write("map[string]interface{}");
         break;
 
       case "date":
-      case "ISO8601 timestamp":
         this.write("time.Time");
+        break;
+
+      case "binary":
+        this.write("[]byte");
+        break;
+
+      case "file":
+        this.write(JSON.stringify("balls"));
+        break;
+
+      case "snowflake":
+        this.write("string");
+        break;
+
+      case "any":
+        this.write("interface{}");
         break;
 
       default:
@@ -91,10 +80,10 @@ export class GO extends Base {
     this.write("struct {");
     this.indent++;
 
-    for (const prop of structureType.properties) {
-      this.line(`${pascal(prop.key)} `);
+    for (const prop of structureType.props) {
+      this.line(`${pascal(prop.name)} `);
       this.renderType(prop.type);
-      this.write(" `json:" + JSON.stringify(prop.key) + "`");
+      this.write(" `json:" + JSON.stringify(prop.name) + "`");
       // if (prop.nullable) this.write(" | null");
     }
 
@@ -139,10 +128,10 @@ export class GO extends Base {
     this.line(`const (`);
     this.indent++;
 
-    for (const prop of constant.properties) {
-      const key = this.getName(pascal(constant.name) + pascal(prop.key));
+    for (const prop of constant.props) {
+      const name = this.getName(pascal(constant.name) + pascal(prop.name));
       const value = JSON.stringify(prop.value);
-      this.line(`${key} = ${value}`);
+      this.line(`${name} = ${value}`);
     }
 
     this.indent--;
@@ -155,7 +144,7 @@ export class GO extends Base {
     if (endpoint.request) {
       requestType = this.getName(pascal(endpoint.name) + "Body");
       this.line(`type ${requestType} `);
-      this.renderType(endpoint.request);
+      this.renderType(endpoint.request.type);
       this.line();
     }
 
@@ -215,10 +204,10 @@ export class GO extends Base {
     this.line(`type ${this.getName(pascal(structure.name))} struct {`);
     this.indent++;
 
-    for (const prop of structure.properties) {
-      this.line(`${pascal(prop.key)} `);
+    for (const prop of structure.props) {
+      this.line(`${pascal(prop.name)} `);
       this.renderType(prop.type);
-      this.write(" `json:" + JSON.stringify(prop.key) + "`");
+      this.write(" `json:" + JSON.stringify(prop.name) + "`");
     }
 
     this.indent--;

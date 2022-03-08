@@ -1,4 +1,5 @@
 export * from "./format";
+export * from "./generate";
 export * from "./is";
 export * from "./parse";
 export * from "./split";

@@ -1,12 +1,9 @@
-import { Base } from ".";
+import { BaseMeta, BaseEngine } from ".";
 
-export interface Constant extends Base {
-  properties: ConstantProperty[];
+export interface Constant extends BaseEngine {
+  props: ConstantProperty[];
 }
 
-export interface ConstantProperty {
-  description?: string;
-
-  key: string;
+export interface ConstantProperty extends BaseMeta {
   value: string | number;
 }

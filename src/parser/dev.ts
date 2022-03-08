@@ -7,9 +7,9 @@ import { parse } from ".";
 
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
-  // if (existsSync(JSON_OUTPUT_DIR))
-  // await rm(JSON_OUTPUT_DIR, { recursive: true });
-  // await mkdir(JSON_OUTPUT_DIR, { recursive: true });
+  if (existsSync(JSON_OUTPUT_DIR))
+    await rm(JSON_OUTPUT_DIR, { recursive: true });
+  await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
   const endpoints = [];
   const examples = [];
@@ -20,6 +20,7 @@ import { parse } from ".";
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
+      // if (file !== "Guild_Scheduled_Event.md") continue;
       const name = basename(file, ".md");
       console.time(name);
 

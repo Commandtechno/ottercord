@@ -42,6 +42,13 @@ export async function parse(...pathSegments: string[]) {
     tree = [];
   }
 
+  function clearHandlers() {
+    endpoints.clear();
+    examples.clear();
+    structures.clear();
+    constants.clear();
+  }
+
   for (const block of page) {
     let link: string;
     if (block.type === "heading") {
@@ -60,16 +67,21 @@ export async function parse(...pathSegments: string[]) {
     }
 
     // temp
-    endpoints.process(block, tree, clearLinks, () =>
-      examples.process(block, tree, clearLinks, () =>
-        structures.process(block, tree, clearLinks, () =>
-          constants.process(block, tree, clearLinks)
+    endpoints.process(block, tree, clearLinks, clearHandlers, () =>
+      examples.process(block, tree, clearLinks, clearHandlers, () =>
+        structures.process(block, tree, clearLinks, clearHandlers, () =>
+          constants.process(block, tree, clearLinks, clearHandlers)
         )
       )
     );
 
     if (link) tree.push(link);
   }
+
+  endpoints.flush();
+  examples.flush();
+  structures.flush();
+  constants.flush();
 
   return { endpoints, examples, structures, constants };
 }

@@ -25,10 +25,25 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
     this.engine = engine;
   }
 
+  clear() {
+    this.flush();
+    this.current = undefined;
+  }
+
+  flush() {
+    if (this.current)
+      if (
+        this.current.status === Status.Ready ||
+        this.current.status === Status.Completed
+      )
+        this.push(this.current);
+  }
+
   process(
     block: marked.Token,
     tree: Tree,
     clearTree: () => void,
+    clearHandlers: () => void,
     callback?: () => void
   ) {
     try {
@@ -53,18 +68,21 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
         return;
       }
 
-      if (this.current) {
-        this.current.process(block);
-        if (this.current.status === Status.Completed) {
-          this.current.tree = [...tree];
-          clearTree();
+      if (this.current) this.current.process(block);
+    }
 
-          this.push(this.current);
-          this.current = undefined;
-          return;
-        } else if (this.current.status === Status.Ready) {
-          return;
-        }
+    if (this.current) {
+      if (this.current.status === Status.Completed) {
+        this.current.tree = [...tree];
+        clearTree();
+
+        this.push(this.current);
+        clearHandlers();
+        return;
+      }
+
+      if (this.current.status === Status.Block) {
+        return;
       }
     }
 

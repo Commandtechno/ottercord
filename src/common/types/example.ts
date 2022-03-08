@@ -1,6 +1,6 @@
-import { Base } from ".";
+import { BaseEngine } from ".";
 
-export interface Example extends Base {
+export interface Example extends BaseEngine {
   language: string;
   content: string;
 }

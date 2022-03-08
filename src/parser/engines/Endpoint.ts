@@ -4,9 +4,9 @@ import {
   trimText,
   flattenBlock,
   formatTable,
+  generateType,
   isArray,
   isPartial,
-  isDeprecated,
   parseProperty,
   stripBrackets,
   parseLink
@@ -34,10 +34,11 @@ export class EndpointEngine implements Endpoint {
   params: EndpointParam[];
   query?: StructureType;
 
-  request?: EndpointRequest | EndpointRequest[];
+  request?: EndpointRequest;
   response?: Type;
 
-  #context: "none" | "query" | "request" | "response" = "none";
+  #context: "none" | "query" | "request" | "response" | "response-example" =
+    "none";
   #state = {
     partial: false,
     json: false,
@@ -45,7 +46,7 @@ export class EndpointEngine implements Endpoint {
   };
 
   get status(): Status {
-    return Status.Ready;
+    return this.#context === "none" ? Status.Ready : Status.Block;
   }
 
   constructor(block: marked.Token) {
@@ -88,6 +89,9 @@ export class EndpointEngine implements Endpoint {
 
       case "response":
         return this.processResponse(block);
+
+      case "response-example":
+        return this.processResponseExample(block);
     }
   }
 
@@ -105,43 +109,52 @@ export class EndpointEngine implements Endpoint {
         if (block.text.includes("nullable")) this.#state.partial = true;
 
         if (!this.response) {
-          let afterReturn = false;
-          let beforeDot = true;
+          let after = false;
+          let before = true;
           for (const token of block.tokens) {
             // @ts-ignore
             if (!token.text) {
               continue;
             }
 
-            if (!afterReturn) {
+            if (!after) {
               // @ts-ignore
               const returnsIndex = token.text.toLowerCase().indexOf("returns");
               if (returnsIndex !== -1) {
-                afterReturn = true;
-                beforeDot = true;
-                // beforeDot = false;
+                after = true;
+                before = true;
+                // before = false;
                 // @ts-ignore
                 token.text = token.text.slice(returnsIndex + 8);
               }
             }
 
-            if (beforeDot) {
+            if (before) {
+              // @ts-ignore
+              const objectIndex = token.text.toLowerCase().indexOf("object");
+              if (objectIndex !== -1) {
+                before = false;
+                // @ts-ignore
+                token.text = token.text.slice(objectIndex + 6);
+              }
+            }
+
+            if (before) {
               // @ts-ignore
               const dotIndex = token.text.toLowerCase().indexOf(".");
               if (dotIndex !== -1) {
-                afterReturn = false;
-                beforeDot = false;
+                after = false;
+                before = false;
                 // @ts-ignore
                 token.text = token.text.slice(0, dotIndex);
               }
             }
 
-            if (afterReturn && beforeDot) {
+            if (after && before) {
               if (token.type === "link") {
                 this.response = {
                   array: isArray(block.text),
                   partial: isPartial(block.text),
-                  deprecated: isDeprecated(block.text),
 
                   type: "reference",
                   link: parseLink(token.href)
@@ -161,11 +174,6 @@ export class EndpointEngine implements Endpoint {
             this.#context = "query";
             break;
 
-          case "Response Structure":
-          case "JSON Response":
-            this.#context = "response";
-            break;
-
           case "JSON Params":
             this.#context = "request";
             this.#state.json = true;
@@ -183,6 +191,15 @@ export class EndpointEngine implements Endpoint {
             this.#state.json = true;
             this.#state.form = true;
             break;
+
+          case "Response Structure":
+          case "JSON Response":
+            this.#context = "response";
+            break;
+
+          case "Example Response":
+            this.#context = "response-example";
+            break;
         }
         break;
     }
@@ -192,8 +209,11 @@ export class EndpointEngine implements Endpoint {
     if (block.type === "table") {
       const table = formatTable(block);
       this.query = {
+        array: false,
+        partial: false,
+
         type: "structure",
-        properties: table.map(parseProperty)
+        props: table.map(parseProperty)
       };
 
       this.#context = "none";
@@ -203,48 +223,24 @@ export class EndpointEngine implements Endpoint {
   processRequest(block: marked.Token) {
     if (block.type === "table") {
       const table = formatTable(block);
+      const type: Type = {
+        array: false,
+        partial: this.#state.partial,
+
+        type: "structure",
+        props: table.map(parseProperty)
+      };
+
       if (this.request) {
-        if (Array.isArray(this.request)) {
-          this.request.push({
-            json: this.#state.json,
-            form: this.#state.form,
-            partial: this.#state.partial,
-
-            array: false,
-            deprecated: false,
-
-            type: "structure",
-            properties: table.map(parseProperty)
-          });
-        } else {
-          this.request = [
-            this.request,
-            {
-              json: this.#state.json,
-              form: this.#state.form,
-              partial: this.#state.partial,
-
-              array: false,
-              deprecated: false,
-
-              type: "structure",
-              properties: table.map(parseProperty)
-            }
-          ];
-        }
-      } else {
+        if (Array.isArray(this.request.type)) this.request.type.push(type);
+        else this.request.type = [this.request.type, type];
+      } else
         this.request = {
           json: this.#state.json,
           form: this.#state.form,
-          partial: this.#state.partial,
 
-          array: false,
-          deprecated: false,
-
-          type: "structure",
-          properties: table.map(parseProperty)
+          type
         };
-      }
 
       this.#context = "none";
     }
@@ -252,11 +248,27 @@ export class EndpointEngine implements Endpoint {
 
   processResponse(block: marked.Token) {
     if (block.type === "table") {
-      const table = formatTable(block);
-      this.response = {
-        type: "structure",
-        properties: table.map(parseProperty)
-      };
+      if (!this.response) {
+        const table = formatTable(block);
+        this.response = {
+          array: false,
+          partial: false,
+
+          type: "structure",
+          props: table.map(parseProperty)
+        };
+      }
+
+      this.#context = "none";
+    }
+  }
+
+  processResponseExample(block: marked.Token) {
+    if (block.type === "code") {
+      if (!this.response) {
+        const json = JSON.parse(block.text);
+        this.response = generateType(json);
+      }
 
       this.#context = "none";
     }

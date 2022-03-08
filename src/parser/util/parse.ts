@@ -20,12 +20,13 @@ export function parseLink(link: string) {
 }
 
 export function parseProperty(row: Row): Property {
-  let key = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
+  let name = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
   let type = cutText(flattenBlock(row.type));
   let description = row.description && trimText(flattenBlock(row.description));
 
   let optional = false;
   let nullable = false;
+  let deprecated = false;
 
   // optional
   if (
@@ -35,14 +36,14 @@ export function parseProperty(row: Row): Property {
   )
     optional = true;
 
-  if (key.startsWith("?")) {
+  if (name.startsWith("?")) {
     optional = true;
-    key = key.slice(1);
+    name = name.slice(1);
   }
 
-  if (key.endsWith("?")) {
+  if (name.endsWith("?")) {
     optional = true;
-    key = key.slice(0, -1);
+    name = name.slice(0, -1);
   }
 
   // nullable
@@ -54,6 +55,22 @@ export function parseProperty(row: Row): Property {
   if (type.endsWith("?")) {
     nullable = true;
     type = type.slice(0, -1);
+  }
+
+  // deprecated
+  if (isDeprecated(name)) {
+    deprecated = true;
+    name = stripDeprecated(name);
+  }
+
+  if (isDeprecated(type)) {
+    deprecated = true;
+    type = stripDeprecated(type);
+  }
+
+  if (description && isDeprecated(description)) {
+    deprecated = true;
+    description = stripDeprecated(description);
   }
 
   // union type
@@ -68,8 +85,6 @@ export function parseProperty(row: Row): Property {
         valueTypes.some(
           _ =>
             _.array === valueType.array &&
-            _.partial === valueType.partial &&
-            _.deprecated === valueType.deprecated &&
             _.type === valueType.type &&
             _.value === valueType.value
         )
@@ -81,8 +96,9 @@ export function parseProperty(row: Row): Property {
 
     if (valueTypes.length)
       return {
-        key,
+        name,
         description,
+        deprecated,
 
         optional,
         nullable,
@@ -93,7 +109,6 @@ export function parseProperty(row: Row): Property {
 
   let array = false;
   let partial = false;
-  let deprecated = false;
 
   // array
   if (isArray(type)) {
@@ -117,39 +132,27 @@ export function parseProperty(row: Row): Property {
     description = stripPartial(description);
   }
 
-  // deprecated
-  if (isDeprecated(key)) {
-    deprecated = true;
-    key = stripDeprecated(key);
-  }
-
-  if (isDeprecated(type)) {
-    deprecated = true;
-    type = stripDeprecated(type);
-  }
-
-  if (description && isDeprecated(description)) {
-    deprecated = true;
-    description = stripDeprecated(description);
-  }
+  const valueType = parseValueType(type);
 
   // type field links
   for (const token of row.type.tokens)
     if (token.type === "link")
       return {
-        key,
+        name,
         description,
 
         optional,
         nullable,
+        deprecated,
 
         type: {
           array,
           partial,
-          deprecated,
 
           type: "reference",
-          link: parseLink(token.href)
+          link: parseLink(token.href),
+
+          fallback: valueType
         }
       };
 
@@ -158,30 +161,32 @@ export function parseProperty(row: Row): Property {
     for (const token of row.description.tokens)
       if (token.type === "link")
         return {
-          key,
+          name,
           description,
 
           optional,
           nullable,
+          deprecated,
 
           type: {
             array,
             partial,
-            deprecated,
 
             type: "reference",
-            link: parseLink(token.href)
+            link: parseLink(token.href),
+
+            fallback: valueType
           }
         };
 
-  const valueType = parseValueType(type);
   if (valueType)
     return {
-      key,
+      name,
       description,
 
       optional,
       nullable,
+      deprecated,
 
       type: valueType
     };
@@ -192,17 +197,18 @@ export function parseProperty(row: Row): Property {
       trimText(stripBrackets(type.toLowerCase()))
     )})`
   );
+
   return {
-    key,
+    name,
     description,
 
     optional,
     nullable,
+    deprecated,
 
     type: {
       array,
       partial,
-      deprecated,
 
       type: "value",
       value: "any"
@@ -213,7 +219,6 @@ export function parseProperty(row: Row): Property {
 export function parseValueType(type: string): ValueType {
   let array = false;
   let partial = false;
-  let deprecated = false;
 
   // array
   if (isArray(type)) {
@@ -225,12 +230,6 @@ export function parseValueType(type: string): ValueType {
   if (isPartial(type)) {
     partial = true;
     type = stripPartial(type);
-  }
-
-  // deprecated
-  if (isDeprecated(type)) {
-    deprecated = true;
-    type = stripDeprecated(type);
   }
 
   let value: ValueType["value"];
@@ -298,7 +297,6 @@ export function parseValueType(type: string): ValueType {
     return {
       array,
       partial,
-      deprecated,
 
       type: "value",
       value

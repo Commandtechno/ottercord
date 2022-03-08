@@ -18,16 +18,16 @@ export class ConstantEngine implements Constant {
   name: string;
   description?: string;
 
-  properties: ConstantProperty[];
+  props: ConstantProperty[];
 
   get status(): Status {
-    return this.properties.length ? Status.Completed : Status.None;
+    return this.props.length ? Status.Completed : Status.None;
   }
 
   constructor(block: marked.Token) {
     if (block.type === "heading" && block.depth > 5) {
       this.name = block.text;
-      this.properties = [];
+      this.props = [];
     } else {
       throw "not constant";
     }
@@ -45,36 +45,36 @@ export class ConstantEngine implements Constant {
       primaryKey = stripPlural(trimText(primaryKey.toLowerCase()));
 
       const table = formatTable(block);
-      this.properties = table.map(row => {
-        let key: string;
+      this.props = table.map(row => {
+        let name: string;
         let description: string;
         let rawValue: string;
 
         /*
-        key
+        name
         */
 
-        // key can be name or field row
+        // name can be name or field row
         // primary key and next key as a fallback
-        if (!key && row.name) {
-          key = trimText(stripBrackets(flattenBlock(row.name)));
+        if (!name && row.name) {
+          name = trimText(stripBrackets(flattenBlock(row.name)));
           delete row.name;
         }
 
-        if (!key && row.field) {
-          key = trimText(stripBrackets(flattenBlock(row.field)));
+        if (!name && row.field) {
+          name = trimText(stripBrackets(flattenBlock(row.field)));
           delete row.field;
         }
 
-        if (!key && row[primaryKey]) {
-          key = trimText(stripBrackets(flattenBlock(row[primaryKey])));
+        if (!name && row[primaryKey]) {
+          name = trimText(stripBrackets(flattenBlock(row[primaryKey])));
           delete row[primaryKey];
         }
 
-        if (!key) {
+        if (!name) {
           const [firstKey] = Object.keys(row);
           if (firstKey) {
-            key = trimText(stripBrackets(flattenBlock(row[firstKey])));
+            name = trimText(stripBrackets(flattenBlock(row[firstKey])));
             delete row[firstKey];
           }
         }
@@ -126,7 +126,7 @@ export class ConstantEngine implements Constant {
 
         // some constants like features have the same value as name
         if (!rawValue) {
-          rawValue = key;
+          rawValue = name;
         }
 
         let value: string | number;
@@ -142,7 +142,7 @@ export class ConstantEngine implements Constant {
         else value = rawValue;
 
         return {
-          key,
+          name,
           description,
 
           value

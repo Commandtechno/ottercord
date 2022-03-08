@@ -77,8 +77,8 @@ export class JS extends Base {
     this.write("{");
     this.indent++;
 
-    for (const prop of structureType.properties) {
-      this.line(`${prop.key}`);
+    for (const prop of structureType.props) {
+      this.line(`${prop.name}`);
       if (prop.optional) this.write("?");
       this.write(": ");
       this.renderType(prop.type);
@@ -109,6 +109,9 @@ export class JS extends Base {
     );
 
     if (structure) return this.write(pascal(structure.name));
+
+    if (referenceType.fallback)
+      return this.renderValueType(referenceType.fallback);
 
     console.log("Could not find reference: " + referenceType.link);
     this.write("any");
@@ -148,12 +151,12 @@ export class JS extends Base {
     this.line(`export const ${this.getName(pascal(constant.name))} = {`);
     this.indent++;
 
-    for (const prop of constant.properties) {
-      const key = /^\d+$/.test(prop.key)
-        ? "$" + prop.key
-        : /^\d/.test(prop.key)
-        ? JSON.stringify(pascal(prop.key))
-        : pascal(prop.key);
+    for (const prop of constant.props) {
+      const key = /^\d+$/.test(prop.name)
+        ? "$" + prop.name
+        : /^\d/.test(prop.name)
+        ? JSON.stringify(pascal(prop.name))
+        : pascal(prop.name);
 
       const value = JSON.stringify(prop.value);
       this.line(`${key}: ${value},`);
@@ -181,7 +184,7 @@ export class JS extends Base {
 
     if (endpoint.request) {
       this.line(`body: JSON<`);
-      this.renderType(endpoint.request);
+      this.renderType(endpoint.request.type);
       this.write(">, ");
     }
     this.indent--;
@@ -217,11 +220,11 @@ export class JS extends Base {
     this.line(`export interface ${this.getName(pascal(structure.name))} {`);
     this.indent++;
 
-    for (const prop of structure.properties) {
+    for (const prop of structure.props) {
       this.line();
       this.tab();
 
-      this.write(JSON.stringify(prop.key));
+      this.write(JSON.stringify(prop.name));
       if (prop.optional) this.write("?");
       this.write(": ");
       this.renderType(prop.type);

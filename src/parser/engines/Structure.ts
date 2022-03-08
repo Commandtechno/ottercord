@@ -11,16 +11,16 @@ export class StructureEngine implements Structure {
   description?: string;
 
   type: "structure";
-  properties: Property[];
+  props: Property[];
 
   get status(): Status {
-    return this.properties.length ? Status.Completed : Status.None;
+    return this.props.length ? Status.Completed : Status.None;
   }
 
   constructor(block: marked.Token) {
     if (block.type === "heading" && block.depth > 3) {
       this.name = block.text;
-      this.properties = [];
+      this.props = [];
     } else {
       throw "not structure";
     }
@@ -40,7 +40,7 @@ export class StructureEngine implements Structure {
         return;
 
       const table = formatTable(block);
-      this.properties = table.map(parseProperty);
+      this.props = table.map(parseProperty);
     }
   }
 }

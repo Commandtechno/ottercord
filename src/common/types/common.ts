@@ -1,29 +1,21 @@
+import { Property } from "./structure";
 import { marked } from "marked";
 
 export type Row = { [key: string]: marked.Tokens.TableCell };
 export type Tree = string[];
 
-export interface Base {
-  tree: Tree;
-
+export interface BaseMeta {
   name: string;
   description?: string;
 }
 
-export interface Property {
-  description?: string;
-
-  key: string;
-  type: Type | Type[];
-
-  optional: boolean;
-  nullable: boolean;
+export interface BaseEngine extends BaseMeta {
+  tree: Tree;
 }
 
 export interface BaseType {
-  array?: boolean;
-  partial?: boolean;
-  deprecated?: boolean;
+  array: boolean;
+  partial: boolean;
 }
 
 export interface ValueType extends BaseType {
@@ -50,11 +42,12 @@ export interface ValueType extends BaseType {
 export interface ReferenceType extends BaseType {
   type: "reference";
   link: string;
+  fallback?: ValueType;
 }
 
 export interface StructureType extends BaseType {
   type: "structure";
-  properties: Property[];
+  props: Property[];
 }
 
 export type Type = ValueType | ReferenceType | StructureType;
