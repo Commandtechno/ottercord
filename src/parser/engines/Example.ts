@@ -12,8 +12,12 @@ export class ExampleEngine implements Example {
   language: string;
   content: string;
 
-  get status(): Status {
-    return this.content ? Status.Completed : Status.None;
+  get block() {
+    return false;
+  }
+
+  get ready() {
+    return !!this.content;
   }
 
   constructor(block: marked.Token) {

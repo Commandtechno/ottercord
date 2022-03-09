@@ -13,8 +13,12 @@ export class StructureEngine implements Structure {
   type: "structure";
   props: Property[];
 
-  get status(): Status {
-    return this.props.length ? Status.Completed : Status.None;
+  get block() {
+    return false;
+  }
+
+  get ready() {
+    return this.props.length > 0;
   }
 
   constructor(block: marked.Token) {

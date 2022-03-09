@@ -66,16 +66,18 @@ export async function parse(...pathSegments: string[]) {
       }
     }
 
+    // if (link) tree.push(link);
+
     // temp
-    endpoints.process(block, tree, clearLinks, clearHandlers, () =>
-      examples.process(block, tree, clearLinks, clearHandlers, () =>
-        structures.process(block, tree, clearLinks, clearHandlers, () =>
-          constants.process(block, tree, clearLinks, clearHandlers)
+    endpoints.process(block, link, tree, clearLinks, clearHandlers, () =>
+      examples.process(block, link, tree, clearLinks, clearHandlers, () =>
+        structures.process(block, link, tree, clearLinks, clearHandlers, () =>
+          constants.process(block, link, tree, clearLinks, clearHandlers)
         )
       )
     );
 
-    if (link) tree.push(link);
+    // if (link) tree.push(link);
   }
 
   endpoints.flush();

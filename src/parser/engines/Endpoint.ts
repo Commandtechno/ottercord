@@ -45,8 +45,12 @@ export class EndpointEngine implements Endpoint {
     form: false
   };
 
-  get status(): Status {
-    return this.#context === "none" ? Status.Ready : Status.Block;
+  get block() {
+    return this.#context !== "none";
+  }
+
+  get ready() {
+    return this.#context === "none";
   }
 
   constructor(block: marked.Token) {

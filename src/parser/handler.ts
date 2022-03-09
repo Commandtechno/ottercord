@@ -16,6 +16,8 @@ export type Engine = new (block: marked.Token) =>
   | StructureEngine
   | ConstantEngine;
 
+let tree: Tree = [];
+
 export class Handler<T extends Engine> extends Array<InstanceType<T>> {
   engine: T;
   current: InstanceType<T>;
@@ -26,41 +28,49 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
   }
 
   clear() {
-    this.flush();
-    this.current = undefined;
+    if (this.current) {
+      if (this.current.ready) {
+        this.push(this.current);
+      } else {
+        tree = [];
+      }
+
+      this.current = null;
+    }
   }
 
   flush() {
-    if (this.current)
-      if (
-        this.current.status === Status.Ready ||
-        this.current.status === Status.Completed
-      )
-        this.push(this.current);
+    if (this.current) {
+      if (this.current.ready) {
+        // this.push(this.current);
+      }
+
+      this.current = null;
+    }
   }
 
   process(
     block: marked.Token,
-    tree: Tree,
-    clearTree: () => void,
+    link: string,
+    _tree: Tree,
+    _clearTree: () => void,
     clearHandlers: () => void,
     callback?: () => void
   ) {
+    if (link) tree.push(link);
+
     try {
       // im not sure why this is needed but these type things are interesting
       let next = new this.engine(block) as InstanceType<T>;
       if (this.current)
-        if (
-          this.current.status === Status.Ready ||
-          this.current.status === Status.Completed
-        ) {
-          this.current.tree = [...tree];
-          clearTree();
-
-          this.push(this.current);
+        if (this.current.ready) {
+          clearHandlers();
         }
 
       this.current = next;
+      // if (link) {
+      this.current.tree.push(...tree);
+      // }
     } catch (err) {
       if (typeof err !== "string") {
         // an actual error
@@ -72,16 +82,16 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
     }
 
     if (this.current) {
-      if (this.current.status === Status.Completed) {
-        this.current.tree = [...tree];
-        clearTree();
+      // if (this.current.status === Status.Completed) {
+      //   this.current.tree = [...tree];
+      //   clearTree();
 
-        this.push(this.current);
-        clearHandlers();
-        return;
-      }
+      //   this.push(this.current);
+      //   clearHandlers();
+      //   return;
+      // }
 
-      if (this.current.status === Status.Block) {
+      if (this.current.block) {
         return;
       }
     }
