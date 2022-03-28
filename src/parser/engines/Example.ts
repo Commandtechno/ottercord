@@ -1,7 +1,6 @@
 import { marked } from "marked";
 
 import { Tree, Example } from "../../common";
-import { Status } from "../types";
 
 export class ExampleEngine implements Example {
   tree: Tree = [];

@@ -1,5 +1,7 @@
 import { marked } from "marked";
 
+import { Tree, Constant, ConstantProperty } from "../../common";
+
 import {
   flattenBlock,
   formatTable,
@@ -8,9 +10,6 @@ import {
   stripPlural,
   trimText
 } from "../util";
-
-import { Tree, Constant, ConstantProperty } from "../../common";
-import { Status } from "../types";
 
 export class ConstantEngine implements Constant {
   tree: Tree = [];

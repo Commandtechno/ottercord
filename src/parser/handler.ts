@@ -1,8 +1,5 @@
 import { marked } from "marked";
 
-import { Status } from "./types";
-import { Tree } from "../common";
-
 import {
   EndpointEngine,
   ExampleEngine,
@@ -16,75 +13,47 @@ export type Engine = new (block: marked.Token) =>
   | StructureEngine
   | ConstantEngine;
 
-let tree: Tree = [];
-
 export class Handler<T extends Engine> extends Array<InstanceType<T>> {
   engine: T;
   current: InstanceType<T>;
-  next: InstanceType<T>;
+  _next: InstanceType<T>;
 
   constructor(engine: T) {
     super();
     this.engine = engine;
   }
 
-  clear() {
+  process(block: marked.Token) {
     if (this.current) {
-      if (this.current.ready) {
-        this.current.tree = [...new Set(tree)];
-        tree = [];
-        this.push(this.current);
-      }
-
-      this.current = null;
-    } else {
-      if (this.next) {
-        this.current = this.next;
-        this.next = null;
-      }
+      this.current.process(block);
+      // if (this.current.block) {
+      //   return;
+      // }
     }
   }
 
-  process(
-    block: marked.Token,
-    link: string,
-    _tree: Tree,
-    _clearTree: () => void,
-    clearHandlers: () => void,
-    callback?: () => void
-  ) {
-    if (this.next) {
-      this.current = this.next;
-      this.next = null;
-    }
-
-    if (link) {
-      tree.push(link);
-    }
-
+  next(block: marked.Token) {
     try {
-      // im not sure why this is needed but these type things are interesting
-      this.next = new this.engine(block) as InstanceType<T>;
-      if (this.current) {
-        if (this.current.ready) {
-          clearHandlers();
-        }
-      }
-    } catch (err) {
-      if (typeof err !== "string") {
-        // an actual error
-        console.error(err);
-        return;
-      }
-    }
+      const next = new this.engine(block) as InstanceType<T>;
+      this._next = next;
+    } catch {}
+  }
 
+  clean(clear: () => void) {
+    if (this._next) {
+      if (this.current && this.current.ready) {
+        this.push(this.current);
+        clear();
+      }
+
+      this.current = this._next;
+      this._next = undefined;
+    }
+  }
+
+  clear() {
     if (this.current) {
-      this.current.process(block);
-      if (this.current.block) {
-        return;
-      }
+      this.current = undefined;
     }
-
-    if (callback) callback();
   }
 }

@@ -21,8 +21,6 @@ import {
   EndpointRequest
 } from "../../common";
 
-import { Status } from "../types";
-
 export class EndpointEngine implements Endpoint {
   tree: Tree = [];
 
