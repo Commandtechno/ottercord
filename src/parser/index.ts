@@ -22,7 +22,7 @@ import {
   ConstantEngine
 } from "./engines";
 
-import { DOCS_DIR, Tree } from "../common";
+import { DOCS_DIR } from "../common";
 import { Handler } from "./handler";
 
 export async function parse(...pathSegments: string[]) {
@@ -35,50 +35,23 @@ export async function parse(...pathSegments: string[]) {
   const structures = new Handler(StructureEngine);
   const constants = new Handler(ConstantEngine);
 
-  function clear() {
-    endpoints.clear();
-    examples.clear();
-    structures.clear();
-    constants.clear();
-  }
-
-  let parent = "";
-  let tree: Tree = [];
+  const handlers = [endpoints, examples, structures, constants];
 
   for (const block of page) {
-    let link: string;
     if (block.type === "heading") {
-      const anchor = block.text
-        .split("%", 1)[0]
-        .trim()
-        .toLowerCase()
-        .replace(/[^\w]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-
-      if (block.depth < 5) {
-        parent = anchor + "-";
-        link = anchor;
-      } else {
-        if (anchor.endsWith("-")) console.log(anchor);
-        link = parent + anchor;
-      }
+      console.log(block.text);
     }
 
-    endpoints.process(block);
-    examples.process(block);
-    structures.process(block);
-    constants.process(block);
-
-    endpoints.clean(clear);
-    examples.clean(clear);
-    structures.clean(clear);
-    constants.clean(clear);
-
-    endpoints.next(block);
-    examples.next(block);
-    structures.next(block);
-    constants.next(block);
+    endpoints.process(block, handlers);
+    examples.process(block, handlers);
+    structures.process(block, handlers);
+    constants.process(block, handlers);
   }
+
+  endpoints.flush(handlers);
+  examples.flush(handlers);
+  structures.flush(handlers);
+  constants.flush(handlers);
 
   return { endpoints, examples, structures, constants };
 }
