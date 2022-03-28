@@ -56,12 +56,14 @@ export async function parse(...pathSegments: string[]) {
         .split("%", 1)[0]
         .trim()
         .toLowerCase()
-        .replace(/[^\w]+/g, "-");
+        .replace(/[^\w]+/g, "-")
+        .replace(/^-+|-+$/g, "");
 
       if (block.depth < 5) {
         parent = anchor + "-";
         link = anchor;
       } else {
+        if (anchor.endsWith("-")) console.log(anchor);
         link = parent + anchor;
       }
     }
@@ -69,6 +71,7 @@ export async function parse(...pathSegments: string[]) {
     // if (link) tree.push(link);
 
     // temp
+
     endpoints.process(block, link, tree, clearLinks, clearHandlers, () =>
       examples.process(block, link, tree, clearLinks, clearHandlers, () =>
         structures.process(block, link, tree, clearLinks, clearHandlers, () =>
@@ -80,10 +83,7 @@ export async function parse(...pathSegments: string[]) {
     // if (link) tree.push(link);
   }
 
-  endpoints.flush();
-  examples.flush();
-  structures.flush();
-  constants.flush();
+  clearHandlers();
 
   return { endpoints, examples, structures, constants };
 }
