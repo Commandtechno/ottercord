@@ -35,23 +35,21 @@ export async function parse(...pathSegments: string[]) {
   const structures = new Handler(StructureEngine);
   const constants = new Handler(ConstantEngine);
 
-  const handlers = [endpoints, examples, structures, constants];
-
   for (const block of page) {
-    if (block.type === "heading") {
-      console.log(block.text);
-    }
+    // if (block.type === "heading") console.log(block.text);
 
-    endpoints.process(block, handlers);
-    examples.process(block, handlers);
-    structures.process(block, handlers);
-    constants.process(block, handlers);
+    try {
+      endpoints.process(block);
+      examples.process(block);
+      structures.process(block);
+      constants.process(block);
+    } catch {}
   }
 
-  endpoints.flush(handlers);
-  examples.flush(handlers);
-  structures.flush(handlers);
-  constants.flush(handlers);
+  endpoints.flush();
+  examples.flush();
+  structures.flush();
+  constants.flush();
 
   return { endpoints, examples, structures, constants };
 }

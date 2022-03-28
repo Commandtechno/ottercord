@@ -1,6 +1,84 @@
 [
   {
     "tree": [],
+    "name": "Audit Log Structure",
+    "description": "Threads referenced in THREAD_CREATE and THREAD_UPDATE events are included in the threads map, since archived threads might not be kept in memory by clients.",
+    "props": [
+      {
+        "name": "audit_log_entries",
+        "description": "list of audit log entries",
+        "value": "array of audit log entry objects"
+      },
+      {
+        "name": "guild_scheduled_events",
+        "description": "list of guild scheduled events found in the audit log",
+        "value": "array of guild scheduled event objects"
+      },
+      {
+        "name": "integrations",
+        "description": "list of partial integration objects",
+        "value": "array of partial integration objects"
+      },
+      {
+        "name": "threads",
+        "description": "list of threads found in the audit log",
+        "value": "array of channel objects"
+      },
+      {
+        "name": "users",
+        "description": "list of users found in the audit log",
+        "value": "array of user objects"
+      },
+      {
+        "name": "webhooks",
+        "description": "list of webhooks found in the audit log",
+        "value": "array of webhook objects"
+      }
+    ]
+  },
+  {
+    "tree": [],
+    "name": "Audit Log Entry Structure",
+    "props": [
+      {
+        "name": "target_id",
+        "description": "id of the affected entity (webhook, user, role, etc.)",
+        "value": "?string"
+      },
+      {
+        "name": "changes?",
+        "description": "changes made to the target_id",
+        "value": "array of audit log change objects"
+      },
+      {
+        "name": "user_id",
+        "description": "the user who made the changes",
+        "value": "?snowflake"
+      },
+      {
+        "name": "id",
+        "description": "id of the entry",
+        "value": "snowflake"
+      },
+      {
+        "name": "action_type",
+        "description": "type of action that occurred",
+        "value": "audit log event"
+      },
+      {
+        "name": "options?",
+        "description": "additional info for certain action types",
+        "value": "optional audit entry info"
+      },
+      {
+        "name": "reason?",
+        "description": "the reason for the change (0-512 characters)",
+        "value": "string"
+      }
+    ]
+  },
+  {
+    "tree": [],
     "name": "Audit Log Events",
     "props": [
       {
@@ -190,6 +268,456 @@
       {
         "name": "THREAD_DELETE",
         "value": 112
+      }
+    ]
+  },
+  {
+    "tree": [],
+    "name": "Optional Audit Entry Info",
+    "props": [
+      {
+        "name": "channel_id",
+        "description": "channel in which the entities were targeted",
+        "value": "snowflake"
+      },
+      {
+        "name": "count",
+        "description": "number of entities that were targeted",
+        "value": "string"
+      },
+      {
+        "name": "delete_member_days",
+        "description": "number of days after which inactive members were kicked",
+        "value": "string"
+      },
+      {
+        "name": "id",
+        "description": "id of the overwritten entity",
+        "value": "snowflake"
+      },
+      {
+        "name": "members_removed",
+        "description": "number of members removed by the prune",
+        "value": "string"
+      },
+      {
+        "name": "message_id",
+        "description": "id of the message that was targeted",
+        "value": "snowflake"
+      },
+      {
+        "name": "role_name",
+        "description": "name of the role if type is \"0\" (not present if type is \"1\")",
+        "value": "string"
+      },
+      {
+        "name": "type",
+        "description": "type of overwritten entity - \"0\" for \"role\" or \"1\" for \"member",
+        "value": "string"
+      }
+    ]
+  },
+  {
+    "tree": [],
+    "name": "Audit Log Change Structure",
+    "props": [
+      {
+        "name": "new_value?",
+        "description": "new value of the key",
+        "value": "mixed"
+      },
+      {
+        "name": "old_value?",
+        "description": "old value of the key",
+        "value": "mixed"
+      },
+      {
+        "name": "key",
+        "description": "name of audit log change key",
+        "value": "string"
+      }
+    ]
+  },
+  {
+    "tree": [],
+    "name": "Audit Log Change Key",
+    "props": [
+      {
+        "name": "afk_channel_id",
+        "description": "afk channel changed",
+        "value": "guild"
+      },
+      {
+        "name": "afk_timeout",
+        "description": "afk timeout duration changed",
+        "value": "guild"
+      },
+      {
+        "name": "allow",
+        "description": "a permission on a text or voice channel was allowed for a role",
+        "value": "role"
+      },
+      {
+        "name": "application_id",
+        "description": "application id of the added or removed webhook or bot",
+        "value": "channel"
+      },
+      {
+        "name": "archived",
+        "description": "thread is now archived/unarchived",
+        "value": "thread"
+      },
+      {
+        "name": "asset",
+        "description": "empty string",
+        "value": "sticker"
+      },
+      {
+        "name": "auto_archive_duration",
+        "description": "auto archive duration changed",
+        "value": "thread"
+      },
+      {
+        "name": "available",
+        "description": "availability of sticker changed",
+        "value": "sticker"
+      },
+      {
+        "name": "avatar_hash",
+        "description": "user avatar changed",
+        "value": "user"
+      },
+      {
+        "name": "banner_hash",
+        "description": "guild banner changed",
+        "value": "guild"
+      },
+      {
+        "name": "bitrate",
+        "description": "voice channel bitrate changed",
+        "value": "channel"
+      },
+      {
+        "name": "channel_id",
+        "description": "channel for invite code or guild scheduled event changed",
+        "value": "invite or guild scheduled event"
+      },
+      {
+        "name": "code",
+        "description": "invite code changed",
+        "value": "invite"
+      },
+      {
+        "name": "color",
+        "description": "role color changed",
+        "value": "role"
+      },
+      {
+        "name": "communication_disabled_until",
+        "description": "member timeout state changed",
+        "value": "member"
+      },
+      {
+        "name": "deaf",
+        "description": "user server deafened/undeafened",
+        "value": "member"
+      },
+      {
+        "name": "default_auto_archive_duration",
+        "description": "default auto archive duration for newly created threads changed",
+        "value": "channel"
+      },
+      {
+        "name": "default_message_notifications",
+        "description": "default message notification level changed",
+        "value": "guild"
+      },
+      {
+        "name": "deny",
+        "description": "a permission on a text or voice channel was denied for a role",
+        "value": "role"
+      },
+      {
+        "name": "description",
+        "description": "description changed",
+        "value": "guild, sticker, or guild scheduled event"
+      },
+      {
+        "name": "discovery_splash_hash",
+        "description": "discovery splash changed",
+        "value": "guild"
+      },
+      {
+        "name": "enable_emoticons",
+        "description": "integration emoticons enabled/disabled",
+        "value": "integration"
+      },
+      {
+        "name": "entity_type",
+        "description": "entity type of guild scheduled event was changed",
+        "value": "guild scheduled event"
+      },
+      {
+        "name": "expire_behavior",
+        "description": "integration expiring subscriber behavior changed",
+        "value": "integration"
+      },
+      {
+        "name": "expire_grace_period",
+        "description": "integration expire grace period changed",
+        "value": "integration"
+      },
+      {
+        "name": "explicit_content_filter",
+        "description": "change in whose messages are scanned and deleted for explicit content in the server",
+        "value": "guild"
+      },
+      {
+        "name": "format_type",
+        "description": "format type of sticker changed",
+        "value": "sticker"
+      },
+      {
+        "name": "guild_id",
+        "description": "guild sticker is in changed",
+        "value": "sticker"
+      },
+      {
+        "name": "hoist",
+        "description": "role is now displayed/no longer displayed separate from online users",
+        "value": "role"
+      },
+      {
+        "name": "icon_hash",
+        "description": "icon changed",
+        "value": "guild or role"
+      },
+      {
+        "name": "id",
+        "description": "the id of the changed entity - sometimes used in conjunction with other keys",
+        "value": "any"
+      },
+      {
+        "name": "invitable",
+        "description": "private thread is now invitable/uninvitable",
+        "value": "thread"
+      },
+      {
+        "name": "inviter_id",
+        "description": "person who created invite code changed",
+        "value": "invite"
+      },
+      {
+        "name": "location",
+        "description": "change in channel id for guild scheduled event",
+        "value": "guild scheduled event"
+      },
+      {
+        "name": "locked",
+        "description": "thread is now locked/unlocked",
+        "value": "thread"
+      },
+      {
+        "name": "max_age",
+        "description": "how long invite code lasts changed",
+        "value": "invite"
+      },
+      {
+        "name": "max_uses",
+        "description": "change to max number of times invite code can be used",
+        "value": "invite"
+      },
+      {
+        "name": "mentionable",
+        "description": "role is now mentionable/unmentionable",
+        "value": "role"
+      },
+      {
+        "name": "mfa_level",
+        "description": "two-factor auth requirement changed",
+        "value": "guild"
+      },
+      {
+        "name": "mute",
+        "description": "user server muted/unmuted",
+        "value": "member"
+      },
+      {
+        "name": "name",
+        "description": "name changed",
+        "value": "any"
+      },
+      {
+        "name": "nick",
+        "description": "user nickname changed",
+        "value": "member"
+      },
+      {
+        "name": "nsfw",
+        "description": "channel nsfw restriction changed",
+        "value": "channel"
+      },
+      {
+        "name": "owner_id",
+        "description": "owner changed",
+        "value": "guild"
+      },
+      {
+        "name": "permission_overwrites",
+        "description": "permissions on a channel changed",
+        "value": "channel"
+      },
+      {
+        "name": "permissions",
+        "description": "permissions for a role changed",
+        "value": "role"
+      },
+      {
+        "name": "position",
+        "description": "text or voice channel position changed",
+        "value": "channel"
+      },
+      {
+        "name": "preferred_locale",
+        "description": "preferred locale changed",
+        "value": "guild"
+      },
+      {
+        "name": "privacy_level",
+        "description": "privacy level of the stage instance changed",
+        "value": "stage instance or guild scheduled event"
+      },
+      {
+        "name": "prune_delete_days",
+        "description": "change in number of days after which inactive and role-unassigned members are kicked",
+        "value": "guild"
+      },
+      {
+        "name": "public_updates_channel_id",
+        "description": "id of the public updates channel changed",
+        "value": "guild"
+      },
+      {
+        "name": "rate_limit_per_user",
+        "description": "amount of seconds a user has to wait before sending another message changed",
+        "value": "channel"
+      },
+      {
+        "name": "region",
+        "description": "region changed",
+        "value": "guild"
+      },
+      {
+        "name": "rules_channel_id",
+        "description": "id of the rules channel changed",
+        "value": "guild"
+      },
+      {
+        "name": "splash_hash",
+        "description": "invite splash page artwork changed",
+        "value": "guild"
+      },
+      {
+        "name": "status",
+        "description": "status of guild scheduled event was changed",
+        "value": "guild scheduled event"
+      },
+      {
+        "name": "system_channel_id",
+        "description": "id of the system channel changed",
+        "value": "guild"
+      },
+      {
+        "name": "tags",
+        "description": "related emoji of sticker changed",
+        "value": "sticker"
+      },
+      {
+        "name": "temporary",
+        "description": "invite code is temporary/never expires",
+        "value": "invite"
+      },
+      {
+        "name": "topic",
+        "description": "text channel topic or stage instance topic changed",
+        "value": "channel or stage instance"
+      },
+      {
+        "name": "type",
+        "description": "type of entity created",
+        "value": "any"
+      },
+      {
+        "name": "unicode_emoji",
+        "description": "role unicode emoji changed",
+        "value": "role"
+      },
+      {
+        "name": "user_limit",
+        "description": "new user limit in a voice channel",
+        "value": "voice channel"
+      },
+      {
+        "name": "uses",
+        "description": "number of times invite code used changed",
+        "value": "invite"
+      },
+      {
+        "name": "vanity_url_code",
+        "description": "guild invite vanity url changed",
+        "value": "guild"
+      },
+      {
+        "name": "verification_level",
+        "description": "required verification level changed",
+        "value": "guild"
+      },
+      {
+        "name": "widget_channel_id",
+        "description": "channel id of the server widget changed",
+        "value": "guild"
+      },
+      {
+        "name": "widget_enabled",
+        "description": "server widget enabled/disable",
+        "value": "guild"
+      },
+      {
+        "name": "$add",
+        "description": "new role added",
+        "value": "guild"
+      },
+      {
+        "name": "$remove",
+        "description": "role removed",
+        "value": "guild"
+      }
+    ]
+  },
+  {
+    "tree": [],
+    "name": "Example Partial Role Object",
+    "description": "an audit log object for the guild. Requires the 'VIEW_AUDIT_LOG' permission.",
+    "props": [
+      {
+        "name": "user_id",
+        "description": "filter the log for actions made by a user",
+        "value": "snowflake"
+      },
+      {
+        "name": "action_type",
+        "description": "the type of audit log event",
+        "value": "integer"
+      },
+      {
+        "name": "before",
+        "description": "filter the log before a certain entry id",
+        "value": "snowflake"
+      },
+      {
+        "name": "limit",
+        "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
+        "value": "integer"
       }
     ]
   }

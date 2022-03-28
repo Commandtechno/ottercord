@@ -16,35 +16,32 @@ export type Engine = new (block: marked.Token) =>
 export class Handler<T extends Engine> extends Array<InstanceType<T>> {
   engine: T;
   current: InstanceType<T>;
-  _test: boolean = false;
 
   constructor(engine: T) {
     super();
     this.engine = engine;
   }
 
-  process(block: marked.Token, handlers) {
-    this._test = false;
+  flush() {
+    if (this.current && this.current.ready) {
+      this.push(this.current);
+      this.current = null;
+    }
+  }
+
+  process(block: marked.Token) {
     try {
       const next = new this.engine(block) as InstanceType<T>;
-      this.flush(handlers);
+      this.flush();
       this.current = next;
-      this._test = true;
     } catch {
       if (this.current) {
         this.current.process(block);
       }
     }
-  }
 
-  flush(handlers) {
-    if (this.current && this.current.ready) {
-      this.push(this.current);
-      for (const handler of handlers) {
-        if (!handler._test) {
-          handler.current = null;
-        }
-      }
+    if (this.current && this.current.block) {
+      throw "h";
     }
   }
 }

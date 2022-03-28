@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "tree": [],
+    "name": "Get Guild Audit Log",
+    "description": "Returns an audit log object for the guild. Requires the 'VIEW_AUDIT_LOG' permission.",
+    "method": "GET",
+    "path": "/guilds/{guild.id}/audit-logs",
+    "params": [
+      {
+        "name": "guild.id",
+        "link": "DOCS_RESOURCES_GUILD/guild-object"
+      }
+    ],
+    "query": {
+      "array": false,
+      "partial": false,
+      "type": "structure",
+      "props": [
+        {
+          "name": "user_id",
+          "description": "filter the log for actions made by a user",
+          "optional": false,
+          "nullable": false,
+          "deprecated": false,
+          "type": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "snowflake"
+          }
+        },
+        {
+          "name": "action_type",
+          "description": "the type of audit log event",
+          "optional": false,
+          "nullable": false,
+          "deprecated": false,
+          "type": {
+            "array": false,
+            "partial": false,
+            "type": "reference",
+            "link": "audit-log-entry-object-audit-log-events",
+            "fallback": {
+              "array": false,
+              "partial": false,
+              "type": "value",
+              "value": "integer"
+            }
+          }
+        },
+        {
+          "name": "before",
+          "description": "filter the log before a certain entry id",
+          "optional": false,
+          "nullable": false,
+          "deprecated": false,
+          "type": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "snowflake"
+          }
+        },
+        {
+          "name": "limit",
+          "description": "how many entries are returned (default 50, minimum 1, maximum 100)",
+          "optional": false,
+          "nullable": false,
+          "deprecated": false,
+          "type": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "integer"
+          }
+        }
+      ]
+    },
+    "response": {
+      "array": false,
+      "partial": false,
+      "type": "reference",
+      "link": "audit-log-object"
+    }
+  }
+]
