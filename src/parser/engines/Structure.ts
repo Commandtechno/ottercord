@@ -21,11 +21,11 @@ export class StructureEngine implements Structure {
   }
 
   constructor(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 3) {
+    if (block.type === "heading") {
       this.name = block.text;
       this.props = [];
     } else {
-      throw "not structure";
+      throw "invalid";
     }
   }
 

@@ -52,14 +52,14 @@ export class EndpointEngine implements Endpoint {
   }
 
   constructor(block: marked.Token) {
-    if (block.type === "heading" && block.depth < 3) {
+    if (block.type === "heading") {
       const [name, route] = block.text.split("%");
-      if (!name || !route) throw "not endpotni";
+      if (!name || !route) throw "invalid";
 
       this.name = name.trim();
 
       const [method, path] = route.trim().split(" ");
-      if (!method || !path) throw "not endpotni";
+      if (!method || !path) throw "invalid";
 
       this.method = method.trim();
       this.path = path.trim();
@@ -68,13 +68,12 @@ export class EndpointEngine implements Endpoint {
       this.path = path.replace(/(?<=\{).+?(?=\})/g, param => {
         const [name, link] = param.split("#");
         params.push({ name, link });
-
         return name;
       });
 
       this.params = params;
     } else {
-      throw "not endpotni ethier";
+      throw "invalid";
     }
   }
 

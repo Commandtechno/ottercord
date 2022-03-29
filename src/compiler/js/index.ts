@@ -109,7 +109,6 @@ export class JS extends Base {
     );
 
     if (structure) return this.write(pascal(structure.name));
-
     if (referenceType.fallback)
       return this.renderValueType(referenceType.fallback);
 

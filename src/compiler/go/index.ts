@@ -24,7 +24,7 @@ export class GO extends Base {
   renderValueType(valueType: ValueType) {
     switch (valueType.value) {
       case "null":
-        this.write("nil");
+        this.write("interface{}");
         break;
 
       case "string":
@@ -60,7 +60,7 @@ export class GO extends Base {
         break;
 
       case "file":
-        this.write(JSON.stringify("balls"));
+        this.write("interface{}");
         break;
 
       case "snowflake":

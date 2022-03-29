@@ -20,21 +20,16 @@ export class ExampleEngine implements Example {
   }
 
   constructor(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 5) {
+    if (block.type === "heading") {
       this.name = block.text;
     } else {
-      throw "not eggsample";
+      throw "invalid";
     }
   }
 
   process(block: marked.Token) {
     switch (block.type) {
       case "code":
-        // try {
-        //   this.content = JSON.parse(block.text);
-        // } catch {
-        //   // console.log(this.name, block.lang);
-        // }
         this.language = block.lang;
         this.content = block.text;
     }

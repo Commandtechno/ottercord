@@ -9,14 +9,14 @@ export function splitAll(str: string, seperators: string[]) {
   return str.split(last);
 }
 
-export function firstSplit(str: string, separator: string): [string?, string?] {
+export function firstSplit(str: string, separator: string) {
   const index = str.indexOf(separator);
   if (index < 0) return [];
 
   return splitAt(str, index);
 }
 
-export function lastSplit(str: string, separator: string): [string?, string?] {
+export function lastSplit(str: string, separator: string) {
   const index = str.lastIndexOf(separator);
   if (index < 0) return [];
 

@@ -29,27 +29,41 @@ export async function parse(...pathSegments: string[]) {
   const path = resolve(DOCS_DIR, ...pathSegments);
   const file = await readFile(path, "utf8");
   const page = marked.lexer(file);
+  const handlers = [
+    new Handler(EndpointEngine),
+    new Handler(ExampleEngine),
+    new Handler(StructureEngine),
+    new Handler(ConstantEngine)
+  ];
 
-  const endpoints = new Handler(EndpointEngine);
-  const examples = new Handler(ExampleEngine);
-  const structures = new Handler(StructureEngine);
-  const constants = new Handler(ConstantEngine);
+  let parent: string = "";
+  let tree: string[] = [];
 
   for (const block of page) {
-    // if (block.type === "heading") console.log(block.text);
-
     try {
-      endpoints.process(block);
-      examples.process(block);
-      structures.process(block);
-      constants.process(block);
-    } catch {}
+      for (const handler of handlers) handler.process(block, tree, handlers);
+    } catch {
+      for (const handler of handlers) handler.block();
+    }
+
+    if (block.type === "heading") {
+      const anchor = block.text
+        .split("%", 1)[0]
+        .trim()
+        .toLowerCase()
+        .replace(/[^\w]+/g, "-")
+        .replace(/^-/, "")
+        .replace(/-$/, "");
+
+      if (block.depth < 5) {
+        parent = anchor + "-";
+        tree.push(anchor);
+      } else tree.push(parent + anchor);
+    }
   }
 
-  endpoints.flush();
-  examples.flush();
-  structures.flush();
-  constants.flush();
+  for (const handler of handlers) handler.flush(tree, handlers);
 
+  const [endpoints, examples, structures, constants] = handlers;
   return { endpoints, examples, structures, constants };
 }

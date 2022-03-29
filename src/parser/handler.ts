@@ -16,24 +16,51 @@ export type Engine = new (block: marked.Token) =>
 export class Handler<T extends Engine> extends Array<InstanceType<T>> {
   engine: T;
   current: InstanceType<T>;
+  currentRoot: marked.Token;
 
   constructor(engine: T) {
     super();
     this.engine = engine;
   }
 
-  flush() {
-    if (this.current && this.current.ready) {
-      this.push(this.current);
+  block() {
+    if (this.current && !this.current.block) {
       this.current = null;
+      this.currentRoot = null;
     }
   }
 
-  process(block: marked.Token) {
+  flush(tree: string[], handlers: Array<Handler<Engine>>) {
+    if (this.current && this.current.ready) {
+      this.current.tree = [...tree];
+      while (tree.length) tree.shift();
+
+      this.push(this.current);
+      for (const handler of handlers)
+        if (
+          this !== handler &&
+          handler.currentRoot &&
+          handler.currentRoot === this.currentRoot
+        ) {
+          handler.current = null;
+          handler.currentRoot = null;
+        }
+
+      this.current = null;
+      this.currentRoot = null;
+    }
+  }
+
+  process(
+    block: marked.Token,
+    tree: string[],
+    handlers: Array<Handler<Engine>>
+  ) {
     try {
       const next = new this.engine(block) as InstanceType<T>;
-      this.flush();
+      this.flush(tree, handlers);
       this.current = next;
+      this.currentRoot = block;
     } catch {
       if (this.current) {
         this.current.process(block);
@@ -41,7 +68,7 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
     }
 
     if (this.current && this.current.block) {
-      throw "h";
+      throw "block";
     }
   }
 }

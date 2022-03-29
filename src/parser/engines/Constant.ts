@@ -28,11 +28,11 @@ export class ConstantEngine implements Constant {
   }
 
   constructor(block: marked.Token) {
-    if (block.type === "heading" && block.depth > 5) {
+    if (block.type === "heading") {
       this.name = block.text;
       this.props = [];
     } else {
-      throw "not constant";
+      throw "invalid";
     }
   }
 

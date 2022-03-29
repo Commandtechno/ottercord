@@ -46,6 +46,17 @@ export function fetch({
   });
 }
 
+export const ApplicationFlags = {
+	GatewayPresence: 4096,
+	GatewayPresenceLimited: 8192,
+	GatewayGuildMembers: 16384,
+	GatewayGuildMembersLimited: 32768,
+	VerificationPendingGuildLimit: 65536,
+	Embedded: 131072,
+	GatewayMessageContent: 262144,
+	GatewayMessageContentLimited: 524288,
+} as const
+
 export const AuditLogEvents = {
 	GuildUpdate: 1,
 	ChannelCreate: 10,
@@ -96,96 +107,6 @@ export const AuditLogEvents = {
 	ThreadDelete: 112,
 } as const
 
-export const OptionalAuditEntryInfo = {
-	ChannelId: "snowflake",
-	Count: "string",
-	DeleteMemberDays: "string",
-	Id: "snowflake",
-	MembersRemoved: "string",
-	MessageId: "snowflake",
-	RoleName: "string",
-	Type: "string",
-} as const
-
-export const AuditLogChangeStructure = {
-	NewValue: "mixed",
-	OldValue: "mixed",
-	Key: "string",
-} as const
-
-export const AuditLogChangeKey = {
-	AfkChannelId: "guild",
-	AfkTimeout: "guild",
-	Allow: "role",
-	ApplicationId: "channel",
-	Archived: "thread",
-	Asset: "sticker",
-	AutoArchiveDuration: "thread",
-	Available: "sticker",
-	AvatarHash: "user",
-	BannerHash: "guild",
-	Bitrate: "channel",
-	ChannelId: "invite or guild scheduled event",
-	Code: "invite",
-	Color: "role",
-	CommunicationDisabledUntil: "member",
-	Deaf: "member",
-	DefaultAutoArchiveDuration: "channel",
-	DefaultMessageNotifications: "guild",
-	Deny: "role",
-	Description: "guild, sticker, or guild scheduled event",
-	DiscoverySplashHash: "guild",
-	EnableEmoticons: "integration",
-	EntityType: "guild scheduled event",
-	ExpireBehavior: "integration",
-	ExpireGracePeriod: "integration",
-	ExplicitContentFilter: "guild",
-	FormatType: "sticker",
-	GuildId: "sticker",
-	Hoist: "role",
-	IconHash: "guild or role",
-	Id: "any",
-	Invitable: "thread",
-	InviterId: "invite",
-	Location: "guild scheduled event",
-	Locked: "thread",
-	MaxAge: "invite",
-	MaxUses: "invite",
-	Mentionable: "role",
-	MfaLevel: "guild",
-	Mute: "member",
-	Name: "any",
-	Nick: "member",
-	Nsfw: "channel",
-	OwnerId: "guild",
-	PermissionOverwrites: "channel",
-	Permissions: "role",
-	Position: "channel",
-	PreferredLocale: "guild",
-	PrivacyLevel: "stage instance or guild scheduled event",
-	PruneDeleteDays: "guild",
-	PublicUpdatesChannelId: "guild",
-	RateLimitPerUser: "channel",
-	Region: "guild",
-	RulesChannelId: "guild",
-	SplashHash: "guild",
-	Status: "guild scheduled event",
-	SystemChannelId: "guild",
-	Tags: "sticker",
-	Temporary: "invite",
-	Topic: "channel or stage instance",
-	Type: "any",
-	UnicodeEmoji: "role",
-	UserLimit: "voice channel",
-	Uses: "invite",
-	VanityUrlCode: "guild",
-	VerificationLevel: "guild",
-	WidgetChannelId: "guild",
-	WidgetEnabled: "guild",
-	Add: "guild",
-	Remove: "guild",
-} as const
-
 export const ChannelTypes = {
 	GuildText: 0,
 	Dm: 1,
@@ -231,11 +152,6 @@ export const MessageTypes = {
 	ContextMenuCommand: 23,
 } as const
 
-export const MessageActivityStructure = {
-	Type: "integer",
-	PartyId: "string",
-} as const
-
 export const MessageActivityTypes = {
 	Join: 1,
 	Spectate: 2,
@@ -264,82 +180,10 @@ export const EmbedTypes = {
 	Link: "link",
 } as const
 
-export const EmbedThumbnailStructure = {
-	Url: "string",
-	ProxyUrl: "string",
-	Height: "integer",
-	Width: "integer",
-} as const
-
-export const EmbedVideoStructure = {
-	Url: "string",
-	ProxyUrl: "string",
-	Height: "integer",
-	Width: "integer",
-} as const
-
-export const EmbedImageStructure = {
-	Url: "string",
-	ProxyUrl: "string",
-	Height: "integer",
-	Width: "integer",
-} as const
-
-export const EmbedProviderStructure = {
-	Name: "string",
-	Url: "string",
-} as const
-
-export const EmbedAuthorStructure = {
-	Name: "string",
-	Url: "string",
-	IconUrl: "string",
-	ProxyIconUrl: "string",
-} as const
-
-export const EmbedFooterStructure = {
-	Text: "string",
-	IconUrl: "string",
-	ProxyIconUrl: "string",
-} as const
-
-export const EmbedFieldStructure = {
-	Name: "string",
-	Value: "string",
-	Inline: "boolean",
-} as const
-
-export const AttachmentStructure = {
-	Id: "snowflake",
-	Filename: "string",
-	Description: "string",
-	ContentType: "string",
-	Size: "integer",
-	Url: "string",
-	ProxyUrl: "string",
-	Height: "?integer",
-	Width: "?integer",
-	Ephemeral: "boolean",
-} as const
-
-export const ChannelMentionStructure = {
-	Id: "snowflake",
-	GuildId: "snowflake",
-	Type: "integer",
-	Name: "string",
-} as const
-
 export const AllowedMentionTypes = {
 	RoleMentions: "roles",
 	UserMentions: "users",
 	EveryoneMentions: "everyone",
-} as const
-
-export const AllowedMentionsStructure = {
-	Parse: "array of allowed mention types",
-	Roles: "list of snowflakes",
-	Users: "list of snowflakes",
-	RepliedUser: "boolean",
 } as const
 
 export const DefaultMessageNotificationLevel = {
@@ -417,23 +261,12 @@ export const IntegrationExpireBehaviors = {
 	Kick: 1,
 } as const
 
-export const IntegrationAccountStructure = {
-	Id: "string",
-	Name: "string",
-} as const
-
-export const IntegrationApplicationStructure = {
-	Id: "snowflake",
-	Name: "string",
-	Icon: "?string",
-	Description: "string",
-	Summary: "string",
-	Bot: "user object",
-} as const
-
-export const BanStructure = {
-	Reason: "?string",
-	User: "user object",
+export const WidgetStyleOptions = {
+	Shield: "Example",
+	Banner1: "Example",
+	Banner2: "Example",
+	Banner3: "Example",
+	Banner4: "Example",
 } as const
 
 export const GuildScheduledEventPrivacyLevel = {
@@ -504,16 +337,9 @@ export const PremiumTypes = {
 	Nitro: 2,
 } as const
 
-export const ConnectionStructure = {
-	Id: "string",
-	Name: "string",
-	Type: "string",
-	Revoked: "boolean",
-	Integrations: "array",
-	Verified: "boolean",
-	FriendSync: "boolean",
-	ShowActivity: "boolean",
-	Visibility: "integer",
+export const VisibilityTypes = {
+	None: 0,
+	Everyone: 1,
 } as const
 
 export const WebhookTypes = {
@@ -528,6 +354,59 @@ export const QueryStringParams = {
 	Encoding: "json",
 } as const
 
+export const DeviceType = {
+	AudioInput: "audioinput",
+	AudioOutput: "audiooutput",
+	VideoInput: "videoinput",
+} as const
+
+export const DiscordLibraries = {
+	Orca: "C",
+	DiscordNet: "C#",
+	DSharpPlus: "C#",
+	RemoraDiscord: "C#",
+	AegisCpp: "C++",
+	D: "C++",
+	Discord: "C++",
+	SleepyDiscord: "C++",
+	Discljord: "Clojure",
+	Discordcr: "Crystal",
+	Nyxx: "Dart",
+	Coxir: "Elixir",
+	Nostrum: "Elixir",
+	DiscordGo: "Go",
+	DisGord: "Go",
+	Catnip: "Java",
+	Discord4J: "Java",
+	Javacord: "Java",
+	Jda: "Java",
+	DiscordJs: "JavaScript",
+	Eris: "JavaScript",
+	DiscordJl: "Julia",
+	Discordia: "Lua",
+	Lacord: "Lua",
+	Dimscord: "Nim",
+	Discordnim: "Nim",
+	DiscordPhp: "PHP",
+	RestCord: "PHP",
+	DiscordPy: "Python",
+	Disco: "Python",
+	Disnake: "Python",
+	Hikari: "Python",
+	Nextcord: "Python",
+	Pycord: "Python",
+	Discordrb: "Ruby",
+	DiscordRs: "Rust",
+	Serenity: "Rust",
+	Twilight: "Rust",
+	AckCord: "Scala",
+	Sword: "Swift",
+	Detritus: "TypeScript",
+	Discordeno: "TypeScript",
+	Droff: "TypeScript",
+	Harmony: "TypeScript",
+} as const
+
 export const GatewayVersions = {
 	$9: "Available",
 	$8: "Available",
@@ -535,13 +414,6 @@ export const GatewayVersions = {
 	$6: "Deprecated",
 	$5: "Discontinued",
 	$4: "Discontinued",
-} as const
-
-export const GatewayPayloadStructure = {
-	Op: "integer",
-	D: "?mixed",
-	S: "?integer",
-	T: "?string",
 } as const
 
 export const GatewayCommands = {
@@ -614,22 +486,6 @@ export const GatewayEvents = {
 	WebhooksUpdate: "Webhooks Update",
 } as const
 
-export const IdentifyStructure = {
-	Token: "string",
-	Properties: "object",
-	Compress: "boolean",
-	LargeThreshold: "integer",
-	Shard: "array of two integers",
-	Presence: "update presence object",
-	Intents: "integer",
-} as const
-
-export const IdentifyConnectionProperties = {
-	Os: "string",
-	Browser: "string",
-	Device: "string",
-} as const
-
 export const StatusTypes = {
 	Online: "online",
 	Dnd: "dnd",
@@ -647,38 +503,9 @@ export const ActivityTypes = {
 	Competing: 5,
 } as const
 
-export const ActivityTimestamps = {
-	Start: "integer",
-	End: "integer",
-} as const
-
-export const ActivityEmoji = {
-	Name: "string",
-	Id: "snowflake",
-	Animated: "boolean",
-} as const
-
-export const ActivityParty = {
-	Id: "string",
-	Size: "array of two integers",
-} as const
-
-export const ActivityAssets = {
-	LargeImage: "string",
-	LargeText: "string",
-	SmallImage: "string",
-	SmallText: "string",
-} as const
-
 export const ActivityAssetImage = {
 	ApplicationAsset: "{application_asset_id}",
 	MediaProxyImage: "mp:{image_id}",
-} as const
-
-export const ActivitySecrets = {
-	Join: "string",
-	Spectate: "string",
-	Match: "string",
 } as const
 
 export const ActivityFlags = {
@@ -691,11 +518,6 @@ export const ActivityFlags = {
 	PartyPrivacyFriends: 64,
 	PartyPrivacyVoiceChannel: 128,
 	Embedded: 256,
-} as const
-
-export const ActivityButtons = {
-	Label: "string",
-	Url: "string",
 } as const
 
 export const OAuth2UrLs = {
@@ -833,16 +655,61 @@ export const RpcErrorCodes = {
 	CaptureShortcutAlreadyListening: 5004,
 } as const
 
-export const RpcVersions = {
-	$1: "no",
+export const RpcCloseEventCodes = {
+	InvalidClientId: 4000,
+	InvalidOrigin: 4001,
+	RateLimited: 4002,
+	TokenRevoked: 4003,
+	InvalidVersion: 4004,
+	InvalidEncoding: 4005,
 } as const
 
-export const PayloadStructure = {
-	Cmd: "enum",
-	Nonce: "string",
-	Evt: "enum",
-	Data: "object",
-	Args: "object",
+export const BitwisePermissionFlags = {
+	CreateInstantInvite: 1,
+	KickMembers: 2,
+	BanMembers: 4,
+	Administrator: 8,
+	ManageChannels: 16,
+	ManageGuild: 32,
+	AddReactions: 64,
+	ViewAuditLog: 128,
+	PrioritySpeaker: 256,
+	Stream: 512,
+	ViewChannel: 1024,
+	SendMessages: 2048,
+	SendTtsMessages: 4096,
+	ManageMessages: 8192,
+	EmbedLinks: 16384,
+	AttachFiles: 32768,
+	ReadMessageHistory: 65536,
+	MentionEveryone: 131072,
+	UseExternalEmojis: 262144,
+	ViewGuildInsights: 524288,
+	Connect: 1048576,
+	Speak: 2097152,
+	MuteMembers: 4194304,
+	DeafenMembers: 8388608,
+	MoveMembers: 16777216,
+	UseVad: 33554432,
+	ChangeNickname: 67108864,
+	ManageNicknames: 134217728,
+	ManageRoles: 268435456,
+	ManageWebhooks: 536870912,
+	ManageEmojisAndStickers: 1073741824,
+	UseApplicationCommands: 2147483648,
+	RequestToSpeak: 4294967296,
+	ManageEvents: 8589934592,
+	ManageThreads: 17179869184,
+	CreatePublicThreads: 34359738368,
+	CreatePrivateThreads: 68719476736,
+	UseExternalStickers: 137438953472,
+	SendMessagesInThreads: 274877906944,
+	StartEmbeddedActivities: 549755813888,
+	ModerateMembers: 1099511627776,
+} as const
+
+export const RpcVersions = {
+	$1: "no",
 } as const
 
 export const RpcCommands = {
@@ -890,17 +757,6 @@ export const RpcEvents = {
 	ActivityJoinRequest: "ACTIVITY_JOIN_REQUEST",
 } as const
 
-export const AuthorizeArgumentStructure = {
-	Scopes: "array of OAuth2 scopes",
-	ClientId: "string",
-	RpcToken: "string",
-	Username: "string",
-} as const
-
-export const AuthorizeResponseStructure = {
-	Code: "string",
-} as const
-
 export const KeyTypes = {
 	KeyboardKey: 0,
 	MouseButton: 1,
@@ -908,7 +764,7 @@ export const KeyTypes = {
 	GamepadButton: 3,
 } as const
 
-export const DeviceType = {
+export const DeviceType_ = {
 	AudioInput: "audioinput",
 	AudioOutput: "audiooutput",
 	VideoInput: "videoinput",
@@ -927,6 +783,11 @@ export const VoiceConnectionStates = {
 	IceChecking: "ICE_CHECKING",
 } as const
 
+export const MembershipStateEnum = {
+	Invited: 1,
+	Accepted: 2,
+} as const
+
 export const GatewayVersions_ = {
 	$4: "recommended",
 	$3: "available",
@@ -940,6 +801,14 @@ export const EncryptionModes = {
 	Lite: "xsalsa20_poly1305_lite",
 } as const
 
+export const IpDiscovery = {
+	Type: 2,
+	Length: 2,
+	Ssrc: 4,
+	Address: 64,
+	Port: 2,
+} as const
+
 export interface ApplicationStructure {
 	"id": string | bigint,
 	"name": string,
@@ -950,42 +819,132 @@ export interface ApplicationStructure {
 	"bot_require_code_grant": boolean,
 	"terms_of_service_url"?: string,
 	"privacy_policy_url"?: string,
-	"owner"?: Partial<any>,
+	"owner"?: Partial<UserStructure>,
 	"summary": string,
 	"verify_key": string,
-	"team": Array<any> | null,
+	"team": Array<TeamObject> | null,
 	"guild_id"?: string | bigint,
 	"primary_sku_id"?: string | bigint,
 	"slug"?: string,
 	"cover_image"?: string,
-	"flags"?: number,
+	"flags"?: typeof ApplicationFlags[keyof typeof ApplicationFlags],
 }
 
 export interface AuditLogStructure {
 	"audit_log_entries": Array<AuditLogEntryStructure>,
-	"guild_scheduled_events": Array<any>,
+	"guild_scheduled_events": Array<GuildScheduledEventStructure>,
 	"integrations": Array<Partial<IntegrationStructure>>,
-	"threads": Array<any>,
-	"users": Array<any>,
-	"webhooks": Array<any>,
+	"threads": Array<ChannelStructure>,
+	"users": Array<UserStructure>,
+	"webhooks": Array<WebhookStructure>,
 }
 
 export interface AuditLogEntryStructure {
 	"target_id": string | null,
-	"changes"?: Array<typeof OptionalAuditEntryInfo[keyof typeof OptionalAuditEntryInfo]>,
+	"changes"?: Array<AuditLogChangeStructure>,
 	"user_id": string | bigint | null,
 	"id": string | bigint,
-	"action_type": any,
-	"options"?: any,
+	"action_type": typeof AuditLogEvents[keyof typeof AuditLogEvents],
+	"options"?: OptionalAuditEntryInfo,
 	"reason"?: string,
+}
+
+export interface OptionalAuditEntryInfo {
+	"channel_id": string | bigint,
+	"count": string,
+	"delete_member_days": string,
+	"id": string | bigint,
+	"members_removed": string,
+	"message_id": string | bigint,
+	"role_name": string,
+	"type": string,
+}
+
+export interface AuditLogChangeStructure {
+	"new_value"?: AuditLogChangeKey,
+	"old_value"?: AuditLogChangeKey,
+	"key": AuditLogChangeKey,
+}
+
+export interface AuditLogChangeKey {
+	"afk_channel_id": string | bigint,
+	"afk_timeout": number,
+	"allow": string,
+	"application_id": string | bigint,
+	"archived": boolean,
+	"asset": string,
+	"auto_archive_duration": number,
+	"available": boolean,
+	"avatar_hash": string,
+	"banner_hash": string,
+	"bitrate": number,
+	"channel_id": string | bigint,
+	"code": string,
+	"color": number,
+	"communication_disabled_until": string,
+	"deaf": boolean,
+	"default_auto_archive_duration": number,
+	"default_message_notifications": typeof DefaultMessageNotificationLevel[keyof typeof DefaultMessageNotificationLevel],
+	"deny": string,
+	"description": string,
+	"discovery_splash_hash": string,
+	"enable_emoticons": boolean,
+	"entity_type": number,
+	"expire_behavior": number,
+	"expire_grace_period": number,
+	"explicit_content_filter": typeof ExplicitContentFilterLevel[keyof typeof ExplicitContentFilterLevel],
+	"format_type": typeof StickerFormatTypes[keyof typeof StickerFormatTypes],
+	"guild_id": string | bigint,
+	"hoist": boolean,
+	"icon_hash": string,
+	"id": string | bigint,
+	"invitable": boolean,
+	"inviter_id": string | bigint,
+	"location": string,
+	"locked": boolean,
+	"max_age": number,
+	"max_uses": number,
+	"mentionable": boolean,
+	"mfa_level": number,
+	"mute": boolean,
+	"name": string,
+	"nick": string,
+	"nsfw": boolean,
+	"owner_id": string | bigint,
+	"permission_overwrites": Array<OverwriteStructure>,
+	"permissions": typeof BitwisePermissionFlags[keyof typeof BitwisePermissionFlags],
+	"position": number,
+	"preferred_locale": string,
+	"privacy_level": typeof PrivacyLevel[keyof typeof PrivacyLevel],
+	"prune_delete_days": number,
+	"public_updates_channel_id": string | bigint,
+	"rate_limit_per_user": number,
+	"region": string,
+	"rules_channel_id": string | bigint,
+	"splash_hash": string,
+	"status": typeof GuildScheduledEventStatus[keyof typeof GuildScheduledEventStatus],
+	"system_channel_id": string | bigint,
+	"tags": string,
+	"temporary": boolean,
+	"topic": string,
+	"type": number | string,
+	"unicode_emoji": string,
+	"user_limit": number,
+	"uses": number,
+	"vanity_url_code": string,
+	"verification_level": number,
+	"widget_channel_id": string | bigint,
+	"widget_enabled": boolean,
+	"$add": Array<Partial<RoleStructure>>,
+	"$remove": Array<Partial<RoleStructure>>,
 }
 
 export interface ChannelStructure {
 	"id": string | bigint,
-	"type": number,
+	"type": typeof ChannelTypes[keyof typeof ChannelTypes],
 	"guild_id"?: string | bigint,
 	"position"?: number,
-	"permission_overwrites"?: Array<ReactionStructure>,
+	"permission_overwrites"?: Array<OverwriteStructure>,
 	"name"?: string,
 	"topic"?: string | null,
 	"nsfw"?: boolean,
@@ -993,18 +952,18 @@ export interface ChannelStructure {
 	"bitrate"?: number,
 	"user_limit"?: number,
 	"rate_limit_per_user"?: number,
-	"recipients"?: Array<any>,
+	"recipients"?: Array<UserStructure>,
 	"icon"?: string | null,
 	"owner_id"?: string | bigint,
 	"application_id"?: string | bigint,
 	"parent_id"?: string | bigint | null,
 	"last_pin_timestamp"?: string | null,
-	"rtc_region"?: string | null,
-	"video_quality_mode"?: number,
+	"rtc_region"?: VoiceRegionStructure | null,
+	"video_quality_mode"?: typeof VideoQualityModes[keyof typeof VideoQualityModes],
 	"message_count"?: number,
 	"member_count"?: number,
-	"thread_metadata"?: OverwriteStructure,
-	"member"?: ThreadMetadataStructure,
+	"thread_metadata"?: ThreadMetadataStructure,
+	"member"?: ThreadMemberStructure,
 	"default_auto_archive_duration"?: number,
 	"permissions"?: string,
 }
@@ -1013,34 +972,39 @@ export interface MessageStructure {
 	"id": string | bigint,
 	"channel_id": string | bigint,
 	"guild_id"?: string | bigint,
-	"author": any,
+	"author": UserStructure,
 	"member"?: Partial<GuildMemberStructure>,
 	"content": string,
 	"timestamp": string,
 	"edited_timestamp": string | null,
 	"tts": boolean,
 	"mention_everyone": boolean,
-	"mentions": Array<Partial<any>>,
-	"mention_roles": Array<any>,
-	"mention_channels"?: Array<typeof AttachmentStructure[keyof typeof AttachmentStructure]>,
-	"attachments": Array<typeof EmbedFieldStructure[keyof typeof EmbedFieldStructure]>,
-	"embeds": Array<ThreadMemberStructure>,
-	"reactions"?: Array<FollowedChannelStructure>,
+	"mentions": Array<Partial<UserStructure>>,
+	"mention_roles": Array<RoleStructure>,
+	"mention_channels"?: Array<ChannelMentionStructure>,
+	"attachments": Array<AttachmentStructure>,
+	"embeds": Array<EmbedStructure>,
+	"reactions"?: Array<ReactionStructure>,
 	"nonce"?: number | string,
 	"pinned": boolean,
 	"webhook_id"?: string | bigint,
-	"type": number,
-	"activity"?: any,
-	"application"?: Partial<any>,
+	"type": typeof MessageTypes[keyof typeof MessageTypes],
+	"activity"?: MessageActivityStructure,
+	"application"?: Partial<ApplicationStructure>,
 	"application_id"?: string | bigint,
-	"message_reference"?: any,
-	"flags"?: number,
-	"referenced_message"?: any | null,
+	"message_reference"?: MessageReferenceStructure,
+	"flags"?: typeof MessageFlags[keyof typeof MessageFlags],
+	"referenced_message"?: MessageStructure | null,
 	"interaction"?: any,
-	"thread"?: any,
+	"thread"?: ChannelStructure,
 	"components"?: Array<any>,
 	"sticker_items"?: Array<StickerItemStructure>,
-	"stickers"?: Array<any>,
+	"stickers"?: Array<StickerStructure>,
+}
+
+export interface MessageActivityStructure {
+	"type": typeof MessageActivityTypes[keyof typeof MessageActivityTypes],
+	"party_id"?: string,
 }
 
 export interface MessageReferenceStructure {
@@ -1058,7 +1022,7 @@ export interface FollowedChannelStructure {
 export interface ReactionStructure {
 	"count": number,
 	"me": boolean,
-	"emoji": Partial<any>,
+	"emoji": Partial<EmojiStructure>,
 }
 
 export interface OverwriteStructure {
@@ -1086,40 +1050,121 @@ export interface ThreadMemberStructure {
 
 export interface EmbedStructure {
 	"title"?: string,
-	"type"?: string,
+	"type"?: typeof EmbedTypes[keyof typeof EmbedTypes],
 	"description"?: string,
 	"url"?: string,
 	"timestamp"?: string,
 	"color"?: number,
-	"footer"?: any,
-	"image"?: any,
-	"thumbnail"?: any,
-	"video"?: any,
-	"provider"?: any,
+	"footer"?: EmbedFooterStructure,
+	"image"?: EmbedImageStructure,
+	"thumbnail"?: EmbedThumbnailStructure,
+	"video"?: EmbedVideoStructure,
+	"provider"?: EmbedProviderStructure,
 	"author"?: object,
-	"fields"?: Array<any>,
+	"fields"?: Array<EmbedFieldStructure>,
 }
 
-export interface Limitations {
-	"content"?: string,
-	"tts"?: boolean,
-	"embeds"?: Array<ThreadMemberStructure>,
-	"embed"?: ThreadMemberStructure,
-	"allowed_mentions"?: typeof ChannelMentionStructure[keyof typeof ChannelMentionStructure],
-	"message_reference"?: any,
-	"components"?: Array<any>,
-	"sticker_ids"?: Array<string | bigint>,
-	"files"?: "balls",
-	"payload_json"?: string,
-	"attachments"?: Array<Partial<typeof EmbedFieldStructure[keyof typeof EmbedFieldStructure]>>,
-	"flags"?: number,
+export interface EmbedThumbnailStructure {
+	"url": string,
+	"proxy_url"?: string,
+	"height"?: number,
+	"width"?: number,
+}
+
+export interface EmbedVideoStructure {
+	"url"?: string,
+	"proxy_url"?: string,
+	"height"?: number,
+	"width"?: number,
+}
+
+export interface EmbedImageStructure {
+	"url": string,
+	"proxy_url"?: string,
+	"height"?: number,
+	"width"?: number,
+}
+
+export interface EmbedProviderStructure {
+	"name"?: string,
+	"url"?: string,
+}
+
+export interface EmbedAuthorStructure {
+	"name": string,
+	"url"?: string,
+	"icon_url"?: string,
+	"proxy_icon_url"?: string,
+}
+
+export interface EmbedFooterStructure {
+	"text": string,
+	"icon_url"?: string,
+	"proxy_icon_url"?: string,
+}
+
+export interface EmbedFieldStructure {
+	"name": string,
+	"value": string,
+	"inline"?: boolean,
+}
+
+export interface AttachmentStructure {
+	"id": string | bigint,
+	"filename": string,
+	"description"?: string,
+	"content_type"?: string,
+	"size": number,
+	"url": string,
+	"proxy_url": string,
+	"height"?: number | null,
+	"width"?: number | null,
+	"ephemeral"?: boolean,
+}
+
+export interface ChannelMentionStructure {
+	"id": string | bigint,
+	"guild_id": string | bigint,
+	"type": typeof ChannelTypes[keyof typeof ChannelTypes],
+	"name": string,
+}
+
+export interface AllowedMentionsStructure {
+	"parse": Array<typeof AllowedMentionTypes[keyof typeof AllowedMentionTypes]>,
+	"roles": string | bigint,
+	"users": string | bigint,
+	"replied_user": boolean,
+}
+
+export interface ResponseBody {
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
+	"has_more": boolean,
+}
+
+export interface ResponseBody_ {
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
+	"has_more": boolean,
+}
+
+export interface ResponseBody__ {
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
+	"has_more": boolean,
+}
+
+export interface ResponseBody___ {
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
+	"has_more": boolean,
 }
 
 export interface EmojiStructure {
 	"id": string | bigint | null,
 	"name": string | null,
-	"roles"?: Array<any>,
-	"user"?: any,
+	"roles"?: Array<RoleStructure>,
+	"user"?: UserStructure,
 	"require_colons"?: boolean,
 	"managed"?: boolean,
 	"animated"?: boolean,
@@ -1136,37 +1181,37 @@ export interface GuildStructure {
 	"owner"?: boolean,
 	"owner_id": string | bigint,
 	"permissions"?: string,
-	"region"?: string | null,
+	"region"?: VoiceRegionStructure | null,
 	"afk_channel_id": string | bigint | null,
 	"afk_timeout": number,
 	"widget_enabled"?: boolean,
 	"widget_channel_id"?: string | bigint | null,
-	"verification_level": number,
-	"default_message_notifications": number,
-	"explicit_content_filter": number,
-	"roles": Array<any>,
-	"emojis": Array<any>,
-	"features": Array<any>,
-	"mfa_level": number,
+	"verification_level": typeof VerificationLevel[keyof typeof VerificationLevel],
+	"default_message_notifications": typeof DefaultMessageNotificationLevel[keyof typeof DefaultMessageNotificationLevel],
+	"explicit_content_filter": typeof ExplicitContentFilterLevel[keyof typeof ExplicitContentFilterLevel],
+	"roles": Array<RoleStructure>,
+	"emojis": Array<EmojiStructure>,
+	"features": Array<typeof GuildFeatures[keyof typeof GuildFeatures]>,
+	"mfa_level": typeof MfaLevel[keyof typeof MfaLevel],
 	"application_id": string | bigint | null,
 	"system_channel_id": string | bigint | null,
-	"system_channel_flags": number,
+	"system_channel_flags": typeof SystemChannelFlags[keyof typeof SystemChannelFlags],
 	"rules_channel_id": string | bigint | null,
 	"joined_at"?: string,
 	"large"?: boolean,
 	"unavailable"?: boolean,
 	"member_count"?: number,
-	"voice_states"?: Array<Partial<any>>,
+	"voice_states"?: Array<Partial<VoiceStateStructure>>,
 	"members"?: Array<GuildMemberStructure>,
-	"channels"?: Array<any>,
-	"threads"?: Array<any>,
-	"presences"?: Array<Partial<MessageReactionRemoveEmojiEventFields>>,
+	"channels"?: Array<ChannelStructure>,
+	"threads"?: Array<ChannelStructure>,
+	"presences"?: Array<Partial<PresenceUpdateEventFields>>,
 	"max_presences"?: number | null,
 	"max_members"?: number,
 	"vanity_url_code": string | null,
 	"description": string | null,
 	"banner": string | null,
-	"premium_tier": number,
+	"premium_tier": typeof PremiumTier[keyof typeof PremiumTier],
 	"premium_subscription_count"?: number,
 	"preferred_locale": string,
 	"public_updates_channel_id": string | bigint | null,
@@ -1174,10 +1219,10 @@ export interface GuildStructure {
 	"approximate_member_count"?: number,
 	"approximate_presence_count"?: number,
 	"welcome_screen"?: WelcomeScreenStructure,
-	"nsfw_level": number,
-	"stage_instances"?: Array<any>,
-	"stickers"?: Array<any>,
-	"guild_scheduled_events"?: Array<any>,
+	"nsfw_level": typeof GuildNsfwLevel[keyof typeof GuildNsfwLevel],
+	"stage_instances"?: Array<StageInstanceStructure>,
+	"stickers"?: Array<StickerStructure>,
+	"guild_scheduled_events"?: Array<GuildScheduledEventStructure>,
 	"premium_progress_bar_enabled": boolean,
 }
 
@@ -1187,12 +1232,12 @@ export interface GuildPreviewStructure {
 	"icon": string | null,
 	"splash": string | null,
 	"discovery_splash": string | null,
-	"emojis": Array<any>,
-	"features": Array<any>,
+	"emojis": Array<EmojiStructure>,
+	"features": Array<typeof GuildFeatures[keyof typeof GuildFeatures]>,
 	"approximate_member_count": number,
 	"approximate_presence_count": number,
 	"description": string | null,
-	"stickers": Array<any>,
+	"stickers": Array<StickerStructure>,
 }
 
 export interface GuildWidgetSettingsStructure {
@@ -1204,21 +1249,21 @@ export interface GetGuildWidgetStructure {
 	"id": string | bigint,
 	"name": string,
 	"instant_invite": string | null,
-	"channels": Array<Partial<any>>,
-	"members": Array<Partial<any>>,
+	"channels": Array<Partial<ChannelStructure>>,
+	"members": Array<Partial<UserStructure>>,
 	"presence_count": number,
 }
 
 export interface GuildMemberStructure {
-	"user"?: any,
+	"user"?: UserStructure,
 	"nick"?: string | null,
 	"avatar"?: string | null,
-	"roles": Array<string | bigint>,
+	"roles": Array<RoleStructure>,
 	"joined_at": string,
 	"premium_since"?: string | null,
 	"deaf": boolean,
 	"mute": boolean,
-	"pending"?: ExampleWelcomeScreen,
+	"pending"?: boolean,
 	"permissions"?: string,
 	"communication_disabled_until"?: string | null,
 }
@@ -1233,17 +1278,36 @@ export interface IntegrationStructure {
 	"enable_emoticons"?: boolean,
 	"expire_behavior"?: any,
 	"expire_grace_period"?: number,
-	"user"?: any,
-	"account": typeof IntegrationExpireBehaviors[keyof typeof IntegrationExpireBehaviors],
+	"user"?: UserStructure,
+	"account": IntegrationAccountStructure,
 	"synced_at"?: string,
 	"subscriber_count"?: number,
 	"revoked"?: boolean,
-	"application"?: typeof IntegrationAccountStructure[keyof typeof IntegrationAccountStructure],
+	"application"?: IntegrationApplicationStructure,
+}
+
+export interface IntegrationAccountStructure {
+	"id": string,
+	"name": string,
+}
+
+export interface IntegrationApplicationStructure {
+	"id": string | bigint,
+	"name": string,
+	"icon": string | null,
+	"description": string,
+	"summary": string,
+	"bot"?: UserStructure,
+}
+
+export interface BanStructure {
+	"reason": string | null,
+	"user": UserStructure,
 }
 
 export interface WelcomeScreenStructure {
 	"description": string | null,
-	"welcome_channels": Array<any>,
+	"welcome_channels": Array<WelcomeScreenChannelStructure>,
 }
 
 export interface WelcomeScreenChannelStructure {
@@ -1253,36 +1317,26 @@ export interface WelcomeScreenChannelStructure {
 	"emoji_name": string | null,
 }
 
-export interface ExampleWelcomeScreen {
-	"name": string,
-	"region"?: string | null,
-	"icon"?: any,
-	"verification_level"?: number,
-	"default_message_notifications"?: number,
-	"explicit_content_filter"?: number,
-	"roles"?: Array<any>,
-	"channels"?: Array<Partial<any>>,
-	"afk_channel_id"?: string | bigint,
-	"afk_timeout"?: number,
-	"system_channel_id"?: string | bigint,
-	"system_channel_flags"?: number,
+export interface ResponseBody____ {
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
 }
 
 export interface GuildScheduledEventStructure {
 	"id": string | bigint,
 	"guild_id": string | bigint,
-	"channel_id": string | bigint | null,
+	"channel_id": typeof GuildScheduledEventEntityTypes[keyof typeof GuildScheduledEventEntityTypes] | null,
 	"creator_id": string | bigint | null,
 	"name": string,
 	"description"?: string,
 	"scheduled_start_time": string,
 	"scheduled_end_time": string | null,
-	"privacy_level": any,
-	"status": any,
-	"entity_type": any,
+	"privacy_level": typeof GuildScheduledEventPrivacyLevel[keyof typeof GuildScheduledEventPrivacyLevel],
+	"status": typeof GuildScheduledEventStatus[keyof typeof GuildScheduledEventStatus],
+	"entity_type": typeof GuildScheduledEventEntityTypes[keyof typeof GuildScheduledEventEntityTypes],
 	"entity_id": string | bigint | null,
-	"entity_metadata": any | null,
-	"creator"?: any,
+	"entity_metadata": GuildScheduledEventEntityMetadata | null,
+	"creator"?: UserStructure,
 	"user_count"?: number,
 	"image": string | null,
 }
@@ -1291,33 +1345,39 @@ export interface GuildScheduledEventEntityMetadata {
 	"location"?: string,
 }
 
+export interface GuildScheduledEventUserStructure {
+	"guild_scheduled_event_id": string | bigint,
+	"user": UserStructure,
+	"member"?: GuildMemberStructure,
+}
+
 export interface GuildTemplateStructure {
 	"code": string,
 	"name": string,
 	"description": string | null,
 	"usage_count": number,
 	"creator_id": string | bigint,
-	"creator": any,
+	"creator": UserStructure,
 	"created_at": string,
 	"updated_at": string,
 	"source_guild_id": string | bigint,
-	"serialized_source_guild": Partial<any>,
+	"serialized_source_guild": Partial<GuildStructure>,
 	"is_dirty": boolean | null,
 }
 
 export interface InviteStructure {
 	"code": string,
-	"guild"?: Partial<any>,
-	"channel": Partial<any> | null,
-	"inviter"?: any,
-	"target_type"?: number,
-	"target_user"?: any,
-	"target_application"?: Partial<any>,
+	"guild"?: Partial<GuildStructure>,
+	"channel": Partial<ChannelStructure> | null,
+	"inviter"?: UserStructure,
+	"target_type"?: typeof InviteTargetTypes[keyof typeof InviteTargetTypes],
+	"target_user"?: UserStructure,
+	"target_application"?: Partial<ApplicationStructure>,
 	"approximate_presence_count"?: number,
 	"approximate_member_count"?: number,
 	"expires_at"?: string | null,
 	"stage_instance"?: InviteStageInstanceStructure,
-	"guild_scheduled_event"?: any,
+	"guild_scheduled_event"?: GuildScheduledEventStructure,
 }
 
 export interface InviteMetadataStructure {
@@ -1340,7 +1400,7 @@ export interface StageInstanceStructure {
 	"guild_id": string | bigint,
 	"channel_id": string | bigint,
 	"topic": string,
-	"privacy_level": number,
+	"privacy_level": typeof PrivacyLevel[keyof typeof PrivacyLevel],
 	"discoverable_disabled": boolean,
 }
 
@@ -1351,23 +1411,23 @@ export interface StickerStructure {
 	"description": string | null,
 	"tags": string,
 	"asset": string,
-	"type": number,
-	"format_type": number,
+	"type": typeof StickerTypes[keyof typeof StickerTypes],
+	"format_type": typeof StickerFormatTypes[keyof typeof StickerFormatTypes],
 	"available"?: boolean,
 	"guild_id"?: string | bigint,
-	"user"?: any,
+	"user"?: UserStructure,
 	"sort_value"?: number,
 }
 
 export interface StickerItemStructure {
 	"id": string | bigint,
 	"name": string,
-	"format_type": number,
+	"format_type": typeof StickerFormatTypes[keyof typeof StickerFormatTypes],
 }
 
 export interface StickerPackStructure {
 	"id": string | bigint,
-	"stickers": Array<any>,
+	"stickers": Array<StickerStructure>,
 	"name": string,
 	"sku_id": string | bigint,
 	"cover_sticker_id"?: string | bigint,
@@ -1388,9 +1448,21 @@ export interface UserStructure {
 	"locale"?: string,
 	"verified"?: boolean,
 	"email"?: string | null,
-	"flags"?: number,
-	"premium_type"?: number,
-	"public_flags"?: number,
+	"flags"?: typeof UserFlags[keyof typeof UserFlags],
+	"premium_type"?: typeof PremiumTypes[keyof typeof PremiumTypes],
+	"public_flags"?: typeof UserFlags[keyof typeof UserFlags],
+}
+
+export interface ConnectionStructure {
+	"id": string,
+	"name": string,
+	"type": string,
+	"revoked"?: boolean,
+	"integrations"?: Array<Partial<IntegrationStructure>>,
+	"verified": boolean,
+	"friend_sync": boolean,
+	"show_activity": boolean,
+	"visibility": typeof VisibilityTypes[keyof typeof VisibilityTypes],
 }
 
 export interface VoiceStateStructure {
@@ -1409,26 +1481,34 @@ export interface VoiceStateStructure {
 	"request_to_speak_timestamp": string | null,
 }
 
+export interface VoiceRegionStructure {
+	"id": string,
+	"name": string,
+	"optimal": boolean,
+	"deprecated": boolean,
+	"custom": boolean,
+}
+
 export interface WebhookStructure {
 	"id": string | bigint,
-	"type": number,
+	"type": typeof WebhookTypes[keyof typeof WebhookTypes],
 	"guild_id"?: string | bigint | null,
 	"channel_id": string | bigint | null,
-	"user"?: any,
+	"user"?: UserStructure,
 	"name": string | null,
 	"avatar": string | null,
 	"token"?: string,
 	"application_id": string | bigint | null,
-	"source_guild"?: Partial<any>,
-	"source_channel"?: Partial<any>,
+	"source_guild"?: Partial<GuildStructure>,
+	"source_channel"?: Partial<ChannelStructure>,
 	"url"?: WebhooksUpdateEventFields,
 }
 
 export interface DeviceObject {
-	"type": any,
+	"type": typeof DeviceType[keyof typeof DeviceType],
 	"id": string,
 	"vendor": object,
-	"model": any,
+	"model": ModelObject,
 	"related": string,
 	"echo_cancellation"?: boolean,
 	"noise_suppression"?: boolean,
@@ -1446,10 +1526,33 @@ export interface ModelObject {
 	"url": string,
 }
 
+export interface GatewayPayloadStructure {
+	"op": typeof GatewayOpcodes[keyof typeof GatewayOpcodes],
+	"d": object | null,
+	"s": number | null,
+	"t": string | null,
+}
+
 export interface GatewayUrlQueryStringParams {
 	"v": number,
 	"encoding": string,
 	"compress"?: string,
+}
+
+export interface IdentifyStructure {
+	"token": string,
+	"properties": IdentifyConnectionProperties,
+	"compress"?: boolean,
+	"large_threshold"?: number,
+	"shard"?: Array<number>,
+	"presence"?: GatewayPresenceUpdateStructure,
+	"intents": number,
+}
+
+export interface IdentifyConnectionProperties {
+	"$os": string,
+	"$browser": string,
+	"$device": string,
 }
 
 export interface ResumeStructure {
@@ -1464,7 +1567,7 @@ export interface GuildRequestMembersStructure {
 	"limit"?: number,
 	"presences"?: boolean,
 	"user_ids"?: string | bigint | Array<string | bigint>,
-	"nonce"?: GuildMemberUpdateEventFields,
+	"nonce"?: GuildMembersChunkEventFields,
 }
 
 export interface GatewayVoiceStateUpdateStructure {
@@ -1476,8 +1579,8 @@ export interface GatewayVoiceStateUpdateStructure {
 
 export interface GatewayPresenceUpdateStructure {
 	"since": number | null,
-	"activities": Array<any>,
-	"status": string,
+	"activities": Array<ActivityStructure>,
+	"status": typeof StatusTypes[keyof typeof StatusTypes],
 	"afk": boolean,
 }
 
@@ -1486,19 +1589,19 @@ export interface HelloStructure {
 }
 
 export interface ReadyEventFields {
-	"v": number,
-	"user": any,
+	"v": typeof GatewayVersions[keyof typeof GatewayVersions],
+	"user": UserStructure,
 	"guilds": Array<any>,
 	"session_id": string,
 	"shard"?: Array<number>,
-	"application": Partial<any>,
+	"application": Partial<ApplicationStructure>,
 }
 
 export interface ThreadListSyncEventFields {
 	"guild_id": string | bigint,
 	"channel_ids"?: string | bigint,
-	"threads": Array<any>,
-	"members": Array<ThreadMetadataStructure>,
+	"threads": Array<ChannelStructure>,
+	"members": Array<ThreadMemberStructure>,
 }
 
 export interface ThreadMemberUpdateEventExtraFields {
@@ -1509,7 +1612,7 @@ export interface ThreadMembersUpdateEventFields {
 	"id": string | bigint,
 	"guild_id": string | bigint,
 	"member_count": number,
-	"added_members"?: Array<ThreadMetadataStructure>,
+	"added_members"?: Array<ThreadMemberStructure>,
 	"removed_member_ids"?: string | bigint,
 }
 
@@ -1521,22 +1624,22 @@ export interface ChannelPinsUpdateEventFields {
 
 export interface GuildBanAddEventFields {
 	"guild_id": string | bigint,
-	"user": any,
+	"user": UserStructure,
 }
 
 export interface GuildBanRemoveEventFields {
 	"guild_id": string | bigint,
-	"user": any,
+	"user": UserStructure,
 }
 
 export interface GuildEmojisUpdateEventFields {
 	"guild_id": string | bigint,
-	"emojis": Array<any>,
+	"emojis": Array<EmojiStructure>,
 }
 
 export interface GuildStickersUpdateEventFields {
 	"guild_id": string | bigint,
-	"stickers": Array<any>,
+	"stickers": Array<StickerStructure>,
 }
 
 export interface GuildIntegrationsUpdateEventFields {
@@ -1549,20 +1652,20 @@ export interface GuildMemberAddExtraFields {
 
 export interface GuildMemberRemoveEventFields {
 	"guild_id": string | bigint,
-	"user": any,
+	"user": UserStructure,
 }
 
 export interface GuildMemberUpdateEventFields {
 	"guild_id": string | bigint,
 	"roles": string | bigint,
-	"user": any,
+	"user": UserStructure,
 	"nick"?: string | null,
 	"avatar": string | null,
 	"joined_at": string | null,
 	"premium_since"?: string | null,
 	"deaf"?: boolean,
 	"mute"?: boolean,
-	"pending"?: ExampleWelcomeScreen,
+	"pending"?: boolean,
 	"communication_disabled_until"?: string | null,
 }
 
@@ -1572,18 +1675,18 @@ export interface GuildMembersChunkEventFields {
 	"chunk_index": number,
 	"chunk_count": number,
 	"not_found"?: any,
-	"presences"?: Array<MessageReactionRemoveEmojiEventFields>,
-	"nonce"?: string,
+	"presences"?: Array<PresenceUpdateEventFields>,
+	"nonce"?: GuildRequestMembersStructure,
 }
 
 export interface GuildRoleCreateEventFields {
 	"guild_id": string | bigint,
-	"role": any,
+	"role": RoleStructure,
 }
 
 export interface GuildRoleUpdateEventFields {
 	"guild_id": string | bigint,
-	"role": any,
+	"role": RoleStructure,
 }
 
 export interface GuildRoleDeleteEventFields {
@@ -1619,15 +1722,15 @@ export interface IntegrationDeleteEventFields {
 
 export interface InviteCreateEventFields {
 	"channel_id": string | bigint,
-	"code": string,
+	"code": InviteStructure,
 	"created_at": string,
 	"guild_id"?: string | bigint,
-	"inviter"?: any,
+	"inviter"?: UserStructure,
 	"max_age": number,
 	"max_uses": number,
-	"target_type"?: number,
-	"target_user"?: any,
-	"target_application"?: Partial<any>,
+	"target_type"?: typeof InviteTargetTypes[keyof typeof InviteTargetTypes],
+	"target_user"?: UserStructure,
+	"target_application"?: Partial<ApplicationStructure>,
 	"temporary": boolean,
 	"uses": number,
 }
@@ -1635,7 +1738,7 @@ export interface InviteCreateEventFields {
 export interface InviteDeleteEventFields {
 	"channel_id": string | bigint,
 	"guild_id"?: string | bigint,
-	"code": string,
+	"code": InviteStructure,
 }
 
 export interface MessageDeleteEventFields {
@@ -1656,7 +1759,7 @@ export interface MessageReactionAddEventFields {
 	"message_id": string | bigint,
 	"guild_id"?: string | bigint,
 	"member"?: GuildMemberStructure,
-	"emoji": Partial<any>,
+	"emoji": Partial<EmojiStructure>,
 }
 
 export interface MessageReactionRemoveEventFields {
@@ -1664,7 +1767,7 @@ export interface MessageReactionRemoveEventFields {
 	"channel_id": string | bigint,
 	"message_id": string | bigint,
 	"guild_id"?: string | bigint,
-	"emoji": Partial<any>,
+	"emoji": Partial<EmojiStructure>,
 }
 
 export interface MessageReactionRemoveAllEventFields {
@@ -1677,15 +1780,15 @@ export interface MessageReactionRemoveEmojiEventFields {
 	"channel_id": string | bigint,
 	"guild_id"?: string | bigint,
 	"message_id": string | bigint,
-	"emoji": Partial<any>,
+	"emoji": Partial<EmojiStructure>,
 }
 
 export interface PresenceUpdateEventFields {
-	"user": any,
+	"user": UserStructure,
 	"guild_id": string | bigint,
 	"status": string,
-	"activities": Array<any>,
-	"client_status": PresenceUpdateEventFields,
+	"activities": Array<ActivityStructure>,
+	"client_status": ClientStatusObject,
 }
 
 export interface ClientStatusObject {
@@ -1696,20 +1799,54 @@ export interface ClientStatusObject {
 
 export interface ActivityStructure {
 	"name": string,
-	"type": number,
+	"type": typeof ActivityTypes[keyof typeof ActivityTypes],
 	"url"?: string | null,
 	"created_at": number,
-	"timestamps"?: any,
+	"timestamps"?: ActivityTimestamps,
 	"application_id"?: string | bigint,
 	"details"?: string | null,
 	"state"?: string | null,
-	"emoji"?: any | null,
-	"party"?: any,
-	"assets"?: any,
-	"secrets"?: any,
+	"emoji"?: ActivityEmoji | null,
+	"party"?: ActivityParty,
+	"assets"?: ActivityAssets,
+	"secrets"?: ActivitySecrets,
 	"instance"?: boolean,
-	"flags"?: number,
-	"buttons"?: Array<any>,
+	"flags"?: typeof ActivityFlags[keyof typeof ActivityFlags],
+	"buttons"?: Array<ActivityButtons>,
+}
+
+export interface ActivityTimestamps {
+	"start"?: number,
+	"end"?: number,
+}
+
+export interface ActivityEmoji {
+	"name": string,
+	"id"?: string | bigint,
+	"animated"?: boolean,
+}
+
+export interface ActivityParty {
+	"id"?: string,
+	"size"?: number,
+}
+
+export interface ActivityAssets {
+	"large_image"?: typeof ActivityAssetImage[keyof typeof ActivityAssetImage],
+	"large_text"?: string,
+	"small_image"?: typeof ActivityAssetImage[keyof typeof ActivityAssetImage],
+	"small_text"?: string,
+}
+
+export interface ActivitySecrets {
+	"join"?: string,
+	"spectate"?: string,
+	"match"?: string,
+}
+
+export interface ActivityButtons {
+	"label": string,
+	"url": string,
 }
 
 export interface TypingStartEventFields {
@@ -1731,6 +1868,13 @@ export interface WebhooksUpdateEventFields {
 	"channel_id": string | bigint,
 }
 
+export interface SessionStartLimitStructure {
+	"total": number,
+	"remaining": number,
+	"reset_after": number,
+	"max_concurrency": number,
+}
+
 export interface RoleStructure {
 	"id": string | bigint,
 	"name": string,
@@ -1742,7 +1886,7 @@ export interface RoleStructure {
 	"permissions": string,
 	"managed": boolean,
 	"mentionable": boolean,
-	"tags"?: any,
+	"tags"?: RoleTagsStructure,
 }
 
 export interface RoleTagsStructure {
@@ -1757,15 +1901,34 @@ export interface RateLimitResponseStructure {
 	"global": boolean,
 }
 
+export interface PayloadStructure {
+	"cmd": typeof RpcCommands[keyof typeof RpcCommands],
+	"nonce": string,
+	"evt": typeof RpcEvents[keyof typeof RpcEvents],
+	"data": object,
+	"args": object,
+}
+
+export interface AuthorizeArgumentStructure {
+	"scopes": Array<typeof OAuth2Scopes[keyof typeof OAuth2Scopes]>,
+	"client_id": string,
+	"rpc_token": string,
+	"username": string,
+}
+
+export interface AuthorizeResponseStructure {
+	"code": string,
+}
+
 export interface AuthenticateArgumentStructure {
 	"access_token": string,
 }
 
 export interface AuthenticateResponseStructure {
-	"user": Partial<any>,
-	"scopes": Array<any>,
+	"user": Partial<UserStructure>,
+	"scopes": Array<typeof OAuth2Scopes[keyof typeof OAuth2Scopes]>,
 	"expires": string,
-	"application": any,
+	"application": OAuth2ApplicationStructure,
 }
 
 export interface OAuth2ApplicationStructure {
@@ -1777,7 +1940,7 @@ export interface OAuth2ApplicationStructure {
 }
 
 export interface GetGuildsResponseStructure {
-	"guilds": Array<Partial<any>>,
+	"guilds": Array<Partial<GuildStructure>>,
 }
 
 export interface GetGuildArgumentStructure {
@@ -1805,8 +1968,8 @@ export interface GetChannelResponseStructure {
 	"bitrate": number,
 	"user_limit": number,
 	"position": number,
-	"voice_states": Array<any>,
-	"messages": Array<any>,
+	"voice_states": Array<VoiceStateStructure>,
+	"messages": Array<MessageStructure>,
 }
 
 export interface GetChannelsArgumentStructure {
@@ -1814,7 +1977,7 @@ export interface GetChannelsArgumentStructure {
 }
 
 export interface GetChannelsResponseStructure {
-	"channels": Array<Partial<any>>,
+	"channels": Array<Partial<ChannelStructure>>,
 }
 
 export interface SetUserVoiceSettingsArgumentAndResponseStructure {
@@ -1928,7 +2091,7 @@ export interface ModelObject_ {
 
 export interface SetActivityArgumentStructure {
 	"pid": number,
-	"activity": any,
+	"activity": ActivityStructure,
 }
 
 export interface SendActivityJoinInviteArgumentStructure {
@@ -1941,8 +2104,8 @@ export interface CloseActivityRequestArgumentStructure {
 
 export interface ReadyDispatchDataStructure {
 	"v": number,
-	"config": any,
-	"user": Partial<any>,
+	"config": RpcServerConfigurationObject,
+	"user": Partial<UserStructure>,
 }
 
 export interface RpcServerConfigurationObject {
@@ -1961,7 +2124,7 @@ export interface GuildStatusArgumentStructure {
 }
 
 export interface GuildStatusDispatchDataStructure {
-	"guild": Partial<any>,
+	"guild": Partial<GuildStructure>,
 	"online": number,
 }
 
@@ -2007,7 +2170,7 @@ export interface SpeakingDispatchDataStructure {
 
 export interface NotificationCreateDispatchDataStructure {
 	"channel_id": string,
-	"message": any,
+	"message": MessageStructure,
 	"icon_url": string,
 	"title": string,
 	"body": string,
@@ -2022,22 +2185,22 @@ export interface ActivitySpectateDispatchDataStructure {
 }
 
 export interface ActivityJoinRequestDataStructure {
-	"user": Partial<any>,
+	"user": Partial<UserStructure>,
 }
 
 export interface TeamObject {
 	"icon": string | null,
 	"id": string | bigint,
-	"members": Array<any>,
+	"members": Array<TeamMemberObject>,
 	"name": string,
 	"owner_user_id": string | bigint,
 }
 
 export interface TeamMemberObject {
-	"membership_state": number,
+	"membership_state": typeof MembershipStateEnum[keyof typeof MembershipStateEnum],
 	"permissions": string,
 	"team_id": string | bigint,
-	"user": Partial<any>,
+	"user": Partial<UserStructure>,
 }
 
 export interface VoicePacketStructure {
@@ -2049,9 +2212,19 @@ export interface VoicePacketStructure {
 	"Encrypted audio": Buffer,
 }
 
+export function getGuildAuditLog(
+	guildId: string,
+): Promise<AuditLogStructure> {
+	return fetch({
+		method: "GET",
+		path: `/guilds/${encodeURIComponent(guildId)}/audit-logs`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function getChannel(
 	channelId: string,
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}`,
@@ -2066,17 +2239,17 @@ export function modifyChannel(
 		icon: Buffer,
 	}> | Partial<{
 		name: string,
-		type: number,
+		type: typeof ChannelTypes[keyof typeof ChannelTypes],
 		position: number | null,
 		topic: string | null,
 		nsfw: boolean | null,
 		rate_limit_per_user: number | null,
 		bitrate: number | null,
 		user_limit: number | null,
-		permission_overwrites: Array<Partial<ReactionStructure>> | null,
+		permission_overwrites: Array<Partial<OverwriteStructure>> | null,
 		parent_id: string | bigint | null,
-		rtc_region: string | null,
-		video_quality_mode: number | null,
+		rtc_region: VoiceRegionStructure | null,
+		video_quality_mode: typeof VideoQualityModes[keyof typeof VideoQualityModes] | null,
 		default_auto_archive_duration: number | null,
 	}> | Partial<{
 		name: string,
@@ -2086,7 +2259,7 @@ export function modifyChannel(
 		invitable: boolean,
 		rate_limit_per_user: number | null,
 	}>>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/channels/${encodeURIComponent(channelId)}`,
@@ -2097,7 +2270,7 @@ export function modifyChannel(
 
 export function deleteCloseChannel(
 	channelId: string,
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "DELETE",
 		path: `/channels/${encodeURIComponent(channelId)}`,
@@ -2107,7 +2280,7 @@ export function deleteCloseChannel(
 
 export function getChannelMessages(
 	channelId: string,
-): Promise<Array<any>> {
+): Promise<Array<MessageStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/messages`,
@@ -2126,10 +2299,35 @@ export function getChannelMessage(
 	})
 }
 
+export function createMessage(
+	channelId: string,
+	body: JSON<Partial<{
+		content?: string,
+		tts?: boolean,
+		embeds?: Array<EmbedStructure>,
+		embed?: EmbedStructure,
+		allowed_mentions?: typeof AllowedMentionTypes[keyof typeof AllowedMentionTypes],
+		message_reference?: MessageReferenceStructure,
+		components?: Array<any>,
+		sticker_ids?: Array<StickerStructure>,
+		files?: "balls",
+		payload_json?: string,
+		attachments?: Array<Partial<AttachmentStructure>>,
+		flags?: typeof MessageFlags[keyof typeof MessageFlags],
+	}>>, 
+): Promise<MessageStructure> {
+	return fetch({
+		method: "POST",
+		path: `/channels/${encodeURIComponent(channelId)}/messages`,
+		body: JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json', Authorization: "Bot " + token }
+	})
+}
+
 export function crosspostMessage(
 	channelId: string,
 	messageId: string,
-): Promise<any> {
+): Promise<MessageStructure> {
 	return fetch({
 		method: "POST",
 		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/crosspost`,
@@ -2178,7 +2376,7 @@ export function getReactions(
 	channelId: string,
 	messageId: string,
 	emoji: string,
-): Promise<Array<any>> {
+): Promise<Array<UserStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/reactions/${encodeURIComponent(emoji)}`,
@@ -2214,16 +2412,16 @@ export function editMessage(
 	messageId: string,
 	body: JSON<Partial<{
 		content: string,
-		embeds: Array<ThreadMemberStructure>,
-		embed: ThreadMemberStructure,
-		flags: number,
-		allowed_mentions: typeof ChannelMentionStructure[keyof typeof ChannelMentionStructure],
+		embeds: Array<EmbedStructure>,
+		embed: EmbedStructure,
+		flags: typeof MessageFlags[keyof typeof MessageFlags],
+		allowed_mentions: typeof AllowedMentionTypes[keyof typeof AllowedMentionTypes],
 		components: Array<any>,
 		files: "balls",
 		payload_json: string,
-		attachments: Array<typeof EmbedFieldStructure[keyof typeof EmbedFieldStructure]>,
+		attachments: Array<AttachmentStructure>,
 	}>>, 
-): Promise<any> {
+): Promise<MessageStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}`,
@@ -2276,7 +2474,7 @@ export function editChannelPermissions(
 
 export function getChannelInvites(
 	channelId: string,
-): Promise<Array<any>> {
+): Promise<Array<InviteStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/invites`,
@@ -2291,11 +2489,11 @@ export function createChannelInvite(
 		max_uses: number,
 		temporary: boolean,
 		unique: boolean,
-		target_type: number,
+		target_type: typeof InviteTargetTypes[keyof typeof InviteTargetTypes],
 		target_user_id: string | bigint,
 		target_application_id: string | bigint,
 	}>>, 
-): Promise<any> {
+): Promise<InviteStructure> {
 	return fetch({
 		method: "POST",
 		path: `/channels/${encodeURIComponent(channelId)}/invites`,
@@ -2341,7 +2539,7 @@ export function triggerTypingIndicator(
 
 export function getPinnedMessages(
 	channelId: string,
-): Promise<Array<any>> {
+): Promise<Array<MessageStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/pins`,
@@ -2406,7 +2604,7 @@ export function startThreadWithMessage(
 		auto_archive_duration?: number,
 		rate_limit_per_user?: number | null,
 	}>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "POST",
 		path: `/channels/${encodeURIComponent(channelId)}/messages/${encodeURIComponent(messageId)}/threads`,
@@ -2420,11 +2618,11 @@ export function startThreadWithoutMessage(
 	body: JSON<{
 		name: string,
 		auto_archive_duration?: number,
-		type?: number,
+		type?: typeof ChannelTypes[keyof typeof ChannelTypes],
 		invitable?: boolean,
 		rate_limit_per_user?: number | null,
 	}>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "POST",
 		path: `/channels/${encodeURIComponent(channelId)}/threads`,
@@ -2478,7 +2676,7 @@ export function removeThreadMember(
 export function getThreadMember(
 	channelId: string,
 	userId: string,
-): Promise<ThreadMetadataStructure> {
+): Promise<ThreadMemberStructure> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/thread-members/${encodeURIComponent(userId)}`,
@@ -2488,7 +2686,7 @@ export function getThreadMember(
 
 export function listThreadMembers(
 	channelId: string,
-): Promise<Array<ThreadMetadataStructure>> {
+): Promise<Array<ThreadMemberStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/thread-members`,
@@ -2508,7 +2706,7 @@ export function listActiveThreads(
 
 export function listPublicArchivedThreads(
 	channelId: string,
-): Promise<any> {
+): Promise<typeof ChannelTypes[keyof typeof ChannelTypes]> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/threads/archived/public`,
@@ -2518,7 +2716,7 @@ export function listPublicArchivedThreads(
 
 export function listPrivateArchivedThreads(
 	channelId: string,
-): Promise<any> {
+): Promise<typeof ChannelTypes[keyof typeof ChannelTypes]> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/threads/archived/private`,
@@ -2526,9 +2724,19 @@ export function listPrivateArchivedThreads(
 	})
 }
 
+export function listJoinedPrivateArchivedThreads(
+	channelId: string,
+): Promise<typeof ChannelTypes[keyof typeof ChannelTypes]> {
+	return fetch({
+		method: "GET",
+		path: `/channels/${encodeURIComponent(channelId)}/users/@me/threads/archived/private`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function listGuildEmojis(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<EmojiStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/emojis`,
@@ -2539,7 +2747,7 @@ export function listGuildEmojis(
 export function getGuildEmoji(
 	guildId: string,
 	emojiId: string,
-): Promise<any> {
+): Promise<EmojiStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
@@ -2554,7 +2762,7 @@ export function createGuildEmoji(
 		image: any,
 		roles: string | bigint,
 	}>, 
-): Promise<any> {
+): Promise<EmojiStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/emojis`,
@@ -2570,7 +2778,7 @@ export function modifyGuildEmoji(
 		name: string,
 		roles: string | bigint | null,
 	}>>, 
-): Promise<any> {
+): Promise<EmojiStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
@@ -2579,9 +2787,44 @@ export function modifyGuildEmoji(
 	})
 }
 
+export function deleteGuildEmoji(
+	guildId: string,
+	emojiId: string,
+): Promise<any> {
+	return fetch({
+		method: "DELETE",
+		path: `/guilds/${encodeURIComponent(guildId)}/emojis/${encodeURIComponent(emojiId)}`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
+export function createGuild(
+	body: JSON<{
+		name: string,
+		region?: VoiceRegionStructure | null,
+		icon?: any,
+		verification_level?: typeof VerificationLevel[keyof typeof VerificationLevel],
+		default_message_notifications?: typeof DefaultMessageNotificationLevel[keyof typeof DefaultMessageNotificationLevel],
+		explicit_content_filter?: typeof ExplicitContentFilterLevel[keyof typeof ExplicitContentFilterLevel],
+		roles?: Array<RoleStructure>,
+		channels?: Array<Partial<ChannelStructure>>,
+		afk_channel_id?: string | bigint,
+		afk_timeout?: number,
+		system_channel_id?: string | bigint,
+		system_channel_flags?: typeof SystemChannelFlags[keyof typeof SystemChannelFlags],
+	}>, 
+): Promise<GuildStructure> {
+	return fetch({
+		method: "POST",
+		path: `/guilds`,
+		body: JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json', Authorization: "Bot " + token }
+	})
+}
+
 export function getGuild(
 	guildId: string,
-): Promise<any> {
+): Promise<GuildStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}`,
@@ -2591,7 +2834,7 @@ export function getGuild(
 
 export function getGuildPreview(
 	guildId: string,
-): Promise<any> {
+): Promise<GuildPreviewStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/preview`,
@@ -2603,10 +2846,10 @@ export function modifyGuild(
 	guildId: string,
 	body: JSON<Partial<{
 		name: string,
-		region: string | null,
-		verification_level: number | null,
-		default_message_notifications: number | null,
-		explicit_content_filter: number | null,
+		region: VoiceRegionStructure | null,
+		verification_level: typeof VerificationLevel[keyof typeof VerificationLevel] | null,
+		default_message_notifications: typeof DefaultMessageNotificationLevel[keyof typeof DefaultMessageNotificationLevel] | null,
+		explicit_content_filter: typeof ExplicitContentFilterLevel[keyof typeof ExplicitContentFilterLevel] | null,
 		afk_channel_id: string | bigint | null,
 		afk_timeout: number,
 		icon: any | null,
@@ -2615,15 +2858,15 @@ export function modifyGuild(
 		discovery_splash: any | null,
 		banner: any | null,
 		system_channel_id: string | bigint | null,
-		system_channel_flags: number,
+		system_channel_flags: typeof SystemChannelFlags[keyof typeof SystemChannelFlags],
 		rules_channel_id: string | bigint | null,
 		public_updates_channel_id: string | bigint | null,
 		preferred_locale: string | null,
-		features: Array<any>,
+		features: Array<typeof GuildFeatures[keyof typeof GuildFeatures]>,
 		description: string | null,
 		premium_progress_bar_enabled: boolean,
 	}>>, 
-): Promise<any> {
+): Promise<GuildStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}`,
@@ -2644,7 +2887,7 @@ export function deleteGuild(
 
 export function getGuildChannels(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<ChannelStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/channels`,
@@ -2656,17 +2899,17 @@ export function createGuildChannel(
 	guildId: string,
 	body: JSON<Partial<{
 		name: string,
-		type: number,
+		type: typeof ChannelTypes[keyof typeof ChannelTypes],
 		topic: string,
 		bitrate: number,
 		user_limit: number,
 		rate_limit_per_user: number,
 		position: number,
-		permission_overwrites: Array<Partial<ReactionStructure>>,
+		permission_overwrites: Array<Partial<OverwriteStructure>>,
 		parent_id: string | bigint,
 		nsfw: boolean,
 	}>>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/channels`,
@@ -2837,7 +3080,7 @@ export function removeGuildMember(
 
 export function getGuildBans(
 	guildId: string,
-): Promise<Array<typeof IntegrationApplicationStructure[keyof typeof IntegrationApplicationStructure]>> {
+): Promise<Array<BanStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/bans`,
@@ -2848,7 +3091,7 @@ export function getGuildBans(
 export function getGuildBan(
 	guildId: string,
 	userId: string,
-): Promise<typeof IntegrationApplicationStructure[keyof typeof IntegrationApplicationStructure]> {
+): Promise<BanStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/bans/${encodeURIComponent(userId)}`,
@@ -2885,7 +3128,7 @@ export function removeGuildBan(
 
 export function getGuildRoles(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<RoleStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
@@ -2904,7 +3147,7 @@ export function createGuildRole(
 		unicode_emoji: string,
 		mentionable: boolean,
 	}>>, 
-): Promise<any> {
+): Promise<RoleStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
@@ -2919,7 +3162,7 @@ export function modifyGuildRolePositions(
 		id: string | bigint,
 		position?: number | null,
 	}>, 
-): Promise<Array<any>> {
+): Promise<Array<RoleStructure>> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/roles`,
@@ -2940,7 +3183,7 @@ export function modifyGuildRole(
 		unicode_emoji: string,
 		mentionable: boolean,
 	}>>, 
-): Promise<any> {
+): Promise<RoleStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/roles/${encodeURIComponent(roleId)}`,
@@ -2989,7 +3232,7 @@ export function beginGuildPrune(
 
 export function getGuildVoiceRegions(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<VoiceRegionStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/regions`,
@@ -2999,7 +3242,7 @@ export function getGuildVoiceRegions(
 
 export function getGuildInvites(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<InviteStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/invites`,
@@ -3060,7 +3303,7 @@ export function getGuildWidget(
 
 export function getGuildVanityUrl(
 	guildId: string,
-): Promise<Partial<any>> {
+): Promise<Partial<InviteStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/vanity-url`,
@@ -3092,7 +3335,7 @@ export function modifyGuildWelcomeScreen(
 	guildId: string,
 	body: JSON<Partial<{
 		enabled: boolean,
-		welcome_channels: Array<any>,
+		welcome_channels: Array<WelcomeScreenChannelStructure>,
 		description: string,
 	}>>, 
 ): Promise<WelcomeScreenStructure> {
@@ -3120,9 +3363,25 @@ export function modifyCurrentUserVoiceState(
 	})
 }
 
+export function modifyUserVoiceState(
+	guildId: string,
+	userId: string,
+	body: JSON<{
+		channel_id: string | bigint,
+		suppress?: boolean,
+	}>, 
+): Promise<any> {
+	return fetch({
+		method: "PATCH",
+		path: `/guilds/${encodeURIComponent(guildId)}/voice-states/${encodeURIComponent(userId)}`,
+		body: JSON.stringify(body),
+		headers: { 'Content-Type': 'application/json', Authorization: "Bot " + token }
+	})
+}
+
 export function listScheduledEventsForGuild(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<GuildScheduledEventStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events`,
@@ -3134,16 +3393,16 @@ export function createGuildScheduledEvent(
 	guildId: string,
 	body: JSON<{
 		channel_id?: string | bigint,
-		entity_metadata?: any,
+		entity_metadata?: GuildScheduledEventEntityMetadata,
 		name: string,
-		privacy_level: any,
+		privacy_level: typeof GuildScheduledEventPrivacyLevel[keyof typeof GuildScheduledEventPrivacyLevel],
 		scheduled_start_time: string,
 		scheduled_end_time?: string,
 		description?: string,
-		entity_type: any,
+		entity_type: typeof GuildScheduledEventEntityTypes[keyof typeof GuildScheduledEventEntityTypes],
 		image?: any,
 	}>, 
-): Promise<any> {
+): Promise<GuildScheduledEventStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events`,
@@ -3155,7 +3414,7 @@ export function createGuildScheduledEvent(
 export function getGuildScheduledEvent(
 	guildId: string,
 	guildScheduledEventId: string,
-): Promise<any> {
+): Promise<GuildScheduledEventStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}`,
@@ -3168,17 +3427,17 @@ export function modifyGuildScheduledEvent(
 	guildScheduledEventId: string,
 	body: JSON<{
 		channel_id?: string | bigint | null,
-		entity_metadata?: any,
+		entity_metadata?: GuildScheduledEventEntityMetadata,
 		name?: string,
-		privacy_level?: any,
+		privacy_level?: typeof GuildScheduledEventPrivacyLevel[keyof typeof GuildScheduledEventPrivacyLevel],
 		scheduled_start_time?: string,
 		scheduled_end_time?: string,
 		description?: string,
-		entity_type?: any,
-		status?: any,
+		entity_type?: typeof GuildScheduledEventEntityTypes[keyof typeof GuildScheduledEventEntityTypes],
+		status?: typeof GuildScheduledEventStatus[keyof typeof GuildScheduledEventStatus],
 		image?: any,
 	}>, 
-): Promise<any> {
+): Promise<GuildScheduledEventStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}`,
@@ -3198,9 +3457,20 @@ export function deleteGuildScheduledEvent(
 	})
 }
 
+export function getGuildScheduledEventUsers(
+	guildId: string,
+	guildScheduledEventId: string,
+): Promise<Array<GuildScheduledEventUserStructure>> {
+	return fetch({
+		method: "GET",
+		path: `/guilds/${encodeURIComponent(guildId)}/scheduled-events/${encodeURIComponent(guildScheduledEventId)}/users`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function getGuildTemplate(
 	templateCode: string,
-): Promise<any> {
+): Promise<GuildTemplateStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/templates/${encodeURIComponent(templateCode)}`,
@@ -3214,7 +3484,7 @@ export function createGuildFromGuildTemplate(
 		name: string,
 		icon?: any,
 	}>, 
-): Promise<any> {
+): Promise<GuildStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/templates/${encodeURIComponent(templateCode)}`,
@@ -3225,7 +3495,7 @@ export function createGuildFromGuildTemplate(
 
 export function getGuildTemplates(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<GuildTemplateStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/templates`,
@@ -3239,7 +3509,7 @@ export function createGuildTemplate(
 		name: string,
 		description?: string | null,
 	}>, 
-): Promise<any> {
+): Promise<GuildTemplateStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/templates`,
@@ -3251,7 +3521,7 @@ export function createGuildTemplate(
 export function syncGuildTemplate(
 	guildId: string,
 	templateCode: string,
-): Promise<any> {
+): Promise<GuildTemplateStructure> {
 	return fetch({
 		method: "PUT",
 		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
@@ -3266,7 +3536,7 @@ export function modifyGuildTemplate(
 		name?: string,
 		description?: string | null,
 	}>, 
-): Promise<any> {
+): Promise<GuildTemplateStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
@@ -3275,11 +3545,32 @@ export function modifyGuildTemplate(
 	})
 }
 
+export function deleteGuildTemplate(
+	guildId: string,
+	templateCode: string,
+): Promise<GuildTemplateStructure> {
+	return fetch({
+		method: "DELETE",
+		path: `/guilds/${encodeURIComponent(guildId)}/templates/${encodeURIComponent(templateCode)}`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function getInvite(
 	inviteCode: string,
-): Promise<any> {
+): Promise<InviteStructure> {
 	return fetch({
 		method: "GET",
+		path: `/invites/${encodeURIComponent(inviteCode)}`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
+export function deleteInvite(
+	inviteCode: string,
+): Promise<InviteStructure> {
+	return fetch({
+		method: "DELETE",
 		path: `/invites/${encodeURIComponent(inviteCode)}`,
 		headers: { Authorization: "Bot " + token }
 	})
@@ -3289,7 +3580,7 @@ export function createStageInstance(
 	body: JSON<{
 		channel_id: string | bigint,
 		topic: string,
-		privacy_level?: number,
+		privacy_level?: typeof PrivacyLevel[keyof typeof PrivacyLevel],
 	}>, 
 ): Promise<any> {
 	return fetch({
@@ -3314,7 +3605,7 @@ export function modifyStageInstance(
 	channelId: string,
 	body: JSON<{
 		topic?: string,
-		privacy_level?: number,
+		privacy_level?: typeof PrivacyLevel[keyof typeof PrivacyLevel],
 	}>, 
 ): Promise<any> {
 	return fetch({
@@ -3325,9 +3616,19 @@ export function modifyStageInstance(
 	})
 }
 
+export function deleteStageInstance(
+	channelId: string,
+): Promise<any> {
+	return fetch({
+		method: "DELETE",
+		path: `/stage-instances/${encodeURIComponent(channelId)}`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function getSticker(
 	stickerId: string,
-): Promise<any> {
+): Promise<StickerStructure> {
 	return fetch({
 		method: "GET",
 		path: `/stickers/${encodeURIComponent(stickerId)}`,
@@ -3337,7 +3638,7 @@ export function getSticker(
 
 export function listNitroStickerPacks(
 ): Promise<{
-		sticker_packs: Array<StickerItemStructure>,
+		sticker_packs: Array<StickerPackStructure>,
 	}> {
 	return fetch({
 		method: "GET",
@@ -3348,7 +3649,7 @@ export function listNitroStickerPacks(
 
 export function listGuildStickers(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<StickerStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/stickers`,
@@ -3359,7 +3660,7 @@ export function listGuildStickers(
 export function getGuildSticker(
 	guildId: string,
 	stickerId: string,
-): Promise<any> {
+): Promise<StickerStructure> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
@@ -3375,7 +3676,7 @@ export function createGuildSticker(
 		tags: string,
 		file: "balls",
 	}>, 
-): Promise<any> {
+): Promise<StickerStructure> {
 	return fetch({
 		method: "POST",
 		path: `/guilds/${encodeURIComponent(guildId)}/stickers`,
@@ -3392,7 +3693,7 @@ export function modifyGuildSticker(
 		description: string | null,
 		tags: string,
 	}>>, 
-): Promise<any> {
+): Promise<StickerStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
@@ -3401,8 +3702,19 @@ export function modifyGuildSticker(
 	})
 }
 
-export function getCurrentUser(
+export function deleteGuildSticker(
+	guildId: string,
+	stickerId: string,
 ): Promise<any> {
+	return fetch({
+		method: "DELETE",
+		path: `/guilds/${encodeURIComponent(guildId)}/stickers/${encodeURIComponent(stickerId)}`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
+export function getCurrentUser(
+): Promise<UserStructure> {
 	return fetch({
 		method: "GET",
 		path: `/users/@me`,
@@ -3412,7 +3724,7 @@ export function getCurrentUser(
 
 export function getUser(
 	userId: string,
-): Promise<any> {
+): Promise<UserStructure> {
 	return fetch({
 		method: "GET",
 		path: `/users/${encodeURIComponent(userId)}`,
@@ -3425,7 +3737,7 @@ export function modifyCurrentUser(
 		username: string,
 		avatar: any | null,
 	}>>, 
-): Promise<any> {
+): Promise<UserStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/users/@me`,
@@ -3435,7 +3747,7 @@ export function modifyCurrentUser(
 }
 
 export function getCurrentUserGuilds(
-): Promise<Array<Partial<any>>> {
+): Promise<Array<Partial<GuildStructure>>> {
 	return fetch({
 		method: "GET",
 		path: `/users/@me/guilds`,
@@ -3467,7 +3779,7 @@ export function createDm(
 	body: JSON<{
 		recipient_id: string | bigint,
 	}>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "POST",
 		path: `/users/@me/channels`,
@@ -3481,12 +3793,30 @@ export function createGroupDm(
 		access_tokens: string,
 		nicks: object,
 	}>, 
-): Promise<any> {
+): Promise<ChannelStructure> {
 	return fetch({
 		method: "POST",
 		path: `/users/@me/channels`,
 		body: JSON.stringify(body),
 		headers: { 'Content-Type': 'application/json', Authorization: "Bot " + token }
+	})
+}
+
+export function getUserConnections(
+): Promise<Array<ConnectionStructure>> {
+	return fetch({
+		method: "GET",
+		path: `/users/@me/connections`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
+export function listVoiceRegions(
+): Promise<Array<VoiceRegionStructure>> {
+	return fetch({
+		method: "GET",
+		path: `/voice/regions`,
+		headers: { Authorization: "Bot " + token }
 	})
 }
 
@@ -3496,7 +3826,7 @@ export function createWebhook(
 		name: string,
 		avatar?: any | null,
 	}>, 
-): Promise<any> {
+): Promise<WebhookStructure> {
 	return fetch({
 		method: "POST",
 		path: `/channels/${encodeURIComponent(channelId)}/webhooks`,
@@ -3507,7 +3837,7 @@ export function createWebhook(
 
 export function getChannelWebhooks(
 	channelId: string,
-): Promise<Array<any>> {
+): Promise<Array<WebhookStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/channels/${encodeURIComponent(channelId)}/webhooks`,
@@ -3517,7 +3847,7 @@ export function getChannelWebhooks(
 
 export function getGuildWebhooks(
 	guildId: string,
-): Promise<Array<any>> {
+): Promise<Array<WebhookStructure>> {
 	return fetch({
 		method: "GET",
 		path: `/guilds/${encodeURIComponent(guildId)}/webhooks`,
@@ -3527,7 +3857,7 @@ export function getGuildWebhooks(
 
 export function getWebhook(
 	webhookId: string,
-): Promise<any> {
+): Promise<WebhookStructure> {
 	return fetch({
 		method: "GET",
 		path: `/webhooks/${encodeURIComponent(webhookId)}`,
@@ -3553,7 +3883,7 @@ export function modifyWebhook(
 		avatar: any | null,
 		channel_id: string | bigint,
 	}>>, 
-): Promise<any> {
+): Promise<WebhookStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/webhooks/${encodeURIComponent(webhookId)}`,
@@ -3602,13 +3932,13 @@ export function executeWebhook(
 		username?: string,
 		avatar_url?: string,
 		tts?: boolean,
-		embeds?: Array<ThreadMemberStructure>,
-		allowed_mentions?: typeof ChannelMentionStructure[keyof typeof ChannelMentionStructure],
+		embeds?: Array<EmbedStructure>,
+		allowed_mentions?: typeof AllowedMentionTypes[keyof typeof AllowedMentionTypes],
 		components?: Array<any>,
 		files?: "balls",
 		payload_json?: string,
-		attachments?: Array<Partial<typeof EmbedFieldStructure[keyof typeof EmbedFieldStructure]>>,
-		flags?: number,
+		attachments?: Array<Partial<AttachmentStructure>>,
+		flags?: typeof MessageFlags[keyof typeof MessageFlags],
 	}>, 
 ): Promise<any> {
 	return fetch({
@@ -3659,19 +3989,31 @@ export function editWebhookMessage(
 	messageId: string,
 	body: JSON<Partial<{
 		content: string,
-		embeds: Array<ThreadMemberStructure>,
-		allowed_mentions: typeof ChannelMentionStructure[keyof typeof ChannelMentionStructure],
+		embeds: Array<EmbedStructure>,
+		allowed_mentions: typeof AllowedMentionTypes[keyof typeof AllowedMentionTypes],
 		components: Array<any>,
 		files: "balls",
 		payload_json: string,
-		attachments: Array<Partial<typeof EmbedFieldStructure[keyof typeof EmbedFieldStructure]>>,
+		attachments: Array<Partial<AttachmentStructure>>,
 	}>>, 
-): Promise<any> {
+): Promise<MessageStructure> {
 	return fetch({
 		method: "PATCH",
 		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/messages/${encodeURIComponent(messageId)}`,
 		body: JSON.stringify(body),
 		headers: { 'Content-Type': 'application/json', Authorization: "Bot " + token }
+	})
+}
+
+export function deleteWebhookMessage(
+	webhookId: string,
+	webhookToken: string,
+	messageId: string,
+): Promise<any> {
+	return fetch({
+		method: "DELETE",
+		path: `/webhooks/${encodeURIComponent(webhookId)}/${encodeURIComponent(webhookToken)}/messages/${encodeURIComponent(messageId)}`,
+		headers: { Authorization: "Bot " + token }
 	})
 }
 
@@ -3686,11 +4028,38 @@ export function getGateway(
 	})
 }
 
+export function getGatewayBot(
+): Promise<{
+		url: string,
+		shards: number,
+		session_start_limit: any,
+	}> {
+	return fetch({
+		method: "GET",
+		path: `/gateway/bot`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
 export function getCurrentBotApplicationInformation(
-): Promise<any> {
+): Promise<ApplicationStructure> {
 	return fetch({
 		method: "GET",
 		path: `/oauth2/applications/@me`,
+		headers: { Authorization: "Bot " + token }
+	})
+}
+
+export function getCurrentAuthorizationInformation(
+): Promise<{
+		application: Partial<ApplicationStructure>,
+		scopes: string,
+		expires: string,
+		user?: UserStructure,
+	}> {
+	return fetch({
+		method: "GET",
+		path: `/oauth2/@me`,
 		headers: { Authorization: "Bot " + token }
 	})
 }
