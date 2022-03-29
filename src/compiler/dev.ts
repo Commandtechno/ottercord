@@ -37,17 +37,17 @@ import { GO } from "./go";
   // const go = new GO({ constants, endpoints, examples, structures });
 
   for (const constant of constants) {
-    js.renderConstant(constant);
+    js.nodes.push(js.renderConstant(constant));
     // go.renderConstant(constant);
   }
 
   for (const structure of structures) {
-    js.renderStructure(structure);
+    js.nodes.push(js.renderStructure(structure));
     // go.renderStructure(structure);
   }
 
   for (const endpoint of endpoints) {
-    js.renderEndpoint(endpoint);
+    js.nodes.push(js.renderEndpoint(endpoint));
     // go.renderEndpoint(endpoint);
   }
 

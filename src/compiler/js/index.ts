@@ -1,9 +1,12 @@
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
+import * as ts from "typescript";
+
 import {
   Constant,
   Endpoint,
+  Example,
   Structure,
   ValueType,
   StructureType,
@@ -12,61 +15,93 @@ import {
 } from "../../common";
 
 import { camel, pascal } from "../util";
-import { Base } from "../base";
 
-export class JS extends Base {
-  constructor(init) {
-    super(init);
-    this.write(readFileSync(resolve(__dirname, "runtime.ts"), "utf-8"));
-    this.line();
+export class JS {
+  nodes: ts.Node[] = [];
+
+  constants: Constant[];
+  endpoints: Endpoint[];
+  examples: Example[];
+  structures: Structure[];
+
+  constructor({
+    constants,
+    endpoints,
+    examples,
+    structures
+  }: {
+    constants: Constant[];
+    endpoints: Endpoint[];
+    examples: Example[];
+    structures: Structure[];
+  }) {
+    this.constants = constants;
+    this.endpoints = endpoints;
+    this.examples = examples;
+    this.structures = structures;
+  }
+
+  get code() {
+    const file = ts.createSourceFile(
+      "",
+      "",
+      ts.ScriptTarget.ESNext,
+      false,
+      ts.ScriptKind.TS
+    );
+
+    const printer = ts.createPrinter();
+    return (
+      readFileSync(resolve(__dirname, "runtime.ts"), "utf-8") +
+      printer.printList(
+        ts.ListFormat.MultiLine,
+        ts.factory.createNodeArray(this.nodes),
+        file
+      )
+    );
   }
 
   renderValueType(valueType: ValueType) {
     switch (valueType.value) {
       case "null":
-        this.write("null");
-        break;
+        return ts.factory.createNull();
 
       case "string":
-        this.write("string");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword);
 
       case "float":
       case "integer":
-        this.write("number");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword);
 
       case "bigint":
-        this.write("bigint");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.BigIntKeyword);
 
       case "boolean":
-        this.write("boolean");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword);
 
       case "object":
-        this.write("object");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.ObjectKeyword);
 
       case "date":
-        this.write("string");
-        break;
+        return ts.factory.createTypeReferenceNode(
+          ts.factory.createIdentifier("Date"),
+          undefined
+        );
 
       case "binary":
-        this.write("Buffer");
-        break;
+        return ts.factory.createIdentifier("Buffer");
 
       case "file":
-        this.write(JSON.stringify("balls"));
-        break;
+        return ts.factory.createStringLiteral("balls");
 
       case "snowflake":
-        this.write("string | bigint");
-        break;
+        return ts.factory.createUnionTypeNode([
+          ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+          ts.factory.createKeywordTypeNode(ts.SyntaxKind.BigIntKeyword)
+        ]);
 
       case "any":
-        this.write("any");
-        break;
+        return ts.factory.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword);
 
       default:
         throw new Error("Unknown type: " + valueType.value);
@@ -74,20 +109,18 @@ export class JS extends Base {
   }
 
   renderStructureType(structureType: StructureType) {
-    this.write("{");
-    this.indent++;
-
-    for (const prop of structureType.props) {
-      this.line(`${prop.name}`);
-      if (prop.optional) this.write("?");
-      this.write(": ");
-      this.renderType(prop.type);
-      if (prop.nullable) this.write(" | null");
-      this.write(",");
-    }
-
-    this.indent--;
-    this.line("}");
+    return ts.factory.createTypeLiteralNode(
+      structureType.props.map(prop =>
+        ts.factory.createPropertySignature(
+          undefined,
+          ts.factory.createIdentifier(prop.name),
+          prop.optional
+            ? ts.factory.createToken(ts.SyntaxKind.QuestionToken)
+            : undefined,
+          this.renderType(prop.type)
+        )
+      )
+    );
   }
 
   renderReferenceType(referenceType: ReferenceType) {
@@ -96,143 +129,198 @@ export class JS extends Base {
     );
 
     if (constant)
-      return this.write(
-        "typeof " +
-          pascal(constant.name) +
-          "[keyof typeof " +
-          pascal(constant.name) +
-          "]"
+      return ts.factory.createIndexedAccessTypeNode(
+        ts.factory.createTypeQueryNode(
+          ts.factory.createIdentifier(pascal(constant.name))
+        ),
+        ts.factory.createTypeOperatorNode(
+          ts.SyntaxKind.KeyOfKeyword,
+          ts.factory.createTypeQueryNode(
+            ts.factory.createIdentifier(pascal(constant.name))
+          )
+        )
       );
 
     const structure = this.structures.find(s =>
       s.tree.includes(referenceType.link)
     );
 
-    if (structure) return this.write(pascal(structure.name));
+    if (structure)
+      return ts.factory.createTypeReferenceNode(
+        ts.factory.createIdentifier(pascal(structure.name)),
+        undefined
+      );
+
     if (referenceType.fallback)
       return this.renderValueType(referenceType.fallback);
 
     console.log("Could not find reference: " + referenceType.link);
-    this.write("any");
+    return ts.factory.createKeywordTypeNode(ts.SyntaxKind.AnyKeyword);
   }
 
   renderType(type: Type | Type[]) {
     if (Array.isArray(type)) {
-      this.renderType(type.shift());
-      for (const t of type) {
-        this.write(" | ");
-        this.renderType(t);
-      }
-    } else {
-      if (type.array) this.write("Array<");
-      if (type.partial) this.write("Partial<");
-
-      if (type.type === "value") this.renderValueType(type);
-      else if (type.type === "structure") this.renderStructureType(type);
-      else if (type.type === "reference") this.renderReferenceType(type);
-
-      if (type.array) this.write(">");
-      if (type.partial) this.write(">");
+      return ts.factory.createUnionTypeNode(type.map(t => this.renderType(t)));
     }
-  }
 
-  renderDoc(doc: { [key: string]: string }) {
-    this.line(`/**`);
-    this.indent++;
+    let renderedType;
+    if (type.type === "value") renderedType = this.renderValueType(type);
+    else if (type.type === "structure")
+      renderedType = this.renderStructureType(type);
+    else if (type.type === "reference")
+      renderedType = this.renderReferenceType(type);
 
-    for (const key in doc) this.write(` * ${key}: ${doc[key]}`);
+    if (type.partial)
+      renderedType = ts.factory.createTypeReferenceNode(
+        ts.factory.createIdentifier("Array"),
+        [renderedType]
+      );
 
-    this.indent--;
-    this.line(` */`);
+    if (type.array)
+      renderedType = ts.factory.createTypeReferenceNode(
+        ts.factory.createIdentifier("Partial"),
+        [renderedType]
+      );
+
+    return renderedType;
   }
 
   renderConstant(constant: Constant) {
-    this.line(`export const ${this.getName(pascal(constant.name))} = {`);
-    this.indent++;
-
-    for (const prop of constant.props) {
-      const key = /^\d+$/.test(prop.name)
-        ? "$" + prop.name
-        : /^\d/.test(prop.name)
-        ? JSON.stringify(pascal(prop.name))
-        : pascal(prop.name);
-
-      const value = JSON.stringify(prop.value);
-      this.line(`${key}: ${value},`);
-    }
-
-    this.indent--;
-    this.line("} as const");
-    this.line();
+    return ts.factory.createVariableStatement(
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      ts.factory.createVariableDeclarationList(
+        [
+          ts.factory.createVariableDeclaration(
+            ts.factory.createIdentifier(pascal(constant.name)),
+            undefined,
+            undefined,
+            ts.factory.createAsExpression(
+              ts.factory.createObjectLiteralExpression(
+                constant.props.map(prop =>
+                  ts.factory.createPropertyAssignment(
+                    ts.factory.createIdentifier(pascal(prop.name)),
+                    typeof prop.value === "string"
+                      ? ts.factory.createStringLiteral(prop.value)
+                      : ts.factory.createNumericLiteral(prop.value)
+                  )
+                ),
+                true
+              ),
+              ts.factory.createTypeReferenceNode(
+                ts.factory.createIdentifier("const"),
+                undefined
+              )
+            )
+          )
+        ],
+        ts.NodeFlags.Const
+      )
+    );
   }
 
   renderEndpoint(endpoint: Endpoint) {
-    this.line(`export function ${this.getName(camel(endpoint.name))}(`);
-
-    let path = "`" + endpoint.path + "`";
-
-    // parameters
-    this.indent++;
-    for (const param of endpoint.params) {
-      this.line(`${camel(param.name)}: string,`);
-      path = path.replace(
-        `{${param.name}}`,
-        `\${encodeURIComponent(${camel(param.name)})}`
-      );
-    }
-
-    if (endpoint.request) {
-      this.line(`body: JSON<`);
-      this.renderType(endpoint.request.type);
-      this.write(">, ");
-    }
-    this.indent--;
-
-    // return type
-    this.line("): Promise<");
-    if (endpoint.response) {
-      this.indent++;
-      this.renderType(endpoint.response);
-      this.indent--;
-    } else this.write("any");
-    this.write(">");
-
-    // function body
-    this.write(" {");
-    this.indent++;
-    this.line(`return fetch({`);
-    this.indent++;
-    this.line("method: " + JSON.stringify(endpoint.method) + ",");
-    this.line("path: " + path + ",");
-    if (endpoint.request) this.line("body: JSON.stringify(body),");
-    this.line("headers: { ");
-    if (endpoint.request) this.write("'Content-Type': 'application/json', ");
-    this.write('Authorization: "Bot " + token }');
-    this.indent--;
-    this.line("})");
-    this.indent--;
-    this.line("}");
-    this.line();
+    return ts.factory.createFunctionDeclaration(
+      undefined,
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      undefined,
+      ts.factory.createIdentifier(camel(endpoint.name)),
+      undefined,
+      endpoint.params.map(param =>
+        ts.factory.createParameterDeclaration(
+          undefined,
+          undefined,
+          undefined,
+          ts.factory.createIdentifier(camel(param.name)),
+          undefined,
+          ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+          undefined
+        )
+      ),
+      endpoint.response
+        ? ts.factory.createTypeReferenceNode(
+            ts.factory.createIdentifier("Promise"),
+            [this.renderType(endpoint.response)]
+          )
+        : undefined,
+      ts.factory.createBlock([
+        ts.factory.createReturnStatement(
+          ts.factory.createCallExpression(
+            ts.factory.createIdentifier("fetch"),
+            undefined,
+            [
+              ts.factory.createObjectLiteralExpression(
+                [
+                  ts.factory.createPropertyAssignment(
+                    ts.factory.createIdentifier("method"),
+                    ts.factory.createStringLiteral(endpoint.method)
+                  ),
+                  ts.factory.createPropertyAssignment(
+                    ts.factory.createIdentifier("path"),
+                    ts.factory.createStringLiteral(endpoint.path)
+                  ),
+                  endpoint.request
+                    ? ts.factory.createPropertyAssignment(
+                        "body",
+                        ts.factory.createCallExpression(
+                          ts.factory.createPropertyAccessExpression(
+                            ts.factory.createIdentifier("JSON"),
+                            ts.factory.createIdentifier("stringify")
+                          ),
+                          undefined,
+                          [ts.factory.createIdentifier("body")]
+                        )
+                      )
+                    : undefined,
+                  ts.factory.createPropertyAssignment(
+                    ts.factory.createIdentifier("headers"),
+                    ts.factory.createObjectLiteralExpression(
+                      [
+                        endpoint.request
+                          ? ts.factory.createPropertyAssignment(
+                              ts.factory.createStringLiteral("Content-Type"),
+                              ts.factory.createStringLiteral("application/json")
+                            )
+                          : undefined,
+                        ts.factory.createPropertyAssignment(
+                          ts.factory.createIdentifier("Authorization"),
+                          ts.factory.createBinaryExpression(
+                            ts.factory.createStringLiteral("Bot "),
+                            ts.factory.createToken(ts.SyntaxKind.PlusToken),
+                            ts.factory.createIdentifier("token")
+                          )
+                        )
+                      ].filter(Boolean),
+                      false
+                    )
+                  )
+                ].filter(Boolean)
+              )
+            ]
+          )
+        )
+      ])
+    );
   }
 
   renderStructure(structure: Structure) {
-    this.line(`export interface ${this.getName(pascal(structure.name))} {`);
-    this.indent++;
-
-    for (const prop of structure.props) {
-      this.line();
-      this.tab();
-
-      this.write(JSON.stringify(prop.name));
-      if (prop.optional) this.write("?");
-      this.write(": ");
-      this.renderType(prop.type);
-      if (prop.nullable) this.write(" | null");
-      this.write(",");
-    }
-
-    this.indent--;
-    this.line("}");
-    this.line();
+    return ts.factory.createInterfaceDeclaration(
+      undefined,
+      [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+      ts.factory.createIdentifier(pascal(structure.name)),
+      undefined,
+      undefined,
+      structure.props
+        .map(prop =>
+          ts.factory.createPropertySignature(
+            undefined,
+            ts.factory.createIdentifier(prop.name),
+            prop.optional
+              ? ts.factory.createToken(ts.SyntaxKind.QuestionToken)
+              : undefined,
+            this.renderType(prop.type)
+          )
+        )
+        .filter(Boolean)
+    );
   }
 }
