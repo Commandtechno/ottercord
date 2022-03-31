@@ -1,7 +1,6 @@
 import { readFile } from "fs/promises";
 import { resolve } from "path";
 import { marked } from "marked";
-
 import {
   // info
   blue,
@@ -11,10 +10,9 @@ import {
   yellow
 } from "chalk";
 
-console.info = (...args) => console.log(blue(...args));
-console.error = (...args) => console.log(red(...args));
-console.warn = (...args) => console.log(yellow(...args));
+import { DOCS_DIR } from "../common";
 
+import { Handler } from "./handler";
 import {
   EndpointEngine,
   ExampleEngine,
@@ -22,8 +20,9 @@ import {
   ConstantEngine
 } from "./engines";
 
-import { DOCS_DIR } from "../common";
-import { Handler } from "./handler";
+console.info = (...args) => console.log(blue(...args));
+console.error = (...args) => console.log(red(...args));
+console.warn = (...args) => console.log(yellow(...args));
 
 export async function parse(...pathSegments: string[]) {
   const path = resolve(DOCS_DIR, ...pathSegments);

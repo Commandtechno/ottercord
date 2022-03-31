@@ -12,7 +12,7 @@ import {
 } from "../../common";
 
 import { camel, pascal } from "../util";
-import { Base } from "../base";
+import { Base } from "../context";
 
 export class GO extends Base {
   constructor(init) {

@@ -1,0 +1,108 @@
+import * as ts from "typescript";
+
+import { camelCase } from "change-case";
+
+import { Endpoint } from "../../../common";
+import { Context } from "../../context";
+
+import { renderType } from ".";
+
+export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
+  let parameters: ts.ParameterDeclaration[] = [];
+  let returnType: ts.TypeNode;
+  let headers: ts.ObjectLiteralElementLike[] = [];
+  let fetchProperties: ts.ObjectLiteralElementLike[] = [];
+
+  for (const param of endpoint.params)
+    parameters.push(
+      ts.factory.createParameterDeclaration(
+        undefined,
+        undefined,
+        undefined,
+        camelCase(param.name),
+        undefined,
+        ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword)
+      )
+    );
+
+  if (endpoint.request) {
+    parameters.push(
+      ts.factory.createParameterDeclaration(
+        undefined,
+        undefined,
+        undefined,
+        "body",
+        undefined,
+        ts.factory.createTypeReferenceNode(
+          ts.factory.createIdentifier("toJSON"),
+          [renderType(ctx, endpoint.request.type)]
+        )
+      )
+    );
+
+    fetchProperties.push(
+      ts.factory.createPropertyAssignment(
+        "body",
+        ts.factory.createCallExpression(
+          ts.factory.createPropertyAccessExpression(
+            ts.factory.createIdentifier("JSON"),
+            "stringify"
+          ),
+          undefined,
+          [ts.factory.createIdentifier("body")]
+        )
+      )
+    );
+  }
+
+  headers.push(
+    ts.factory.createPropertyAssignment(
+      ts.factory.createIdentifier("Authorization"),
+      ts.factory.createCallExpression(
+        ts.factory.createIdentifier("getAuth"),
+        undefined,
+        undefined
+      )
+    )
+  );
+
+  if (endpoint.response)
+    returnType = ts.factory.createTypeReferenceNode(
+      ts.factory.createIdentifier("Promise"),
+      [renderType(ctx, endpoint.response)]
+    );
+
+  fetchProperties.push(
+    ts.factory.createPropertyAssignment(
+      "method",
+      ts.factory.createStringLiteral(endpoint.method)
+    ),
+    ts.factory.createPropertyAssignment(
+      "path",
+      ts.factory.createStringLiteral(endpoint.path)
+    ),
+    ts.factory.createPropertyAssignment(
+      "headers",
+      ts.factory.createObjectLiteralExpression(headers)
+    )
+  );
+
+  return ts.factory.createFunctionDeclaration(
+    undefined,
+    [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
+    undefined,
+    ctx.getName(camelCase(endpoint.name)),
+    undefined,
+    parameters,
+    returnType,
+    ts.factory.createBlock([
+      ts.factory.createReturnStatement(
+        ts.factory.createCallExpression(
+          ts.factory.createIdentifier("fetch"),
+          undefined,
+          [ts.factory.createObjectLiteralExpression(fetchProperties)]
+        )
+      )
+    ])
+  );
+}

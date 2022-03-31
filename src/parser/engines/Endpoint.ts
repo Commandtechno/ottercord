@@ -1,6 +1,15 @@
 import { marked } from "marked";
 
 import {
+  Tree,
+  StructureType,
+  Type,
+  Endpoint,
+  EndpointParam,
+  EndpointRequest
+} from "../../common";
+
+import {
   trimText,
   flattenBlock,
   formatTable,
@@ -11,15 +20,6 @@ import {
   stripBrackets,
   parseLink
 } from "../util";
-
-import {
-  Tree,
-  StructureType,
-  Type,
-  Endpoint,
-  EndpointParam,
-  EndpointRequest
-} from "../../common";
 
 export class EndpointEngine implements Endpoint {
   tree: Tree = [];

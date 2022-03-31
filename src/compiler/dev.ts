@@ -6,14 +6,13 @@ import { Constant, Endpoint, Example, Structure } from "../common";
 
 import { GO_OUTPUT_DIR, JSON_OUTPUT_DIR, JS_OUTPUT_DIR } from "./constants";
 import { JS } from "./js";
-import { GO } from "./go";
 
 (async () => {
   // if (existsSync(JS_OUTPUT_DIR)) await rm(JS_OUTPUT_DIR, { recursive: true });
   // await mkdir(JS_OUTPUT_DIR, { recursive: true });
 
-  if (existsSync(GO_OUTPUT_DIR)) await rm(GO_OUTPUT_DIR, { recursive: true });
-  await mkdir(GO_OUTPUT_DIR, { recursive: true });
+  // if (existsSync(GO_OUTPUT_DIR)) await rm(GO_OUTPUT_DIR, { recursive: true });
+  // await mkdir(GO_OUTPUT_DIR, { recursive: true });
 
   const constantsPath = resolve(JSON_OUTPUT_DIR, "constants.json");
   const constants: Constant[] = JSON.parse(
@@ -33,26 +32,8 @@ import { GO } from "./go";
     await readFile(structuresPath, "utf8")
   );
 
-  const js = new JS({ constants, endpoints, examples, structures });
-  // const go = new GO({ constants, endpoints, examples, structures });
-
-  for (const constant of constants) {
-    js.nodes.push(js.renderConstant(constant));
-    // go.renderConstant(constant);
-  }
-
-  for (const structure of structures) {
-    js.nodes.push(js.renderStructure(structure));
-    // go.renderStructure(structure);
-  }
-
-  for (const endpoint of endpoints) {
-    js.nodes.push(js.renderEndpoint(endpoint));
-    // go.renderEndpoint(endpoint);
-  }
-
-  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js.code);
-  // await writeFile(resolve(GO_OUTPUT_DIR, "main.go"), go.code);
+  const js = JS({ constants, endpoints, examples, structures });
+  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js);
 
   // const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
   // spawn("node", [tsc, resolve(JS_OUTPUT_DIR, "index.ts"), "--declaration"], {

@@ -1,7 +1,8 @@
 import { marked } from "marked";
 
-import { formatTable, parseProperty } from "../util";
 import { Property, Structure, Tree } from "../../common";
+
+import { formatTable, parseProperty } from "../util";
 
 export class StructureEngine implements Structure {
   tree: Tree = [];

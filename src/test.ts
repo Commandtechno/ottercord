@@ -15,27 +15,8 @@ const nodes = [
     ts.factory.createIdentifier("test"),
     [
       ts.factory.createEnumMember(
-        ts.factory.createStringLiteral("hello"),
-        undefined
-      ),
-      ts.factory.createEnumMember(
-        ts.factory.createIdentifier("test"),
-        undefined
-      )
-    ]
-  ),
-  ts.factory.createEnumDeclaration(
-    undefined,
-    undefined,
-    ts.factory.createIdentifier("test"),
-    [
-      ts.factory.createEnumMember(
-        ts.factory.createStringLiteral("hello"),
-        undefined
-      ),
-      ts.factory.createEnumMember(
-        ts.factory.createIdentifier("test"),
-        undefined
+        "cock",
+        ts.factory.createStringLiteral("balls")
       )
     ]
   )

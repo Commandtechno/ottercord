@@ -1,9 +1,9 @@
-import { DOCS_DIR, OUTPUT_DIR } from "../common";
-
 import { rm, mkdir, readdir, writeFile } from "fs/promises";
 import { basename, resolve } from "path";
 import { existsSync } from "fs";
 import { parse } from ".";
+
+import { DOCS_DIR, OUTPUT_DIR } from "../common";
 
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");

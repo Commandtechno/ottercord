@@ -1,12 +1,16 @@
 import { request } from "https";
 
-type JSON<T> =
+type toJSON<T> =
   | T
-  | { toJSON(): JSON<T> }
-  | (T extends object ? { [K in keyof T]: JSON<T[K]> } : never)
-  | (T extends Array<any> ? Array<JSON<T[number]>> : never);
+  | { toJSON(): any }
+  | (T extends object ? { [K in keyof T]: toJSON<T[K]> } : never)
+  | (T extends Array<any> ? Array<toJSON<T[number]>> : never);
 
 export let token: string;
+
+export function getAuth() {
+  return `Bot ${token}`;
+}
 
 export function setToken(newToken: string) {
   token = newToken;
