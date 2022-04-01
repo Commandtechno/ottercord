@@ -2,7 +2,7 @@
   "scripts": {
     "parse": "ts-node --transpile-only parser/dev",
     "compile": "ts-node --transpile-only compiler/dev",
-    "update": "cd .. && cd output && git pull",
+    "update": "cd .. && cd discord-api-docs && git pull",
     "all": "npm run update && npm run parse && npm run compile"
   },
   "devDependencies": {

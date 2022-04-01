@@ -1,0 +1,3 @@
+make reference fallbacks resolve at parsing
+make endpoint inherits (also at parse time)
+get some fucking sleep

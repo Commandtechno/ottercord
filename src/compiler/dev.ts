@@ -4,7 +4,8 @@ import { resolve } from "path";
 
 import { Constant, Endpoint, Example, Structure } from "../common";
 
-import { GO_OUTPUT_DIR, JSON_OUTPUT_DIR, JS_OUTPUT_DIR } from "./constants";
+import { JSON_OUTPUT_DIR } from "./constants";
+import { Context } from "./context";
 import { JS } from "./js";
 
 (async () => {
@@ -32,14 +33,12 @@ import { JS } from "./js";
     await readFile(structuresPath, "utf8")
   );
 
-  const js = JS({ constants, endpoints, examples, structures });
-  await writeFile(resolve(JS_OUTPUT_DIR, "index.ts"), js);
+  const ctx = new Context({
+    constants,
+    endpoints,
+    examples,
+    structures
+  });
 
-  // const tsc = resolve(require.resolve("typescript"), "..", "tsc.js");
-  // spawn("node", [tsc, resolve(JS_OUTPUT_DIR, "index.ts"), "--declaration"], {
-  //   stdio: "inherit"
-  // });
-  // lol this is scuffed
-  // execSync("npm i @types/node", { cwd: JS_OUTPUT_DIR });
-  // execSync("node " + tsc + " " + resolve(JS_OUTPUT_DIR, "index.ts") + " --declaration");
+  await JS(ctx);
 })();

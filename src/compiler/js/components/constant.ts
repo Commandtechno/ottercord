@@ -19,12 +19,19 @@ export function renderConstant(ctx: Context, constant: Constant) {
         break;
     }
 
-    properties.push(
-      ts.factory.createPropertyAssignment(
-        ts.factory.createStringLiteral(pascalCase(prop.name)),
-        value
-      )
+    let property = ts.factory.createPropertyAssignment(
+      ts.factory.createStringLiteral(pascalCase(prop.name)),
+      value
     );
+
+    if (prop.description)
+      property = ts.addSyntheticLeadingComment(
+        property,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        "* " + prop.description
+      );
+
+    properties.push(property);
   }
 
   return ts.factory.createVariableStatement(
@@ -36,7 +43,7 @@ export function renderConstant(ctx: Context, constant: Constant) {
           undefined,
           undefined,
           ts.factory.createAsExpression(
-            ts.factory.createObjectLiteralExpression(properties),
+            ts.factory.createObjectLiteralExpression(properties, true),
             ts.factory.createTypeReferenceNode("const")
           )
         )

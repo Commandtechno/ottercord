@@ -16,10 +16,11 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
   const structures = [];
   const constants = [];
 
-  const folders = ["resources", "topics"];
+  const folders = ["interactions", "resources", "topics"];
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
+      if (file !== "Receiving_and_Responding.md") continue;
       const name = basename(file, ".md");
       console.time(name);
 

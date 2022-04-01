@@ -1,13 +1,14 @@
 import * as ts from "typescript";
 
-import { readFileSync } from "fs";
+import { readFile, writeFile } from "fs/promises";
 import { resolve } from "path";
 
+import { JS_OUTPUT_DIR } from "../constants";
 import { Context } from "../context";
+
 import { renderConstant, renderEndpoint, renderStructure } from "./components";
 
-export function JS(data) {
-  const ctx = new Context(data);
+export async function JS(ctx: Context) {
   const nodes: ts.Node[] = [];
 
   for (const constant of ctx.constants)
@@ -27,16 +28,21 @@ export function JS(data) {
     ts.ScriptKind.TS
   );
 
-  const runtime = readFileSync(resolve(__dirname, "runtime.ts"), "utf-8");
+  const runtime = await readFile(resolve(__dirname, "runtime.ts"), "utf-8");
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 
-  const code =
-    runtime +
+  const code = [
+    runtime,
     printer.printList(
       ts.ListFormat.MultiLine,
       ts.factory.createNodeArray(nodes),
       file
-    );
+    )
+  ].join("\n");
 
-  return code;
+  const path = resolve(JS_OUTPUT_DIR, "index.ts");
+  await writeFile(path, code);
+
+  const program = ts.createProgram([path], { declaration: true });
+  program.emit();
 }

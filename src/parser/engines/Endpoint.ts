@@ -28,8 +28,7 @@ export class EndpointEngine implements Endpoint {
   description?: string;
 
   method: string;
-  path: string;
-  params: EndpointParam[];
+  path: EndpointParam[];
   query?: StructureType;
 
   request?: EndpointRequest;
@@ -53,25 +52,27 @@ export class EndpointEngine implements Endpoint {
 
   constructor(block: marked.Token) {
     if (block.type === "heading") {
-      const [name, route] = block.text.split("%");
+      let [name, route] = block.text.split("%");
       if (!name || !route) throw "invalid";
-
-      this.name = name.trim();
 
       const [method, path] = route.trim().split(" ");
       if (!method || !path) throw "invalid";
 
+      this.name = name.trim();
+
       this.method = method.trim();
-      this.path = path.trim();
+      this.path = [];
 
-      const params: EndpointParam[] = [];
-      this.path = path.replace(/(?<=\{).+?(?=\})/g, param => {
-        const [name, link] = param.split("#");
-        params.push({ name, link });
-        return name;
-      });
+      const params = path.slice(1).split(/(?<!{[^{}\/]+)\/(?![^{}\/]+})/g);
+      for (const param of params) {
+        if (param.startsWith("{") && param.endsWith("}")) {
+          const [name, link] = param.slice(1, -1).split("#");
+          this.path.push({ type: "variable", name, link });
+          continue;
+        }
 
-      this.params = params;
+        this.path.push({ type: "literal", value: param });
+      }
     } else {
       throw "invalid";
     }
@@ -109,45 +110,82 @@ export class EndpointEngine implements Endpoint {
         if (block.text.includes("optional")) this.#state.partial = true;
         if (block.text.includes("nullable")) this.#state.partial = true;
 
-        if (!this.response) {
+        if (!this.request) {
           let after = false;
           let before = true;
           for (const token of block.tokens) {
-            // @ts-ignore
-            if (!token.text) {
-              continue;
-            }
+            if (!("text" in token)) continue;
+            let { text } = token;
 
             if (!after) {
-              // @ts-ignore
-              const returnsIndex = token.text.toLowerCase().indexOf("returns");
-              if (returnsIndex !== -1) {
+              const bodyIsIndex = text.toLowerCase().indexOf("body is");
+              if (bodyIsIndex !== -1) {
                 after = true;
                 before = true;
-                // before = false;
-                // @ts-ignore
-                token.text = token.text.slice(returnsIndex + 8);
+                text = text.slice(bodyIsIndex + "body is".length + 1);
               }
             }
 
             if (before) {
-              // @ts-ignore
-              const objectIndex = token.text.toLowerCase().indexOf("object");
-              if (objectIndex !== -1) {
-                before = false;
-                // @ts-ignore
-                token.text = token.text.slice(objectIndex + 6);
-              }
-            }
-
-            if (before) {
-              // @ts-ignore
-              const dotIndex = token.text.toLowerCase().indexOf(".");
+              const dotIndex = text.toLowerCase().indexOf(".");
               if (dotIndex !== -1) {
                 after = false;
                 before = false;
-                // @ts-ignore
-                token.text = token.text.slice(0, dotIndex);
+                text = text.slice(0, dotIndex + ".".length - 1);
+              }
+            }
+
+            if (after && before) {
+              if (token.type === "link") {
+                this.request = {
+                  json: true,
+                  form: false,
+                  type: {
+                    array: isArray(block.text),
+                    partial: isPartial(block.text),
+
+                    type: "reference",
+                    link: parseLink(token.href)
+                  }
+                };
+
+                break;
+              }
+            }
+          }
+        }
+
+        if (!this.response) {
+          let after = false;
+          let before = true;
+
+          for (const token of block.tokens) {
+            if (!("text" in token)) continue;
+            let { text } = token;
+
+            if (!after) {
+              const returnsIndex = text.toLowerCase().indexOf("returns");
+              if (returnsIndex !== -1) {
+                after = true;
+                before = true;
+                text = text.slice(returnsIndex + "returns".length + 1);
+              }
+            }
+
+            if (before) {
+              const objectIndex = text.toLowerCase().indexOf("object");
+              if (objectIndex !== -1) {
+                before = false;
+                text = text.slice(objectIndex + "object".length + 1);
+              }
+            }
+
+            if (before) {
+              const dotIndex = text.toLowerCase().indexOf(".");
+              if (dotIndex !== -1) {
+                after = false;
+                before = false;
+                text = text.slice(0, dotIndex + ".".length - 1);
               }
             }
 
@@ -193,6 +231,7 @@ export class EndpointEngine implements Endpoint {
             this.#state.form = true;
             break;
 
+          case "Response Body":
           case "Response Structure":
           case "JSON Response":
             this.#context = "response";

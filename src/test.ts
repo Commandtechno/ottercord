@@ -9,14 +9,20 @@ const file = ts.createSourceFile(
 );
 
 const nodes = [
+  ts.factory.createJSDocComment("hello"),
   ts.factory.createEnumDeclaration(
     undefined,
     undefined,
     ts.factory.createIdentifier("test"),
     [
-      ts.factory.createEnumMember(
-        "cock",
-        ts.factory.createStringLiteral("balls")
+      ts.addSyntheticLeadingComment(
+        ts.factory.createEnumMember(
+          "cock",
+          ts.factory.createStringLiteral("balls")
+        ),
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        "*\n* hello\n* hello\n",
+        true
       )
     ]
   )

@@ -10,20 +10,44 @@ import { renderType } from ".";
 export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
   let parameters: ts.ParameterDeclaration[] = [];
   let returnType: ts.TypeNode;
+  let path: ts.Expression;
   let headers: ts.ObjectLiteralElementLike[] = [];
   let fetchProperties: ts.ObjectLiteralElementLike[] = [];
 
-  for (const param of endpoint.params)
-    parameters.push(
-      ts.factory.createParameterDeclaration(
-        undefined,
-        undefined,
-        undefined,
-        camelCase(param.name),
-        undefined,
-        ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword)
-      )
+  for (const param of endpoint.path) {
+    let expression: ts.Expression;
+    switch (param.type) {
+      case "literal":
+        expression = ts.factory.createStringLiteral("/" + param.value);
+        break;
+
+      case "variable":
+        expression = ts.factory.createIdentifier(camelCase(param.name));
+        parameters.push(
+          ts.factory.createParameterDeclaration(
+            undefined,
+            undefined,
+            undefined,
+            camelCase(param.name),
+            undefined,
+            ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword)
+          )
+        );
+
+        break;
+    }
+
+    if (!path) {
+      path = expression;
+      continue;
+    }
+
+    path = ts.factory.createCallExpression(
+      ts.factory.createPropertyAccessExpression(path, "concat"),
+      undefined,
+      [expression]
     );
+  }
 
   if (endpoint.request) {
     parameters.push(
@@ -33,10 +57,9 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
         undefined,
         "body",
         undefined,
-        ts.factory.createTypeReferenceNode(
-          ts.factory.createIdentifier("toJSON"),
-          [renderType(ctx, endpoint.request.type)]
-        )
+        ts.factory.createTypeReferenceNode("toJSON", [
+          renderType(ctx, endpoint.request.type)
+        ])
       )
     );
 
@@ -77,10 +100,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
       "method",
       ts.factory.createStringLiteral(endpoint.method)
     ),
-    ts.factory.createPropertyAssignment(
-      "path",
-      ts.factory.createStringLiteral(endpoint.path)
-    ),
+    ts.factory.createPropertyAssignment("path", path),
     ts.factory.createPropertyAssignment(
       "headers",
       ts.factory.createObjectLiteralExpression(headers)

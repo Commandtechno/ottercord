@@ -18,14 +18,21 @@ export function renderStructure(ctx: Context, structure: Structure) {
     if (prop.nullable)
       type = ts.factory.createUnionTypeNode([type, ts.factory.createNull()]);
 
-    properties.push(
-      ts.factory.createPropertySignature(
-        undefined,
-        ts.factory.createStringLiteral(prop.name),
-        questionToken,
-        type
-      )
+    let property = ts.factory.createPropertySignature(
+      undefined,
+      ts.factory.createStringLiteral(prop.name),
+      questionToken,
+      type
     );
+
+    if (prop.description)
+      property = ts.addSyntheticLeadingComment(
+        property,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        "* " + prop.description
+      );
+
+    properties.push(property);
   }
 
   return ts.factory.createInterfaceDeclaration(

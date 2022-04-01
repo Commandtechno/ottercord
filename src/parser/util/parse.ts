@@ -70,7 +70,7 @@ export function parseProperty(row: Row): Property {
 
   if (description && isDeprecated(description)) {
     deprecated = true;
-    description = stripDeprecated(description);
+    // description = stripDeprecated(description);
   }
 
   // union type
@@ -118,7 +118,7 @@ export function parseProperty(row: Row): Property {
 
   if (description && isArray(description)) {
     array = true;
-    description = stripArray(description);
+    // description = stripArray(description);
   }
 
   // partial
@@ -129,7 +129,7 @@ export function parseProperty(row: Row): Property {
 
   if (description && isPartial(description)) {
     partial = true;
-    description = stripPartial(description);
+    // description = stripPartial(description);
   }
 
   const valueType = parseValueType(type);
