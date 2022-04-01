@@ -20,7 +20,6 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
   for (const folder of folders) {
     const files = await readdir(resolve(DOCS_DIR, folder));
     for (const file of files) {
-      if (file !== "Receiving_and_Responding.md") continue;
       const name = basename(file, ".md");
       console.time(name);
 

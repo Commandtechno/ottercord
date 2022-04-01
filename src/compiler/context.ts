@@ -1,28 +1,6 @@
-import { Constant, Endpoint, Example, Structure } from "../common";
+import { BaseContext } from "../common";
 
-export class Context {
-  constants: Constant[];
-  endpoints: Endpoint[];
-  examples: Example[];
-  structures: Structure[];
-
-  constructor({
-    constants,
-    endpoints,
-    examples,
-    structures
-  }: {
-    constants: Constant[];
-    endpoints: Endpoint[];
-    examples: Example[];
-    structures: Structure[];
-  }) {
-    this.constants = constants;
-    this.endpoints = endpoints;
-    this.examples = examples;
-    this.structures = structures;
-  }
-
+export class Context extends BaseContext {
   nameCache = new Set<string>();
 
   getName(name: string) {

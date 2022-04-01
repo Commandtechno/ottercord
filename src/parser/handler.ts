@@ -23,8 +23,8 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
     this.engine = engine;
   }
 
-  block() {
-    if (this.current && !this.current.block) {
+  handleBlocked() {
+    if (this.current && !this.current.blocked) {
       this.current = null;
       this.currentRoot = null;
     }
@@ -61,14 +61,13 @@ export class Handler<T extends Engine> extends Array<InstanceType<T>> {
       this.flush(tree, handlers);
       this.current = next;
       this.currentRoot = block;
-    } catch {
-      if (this.current) {
-        this.current.process(block);
-      }
+    } catch (err) {
+      if (err !== "invalid") console.error(err);
+      else if (this.current) this.current.process(block);
     }
 
-    if (this.current && this.current.block) {
-      throw "block";
+    if (this.current && this.current.blocked) {
+      throw "blocked";
     }
   }
 }

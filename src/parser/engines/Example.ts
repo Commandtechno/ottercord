@@ -11,7 +11,7 @@ export class ExampleEngine implements Example {
   language: string;
   content: string;
 
-  get block() {
+  get blocked() {
     return false;
   }
 

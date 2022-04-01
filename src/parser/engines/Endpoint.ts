@@ -9,6 +9,8 @@ import {
   EndpointRequest
 } from "../../common";
 
+import { Context } from "../context";
+
 import {
   trimText,
   flattenBlock,
@@ -34,20 +36,23 @@ export class EndpointEngine implements Endpoint {
   request?: EndpointRequest;
   response?: Type;
 
-  #context: "none" | "query" | "request" | "response" | "response-example" =
+  #ctx: Context;
+
+  #current: "none" | "query" | "request" | "response" | "response-example" =
     "none";
+
   #state = {
     partial: false,
     json: false,
     form: false
   };
 
-  get block() {
-    return this.#context !== "none";
+  get blocked() {
+    return this.#current !== "none";
   }
 
   get ready() {
-    return this.#context === "none";
+    return this.#current === "none";
   }
 
   constructor(block: marked.Token) {
@@ -79,7 +84,7 @@ export class EndpointEngine implements Endpoint {
   }
 
   process(block: marked.Token) {
-    switch (this.#context) {
+    switch (this.#current) {
       case "none":
         return this.processNone(block);
 
@@ -210,23 +215,23 @@ export class EndpointEngine implements Endpoint {
       case "heading":
         switch (trimText(stripBrackets(block.text))) {
           case "Query String Params":
-            this.#context = "query";
+            this.#current = "query";
             break;
 
           case "JSON Params":
-            this.#context = "request";
+            this.#current = "request";
             this.#state.json = true;
             this.#state.form = false;
             break;
 
           case "Form Params":
-            this.#context = "request";
+            this.#current = "request";
             this.#state.json = false;
             this.#state.form = true;
             break;
 
           case "JSON/Form Params":
-            this.#context = "request";
+            this.#current = "request";
             this.#state.json = true;
             this.#state.form = true;
             break;
@@ -234,11 +239,11 @@ export class EndpointEngine implements Endpoint {
           case "Response Body":
           case "Response Structure":
           case "JSON Response":
-            this.#context = "response";
+            this.#current = "response";
             break;
 
           case "Example Response":
-            this.#context = "response-example";
+            this.#current = "response-example";
             break;
         }
         break;
@@ -256,7 +261,7 @@ export class EndpointEngine implements Endpoint {
         props: table.map(parseProperty)
       };
 
-      this.#context = "none";
+      this.#current = "none";
     }
   }
 
@@ -282,7 +287,7 @@ export class EndpointEngine implements Endpoint {
           type
         };
 
-      this.#context = "none";
+      this.#current = "none";
     }
   }
 
@@ -299,7 +304,7 @@ export class EndpointEngine implements Endpoint {
         };
       }
 
-      this.#context = "none";
+      this.#current = "none";
     }
   }
 
@@ -310,7 +315,7 @@ export class EndpointEngine implements Endpoint {
         this.response = generateType(json);
       }
 
-      this.#context = "none";
+      this.#current = "none";
     }
   }
 }

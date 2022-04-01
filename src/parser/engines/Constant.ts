@@ -19,7 +19,7 @@ export class ConstantEngine implements Constant {
 
   props: ConstantProperty[];
 
-  get block() {
+  get blocked() {
     return false;
   }
 

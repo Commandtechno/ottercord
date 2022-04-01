@@ -41,8 +41,9 @@ export async function parse(...pathSegments: string[]) {
   for (const block of page) {
     try {
       for (const handler of handlers) handler.process(block, tree, handlers);
-    } catch {
-      for (const handler of handlers) handler.block();
+    } catch (err) {
+      if (err !== "blocked") console.error(err);
+      else for (const handler of handlers) handler.handleBlocked();
     }
 
     if (block.type === "heading") {

@@ -13,7 +13,7 @@ export class StructureEngine implements Structure {
   type: "structure";
   props: Property[];
 
-  get block() {
+  get blocked() {
     return false;
   }
 
