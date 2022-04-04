@@ -1,0 +1,3 @@
+[submodule "src/discord-api-docs"]
+	path = src/discord-api-docs
+	url = https://github.com/discord/discord-api-docs
