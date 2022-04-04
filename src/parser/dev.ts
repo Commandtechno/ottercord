@@ -1,5 +1,5 @@
 import { rm, mkdir, readdir, writeFile } from "fs/promises";
-import { basename, resolve } from "path";
+import { basename, extname, resolve } from "path";
 import { existsSync } from "fs";
 import { parse } from ".";
 
@@ -16,28 +16,32 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
   const structures = [];
   const constants = [];
 
-  const folders = ["interactions", "resources", "topics"];
-  for (const folder of folders) {
-    const files = await readdir(resolve(DOCS_DIR, folder));
+  async function walk(folderPath: string) {
+    const files = await readdir(folderPath, { withFileTypes: true });
     for (const file of files) {
-      const name = basename(file, ".md");
-      console.time(name);
+      const filePath = resolve(folderPath, file.name);
+      if (file.isDirectory()) walk(filePath);
+      else if (extname(file.name) === ".md") {
+        console.time(file.name);
 
-      const {
-        endpoints: newEndpoints,
-        examples: newExamples,
-        structures: newStructures,
-        constants: newConstants
-      } = await parse(folder, file);
+        const {
+          endpoints: newEndpoints,
+          examples: newExamples,
+          structures: newStructures,
+          constants: newConstants
+        } = await parse(filePath);
 
-      endpoints.push(...newEndpoints);
-      examples.push(...newExamples);
-      structures.push(...newStructures);
-      constants.push(...newConstants);
+        console.timeEnd(file.name);
 
-      console.timeEnd(name);
+        endpoints.push(...newEndpoints);
+        examples.push(...newExamples);
+        structures.push(...newStructures);
+        constants.push(...newConstants);
+      }
     }
   }
+
+  walk(DOCS_DIR);
 
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "endpoints.json"),

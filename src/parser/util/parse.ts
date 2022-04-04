@@ -15,8 +15,10 @@ import {
 } from ".";
 
 export function parseLink(link: string) {
-  const [, anchor] = lastSplit(link.slice(1), "/");
-  return anchor;
+  // const [, anchor] = lastSplit(link.slice(1), "/");
+  // return anchor;
+  if (link.startsWith("#")) link = link.slice(1);
+  return link;
 }
 
 export function parseProperty(row: Row): Property {

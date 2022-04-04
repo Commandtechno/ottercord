@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import { resolve } from "path";
+import { relative, resolve, dirname, basename, extname } from "path";
 import { marked } from "marked";
 import {
   // info
@@ -10,7 +10,7 @@ import {
   yellow
 } from "chalk";
 
-import { DOCS_DIR } from "../common";
+import { REPO_DIR, DOCS_DIR } from "../common";
 
 import { Handler } from "./handler";
 import {
@@ -24,10 +24,17 @@ console.info = (...args) => console.log(blue(...args));
 console.error = (...args) => console.log(red(...args));
 console.warn = (...args) => console.log(yellow(...args));
 
-export async function parse(...pathSegments: string[]) {
-  const path = resolve(DOCS_DIR, ...pathSegments);
-  const file = await readFile(path, "utf8");
+export async function parse(filePath: string) {
+  const href = [
+    dirname(relative(REPO_DIR, filePath)),
+    basename(filePath, extname(filePath))
+  ]
+    .join("_")
+    .toUpperCase();
+
+  const file = await readFile(filePath, "utf8");
   const page = marked.lexer(file);
+
   const handlers = [
     new Handler(EndpointEngine),
     new Handler(ExampleEngine),
@@ -47,13 +54,15 @@ export async function parse(...pathSegments: string[]) {
     }
 
     if (block.type === "heading") {
-      const anchor = block.text
-        .split("%", 1)[0]
-        .trim()
-        .toLowerCase()
-        .replace(/[^\w]+/g, "-")
-        .replace(/^-/, "")
-        .replace(/-$/, "");
+      const anchor =
+        href +
+        block.text
+          .split("%", 1)[0]
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w]+/g, "-")
+          .replace(/^-/, "")
+          .replace(/-$/, "");
 
       if (block.depth < 5) {
         parent = anchor + "-";
