@@ -1,11 +1,12 @@
 import { BaseEngine, StructureType, Type } from ".";
 
 export interface Endpoint extends BaseEngine {
+  extends?: string;
+
   method: string;
-
   path: EndpointParam[];
-  query?: StructureType;
 
+  query?: StructureType;
   request?: EndpointRequest;
   response?: Type;
 }

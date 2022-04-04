@@ -9,8 +9,6 @@ import {
   EndpointRequest
 } from "../../common";
 
-import { Context } from "../context";
-
 import {
   trimText,
   flattenBlock,
@@ -25,18 +23,17 @@ import {
 
 export class EndpointEngine implements Endpoint {
   tree: Tree = [];
+  extends?: string;
 
   name: string;
   description?: string;
 
   method: string;
   path: EndpointParam[];
-  query?: StructureType;
 
+  query?: StructureType;
   request?: EndpointRequest;
   response?: Type;
-
-  #ctx: Context;
 
   #current: "none" | "query" | "request" | "response" | "response-example" =
     "none";
@@ -115,7 +112,7 @@ export class EndpointEngine implements Endpoint {
         if (block.text.includes("optional")) this.#state.partial = true;
         if (block.text.includes("nullable")) this.#state.partial = true;
 
-        if (!this.request) {
+        if (!this.extends) {
           let after = false;
           let before = true;
           for (const token of block.tokens) {
@@ -123,11 +120,16 @@ export class EndpointEngine implements Endpoint {
             let { text } = token;
 
             if (!after) {
-              const bodyIsIndex = text.toLowerCase().indexOf("body is");
-              if (bodyIsIndex !== -1) {
+              const sameAsIndex = text
+                .toLowerCase()
+                .indexOf("functions the same as");
+
+              if (sameAsIndex !== -1) {
                 after = true;
                 before = true;
-                text = text.slice(bodyIsIndex + "body is".length + 1);
+                text = text.slice(
+                  sameAsIndex + "functions the same as".length + 1
+                );
               }
             }
 
@@ -142,18 +144,7 @@ export class EndpointEngine implements Endpoint {
 
             if (after && before) {
               if (token.type === "link") {
-                this.request = {
-                  json: true,
-                  form: false,
-                  type: {
-                    array: isArray(block.text),
-                    partial: isPartial(block.text),
-
-                    type: "reference",
-                    link: parseLink(token.href)
-                  }
-                };
-
+                this.extends = parseLink(token.href);
                 break;
               }
             }

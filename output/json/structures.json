@@ -338,32 +338,28 @@
       {
         "name": "min_value",
         "description": "if the option is an INTEGER or NUMBER type, the minimum value permitted",
-        "deprecated": false,
         "optional": true,
         "nullable": false,
-        "type": [
-          {
-            "array": false,
-            "partial": false,
-            "type": "value",
-            "value": "integer"
-          }
-        ]
+        "deprecated": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "type": "value",
+          "value": "any"
+        }
       },
       {
         "name": "max_value",
         "description": "if the option is an INTEGER or NUMBER type, the maximum value permitted",
-        "deprecated": false,
         "optional": true,
         "nullable": false,
-        "type": [
-          {
-            "array": false,
-            "partial": false,
-            "type": "value",
-            "value": "integer"
-          }
-        ]
+        "deprecated": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "type": "value",
+          "value": "any"
+        }
       },
       {
         "name": "autocomplete",
@@ -1514,6 +1510,19 @@
           "partial": false,
           "type": "reference",
           "link": "application-command-object-application-command-interaction-data-option-structure"
+        }
+      },
+      {
+        "name": "guild_id",
+        "description": "the id of the guild the command is registered to",
+        "optional": true,
+        "nullable": false,
+        "deprecated": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "type": "value",
+          "value": "snowflake"
         }
       },
       {
@@ -2835,7 +2844,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -2996,17 +3005,21 @@
       {
         "name": "format_type",
         "description": "format type of sticker changed",
-        "deprecated": false,
         "optional": false,
         "nullable": false,
-        "type": [
-          {
+        "deprecated": false,
+        "type": {
+          "array": false,
+          "partial": false,
+          "type": "reference",
+          "link": "sticker-object-sticker-format-types",
+          "fallback": {
             "array": false,
             "partial": false,
             "type": "value",
             "value": "integer"
           }
-        ]
+        }
       },
       {
         "name": "guild_id",
@@ -3853,7 +3866,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -4069,7 +4082,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -4082,7 +4095,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -4712,7 +4725,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -4751,7 +4764,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       }
     ]
@@ -4799,7 +4812,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -4892,7 +4905,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -6178,7 +6191,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -6918,7 +6931,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -6931,7 +6944,13 @@
           "array": false,
           "partial": false,
           "type": "reference",
-          "link": "360028038352-Server-Boosting-"
+          "link": "360028038352-Server-Boosting-",
+          "fallback": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "date"
+          }
         }
       },
       {
@@ -7002,7 +7021,13 @@
           "array": false,
           "partial": false,
           "type": "reference",
-          "link": "4413305239191-Time-Out-FAQ"
+          "link": "4413305239191-Time-Out-FAQ",
+          "fallback": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "date"
+          }
         }
       }
     ]
@@ -7169,7 +7194,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -7566,7 +7591,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -7579,7 +7604,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -7860,7 +7885,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -7873,7 +7898,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -8058,7 +8083,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -8158,7 +8183,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       }
     ]
@@ -9229,7 +9254,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       }
     ]
@@ -10576,7 +10601,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       }
     ]
@@ -10904,7 +10929,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -10917,7 +10942,13 @@
           "array": false,
           "partial": false,
           "type": "reference",
-          "link": "360028038352-Server-Boosting-"
+          "link": "360028038352-Server-Boosting-",
+          "fallback": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "date"
+          }
         }
       },
       {
@@ -10975,7 +11006,13 @@
           "array": false,
           "partial": false,
           "type": "reference",
-          "link": "4413305239191-Time-Out-FAQ"
+          "link": "4413305239191-Time-Out-FAQ",
+          "fallback": {
+            "array": false,
+            "partial": false,
+            "type": "value",
+            "value": "date"
+          }
         }
       }
     ]
@@ -11433,7 +11470,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "date"
         }
       },
       {
@@ -15516,7 +15553,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "integer"
         }
       },
       {
@@ -15528,7 +15565,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "integer"
         }
       },
       {
@@ -15540,7 +15577,7 @@
           "array": false,
           "partial": false,
           "type": "value",
-          "value": "any"
+          "value": "integer"
         }
       },
       {

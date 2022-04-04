@@ -8,6 +8,11 @@ import { Context } from "../../context";
 import { renderType } from ".";
 
 export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
+  if (endpoint.extends) {
+    const extended = ctx.endpoints.find(e => e.tree.includes(endpoint.extends));
+    if (extended) endpoint = { ...extended, ...endpoint };
+  }
+
   let parameters: ts.ParameterDeclaration[] = [];
   let returnType: ts.TypeNode;
   let path: ts.Expression;
