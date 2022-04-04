@@ -1104,22 +1104,13 @@
         "type": "literal",
         "value": "callback"
       }
-    ],
-    "request": {
-      "json": true,
-      "form": false,
-      "type": {
-        "array": false,
-        "partial": false,
-        "type": "reference",
-        "link": "interaction-response-object"
-      }
-    }
+    ]
   },
   {
     "tree": [
       "get-original-interaction-response"
     ],
+    "extends": "get-webhook-message",
     "name": "Get Original Interaction Response",
     "description": "Returns the initial Interaction response. Functions the same as Get Webhook Message.",
     "method": "GET",
@@ -1152,6 +1143,7 @@
     "tree": [
       "edit-original-interaction-response"
     ],
+    "extends": "edit-webhook-message",
     "name": "Edit Original Interaction Response",
     "description": "Edits the initial Interaction response. Functions the same as Edit Webhook Message.",
     "method": "PATCH",
@@ -1216,6 +1208,7 @@
     "tree": [
       "create-followup-message"
     ],
+    "extends": "execute-webhook",
     "name": "Create Followup Message",
     "description": "Create a followup message for an Interaction. Functions the same as Execute Webhook, but wait is always true. The thread_id, avatar_url, and username parameters are not supported when using this endpoint for interaction followups.",
     "method": "POST",
@@ -1240,6 +1233,7 @@
     "tree": [
       "get-followup-message"
     ],
+    "extends": "get-webhook-message",
     "name": "Get Followup Message",
     "description": "Returns a followup message for an Interaction. Functions the same as Get Webhook Message.",
     "method": "GET",
@@ -1273,6 +1267,7 @@
     "tree": [
       "edit-followup-message"
     ],
+    "extends": "edit-webhook-message",
     "name": "Edit Followup Message",
     "description": "Edits a followup message for an Interaction. Functions the same as Edit Webhook Message.",
     "method": "PATCH",
@@ -2096,7 +2091,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "file"
             }
           },
           {
@@ -2592,7 +2587,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "file"
             }
           },
           {
@@ -3736,7 +3731,7 @@
             "array": false,
             "partial": false,
             "type": "value",
-            "value": "any"
+            "value": "date"
           }
         },
         {
@@ -3808,7 +3803,7 @@
             "array": false,
             "partial": false,
             "type": "value",
-            "value": "any"
+            "value": "date"
           }
         },
         {
@@ -5541,7 +5536,13 @@
               "array": false,
               "partial": false,
               "type": "reference",
-              "link": "4413305239191-Time-Out-FAQ"
+              "link": "4413305239191-Time-Out-FAQ",
+              "fallback": {
+                "array": false,
+                "partial": false,
+                "type": "value",
+                "value": "date"
+              }
             }
           }
         ]
@@ -6975,7 +6976,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "date"
             }
           }
         ]
@@ -7192,7 +7193,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "date"
             }
           },
           {
@@ -7205,7 +7206,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "date"
             }
           },
           {
@@ -7410,7 +7411,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "date"
             }
           },
           {
@@ -7423,7 +7424,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "date"
             }
           },
           {
@@ -8460,7 +8461,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "file"
             }
           }
         ]
@@ -9492,7 +9493,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "file"
             }
           },
           {
@@ -9846,7 +9847,7 @@
               "array": false,
               "partial": false,
               "type": "value",
-              "value": "any"
+              "value": "file"
             }
           },
           {
@@ -10141,7 +10142,7 @@
             "array": false,
             "partial": false,
             "type": "value",
-            "value": "any"
+            "value": "date"
           }
         },
         {

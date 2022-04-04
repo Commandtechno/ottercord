@@ -37,6 +37,5 @@ export function renderReferenceType(
   if (referenceType.fallback)
     return renderValueType(ctx, referenceType.fallback);
 
-  console.log("Could not find reference: " + referenceType.link);
   return factory.createKeywordTypeNode(SyntaxKind.AnyKeyword);
 }

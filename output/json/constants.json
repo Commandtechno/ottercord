@@ -1272,11 +1272,6 @@
     "name": "User Flags",
     "props": [
       {
-        "name": "None",
-        "description": "None",
-        "value": 0
-      },
-      {
         "name": "STAFF",
         "description": "Discord Employee",
         "value": 1
