@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import { relative, resolve, dirname, basename, extname } from "path";
+import { relative, dirname, basename, extname } from "path";
 import { marked } from "marked";
 import {
   // info
@@ -10,7 +10,7 @@ import {
   yellow
 } from "chalk";
 
-import { REPO_DIR, DOCS_DIR } from "../common";
+import { REPO_DIR } from "../common";
 
 import { Handler } from "./handler";
 import {
@@ -19,6 +19,7 @@ import {
   StructureEngine,
   ConstantEngine
 } from "./engines";
+import { firstSplit } from "./util";
 
 console.info = (...args) => console.log(blue(...args));
 console.error = (...args) => console.log(red(...args));
@@ -32,9 +33,6 @@ export async function parse(filePath: string) {
     .join("_")
     .toUpperCase();
 
-  const file = await readFile(filePath, "utf8");
-  const page = marked.lexer(file);
-
   const handlers = [
     new Handler(EndpointEngine),
     new Handler(ExampleEngine),
@@ -42,10 +40,13 @@ export async function parse(filePath: string) {
     new Handler(ConstantEngine)
   ];
 
+  const content = await readFile(filePath, "utf8");
+  const blocks = marked.lexer(content);
+
   let parent: string = "";
   let tree: string[] = [];
 
-  for (const block of page) {
+  for (const block of blocks) {
     try {
       for (const handler of handlers) handler.process(block, tree, handlers);
     } catch (err) {
@@ -54,15 +55,13 @@ export async function parse(filePath: string) {
     }
 
     if (block.type === "heading") {
+      // https://github.com/discord/discord-api-docs/issues/4708#issuecomment-1079834021
       const anchor =
         href +
-        block.text
-          .split("%", 1)[0]
-          .trim()
-          .toLowerCase()
-          .replace(/[^\w]+/g, "-")
-          .replace(/^-/, "")
-          .replace(/-$/, "");
+        firstSplit(block.text, "%")[0]
+          .replace(/[.,/#!$%^&*;:{}=\-_—–`'~()?]/g, "") // remove punctuation
+          .replace(/\s+/g, "-") // turn spaces into dashes
+          .toLowerCase();
 
       if (block.depth < 5) {
         parent = anchor + "-";

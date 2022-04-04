@@ -10,12 +10,12 @@ export function splitAll(str: string, seperators: string[]) {
 
 export function firstSplit(str: string, separator: string) {
   const index = str.indexOf(separator);
-  if (index < 0) return [];
+  if (index < 0) return [str];
   return splitAt(str, index);
 }
 
 export function lastSplit(str: string, separator: string) {
   const index = str.lastIndexOf(separator);
-  if (index < 0) return [];
+  if (index < 0) return [str];
   return splitAt(str, index);
 }
