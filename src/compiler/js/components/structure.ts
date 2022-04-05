@@ -1,8 +1,8 @@
 import * as ts from "typescript";
 
-import { pascalCase } from "change-case";
-
 import { Structure } from "../../../common";
+
+import { pascalCase } from "../../util";
 import { Context } from "../../context";
 
 import { renderType } from ".";

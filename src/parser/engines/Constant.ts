@@ -42,7 +42,7 @@ export class ConstantEngine implements Constant {
       this.description = trimText(flattenBlock(block));
     }
 
-    if (block.type === "table") {
+    if (block.type === "table" && !this.props.length) {
       let [, primaryKey] = lastSplit(this.name, " ");
       if (!primaryKey) return; // name is one word like Limits
       primaryKey = stripPlural(trimText(primaryKey.toLowerCase()));
@@ -137,11 +137,11 @@ export class ConstantEngine implements Constant {
         // resolve bitshifts for flags
         if (rawValue.includes("<<")) {
           const [left, right] = rawValue.split("<<");
-          value = parseInt(left) << parseInt(right);
+          value = Number(left) << Number(right);
         }
 
         // if value is a number, use the number
-        else if (!isNaN(parseInt(rawValue))) value = parseInt(rawValue);
+        else if (!isNaN(Number(rawValue))) value = Number(rawValue);
         else value = rawValue;
 
         return {

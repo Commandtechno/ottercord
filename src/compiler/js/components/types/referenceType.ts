@@ -1,7 +1,8 @@
 import { SyntaxKind, factory } from "typescript";
-import { pascalCase } from "change-case";
 
 import { ReferenceType } from "../../../../common";
+
+import { pascalCase } from "../../../util";
 import { Context } from "../../../context";
 
 import { renderValueType } from "./valueType";

@@ -1,8 +1,8 @@
 import * as ts from "typescript";
 
-import { camelCase } from "change-case";
-
 import { Endpoint } from "../../../common";
+
+import { camelCase } from "../../util";
 import { Context } from "../../context";
 
 import { renderType } from ".";
@@ -112,7 +112,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
     )
   );
 
-  return ts.factory.createFunctionDeclaration(
+  let result = ts.factory.createFunctionDeclaration(
     undefined,
     [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     undefined,
@@ -130,4 +130,13 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
       )
     ])
   );
+
+  if (endpoint.description)
+    result = ts.addSyntheticLeadingComment(
+      result,
+      ts.SyntaxKind.MultiLineCommentTrivia,
+      "* " + endpoint.description
+    );
+
+  return result;
 }

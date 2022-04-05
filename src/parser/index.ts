@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import { relative, dirname, basename, extname } from "path";
+import { relative, dirname, basename, extname, sep } from "path";
 import { marked } from "marked";
 import {
   // info
@@ -12,22 +12,23 @@ import {
 
 import { REPO_DIR } from "../common";
 
+import { firstSplit } from "./util";
 import { Handler } from "./handler";
+
 import {
   EndpointEngine,
   ExampleEngine,
   StructureEngine,
   ConstantEngine
 } from "./engines";
-import { firstSplit } from "./util";
 
 console.info = (...args) => console.log(blue(...args));
 console.error = (...args) => console.log(red(...args));
 console.warn = (...args) => console.log(yellow(...args));
 
 export async function parse(filePath: string) {
-  const href = [
-    dirname(relative(REPO_DIR, filePath)),
+  const base = [
+    ...dirname(relative(REPO_DIR, filePath)).split(sep),
     basename(filePath, extname(filePath))
   ]
     .join("_")
@@ -56,17 +57,18 @@ export async function parse(filePath: string) {
 
     if (block.type === "heading") {
       // https://github.com/discord/discord-api-docs/issues/4708#issuecomment-1079834021
-      const anchor =
-        href +
-        firstSplit(block.text, "%")[0]
-          .replace(/[.,/#!$%^&*;:{}=\-_—–`'~()?]/g, "") // remove punctuation
-          .replace(/\s+/g, "-") // turn spaces into dashes
-          .toLowerCase();
+      const anchor = firstSplit(block.text, "%")[0]
+        .trim()
+        .replace(/[.,/#!$%^&*;:{}=\-_—–`'~()?]/g, "") // remove punctuation
+        .replace(/\s+/g, "-") // turn spaces into dashes
+        .toLowerCase();
 
       if (block.depth < 5) {
         parent = anchor + "-";
-        tree.push(anchor);
-      } else tree.push(parent + anchor);
+        tree.push(base + "/" + anchor);
+      } else {
+        tree.push(base + "/" + parent + anchor);
+      }
     }
   }
 

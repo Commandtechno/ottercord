@@ -20,7 +20,7 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
     const files = await readdir(folderPath, { withFileTypes: true });
     for (const file of files) {
       const filePath = resolve(folderPath, file.name);
-      if (file.isDirectory()) walk(filePath);
+      if (file.isDirectory()) await walk(filePath);
       else if (extname(file.name) === ".md") {
         console.time(file.name);
 
@@ -41,7 +41,7 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
     }
   }
 
-  walk(DOCS_DIR);
+  await walk(DOCS_DIR);
 
   await writeFile(
     resolve(JSON_OUTPUT_DIR, "endpoints.json"),

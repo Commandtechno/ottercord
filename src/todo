@@ -1,3 +1,2 @@
-make reference fallbacks resolve at parsing
-make endpoint inherits (also at parse time)
 get some fucking sleep
+fix https://discord.com/developers/docs/topics/gateway#request-guild-members-guild-request-members-structure user_ids registering as Array<snowflake> | Array<snowflake>

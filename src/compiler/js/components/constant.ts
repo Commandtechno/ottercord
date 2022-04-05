@@ -1,8 +1,8 @@
 import * as ts from "typescript";
 
-import { pascalCase } from "change-case";
-
 import { Constant } from "../../../common";
+
+import { pascalCase } from "../../util";
 import { Context } from "../../context";
 
 export function renderConstant(ctx: Context, constant: Constant) {
