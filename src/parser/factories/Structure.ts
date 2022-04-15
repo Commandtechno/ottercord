@@ -1,17 +1,16 @@
 import { marked } from "marked";
 
-import { Property, Structure, Tree } from "../../common";
+import { flattenBlock, formatTable, parseProperty, trimText } from "../util";
+import { StructureProperty, Structure } from "../../common";
 
-import { formatTable, parseProperty } from "../util";
-
-export class StructureEngine implements Structure {
-  tree: Tree = [];
+export class StructureFactory implements Structure {
+  tree: string[] = [];
+  type: "structure" = "structure";
 
   name: string;
   description?: string;
 
-  type: "structure";
-  props: Property[];
+  props: StructureProperty[] = [];
 
   get blocked() {
     return false;
@@ -31,6 +30,10 @@ export class StructureEngine implements Structure {
   }
 
   process(block: marked.Token) {
+    if (block.type === "paragraph") {
+      this.description = trimText(flattenBlock(block));
+    }
+
     if (block.type === "table") {
       // structure must contain type and field or name header
       if (

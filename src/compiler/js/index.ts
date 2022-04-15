@@ -6,19 +6,26 @@ import { resolve } from "path";
 import { JS_OUTPUT_DIR } from "../constants";
 import { Context } from "../context";
 
-import { renderConstant, renderEndpoint, renderStructure } from "./components";
+import { renderConstant, renderEndpoint, renderStructure } from "./elements";
 
 export async function JS(ctx: Context) {
   const nodes: ts.Node[] = [];
 
-  for (const constant of ctx.constants)
-    nodes.push(renderConstant(ctx, constant));
+  for (const element of ctx.elements) {
+    switch (element.type) {
+      case "constant":
+        nodes.push(renderConstant(ctx, element));
+        break;
 
-  for (const structure of ctx.structures)
-    nodes.push(renderStructure(ctx, structure));
+      case "structure":
+        nodes.push(renderStructure(ctx, element));
+        break;
 
-  for (const endpoint of ctx.endpoints)
-    nodes.push(renderEndpoint(ctx, endpoint));
+      case "endpoint":
+        nodes.push(renderEndpoint(ctx, element));
+        break;
+    }
+  }
 
   const file = ts.createSourceFile(
     "",

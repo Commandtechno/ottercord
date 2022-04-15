@@ -1,9 +1,10 @@
 import { marked } from "marked";
 
-import { Tree, Example } from "../../common";
+import { Example } from "../../common";
 
-export class ExampleEngine implements Example {
-  tree: Tree = [];
+export class ExampleFactory implements Example {
+  tree: string[] = [];
+  type: "example" = "example";
 
   name: string;
   description?: string;

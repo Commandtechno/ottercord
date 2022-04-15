@@ -1,9 +1,9 @@
+import { DOCS_DIR, OUTPUT_DIR } from "../common";
+
 import { rm, mkdir, readdir, writeFile } from "fs/promises";
-import { basename, extname, resolve } from "path";
+import { extname, resolve } from "path";
 import { existsSync } from "fs";
 import { parse } from ".";
-
-import { DOCS_DIR, OUTPUT_DIR } from "../common";
 
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
@@ -11,11 +11,7 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
     await rm(JSON_OUTPUT_DIR, { recursive: true });
   await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
-  const endpoints = [];
-  const examples = [];
-  const structures = [];
-  const constants = [];
-
+  const elements = [];
   async function walk(folderPath: string) {
     const files = await readdir(folderPath, { withFileTypes: true });
     for (const file of files) {
@@ -23,43 +19,16 @@ import { DOCS_DIR, OUTPUT_DIR } from "../common";
       if (file.isDirectory()) await walk(filePath);
       else if (extname(file.name) === ".md") {
         console.time(file.name);
-
-        const {
-          endpoints: newEndpoints,
-          examples: newExamples,
-          structures: newStructures,
-          constants: newConstants
-        } = await parse(filePath);
-
+        const newElements = await parse(filePath);
+        elements.push(...newElements);
         console.timeEnd(file.name);
-
-        endpoints.push(...newEndpoints);
-        examples.push(...newExamples);
-        structures.push(...newStructures);
-        constants.push(...newConstants);
       }
     }
   }
 
   await walk(DOCS_DIR);
-
   await writeFile(
-    resolve(JSON_OUTPUT_DIR, "endpoints.json"),
-    JSON.stringify(endpoints, null, 2)
-  );
-
-  await writeFile(
-    resolve(JSON_OUTPUT_DIR, "examples.json"),
-    JSON.stringify(examples, null, 2)
-  );
-
-  await writeFile(
-    resolve(JSON_OUTPUT_DIR, "structures.json"),
-    JSON.stringify(structures, null, 2)
-  );
-
-  await writeFile(
-    resolve(JSON_OUTPUT_DIR, "constants.json"),
-    JSON.stringify(constants, null, 2)
+    resolve(JSON_OUTPUT_DIR, "elements.json"),
+    JSON.stringify(elements, null, 2)
   );
 })();

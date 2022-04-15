@@ -1,11 +1,10 @@
 import * as ts from "typescript";
 
-import { Structure } from "../../../common";
-
-import { pascalCase } from "../../util";
-import { Context } from "../../context";
-
+import { createPropertyName } from "../util";
 import { renderType } from ".";
+import { pascalCase } from "../../util";
+import { Structure } from "../../../common";
+import { Context } from "../../context";
 
 export function renderStructure(ctx: Context, structure: Structure) {
   const properties: ts.TypeElement[] = [];
@@ -20,7 +19,7 @@ export function renderStructure(ctx: Context, structure: Structure) {
 
     let property = ts.factory.createPropertySignature(
       undefined,
-      ts.factory.createStringLiteral(prop.name),
+      createPropertyName(prop.name),
       questionToken,
       type
     );
@@ -29,13 +28,14 @@ export function renderStructure(ctx: Context, structure: Structure) {
       property = ts.addSyntheticLeadingComment(
         property,
         ts.SyntaxKind.MultiLineCommentTrivia,
-        "* " + prop.description
+        "* " + prop.description,
+        true
       );
 
     properties.push(property);
   }
 
-  return ts.factory.createInterfaceDeclaration(
+  let result = ts.factory.createInterfaceDeclaration(
     undefined,
     [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     ctx.getName(pascalCase(structure.name)),
@@ -43,4 +43,14 @@ export function renderStructure(ctx: Context, structure: Structure) {
     undefined,
     properties
   );
+
+  if (structure.description)
+    result = ts.addSyntheticLeadingComment(
+      result,
+      ts.SyntaxKind.MultiLineCommentTrivia,
+      "* " + structure.description,
+      true
+    );
+
+  return result;
 }

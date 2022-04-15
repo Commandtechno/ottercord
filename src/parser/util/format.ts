@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import { decode } from "he";
-import { Row } from "../../common";
+import { Row } from ".";
 
 // get text before the first semicolon
 export function cutText(text: string) {

@@ -1,17 +1,18 @@
 import { SyntaxKind, factory } from "typescript";
 
+import { renderValueType } from "./valueType";
 import { ReferenceType } from "../../../../common";
-
 import { pascalCase } from "../../../util";
 import { Context } from "../../../context";
-
-import { renderValueType } from "./valueType";
 
 export function renderReferenceType(
   ctx: Context,
   referenceType: ReferenceType
 ) {
-  const constant = ctx.constants.find(c => c.tree.includes(referenceType.link));
+  const constant = ctx.elements.find(
+    c => c.type === "constant" && c.tree.includes(referenceType.link)
+  );
+
   if (constant)
     return factory.createIndexedAccessTypeNode(
       factory.createTypeQueryNode(
@@ -25,8 +26,8 @@ export function renderReferenceType(
       )
     );
 
-  const structure = ctx.structures.find(s =>
-    s.tree.includes(referenceType.link)
+  const structure = ctx.elements.find(
+    s => s.type === "structure" && s.tree.includes(referenceType.link)
   );
 
   if (structure)

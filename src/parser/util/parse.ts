@@ -1,12 +1,13 @@
-import { Row, Property, ValueType } from "../../common";
+import { StructureProperty, ValueType } from "../../common";
 import {
+  Row,
   cutText,
   trimText,
   flattenBlock,
   isArray,
   isPartial,
   isDeprecated,
-  lastSplit,
+  // lastSplit,
   stripArray,
   stripBrackets,
   stripDeprecated,
@@ -21,7 +22,7 @@ export function parseLink(link: string) {
   return link;
 }
 
-export function parseProperty(row: Row): Property {
+export function parseProperty(row: Row): StructureProperty {
   let name = trimText(stripBrackets(flattenBlock(row.field ?? row.name)));
   let type = cutText(flattenBlock(row.type));
   let description = row.description && trimText(flattenBlock(row.description));

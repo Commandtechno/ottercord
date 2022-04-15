@@ -1,8 +1,8 @@
 import * as ts from "typescript";
 
-import { Constant } from "../../../common";
-
+import { createPropertyName } from "../util";
 import { pascalCase } from "../../util";
+import { Constant } from "../../../common";
 import { Context } from "../../context";
 
 export function renderConstant(ctx: Context, constant: Constant) {
@@ -20,7 +20,7 @@ export function renderConstant(ctx: Context, constant: Constant) {
     }
 
     let property = ts.factory.createPropertyAssignment(
-      ts.factory.createStringLiteral(pascalCase(prop.name)),
+      createPropertyName(pascalCase(prop.name)),
       value
     );
 
@@ -28,13 +28,14 @@ export function renderConstant(ctx: Context, constant: Constant) {
       property = ts.addSyntheticLeadingComment(
         property,
         ts.SyntaxKind.MultiLineCommentTrivia,
-        "* " + prop.description
+        "* " + prop.description,
+        true
       );
 
     properties.push(property);
   }
 
-  return ts.factory.createVariableStatement(
+  let result = ts.factory.createVariableStatement(
     [ts.factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     ts.factory.createVariableDeclarationList(
       [
@@ -51,4 +52,14 @@ export function renderConstant(ctx: Context, constant: Constant) {
       ts.NodeFlags.Const
     )
   );
+
+  if (constant.description)
+    result = ts.addSyntheticLeadingComment(
+      result,
+      ts.SyntaxKind.MultiLineCommentTrivia,
+      "* " + constant.description,
+      true
+    );
+
+  return result;
 }

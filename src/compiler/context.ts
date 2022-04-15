@@ -1,26 +1,10 @@
-import { Constant, Endpoint, Example, Structure } from "../common";
+import { Element } from "../common";
 
 export class Context {
-  constants: Constant[];
-  endpoints: Endpoint[];
-  examples: Example[];
-  structures: Structure[];
+  elements: Element[];
 
-  constructor({
-    constants,
-    endpoints,
-    examples,
-    structures
-  }: {
-    constants: Constant[];
-    endpoints: Endpoint[];
-    examples: Example[];
-    structures: Structure[];
-  }) {
-    this.constants = constants;
-    this.endpoints = endpoints;
-    this.examples = examples;
-    this.structures = structures;
+  constructor(elements: Element[]) {
+    this.elements = elements;
   }
 
   nameCache = new Set<string>();

@@ -1,23 +1,23 @@
 import { marked } from "marked";
 
-import { Tree, Constant, ConstantProperty } from "../../common";
-
+import { Constant, ConstantProperty } from "../../common";
 import {
   flattenBlock,
   formatTable,
-  lastSplit,
+  splitLast,
   stripBrackets,
   stripPlural,
   trimText
 } from "../util";
 
-export class ConstantEngine implements Constant {
-  tree: Tree = [];
+export class ConstantFactory implements Constant {
+  tree: string[] = [];
+  type: "constant" = "constant";
 
   name: string;
   description?: string;
 
-  props: ConstantProperty[];
+  props: ConstantProperty[] = [];
 
   get blocked() {
     return false;
@@ -30,7 +30,6 @@ export class ConstantEngine implements Constant {
   constructor(block: marked.Token) {
     if (block.type === "heading") {
       this.name = block.text;
-      this.props = [];
     } else {
       throw "invalid";
     }
@@ -43,7 +42,7 @@ export class ConstantEngine implements Constant {
     }
 
     if (block.type === "table" && !this.props.length) {
-      let [, primaryKey] = lastSplit(this.name, " ");
+      let [, primaryKey] = splitLast(this.name, " ");
       if (!primaryKey) return; // name is one word like Limits
       primaryKey = stripPlural(trimText(primaryKey.toLowerCase()));
 

@@ -1,7 +1,6 @@
 import { marked } from "marked";
 
 import {
-  Tree,
   StructureType,
   Type,
   Endpoint,
@@ -21,15 +20,16 @@ import {
   parseLink
 } from "../util";
 
-export class EndpointEngine implements Endpoint {
-  tree: Tree = [];
+export class EndpointFactory implements Endpoint {
+  tree: string[] = [];
+  type: "endpoint" = "endpoint";
   extends?: string;
 
   name: string;
   description?: string;
 
   method: string;
-  path: EndpointParam[];
+  path: EndpointParam[] = [];
 
   query?: StructureType;
   request?: EndpointRequest;
@@ -61,9 +61,7 @@ export class EndpointEngine implements Endpoint {
       if (!method || !path) throw "invalid";
 
       this.name = name.trim();
-
       this.method = method.trim();
-      this.path = [];
 
       const params = path.slice(1).split(/(?<!{[^{}\/]+)\/(?![^{}\/]+})/g);
       for (const param of params) {

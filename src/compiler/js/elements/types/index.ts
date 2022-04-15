@@ -2,10 +2,9 @@ import { factory } from "typescript";
 
 import { Type } from "../../../../common";
 
-import { renderValueType } from "./valueType";
 import { renderStructureType } from "./structureType";
 import { renderReferenceType } from "./referenceType";
-
+import { renderValueType } from "./valueType";
 import { Context } from "../../../context";
 
 export function renderType(ctx: Context, type: Type | Type[]) {

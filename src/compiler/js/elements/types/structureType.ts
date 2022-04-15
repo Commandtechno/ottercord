@@ -1,9 +1,9 @@
 import * as ts from "typescript";
 
+import { createPropertyName } from "../../util";
 import { StructureType } from "../../../../common";
-import { Context } from "../../../context";
-
 import { renderType } from ".";
+import { Context } from "../../../context";
 
 export function renderStructureType(
   ctx: Context,
@@ -21,7 +21,7 @@ export function renderStructureType(
 
     let property = ts.factory.createPropertySignature(
       undefined,
-      ts.factory.createStringLiteral(prop.name),
+      createPropertyName(prop.name),
       questionToken,
       type
     );
@@ -30,7 +30,8 @@ export function renderStructureType(
       property = ts.addSyntheticLeadingComment(
         property,
         ts.SyntaxKind.MultiLineCommentTrivia,
-        "* " + prop.description
+        "* " + prop.description,
+        true
       );
 
     properties.push(property);

@@ -1,15 +1,16 @@
 import * as ts from "typescript";
 
-import { Endpoint } from "../../../common";
-
-import { camelCase } from "../../util";
-import { Context } from "../../context";
-
 import { renderType } from ".";
+import { camelCase } from "../../util";
+import { Endpoint } from "../../../common";
+import { Context } from "../../context";
 
 export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
   if (endpoint.extends) {
-    const extended = ctx.endpoints.find(e => e.tree.includes(endpoint.extends));
+    const extended = ctx.elements.find(
+      e => e.type === "endpoint" && e.tree.includes(endpoint.extends)
+    );
+
     if (extended) endpoint = { ...extended, ...endpoint };
   }
 
@@ -120,22 +121,26 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
     undefined,
     parameters,
     returnType,
-    ts.factory.createBlock([
-      ts.factory.createReturnStatement(
-        ts.factory.createCallExpression(
-          ts.factory.createIdentifier("fetch"),
-          undefined,
-          [ts.factory.createObjectLiteralExpression(fetchProperties)]
+    ts.factory.createBlock(
+      [
+        ts.factory.createReturnStatement(
+          ts.factory.createCallExpression(
+            ts.factory.createIdentifier("fetch"),
+            undefined,
+            [ts.factory.createObjectLiteralExpression(fetchProperties)]
+          )
         )
-      )
-    ])
+      ],
+      true
+    )
   );
 
   if (endpoint.description)
     result = ts.addSyntheticLeadingComment(
       result,
       ts.SyntaxKind.MultiLineCommentTrivia,
-      "* " + endpoint.description
+      "* " + endpoint.description,
+      true
     );
 
   return result;

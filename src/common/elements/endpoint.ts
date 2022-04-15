@@ -1,6 +1,7 @@
-import { BaseEngine, StructureType, Type } from ".";
+import { BaseElement, StructureType, Type } from "..";
 
-export interface Endpoint extends BaseEngine {
+export interface Endpoint extends BaseElement {
+  type: "endpoint";
   extends?: string;
 
   method: string;
