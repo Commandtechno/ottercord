@@ -16,13 +16,13 @@ export declare function fetch({ method, path, body, headers }: {
     };
 }): Promise<any>;
 export declare const ApiVersions: {
-    readonly "9": "Available";
-    readonly "8": "Available";
-    readonly "7": "Doesn't look like anything to me";
-    readonly "6": "Deprecated";
-    readonly "5": "Discontinued";
-    readonly "4": "Discontinued";
-    readonly "3": "Discontinued";
+    readonly 9: "Available";
+    readonly 8: "Available";
+    readonly 7: "Doesn't look like anything to me";
+    readonly 6: "Deprecated";
+    readonly 5: "Discontinued";
+    readonly 4: "Discontinued";
+    readonly 3: "Discontinued";
 };
 export declare const SnowflakeIdFormatStructureLeftToRight: {
     /** Milliseconds since Discord Epoch, the first second of 2015 or 1420070400000.*/
@@ -382,7 +382,7 @@ export interface SignedappticketStruct {
 }
 /** Returns a Discord.Result and ref string via callback.*/
 export declare const CurrentVersion: {
-    readonly "2": "current";
+    readonly 2: "current";
 };
 export declare const SdkEnvironmentVariables: {
     /** the locally running instance of Discord to connect to; allows you to choose between multiple running clients*/
@@ -398,93 +398,93 @@ export declare const SdkEnvironmentVariables: {
 };
 export declare const ResultEnum: {
     /** everything is good*/
-    readonly "0": "Ok";
+    readonly 0: "Ok";
     /** Discord isn't working*/
-    readonly "1": "ServiceUnavailable";
+    readonly 1: "ServiceUnavailable";
     /** the SDK version may be outdated*/
-    readonly "2": "InvalidVersion";
+    readonly 2: "InvalidVersion";
     /** an internal error on transactional operations*/
-    readonly "3": "LockFailed";
+    readonly 3: "LockFailed";
     /** something on our side went wrong*/
-    readonly "4": "InternalError";
+    readonly 4: "InternalError";
     /** the data you sent didn't match what we expect*/
-    readonly "5": "InvalidPayload";
+    readonly 5: "InvalidPayload";
     /** that's not a thing you can do*/
-    readonly "6": "InvalidCommand";
+    readonly 6: "InvalidCommand";
     /** you aren't authorized to do that*/
-    readonly "7": "InvalidPermissions";
+    readonly 7: "InvalidPermissions";
     /** couldn't fetch what you wanted*/
-    readonly "8": "NotFetched";
+    readonly 8: "NotFetched";
     /** what you're looking for doesn't exist*/
-    readonly "9": "NotFound";
+    readonly 9: "NotFound";
     /** user already has a network connection open on that channel*/
-    readonly "10": "Conflict";
+    readonly 10: "Conflict";
     /** activity secrets must be unique and not match party id*/
-    readonly "11": "InvalidSecret";
+    readonly 11: "InvalidSecret";
     /** join request for that user does not exist*/
-    readonly "12": "InvalidJoinSecret";
+    readonly 12: "InvalidJoinSecret";
     /** you accidentally set an ApplicationId in your UpdateActivity() payload*/
-    readonly "13": "NoEligibleActivity";
+    readonly 13: "NoEligibleActivity";
     /** your game invite is no longer valid*/
-    readonly "14": "InvalidInvite";
+    readonly 14: "InvalidInvite";
     /** the internal auth call failed for the user, and you can't do this*/
-    readonly "15": "NotAuthenticated";
+    readonly 15: "NotAuthenticated";
     /** the user's bearer token is invalid*/
-    readonly "16": "InvalidAccessToken";
+    readonly 16: "InvalidAccessToken";
     /** access token belongs to another application*/
-    readonly "17": "ApplicationMismatch";
+    readonly 17: "ApplicationMismatch";
     /** something internally went wrong fetching image data*/
-    readonly "18": "InvalidDataUrl";
+    readonly 18: "InvalidDataUrl";
     /** not valid Base64 data*/
-    readonly "19": "InvalidBase64";
+    readonly 19: "InvalidBase64";
     /** you're trying to access the list before creating a stable list with Filter()*/
-    readonly "20": "NotFiltered";
+    readonly 20: "NotFiltered";
     /** the lobby is full*/
-    readonly "21": "LobbyFull";
+    readonly 21: "LobbyFull";
     /** the secret you're using to connect is wrong*/
-    readonly "22": "InvalidLobbySecret";
+    readonly 22: "InvalidLobbySecret";
     /** file name is too long*/
-    readonly "23": "InvalidFilename";
+    readonly 23: "InvalidFilename";
     /** file is too large*/
-    readonly "24": "InvalidFileSize";
+    readonly 24: "InvalidFileSize";
     /** the user does not have the right entitlement for this game*/
-    readonly "25": "InvalidEntitlement";
+    readonly 25: "InvalidEntitlement";
     /** Discord is not installed*/
-    readonly "26": "NotInstalled";
+    readonly 26: "NotInstalled";
     /** Discord is not running*/
-    readonly "27": "NotRunning";
+    readonly 27: "NotRunning";
     /** insufficient buffer space when trying to write*/
-    readonly "28": "InsufficientBuffer";
+    readonly 28: "InsufficientBuffer";
     /** user cancelled the purchase flow*/
-    readonly "29": "PurchaseCancelled";
+    readonly 29: "PurchaseCancelled";
     /** Discord guild does not exist*/
-    readonly "30": "InvalidGuild";
+    readonly 30: "InvalidGuild";
     /** the event you're trying to subscribe to does not exist*/
-    readonly "31": "InvalidEvent";
+    readonly 31: "InvalidEvent";
     /** Discord channel does not exist*/
-    readonly "32": "InvalidChannel";
+    readonly 32: "InvalidChannel";
     /** the origin header on the socket does not match what you've registered (you should not see this)*/
-    readonly "33": "InvalidOrigin";
+    readonly 33: "InvalidOrigin";
     /** you are calling that method too quickly*/
-    readonly "34": "RateLimited";
+    readonly 34: "RateLimited";
     /** the OAuth2 process failed at some point*/
-    readonly "35": "OAuth2Error";
+    readonly 35: "OAuth2Error";
     /** the user took too long selecting a channel for an invite*/
-    readonly "36": "SelectChannelTimeout";
+    readonly 36: "SelectChannelTimeout";
     /** took too long trying to fetch the guild*/
-    readonly "37": "GetGuildTimeout";
+    readonly 37: "GetGuildTimeout";
     /** push to talk is required for this channel*/
-    readonly "38": "SelectVoiceForceRequired";
+    readonly 38: "SelectVoiceForceRequired";
     /** that push to talk shortcut is already registered*/
-    readonly "39": "CaptureShortcutAlreadyListening";
+    readonly 39: "CaptureShortcutAlreadyListening";
     /** your application cannot update this achievement*/
-    readonly "40": "UnauthorizedForAchievement";
+    readonly 40: "UnauthorizedForAchievement";
     /** the gift code is not valid*/
-    readonly "41": "InvalidGiftCode";
+    readonly 41: "InvalidGiftCode";
     /** something went wrong during the purchase flow*/
-    readonly "42": "PurchaseError";
+    readonly 42: "PurchaseError";
     /** purchase flow aborted because the SDK is being torn down*/
-    readonly "43": "TransactionAborted";
+    readonly 43: "TransactionAborted";
 };
 export declare const LoglevelEnum: {
     /** Log only errors*/
@@ -4334,12 +4334,12 @@ export declare const DiscordLibraries: {
     readonly Serenity: "Rust";
 };
 export declare const GatewayVersions: {
-    readonly "9": "Available";
-    readonly "8": "Available";
-    readonly "7": "Doesn't look like anything to me";
-    readonly "6": "Deprecated";
-    readonly "5": "Discontinued";
-    readonly "4": "Discontinued";
+    readonly 9: "Available";
+    readonly 8: "Available";
+    readonly 7: "Doesn't look like anything to me";
+    readonly 6: "Deprecated";
+    readonly 5: "Discontinued";
+    readonly 4: "Discontinued";
 };
 /** s and t are null when op is not 0 (Gateway Dispatch Opcode).*/
 export interface GatewayPayloadStructure {
@@ -5129,33 +5129,33 @@ export declare const GatewayOpcodes: {
 /** In order to prevent broken reconnect loops, you should consider some close codes as a signal to stop reconnecting. This can be because your token expired, or your identification is invalid. This table explains what the application defined close codes for the gateway are, and which close codes you should not attempt to reconnect.*/
 export declare const GatewayCloseEventCodes: {
     /** We're not sure what went wrong. Try reconnecting?*/
-    readonly "4000": "Unknown error";
+    readonly 4000: "Unknown error";
     /** You sent an invalid Gateway opcode or an invalid payload for an opcode. Don't do that!*/
-    readonly "4001": "Unknown opcode";
+    readonly 4001: "Unknown opcode";
     /** You sent an invalid payload to us. Don't do that!*/
-    readonly "4002": "Decode error";
+    readonly 4002: "Decode error";
     /** You sent us a payload prior to identifying.*/
-    readonly "4003": "Not authenticated";
+    readonly 4003: "Not authenticated";
     /** The account token sent with your identify payload is incorrect.*/
-    readonly "4004": "Authentication failed";
+    readonly 4004: "Authentication failed";
     /** You sent more than one identify payload. Don't do that!*/
-    readonly "4005": "Already authenticated";
+    readonly 4005: "Already authenticated";
     /** The sequence sent when resuming the session was invalid. Reconnect and start a new session.*/
-    readonly "4007": "Invalid seq";
+    readonly 4007: "Invalid seq";
     /** Woah nelly! You're sending payloads to us too quickly. Slow it down! You will be disconnected on receiving this.*/
-    readonly "4008": "Rate limited";
+    readonly 4008: "Rate limited";
     /** Your session timed out. Reconnect and start a new one.*/
-    readonly "4009": "Session timed out";
+    readonly 4009: "Session timed out";
     /** You sent us an invalid shard when identifying.*/
-    readonly "4010": "Invalid shard";
+    readonly 4010: "Invalid shard";
     /** The session would have handled too many guilds - you are required to shard your connection in order to connect.*/
-    readonly "4011": "Sharding required";
+    readonly 4011: "Sharding required";
     /** You sent an invalid version for the gateway.*/
-    readonly "4012": "Invalid API version";
+    readonly 4012: "Invalid API version";
     /** You sent an invalid intent for a Gateway Intent. You may have incorrectly calculated the bitwise value.*/
-    readonly "4013": "Invalid intent";
+    readonly 4013: "Invalid intent";
     /** You sent a disallowed intent for a Gateway Intent. You may have tried to specify an intent that you have not enabled or are not approved for.*/
-    readonly "4014": "Disallowed intent";
+    readonly 4014: "Disallowed intent";
 };
 export declare const VoiceOpcodes: {
     /** Begin a voice websocket connection.*/
@@ -5183,196 +5183,196 @@ export declare const VoiceOpcodes: {
 };
 export declare const VoiceCloseEventCodes: {
     /** You sent an invalid opcode.*/
-    readonly "4001": "Unknown opcode";
+    readonly 4001: "Unknown opcode";
     /** You sent a invalid payload in your identifying to the Gateway.*/
-    readonly "4002": "Failed to decode payload";
+    readonly 4002: "Failed to decode payload";
     /** You sent a payload before identifying with the Gateway.*/
-    readonly "4003": "Not authenticated";
+    readonly 4003: "Not authenticated";
     /** The token you sent in your identify payload is incorrect.*/
-    readonly "4004": "Authentication failed";
+    readonly 4004: "Authentication failed";
     /** You sent more than one identify payload. Stahp.*/
-    readonly "4005": "Already authenticated";
+    readonly 4005: "Already authenticated";
     /** Your session is no longer valid.*/
-    readonly "4006": "Session no longer valid";
+    readonly 4006: "Session no longer valid";
     /** Your session has timed out.*/
-    readonly "4009": "Session timeout";
+    readonly 4009: "Session timeout";
     /** We can't find the server you're trying to connect to.*/
-    readonly "4011": "Server not found";
+    readonly 4011: "Server not found";
     /** We didn't recognize the protocol you sent.*/
-    readonly "4012": "Unknown protocol";
+    readonly 4012: "Unknown protocol";
     /** Channel was deleted, you were kicked, voice server changed, or the main gateway session was dropped. Should not reconnect.*/
-    readonly "4014": "Disconnected";
+    readonly 4014: "Disconnected";
     /** The server crashed. Our bad! Try resuming.*/
-    readonly "4015": "Voice server crashed";
+    readonly 4015: "Voice server crashed";
     /** We didn't recognize your encryption.*/
-    readonly "4016": "Unknown encryption mode";
+    readonly 4016: "Unknown encryption mode";
 };
 export declare const HttpResponseCodes: {
-    readonly "200": "The request completed successfully.";
-    readonly "201": "The entity was created successfully.";
-    readonly "204": "The request completed successfully but returned no content.";
-    readonly "304": "The entity was not modified.";
-    readonly "400": "The request was improperly formatted, or the server couldn't understand it.";
-    readonly "401": "The Authorization header was missing or invalid.";
-    readonly "403": "The Authorization token you passed did not have permission to the resource.";
-    readonly "404": "The resource at the location specified doesn't exist.";
-    readonly "405": "The HTTP method used is not valid for the location specified.";
-    readonly "429": "You are being rate limited, see Rate Limits.";
-    readonly "502": "There was not a gateway available to process your request. Wait a bit and retry.";
+    readonly 200: "The request completed successfully.";
+    readonly 201: "The entity was created successfully.";
+    readonly 204: "The request completed successfully but returned no content.";
+    readonly 304: "The entity was not modified.";
+    readonly 400: "The request was improperly formatted, or the server couldn't understand it.";
+    readonly 401: "The Authorization header was missing or invalid.";
+    readonly 403: "The Authorization token you passed did not have permission to the resource.";
+    readonly 404: "The resource at the location specified doesn't exist.";
+    readonly 405: "The HTTP method used is not valid for the location specified.";
+    readonly 429: "You are being rate limited, see Rate Limits.";
+    readonly 502: "There was not a gateway available to process your request. Wait a bit and retry.";
     readonly "5xx": "The server had an error processing your request.";
 };
 export declare const JsonErrorCodes: {
-    readonly "0": "General error";
-    readonly "10001": "Unknown account";
-    readonly "10002": "Unknown application";
-    readonly "10003": "Unknown channel";
-    readonly "10004": "Unknown guild";
-    readonly "10005": "Unknown integration";
-    readonly "10006": "Unknown invite";
-    readonly "10007": "Unknown member";
-    readonly "10008": "Unknown message";
-    readonly "10009": "Unknown permission overwrite";
-    readonly "10010": "Unknown provider";
-    readonly "10011": "Unknown role";
-    readonly "10012": "Unknown token";
-    readonly "10013": "Unknown user";
-    readonly "10014": "Unknown emoji";
-    readonly "10015": "Unknown webhook";
-    readonly "10016": "Unknown webhook service";
-    readonly "10020": "Unknown session";
-    readonly "10026": "Unknown ban";
-    readonly "10027": "Unknown SKU";
-    readonly "10028": "Unknown Store Listing";
-    readonly "10029": "Unknown entitlement";
-    readonly "10030": "Unknown build";
-    readonly "10031": "Unknown lobby";
-    readonly "10032": "Unknown branch";
-    readonly "10033": "Unknown store directory layout";
-    readonly "10036": "Unknown redistributable";
-    readonly "10038": "Unknown gift code";
-    readonly "10049": "Unknown stream";
-    readonly "10050": "Unknown premium server subscribe cooldown";
-    readonly "10057": "Unknown guild template";
-    readonly "10059": "Unknown discoverable server category";
-    readonly "10060": "Unknown sticker";
-    readonly "10062": "Unknown interaction";
-    readonly "10063": "Unknown application command";
-    readonly "10065": "Unknown voice state";
-    readonly "10066": "Unknown application command permissions";
-    readonly "10067": "Unknown Stage Instance";
-    readonly "10068": "Unknown Guild Member Verification Form";
-    readonly "10069": "Unknown Guild Welcome Screen";
-    readonly "10070": "Unknown Guild Scheduled Event";
-    readonly "10071": "Unknown Guild Scheduled Event User";
-    readonly "20001": "Bots cannot use this endpoint";
-    readonly "20002": "Only bots can use this endpoint";
-    readonly "20009": "Explicit content cannot be sent to the desired recipient";
-    readonly "20012": "You are not authorized to perform this action on this application";
-    readonly "20016": "This action cannot be performed due to slowmode rate limit";
-    readonly "20018": "Only the owner of this account can perform this action";
-    readonly "20022": "This message cannot be edited due to announcement rate limits";
-    readonly "20028": "The channel you are writing has hit the write rate limit";
-    readonly "20029": "The write action you are performing on the server has hit the write rate limit";
-    readonly "20031": "Your Stage topic, server name, server description, or channel names contain words that are not allowed";
-    readonly "20035": "Guild premium subscription level too low";
-    readonly "30001": "Maximum number of guilds reached";
-    readonly "30002": "Maximum number of friends reached";
-    readonly "30003": "Maximum number of pins reached for the channel";
-    readonly "30004": "Maximum number of recipients reached";
-    readonly "30005": "Maximum number of guild roles reached";
-    readonly "30007": "Maximum number of webhooks reached";
-    readonly "30008": "Maximum number of emojis reached";
-    readonly "30010": "Maximum number of reactions reached";
-    readonly "30013": "Maximum number of guild channels reached";
-    readonly "30015": "Maximum number of attachments in a message reached";
-    readonly "30016": "Maximum number of invites reached";
-    readonly "30018": "Maximum number of animated emojis reached";
-    readonly "30019": "Maximum number of server members reached";
-    readonly "30030": "Maximum number of server categories has been reached";
-    readonly "30031": "Guild already has a template";
-    readonly "30033": "Max number of thread participants has been reached";
-    readonly "30035": "Maximum number of bans for non-guild members have been exceeded";
-    readonly "30037": "Maximum number of bans fetches has been reached";
-    readonly "30038": "Maximum number of uncompleted guild scheduled events reached";
-    readonly "30039": "Maximum number of stickers reached";
-    readonly "30040": "Maximum number of prune requests has been reached. Try again later";
-    readonly "30042": "Maximum number of guild widget settings updates has been reached. Try again later";
-    readonly "30046": "Maximum number of edits to messages older than 1 hour reached. Try again later";
-    readonly "40001": "Unauthorized. Provide a valid token and try again";
-    readonly "40002": "You need to verify your account in order to perform this action";
-    readonly "40003": "You are opening direct messages too fast";
-    readonly "40004": "Send messages has been temporarily disabled";
-    readonly "40005": "Request entity too large. Try sending something smaller in size";
-    readonly "40006": "This feature has been temporarily disabled server-side";
-    readonly "40007": "The user is banned from this guild";
-    readonly "40032": "Target user is not connected to voice";
-    readonly "40033": "This message has already been crossposted";
-    readonly "40041": "An application command with that name already exists";
-    readonly "40060": "Interaction has already been acknowledged";
-    readonly "50001": "Missing access";
-    readonly "50002": "Invalid account type";
-    readonly "50003": "Cannot execute action on a DM channel";
-    readonly "50004": "Guild widget disabled";
-    readonly "50005": "Cannot edit a message authored by another user";
-    readonly "50006": "Cannot send an empty message";
-    readonly "50007": "Cannot send messages to this user";
-    readonly "50008": "Cannot send messages in a non-text channel";
-    readonly "50009": "Channel verification level is too high for you to gain access";
-    readonly "50010": "OAuth2 application does not have a bot";
-    readonly "50011": "OAuth2 application limit reached";
-    readonly "50012": "Invalid OAuth2 state";
-    readonly "50013": "You lack permissions to perform that action";
-    readonly "50014": "Invalid authentication token provided";
-    readonly "50015": "Note was too long";
-    readonly "50016": "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete";
-    readonly "50019": "A message can only be pinned to the channel it was sent in";
-    readonly "50020": "Invite code was either invalid or taken";
-    readonly "50021": "Cannot execute action on a system message";
-    readonly "50024": "Cannot execute action on this channel type";
-    readonly "50025": "Invalid OAuth2 access token provided";
-    readonly "50026": "Missing required OAuth2 scope";
-    readonly "50027": "Invalid webhook token provided";
-    readonly "50028": "Invalid role";
-    readonly "50033": "Invalid Recipient";
-    readonly "50034": "A message provided was too old to bulk delete";
-    readonly "50035": "Invalid form body, or invalid Content-Type provided";
-    readonly "50036": "An invite was accepted to a guild the application's bot is not in";
-    readonly "50041": "Invalid API version provided";
-    readonly "50045": "File uploaded exceeds the maximum size";
-    readonly "50046": "Invalid file uploaded";
-    readonly "50054": "Cannot self-redeem this gift";
-    readonly "50055": "Invalid Guild";
-    readonly "50068": "Invalid message type";
-    readonly "50070": "Payment source required to redeem gift";
-    readonly "50074": "Cannot delete a channel required for Community guilds";
-    readonly "50081": "Invalid sticker sent";
-    readonly "50083": "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread";
-    readonly "50084": "Invalid thread notification settings";
-    readonly "50085": "before value is earlier than the thread creation date";
-    readonly "50086": "Community server channels must be text channels";
-    readonly "50095": "This server is not available in your location";
-    readonly "50097": "This server needs monetization enabled in order to perform this action";
-    readonly "50101": "This server needs more boosts to perform this action";
-    readonly "50109": "The request body contains invalid JSON.";
-    readonly "60003": "Two factor is required for this operation";
-    readonly "80004": "No users with DiscordTag exist";
-    readonly "90001": "Reaction was blocked";
-    readonly "130000": "API resource is currently overloaded. Try again a little later";
-    readonly "150006": "The Stage is already open";
-    readonly "160002": "Cannot reply without permission to read message history";
-    readonly "160004": "A thread has already been created for this message";
-    readonly "160005": "Thread is locked";
-    readonly "160006": "Maximum number of active threads reached";
-    readonly "160007": "Maximum number of active announcement threads reached";
-    readonly "170001": "Invalid JSON for uploaded Lottie file";
-    readonly "170002": "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG";
-    readonly "170003": "Sticker maximum framerate exceeded";
-    readonly "170004": "Sticker frame count exceeds maximum of 1000 frames";
-    readonly "170005": "Lottie animation maximum dimensions exceeded";
-    readonly "170006": "Sticker frame rate is either too small or too large";
-    readonly "170007": "Sticker animation duration exceeds maximum of 5 seconds";
-    readonly "180000": "Cannot update a finished event";
-    readonly "180002": "Failed to create stage needed for stage event";
+    readonly 0: "General error";
+    readonly 10001: "Unknown account";
+    readonly 10002: "Unknown application";
+    readonly 10003: "Unknown channel";
+    readonly 10004: "Unknown guild";
+    readonly 10005: "Unknown integration";
+    readonly 10006: "Unknown invite";
+    readonly 10007: "Unknown member";
+    readonly 10008: "Unknown message";
+    readonly 10009: "Unknown permission overwrite";
+    readonly 10010: "Unknown provider";
+    readonly 10011: "Unknown role";
+    readonly 10012: "Unknown token";
+    readonly 10013: "Unknown user";
+    readonly 10014: "Unknown emoji";
+    readonly 10015: "Unknown webhook";
+    readonly 10016: "Unknown webhook service";
+    readonly 10020: "Unknown session";
+    readonly 10026: "Unknown ban";
+    readonly 10027: "Unknown SKU";
+    readonly 10028: "Unknown Store Listing";
+    readonly 10029: "Unknown entitlement";
+    readonly 10030: "Unknown build";
+    readonly 10031: "Unknown lobby";
+    readonly 10032: "Unknown branch";
+    readonly 10033: "Unknown store directory layout";
+    readonly 10036: "Unknown redistributable";
+    readonly 10038: "Unknown gift code";
+    readonly 10049: "Unknown stream";
+    readonly 10050: "Unknown premium server subscribe cooldown";
+    readonly 10057: "Unknown guild template";
+    readonly 10059: "Unknown discoverable server category";
+    readonly 10060: "Unknown sticker";
+    readonly 10062: "Unknown interaction";
+    readonly 10063: "Unknown application command";
+    readonly 10065: "Unknown voice state";
+    readonly 10066: "Unknown application command permissions";
+    readonly 10067: "Unknown Stage Instance";
+    readonly 10068: "Unknown Guild Member Verification Form";
+    readonly 10069: "Unknown Guild Welcome Screen";
+    readonly 10070: "Unknown Guild Scheduled Event";
+    readonly 10071: "Unknown Guild Scheduled Event User";
+    readonly 20001: "Bots cannot use this endpoint";
+    readonly 20002: "Only bots can use this endpoint";
+    readonly 20009: "Explicit content cannot be sent to the desired recipient";
+    readonly 20012: "You are not authorized to perform this action on this application";
+    readonly 20016: "This action cannot be performed due to slowmode rate limit";
+    readonly 20018: "Only the owner of this account can perform this action";
+    readonly 20022: "This message cannot be edited due to announcement rate limits";
+    readonly 20028: "The channel you are writing has hit the write rate limit";
+    readonly 20029: "The write action you are performing on the server has hit the write rate limit";
+    readonly 20031: "Your Stage topic, server name, server description, or channel names contain words that are not allowed";
+    readonly 20035: "Guild premium subscription level too low";
+    readonly 30001: "Maximum number of guilds reached";
+    readonly 30002: "Maximum number of friends reached";
+    readonly 30003: "Maximum number of pins reached for the channel";
+    readonly 30004: "Maximum number of recipients reached";
+    readonly 30005: "Maximum number of guild roles reached";
+    readonly 30007: "Maximum number of webhooks reached";
+    readonly 30008: "Maximum number of emojis reached";
+    readonly 30010: "Maximum number of reactions reached";
+    readonly 30013: "Maximum number of guild channels reached";
+    readonly 30015: "Maximum number of attachments in a message reached";
+    readonly 30016: "Maximum number of invites reached";
+    readonly 30018: "Maximum number of animated emojis reached";
+    readonly 30019: "Maximum number of server members reached";
+    readonly 30030: "Maximum number of server categories has been reached";
+    readonly 30031: "Guild already has a template";
+    readonly 30033: "Max number of thread participants has been reached";
+    readonly 30035: "Maximum number of bans for non-guild members have been exceeded";
+    readonly 30037: "Maximum number of bans fetches has been reached";
+    readonly 30038: "Maximum number of uncompleted guild scheduled events reached";
+    readonly 30039: "Maximum number of stickers reached";
+    readonly 30040: "Maximum number of prune requests has been reached. Try again later";
+    readonly 30042: "Maximum number of guild widget settings updates has been reached. Try again later";
+    readonly 30046: "Maximum number of edits to messages older than 1 hour reached. Try again later";
+    readonly 40001: "Unauthorized. Provide a valid token and try again";
+    readonly 40002: "You need to verify your account in order to perform this action";
+    readonly 40003: "You are opening direct messages too fast";
+    readonly 40004: "Send messages has been temporarily disabled";
+    readonly 40005: "Request entity too large. Try sending something smaller in size";
+    readonly 40006: "This feature has been temporarily disabled server-side";
+    readonly 40007: "The user is banned from this guild";
+    readonly 40032: "Target user is not connected to voice";
+    readonly 40033: "This message has already been crossposted";
+    readonly 40041: "An application command with that name already exists";
+    readonly 40060: "Interaction has already been acknowledged";
+    readonly 50001: "Missing access";
+    readonly 50002: "Invalid account type";
+    readonly 50003: "Cannot execute action on a DM channel";
+    readonly 50004: "Guild widget disabled";
+    readonly 50005: "Cannot edit a message authored by another user";
+    readonly 50006: "Cannot send an empty message";
+    readonly 50007: "Cannot send messages to this user";
+    readonly 50008: "Cannot send messages in a non-text channel";
+    readonly 50009: "Channel verification level is too high for you to gain access";
+    readonly 50010: "OAuth2 application does not have a bot";
+    readonly 50011: "OAuth2 application limit reached";
+    readonly 50012: "Invalid OAuth2 state";
+    readonly 50013: "You lack permissions to perform that action";
+    readonly 50014: "Invalid authentication token provided";
+    readonly 50015: "Note was too long";
+    readonly 50016: "Provided too few or too many messages to delete. Must provide at least 2 and fewer than 100 messages to delete";
+    readonly 50019: "A message can only be pinned to the channel it was sent in";
+    readonly 50020: "Invite code was either invalid or taken";
+    readonly 50021: "Cannot execute action on a system message";
+    readonly 50024: "Cannot execute action on this channel type";
+    readonly 50025: "Invalid OAuth2 access token provided";
+    readonly 50026: "Missing required OAuth2 scope";
+    readonly 50027: "Invalid webhook token provided";
+    readonly 50028: "Invalid role";
+    readonly 50033: "Invalid Recipient";
+    readonly 50034: "A message provided was too old to bulk delete";
+    readonly 50035: "Invalid form body, or invalid Content-Type provided";
+    readonly 50036: "An invite was accepted to a guild the application's bot is not in";
+    readonly 50041: "Invalid API version provided";
+    readonly 50045: "File uploaded exceeds the maximum size";
+    readonly 50046: "Invalid file uploaded";
+    readonly 50054: "Cannot self-redeem this gift";
+    readonly 50055: "Invalid Guild";
+    readonly 50068: "Invalid message type";
+    readonly 50070: "Payment source required to redeem gift";
+    readonly 50074: "Cannot delete a channel required for Community guilds";
+    readonly 50081: "Invalid sticker sent";
+    readonly 50083: "Tried to perform an operation on an archived thread, such as editing a message or adding a user to the thread";
+    readonly 50084: "Invalid thread notification settings";
+    readonly 50085: "before value is earlier than the thread creation date";
+    readonly 50086: "Community server channels must be text channels";
+    readonly 50095: "This server is not available in your location";
+    readonly 50097: "This server needs monetization enabled in order to perform this action";
+    readonly 50101: "This server needs more boosts to perform this action";
+    readonly 50109: "The request body contains invalid JSON.";
+    readonly 60003: "Two factor is required for this operation";
+    readonly 80004: "No users with DiscordTag exist";
+    readonly 90001: "Reaction was blocked";
+    readonly 130000: "API resource is currently overloaded. Try again a little later";
+    readonly 150006: "The Stage is already open";
+    readonly 160002: "Cannot reply without permission to read message history";
+    readonly 160004: "A thread has already been created for this message";
+    readonly 160005: "Thread is locked";
+    readonly 160006: "Maximum number of active threads reached";
+    readonly 160007: "Maximum number of active announcement threads reached";
+    readonly 170001: "Invalid JSON for uploaded Lottie file";
+    readonly 170002: "Uploaded Lotties cannot contain rasterized images such as PNG or JPEG";
+    readonly 170003: "Sticker maximum framerate exceeded";
+    readonly 170004: "Sticker frame count exceeds maximum of 1000 frames";
+    readonly 170005: "Lottie animation maximum dimensions exceeded";
+    readonly 170006: "Sticker frame rate is either too small or too large";
+    readonly 170007: "Sticker animation duration exceeds maximum of 5 seconds";
+    readonly 180000: "Cannot update a finished event";
+    readonly 180002: "Failed to create stage needed for stage event";
 };
 export declare const RpcErrorCodes: {
     /** An unknown error occurred.*/
@@ -5541,7 +5541,7 @@ export interface RoleTagsStructure {
     premium_subscriber?: null;
 }
 export declare const RpcVersions: {
-    readonly "1": "no";
+    readonly 1: "no";
 };
 export interface PayloadStructure {
     /** payload command*/
@@ -6074,10 +6074,10 @@ export declare const MembershipStateEnum: {
     readonly Accepted: 2;
 };
 export declare const GatewayVersions_: {
-    readonly "4": "recommended";
-    readonly "3": "available";
-    readonly "2": "available";
-    readonly "1": "default";
+    readonly 4: "recommended";
+    readonly 3: "available";
+    readonly 2: "available";
+    readonly 1: "default";
 };
 /** Finally, the voice server will respond with a Opcode 4 Session Description that includes the mode and secret_key, a 32 byte array used for encrypting and sending voice data:*/
 export declare const EncryptionModes: {
