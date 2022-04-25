@@ -7,6 +7,7 @@ import { Constant, Element, Endpoint, Example, Structure } from "../common";
 import { JSON_OUTPUT_DIR } from "./constants";
 import { Context } from "./context";
 import { JS } from "./js";
+import { GO } from "./go";
 
 (async () => {
   // if (existsSync(JS_OUTPUT_DIR)) await rm(JS_OUTPUT_DIR, { recursive: true });
@@ -19,7 +20,6 @@ import { JS } from "./js";
     await readFile(resolve(JSON_OUTPUT_DIR, "elements.json"), "utf8")
   );
 
-  const ctx = new Context(elements);
-
-  await JS(ctx);
+  await JS(new Context(elements));
+  await GO(new Context(elements));
 })();

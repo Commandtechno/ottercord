@@ -10,7 +10,6 @@ import { renderConstant, renderEndpoint, renderStructure } from "./elements";
 
 export async function JS(ctx: Context) {
   const nodes: ts.Node[] = [];
-
   for (const element of ctx.elements) {
     switch (element.type) {
       case "constant":
@@ -27,24 +26,14 @@ export async function JS(ctx: Context) {
     }
   }
 
-  const file = ts.createSourceFile(
-    "",
-    "",
-    ts.ScriptTarget.ESNext,
-    false,
-    ts.ScriptKind.TS
-  );
+  const file = ts.createSourceFile("", "", ts.ScriptTarget.ESNext, false, ts.ScriptKind.TS);
 
   const runtime = await readFile(resolve(__dirname, "runtime.ts"), "utf-8");
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
 
   const code = [
     runtime,
-    printer.printList(
-      ts.ListFormat.MultiLine,
-      ts.factory.createNodeArray(nodes),
-      file
-    )
+    printer.printList(ts.ListFormat.MultiLine, ts.factory.createNodeArray(nodes), file)
   ].join("\n");
 
   const path = resolve(JS_OUTPUT_DIR, "index.ts");
