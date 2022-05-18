@@ -7,28 +7,24 @@ import { parse } from ".";
 
 (async () => {
   const JSON_OUTPUT_DIR = resolve(OUTPUT_DIR, "json");
-  if (existsSync(JSON_OUTPUT_DIR))
-    await rm(JSON_OUTPUT_DIR, { recursive: true });
+  if (existsSync(JSON_OUTPUT_DIR)) await rm(JSON_OUTPUT_DIR, { recursive: true });
   await mkdir(JSON_OUTPUT_DIR, { recursive: true });
 
   const elements = [];
-  async function walk(folderPath: string) {
-    const files = await readdir(folderPath, { withFileTypes: true });
-    for (const file of files) {
-      const filePath = resolve(folderPath, file.name);
-      if (file.isDirectory()) await walk(filePath);
-      else if (extname(file.name) === ".md") {
-        console.time(file.name);
-        const newElements = await parse(filePath);
+  const folders = ["interactions", "resources", "topics"];
+
+  for (const folderName of folders) {
+    const folder = resolve(DOCS_DIR, folderName);
+    const files = await readdir(folder);
+    for (const fileName of files) {
+      const file = resolve(folder, fileName);
+      if (extname(file) === ".md") {
+        console.time(fileName);
+        const newElements = await parse(file);
+        console.timeEnd(fileName);
         elements.push(...newElements);
-        console.timeEnd(file.name);
       }
     }
   }
-
-  await walk(DOCS_DIR);
-  await writeFile(
-    resolve(JSON_OUTPUT_DIR, "elements.json"),
-    JSON.stringify(elements, null, 2)
-  );
+  await writeFile(resolve(JSON_OUTPUT_DIR, "elements.json"), JSON.stringify(elements, null, 2));
 })();
