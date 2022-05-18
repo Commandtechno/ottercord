@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "@types/node": "^17.0.21"
-  },
-  "dependencies": {
-    "discord.js": "^13.6.0"
-  }
-}
