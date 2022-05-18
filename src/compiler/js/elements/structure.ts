@@ -10,12 +10,10 @@ export function renderStructure(ctx: Context, structure: Structure) {
   const properties: ts.TypeElement[] = [];
   for (const prop of structure.props) {
     let questionToken: ts.QuestionToken;
-    if (prop.optional)
-      questionToken = ts.factory.createToken(ts.SyntaxKind.QuestionToken);
+    if (prop.optional) questionToken = ts.factory.createToken(ts.SyntaxKind.QuestionToken);
 
     let type = renderType(ctx, prop.type);
-    if (prop.nullable)
-      type = ts.factory.createUnionTypeNode([type, ts.factory.createNull()]);
+    if (prop.nullable) type = ts.factory.createUnionTypeNode([type, ts.factory.createNull()]);
 
     let property = ts.factory.createPropertySignature(
       undefined,
@@ -51,6 +49,14 @@ export function renderStructure(ctx: Context, structure: Structure) {
       "* " + structure.description,
       true
     );
+
+  // const endpoints = ctx.elements.filter(
+  //   e =>
+  //     e.type === "endpoint" &&
+  //     e.path.some(p => p.type === "variable" && structure.tree.includes(p.link))
+  // );
+
+  // console.log(endpoints);
 
   return result;
 }

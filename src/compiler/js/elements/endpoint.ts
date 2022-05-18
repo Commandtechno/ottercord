@@ -24,7 +24,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
     let expression: ts.Expression;
     switch (param.type) {
       case "literal":
-        expression = ts.factory.createStringLiteral("/" + param.value);
+        expression = ts.factory.createStringLiteral(param.value);
         break;
 
       case "variable":
@@ -63,9 +63,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
         undefined,
         "body",
         undefined,
-        ts.factory.createTypeReferenceNode("toJSON", [
-          renderType(ctx, endpoint.request.type)
-        ])
+        ts.factory.createTypeReferenceNode("toJSON", [renderType(ctx, endpoint.request.type)])
       )
     );
 
@@ -87,25 +85,17 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
   headers.push(
     ts.factory.createPropertyAssignment(
       ts.factory.createIdentifier("Authorization"),
-      ts.factory.createCallExpression(
-        ts.factory.createIdentifier("getAuth"),
-        undefined,
-        undefined
-      )
+      ts.factory.createCallExpression(ts.factory.createIdentifier("getAuth"), undefined, undefined)
     )
   );
 
   if (endpoint.response)
-    returnType = ts.factory.createTypeReferenceNode(
-      ts.factory.createIdentifier("Promise"),
-      [renderType(ctx, endpoint.response)]
-    );
+    returnType = ts.factory.createTypeReferenceNode(ts.factory.createIdentifier("Promise"), [
+      renderType(ctx, endpoint.response)
+    ]);
 
   fetchProperties.push(
-    ts.factory.createPropertyAssignment(
-      "method",
-      ts.factory.createStringLiteral(endpoint.method)
-    ),
+    ts.factory.createPropertyAssignment("method", ts.factory.createStringLiteral(endpoint.method)),
     ts.factory.createPropertyAssignment("path", path),
     ts.factory.createPropertyAssignment(
       "headers",
@@ -124,11 +114,9 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
     ts.factory.createBlock(
       [
         ts.factory.createReturnStatement(
-          ts.factory.createCallExpression(
-            ts.factory.createIdentifier("fetch"),
-            undefined,
-            [ts.factory.createObjectLiteralExpression(fetchProperties)]
-          )
+          ts.factory.createCallExpression(ts.factory.createIdentifier("fetch"), undefined, [
+            ts.factory.createObjectLiteralExpression(fetchProperties, true)
+          ])
         )
       ],
       true

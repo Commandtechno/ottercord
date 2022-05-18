@@ -1,5 +1,10 @@
+export const forceLower = new Set();
+export const forceUpper = new Set(["ID"]);
+
 export function formalize(word: string) {
   if (word.length === 1) return word;
+  if (forceUpper.has(word.toLowerCase())) return word.toUpperCase();
+  if (forceUpper.has(word.toUpperCase())) return word.toUpperCase();
   // if (word !== word.toLowerCase() && word !== word.toUpperCase()) return word;
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }

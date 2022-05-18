@@ -20,13 +20,15 @@ func (client *Client) fetch(param string) string {
 }
 
 func main() {
-	str := "string"
+	str := "quote: \"\nparagraph separator: \u2029\ninvisible thing: \u200b\nother invisible thing: ​"
+
+	fmt.Println(fmt.Sprintf("%q", str))
+
 	msg := Message{
 		Type: 4,
 	}
 
-	fmt.Println(str)
-	fmt.Println(msg)
+	fmt.Println(fmt.Sprintf("%+v", msg))
 
 	client := Client{}
 	client.fetch("balls")

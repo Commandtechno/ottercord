@@ -1,12 +1,6 @@
 import { marked } from "marked";
 
-import {
-  StructureType,
-  Type,
-  Endpoint,
-  EndpointParam,
-  EndpointRequest
-} from "../../common";
+import { StructureType, Type, Endpoint, EndpointParam, EndpointRequest } from "../../common";
 
 import {
   trimText,
@@ -35,8 +29,7 @@ export class EndpointFactory implements Endpoint {
   request?: EndpointRequest;
   response?: Type;
 
-  #current: "none" | "query" | "request" | "response" | "response-example" =
-    "none";
+  #current: "none" | "query" | "request" | "response" | "response-example" = "none";
 
   #state = {
     partial: false,
@@ -63,15 +56,31 @@ export class EndpointFactory implements Endpoint {
       this.name = name.trim();
       this.method = method.trim();
 
-      const params = path.slice(1).split(/(?<!{[^{}\/]+)\/(?![^{}\/]+})/g);
-      for (const param of params) {
-        if (param.startsWith("{") && param.endsWith("}")) {
-          const [name, link] = param.slice(1, -1).split("#");
-          this.path.push({ type: "variable", name, link });
+      let depth = 0;
+      let current = "";
+
+      for (const char of path) {
+        if (char === "{") {
+          this.path.push({ type: "literal", value: current });
+          current = "";
+          depth++;
           continue;
         }
 
-        this.path.push({ type: "literal", value: param });
+        if (char === "}") {
+          const [name, link] = current.split("#");
+          this.path.push({ type: "variable", name, link });
+          current = "";
+          depth--;
+          continue;
+        }
+
+        current += char;
+      }
+
+      if (current) {
+        this.path.push({ type: "literal", value: current });
+        current = "";
       }
     } else {
       throw "invalid";
@@ -118,16 +127,12 @@ export class EndpointFactory implements Endpoint {
             let { text } = token;
 
             if (!after) {
-              const sameAsIndex = text
-                .toLowerCase()
-                .indexOf("functions the same as");
+              const sameAsIndex = text.toLowerCase().indexOf("functions the same as");
 
               if (sameAsIndex !== -1) {
                 after = true;
                 before = true;
-                text = text.slice(
-                  sameAsIndex + "functions the same as".length + 1
-                );
+                text = text.slice(sameAsIndex + "functions the same as".length + 1);
               }
             }
 

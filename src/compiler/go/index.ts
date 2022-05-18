@@ -4,10 +4,17 @@ import { resolve } from "path";
 import { GO_OUTPUT_DIR } from "../constants";
 import { Context } from "../context";
 
-import { renderConstant, renderEndpoint } from "./elements";
+import { renderConstant, renderEndpoint, renderStructure } from "./elements";
 
 export async function GO(ctx: Context) {
-  let nodes = ["package main", "type Client struct {}"];
+  let nodes = [
+    "package main",
+    'import "fmt"',
+    'import "time"',
+    'import "bytes"',
+    "type Client struct {}"
+  ];
+
   for (const element of ctx.elements) {
     switch (element.type) {
       case "constant":
@@ -16,6 +23,10 @@ export async function GO(ctx: Context) {
 
       case "endpoint":
         nodes.push(renderEndpoint(ctx, element));
+        break;
+
+      case "structure":
+        nodes.push(renderStructure(ctx, element));
         break;
     }
   }
