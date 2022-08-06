@@ -2,7 +2,7 @@
 
 # Info
 
-This Discord rest library was automatically generated from the [discord developer documentaition](https://github.com/discord/discord-api-docs) and is a proof of concept
+This Discord rest library was automatically generated from the [discord developer documentation](https://github.com/discord/discord-api-docs) and is a proof of concept
 
 This is not intended for a production bot though I plan on improving this
 
