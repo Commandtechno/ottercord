@@ -16,10 +16,8 @@ import { GO } from "./go";
   // if (existsSync(GO_OUTPUT_DIR)) await rm(GO_OUTPUT_DIR, { recursive: true });
   // await mkdir(GO_OUTPUT_DIR, { recursive: true });
 
-  const elements: Element[] = JSON.parse(
-    await readFile(resolve(JSON_OUTPUT_DIR, "elements.json"), "utf8")
-  );
+  const elements: Element[] = JSON.parse(await readFile(resolve(JSON_OUTPUT_DIR, "elements.json"), "utf8"));
 
   await JS(new Context(elements));
-  await GO(new Context(elements));
+  // await GO(new Context(elements));
 })();

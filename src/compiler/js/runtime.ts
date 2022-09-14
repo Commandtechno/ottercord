@@ -1,51 +1,24 @@
-import { request } from "https";
+import { REST } from "@discordjs/rest";
 
-type toJSON<T> =
+type ClassParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? P : never;
+type JSON<T> =
   | T
   | { toJSON(): any }
-  | (T extends object ? { [K in keyof T]: toJSON<T[K]> } : never)
-  | (T extends Array<any> ? Array<toJSON<T[number]>> : never);
+  | (T extends object ? { [K in keyof T]: JSON<T[K]> } : never)
+  | (T extends Array<any> ? Array<JSON<T[number]>> : never);
 
-export let token: string;
+/* __CONSTANTS__ */
+/* __STRUCTURES__ */
 
-export function getAuth() {
-  return `Bot ${token}`;
-}
+export namespace API {
+  export class Client {
+    rest: REST;
 
-export function setToken(newToken: string) {
-  token = newToken;
-}
+    constructor(token?: string, ...options: ClassParameters<typeof REST>) {
+      this.rest = new REST(...options);
+      if (token) this.rest.setToken(token);
+    }
 
-export function fetch({
-  method,
-  path,
-  body,
-  headers
-}: {
-  method: string;
-  path: string;
-  body?: string;
-  headers?: { [key: string]: string };
-}): Promise<any> {
-  return new Promise((resolve, reject) => {
-    const req = request(
-      "https://discord.com/api/v9" + path,
-      { method, headers },
-      res => {
-        let chunks: Buffer[] = [];
-        res.on("data", chunk => chunks.push(chunk));
-        res.on("end", () => {
-          let text = Buffer.concat(chunks).toString();
-          if (res.statusCode === 200) {
-            if (res.headers["content-type"] === "application/json")
-              resolve(JSON.parse(text));
-            else resolve(text);
-          } else reject(JSON.parse(text));
-        });
-      }
-    );
-
-    if (body) req.write(body);
-    req.end();
-  });
+    /* __ENDPOINTS__ */
+  }
 }
