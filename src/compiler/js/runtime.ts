@@ -10,15 +10,13 @@ type JSON<T> =
 /* __CONSTANTS__ */
 /* __STRUCTURES__ */
 
-export namespace API {
-  export class Client {
-    rest: REST;
+export class Client {
+  rest: REST;
 
-    constructor(token?: string, ...options: ClassParameters<typeof REST>) {
-      this.rest = new REST(...options);
-      if (token) this.rest.setToken(token);
-    }
-
-    /* __ENDPOINTS__ */
+  constructor(token?: string, ...options: ClassParameters<typeof REST>) {
+    this.rest = new REST(...options);
+    if (token) this.rest.setToken(token);
   }
+
+  /* __ENDPOINTS__ */
 }
