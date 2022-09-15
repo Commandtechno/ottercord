@@ -63,6 +63,21 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
     );
 
     requestProperties.push(ts.factory.createPropertyAssignment("body", ts.factory.createIdentifier("body")));
+
+    if (endpoint.request.form) {
+      parameters.push(
+        ts.factory.createParameterDeclaration(
+          undefined,
+          undefined,
+          undefined,
+          "files",
+          ts.factory.createToken(ts.SyntaxKind.QuestionToken),
+          ts.factory.createArrayTypeNode(ts.factory.createTypeReferenceNode("File"))
+        )
+      );
+
+      requestProperties.push(ts.factory.createPropertyAssignment("files", ts.factory.createIdentifier("files")));
+    }
   }
 
   if (endpoint.response)
