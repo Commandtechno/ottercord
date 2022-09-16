@@ -72,7 +72,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
           undefined,
           "files",
           ts.factory.createToken(ts.SyntaxKind.QuestionToken),
-          ts.factory.createArrayTypeNode(ts.factory.createTypeReferenceNode("File"))
+          ts.factory.createArrayTypeNode(ts.factory.createTypeReferenceNode("RawFile"))
         )
       );
 
@@ -87,7 +87,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
 
   requestProperties.push(
     ts.factory.createPropertyAssignment("method", ts.factory.createStringLiteral(endpoint.method)),
-    ts.factory.createPropertyAssignment("path", path)
+    ts.factory.createPropertyAssignment("fullRoute", path)
   );
 
   let result = ts.factory.createMethodDeclaration(
@@ -103,10 +103,7 @@ export function renderEndpoint(ctx: Context, endpoint: Endpoint) {
       [
         ts.factory.createReturnStatement(
           ts.factory.createCallExpression(
-            ts.factory.createPropertyAccessExpression(
-              ts.factory.createPropertyAccessExpression(ts.factory.createThis(), "rest"),
-              "request"
-            ),
+            ts.factory.createPropertyAccessExpression(ts.factory.createThis(), "request"),
             undefined,
             [ts.factory.createObjectLiteralExpression(requestProperties, true)]
           )

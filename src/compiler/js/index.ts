@@ -50,6 +50,9 @@ export async function JS(ctx: Context) {
   const path = resolve(JS_OUTPUT_DIR, "index.ts");
   await writeFile(path, code);
 
-  const program = ts.createProgram([path], { declaration: true });
-  program.emit();
+  ts.createProgram([path], {
+    declaration: true,
+    target: ts.ScriptTarget.ES2015,
+    module: ts.ModuleKind.CommonJS
+  }).emit();
 }

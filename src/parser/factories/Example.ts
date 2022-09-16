@@ -31,8 +31,10 @@ export class ExampleFactory implements Example {
   process(block: marked.Token) {
     switch (block.type) {
       case "code":
-        this.language = block.lang;
-        this.content = block.text;
+        if (block.lang) {
+          this.language = block.lang;
+          this.content = block.text;
+        }
     }
   }
 }

@@ -1,6 +1,5 @@
-import { REST } from "@discordjs/rest";
+import { REST, RawFile } from "@discordjs/rest";
 
-type ClassParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? P : never;
 type JSON<T> =
   | T
   | { toJSON(): any }
@@ -10,13 +9,6 @@ type JSON<T> =
 /* __CONSTANTS__ */
 /* __STRUCTURES__ */
 
-export class Client {
-  rest: REST;
-
-  constructor(token?: string, ...options: ClassParameters<typeof REST>) {
-    this.rest = new REST(...options);
-    if (token) this.rest.setToken(token);
-  }
-
+export class API extends REST {
   /* __ENDPOINTS__ */
 }
