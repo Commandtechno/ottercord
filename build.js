@@ -23,7 +23,7 @@ async function download() {
   log("Deleting docs");
   await fs.unlink("temp.zip");
   log("Moving docs");
-  await fs.move("temp/discord-api-docs-master/docs", "docs");
+  await fs.move("temp/discord-api-docs-main/docs", "docs");
   log("Deleting temporary folder");
   await fs.rm("temp", { recursive: true });
 }
